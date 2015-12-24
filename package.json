@@ -1,7 +1,7 @@
 {
   "name": "web",
   "version": "0.0.0",
-  "description": "Small description for web goes here",
+  "description": "Brydge web client",
   "private": true,
   "directories": {
     "doc": "doc",
@@ -36,6 +36,7 @@
     "ember-data": "2.1.0",
     "ember-disable-proxy-controllers": "^1.0.1",
     "ember-export-application-global": "^1.0.4",
-    "ember-resolver": "^2.0.3"
+    "ember-resolver": "^2.0.3",
+    "ember-simple-auth": "1.0.1"
   }
 }
