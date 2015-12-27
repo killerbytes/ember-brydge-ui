@@ -12,10 +12,14 @@ module.exports = function(environment) {
         // e.g. 'with-controller': true
       }
     },
-
     APP: {
       // Here you can pass flags/options to your application instance
       // when it is created
+    },
+    contentSecurityPolicy: {
+      'default-src': "'none' 'self'",
+      'connect-src': "'self' http://localhost:8080 http://*:* ",
+      'script-src': "'self' 'unsafe-inline' 'unsafe-eval'"
     }
   };
 
@@ -25,6 +29,10 @@ module.exports = function(environment) {
     // ENV.APP.LOG_TRANSITIONS = true;
     // ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
     // ENV.APP.LOG_VIEW_LOOKUPS = true;
+    
+    ENV['ember-simple-auth'] = {
+      serverTokenEndpoint: 'http://localhost:8000/token'
+    }
   }
 
   if (environment === 'test') {
@@ -37,6 +45,7 @@ module.exports = function(environment) {
     ENV.APP.LOG_VIEW_LOOKUPS = false;
 
     ENV.APP.rootElement = '#ember-testing';
+
   }
 
   if (environment === 'production') {
