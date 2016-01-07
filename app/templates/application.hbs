@@ -1,5 +1,6 @@
 <nav>
   {{#link-to 'index'}} Home {{/link-to}}
+  {{#link-to 'industry-category'}} Categories {{/link-to}}
   {{#if session.isAuthenticated}}
    <a {{action 'logout' }}> Logout </a>
   {{else}}
