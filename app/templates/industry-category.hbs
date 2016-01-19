@@ -1,3 +1,20 @@
-Industry Categories
+<ul>
+
+  {{#each categories as |category|}}
+    <li>{{category}}</li>
+  {{else}}
+    No categories found.
+  {{/each}}
+
+</ul>
+
+<form {{action 'saveCategory' name description on='submit' }}>
+
+  <label>Name</label>
+  {{input placeholder="Name" value=name}}
+  <label>Description</label>
+  {{textarea placeholder="Description" value=description}}
+  <button type="submit">Save</button>
+</form>
 
 {{outlet}}

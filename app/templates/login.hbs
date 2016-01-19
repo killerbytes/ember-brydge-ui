@@ -1,12 +1,25 @@
-<h3>Login here</h3>
+<div class='row'>
+    <div class='medium-6 medium-centered large-4 large-centered columns'>
 
-<form {{action 'authenticate' on='submit'}}>
-  <label for="username">Username</label>
-  {{input id='username' placeholder='Enter Login' value=username}}
-  <label for="password">Password</label>
-  {{input id='password' placeholder='Enter Password' type='password' value=password}}
-  <button type="submit">Login</button>
-  {{#if errorMessage}}
-    <p>{{errorMessage}}</p>
-  {{/if}}
-</form>
+        <form {{action 'authenticate' on='submit'}}>
+            <div class="row column log-in-form">
+                <h4 class="text-center">Log in with you email account</h4>
+                
+                {{#if errorMessage}}
+                    <p>Login failed, {{errorMessage}}</p>
+                {{/if}}
+
+                <label for='email'>Email
+                    {{input id='email' placeholder="your@email.com" value=username}}
+                </label>
+                <label for='password'>Password
+                    {{input type='password' placeholder="Password" value=password}}
+                </label>
+                <!-- <input id="show&#45;password" type="checkbox"><label for="show&#45;password">Show password</label> -->
+                <p> <button class="button expanded" type="submit">Login</button> </p>
+                <p class="text-center"><a href="#">Forgot your password?</a></p>   
+            </div>
+        </form>
+
+    </div>
+</div>
