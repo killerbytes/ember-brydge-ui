@@ -10,10 +10,16 @@ export default Ember.Controller.extend({
       let { username, password } = this.getProperties('username', 'password');
       console.log(username, password);
 
+
+      const _this = this;
+
       this.get('session').authenticate('authenticator:oauth2', username, password)
-        .catch((reason) => {
-          this.set('errorMessage', reason.error || reason || 'unknown login failure');
-          console.log(reason, this.get('errorMessage'));
+        .then(() => {
+          // _this.transitionToRoute('newsfeed');
+        },
+        (err) => {
+          this.set('errorMessage', err.responseText || err || 'unknown login failure');
+          console.log(err, this.get('errorMessage'));
         });
 
     }

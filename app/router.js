@@ -9,6 +9,7 @@ Router.map(function() {
   this.route("login");
   this.route('newsfeed');
   this.route('industry-category');
+  this.route('home');
 });
 
 export default Router;
