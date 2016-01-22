@@ -1,0 +1,14 @@
+<form {{action 'save' on='submit'}}>
+  <div class='row'>
+    <div class='columns'>
+      <h4 class="text-center">New to Brydge?</h4>
+      {{input value=name placeholder='Name'}}
+      {{input value=email placeholder='Email'}}
+      {{input value=password placeholder='New password' type='password'}}
+      <button type='submit' class='button expanded'>Signup</button>
+      <p>If you already have an account - {{#link-to 'login'}}Sign In{{/link-to}} - Reset Password</p>
+    </div>
+  </div>
+</form>
+
+{{yield}}

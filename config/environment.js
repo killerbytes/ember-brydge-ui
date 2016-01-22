@@ -22,6 +22,10 @@ module.exports = function(environment) {
       'style-src': "'self' 'unsafe-inline'",
       'connect-src': "'self' http://localhost:8080 http://*:* ",
       'script-src': "'self' 'unsafe-inline' 'unsafe-eval' www.google-analytics.com/analytics.js"
+    },
+    'ember-simple-auth':{
+      routeAfterAuthentication: 'home',
+      routeIfAlreadyAuthenticated: 'home'
     }
   };
 
@@ -31,9 +35,10 @@ module.exports = function(environment) {
     // ENV.APP.LOG_TRANSITIONS = true;
     // ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
     // ENV.APP.LOG_VIEW_LOOKUPS = true;
-    
+
     ENV['ember-simple-auth'] = {
-      serverTokenEndpoint: 'http://localhost:8000/token'
+      serverTokenEndpoint: 'http://localhost:8000/token',
+      authorizerHost: 'http://localhost:8000'
     }
   }
 
@@ -51,7 +56,10 @@ module.exports = function(environment) {
   }
 
   if (environment === 'production') {
-
+    ENV['ember-simple-auth'] = {
+      serverTokenEndpoint: 'http://api.brydge.com/token',
+      authorizerHost: 'http://api.brydge.com'
+    }
   }
 
   return ENV;
