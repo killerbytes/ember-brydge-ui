@@ -6,19 +6,18 @@ export default Ember.Controller.extend({
 
   actions: {
     authenticate() {
-    
-      let { username, password } = this.getProperties('username', 'password');
-      console.log(username, password);
 
+      let { email, password } = this.getProperties('email', 'password');
+      console.log(email, password);
 
       const _this = this;
 
-      this.get('session').authenticate('authenticator:oauth2', username, password)
+      this.get('session').authenticate('authenticator:oauth2', email, password)
         .then(() => {
           // _this.transitionToRoute('newsfeed');
         },
         (err) => {
-          this.set('errorMessage', err.responseText || err || 'unknown login failure');
+          this.set('errorMessage', err.errors[0].details);
           console.log(err, this.get('errorMessage'));
         });
 

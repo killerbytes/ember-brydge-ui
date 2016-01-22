@@ -2,13 +2,6 @@ import Ember from 'ember';
 import ApplicationRouteMixin from 'ember-simple-auth/mixins/application-route-mixin';
 
 export default Ember.Route.extend(ApplicationRouteMixin, {
-  session: Ember.inject.service('session'),
-  
-  beforeModel() {
-    if (this.get('session.isAuthenticated')) {
-      this.transitionTo('home');
-    }
-  },
 
   actions:{
     didTransition() {
@@ -19,6 +12,19 @@ export default Ember.Route.extend(ApplicationRouteMixin, {
               this.getWithDefault('currentRouteName', 'unknown'));
         });
       }
+    },
+    registerUser(data) {
+      console.log(" >>>> application:route:registeruser:data", data);
+      const self = this;
+      this.store.createRecord('user', data).save()
+        .then(function(){
+          self.transitionTo('home');
+      }).catch(function(err) {
+        console.log("Error saving user:", err);
+      });
+    },
+    authorizationFailed: function() {
+      console.log(">>>>> application:route:authorizationFailed", this);
     }
   }
 });

@@ -4,20 +4,24 @@
         <form {{action 'authenticate' on='submit'}}>
             <div class="row column log-in-form">
                 <h4 class="text-center">Log in with you email account</h4>
-                
+
                 {{#if errorMessage}}
-                    <p>Login failed, {{errorMessage}}</p>
+                  <div class="warning callout small" data-closable>
+                    <h7>Login failed, {{errorMessage}}</h7>
+                    <p>Please register an account or reset password.</p>
+                    <button class="close-button" aria-label="Dismiss alert" type="button" data-close><span aria-hidden="true">&times;</span></button>
+                  </div>
                 {{/if}}
 
                 <label for='email'>Email
-                    {{input id='email' placeholder="your@email.com" value=username}}
+                    {{input id='email' placeholder="your@email.com" value=email}}
                 </label>
                 <label for='password'>Password
                     {{input type='password' placeholder="Password" value=password}}
                 </label>
                 <!-- <input id="show&#45;password" type="checkbox"><label for="show&#45;password">Show password</label> -->
                 <p> <button class="button expanded" type="submit">Login</button> </p>
-                <p class="text-center"><a href="#">Forgot your password?</a></p>   
+                <p class="text-center"><a href="#">Forgot your password?</a></p>
             </div>
         </form>
 

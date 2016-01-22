@@ -12,9 +12,19 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
   },
 
   actions: {
-    authorizationFailed: function() {
-      console.log(">>> authorizationFailed:", this );
+
+    error: function(err, transition) {
+      console.log(">>>newsfeed:route:error:", err);
+      console.log(">>>newsfeed:route:error -->", err.status);
+      console.log(err);
+      console.log(transition);
+      return true;
     }
+    // ,
+    //
+    // authorizationFailed: function() {
+    //   console.log(">>> newsfeed:route:authorizationFailed:", this );
+    // }
   }
 
 });
