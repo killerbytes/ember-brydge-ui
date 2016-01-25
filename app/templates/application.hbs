@@ -2,8 +2,8 @@
   <div class="top-bar-left">
     <ul class="dropdown menu " data-dropdown-menu data-click-open="true">
         <li> {{#link-to 'index' title="Brydge"}}<img src="/logo.png" style="height:45px">{{/link-to}} </li>
-      <li>{{#link-to 'industry-category'}}Test{{/link-to}}</li>
-      <li>{{#link-to 'newsfeed'}}Newsfeed{{/link-to}}</li>
+      <!-- <li>{{#link-to 'industry-category'}}Test{{/link-to}}</li> -->
+      <li>{{#link-to 'home'}}Home{{/link-to}}</li>
     </ul>
   </div>
   <div class="top-bar-right">
@@ -35,5 +35,20 @@
 {{outlet}}
 
 <footer>
-    &copy; 2016 Brydge
+  <div class="row">
+    <hr/>
+    <div class="medium-6 large-6 columns">
+      <ul class="menu">
+        <li><a href="#">About</a></li>
+        <li><a href="#">Help</a></li>
+        <li><a href="#">Privacy</a></li>
+        <li><a href="#">Terms of Use</a></li>
+      </ul>
+    </div>
+
+    <div class="medium-6 large-6 columns">
+      <span class="float-left">&copy; 2016 Brydge</span>
+    </div>
+
+  </div>
 </footer>

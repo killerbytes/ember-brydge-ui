@@ -7,7 +7,7 @@ export default Ember.Route.extend(ApplicationRouteMixin, {
     didTransition() {
       if (ga) {
         Ember.run.once(this, function() {
-          ga('send', 'pageview', 
+          ga('send', 'pageview',
               this.router.get('url'),
               this.getWithDefault('currentRouteName', 'unknown'));
         });
@@ -23,8 +23,17 @@ export default Ember.Route.extend(ApplicationRouteMixin, {
         console.log("Error saving user:", err);
       });
     },
-    authorizationFailed: function() {
+    authorizationFailed() {
       console.log(">>>>> application:route:authorizationFailed", this);
+    },
+    postToNewsfeed(data) {
+      console.log("Posting to newsfeed", {content:data});
+      this.store.createRecord('post', {content:data}).save().
+        then(()=>{
+          console.log("Posted, should refresh newsfeed");
+        }).catch((err) => {
+          console.log("Error posting to newsfeed:", err);
+        })
     }
   }
 });

@@ -7,9 +7,9 @@ const Router = Ember.Router.extend({
 
 Router.map(function() {
   this.route("login");
-  this.route('newsfeed');
   this.route('industry-category');
   this.route('home');
+  this.route('page-not-found', { path: '/*wildcard' });
 });
 
 export default Router;
