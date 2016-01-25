@@ -8,5 +8,6 @@ export default DS.Model.extend({
   shortid: DS.attr(),
   score: DS.attr('number'),
   createdAt: DS.attr('date'),
-  updatedAt: DS.attr('date')
+  updatedAt: DS.attr('date'),
+  user: DS.belongsTo('user')
 });

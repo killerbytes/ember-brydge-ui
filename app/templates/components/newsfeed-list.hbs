@@ -3,7 +3,10 @@
   <div class="12-medium column">
     <ul>
       {{#each newsfeed as |post|}}
-        <li> {{post.shortid}} - {{post.content}} ({{post.score}}) {{post.updatedAt}} {{post.createdAt}}</li>
+        <li>
+          {{#link-to 'post' post.user.id post.id}}{{post.shortid}}{{/link-to}} - {{post.content}} ({{post.score}}) {{moment-from-now post.updatedAt}}
+          <br> by {{#link-to 'profile' post.user}} {{post.user.name}}  {{/link-to}}
+        </li>
       {{else}}
         <p>(No records found)</p>
       {{/each}}
