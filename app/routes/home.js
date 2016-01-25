@@ -4,11 +4,23 @@ import AuthenticatedRouteMixin from 'ember-simple-auth/mixins/authenticated-rout
 export default Ember.Route.extend(AuthenticatedRouteMixin, {
   session: Ember.inject.service('session'),
 
-  model() {
-    var accessToken = this.get('session.data.authenticated.access_token');
-    console.log("session.data.authenticated.access_token'", accessToken);
+  // model() {
+  //   var accessToken = this.get('session.data.authenticated.access_token');
+  //   console.log("session.data.authenticated.access_token'", accessToken);
+  //
+  //   return this.store.findAll('newsfeed');
+  // },
 
-    return this.store.findAll('newsfeed');
+  model() {
+
+    return this.store.query('newsfeed', {target:'home'});
+
+    // return this.store.query('newsfeed', {target:'home'}).then((newsfeed)=>{
+    //   console.log("Listing", newsfeed);
+    // }).catch((err)=> {
+    //   console.log("Error loading newsfeed:", err);
+    // });
+
   },
 
   actions: {

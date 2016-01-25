@@ -5,5 +5,8 @@ export default DS.Model.extend({
   content: DS.attr(),
   summary: DS.attr(),
   link: DS.attr(),
-  shortid: DS.attr()
+  shortid: DS.attr(),
+  score: DS.attr('number'),
+  createdAt: DS.attr('date'),
+  updatedAt: DS.attr('date')
 });

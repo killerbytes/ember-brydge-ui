@@ -1,1 +1,14 @@
+
+<div class="row">
+  <div class="12-medium column">
+    <ul>
+      {{#each newsfeed as |post|}}
+        <li> {{post.shortid}} - {{post.content}} ({{post.score}}) {{post.updatedAt}} {{post.createdAt}}</li>
+      {{else}}
+        <p>(No records found)</p>
+      {{/each}}
+    </ul>
+  </div>
+</div>
+
 {{yield}}
