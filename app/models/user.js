@@ -5,5 +5,6 @@ export default DS.Model.extend({
   userid: DS.attr('string'),
   name: DS.attr('string'),
   password: DS.attr('string'), // only used during registration, TODO, get rid of this
-  newsfeedss: DS.hasMany('newsfeed')
+  createdAt: DS.attr('date'),
+  newsfeeds: DS.hasMany('newsfeed')
 });
