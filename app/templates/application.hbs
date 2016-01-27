@@ -2,37 +2,62 @@
   <div class="sticky" data-sticky data-options="marginTop:0" style="width:100%">
 
   <div class="top-bar">
+    <div class="row">
+    <div class="top-bar-title">
+      {{#link-to 'index' title="Brydge" }}<img title="Brydge" src="/brydge.svg" style="width:100px;height:24px;margin-top:9px">{{/link-to}}
+    </div>
+
     <div class="top-bar-left">
-      <ul class="dropdown menu " data-dropdown-menu data-click-open="true">
-        <li> {{#link-to 'index' title="Brydge"}}<img src="/brydge.svg" style="height:18px">{{/link-to}} </li>
-        <!-- <li>{{#link-to 'industry-category'}}Test{{/link-to}}</li> -->
-        <li>{{#link-to 'home'}}Home{{/link-to}}</li>
+      <ul class="menu">
+        <li><a href=""> Discover </a></li>
+        <li>
+          <div class="top-bar-search input-group">
+          <input class="top-bar-search input-group-field" type="search" placeholder="Search">
+          <div class="input-group-button">
+            <input type="submit" class="button" value="Find">
+    </div>
+          </div>
+        </li>
       </ul>
     </div>
+
     <div class="top-bar-right">
+      {{#admin-menu}}
       <ul class="dropdown menu" data-dropdown-menu>
         <!-- <li><input type="search" placeholder="Search"></li> -->
         <!-- <li><button type="button" class="button">Search</button></li> -->
         <li class="">
-          <a href="#">{{fa-icon icon='bell'}}Updates</a>
-          <ul class="submenu menu" data-submenu>
-            <li><a href="#">2 new connect request<br>1 hour ago</a></li>
-            <li><a href="#">1 request for expert opinion<br>3 hours ago</a></li>
-            <li><a href="#">Khoo posted in Startup Singapore<br>4 hours ago</a></li>
-          </ul>
+          <a href="#">{{fa-icon icon='envelope'}}Message</a>
         </li>
         <li>
-          {{#link-to 'index'}}Profile{{/link-to}}
+          <a href="#">{{fa-icon icon='bell'}}Updates</a>
+        </li>
+        <li>
+          {{#link-to 'index'}}My Profile{{/link-to}}
           <ul class="submenu menu" data-submenu>
-            <li><a href="#">Messages</a></li>
-            <li><a href="#">Communities</a></li>
-            <li><a href="#">Groups</a></li>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Profile</a></li>
+            <li><hr></li>
+            <li><a href="#">My Connections</a></li>
+            <li><a href="#">My Industry</a></li>
+            <li><a href="#">My Occupational Industry</a></li>
+            <li><hr></li>
+            <li><a href="#">Job Search</a></li>
+            <li><a href="#">Find Expert</a></li>
+            <li><a href="#">My Connections</a></li>
+            <li><a href="#">Write Article</a></li>
+            <li><hr></li>
+            <li><a href="#">Account Settings</a></li>
+            <li><a {{action 'logout' }}>Logout</a></li>
           </ul>
         </li>
-        <li> {{#admin-menu}} {{/admin-menu}} </li>
+
       </ul>
+      {{/admin-menu}}
     </div>
+
   </div>
+</div>
 </div>
 </div>
 

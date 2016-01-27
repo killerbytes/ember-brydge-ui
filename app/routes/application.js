@@ -4,6 +4,13 @@ import ApplicationRouteMixin from 'ember-simple-auth/mixins/application-route-mi
 export default Ember.Route.extend(ApplicationRouteMixin, {
 
   actions: {
+    logout() {
+      var accessToken = this.get('session.data.authenticated.access_token');
+      Ember.$.getJSON('http://localhost:8000/expire?token=' + accessToken).done(()=> {
+        this.get('session').invalidate();
+        console.log("Expired session", accessToken);
+      });
+    },
     didTransition() {
         if (ga) {
           Ember.run.once(this, function() {
