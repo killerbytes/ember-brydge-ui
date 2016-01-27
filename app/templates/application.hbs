@@ -1,36 +1,40 @@
-<div class="top-bar">
-  <div class="top-bar-left">
-    <ul class="dropdown menu " data-dropdown-menu data-click-open="true">
+<div data-sticky-container>
+  <div class="sticky" data-sticky data-options="marginTop:0" style="width:100%">
+
+  <div class="top-bar">
+    <div class="top-bar-left">
+      <ul class="dropdown menu " data-dropdown-menu data-click-open="true">
         <li> {{#link-to 'index' title="Brydge"}}<img src="/brydge.svg" style="height:18px">{{/link-to}} </li>
-      <!-- <li>{{#link-to 'industry-category'}}Test{{/link-to}}</li> -->
-      <li>{{#link-to 'home'}}Home{{/link-to}}</li>
-    </ul>
-  </div>
-  <div class="top-bar-right">
-    <ul class="dropdown menu" data-dropdown-menu>
-      <!-- <li><input type="search" placeholder="Search"></li> -->
-      <!-- <li><button type="button" class="button">Search</button></li> -->
-      <li class="">
-        <a href="#">{{fa-icon icon='bell'}}Updates</a>
-        <ul class="submenu menu" data-submenu>
+        <!-- <li>{{#link-to 'industry-category'}}Test{{/link-to}}</li> -->
+        <li>{{#link-to 'home'}}Home{{/link-to}}</li>
+      </ul>
+    </div>
+    <div class="top-bar-right">
+      <ul class="dropdown menu" data-dropdown-menu>
+        <!-- <li><input type="search" placeholder="Search"></li> -->
+        <!-- <li><button type="button" class="button">Search</button></li> -->
+        <li class="">
+          <a href="#">{{fa-icon icon='bell'}}Updates</a>
+          <ul class="submenu menu" data-submenu>
             <li><a href="#">2 new connect request<br>1 hour ago</a></li>
             <li><a href="#">1 request for expert opinion<br>3 hours ago</a></li>
             <li><a href="#">Khoo posted in Startup Singapore<br>4 hours ago</a></li>
-        </ul>
-      </li>
-      <li>
+          </ul>
+        </li>
+        <li>
           {{#link-to 'index'}}Profile{{/link-to}}
-        <ul class="submenu menu" data-submenu>
-          <li><a href="#">Messages</a></li>
-          <li><a href="#">Communities</a></li>
-          <li><a href="#">Groups</a></li>
-        </ul>
-      </li>
-      <li> {{#admin-menu}} {{/admin-menu}} </li>
-    </ul>
+          <ul class="submenu menu" data-submenu>
+            <li><a href="#">Messages</a></li>
+            <li><a href="#">Communities</a></li>
+            <li><a href="#">Groups</a></li>
+          </ul>
+        </li>
+        <li> {{#admin-menu}} {{/admin-menu}} </li>
+      </ul>
+    </div>
   </div>
 </div>
-
+</div>
 
 {{outlet}}
 
