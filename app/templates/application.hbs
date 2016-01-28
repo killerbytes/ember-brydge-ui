@@ -33,7 +33,7 @@
           <a href="#">{{fa-icon icon='bell'}}Updates</a>
         </li>
         <li>
-          {{#link-to 'index'}}My Profile{{/link-to}}
+          {{#link-to 'index'}} {{sessionAccount.account.name}} < {{/link-to}}
           <ul class="submenu menu" data-submenu>
             <li><a href="#">Home</a></li>
             <li><a href="#">Profile</a></li>

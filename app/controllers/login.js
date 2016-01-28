@@ -8,17 +8,22 @@ export default Ember.Controller.extend({
     authenticate() {
 
       let { email, password } = this.getProperties('email', 'password');
-      console.log(email, password);
+      //console.log(email, password);
 
       const _this = this;
 
       this.get('session').authenticate('authenticator:oauth2', email, password)
-        .then(() => {
+        .then((user) => {
           // _this.transitionToRoute('newsfeed');
+          const userid = _this.get('session.data.authenticated.account_id');
+          const name = _this.get('session.data.authenticated.name');
+          _this.get('session').set('data.userid', userid);
+          _this.get('session').set('data.name', name);
+
         },
         (err) => {
           this.set('errorMessage', err.errors[0].details);
-          console.log(err, this.get('errorMessage'));
+          // console.log(err, this.get('errorMessage'));
         });
 
     }

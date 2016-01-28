@@ -3,6 +3,7 @@ import AuthenticatedRouteMixin from 'ember-simple-auth/mixins/authenticated-rout
 
 export default Ember.Route.extend(AuthenticatedRouteMixin, {
   session: Ember.inject.service('session'),
+  sessionAccount: Ember.inject.service('session-account'),
 
   // model() {
   //   var accessToken = this.get('session.data.authenticated.access_token');
@@ -12,6 +13,8 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
   // },
 
   model() {
+
+    console.log('sessionAccount', this.get('sessionAccount.account.name'));
 
     return this.store.query('newsfeed', {target:'home'});
 

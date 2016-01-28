@@ -9,7 +9,6 @@ export default Ember.Component.extend({
   // },
 
   didRender() {
-    console.log("^^ Did update attrs");
     "use strict";
     this.$(document).foundation();
   }
