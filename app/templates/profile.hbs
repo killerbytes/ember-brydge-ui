@@ -1,7 +1,37 @@
+<div class="row">
+  <div class="large-4 medium-4 columns">
+    Profile pic
+  </div>
+  <div class="large-8 medium-8 columns">
+    profile header body
+    <ul>
+      {{sessionAccount.account.name}}
+      <li>Full name: {{model.account.name}} .>>>>> {{session.account}}</li>
+      <li>username: {{model.account.username}}</li>
+      <li>Member since {{moment-from-now model.account.createdAt}}</li>
+    </ul>
+  </div>
+</div>
+<div class="row">
+  <div class="large-4 medium-4 columns">
+    <h6>Position or job status</h6>
+  </div>
+  <div class="large-8 medium-8 columns">
+    <div class="expanded button-group">
+      <a class="button">Connect</a>
+      <a class="button">Message</a>
+      <a class="button">Ask</a>
+    </div>
+  </div>
 
-<ul>
-<li>Full name: {{model.name}}</li>
-<li>username: {{model.username}}</li>
-<li>Member since {{moment-from-now model.createdAt}}</li>
-</ul>
-{{outlet}}
+</div>
+
+<div class="row">
+  <div class="large-8 medium-8 columns">
+    {{newsfeed-form postToNewsfeed='postToNewsfeed'}}
+    {{newsfeed-list newsfeed=model.posts}}
+  </div>
+  <div class="large-4 medium-4 columns">
+    <img src="https://placeholdit.imgix.net/~text?txtsize=33&txt=Placeholder&w=380&h=650">
+  </div>
+</div>

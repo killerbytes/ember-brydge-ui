@@ -27,16 +27,16 @@
         <!-- <li><input type="search" placeholder="Search"></li> -->
         <!-- <li><button type="button" class="button">Search</button></li> -->
         <li class="">
-          <a href="#">{{fa-icon icon='envelope'}}Message</a>
+          {{#link-to 'messages'}}{{fa-icon icon='envelope'}}Message{{/link-to}}
         </li>
         <li>
-          <a href="#">{{fa-icon icon='bell'}}Updates</a>
+          {{#link-to 'notification'}}{{fa-icon icon='bell'}}Updates{{/link-to}}
         </li>
         <li>
           {{#link-to 'index'}} {{sessionAccount.account.name}} < {{/link-to}}
           <ul class="submenu menu" data-submenu>
-            <li><a href="#">Home</a></li>
-            <li><a href="#">Profile</a></li>
+            <li>{{#link-to 'home'}}Home{{/link-to}}</li>
+            <li>{{#link-to 'profile'}}Profile{{/link-to}}</li>
             <li><hr></li>
             <li><a href="#">My Connections</a></li>
             <li><a href="#">My Industry</a></li>

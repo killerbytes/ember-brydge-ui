@@ -6,7 +6,7 @@ export default Ember.Controller.extend({
 
   actions: {
     registerUser() {
-      console.log(" >>>> application:controller:registeruser:data" );
+      // console.log(" >>>> application:controller:registeruser:data", this.session.account.name );
       return true;
     }
   }

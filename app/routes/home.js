@@ -5,6 +5,7 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
   session: Ember.inject.service('session'),
   sessionAccount: Ember.inject.service('session-account'),
 
+
   // model() {
   //   var accessToken = this.get('session.data.authenticated.access_token');
   //   console.log("session.data.authenticated.access_token'", accessToken);
@@ -14,7 +15,7 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
 
   model() {
 
-    console.log('sessionAccount', this.get('sessionAccount.account.name'));
+    console.log('session', this.get('sessionAccount.account.name'));
 
     return this.store.query('newsfeed', {target:'home'});
 
@@ -31,8 +32,7 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
     error: function(err, transition) {
       console.log(">>>home:route:error:", err);
       console.log(">>>home:route:error -->", err.status);
-      console.log(err);
-      console.log(transition);
+      console.log(err, transition);
       return true;
     }
   }
