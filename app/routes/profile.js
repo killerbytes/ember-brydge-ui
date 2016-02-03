@@ -8,6 +8,7 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
 
   model() {
     let userid = this.get('session.data.authenticated.user_id');
+    let username = this.get('session.data.authenticated.username');
     this.get('sessionAccount').setCurrentUser();
     console.log("userid", userid);
     // const userid = this.get('currentUser.id');
@@ -16,7 +17,7 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
 
    return Ember.RSVP.hash({
      account: this.store.findRecord('user', userid),
-     posts: this.store.query('newsfeed', {target:'profile'})
+     posts: this.store.query('post', {username:username})
    });
   }
 

@@ -18,7 +18,7 @@ module.exports = function(environment) {
     },
     contentSecurityPolicy: {
       'default-src': "'self'",
-      'img-src': "'self' http://www.google-analytics.com",
+      'img-src': "'self' www.google-analytics.com placeholdit.imgix.net",
       'style-src': "'self' 'unsafe-inline'",
       'connect-src': "'self' http://localhost:8080 http://*:* ",
       'script-src': "'self' 'unsafe-inline' 'unsafe-eval' www.google-analytics.com/analytics.js"

@@ -1,0 +1,26 @@
+<div class="row">
+
+  <div class="small-2 columns">
+    (Profile pic)
+  </div>
+
+  <div class="small-10 columns">
+    {{#link-to 'public-profile' post.user.username}} {{post.user.name}} {{/link-to}}
+  </div>
+
+</div>
+<div class="row">
+  <div class="small-12">
+    {{#link-to 'post' post.user.username post.id}}{{post.shortid}}{{/link-to}} - {{post.content}} ({{post.score}}) {{moment-from-now post.updatedAt}}
+    <br>
+    {{#link-to 'public-profile' post.user.username}} See more {{post.user.username}} {{/link-to}}
+  </div>
+</div>
+<div class="row">
+  <div class="small-12">
+    <button class="button hollow secondary tiny" {{action 'upvote' post.id}}>Upvote</button>
+    <button class="button hollow secondary tiny" {{action 'downvote' post.id}}>Downvote</button>
+    <button class="button hollow secondary tiny" {{action 'comment' post.id}}>Comment</button>
+    <button class="button hollow secondary tiny" {{action 'share' post.id}}>Share</button>
+  </div>
+</div>
