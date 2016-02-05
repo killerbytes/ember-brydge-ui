@@ -20,7 +20,7 @@ module.exports = function(environment) {
       'default-src': "'self'",
       'img-src': "'self' www.google-analytics.com placeholdit.imgix.net placehold.it",
       'style-src': "'self' 'unsafe-inline'",
-      'connect-src': "'self' http://localhost:8080 http://*:* api.brydge.me",
+      'connect-src': "'self' http://localhost:8080 http://*:* api.brydge.com",
       'script-src':  "'self' 'unsafe-inline' 'unsafe-eval' www.google-analytics.com/analytics.js www.reddit.com"
     },
     'ember-simple-auth':{
@@ -39,7 +39,7 @@ module.exports = function(environment) {
     ENV['ember-simple-auth'] = {
       serverTokenEndpoint: 'http://localhost:8000/token',
       authorizerHost: 'http://localhost:8000'
-    
+    }
   }
 
   if (environment === 'test') {
