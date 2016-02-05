@@ -1,26 +1,24 @@
-<div class="row">
+<div class="row" style="margin-top:0.5em">
 
-  <div class="small-2 columns">
-    (Profile pic)
-  </div>
-
-  <div class="small-10 columns">
-    {{#link-to 'public-profile' post.user.username}} {{post.user.name}} {{/link-to}}
-  </div>
-
+<div class="small-2 medium-2 column">
+  <img src="http://placehold.it/80x80&amp;text=Profile">
 </div>
-<div class="row">
-  <div class="small-12">
-    {{#link-to 'post' post.user.username post.id}}{{post.shortid}}{{/link-to}} - {{post.content}} ({{post.score}}) {{moment-from-now post.updatedAt}}
-    <br>
-    {{#link-to 'public-profile' post.user.username}} See more {{post.user.username}} {{/link-to}}
-  </div>
+
+<div class="small-10 medium-10 columns">
+  {{#link-to 'public-profile' post.user.username}} {{post.user.name}} {{/link-to}}
+  <br>
+  {{#link-to 'post' post.user.username post.id}}{{moment-from-now post.updatedAt}}{{/link-to}}
+  <p>
+  {{post.content}}
+</p>
+  {{#link-to 'public-profile' post.user.username}} See more {{post.user.username}} {{/link-to}}
 </div>
-<div class="row">
-  <div class="small-12">
+
+  <div class="small-12 column">
     <button class="button hollow secondary tiny" {{action 'upvote' post.id}}>Upvote</button>
     <button class="button hollow secondary tiny" {{action 'downvote' post.id}}>Downvote</button>
     <button class="button hollow secondary tiny" {{action 'comment' post.id}}>Comment</button>
     <button class="button hollow secondary tiny" {{action 'share' post.id}}>Share</button>
   </div>
+
 </div>

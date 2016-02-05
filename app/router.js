@@ -10,16 +10,18 @@ Router.map(function() {
   this.route('industry-category');
   this.route('home');
   this.route('profile');
-      
+
   //  this.route('profile', {path: '/profile/:user_id'});
 
   this.route('post', {path: '/:user_id/:newsfeed_id'});
   this.route('page-not-found', { path: '/*wildcard' });
-  this.route('public-profile', {path:'/:username'}); // /teo-choong-ping
+  // /teo-choong-ping
+  this.route('public-profile', {path:'/:username'});
   this.route('public-profile-error');
   this.route('about');
   this.route('messages');
   this.route('notification');
+  this.route('discover');
 });
 
 export default Router;

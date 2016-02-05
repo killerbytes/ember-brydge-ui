@@ -1,1 +1,14 @@
-{{yield}}
+
+<div class="row">
+  <div class="medium-12 column">
+    <ul>
+      {{#each messages as |msg|}}
+        <li>
+          <h6><a href="{{msg.data.url}}">{{msg.data.title}}</a></h6>
+          <p>{{msg.data.selftext}}</p>
+        </li>
+      {{else}}
+      {{/each}}
+    </ul>
+  </div>
+</div>
