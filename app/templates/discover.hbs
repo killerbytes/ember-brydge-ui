@@ -1,0 +1,15 @@
+
+<div class="row">
+  <div class="medium-12 column">
+    <ul>
+      {{#each model.data.children as |item|}}
+        <li>
+          <h6><a href="{{msg.data.url}}">{{item.data.title}}</a></h6>
+          <p>{{item.data.selftext}}</p>
+        </li>
+      {{else}}
+
+      {{/each}}
+    </ul>
+  </div>
+</div>
