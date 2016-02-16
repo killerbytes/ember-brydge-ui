@@ -18,8 +18,7 @@ export default Ember.Controller.extend({
           const userid = _this.get('session.data.authenticated.account_id');
           const name = _this.get('session.data.authenticated.name');
           _this.get('session').set('data.userid', userid);
-          _this.get('session').set('data.name', name);
-
+          _this.get('session').set('data.name', name);          
         },
         (err) => {
           this.set('errorMessage', err.errors[0].details);

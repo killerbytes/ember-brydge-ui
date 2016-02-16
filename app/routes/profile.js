@@ -9,11 +9,11 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
   model() {
     let userid = this.get('session.data.authenticated.user_id');
     let username = this.get('session.data.authenticated.username');
-    this.get('sessionAccount').setCurrentUser();
+    // this.get('sessionAccount').setCurrentUser();
     console.log("userid", userid);
     // const userid = this.get('currentUser.id');
    console.log("profile:route:params>>>", userid );
-   console.log(">>>>>", this.get('sessionAccount.currentUser.name'));
+   console.log("profile.js:sessionAccount.currentUser.name", this.get('sessionAccount.currentUser.name'));
 
    return Ember.RSVP.hash({
      account: this.store.findRecord('user', userid),

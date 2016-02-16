@@ -3,7 +3,8 @@ import DS from 'ember-data';
 
 export default Ember.Service.extend({
   store: Ember.inject.service(),
-  session: Ember.inject.service('session'),
+  session: Ember.inject.service(),
+  ajax: Ember.inject.service(),
 
 
   account: Ember.computed('session.data.authenticated.user_id', function() {
@@ -32,7 +33,31 @@ export default Ember.Service.extend({
       });
 
     }
-}
+},
+makeConnections(targetid) {
+  console.log("session-account:makeConnections:targetid", targetid);
+
+  // Ember.$.ajaxSetup({
+  //   headers: { 'x-my-custom-header': 'some value' }
+  // });
+  // Authorization:Bearer 1y4eq2n41v8
+
+  console.log('Authorization:', 'Bearer ' + this.get('session.data.authenticated.access_token'));
+
+  return this.get('ajax').put('/users/connect/'+targetid);
+
+    // return new Ember.RSVP.Promise(function(resolve, reject) {
+    //   Ember.$.ajax('/users/connect/' + targetid, {
+    //     success: function(response) {
+    //       resolve(response);
+    //     },
+    //     error: function(reason) {
+    //       reject(reason);
+    //     }
+    //   });
+    // });
+
+  }
 
 });
 
