@@ -45,5 +45,8 @@ export default Ember.Route.extend(ApplicationRouteMixin, {
           console.log("Error posting to newsfeed:", err);
         });
       }
+  },
+  sessionAuthenticated() {
+    console.log("*** authenticationSucceeded");
   }
 });

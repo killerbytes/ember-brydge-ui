@@ -5,7 +5,7 @@
   <div class="large-8 medium-8 columns">
     profile header body
     <ul>
-      {{sessionAccount.account.name}}
+      <li> By [{{sessionAccount.account.name}}] </li>
       <li>Full name: {{model.account.name}} .>>>>> {{session.account}}</li>
       <li>username: {{model.account.username}}</li>
       <li>Member since {{moment-from-now model.account.createdAt}}</li>
@@ -17,15 +17,16 @@
     <h6>Position or job status</h6>
   </div>
   <div class="large-8 medium-8 columns">
+
     <div class="expanded button-group">
-      <a class="button" {{action "connect" model.account}}>Connect</a>
+      {{connect-button action "connect" account=model.account }}
       <a class="button">Message</a>
       <a class="button">Ask</a>
     </div>
+
   </div>
 
 </div>
-
 
 
 <div class="row">

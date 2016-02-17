@@ -3,7 +3,7 @@ import AuthenticatedRouteMixin from 'ember-simple-auth/mixins/authenticated-rout
 
 export default Ember.Route.extend(AuthenticatedRouteMixin, {
   session: Ember.inject.service('session'),
-  sessionAccount: Ember.inject.service('session-account'),
+  //sessionAccount: Ember.inject.service('session-account'),
 
 
   // model() {
@@ -12,10 +12,20 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
   //
   //   return this.store.findAll('newsfeed');
   // },
+  //
+  beforeModel() {
+    console.log('sessionAccount.name', this.get('sessionAccount.account.name'));
+    console.log('sessionAccount.userid', this.get('sessionAccount.account.userid'));
+
+    console.log('session.name', this.get('session.data.authenticated.name'));
+    return this.get('sessionAccount.account');
+  },
 
   model() {
 
-    console.log('session', this.get('sessionAccount.account.name'));
+    console.log('sessionAccount.name', this.get('sessionAccount.account.name'));
+    console.log('sessionAccount.userid', this.get('sessionAccount.account.userid'));
+    console.log('session.name', this.get('session.data.authenticated.name'));
 
     return this.store.query('newsfeed', {target:'home'});
 

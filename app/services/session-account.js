@@ -7,9 +7,15 @@ export default Ember.Service.extend({
   ajax: Ember.inject.service(),
 
 
+  init() {
+      this._super(...arguments);
+      console.log(this.get('session.data.authenticated.user_id'), this.get("account.name"));
+  },
+
   account: Ember.computed('session.data.authenticated.user_id', function() {
     const accountId = this.get('session.data.authenticated.user_id');
-    console.log(" * session-account: 0");
+
+    console.log(" * session-account: 0", accountId);
 
     if (!Ember.isEmpty(accountId)) {
       console.log(" * session-account: 1", accountId);
@@ -18,45 +24,29 @@ export default Ember.Service.extend({
       });
     }
   })
+  ,
+  makeConnections(targetid) {
+    //console.log("session-account:makeConnections:targetid", targetid);
+    //console.log('Authorization:', 'Bearer ' + this.get('session.data.authenticated.access_token'));
 
-  , setCurrentUser() {
-
-    const accountId = this.get('session.data.authenticated.user_id');
-    console.log(" * currentUser:session-account: 0");
-
-    if (!Ember.isEmpty(accountId)) {
-      console.log(" * currentUser:session-account: 1", accountId);
-      this.get('store').findRecord('user', accountId).then((user)=>{
-
-        console.log(" * currentUser:session-account: 2", user, user.get('username'));
-        this.set('currentUser', user);
-      });
-
-    }
-},
-makeConnections(targetid) {
-  console.log("session-account:makeConnections:targetid", targetid);
-
-  // Ember.$.ajaxSetup({
-  //   headers: { 'x-my-custom-header': 'some value' }
-  // });
-  // Authorization:Bearer 1y4eq2n41v8
-
-  console.log('Authorization:', 'Bearer ' + this.get('session.data.authenticated.access_token'));
-
-  return this.get('ajax').put('/users/connect/'+targetid);
-
-    // return new Ember.RSVP.Promise(function(resolve, reject) {
-    //   Ember.$.ajax('/users/connect/' + targetid, {
-    //     success: function(response) {
-    //       resolve(response);
-    //     },
-    //     error: function(reason) {
-    //       reject(reason);
-    //     }
-    //   });
-    // });
-
+    return this.get('ajax').put('/users/connect/' + targetid)
+      // .then((response)=>{
+      //   console.log("Connecteed!, weee", response.data[0]);
+      // }).catch((err)=>{
+      //   console.log("Error making connection API:", err);
+      // });
+  },
+  follow(targetid) {
+    //TODO
+    //  return this.get('ajax').put('/users/follow/' + targetid)
+  },
+  block(targetid) {
+    //TODO
+    //  return this.get('ajax').put('/users/block/' + targetid)
+  },
+  reportAbuse(targetid) {
+    //TODO
+    //  return this.get('ajax').put('/users/report/' + targetid)
   }
 
 });
