@@ -1,9 +1,9 @@
-{{#if isPending}}
-  <span>Pending [{{isConnected}}]</span>
-{{else}}
-  <a class="button">Connect {{account.name}}</a>
-{{/if}}
+{{#unless isConnected}}
 
-{{#if isConnected}}
- <!-- Connected -->
-{{/if}}
+  {{#if isPending}}
+    <span>Pending [{{isConnected}}]</span>
+  {{else}}
+    <a class="button" {{action "connect" account}} >Connect {{account.name}}</a>
+  {{/if}}
+
+{{/unless}}

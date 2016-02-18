@@ -3,9 +3,10 @@ import Ember from 'ember';
 export default Ember.Component.extend({
   tagName: '',
 
-
+  // This will override -- and whether to display the button or not
   isConnected: Ember.computed('connected', function() {
     return this.get('account.connected');
+    // return true;
   }),
 
   // If user haven't verified the connection
@@ -17,5 +18,12 @@ export default Ember.Component.extend({
     if (connected == undefined) return false;
   })
 
+  ,
+  actions: {
+    connect(account) {
+      //console.log(">>>>> Connecting", this.get('account.name'));
+      this.sendAction("connect", account);
+    }
+  }
 
 });

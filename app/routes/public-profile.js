@@ -40,7 +40,7 @@ export default Ember.Route.extend({
       this.get('sessionAccount').makeConnections(account.get('userid'))
         .then((response) => {
           console.log("Request connected: ", response.data[0], this.get('isConnectionPending'));
-          this.set('isConnectionPending', true);
+          this.refresh();
           console.log("Pending connection", this.get('isConnectionPending'));
         })
         .catch((err) => {
