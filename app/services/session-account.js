@@ -6,12 +6,13 @@ export default Ember.Service.extend({
   session: Ember.inject.service(),
   ajax: Ember.inject.service(),
 
+  // XXX Remove -->
+  // init() {
+  //     this._super(...arguments);
+  //     console.log(this.get('session.data.authenticated.user_id'), this.get("account.name"));
+  // },
 
-  init() {
-      this._super(...arguments);
-      console.log(this.get('session.data.authenticated.user_id'), this.get("account.name"));
-  },
-
+  /* Must be init in beforeModel to make sure the promise is realized before use */
   account: Ember.computed('session.data.authenticated.user_id', function() {
     const accountId = this.get('session.data.authenticated.user_id');
 
