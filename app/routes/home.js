@@ -15,16 +15,15 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
   //
   beforeModel(transition, params) {
     this._super(transition, params);
-    
-    console.log('sessionAccount.name', this.get('sessionAccount.account.name'));
-    console.log('sessionAccount.userid', this.get('sessionAccount.account.userid'));
 
-    console.log('session.name', this.get('session.data.authenticated.name'));
+    // console.log('sessionAccount.name', this.get('sessionAccount.account.name'));
+    // console.log('sessionAccount.userid', this.get('sessionAccount.account.userid'));
+    //
+    // console.log('session.name', this.get('session.data.authenticated.name'));
    return this.get('sessionAccount.account');
   },
 
   model() {
-
     console.log('sessionAccount.name', this.get('sessionAccount.account.name'));
     console.log('sessionAccount.userid', this.get('sessionAccount.account.userid'));
     console.log('session.name', this.get('session.data.authenticated.name'));

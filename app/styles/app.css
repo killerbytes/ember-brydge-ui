@@ -1,4 +1,12 @@
 
+body {
+  font-family:'Roboto:400', helvetica, arial, sans-serif;
+}
+
+h1, h2, h3, h4 {
+  font-family:'Raleway:500', helvetica, arial, sans-serif;
+}
+
 form > div.row.column.log-in-form {
   border: 1px solid #cacaca;
   padding: 1.0rem !important;

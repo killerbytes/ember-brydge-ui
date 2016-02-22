@@ -18,8 +18,9 @@ module.exports = function(environment) {
     },
     contentSecurityPolicy: {
       'default-src': "'self'",
+      'font-src': "'self' fonts.gstatic.com",
       'img-src': "'self' www.google-analytics.com placeholdit.imgix.net placehold.it",
-      'style-src': "'self' 'unsafe-inline'",
+      'style-src': "'self' 'unsafe-inline' fonts.gstatic.com fonts.googleapis.com",
       'connect-src': "'self' http://localhost:8080 http://*:* api.brydge.com",
       'script-src':  "'self' 'unsafe-inline' 'unsafe-eval' www.google-analytics.com/analytics.js www.reddit.com"
     },
