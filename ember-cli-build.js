@@ -5,12 +5,15 @@ var EmberApp = require('ember-cli/lib/broccoli/ember-app');
 module.exports = function(defaults) {
   var app = new EmberApp(defaults, {
     // Add options here
+    'ember-cli-foundation-6-sass': {
+      'foundationJs': 'all'
+    }
   });
 
   // app.import('bower_components/foundation-sites/foundation.min..css');
   // app.import('bower_components/foundation-sites/foundation.min.js');
-  app.import('bower_components/foundation-sites/dist/foundation.css');
-  app.import('bower_components/foundation-sites/dist/foundation.js');
+  //app.import('bower_components/foundation-sites/dist/foundation.css');
+  //app.import('bower_components/foundation-sites/dist/foundation.js');
   app.import('bower_components/motion-ui/dist/motion-ui.min.css');
   app.import('bower_components/motion-ui/dist/motion-ui.min.js');
   app.import('vendor/spinner.css');
