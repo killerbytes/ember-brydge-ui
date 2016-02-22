@@ -4,7 +4,8 @@ import AuthenticatedRouteMixin from 'ember-simple-auth/mixins/authenticated-rout
 export default Ember.Route.extend(AuthenticatedRouteMixin, {
   session: Ember.inject.service('session'),
 
-  beforeModel() {
+  beforeModel(transition, params) {
+    this._super(transition, params);
     return this.get('sessionAccount.account'); // needed to make sure sessionAccount is full realized
   },
 
@@ -13,13 +14,13 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
     //let username = this.get('session.data.authenticated.username');
     //console.log("userid", userid);
     // const userid = this.get('currentUser.id');
-   //console.log("profile:route:params>>>", userid );
-   //console.log("profile.js:sessionAccount.account.name", this.get('sessionAccount.account.name'));
+    //console.log("profile:route:params>>>", userid );
+    //console.log("profile.js:sessionAccount.account.name", this.get('sessionAccount.account.name'));
 
-   return Ember.RSVP.hash({
-     account: this.store.findRecord('user', userid),
-     posts: this.store.findAll('post')
-   });
+    return Ember.RSVP.hash({
+      account: this.store.findRecord('user', userid),
+      posts: this.store.findAll('post')
+    });
   }
 
 });

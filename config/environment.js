@@ -24,6 +24,7 @@ module.exports = function(environment) {
       'script-src':  "'self' 'unsafe-inline' 'unsafe-eval' www.google-analytics.com/analytics.js www.reddit.com"
     },
     'ember-simple-auth':{
+      authenticationRoute: 'login',
       routeAfterAuthentication: 'home',
       routeIfAlreadyAuthenticated: 'home'
     }
