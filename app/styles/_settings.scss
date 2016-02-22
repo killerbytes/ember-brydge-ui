@@ -44,6 +44,7 @@
 // 1. Global
 // ---------
 
+$brydge-blue:#6BCDFD;
 $global-font-size: 100%;
 $global-width: rem-calc(1200);
 $global-lineheight: 1.5;
@@ -542,8 +543,8 @@ $tooltip-radius: $global-radius;
 // 35. Top Bar
 // -----------
 
-$topbar-padding: 0.5rem;
-$topbar-background: $light-gray;
+$topbar-padding: 0.2rem;
+$topbar-background: $brydge-blue;
 $topbar-title-spacing: 1rem;
-$topbar-input-width: 200px;
+$topbar-input-width: 400px;
 
