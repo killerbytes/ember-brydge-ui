@@ -9,7 +9,7 @@ export default Ember.Route.extend({
 
   model(params) {
     // console.log(">>>>", this.get('sessionAccount.account.name'));
-    // console.log("public-profile:route:params", params);
+    console.log("public-profile:route:params", params);
 
     let relatedto = this.get('sessionAccount.account.userid');
 
