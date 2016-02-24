@@ -1,7 +1,7 @@
-<h3>Notification</h3>
-
-{{#each model as |notification| }}
-  {{notification.title}}
-  {{notification.summary}}
-  {{notification.updatedAt}}
-{{/each}}
+<div class="row">
+  <div class="12-medium column">
+    {{#each model as |notification| }}
+      {{notification-item notification=notification}}
+    {{/each}}
+  </div>
+</div>

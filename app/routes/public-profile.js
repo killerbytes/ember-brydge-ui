@@ -8,8 +8,8 @@ export default Ember.Route.extend({
   },
 
   model(params) {
-    console.log(">>>>", this.get('sessionAccount.account.name'));
-    console.log("public-profile:route:params", params);
+    // console.log(">>>>", this.get('sessionAccount.account.name'));
+    // console.log("public-profile:route:params", params);
 
     let relatedto = this.get('sessionAccount.account.userid');
 
@@ -22,12 +22,6 @@ export default Ember.Route.extend({
         'username': params.username
       })
     });
-
-    // .catch((err) => {
-    //   if (err.errors[0] === 404) {
-    //     this.transitionTo('page-not-found');
-    //   }
-    // });
   },
   actions: {
     connect(account) {
@@ -39,17 +33,12 @@ export default Ember.Route.extend({
 
       this.get('sessionAccount').makeConnections(account.get('userid'))
         .then((response) => {
-          this.refresh();
-          console.log("Request connected: ", response.data[0], this.get('isConnectionPending'));        
-          console.log("Pending connection", this.get('isConnectionPending'));
+          this.refresh(); // See http://emberjs.com/api/classes/Ember.Route.html#method_refresh
         })
         .catch((err) => {
-          console.log("Error making connection:", err);
+          console.log("Error making connection, do nothing for now:", err);
         });
 
-      // account.makeConnections({debug:true}).then(response=>{
-      //   console.log(">>>>", response);
-      // });
     }
   }
 

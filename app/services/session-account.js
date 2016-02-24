@@ -48,7 +48,14 @@ export default Ember.Service.extend({
   reportAbuse(targetid) {
     //TODO
     //  return this.get('ajax').put('/users/report/' + targetid)
+  },
+  upvote(postid)  {
+    // XXX Todo
+  },
+  downvote(postid) {
+    // XXX Todo
   }
+
 
 });
 
