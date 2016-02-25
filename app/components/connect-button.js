@@ -21,7 +21,7 @@ export default Ember.Component.extend({
   ,
   actions: {
     connect(account) {
-      //console.log(">>>>> Connecting", this.get('account.name'));
+      console.log(">>>>> Connecting", this.get('account'));
       this.sendAction("connect", account);
     }
   }

@@ -9,19 +9,22 @@ export default Ember.Route.extend({
 
   model(params) {
     // console.log(">>>>", this.get('sessionAccount.account.name'));
-    console.log("public-profile:route:params", params);
+    console.log("public-profile:route:params", params.username);
 
     let relatedto = this.get('sessionAccount.account.userid');
 
-    return Ember.RSVP.hash({
-      account: this.store.queryRecord('user', {
-        username: params.username,
-        relatedTo: relatedto
-      }),
-      posts: this.store.query('post', {
-        'username': params.username
-      })
-    });
+    return this.store.findRecord('profile', params.username);
+
+    // return Ember.RSVP.hash({
+    //   account: this.store.queryRecord('user', {
+    //     username: params.username,
+    //     relatedTo: relatedto
+    //   }),
+    //   posts: this.store.query('post', {
+    //     'username': params.username
+    //   })
+    // });
+
   },
   actions: {
     connect(account) {

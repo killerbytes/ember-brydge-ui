@@ -7,5 +7,6 @@ export default DS.Model.extend({
   password: DS.attr('string'), // only used during registration, TODO, get rid of this
   createdAt: DS.attr('date'),
   newsfeeds: DS.hasMany('newsfeed'),
-  connected: DS.attr('boolean')
+  connected: DS.attr('boolean'),
+  profile: DS.belongsTo('profile')
 });

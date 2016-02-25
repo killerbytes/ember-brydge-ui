@@ -6,5 +6,6 @@ export default DS.Model.extend({
   userid: DS.attr('string'),
   name: DS.attr('string'),
   posts: DS.hasMany('post'),
-  user: DS.belongsTo('user')
+  user: DS.belongsTo('user'),
+  createdAt: DS.attr('date')
 });

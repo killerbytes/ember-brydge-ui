@@ -6,9 +6,12 @@
     profile header body
     <ul>
       <li> By [{{sessionAccount.account.name}}] </li>
-      <li>Full name: {{model.account.name}} .>>>>> {{session.account}}</li>
-      <li>username: {{model.account.username}}</li>
-      <li>Member since {{moment-from-now model.account.createdAt}}</li>
+      <li>Full name: {{model.name}} </li>
+      <li>username: {{model.username}}</li>
+      <li>Member since {{moment-from-now model.createdAt}}</li>
+      <p>
+        [{{model.user.name}}]
+      </p>
     </ul>
   </div>
 </div>
@@ -20,7 +23,7 @@
 
   <div class="large-8 medium-8 columns">
     <div class="expanded button-group">
-      {{connect-button  connect="connect" account=model.account }}      
+      {{connect-button  connect="connect" account=model.user}}
       <a class="button">Message</a>
       <a class="button">Ask</a>
     </div>

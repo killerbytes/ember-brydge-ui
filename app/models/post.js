@@ -8,5 +8,6 @@ export default DS.Model.extend({
   score: DS.attr('number'),
   createdAt: DS.attr('date'),
   updatedAt: DS.attr('date'),
-  user: DS.belongsTo('user')
+  user: DS.belongsTo('user'),
+  profile: DS.belongsTo('profile')
 });
