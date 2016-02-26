@@ -40,7 +40,11 @@ export default Ember.Route.extend(ApplicationRouteMixin, {
         }).save().
         then((res) => {
           console.log("Posted, should refresh newsfeed, ", res);
+
           this.refresh();
+          // this.controller.get('model').reload();
+
+
         }).catch((err) => {
           console.log("Error posting to newsfeed:", err);
         });

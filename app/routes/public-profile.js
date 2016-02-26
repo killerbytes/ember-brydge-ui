@@ -2,14 +2,24 @@ import Ember from 'ember';
 
 export default Ember.Route.extend({
   sessionAccount: Ember.inject.service('session-account'),
+  session: Ember.inject.service('session'),
+  queryParams:'username',
 
-  beforeModel() {
+  beforeModel(transition) {
+    const myUsername = this.get('session.data.authenticated.username');
+    const paramsUsername = transition.params['public-profile'].username;
+
+    if (myUsername === paramsUsername) {
+      this.transitionTo('profile');
+      return;
+    }
+
     return this.get('sessionAccount.account'); // needed to make sure sessionAccount is full realized
   },
 
   model(params) {
     // console.log(">>>>", this.get('sessionAccount.account.name'));
-    console.log("public-profile:route:params", params.username);
+    // console.log("public-profile:route:params", params.username);
 
     let relatedto = this.get('sessionAccount.account.userid');
 
@@ -26,6 +36,11 @@ export default Ember.Route.extend({
     // });
 
   },
+  // setupController(controller, model) {
+  //   console.log("public-profile/setupController:", model);
+  //   model.reload();
+  //   controller.set('model', model);
+  // },
   actions: {
     connect(account) {
       // TODO:  - call /users/connect/targetuserid
