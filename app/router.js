@@ -19,7 +19,9 @@ Router.map(function() {
   this.route('public-profile', {path:'/:username'});
   this.route('public-profile-error');
   this.route('about');
-  this.route('messages');
+  this.route('messages', function() {
+    this.route('view');
+  });
   this.route('notification');
   this.route('discover');
 });

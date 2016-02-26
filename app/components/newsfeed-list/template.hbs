@@ -1,7 +1,9 @@
 <div class="row">
   <div class="12-medium column">
       {{#each newsfeed as |post|}}
+          
           {{newsfeed-item post=post}}
+
         {{else}}
         <div class="small-12 column">
           <p>(No records found)</p>

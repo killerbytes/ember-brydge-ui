@@ -1,8 +1,7 @@
 import Ember from 'ember';
 
 export default Ember.Component.extend({
-
-  actions: {
+	actions: {
     post() {
       console.log('Posting to newsfeed man', this.get('postContent'));
       this.sendAction('postToNewsfeed', this.get('postContent'));
