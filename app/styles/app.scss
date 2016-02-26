@@ -1,6 +1,7 @@
 @import "settings";
 @import 'foundation';
 @include foundation-everything;
+@import "pods";
 
 h1, h2, h3, h4 {
   font-family: 'Raleway:500', helvetica, arial, sans-serif;
