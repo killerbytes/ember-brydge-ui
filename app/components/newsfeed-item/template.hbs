@@ -9,7 +9,7 @@
   <br>
   {{#link-to 'post' post.user.username post.id}}{{moment-from-now post.updatedAt}}{{/link-to}}
   <p>
-  {{post.content}}
+  {{{post.content}}}
 </p>
   {{#link-to 'public-profile' post.user.username}} See more {{post.user.username}} {{/link-to}}
 </div>
