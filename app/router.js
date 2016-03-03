@@ -19,11 +19,16 @@ Router.map(function() {
   this.route('public-profile', {path:'/:username'});
   this.route('public-profile-error');
   this.route('about');
-  this.route('messages', function() {
-    this.route('view');
-  });
+
   this.route('notification');
   this.route('discover');
+
+
+  this.route('t', function() {
+    this.route('conversation', { path: ':conversation_id', resetNamespace: true});
+    this.route('compose');
+  });
+
 });
 
 export default Router;

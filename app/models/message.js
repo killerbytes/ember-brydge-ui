@@ -1,7 +1,8 @@
 import DS from 'ember-data';
 
 export default DS.Model.extend({
-  shortContent: DS.attr('string'),
-  by: DS.attr('string'),
-  avatar: DS.attr('string')
+  from_id: DS.attr('string'),
+  to_id: DS.attr('string'),
+  content: DS.attr('string'),
+  conversation: DS.belongsTo('conversation')
 });

@@ -1,0 +1,10 @@
+<div>
+	{{#each model.messages as |message|}}
+			<div class="callout secondary">
+			 	<h4>{{ message.from_id }}</h4>
+				<p>{{ message.content }}</p>
+			</div>
+	{{/each}}
+</div>
+
+

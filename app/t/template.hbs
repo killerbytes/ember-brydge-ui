@@ -1,0 +1,42 @@
+<div class="container" style="margin-top: 30px">
+<div class="row">
+  <div class="medium-4 columns">
+    {{#link-to "t.compose" }} 
+      <button class="secondary hollow button">Compose</button>
+    {{/link-to}}
+
+  </div>
+</div>
+
+<div class="row">
+  <div class="medium-4 columns">
+  	<!-- {{#each model as |conversation|}}
+			{{#link-to "conversation" conversation.id}} 
+				<p>{{ conversation.from_id }}</p>
+			{{/link-to}}
+		{{/each}}
+ -->
+
+    {{#ui-list 
+    size='default' 
+     mood='mood' 
+     skin='default' 
+     compressed=false 
+     sortAscending=true 
+     as |list| }}
+    {{#each model as |conversation| }}
+      {{#link-to "conversation" conversation.id}} 
+        {{ui-item 
+             title=conversation.from_id 
+             icon='user'
+             list=list }}
+      {{/link-to}}
+        
+    {{/each}} {{/ui-list}}
+  </div>
+  <div class="medium-8 columns">
+  	{{outlet}}
+  </div>
+</div>
+</div>
+

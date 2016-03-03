@@ -42,7 +42,13 @@ module.exports = function(environment) {
     ENV['ember-simple-auth'] = {
       serverTokenEndpoint: 'http://localhost:8000/token',
       authorizerHost: 'http://localhost:8000'
+    };
+
+    ENV['ember-cli-mirage'] = {
+      enabled: false
     }
+
+
   }
 
   if (environment === 'test') {
