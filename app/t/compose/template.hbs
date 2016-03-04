@@ -1,33 +1,3 @@
-<!-- <form class="form-horizontal">
-  <div class="control-group">
-    <div class="control-label">
-      <label>Username</label>
-    </div>
-
-    <div class="controls">
-      {{input value=username type="text"}}
-    </div>
-  </div>
-
-  <div class="control-group">
-    <div class="control-label">
-      <label>Password</label>
-    </div>
-
-    <div class="controls">
-      {{input value=password type="password"}}
-    </div>
-  </div>
-
-  <button type="submit" class="btn">Log in!</button>
-</form> -->
-<!-- 
-<form>
-  <div class="row">
-    <input type="text" placeholder="" />
-    <textarea placeholder="Message..."></textarea>
-  </div>
-</form> -->
 
 <form {{action 'compose' to msg on='submit'}}>
   <div class="row">
@@ -46,21 +16,3 @@
   </div>
 </form>
 
-<!-- <form {{action 'save' name on='submit'}}>
-  {{input name='car-name' value=name}}
-  <button type="submit" class="success button">Send</button>
-</form> -->
-
-
-<!-- <form {{action 'save' on='submit'}}>
-  <div class='row'>
-    <div class='columns'>
-      <h4 class="text-center">New to Brydge?</h4>
-      {{input value=name placeholder='Name'}}
-      {{input value=email placeholder='Email'}}
-      {{input value=password placeholder='New password' type='password'}}
-      <button type='submit' class='button expanded'>Signup</button>
-      <p>If you already have an account - {{#link-to 'login'}}Sign In{{/link-to}} - Reset Password</p>
-    </div>
-  </div>
-</form>

@@ -39,15 +39,17 @@ module.exports = function(environment) {
     // ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
     // ENV.APP.LOG_VIEW_LOOKUPS = true;
 
-    ENV['ember-simple-auth'] = {
-      serverTokenEndpoint: 'http://localhost:8000/token',
-      authorizerHost: 'http://localhost:8000'
-    };
-
+  
     ENV['ember-cli-mirage'] = {
       enabled: false
     }
 
+    if(ENV['ember-cli-mirage'].enabled == false) {
+      ENV['ember-simple-auth'] = {
+        serverTokenEndpoint: 'http://localhost:8000/token',
+        authorizerHost: 'http://localhost:8000'
+      };
+    }
 
   }
 

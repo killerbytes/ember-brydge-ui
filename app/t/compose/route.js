@@ -6,21 +6,22 @@ export default Ember.Route.extend({
 	},
 	actions: {
 		compose: function(to, msg) {
+      var ctx = this;
       console.log("compose msg >>", to, msg);
 
-      // let data = {
-      // 	from_id: 'hein',
-      // 	to_id: to,
-      // 	content:
-      // }
+      this.store.createRecord('message', {
+        to_id: to,
+        from_id: 'hein',
+        content: msg
+      }).save().then(function(){
+       
+        //ctx.transitionTo('t');
+        ctx.transitionTo('/t/'+to);
 
-      // this.store.createRecord('message', data).save()
-      //   .then(function() {
-      //     // self.transitionTo('home');
-      //     console.log('success save')
-      //   }).catch(function(err) {
-      //     console.log("Error saving user:", err);
-      //   });
+
+      }).catch(function(err){
+        console.log('err', err);
+      });
     }
 	}
 });
