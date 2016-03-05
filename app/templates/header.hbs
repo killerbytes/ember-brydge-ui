@@ -1,7 +1,7 @@
 
 <div class="top-bar">
 	<div class="row columns">
-		<div class="top-bar-title"><img src="assets/logo.svg"></div>
+		<div class="top-bar-title"><a href="/"><img src="assets/logo.svg"></a></div>
 		<div>
 			<div class="top-bar-left">
 				<ul class="menu main-menu">
@@ -10,7 +10,7 @@
 				</ul>
 			</div>
 			<div class="top-bar-right">
-				
+
 				<ul class="menu">
 					<li>
 						<div class="input-group top-bar-search">
@@ -18,16 +18,16 @@
 							<div class="input-group-button">
 								{{fa-icon "search"}}
 							</div>
-						</div>						
+						</div>
 					</li>
 					<li class="actions">
 						<ul class="menu">
 
 							<li> {{fa-icon "user-plus"}} </li>
-							<li> {{fa-icon "fa-envelope"}}</li>
+							<li>{{#link-to 't'}}{{fa-icon "fa-envelope"}}{{/link-to}}</li>
 							<li>
 								<span class="alert badge">5</span>
-								<span class="fa fa-tasks" 
+								<span class="fa fa-tasks"
 									id="azid"
 									data-toggle="dd-messages"></span>
 									{{#zf-dropdown id="dd-messages" data-auto-focus="true"}}
@@ -44,7 +44,7 @@
 														<span class="float-right subheader">2:30pm</span>
 														<p>Hey Jon, I thought you should take a look a this.</p>
 													</div>
-												</div>												
+												</div>
 											</li>
 											<li>
 												<div class="media-object">
@@ -58,7 +58,7 @@
 														<span class="float-right subheader">2:30pm</span>
 														<p>Hey Jon, I thought you should take a look a this.</p>
 													</div>
-												</div>												
+												</div>
 											</li>
 											<li>
 												<div class="media-object">
@@ -72,7 +72,7 @@
 														<span class="float-right subheader">2:30pm</span>
 														<p>Hey Jon, I thought you should take a look a this.</p>
 													</div>
-												</div>												
+												</div>
 											</li>
 											<li>
 												<div class="media-object">
@@ -86,7 +86,7 @@
 														<span class="float-right subheader">2:30pm</span>
 														<p>Hey Jon, I thought you should take a look a this.</p>
 													</div>
-												</div>												
+												</div>
 											</li>
 											<li>
 												<div class="media-object">
@@ -100,15 +100,15 @@
 														<span class="float-right subheader">2:30pm</span>
 														<p>Hey Jon, I thought you should take a look a this.</p>
 													</div>
-												</div>												
+												</div>
 											</li>
 										</ul>
-										{{#link-to 't'}}	
+										{{#link-to 't'}}
 											<button class="button expanded">
 												See All Messages
 											</button>
 										{{/link-to}}
-										
+
 									{{/zf-dropdown}}
 
 
