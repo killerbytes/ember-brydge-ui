@@ -1,0 +1,102 @@
+#dd-messages{
+	border-top: none;
+	background-color: #F5F5F5;
+	left: -250px !important;
+	top: 36px !important;
+	padding: 0;
+	width: 350px;
+	box-shadow: 0px 2px 2px #DDD;
+	.thumbnail{
+		width: 35px;
+		height: 35px;
+		img{
+			width: 100%;
+		}
+	}
+	button{
+		background-color: #F1F1F1;
+		text-transform: uppercase;
+		padding: 5px;
+		color: #000;
+	}
+	ul>li{
+		padding: 1rem;
+		border-bottom: 1px solid $border-color;
+	}
+	.media-object, p{
+		margin: 0;
+	}
+	p{
+		font-size: 11px;
+	}
+	.media-object-section:first-child{
+		padding-right: 2rem;
+	}
+}
+.box{
+	@extend .clearfix;
+	background-color: #FFF;
+	border: 1px solid $border-color;
+	margin-bottom: 5px;
+	>.column, >.columns{
+		padding: 1rem;
+		padding-top: 10px;
+		padding-bottom: 10px;
+	}
+	.box-header{
+		// font-size: 10px;
+		margin-bottom: 0;
+		font-weight: bold;
+		text-transform: uppercase;
+		padding: $global-padding;
+		padding-top: 10px;
+		padding-bottom: 10px;
+		background: #F1F1F1;
+	}
+	.button.small.expanded{
+		margin-bottom: 0;
+	}
+}
+
+.sidebox{
+	min-height: 110px;
+	position: relative;
+	padding: $global-padding;
+	padding-bottom: 25px;
+	border-bottom: 1px solid $border-color;
+	h4{
+		margin: 0;
+	}
+	.columns{
+		border-bottom: 1px solid $border-color;
+	}
+	a.more{
+		position: absolute;
+		bottom: 5px;
+	}
+}
+.snapshot{
+	font-size: 11px;
+}
+
+.question-box{
+	color: #A3A3BD;
+	h2{
+		color: #717171;
+		margin: 10px 0 20px;
+	}
+	a{
+		font-weight: bold;
+	}
+	p{
+		font-size: 22px;
+		line-height: 1.4em;
+		font-weight: bold;
+	}
+	button{
+		text-transform: uppercase;
+		padding :4px;
+		font-weight: bold;
+		font-size: 11px;
+	}
+}

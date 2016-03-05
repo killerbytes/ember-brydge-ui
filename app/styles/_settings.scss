@@ -45,11 +45,11 @@
 // ---------
 
 $brydge-blue:#6BCDFD;
-$global-font-size: 95%;
-$global-width: rem-calc(1200);
+$global-font-size: 12px;
+$global-width: rem-calc(740);
 $global-lineheight: 1.5;
-$primary-color: #2199e8;
-$secondary-color: #777;
+$primary-color: $brydge-blue;
+$secondary-color: #DEDEDE;
 $success-color: #3adb76;
 $warning-color: #ffae00;
 $alert-color: #ec5840;
@@ -103,26 +103,25 @@ $font-family-monospace: Consolas, 'Liberation Mono', Courier, monospace;
 $header-sizes: (
   small: (
     'h1': 24,
-    'h2': 20,
+    'h2': 22,
     'h3': 19,
     'h4': 18,
     'h5': 17,
     'h6': 16,
   ),
   medium: (
-    'h1': 48,
-    'h2': 40,
-    'h3': 31,
-    'h4': 25,
-    'h5': 20,
-    'h6': 16,
+    'h1': 24,
+    'h2': 20,
+    'h3': 16,
+    'h4': 14,
+    'h5': 10,
   ),
 );
 $header-color: inherit;
 $header-lineheight: 1.4;
 $header-margin-bottom: 0.5rem;
 $header-text-rendering: optimizeLegibility;
-$small-font-size: 80%;
+$small-font-size: 90%;
 $header-small-font-color: $medium-gray;
 $paragraph-lineheight: 1.6;
 $paragraph-margin-bottom: 1rem;
@@ -228,7 +227,7 @@ $breadcrumbs-item-slash: true;
 // ----------
 
 $button-padding: 0.85em 1em;
-$button-margin: 0 0 $global-margin 0;
+$button-margin: 0; //0 0 $global-margin 0;
 $button-fill: solid;
 $button-background: $primary-color;
 $button-background-hover: scale-color($button-background, $lightness: -15%);
@@ -246,7 +245,7 @@ $button-opacity-disabled: 0.25;
 // 12. Button Group
 // ----------------
 
-$buttongroup-margin: 1rem;
+$buttongroup-margin: 0; //1rem;
 $buttongroup-spacing: 1px;
 $buttongroup-child-selector: '.button';
 $buttongroup-expand-max: 6;
@@ -508,10 +507,10 @@ $tab-content-padding: 1rem;
 // 32. Thumbnail
 // -------------
 
-$thumbnail-border: solid 4px $white;
+$thumbnail-border: none; // solid 4px $white;
 $thumbnail-margin-bottom: $global-margin;
-$thumbnail-shadow: 0 0 0 1px rgba($black, 0.2);
-$thumbnail-shadow-hover: 0 0 6px 1px rgba($primary-color, 0.5);
+$thumbnail-shadow: none; //0 0 0 1px rgba($black, 0.2);
+$thumbnail-shadow-hover: none; //0 0 6px 1px rgba($primary-color, 0.5);
 $thumbnail-transition: box-shadow 200ms ease-out;
 $thumbnail-radius: $global-radius;
 

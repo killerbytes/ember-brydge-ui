@@ -1,4 +1,5 @@
 {
   /* "usePods": true, */
-  "disableAnalytics": false
+  "disableAnalytics": false,
+  "port": 3000
 }

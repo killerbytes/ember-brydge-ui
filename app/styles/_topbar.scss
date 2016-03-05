@@ -1,0 +1,94 @@
+.top-bar-title{
+}
+.top-bar {
+	padding: 0;
+	ul{
+		background-color: transparent;
+	}
+	.top-bar-left .menu{
+		margin-top: 8px;
+	}
+	.fa{
+		color: #417993;
+		font-size: 18px;
+		vertical-align: bottom;
+	}
+	a{
+		color: #FFF;
+	}
+	.actions{
+		vertical-align: top;
+		.fa{
+			padding: 9px 5px;
+		}
+		li:first-child .fa{
+			padding-left: 10px;
+		}
+		li{
+			position: relative;
+		}
+		.badge{
+			border-radius: 0;
+			padding: 0;
+			min-width: 1.2em;
+			font-size: 10px;
+			text-align: center;
+			line-height: 1.3em;
+			position: absolute;
+			top: 2px;
+			left: 0;
+		}
+	}
+	.main-menu{
+		font-weight: bold;
+		li{
+			border-right: 1px solid #68C7EF;
+		}
+		li:last-child{
+			border: none;
+		}
+		li a{
+			padding: 0.3rem 1rem;
+			font-weight: bold;
+		}
+	}
+	.hover{
+		background-color: #F5F5F5;
+	}
+//   background-color: #6BCDFD !important;
+//   ul {
+//     background-color: #6BCDFD !important;
+//   }
+}
+.top-bar-title{
+  font-family: 'Raleway:500', helvetica, arial, sans-serif;	
+  font-size: 26px;
+  line-height: 1.4em;
+  font-weight: bold;
+  color: #FFF;
+	img{
+		width: 120px;
+		margin-bottom: 5px;
+	}
+}
+/*  Search input in topbar has weird 1em offset bottom and right */
+
+.top-bar-search {
+  margin-bottom: 0px;
+}
+
+.top-bar-search input[type="search"]{
+	width: 250px;
+	margin-right: 0px;
+	padding: 6px 8px;
+	font-size: 12px;
+	height: auto;
+	box-shadow: none;
+	border: none;
+	
+}
+.top-bar-search input[type="search"]+.input-group-button{
+	background-color: #F5F5F5;
+	padding: 0 8px;
+	border-left: 1px solid $border-color;
+}

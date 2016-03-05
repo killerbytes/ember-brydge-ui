@@ -1,0 +1,63 @@
+.profile{
+	&.profile-top{
+		margin-top: 50px;
+		padding-bottom: 40px;
+	}
+	&.role-bar{
+		padding: 0 5px;
+		border-right: none;
+	}
+	&.profile-industry{
+		ul{
+			width: 100%;
+			margin: 0;
+			font-size: 11px;
+			display: table-cell;
+			vertical-align: middle;
+		}
+		.industry-column{
+			display: table;
+		}
+		.fa{
+			padding: 12px;
+			font-size: 20px;
+			background-color: #F1F1F1;
+			color: #717171;	
+
+			border-right: 1px solid $border-color;
+			float: left;
+			margin-right: 5px;
+		}
+		.float-left:not(:first-child){
+			border-left: 1px solid $border-color;
+		}
+	}
+
+	position: relative;
+	h1{
+		line-height: 1.4em;
+		span{
+			text-transform: uppercase;
+			font-weight: bold;
+		}
+	}
+	.profile-center{
+		position: absolute;
+		width: 100%;
+		top: -30%;
+	}
+	.profile-photo{
+		width: 150px;
+		height: 150px;
+		margin: auto;
+	}
+	.name{
+		padding-right: 100px;
+	}
+	.location{
+		font-size: 11px;
+		padding-left: 100px;
+		margin-top: 60px;
+	}
+
+}
