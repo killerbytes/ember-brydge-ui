@@ -3,7 +3,7 @@
 
 	{{#each model.messages as |message|}}
 			<div class="callout secondary">
-				{{message.to_id}}
+				{{message.to.name}}
 				<p>{{ message.content }}</p>
 			</div>
 	{{/each}}
