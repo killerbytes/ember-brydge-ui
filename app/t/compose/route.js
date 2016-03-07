@@ -9,19 +9,29 @@ export default Ember.Route.extend({
       var ctx = this;
       console.log("compose msg >>", to, msg);
 
-      this.store.createRecord('message', {
-        to_id: to,
-        from_id: 'hein',
+      var store = this.store;
+
+      var message = store.createRecord('message', {
         content: msg
-      }).save().then(function(){
-       
-        //ctx.transitionTo('t');
-        ctx.transitionTo('/t/'+to);
-
-
-      }).catch(function(err){
-        console.log('err', err);
       });
+
+      store.findRecord('user', to).then(function(user) {
+        message.set('to', user);
+
+        store.findRecord('user', '0yi51f1xyni').then(function(user) {
+          message.set('from', user);
+
+          store.findRecord('conversation', '0yi5rsma72i').then(function(conversation){
+            message.set('conversation', conversation);
+
+             message.save().then(function(){
+              console.log('success message');
+              ctx.transitionTo('/t/'+to);
+            })
+          })   
+        });
+      });
+
     }
 	}
 });
