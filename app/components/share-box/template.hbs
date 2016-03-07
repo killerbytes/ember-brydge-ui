@@ -12,11 +12,41 @@
 </div> -->
 
 
-<form {{action 'post' on='submit'}}>
+<!-- <form {{action 'post' on='submit'}}>
   <label>
     Share something
     {{textarea value=postContent placeholder='What can I share now?'}}
   </label>
   <a href="#" {{action 'cancel'}}>Cancel</a>
   <button class="button small">Post</button>
+</form> -->
+
+<form {{action 'post' on='submit'}}>
+<div class="box post-form">
+  <div class="post-bar border-b">
+    <div class="thumbnail">
+      <img src= "assets/avatar-2.jpg">
+    </div>
+    <div class="post-form">
+      {{input value=postContent placeholder='Get noticed: broadcast opinions, Industry news, and request'}}
+      <!-- <input type="text" placeholder="Get noticed: broadcast opinions, Industry news, and request">  -->
+    </div>        
+  </div>
+  <div class="actions">
+    <div class="float-right">
+    {{#zf-dropdown-menu class="border-l border-r float-left"}}
+      <li>
+        <a href="#">Select channel</a>
+        <ul class="menu">
+          <li><a href="#">Item 1A</a></li>
+        </ul>
+      </li>
+      {{/zf-dropdown-menu}}
+
+      <button class="button">
+        Broadcast
+      </button>
+    </div>
+  </div>
+</div>
 </form>
