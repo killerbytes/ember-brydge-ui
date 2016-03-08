@@ -5,6 +5,14 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
 
   model: function(params) {
 		console.log("/conversation/", params);
-    return this.store.findRecord('conversation', params.conversation_id);
+    return this.store.findRecord('conversation', params.conversation_id, { reload: true});
+  },
+
+  actions: {
+  	getResponse: function(obj) {
+  		console.log('called from component', obj);
+  		this.refresh();
+      //this.transitionTo('/t/'+obj.to);
+    }
   }
 });

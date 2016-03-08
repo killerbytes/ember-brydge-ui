@@ -3,8 +3,11 @@
 
 	{{#each model.messages as |message|}}
 			<div class="callout secondary">
-				[{{message.to.name}}]
+				[{{message.from.name}}]
 				<p>{{ message.content }}</p>
 			</div>
 	{{/each}}
 </div>
+
+
+ {{ message-box store=store resp='getResponse' buttonLabel='Reply' showToInput=false to=model.id}}
