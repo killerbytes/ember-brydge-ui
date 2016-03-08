@@ -1,18 +1,4 @@
 
-<form {{action 'compose' to msg on='submit'}}>
-  <div class="row">
-    <div class="small-3 columns">
-      <label for="middle-label" class="text-right middle">To:</label>
-    </div>
-    <div class="small-9 columns">
-      {{input value=to placeholder='Name' type="text" id="middle-label" placeholder="Type a person name.."}}
-    </div>
-     <div class="small-9 columns">
-      {{textarea value=msg placeholder="Message..." rows="4"}}
-    </div>
-    <div class="small-9 columns">
-    <button type="submit" class="secondary hollow button">Send</button>
-    </div>
-  </div>
-</form>
+
+{{ message-box store=store resp='getResponse' buttonLabel='Compose' showToInput=true}}
 
