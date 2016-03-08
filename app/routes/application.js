@@ -4,6 +4,10 @@ import ApplicationRouteMixin from 'ember-simple-auth/mixins/application-route-mi
 export default Ember.Route.extend(ApplicationRouteMixin, {
 
   actions: {
+    error(error, transition) {
+      if(error) console.log("Error:", error);
+      // XXX: TODO Display error notification on page template
+    },
     logout() {
       var accessToken = this.get('session.data.authenticated.access_token');
       Ember.$.getJSON('http://localhost:8000/expire?token=' + accessToken).done(()=> {

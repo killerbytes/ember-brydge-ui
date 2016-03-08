@@ -19,7 +19,7 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
 
     return Ember.RSVP.hash({
       account: this.store.findRecord('user', userid),
-      posts: this.store.findAll('post')
+      posts: this.store.findAll('post', userid)
     });
   }
 

@@ -9,5 +9,5 @@ export default DS.Model.extend({
   createdAt: DS.attr('date'),
   updatedAt: DS.attr('date'),
   user: DS.belongsTo('user'),
-  profile: DS.belongsTo('profile')
+  profile: DS.belongsTo('profile') // XXX: TODO Refactor this way
 });
