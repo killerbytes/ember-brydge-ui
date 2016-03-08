@@ -24,7 +24,7 @@ Router.map(function() {
   this.route('discover');
 
 
-  this.route('t', function() {
+  this.route('messaging', function() {
     this.route('conversation', { path: ':conversation_id', resetNamespace: true});
     this.route('compose');
   });

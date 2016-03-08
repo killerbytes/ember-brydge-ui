@@ -6,7 +6,7 @@ export default Ember.Route.extend({
 	},
 	actions: {
     getResponse: function(obj) {
-      this.transitionTo('/t/'+obj.to);
+      this.transitionTo('/messaging/'+obj.to);
     }
 	}
 });
