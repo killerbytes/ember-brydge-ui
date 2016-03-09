@@ -9,7 +9,12 @@ Router.map(function() {
   this.route("login");
   this.route('industry-category');
   this.route('home');
-  this.route('profile');
+  
+  this.route('profile', function() {
+    this.route('edit', function() {
+      this.route('experiences');
+    });
+  });
 
   //  this.route('profile', {path: '/profile/:user_id'});
 

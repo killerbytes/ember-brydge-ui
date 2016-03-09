@@ -9,5 +9,4 @@ export default DS.Model.extend({
   newsfeeds: DS.hasMany('newsfeed'),
   connected: DS.attr('boolean'),
   profile: DS.belongsTo('profile')
-  //,  conversations: DS.hasMany('conversation')
 });
