@@ -1,10 +1,6 @@
-<form {{action 'save' on='submit'}}>
-  <div class='row'>
-    <div class='columns'>
-      {{input value=name placeholder='Name'}}
-      {{input value=email placeholder='Email'}}
-      {{input value=password placeholder='New password' type='password'}}
-    </div>
-    <button type='submit' class='button expanded'>Save Changes</button>
-  </div>
-</form>
+
+{{#each model.works as |work|}}
+	{{ work-box work=work }}
+{{/each}}
+
+<button type="button" class="success button expanded" {{action 'addNewWork'}}>{{fa-icon "plus"}} Add More Work</button>

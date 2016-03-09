@@ -11,9 +11,7 @@ Router.map(function() {
   this.route('home');
   
   this.route('profile', function() {
-    this.route('edit', function() {
-      this.route('experiences');
-    });
+    this.route('edit');
   });
 
   //  this.route('profile', {path: '/profile/:user_id'});

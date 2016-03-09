@@ -1,0 +1,15 @@
+<form {{action 'save' firstName lastName on='submit'}}>
+  <div class='row'>
+    <div class='columns'>
+      {{input value=company placeholder='Company'}}
+      {{input value=title placeholder='Title'}}
+      {{textarea value=description placeholder="Description" rows="4"}}
+    </div>
+  </div>
+  <div class="row">
+  <div class='columns'>
+  	<button type='submit' class='alert button' {{action 'cancelWork'}}>Cancel</button>
+  	<button type='submit' class='button'>Save</button>
+   </div>
+  </div>
+</form>

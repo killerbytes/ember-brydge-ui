@@ -1,9 +1,10 @@
 <form {{action 'save' firstName lastName on='submit'}}>
   <div class='row'>
     <div class='columns'>
-      {{input value=firstName placeholder='First Name'}}
-      {{input value=lastName placeholder='Last Name'}}
+      {{input value=model.firstName placeholder='First Name'}}
+      {{input value=model.lastName placeholder='Last Name'}}
+      <button type='submit' class='button'>Save Changes</button>
     </div>
-    <button type='submit' class='button expanded'>Save Changes</button>
+    
   </div>
 </form>

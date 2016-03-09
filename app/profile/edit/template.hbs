@@ -1,9 +1,9 @@
 <div class="row collapse">
   <div class="medium-3 columns">
   {{#zf-tabs class="vertical"}}
-	  <li class="tabs-title is-active"><a href="#panel1" aria-selected="true">User Info</a></li>
-	  <li class="tabs-title"><a href="#panel2">Work Experiences</a></li>
-	  <li class="tabs-title"><a href="#panel3">Educations</a></li>
+	  <li class="tabs-title is-active"><a href="#panel1" aria-selected="true">Personal Particulars</a></li>
+	  <li class="tabs-title"><a href="#panel2">Work History</a></li>
+	  <li class="tabs-title"><a href="#panel3">Academia</a></li>
 	{{/zf-tabs}}
     </div>
     <div class="medium-9 columns">
@@ -12,10 +12,20 @@
 			    {{partial 'profile/edit/info'}}
 			  </div>
 			  <div class="tabs-panel" id="panel2">
-			    {{partial 'profile/edit/work'}}
+			  	
+			  	{{#if isNewWork}}
+					  {{partial 'profile/edit/new/work'}}
+					{{else}}
+					  {{partial 'profile/edit/work'}}
+					{{/if}}
+			    
 			  </div>
 			  <div class="tabs-panel" id="panel3">
-			    {{partial 'profile/edit/education'}}
+			    {{#if isNewEducation}}
+					  {{partial 'profile/edit/new/education'}}
+					{{else}}
+					  {{partial 'profile/edit/education'}}
+					{{/if}}
 			  </div>
 			</div> 
     </div>

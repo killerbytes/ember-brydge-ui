@@ -1,0 +1,21 @@
+<form {{action 'saveWork' work on='submit'}}>
+	
+	<div class="callout small secondary">
+	  <div class="form-group"> 
+	    <label for="identification">Company:</label> 
+	    {{input value=work.id class='form-control'}} 
+	    {{input value=work.company class='form-control'}}
+	  </div>
+	  <div class="form-group"> 
+	    <label for="identification">Title:</label> 
+	    {{input value=work.title class='form-control'}} 
+	  </div>
+	  <div class="form-group"> 
+	  	<button type='submit' class='button'>Save Changes</button>
+	  </div>
+	</div>
+	
+</form>
+
+
+{{yield}}
