@@ -1,9 +1,8 @@
 import DS from 'ember-data';
 
 export default DS.JSONAPISerializer.extend({
-
+  
   serialize() {
-
     const result = this._super(...arguments),
       attr = result.data.attributes || {},
       rel = result.data.relationships || {};
@@ -26,10 +25,14 @@ export default DS.JSONAPISerializer.extend({
 
     }, attr);
 
-    return {
-      data: payloadData
-    };
+    console.log('+++++',payloadData);
+    return payloadData;
     
- }
+ },
+
+  keyForAttribute: function(attr) {
+    console.log('<<<<<<< Profile keyForAttribute <<<<<<<<<')
+    return Ember.String.underscore(attr);
+  }
 
 });

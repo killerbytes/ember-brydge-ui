@@ -11,14 +11,14 @@ Router.map(function() {
   this.route('home');
   
   this.route('profile', function() {
-    this.route('edit');
+    this.route('edit',{path:'/edit/:profile_id'});
   });
 
   //  this.route('profile', {path: '/profile/:user_id'});
 
   this.route('post', {path: '/:user_id/:newsfeed_id'});
   this.route('page-not-found', { path: '/*wildcard' });
-  // /teo-choong-ping
+  // /teo-choong-pin
   this.route('public-profile', {path:'/:username'});
   this.route('public-profile-error');
   this.route('about');
