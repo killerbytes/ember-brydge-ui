@@ -9,10 +9,12 @@ Router.map(function() {
   this.route("login");
   this.route('industry-category');
   this.route('home');
-  
-  this.route('profile', function() {
+
+  this.route('me', function() {
     this.route('edit',{path:'/edit/:profile_id'});
   });
+
+
 
   //  this.route('profile', {path: '/profile/:user_id'});
 
@@ -32,6 +34,7 @@ Router.map(function() {
     this.route('compose');
   });
 
+  this.route('profile', {path: ':username'});
 });
 
 export default Router;

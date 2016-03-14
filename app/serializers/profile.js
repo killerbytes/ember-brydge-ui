@@ -31,7 +31,7 @@ export default DS.JSONAPISerializer.extend({
  },
 
   keyForAttribute: function(attr) {
-    console.log('<<<<<<< Profile keyForAttribute <<<<<<<<<')
+    console.log('<<<<<<< Profile keyForAttribute <<<<<<<<<',attr)
     return Ember.String.underscore(attr);
   }
 

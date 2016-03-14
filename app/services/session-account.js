@@ -18,6 +18,9 @@ export default Ember.Service.extend({
 
     console.log(" * session-account: 0", accountId);
 
+    const username = this.get('session.data.authenticated.username');
+    console.log('+++++++', username);
+
     if (!Ember.isEmpty(accountId)) {
       console.log(" * session-account: 1", accountId);
       return DS.PromiseObject.create({

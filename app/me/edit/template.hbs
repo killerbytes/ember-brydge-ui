@@ -9,22 +9,22 @@
     <div class="medium-9 columns">
     	<div class="tabs-content vertical" data-tabs-content="example-tabs">
 			  <div class="tabs-panel is-active" id="panel1">
-			    {{partial 'profile/edit/info'}}
+			    {{partial 'me/edit/info'}}
 			  </div>
 			  <div class="tabs-panel" id="panel2">
 			  	
 			  	{{#if isNewWork}}
-					  {{partial 'profile/edit/new/work'}}
+					  {{partial 'me/edit/new/work'}}
 					{{else}}
-					  {{partial 'profile/edit/work'}}
+					  {{partial 'me/edit/work'}}
 					{{/if}}
 			    
 			  </div>
 			  <div class="tabs-panel" id="panel3">
 			    {{#if isNewEducation}}
-					  {{partial 'profile/edit/new/education'}}
+					  {{partial 'me/edit/new/education'}}
 					{{else}}
-					  {{partial 'profile/edit/education'}}
+					  {{partial 'me/edit/education'}}
 					{{/if}}
 			  </div>
 			</div> 
