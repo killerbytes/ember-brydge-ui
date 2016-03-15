@@ -30,6 +30,7 @@ export default Ember.Route.extend({
     //     username: params.username,
     //     relatedTo: relatedto
     //   }),
+    //   /**  /v1/posts?userid=8xv4fful68a   */
     //   posts: this.store.query('post', {
     //     'username': params.username
     //   })
