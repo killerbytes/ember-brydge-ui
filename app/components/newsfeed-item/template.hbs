@@ -30,47 +30,47 @@
     <div class="media-object">
       <div class="media-object-section">
         <div class="thumbnail">
-        <img src= "assets/avatar-1.jpg">
+        <img src= "assets/avatar.png">
         </div>
       </div>
       <div class="media-object-section">
         <div class="name"><strong><a href="">{{post.user.name}}</a></strong></div>
-        <small class="subheader">HEAD OF DIGITAL MARKETING at PEPSICO</small>
+        <small class="subheader">(TODO)</small>
         <p class="small subheader">{{moment-from-now post.updatedAt}}</p>
       </div>
     </div>
     <p>{{{post.content}}}</p>
-    <img src="assets/image01.jpg">
+    <img src="{{post.previewImage}}">
     <div class="post-caption">
-      <small class="subheader">NYTIMES</small>
-      <h3>Samsung Launches Milk Music to compete with Apple's new service</h3>
-    </div>        
-  </div>      
+      <small class="subheader">{{post.sitename}}</small>
+      <h3>{{post.title}}</h3>
+    </div>
+  </div>
   <div class="padded post-footer border-b">
     <div class="float-left">
       <ul>
         <li><a href="">Upvote </a> <span>21</span></li>
         <li><a href="">Downvote</a></li>
       </ul>
-      
-    </div>         
+
+    </div>
     <div class="float-right">
       <ul>
         <li><a href="">Comment</a></li>
         <li><a href="">Share</a></li>
-      </ul>                 
+      </ul>
     </div>
   </div>
   <div class="padded post-comments">
     <div class="media-object">
       <div class="thumbnail">
-        <img src= "assets/avatar-2.jpg">
+        <img src= "assets/avatar-beta.png">
       </div>
       <div class="comment-form">
-        <input type="text" placeholder="Write your comment">              
+        <input type="text" placeholder="Write your comment">
       </div>
     </div>
-    
+
   </div>
 
 </div>
