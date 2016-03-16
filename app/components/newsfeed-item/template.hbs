@@ -41,10 +41,12 @@
     </div>
     <p>{{{post.content}}}</p>
     <img src="{{post.previewImage}}">
+    {{#if post.hashid}}
     <div class="post-caption">
       <small class="subheader">{{post.siteName}}</small>
       <h3>{{post.title}}</h3>
     </div>
+    {{/if}}
   </div>
   <div class="padded post-footer border-b">
     <div class="float-left">
