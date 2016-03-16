@@ -7,12 +7,6 @@ export default Ember.Component.extend({
 
 			var store = this.store;
 
-			store.createRecord('ask', {
-				content: question,
-				toid: to,
-				fromid: from
-			});
-
 			var ask = store.createRecord('ask',{
 				content: question
 			});

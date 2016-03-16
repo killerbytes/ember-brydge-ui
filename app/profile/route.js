@@ -3,6 +3,7 @@ import Ember from 'ember';
 export default Ember.Route.extend({
 
 	model: function(params) {
+    this.set('username', params.username);
     return this.store.findRecord('public-profile', params.username);
   },
 
@@ -10,7 +11,8 @@ export default Ember.Route.extend({
   	console.log('<<<<',model.get('firstName'),
   		model.get('lastName'),
   		model.get('location'),
-  		model.get('userid'));
+  		model.get('userid'),
+      this.get('username'));
   	
   	let userid = model.get('userid');
     let _this = this;
@@ -21,6 +23,7 @@ export default Ember.Route.extend({
   },
 
   setupController: function(controller, model) {
+    model.username = this.get('username');
 	  controller.set('model', model)
 	  controller.set('trendingPosts', this.get('trendingPosts'))
 	}

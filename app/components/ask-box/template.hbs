@@ -1,8 +1,8 @@
 
-<form {{action 'ask' model.to model.from question on='submit'}}>
+<form {{action 'ask' model.userid model.ownerid question on='submit'}}>
   <div class="row">
-  	 {{input value=model.to type="text"}}
-  	 {{input value=model.from type="text"}}
+  	 {{input value=model.userid type="hidden"}}
+  	 {{input value=model.ownerid type="hidden"}}
      <div class="small-9 columns">
       {{textarea value=question placeholder="Ask" rows="4"}}
     </div>
