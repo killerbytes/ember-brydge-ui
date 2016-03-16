@@ -1,0 +1,8 @@
+
+{{#each model.asks as |q| }}
+<div class="callout">
+  <h5>{{ q.content }}</h5>
+  <p> {{ q.answer}}</p>
+  <a href="#">{{ q.from.name }}</a>
+</div>
+{{/each}}

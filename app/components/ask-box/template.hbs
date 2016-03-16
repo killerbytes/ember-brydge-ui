@@ -1,0 +1,14 @@
+
+<form {{action 'ask' model.to model.from question on='submit'}}>
+  <div class="row">
+  	 {{input value=model.to type="text"}}
+  	 {{input value=model.from type="text"}}
+     <div class="small-9 columns">
+      {{textarea value=question placeholder="Ask" rows="4"}}
+    </div>
+    <div class="small-9 columns">
+    <button type="submit" class="secondary hollow button">Ask</button>
+    </div>
+  </div>
+</form>
+

@@ -38,7 +38,7 @@ export default Ember.Route.extend(ApplicationRouteMixin, {
         console.log("TODO >>>>> application:route:authorizationFailed", this);
       },
       postToNewsfeed(data) {
-        //.log("Posting to newsfeed", {content:data});
+        console.log(">>>> Posting to newsfeed", {content:data});
         this.store.createRecord('post', {
           content: data
         }).save().

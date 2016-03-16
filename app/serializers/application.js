@@ -13,8 +13,8 @@ var underscore = Ember.String.underscore;
 
 export default DS.JSONAPISerializer.extend({
  
-  keyForAttribute: function(attr, method) {
-  	console.log('<<<<<<< Application keyForAttribute <<<<<<<<<');
-    return Ember.String.dasherize(attr).toUpperCase();
-  }
+  // keyForAttribute: function(attr, method) {
+  // 	console.log('<<<<<<< Application keyForAttribute <<<<<<<<<');
+  //   return Ember.String.dasherize(attr).toUpperCase();
+  // }
 });

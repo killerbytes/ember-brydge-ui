@@ -35,6 +35,7 @@ Router.map(function() {
   });
 
   this.route('profile', {path: ':username'});
+  this.route('ask', {path: ':username/ask'});
 });
 
 export default Router;
