@@ -1,8 +1,25 @@
 
-{{#each model.asks as |q| }}
+{{#each model as |q| }}
 <div class="callout">
-  <h5>{{ q.content }}</h5>
+  <h2>{{ q.content }}</h2>
   <p> {{ q.answer}}</p>
-  <a href="#">{{ q.from.name }}</a>
+  
+  {{#if answer}}
+
+  <form {{action 'answer' q.answer q.id on='submit'}}>
+	  <div class="row">
+	  	 {{input value=q.id type="text"}}
+	  	 
+	     <div class="small-9 columns">
+	      {{textarea value=q.answer placeholder='Write Answer' rows="4"}}
+	    </div>
+	    <div class="small-9 columns">
+	    <button type="submit" class="secondary hollow button">Answer</button>
+	    </div>
+	  </div>
+	</form>
+	{{else}}
+	<a href="#">{{ q.from.name }}</a>
+  {{/if}}
 </div>
 {{/each}}

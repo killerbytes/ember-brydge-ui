@@ -12,6 +12,7 @@ Router.map(function() {
 
   this.route('me', function() {
     this.route('edit',{path:'/edit/:profile_id'});
+    this.route('ask');
   });
 
 
@@ -35,7 +36,7 @@ Router.map(function() {
   });
 
   this.route('profile', {path: ':username'});
-  this.route('ask', {path: '/ask/:username'});
+  this.route('ask', {path: ':username/ask'});
 });
 
 export default Router;

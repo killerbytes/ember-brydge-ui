@@ -65,8 +65,8 @@
   </div>
   <div class="medium-6 float-left">
     <div class="expanded button-group">
-      <a class="secondary button">Message</a>
-      <a class="secondary button">Ask</a>
+      <a class="secondary button" disabled>Message</a>
+      <a class="secondary button" disabled>Ask</a>
     </div>
   </div>
 </div>
@@ -128,9 +128,11 @@
         <h2>What is your opinion on the latest WHO regulations on Soda advertising?</h2>
         <a href="" class="more">See Answer</a>
       </div>  
+      {{#link-to 'me.ask' }}
       <button class="button expanded">
         see more questions
       </button>
+      {{/link-to}}
     </div>    
     <div class="box snapshot">
       <h5 class="box-header">Snapshot</h5>
