@@ -9,6 +9,7 @@ export default Ember.Route.extend(ApplicationRouteMixin, {
       // XXX: TODO Display error notification on page template
     },
     logout() {
+      console.log('<<<<<< I m going to logout <<<<<<');
       var accessToken = this.get('session.data.authenticated.access_token');
       Ember.$.getJSON('http://localhost:8000/expire?token=' + accessToken).done(()=> {
         this.get('session').invalidate();

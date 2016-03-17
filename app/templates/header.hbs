@@ -114,7 +114,27 @@
 
 								</li>
 							<li> {{fa-icon "fort-awesome"}}</li>
-							<li>{{fa-icon "caret-down"}}</li>
+							
+							<li>
+
+								{{#zf-dropdown-menu}}
+								  <li>
+								    <a href="#">{{fa-icon "caret-down"}}</a>
+								    <ul class="menu">
+								      <li>
+								      	<!-- {{#link-to 'home.logout'}}
+								      		<a href="#" style="color: black; background-color: white">logout</a>
+								      	{{/link-to}} -->
+
+								      	<!-- <button {{logout}}>logout</button> -->
+								      	<a href="#" style="color: black; background-color: white" {{action 'logout'}}>logout</a>
+								      </li>
+								    </ul>
+								  </li>
+								 
+								{{/zf-dropdown-menu}}
+
+							</li>
 						</ul>
 					</li>
 				</ul>
