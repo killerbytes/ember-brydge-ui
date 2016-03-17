@@ -47,8 +47,8 @@ export default Ember.Route.extend({
 			});			
 		},
 
-		saveWork: function() {
-			console.log('saveWork from route');
+		saveWork: function(d) {
+			console.log('saveWork from route',d);
 		},
 
 		updateProfile: function(data) {
