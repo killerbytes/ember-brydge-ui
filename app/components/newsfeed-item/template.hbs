@@ -35,16 +35,17 @@
       </div>
       <div class="media-object-section">
         <div class="name"><strong><a href="">{{post.user.name}}</a></strong></div>
-        <small class="subheader">(TODO)</small>
+        <small class="subheader">Title: {{post.user.profile.jobTitle}}</small>
         <p class="small subheader">{{moment-from-now post.updated_at}}</p>
       </div>
     </div>
     <p>{{{post.content}}}</p>
     <img src="{{post.previewImage}}">
-    {{#if post.hashid}}
+    {{#if post.screenshot}}
     <div class="post-caption">
       <small class="subheader">{{post.siteName}}</small>
       <h3>{{post.title}}</h3>
+      <p>{{post.summary}}</p>
     </div>
     {{/if}}
   </div>
