@@ -38,6 +38,9 @@
  -->
 
 <div class="row column">
+  <div style="margin-top: 10px;">
+    {{#link-to 'me.edit' model.profile.id}} <button type="button" class="success button">Edit</button>  {{/link-to}}
+  </div>
   <div class="box profile profile-top">
     <div class="columns medium-6 text-right name">
       <h1><small>{{model.profile.firstName}}</small><br> <span>{{model.profile.lastName}}</span></h1>
@@ -53,13 +56,12 @@
       <span class="subheader">
         {{model.profile.location}}
       </span>
-      <div>
-        {{#link-to 'me.edit' model.profile.id}} <button type="button" class="success button">Edit</button>  {{/link-to}}
-      </div>
     </div>
+
   </div>
+
   <div class="medium-6 float-left box profile role-bar">
-    Head of Digital Marketing <br/>
+    {{ model.profile.jobTitle}} <br/>
     <strong>PEPSICO</strong>
 
   </div>

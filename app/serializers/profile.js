@@ -7,10 +7,7 @@ export default DS.JSONAPISerializer.extend({
       attr = result.data.attributes || {},
       rel = result.data.relationships || {};
 
-      console.log('result:',result);
-      console.log('attr:',attr);
-      console.log('rel:',rel);
-
+      console.log('attr', attr);
 
     var payloadData= Object.keys(rel).reduce(function(acc, elem) {
      
@@ -31,8 +28,6 @@ export default DS.JSONAPISerializer.extend({
  },
 
   keyForAttribute: function(attr) {
-    console.log('<<<<<<< Profile keyForAttribute <<<<<<<<<',attr)
-    return Ember.String.underscore(attr);
+    return attr;
   }
-
 });
