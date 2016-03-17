@@ -5,5 +5,6 @@ export default DS.Model.extend({
 	firstName: DS.attr('string'),
 	lastName: DS.attr('string'),
 	location: DS.attr('string'),
-	jobTitle: DS.attr('string')
+	jobTitle: DS.attr('string'),
+	works: DS.hasMany('work-experience')
 });

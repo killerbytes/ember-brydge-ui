@@ -4,24 +4,6 @@ export default Ember.Route.extend({
 	profileid: null,
 
 	model: function(params) {
-		// return {
-		// 	firstName: 'Hein',
-		// 	lastName: 'Zeya',
-		// 	works: [{
-		// 		id:1,
-		// 		company: 'Cromly',
-		// 		title: 'Snr. Software Engineer'
-		// 	},{
-		// 		id:2,
-		// 		company: 'Skoolbo',
-		// 		title: 'Software Engineer'
-		// 	},{
-		// 		id:3,
-		// 		company: 'Applied-Mesh',
-		// 		title: 'Snr. Software Engineer'
-		// 	}]
-		// }
-
 		const profileId = params.profile_id;
 		this.profileid = profileId;
 		
@@ -47,8 +29,17 @@ export default Ember.Route.extend({
 			});			
 		},
 
-		saveWork: function(d) {
-			console.log('saveWork from route',d);
+		saveWork: function(company, title, desc) {
+			console.log('saveWork from route',company, title, desc);
+			
+			let profile = this.store.peekRecord('profile', this.profileid);
+			let work = this.store.createRecord('work-experience', {
+				company: company,
+				jobTitle: title,
+				description: desc
+			});
+			profile.get('works').pushObject(work);
+			work.save();
 		},
 
 		updateProfile: function(data) {

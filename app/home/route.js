@@ -11,12 +11,7 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
   },
 
   model() {
-  	let userid = this.get('session.data.authenticated.user_id');
-    
-    return Ember.RSVP.hash({
-      newsfeeds: this.store.query('newsfeed', {target:'home'}),
-      profile: this.store.findRecord('profile', userid)
-    });
+  	return this.store.query('newsfeed', {target:'home'});
   },
 
   actions: {
