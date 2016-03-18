@@ -25,7 +25,10 @@
   </div>
   <div class="medium-6 float-left">
     <div class="expanded button-group">
+      {{#link-to 'connections'}}
       <a class="secondary button">Connect</a>
+      {{/link-to}}
+      
       <a class="secondary button">Message</a>
       <a class="secondary button">
         {{#link-to 'ask' model.username}}Ask{{/link-to}}

@@ -2,8 +2,10 @@ import Ember from 'ember';
 
 export default Ember.Route.extend({
 	session: Ember.inject.service('session'),
+  username: null,
 
-	model: function(params) {
+	model: function(params) {  
+    this.username = params.username;
     return this.store.findRecord('public-profile', params.username);
   },
 
@@ -30,9 +32,10 @@ export default Ember.Route.extend({
   },
 
   setupController: function(controller, model) {
-		
+		console.log('setupController', this.username)
 		// controller set the neccessary items 
 	  controller.set('model',{
+      username: this.username,
 	  	ownerid: this.get('ownerid'),
 	  	userid: this.get('userid'),
 	  	asks: this.get('asks')

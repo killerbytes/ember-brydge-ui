@@ -1,4 +1,51 @@
+<div class="row column">
+	<div class="ask-top-banner">
+		<h1>Ask @{{model.username}}</h1>
+		<p>Jon is currently taking your questions. Below are the questions professionals have asked Jon, which he's replied to. Use ASK to interact with Jon one-on-one. If he responds, the question and answer will be displayed on both your profiles. </p>
 
-{{ ask-box store=store model=model}}
+		<p>If you're not sure how to use this, see our tips here.</p>
+	</div>
+
+	<div class="row container">
+	  <div class="medium-8 columns">
+	  	<div class="ask-box">
+				<form {{action 'ask' model.userid model.ownerid question on='submit'}}>
+					{{input value=model.userid type="hidden"}}
+				  {{input value=model.ownerid type="hidden"}}
+				 	{{textarea value=question placeholder='Ask' rows="4"}}
+				 	<button type="submit" class="secondary button right">Ask</button>
+				</form>
+			</div>
+	  </div>
+	  <div class="medium-4 columns">
+	  	<div class="progress-box">
+	  		<div class="header">
+	  			<h3>Your Profile</h3>
+	  		</div>
+	  		<div>
+	  			<label>Completeness:</label>
+	  			<div class="progress" role="progressbar" tabindex="0" aria-valuenow="20" aria-valuemin="0" aria-valuetext="50 percent" aria-valuemax="100">
+				  <span class="progress-meter" style="width: 50%">
+				    <p class="progress-meter-text">50%</p>
+				  </span>
+				</div>
+	  		</div>
+	  		<div>
+	  			<label>Activity:</label>
+	  			<div class="progress" role="progressbar" tabindex="1" aria-valuenow="10" aria-valuemin="0" aria-valuetext="25 percent" aria-valuemax="100">
+				  <span class="progress-meter" style="width: 15%">
+				    <p class="progress-meter-text">15%</p>
+				  </span>
+				</div>
+	  		</div>
+	  		
+	  	</div>
+	  </div>
+	</div>
+
+	
+	<!-- {{ ask-box store=store model=model}} -->
 
 {{ questions-list model=model.asks answer=false }}
+</div>
+
