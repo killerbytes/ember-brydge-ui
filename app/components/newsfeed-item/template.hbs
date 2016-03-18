@@ -34,7 +34,13 @@
         </div>
       </div>
       <div class="media-object-section">
-        <div class="name"><strong><a href="">{{post.user.name}}</a></strong></div>
+        <div class="name">
+          
+          {{#link-to "profile" post.user.username}}
+            <strong>{{post.user.name}}</strong>
+          {{/link-to}}
+
+        </div>
         <small class="subheader">{{post.user.profile.jobTitle}}</small>
         <p class="small subheader">{{moment-from-now post.updated_at}}</p>
       </div>
