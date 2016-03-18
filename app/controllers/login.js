@@ -14,11 +14,12 @@ export default Ember.Controller.extend({
 
       this.get('session').authenticate('authenticator:oauth2', email, password)
         .then((user) => {
-          _this.transitionToRoute('home');
+          // console.log("user token=", user);
           const userid = _this.get('session.data.authenticated.account_id');
           const name = _this.get('session.data.authenticated.name');
           _this.get('session').set('data.userid', userid);
           _this.get('session').set('data.name', name);
+          _this.transitionToRoute('home');
         },
         (err) => {
           this.set('errorMessage', err.errors[0].details);

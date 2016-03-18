@@ -8,5 +8,5 @@ export default DS.Model.extend({
   createdAt: DS.attr('date'),
   newsfeeds: DS.hasMany('newsfeed'),
   connected: DS.attr('boolean'),
-  profile: DS.belongsTo('profile', {  async: false })
+  profile: DS.belongsTo('profile')
 });

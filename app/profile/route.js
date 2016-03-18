@@ -7,13 +7,14 @@ export default Ember.Route.extend({
     return this.store.findRecord('public-profile', params.username);
   },
 
-  afterModel: function(model, transaction) {
+  afterModel: function(model, transition) {
+
   	console.log('<<<<',model.get('firstName'),
   		model.get('lastName'),
   		model.get('location'),
   		model.get('userid'),
       this.get('username'));
-  	
+
   	let userid = model.get('userid');
     let _this = this;
 
