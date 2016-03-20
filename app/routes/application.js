@@ -1,5 +1,7 @@
 import Ember from 'ember';
 import ApplicationRouteMixin from 'ember-simple-auth/mixins/application-route-mixin';
+import ENV from 'web/config/environment';
+
 
 export default Ember.Route.extend(ApplicationRouteMixin, {
 
@@ -10,7 +12,7 @@ export default Ember.Route.extend(ApplicationRouteMixin, {
     },
     logout() {
       var accessToken = this.get('session.data.authenticated.access_token');
-      Ember.$.getJSON('http://localhost:8000/expire?token=' + accessToken).done(() => {
+      Ember.$.getJSON(ENV['ember-simple-auth'].serverTokenEndpoint + accessToken).done(() => {
         this.get('session').invalidate();
         console.log("Expired session", accessToken);
       });
