@@ -20,6 +20,7 @@ Router.map(function() {
   //  this.route('profile', {path: '/profile/:user_id'});
 
   this.route('post', {path: '/:user_id/:newsfeed_id'});
+
   this.route('page-not-found', { path: '/*wildcard' });
   // /teo-choong-pin
   this.route('public-profile', {path:'/:username'});
