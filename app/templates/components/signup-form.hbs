@@ -1,12 +1,11 @@
-<form {{action 'save' on='submit'}}>
+<form {{action 'save' on='submit'}} class="form-signup" autocomplete="off">
   <div class='row'>
     <div class='columns'>
-      <h4 class="text-center">New to Brydge?</h4>
       {{input value=name placeholder='Name'}}
       {{input value=email placeholder='Email'}}
       {{input value=password placeholder='New password' type='password'}}
-      <button type='submit' class='button expanded'>Signup</button>
-      <p>If you already have an account - {{#link-to 'login'}}Sign In{{/link-to}} - Reset Password</p>
+      <p>By signing up to the service you are agreeing to our {{link-to "Terms of Use" "home"}} and our {{link-to "Privacy Policy" "home"}}.</p>
+      <button type='submit' class='button'>CREATE ACCOUNT</button>
     </div>
   </div>
 </form>

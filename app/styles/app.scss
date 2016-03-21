@@ -1,3 +1,6 @@
+$brydge-blue:#6BCDFD;
+$light-blue: #CFEFFF;
+$sky-blue: #96DCFE;
 $border-color: #DEDEDE;
 
 
@@ -12,6 +15,7 @@ $border-color: #DEDEDE;
 @import "posts";
 @import "topbar";
 @import "profile";
+@import "forms";
 
 body{
 	background-color: #ECEDEF;
@@ -21,26 +25,42 @@ body{
 	outline-width: 0;
 
 }
-input[type="text"]{
-	box-shadow: none;
-}
 
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Raleway:500', helvetica, arial, sans-serif;
 }
 a{
-	color: $brydge-blue;
+	color: #43BFFB;
 }
 a.more{
 	font-size: 11px;
 	font-weight: normal;
 	display: block;
 }	
-
-form > div.row.column.log-in-form {
-  border: 1px solid #cacaca;
-  padding: 1.0rem !important;
-  border-radius: 3px;
+.jumbotron{
+	margin: 150px auto;
+}
+.bg-white{
+	background-color: #FFF;
+}
+.bg-blue{
+	background-color: $brydge-blue;
+}
+.bg-light-blue{
+	background-color: $light-blue;
+}
+.bg-sky-blue{
+	background-color: $sky-blue;
+}
+// form > div.row.column.log-in-form {
+//   border: 1px solid #cacaca;
+//   padding: 1.0rem !important;
+//   border-radius: 3px;
+// }
+.signup-section{
+	padding-left: 3px;
+	padding-right: 0;
+	padding-bottom: 0;
 }
 .sidebar{
 	padding-left: 0;

@@ -3,6 +3,13 @@ import Ember from 'ember';
 export default Ember.Controller.extend({
   session: Ember.inject.service('session'),
   sessionAccount: Ember.inject.service('session-account'),
+  updateCurrentPath: function(){
+  	if(this.get('currentPath') == 'index'){
+  		this.set('landingPage', true);
+  	}else{
+  		this.set('landingPage', false);
+  	}
+  }.observes('currentPath'),
 
   actions: {
     registerUser() {

@@ -1,7 +1,7 @@
 import Ember from 'ember';
 
 export default Ember.Component.extend({
-
+  classNames: ['bg-sky-blue', 'clearfix'],
   actions: {
     save: function() {
       const name = this.get('name');

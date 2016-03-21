@@ -1,11 +1,37 @@
 
-<div class='row'>
+<div class='row bg-light-blue'>
   <div class='medium-6 large-7 columns'>
-    <h1>New kind of networking</h1>
-    <p>You can do better networking than add, follow and like somethng.</p>
+  	<div class="jumbotron text-center">
+    	<h1>Connect. Interact. Grow.</h1>
+	    <p>Simplifying professional interaction and facilitating self-development</p>
+    </div>
   </div>
 
-  <div class='medium-6 large-5 columns'>
+  <div class='medium-6 large-5 columns bg-white signup-section'>
+        <form {{action 'authenticate' on='submit'}} class="form-signin">
+            <div class="row column log-in-form">
+				<div class="text-center">
+					<a href="/"><img class="logo" src="assets/brydge-blue.svg"></a>
+				</div>
+                {{#if errorMessage}}
+                  <div class="warning callout small" data-closable>
+                    <h7>Login failed, {{errorMessage}}</h7>
+                    <p>Please register an account or reset password.</p>
+                    <button class="close-button" aria-label="Dismiss alert" type="button" data-close><span aria-hidden="true">&times;</span></button>
+                  </div>
+                {{/if}}
+
+                    {{input id='email' placeholder="your@email.com" value=email}}
+
+                    {{input type='password' placeholder="Password" value=password}}
+                <!-- <input id="show&#45;password" type="checkbox"><label for="show&#45;password">Show password</label> -->
+                <button class="button secondary" type="submit">LOG IN</button>
+                <a href="#" class="float-right" style="margin-top: 5px;">Forgot your password?</a>
+            </div>
+        </form>
+
+
     {{signup-form signupUser='registerUser' }}
+
   </div>
 </div>

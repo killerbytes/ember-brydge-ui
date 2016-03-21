@@ -15,6 +15,8 @@
 	}
 	a{
 		color: #FFF;
+		margin: 5px 0;
+		display: block;
 	}
 	.actions{
 		vertical-align: top;
@@ -27,15 +29,18 @@
 		li{
 			position: relative;
 		}
+		a{
+			padding: 0;
+		}
 		.badge{
 			border-radius: 0;
 			padding: 0;
 			min-width: 1.2em;
-			font-size: 10px;
+			font-size: 11px;
 			text-align: center;
 			line-height: 1.3em;
 			position: absolute;
-			top: 2px;
+			top: 5px;
 			left: 0;
 		}
 	}

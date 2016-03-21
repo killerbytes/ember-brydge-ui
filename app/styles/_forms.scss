@@ -1,0 +1,53 @@
+.log-in-form{
+	.logo{
+		height: 40px;
+		margin: 35px 0;
+	}
+}
+
+form{
+	[type='text'], 
+	[type='password'], 
+	[type='date'], 
+	[type='datetime'], 
+	[type='datetime-local'], 
+	[type='month'], 
+	[type='week'], 
+	[type='email'], 
+	[type='number'], 
+	[type='search'], 
+	[type='tel'], 
+	[type='time'], 
+	[type='url'], 
+	[type='color'], 
+	textarea{
+		box-shadow: none;
+		padding: 5px 10px;
+		height: auto;
+	}	
+}
+
+.form-signin, .form-signup{
+	width: 70%;
+	margin: auto;
+	button{
+		font-size: 14px;
+		font-weight: bold;
+		padding-top: 10px;
+		padding-bottom: 10px;
+	}
+}
+.form-signin{
+	margin-bottom: 40px;
+}
+.form-signup{
+	margin-top: 60px;
+	margin-bottom: 60px;
+	input{
+		margin-bottom: 5px;
+	}
+	p{
+		color: #999;
+		font-size: 11px;
+	}
+}
