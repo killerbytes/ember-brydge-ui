@@ -25,6 +25,9 @@ export default DS.JSONAPISerializer.extend({
       return acc;
 
     }, attr);
- }
+ },
+ keyForAttribute: function(attr) {
+    return attr;
+  }
 
 });
