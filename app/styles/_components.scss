@@ -100,3 +100,26 @@
 		font-size: 11px;
 	}
 }
+.jumbotron{
+	margin: 150px auto;
+	h1{
+		font-size: 35px;
+		font-weight: bold;
+	}
+
+}
+
+ul.footer-menu{
+	display: table;
+	margin: 20px auto;
+	li:first-child{
+		list-style: none;
+	}
+	li:last-child{
+		margin-right: 0;
+	}
+	li{
+		float: left;
+		margin-right: 25px;
+	}
+}

@@ -4,4 +4,6 @@
 
 {{outlet}}
 
-{{render "footer"}}
+{{#unless landingPage}}
+  {{render "footer"}}
+{{/unless}}	
