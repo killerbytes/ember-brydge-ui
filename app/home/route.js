@@ -1,12 +1,13 @@
 import Ember from 'ember';
 import AuthenticatedRouteMixin from 'ember-simple-auth/mixins/authenticated-route-mixin';
+import ENV from 'web/config/environment';
+
 
 export default Ember.Route.extend(AuthenticatedRouteMixin, {
   session: Ember.inject.service('session'),
-  
+
   beforeModel(transition, params) {
     this._super(transition, params);
-
     return this.get('sessionAccount.account');
   },
 
@@ -17,10 +18,10 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
   actions: {
 
     logout: function(){
-      console.log('<<<<<<<<<< i m logout from home')
+      console.log('home/logout>>>')
 
       var accessToken = this.get('session.data.authenticated.access_token');
-      Ember.$.getJSON('http://localhost:8000/expire?token=' + accessToken).done(()=> {
+      Ember.$.getJSON(ENV['ember-simple-auth'].authorizerHost + "/expire?token=" + accessToken).done(()=> {
         this.get('session').invalidate();
         console.log("Expired session", accessToken);
       });
