@@ -1,13 +1,34 @@
-<div>
-	<h3>Messages for {{model.id}} ({{model.messages.length}})</h3>
 
-	{{#each model.messages as |message|}}
-			<div class="callout secondary">
-				[{{message.from.name}}]
-				<p>{{ message.content }}</p>
-			</div>
-	{{/each}}
+
+<div class="conversation-content">
+	<ul class="no-bullet">
+
+	  {{#each model.messages as |message| }}
+	    
+	    <li>
+	      <div class="media-object">
+	        <div class="media-object-section">
+	          <div class="thumbnail">
+	            <img src= "assets/avatar.png" class="avatar">
+	          </div>
+	        </div>
+	        <div class="media-object-section main-section">
+	          <span><strong>{{ message.from.name }}</strong></span>
+	          <span class="float-right subheader">
+	          {{moment-format message.updatedAt "hA"}}</span>
+	          <p>{{ message.content }}</p>
+	        </div>
+	      </div>
+	    </li>
+
+	  {{/each}} 
+
+
+	</ul>
+	{{ message-box store=store resp='getResponse' buttonLabel='Reply' showToInput=false to=model.id}}
 </div>
 
 
- {{ message-box store=store resp='getResponse' buttonLabel='Reply' showToInput=false to=model.id}}
+
+
+ 

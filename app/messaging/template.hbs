@@ -1,35 +1,65 @@
-<div class="container" style="margin-top: 30px">
-<div class="row">
-  <div class="medium-4 columns">
-    {{#link-to "messaging.compose" }}
-      <button class="secondary button">{{fa-icon "fa-pencil-square-o"}} New Message</button>
-    {{/link-to}}
+<div class="container">
+ <div class="row column">
+   <div class="medium-5 columns">
+     <div class="left-side-bar">
+       <div class="left-header">
+        <div class="top-bar">
+          <div>
+            <div class="top-bar-left">
+              <ul class="menu">
+                <li><a href="#">Inbox</a></li>
+                <li><a href="#">Others</a></li>
+              </ul>
+            </div>
+            <div class="top-bar-right top-right-padding">
+              {{#link-to "messaging.compose" }}
+                <button class="secondary button">New Message</button>
+              {{/link-to}}
+              
+            </div>
+          </div>
+        </div>
+       </div>
+       <div class="search">
+       {{input placeholder='search'}} 
+       </div>
+       <div class="contacts-list">
+         <ul class="no-bullet">
 
-  </div>
-</div>
+            {{#each model as |chat| }}
+              {{#link-to "conversation" chat.id}}
+                
 
-<div class="row">
-  <div class="medium-4 columns">
+              <li>
+                <div class="media-object">
+                  <div class="media-object-section">
+                    <div class="thumbnail">
+                      <img src= "assets/avatar.png" class="avatar">
+                    </div>
+                  </div>
+                  <div class="media-object-section main-section">
+                    <span><strong>{{ chat.other.name }}</strong></span>
+                    <span class="float-right subheader">
+                      {{moment-format chat.updatedAt "hA"}}
+                    </span>
+                    <p>xxxx</p>
+                  </div>
+                </div>
+              </li>
 
-    {{#ui-list
-    size='default'
-     mood='mood'
-     skin='default'
-     compressed=false
-     sortAscending=true
-     as |list| }}
-    {{#each model as |chat| }}
-      {{#link-to "conversation" chat.id}}
-        {{ui-item
-             title=chat.other.name
-             icon='user'
-             list=list }}
-      {{/link-to}}
 
-    {{/each}} {{/ui-list}}
-  </div>
-  <div class="medium-8 columns">
-  	{{outlet}}
-  </div>
-</div>
-</div>
+              {{/link-to}}
+            {{/each}} 
+
+
+          </ul>
+       </div>
+     </div>
+   </div>
+   <div class="medium-7 columns">
+     <div class="content-container">
+       {{ outlet }}
+     </div>
+   </div>
+ </div>
+ </div>

@@ -1,0 +1,44 @@
+.left-header{
+	background-color: white;
+	.top-bar{
+		background-color: white;
+		border-left: 1px solid #cacaca;
+		border-top: 1px solid #cacaca;
+		.top-bar-left .menu{
+			li a{
+				color: #303030;
+			}
+		}
+	  .button.secondary {
+	    background-color: #DEDEDE;
+	    color: #fff;
+	    font-size: 12px;
+	    text-transform:	none;
+	    color: #303030;
+		}
+	}
+}
+
+.top-right-padding{
+	padding: 5px;
+}
+
+.container .columns{
+	padding: 0px;
+}
+
+.avatar{
+	width: 40px;
+}
+
+.contacts-list{
+	li{
+		border: 1px solid #cacaca;
+	}
+	li span{
+		color: black;
+	}
+	p{
+		color: #303030;
+	}
+}
