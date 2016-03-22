@@ -5,7 +5,7 @@ export default Ember.Controller.extend({
   isNewWork: false,
   // add education form
   isNewEducation: false,
-  
+
   actions: {
   	addNewWork: function() {
   		console.log('add new work');
@@ -23,5 +23,6 @@ export default Ember.Controller.extend({
   		console.log('cancel education');
   		this.set('isNewEducation', status);
   	}
+
   }
 });

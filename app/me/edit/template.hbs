@@ -4,6 +4,7 @@
 	  <li class="tabs-title is-active"><a href="#panel1" aria-selected="true">Personal Particulars</a></li>
 	  <li class="tabs-title"><a href="#panel2">Work History</a></li>
 	  <li class="tabs-title"><a href="#panel3">Academia</a></li>
+	  <li class="tabs-title"><a href="#industry">Industry</a></li>
 	{{/zf-tabs}}
     </div>
     <div class="medium-9 columns">
@@ -28,5 +29,10 @@
 					{{/if}}
 			  </div>
 			</div> 
+
+			<div class="tabs-panel" id="industry">
+			   {{partial 'me/edit/industry'}}
+			</div>
+			
     </div>
 </div>
