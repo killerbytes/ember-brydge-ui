@@ -5,7 +5,7 @@ export default Ember.Controller.extend({
   isNewWork: false,
   // add education form
   isNewEducation: false,
-
+  chosenPatient: null,
   actions: {
   	addNewWork: function() {
   		console.log('add new work');
@@ -22,7 +22,11 @@ export default Ember.Controller.extend({
   	cancelEducation: function(status){
   		console.log('cancel education');
   		this.set('isNewEducation', status);
-  	}
+  	},
+    saveIndustry: function(industry, job1, job2) {
+      console.log('<<< Controller', industry, job1, job2, this.chosenPatient);
+      
+    }
 
   }
 });

@@ -1,10 +1,30 @@
-{{select-2
-    placeholder="Choose from our many pizzas"
-    value=chosenTypeaheadPizza
-    typeaheadSearchingText="Searching pizzas"
-    typeaheadNoMatchesText="No pizzas found for '%@'"
-    typeaheadErrorText="Loading failed: %@"
-    minimumInputLength=3
-    maximumInputLength=10
-    query="queryCategories"
-}}
+<form {{action 'saveIndustry' industry occupationOne occupationTwo on='submit'}}>
+<div class="row column">
+	<label>
+	  Job Industry:
+	  
+	  {{ typehead-industry-search store=store}}
+	</label>
+</div>
+<div class="row column">
+	<label>
+	  Occupation Industry - 1:
+	  
+	  {{ typehead-industry-search store=store }}
+	</label>
+</div>
+<div class="row column">
+	<label>
+  Occupation Industry - 2:
+  
+  {{ typehead-industry-search store=store}}
+</label>
+</div>
+<button type='submit' class='button'>Save Changes</button>
+</form>
+
+
+
+
+
+

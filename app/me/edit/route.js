@@ -48,12 +48,13 @@ export default Ember.Route.extend({
 
 		updateProfile: function(data) {
 			console.log('update data', data);
-		},
-
-		queryCategories: function(query, deferred) {
-			console.log('>>> query categories', query);
-      this.store.query('category', { q: query.term })
-        .then(deferred.resolve, deferred.reject);
-    }
+		}
 	}
 });
+
+
+
+
+
+
+
