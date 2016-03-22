@@ -2,6 +2,7 @@ $brydge-blue:#6BCDFD;
 $light-blue: #CFEFFF;
 $sky-blue: #96DCFE;
 $border-color: #DEDEDE;
+$body-color: #4C4C4C;
 
 
 @import url(https://fonts.googleapis.com/css?family=Raleway:400,500);
@@ -12,18 +13,20 @@ $border-color: #DEDEDE;
 @import "pods";
 @import "components";
 @import "buttons";
-@import "posts";
 @import "topbar";
 @import "profile";
 @import "forms";
 
 body{
 	background-color: #ECEDEF;
-	color: #4C4C4C;
+	color: $body-color;
 }
 *{
 	outline-width: 0;
 
+}
+.wrapper{
+	position: relative;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -40,6 +43,9 @@ a.more{
 .index{
 	max-width: 85rem;
 }
+.dim-text{
+	color: #CCC;
+}
 .bg-white{
 	background-color: #FFF;
 }
@@ -51,6 +57,9 @@ a.more{
 }
 .bg-sky-blue{
 	background-color: $sky-blue;
+}
+.shadowed{
+	box-shadow: 0 0 0 .5px rgba(0, 0, 0, .1) inset, 0 1px 1px rgba(0, 0, 0, .01);	
 }
 // form > div.row.column.log-in-form {
 //   border: 1px solid #cacaca;

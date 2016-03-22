@@ -1,6 +1,7 @@
 import Ember from 'ember';
 
 export default Ember.Component.extend({
+	classNames: ['share-box'],
 	actions: {
     post() {
       console.log('Posting to newsfeed man', this.get('postContent'));

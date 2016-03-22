@@ -66,9 +66,9 @@
 
   </div>
   <div class="medium-6 float-left">
-    <div class="expanded button-group">
-      <a class="secondary button" disabled>Message</a>
-      <a class="secondary button" disabled>Ask</a>
+    <div class="profile-actions expanded button-group">
+      <a class="secondary button large" disabled>Message</a>
+      <a class="secondary button large" disabled>Ask</a>
     </div>
   </div>
 </div>
@@ -91,33 +91,8 @@
 
       </div>
     </div>
-    <div class="box post-form">
-      <div class="post-bar border-b">
-        <div class="thumbnail">
-          <img src= "assets/avatar-2.jpg">
-        </div>
-        <div class="post-form">
-          <input type="text" placeholder="Get noticed: broadcast opinions, Industry news, and request">
-        </div>
-      </div>
-      <div class="actions">
-        <div class="float-right">
-        {{#zf-dropdown-menu class="border-l border-r float-left"}}
-          <li>
-            <a href="#">Select channel</a>
-            <ul class="menu">
-              <li><a href="#">Item 1A</a></li>
-            </ul>
-          </li>
-          {{/zf-dropdown-menu}}
-
-          <button class="button">
-            Broadcast
-          </button>
-        </div>
-      </div>
-
-    </div>
+	
+	{{share-box postToNewsfeed='postToNewsfeed'}}
 
     {{newsfeed-list newsfeed=model.posts}}
 
@@ -125,10 +100,12 @@
   </div>
   <div class="columns medium-5 sidebar">
     <div class="box question-box">
-      <div class="columns">
+      <div class="columns wrapper clearfix">
         <a href="">Nikhil Charan</a> asked <a href="">Jon Wayne</a>
         <h2>What is your opinion on the latest WHO regulations on Soda advertising?</h2>
-        <a href="" class="more">See Answer</a>
+       	<div class="floated">
+        	<a href="" class="more">See Answer</a>
+        </div>
       </div>
       {{#link-to 'me.ask' }}
       <button class="button expanded">

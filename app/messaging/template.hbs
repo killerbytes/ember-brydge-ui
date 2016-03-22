@@ -1,60 +1,53 @@
 <div class="container">
  <div class="row column">
    <div class="medium-5 columns">
-     <div class="left-side-bar">
+     <aside>
        <div class="left-header">
-        <div class="top-bar">
-          <div>
-            <div class="top-bar-left">
-              <ul class="menu">
-                <li><a href="#">Inbox</a></li>
-                <li><a href="#">Others</a></li>
-              </ul>
-            </div>
-            <div class="top-bar-right top-right-padding">
-              {{#link-to "messaging.compose" }}
-                <button class="secondary button">New Message</button>
-              {{/link-to}}
-              
-            </div>
-          </div>
-        </div>
+        	<div class="top-bar">
+       			<a href="#" class="button clear">Inbox</a>
+       			<a href="#" class="button clear">Others</a>
+
+				{{#link-to "messaging.compose" class="float-right secondary button" }}
+					New Message
+				{{/link-to}}
+        	</div>
        </div>
        <div class="search">
        {{input placeholder='search'}} 
        </div>
-       <div class="contacts-list">
+       <div class="messages contacts-list">
          <ul class="no-bullet">
 
             {{#each model as |chat| }}
-              {{#link-to "conversation" chat.id}}
+              
                 
 
               <li>
-                <div class="media-object">
-                  <div class="media-object-section">
-                    <div class="thumbnail">
-                      <img src= "assets/avatar.png" class="avatar">
-                    </div>
-                  </div>
-                  <div class="media-object-section main-section">
-                    <span><strong>{{ chat.other.name }}</strong></span>
-                    <span class="float-right subheader">
-                      {{moment-format chat.updatedAt "hA"}}
-                    </span>
-                    <p>xxxx</p>
-                  </div>
-                </div>
+              	{{#link-to "conversation" chat.id}}
+	                <div class="media-object">
+	                  <div class="media-object-section">
+	                    <div class="thumbnail">
+	                      <img src= "assets/avatar-1.jpg" class="avatar">
+	                    </div>
+	                  </div>
+	                  <div class="media-object-section main-section">
+	                    <span><strong>{{ chat.other.name }}</strong></span>
+	                    <span class="float-right subheader">
+	                      {{moment-format chat.updatedAt "hA"}}
+	                    </span>
+	                    <p>Hey Jon, I thought you should take a look at this.</p>
+	                  </div>
+	                </div>
+	            {{/link-to}}
               </li>
 
 
-              {{/link-to}}
             {{/each}} 
 
 
           </ul>
        </div>
-     </div>
+     </aside>
    </div>
    <div class="medium-7 columns">
      <div class="content-container">

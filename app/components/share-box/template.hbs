@@ -33,15 +33,32 @@
     </div>
   </div>
   <div class="actions">
-    <div class="float-right">
-    {{#zf-dropdown-menu class="border-l border-r float-left"}}
-      <li>
-        <a href="#">Select channel</a>
-        <ul class="menu">
-          <li><a href="#">Item 1A</a></li>
-        </ul>
-      </li>
-      {{/zf-dropdown-menu}}
+    <div class="float-right wrapper">
+
+	<a class="button dropdown-button" data-toggle="example-dropdown">
+		Select Channel
+		<i class="fa fa-caret-down"></i>
+	</a>
+	{{#zf-dropdown id="example-dropdown"}}
+		<section>
+			<strong>Relevant Industry Channels</strong>
+			<ul class="no-bullet">
+				<li>Food & Beverage <input type="checkbox"></li>
+				<li>Advertising & Marketing <input type="checkbox"></li>
+				<li>Digital Marketing <input type="checkbox"></li>
+			</ul>
+			<p><a href="">Edit Occupation Insdustry</a></p>
+			<div class="dim-text">Broadcast will also be shared with Connections by default</div>
+		</section>
+		<hr>
+		<section>
+			<strong>My Connections</strong>
+			<ul class="no-bullet">
+				<li>Only Broadcast to My Connections <input type="checkbox"></li>
+			</ul>			
+		</section>
+	{{/zf-dropdown}}
+
 
       <a href="" class="button">Broadcast</a>
     </div>

@@ -1,5 +1,4 @@
-
-<div class="top-bar">
+<header class="top-bar">
 	<div class="row columns">
 		<div class="top-bar-title"><a href="/"><img src="assets/logo.svg"></a></div>
 		<div>
@@ -10,136 +9,156 @@
 				</ul>
 			</div>
 			<div class="top-bar-right">
+				<div class="top-bar-group top-bar-search">
+					<input class="input-group-field" type="search" placeholder="Search">
+					<div class="input-group-button">
+						{{fa-icon "search"}}
+					</div>
+				</div>
+				<ul class="top-bar-group menu actions">
 
-				<ul class="menu">
+					<li> <span>{{fa-icon "user-plus"}}</span></li>
 					<li>
-						<div class="input-group top-bar-search">
-						<input class="input-group-field" type="search" placeholder="Search">
-							<div class="input-group-button">
-								{{fa-icon "search"}}
-							</div>
-						</div>
+						<span class="alert badge">3</span>
+						{{#link-to 'messaging'}}{{fa-icon "fa-envelope"}}{{/link-to}}
 					</li>
-					<li class="actions">
-						<ul class="menu">
-
-							<li> {{fa-icon "user-plus"}} </li>
-							<li>{{#link-to 'messaging'}}{{fa-icon "fa-envelope"}}{{/link-to}}</li>
-							<li>
-								<span class="alert badge">5</span>
-								<span class="fa fa-tasks"
-									id="azid"
-									data-toggle="dd-messages"></span>
-									{{#zf-dropdown id="dd-messages" data-auto-focus="true"}}
-										<ul class="no-bullet">
-											<li>
-												<div class="media-object">
-													<div class="media-object-section">
-														<div class="thumbnail">
-															<img src= "assets/avatar-1.jpg">
-														</div>
-													</div>
-													<div class="media-object-section main-section">
-														<span>Mark JUDGE</span>
-														<span class="float-right subheader">2:30pm</span>
-														<p>Hey Jon, I thought you should take a look a this.</p>
-													</div>
+					<li>
+						<span class="alert badge">5</span>
+						<span class="fa fa-tasks"
+							data-toggle="dd-messages"></span>
+							{{#zf-dropdown id="dd-messages" data-auto-focus="true"}}
+								<ul class="no-bullet">
+									<li>
+										<div class="media-object">
+											<div class="media-object-section">
+												<div class="thumbnail">
+													<img src= "assets/avatar-1.jpg">
 												</div>
-											</li>
-											<li>
-												<div class="media-object">
-													<div class="media-object-section">
-														<div class="thumbnail">
-															<img src= "assets/avatar-2.jpg">
-														</div>
-													</div>
-													<div class="media-object-section main-section">
-														<span>Mark JUDGE</span>
-														<span class="float-right subheader">2:30pm</span>
-														<p>Hey Jon, I thought you should take a look a this.</p>
-													</div>
+											</div>
+											<div class="media-object-section main-section">
+												<span>Mark JUDGE</span>
+												<span class="float-right subheader">2:30pm</span>
+												<p>Hey Jon, I thought you should take a look a this.</p>
+											</div>
+										</div>
+									</li>
+									<li>
+										<div class="media-object">
+											<div class="media-object-section">
+												<div class="thumbnail">
+													<img src= "assets/avatar-2.jpg">
 												</div>
-											</li>
-											<li>
-												<div class="media-object">
-													<div class="media-object-section">
-														<div class="thumbnail">
-															<img src= "assets/avatar-1.jpg">
-														</div>
-													</div>
-													<div class="media-object-section main-section">
-														<span>Mark JUDGE</span>
-														<span class="float-right subheader">2:30pm</span>
-														<p>Hey Jon, I thought you should take a look a this.</p>
-													</div>
+											</div>
+											<div class="media-object-section main-section">
+												<span>Mark JUDGE</span>
+												<span class="float-right subheader">2:30pm</span>
+												<p>Hey Jon, I thought you should take a look a this.</p>
+											</div>
+										</div>
+									</li>
+									<li>
+										<div class="media-object">
+											<div class="media-object-section">
+												<div class="thumbnail">
+													<img src= "assets/avatar-1.jpg">
 												</div>
-											</li>
-											<li>
-												<div class="media-object">
-													<div class="media-object-section">
-														<div class="thumbnail">
-															<img src= "assets/avatar-2.jpg">
-														</div>
-													</div>
-													<div class="media-object-section main-section">
-														<span>Mark JUDGE</span>
-														<span class="float-right subheader">2:30pm</span>
-														<p>Hey Jon, I thought you should take a look a this.</p>
-													</div>
+											</div>
+											<div class="media-object-section main-section">
+												<span>Mark JUDGE</span>
+												<span class="float-right subheader">2:30pm</span>
+												<p>Hey Jon, I thought you should take a look a this.</p>
+											</div>
+										</div>
+									</li>
+									<li>
+										<div class="media-object">
+											<div class="media-object-section">
+												<div class="thumbnail">
+													<img src= "assets/avatar-2.jpg">
 												</div>
-											</li>
-											<li>
-												<div class="media-object">
-													<div class="media-object-section">
-														<div class="thumbnail">
-															<img src= "assets/avatar-1.jpg">
-														</div>
-													</div>
-													<div class="media-object-section main-section">
-														<span>Mark JUDGE</span>
-														<span class="float-right subheader">2:30pm</span>
-														<p>Hey Jon, I thought you should take a look a this.</p>
-													</div>
+											</div>
+											<div class="media-object-section main-section">
+												<span>Mark JUDGE</span>
+												<span class="float-right subheader">2:30pm</span>
+												<p>Hey Jon, I thought you should take a look a this.</p>
+											</div>
+										</div>
+									</li>
+									<li>
+										<div class="media-object">
+											<div class="media-object-section">
+												<div class="thumbnail">
+													<img src= "assets/avatar-1.jpg">
 												</div>
-											</li>
-										</ul>
-										{{#link-to 'messaging'}}
-											<button class="button expanded">
-												See All Messages
-											</button>
-										{{/link-to}}
+											</div>
+											<div class="media-object-section main-section">
+												<span>Mark JUDGE</span>
+												<span class="float-right subheader">2:30pm</span>
+												<p>Hey Jon, I thought you should take a look a this.</p>
+											</div>
+										</div>
+									</li>
+								</ul>
+								{{#link-to 'messaging'}}
+									<button class="button expanded">
+										See All Messages
+									</button>
+								{{/link-to}}
 
-									{{/zf-dropdown}}
+							{{/zf-dropdown}}
 
 
-								</li>
-							<li> {{fa-icon "fort-awesome"}}</li>
-							
-							<li>
+						</li>
+					<li> <span>{{fa-icon "fort-awesome"}}</span></li>
+					
+					<li class="hide">
 
-								{{#zf-dropdown-menu}}
-								  <li>
-								    <a href="#">{{fa-icon "caret-down"}}</a>
-								    <ul class="menu">
-								      <li>
-								      	<!-- {{#link-to 'home.logout'}}
-								      		<a href="#" style="color: black; background-color: white">logout</a>
-								      	{{/link-to}} -->
+						{{#zf-dropdown-menu}}
+						  <li>
+						    <a href="#"></a>
+						    <ul class="menu">
+						      <li>
+						      	<!-- {{#link-to 'home.logout'}}
+						      		<a href="#" style="color: black; background-color: white">logout</a>
+						      	{{/link-to}} -->
 
-								      	<!-- <button {{logout}}>logout</button> -->
-								      	<a href="#" style="color: black; background-color: white" {{action 'logout'}}>logout</a>
-								      </li>
-								    </ul>
-								  </li>
-								 
-								{{/zf-dropdown-menu}}
+						      	<!-- <button {{logout}}>logout</button> -->
+						      	<a href="#" style="color: black; background-color: white" {{action 'logout'}}>logout</a>
+						      </li>
+						    </ul>
+						  </li>
+						 
+						{{/zf-dropdown-menu}}
 
-							</li>
-						</ul>
+					</li>
+					<li>
+						<span class="fa fa-caret-down"
+							data-toggle="dd-menu"></span>
+							{{#zf-dropdown id="dd-menu" data-auto-focus="true"}}
+								<ul class="menu">
+									<li>{{link-to "Home" "home"}}</li>
+								</ul>
+								<ul class="menu">
+									<li>{{link-to "Profile" "me"}}</li>
+									<li>{{link-to "Edit Profile" "me"}}</li>
+									
+								</ul>
+								<ul class="menu">
+									<li><a href="">People Search</a></li>									
+								</ul>
+								<ul class="menu">
+									<li><a href="">Settings</a></li>
+									<li><a href="">User Guide</a></li>
+									<li><a href="" {{action 'logout'}}>Log out</a></li>
+									
+								</ul>
+
+							{{/zf-dropdown}}
+						
 					</li>
 				</ul>
 
 			</div>
 		</div>
 	</div>
-</div>
+</header>

@@ -1,0 +1,66 @@
+.share-box{
+	margin-top: 5px;
+	.post-bar{
+		padding: 5px;
+		.thumbnail{
+			position: absolute;
+			width: 35px;
+			height: 35px;
+			margin: 0;
+		}
+		.post-form{
+			padding-left: 40px;
+			textarea{
+				padding-left: 0;
+				border: none;
+				box-shadow: none;
+				resize: none;
+				font-size: 12px;
+				margin: 0;
+				min-height: auto;
+				height: 35px;
+			}
+		}
+	}
+	.is-down-arrow a{
+		padding-right: 35px;
+		color: #717171;	
+	}
+	.button{
+		float: left;
+		font-weight: bold;
+		margin: 0;
+		background-color: #F5F5F5;
+		color: $brydge-blue;
+		border-left: 1px solid $border-color;
+	}
+	.dropdown-button{
+		color :$body-color;
+		text-transform: capitalize;
+	}
+	.dropdown-pane{
+		left: -124px !important;
+		width: 250px;
+		padding: 0;
+		ul>li>input[type="checkbox"]{
+			float: right;
+			margin: 3px 0;
+		}
+		section{
+			padding: .5rem;
+		}
+		hr{
+			margin: 0;
+		}
+		section:last-child ul{
+			margin: 0;
+		}
+		strong{
+			text-transform: uppercase;
+		}
+	}
+	.dropdown-pane:not(.top){
+		border-top: 0;		
+	}
+
+}
