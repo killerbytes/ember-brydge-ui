@@ -88,6 +88,13 @@ a.more{
 .border-b{
 	border-bottom: 1px solid $border-color;
 }
+.mt5{
+	margin-top: 5px;
+}
+input.flat{
+	border: 0;
+	box-shadow: none;
+}
 img.circle{
 	border-radius: 200px;	
 	width: 100%;

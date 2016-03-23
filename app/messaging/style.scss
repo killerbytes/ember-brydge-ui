@@ -1,6 +1,7 @@
 
-.left-header{
+aside{
 	background-color: white;
+	border: 1px solid $border-color;
 	.top-bar{
 		background-color: white;
 		// border-left: 1px solid #cacaca;
@@ -18,27 +19,47 @@
 	    // color: #303030;
 		}
 	}
+	.messages{
+		.avatar{
+			width: 50px;
+		}
+
+	}
+	.search{
+		input{
+			margin: 0;
+			font-size: 12px;
+		}		
+	}
+
+	.contacts-list{
+		ul{
+			margin: 0;
+		}
+		li{
+			border-bottom: 1px solid $border-color;
+			padding: 7px;
+		}
+		.media-object{
+			margin-bottom: 0;
+			.thumbnail{
+				margin-bottom: 0;
+			}
+			strong{
+				color: #666;
+			}
+			p{
+				font-size: 11px;
+			}
+			p, .subheader{
+				color: #999;
+				margin: 0;
+			}
+		}
+	}
+
 }
 
 .container .columns{
 	padding: 0px;
-}
-.messages{
-	.avatar{
-		width: 50px;
-	}
-
-}
-
-
-.contacts-list{
-	li{
-		border: 1px solid #cacaca;
-	}
-	li span{
-		color: black;
-	}
-	p{
-		color: #303030;
-	}
 }
