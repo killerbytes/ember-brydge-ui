@@ -9,11 +9,29 @@ export default Ember.Route.extend({
 		
 		console.log('GET /profiles/',profileId, params);
 
-		//return this.store.findRecord('profile', params.profile_id);
+		return this.store.findRecord('profile', params.profile_id);
+	},
 
-		return Ember.RSVP.hash({
-      profile: this.store.findRecord('profile', params.profile_id)
-    });
+	setupController: function(controller, model) {
+		
+		console.log('<<<< setupController ',model.get('firstName'),
+  		model.get('lastName'),
+  		model.get('location'),
+  		model.get('industry'));
+
+	  controller.set('chosenIndustry',{
+	  	text: model.get('industry')
+	  });
+
+	  controller.set('chosenOccupOne',{
+	  	text: model.get('occupationOne')
+	  });
+
+	  controller.set('chosenOccupTwo',{
+	  	text: model.get('occupationTwo')
+	  });
+
+	  controller.set('model', model);
 	},
 
 	actions: {
@@ -48,7 +66,23 @@ export default Ember.Route.extend({
 
 		updateProfile: function(data) {
 			console.log('update data', data);
-		}
+		},
+
+		saveIndustry: function(industry, occupationOne, occupationTwo) {
+	      console.log('<<< route',industry, occupationOne, occupationTwo);
+
+	      this.store.findRecord('profile', this.profileid).then(function(p){
+
+					p.set('industry', industry);
+					p.set('occupationOne', occupationOne);
+					p.set('occupationTwo', occupationTwo);
+
+					p.save().then(function(){
+						console.log('profile save success');
+						alert('Success');
+					});
+				});
+	    }
 	}
 });
 
