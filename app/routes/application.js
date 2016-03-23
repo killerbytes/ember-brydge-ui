@@ -55,24 +55,24 @@ export default Ember.Route.extend(ApplicationRouteMixin, {
     authorizationFailed() {
       console.log("TODO >>>>> application:route:authorizationFailed", this);
     },
-    postToNewsfeed(data) {
-      console.log(">>>> Posting to newsfeed", {
-        content: data
-      });
-      this.store.createRecord('post', {
-        content: data
-      }).save().
-      then((res) => {
-        console.log("Posted, should refresh newsfeed, ", res);
+    // postToNewsfeed(data) {
+    //   console.log(">>>> Posting to newsfeed", {
+    //     content: data
+    //   });
+    //   this.store.createRecord('post', {
+    //     content: data
+    //   }).save().
+    //   then((res) => {
+    //     console.log("Posted, should refresh newsfeed, ", res);
 
-        this.refresh();
-        // this.controller.get('model').reload();
+    //     this.refresh();
+    //     // this.controller.get('model').reload();
 
 
-      }).catch((err) => {
-        console.log("Error posting to newsfeed:", err);
-      });
-    }
+    //   }).catch((err) => {
+    //     console.log("Error posting to newsfeed:", err);
+    //   });
+    // }
   }
   // ,
   // sessionAuthenticated() {

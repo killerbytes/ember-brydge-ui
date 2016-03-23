@@ -29,5 +29,6 @@ export default Ember.Controller.extend({
   		console.log('cancel education');
   		this.set('isNewEducation', status);
   	}
+    
   }
 });
