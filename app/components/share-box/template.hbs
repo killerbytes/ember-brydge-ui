@@ -1,25 +1,3 @@
-<!-- <div class="row">
-  <div class="12-medium column">
-    <form {{action 'post' on='submit'}}>
-      <label>
-        Share something
-        {{textarea value=postContent placeholder='What can I share now?'}}
-      </label>
-      <a href="#" {{action 'cancel'}}>Cancel</a>
-      <button class="button small">Post</button>
-    </form>
-  </div>
-</div> -->
-
-
-<!-- <form {{action 'post' on='submit'}}>
-  <label>
-    Share something
-    {{textarea value=postContent placeholder='What can I share now?'}}
-  </label>
-  <a href="#" {{action 'cancel'}}>Cancel</a>
-  <button class="button small">Post</button>
-</form> -->
 
 <form {{action 'post' on='submit'}}>
 <div class="box post-form">
@@ -29,7 +7,6 @@
     </div>
     <div class="post-form">
       {{textarea value=postContent placeholder='Get noticed: broadcast opinions, Industry news, and request'}}
-      <!-- <input type="text" placeholder="Get noticed: broadcast opinions, Industry news, and request">  -->
     </div>
   </div>
   <div class="actions">
@@ -58,9 +35,7 @@
 			</ul>			
 		</section>
 	{{/zf-dropdown}}
-
-
-      <a href="" class="button">BROADCAST</a>
+      <button class="button" type="submit">BROADCAST</button>
     </div>
   </div>
 </div>

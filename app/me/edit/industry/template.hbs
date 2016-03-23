@@ -7,7 +7,14 @@
     -->
    
 
-<form {{action 'saveIndustry' chosenIndustry.text chosenOccupOne.text chosenOccupTwo.text on='submit'}}>
+<form {{action 'saveIndustry' 
+	chosenIndustry.text 
+	chosenOccupOne.text 
+	chosenOccupTwo.text 
+	chosenIndustry.id
+	chosenOccupOne.id
+	chosenOccupTwo.id
+	on='submit'}}>
 <div class="row column">
 	<label>
 	  Job Industry:

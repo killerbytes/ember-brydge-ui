@@ -68,14 +68,22 @@ export default Ember.Route.extend({
 			console.log('update data', data);
 		},
 
-		saveIndustry: function(industry, occupationOne, occupationTwo) {
-	      console.log('<<< route',industry, occupationOne, occupationTwo);
+		saveIndustry: function(industry, 
+			occupationOne, occupationTwo,
+			industryId, occupationOneId, occupationTwoId) {
+	      console.log('<<< route',
+	      	industry, occupationOne, occupationTwo,
+	      	industryId, occupationOneId, occupationTwoId);
 
 	      this.store.findRecord('profile', this.profileid).then(function(p){
 
 					p.set('industry', industry);
 					p.set('occupationOne', occupationOne);
 					p.set('occupationTwo', occupationTwo);
+
+					p.set('industryId', industryId);
+					p.set('occupationOneId', occupationOneId);
+					p.set('occupationTwoId', occupationTwoId);
 
 					p.save().then(function(){
 						console.log('profile save success');
