@@ -1,6 +1,9 @@
 <div class="row">
   <div class="large-8 medium-8 columns">
-    {{ share-box postToNewsfeed='postToNewsfeed' newsfeed=model }}
+    {{ share-box postToNewsfeed='postToNewsfeed' profile=model.profile 
+     isCheckedIndustry=isCheckedIndustry isCheckedOccupationOne=isCheckedOccupationOne
+     isCheckedOccupationTwo=isCheckedOccupationTwo
+     postFeed='postFeed' }}
 
 	<div class="newsfeed-filter">
 		<div class="row two-cols">

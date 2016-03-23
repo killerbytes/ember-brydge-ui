@@ -15,6 +15,14 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
   	return this.store.query('newsfeed', {target:'home'});
   },
 
+  setupController: function(controller, model) {
+    let ownerid = this.get('session.data.authenticated.user_id');
+    
+    model.profile = this.store.findRecord('profile', ownerid);
+    
+    controller.set('model', model);
+  },
+
   actions: {
 
     logout: function(){

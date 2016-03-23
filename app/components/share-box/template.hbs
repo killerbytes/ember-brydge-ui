@@ -5,10 +5,12 @@
     <div class="thumbnail">
       <img src= "assets/avatar-beta.png">
     </div>
+    
     <div class="post-form">
       {{textarea value=postContent placeholder='Get noticed: broadcast opinions, Industry news, and request'}}
     </div>
   </div>
+  
   <div class="actions">
     <div class="float-right wrapper">
 
@@ -20,9 +22,9 @@
 		<section>
 			<strong>Relevant Industry Channels</strong>
 			<ul class="no-bullet">
-				<li>Food & Beverage <input type="checkbox"></li>
-				<li>Advertising & Marketing <input type="checkbox"></li>
-				<li>Digital Marketing <input type="checkbox"></li>
+				<li>{{ profile.industry }} {{input type="checkbox" checked=isCheckedIndustry}}</li>
+				<li>{{ profile.occupationOne }}{{input type="checkbox" checked=isCheckedOccupationOne}}</li>
+				<li>{{ profile.occupationTwo }} {{input type="checkbox" checked=isCheckedOccupationTwo}}</li>
 			</ul>
 			<p><a href="">Edit Occupation Insdustry</a></p>
 			<div class="dim-text">Broadcast will also be shared with Connections by default</div>
