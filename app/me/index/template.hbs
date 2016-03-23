@@ -40,6 +40,9 @@
 <div class="row column">
   <div style="margin-top: 10px;">
     {{#link-to 'me.edit' model.profile.id}} <button type="button" class="success button">Edit</button>  {{/link-to}}
+
+	<p><a data-open="exampleModal">Compliment</a></p>
+    
   </div>
   <div class="box profile profile-top">
     <div class="columns medium-6 text-right name">
@@ -51,7 +54,7 @@
       </div>
 
     </div>
-
+	
     <div class="columns medium-6 text-left location">
       <span class="subheader">
         {{model.profile.location}}
@@ -60,6 +63,7 @@
 
   </div>
 
+
   <div class="medium-6 float-left box profile role-bar">
     {{ model.profile.jobTitle}} <br/>
     <strong>PEPSICO</strong>
@@ -67,8 +71,9 @@
   </div>
   <div class="medium-6 float-left">
     <div class="profile-actions expanded button-group">
+      <a class="button large">Connect</a>
       <a class="secondary button large" disabled>Message</a>
-      <a class="secondary button large" disabled>Ask</a>
+      {{link-to "Ask" "me.ask" class="secondary button large"}}
     </div>
   </div>
 </div>
@@ -150,3 +155,20 @@
     </div>
   </div>
 </div>
+
+
+	{{#zf-reveal id="exampleModal" overlay=false class="reveal-popup"}}
+	  <div class="wrapper">
+		  <h4>Compliments</h4>
+		  <p class="lead">Show your appreciation for Jon WAYNE by complementing him</p>
+		  <div class="content clearfix">
+		  	<p>I'm a cool paragraph that lives inside of an even cooler modal. Wins!</p>
+		  	<textarea name="" id="" cols="30" rows="10"></textarea>
+		  	<span class="float-right">250 characters</span>
+		  </div>
+		  <div class="reveal-footer text-right">
+		  	<button class="button">Post</button>
+		  	<button class="button" data-close>Cancel</button>
+		  </div>
+	  </div>
+	{{/zf-reveal}}

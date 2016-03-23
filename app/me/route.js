@@ -16,12 +16,12 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
     // const userid = this.get('currentUser.id');
     //console.log("profile:route:params>>>", userid );
     //console.log("profile.js:sessionAccount.account.name", this.get('sessionAccount.account.name'));
-
-    return Ember.RSVP.hash({
-      account: this.store.findRecord('user', userid),
-      posts: this.store.findAll('post', userid),
-      profile: this.store.findRecord('profile', userid)
-    });
+    return [];
+    // return Ember.RSVP.hash({
+    //   account: this.store.findRecord('user', userid),
+    //   posts: this.store.findAll('post', userid),
+    //   profile: this.store.findRecord('profile', userid)
+    // });
   }
 
 });
