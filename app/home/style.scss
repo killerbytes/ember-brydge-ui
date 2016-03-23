@@ -1,0 +1,10 @@
+@media screen and (min-width: 40em){
+	.two-cols{
+		.columns:first-child{
+			padding-right: 2px;
+		}
+		.columns:last-child{
+			padding-left: 2px;
+		}
+	}
+}

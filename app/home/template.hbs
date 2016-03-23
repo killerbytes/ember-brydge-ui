@@ -1,6 +1,73 @@
 <div class="row">
   <div class="large-8 medium-8 columns">
     {{share-box postToNewsfeed='postToNewsfeed'}}
+
+	<div class="newsfeed-filter">
+		<div class="row two-cols">
+			<div class="columns large-6 medium-6">
+				<div class="wrapper">
+					<a class="box default button dropdown-button expanded" data-toggle="industry-dropdown">
+						My Connections
+						<i class="fa fa-caret-down"></i>
+					</a>
+					{{#zf-dropdown id="industry-dropdown"}}
+						<section>
+							<div class="dim-text">Select a Channel</div>
+							<ul class="no-bullet">
+								<li>My Connections</li>
+								<li>PEPSICO</li>
+							</ul>
+							<div class="dim-text">Industry Channels</div>
+							<ul class="no-bullet">
+								<li>Food & Beverage</li>
+								<li>Advertising & Marketing</li>
+							</ul>
+							<div class="dim-text">Other Industry Channels you follow</div>
+							<ul class="no-bullet">
+								<li>Consumer Web & Mobile</li>
+								<li>Enterprise Software & Technology</li>
+								<li>Broadcast Media</li>
+							</ul>
+							<a href="">Add other Industry Channels to follow</a>
+						</section>
+					{{/zf-dropdown}}	
+				</div>		
+			</div>
+			<div class="columns large-6 medium-6">
+				<div class="wrapper">
+					<a class="box button dropdown-button expanded" data-toggle="location-dropdown">
+						Everywhere
+						<i class="fa fa-caret-down"></i>
+					</a>
+					{{#zf-dropdown id="location-dropdown"}}
+						<section>
+							<div class="dim-text">Your Location</div>
+							<ul class="no-bullet">
+								<li>San Francisco, CA, USA</li>
+							</ul>
+							<div class="dim-text">Global</div>
+							<ul class="no-bullet">
+								<li>Everywhere</li>
+							</ul>
+							<div class="dim-text">Favourites (Max. 5)</div>
+							<ul class="no-bullet">
+								<li>Singapore</li>
+								<li>New York, NY, USA</li>
+								<li>George Town, Penang, Malaysia</li>
+								<li>Penang, Malaysia</li>
+								<li>Malaysia</li>
+							</ul>
+							<div class="dim-text">Search</div>
+							<input type="text">
+							<a href="" class="button">Select</a>
+						</section>
+					{{/zf-dropdown}}	
+				</div>
+			</div>
+		</div>
+	</div>
+
+
     {{newsfeed-list newsfeed=model}}
   </div>
   <div class="large-4 medium-4 columns sidebar mt5">

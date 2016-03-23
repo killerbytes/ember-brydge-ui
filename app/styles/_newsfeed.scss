@@ -1,0 +1,17 @@
+.newsfeed-filter{
+	.dropdown-button{
+		background: #FFF;
+		color: $brydge-blue;
+		text-align: left;
+		font-weight: bold;
+	}
+	.dropdown-pane{
+		background-color: #F3F3F3;
+		ul{
+			li{
+				color: #000;
+				border-bottom: 1px solid $border-color;
+			}
+		}
+	}
+}

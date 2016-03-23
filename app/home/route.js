@@ -12,7 +12,7 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
   },
 
   model() {
-  	return this.store.query('newsfeed', {target:'home'});
+  	return [];//this.store.query('newsfeed', {target:'home'});
   },
 
   actions: {
