@@ -9,6 +9,8 @@ export default Ember.Route.extend({
 
   afterModel: function(model, transition) {
 
+		console.log(model);
+
   	console.log('<<<<',model.get('firstName'),
   		model.get('lastName'),
   		model.get('location'),
@@ -18,9 +20,12 @@ export default Ember.Route.extend({
   	let userid = model.get('userid');
     let _this = this;
 
-	  return this.store.query('post',{userid: userid }).then(function (trendingPosts) {
+		if (!userid) return true; 
+
+		return this.store.query('post', {userid: userid }).then(function (trendingPosts) {
 	    _this.set('trendingPosts', trendingPosts);
 	  });
+
   },
 
   setupController: function(controller, model) {
