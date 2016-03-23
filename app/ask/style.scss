@@ -1,30 +1,40 @@
 .ask-top-banner{
 	text-align: center;
-	padding-bottom: 40px;
-	padding-top: 40px;
+	padding: 40px 35px;
 	background: white;
 	p{
 	    text-align: justify;
-    	padding: 10px;
+	}
+	p:last-child{
+		margin-bottom: 0;
 	}
 }
 .ask-box{
-	padding: 10px;
-  background: #E6E6E6;
-  .button.secondary {
-    background-color: #6bcdfd;
-    color: #3f3f3f;
-  }
+	@extend .full-padding;
+	background: #F3F3F3;
+	textarea{
+		margin-bottom: 10px;
+	}
+	.button{
+		color: $body-color;
+	}
+	.user{
+		line-height: 2em;
+		font-size: 14px;
+	}
 }
-
+.questions{
+	.box{
+		@extend .full-padding;
+		h1{
+			font-style: italic;
+		}
+	}
+}
 .progress-box{
 	padding: 10px;
 	background: white;
 	.header{
 		background: #E6E6E6;
 	}
-}
-
-.container{
-	padding-top: 10px;
 }

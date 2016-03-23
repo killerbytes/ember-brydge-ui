@@ -103,3 +103,18 @@ ul.footer-menu{
 		margin-right: 25px;
 	}
 }
+ul.menu-dotted{
+	font-size: 11px;
+	li{
+		padding-right: 5px;
+	}
+	li:before{
+		content:'\00B7';
+		padding-right:5px;
+		font-weight: bold;
+	}
+	li:first-child:before{
+		content: '';
+		padding-right: 0;
+	}
+}

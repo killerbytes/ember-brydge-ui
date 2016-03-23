@@ -24,15 +24,16 @@
 
   </div>
   <div class="medium-6 float-left">
-    <div class="expanded button-group">
-      {{#link-to 'connections'}}
-      <a class="secondary button">Connect</a>
-      {{/link-to}}
+    <div class="profile-actions expanded button-group">
+		{{#link-to 'connections' class="large button"}}
+			CONNECT
+		{{/link-to}}
       
-      <a class="secondary button">Message</a>
-      <a class="secondary button">
-        {{#link-to 'ask' model.username}}Ask{{/link-to}}
-      </a>
+		<a class="large secondary button">MESSAGE</a>
+		{{#link-to 'ask' model.username class="large secondary button"}}
+			ASK
+		{{/link-to}}
+
     </div>
   </div>
 </div>
@@ -63,14 +64,18 @@
   </div>
   <div class="columns medium-5 sidebar">
     <div class="box question-box">
-      <div class="columns">
+      <div class="columns wrapper clearfix">
         <a href="">Nikhil Charan</a> asked <a href="">Jon Wayne</a>
         <h2>What is your opinion on the latest WHO regulations on Soda advertising?</h2>
-        <a href="" class="more">See Answer</a>
+       	<div class="floated">
+        	<a href="" class="more">See Answer</a>
+        </div>
       </div>
+      {{#link-to 'me.ask' }}
       <button class="button expanded">
         see more questions
       </button>
+      {{/link-to}}
     </div>
     <div class="box snapshot">
       <h5 class="box-header">Snapshot</h5>

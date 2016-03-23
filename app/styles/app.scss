@@ -1,7 +1,7 @@
 $brydge-blue:#6BCDFD;
 $light-blue: #CFEFFF;
 $sky-blue: #96DCFE;
-$border-color: #DEDEDE;
+$border-color: #CCC;
 $body-color: #4C4C4C;
 
 
@@ -9,9 +9,9 @@ $body-color: #4C4C4C;
 @import "settings";
 @import 'foundation';
 @include foundation-everything;
+@import "components";
 
 @import "pods";
-@import "components";
 @import "buttons";
 @import "topbar";
 @import "profile";
@@ -45,6 +45,9 @@ a.more{
 .index{
 	max-width: 85rem;
 }
+p.dim-text{
+	line-height: 1.2em;
+}
 .dim-text{
 	color: #CCC;
 }
@@ -61,7 +64,8 @@ a.more{
 	background-color: $sky-blue;
 }
 .shadowed{
-	box-shadow: 0 0 0 .5px rgba(0, 0, 0, .1) inset, 0 1px 1px rgba(0, 0, 0, .01);	
+	// box-shadow: 0 0 0 .5px rgba(0, 0, 0, .1) inset, 0 1px 1px rgba(0, 0, 0, .01);	
+	box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.5) inset, 0 0px 1px rgba(0, 0, 0, 0.5)
 }
 // form > div.row.column.log-in-form {
 //   border: 1px solid #cacaca;
@@ -73,8 +77,8 @@ a.more{
 	padding-right: 0;
 	padding-bottom: 0;
 }
-.sidebar{
-	padding-left: 0;
+.full-padding{
+	padding: $global-padding;
 }
 .padded{
 	padding-left: $global-padding;
@@ -93,6 +97,10 @@ a.more{
 .mt5{
 	margin-top: 5px;
 }
+.mb{
+	margin-bottom: 10px;
+}
+.mb5{ margin-bottom: 5px;}
 input.flat{
 	border: 0;
 	box-shadow: none;
@@ -109,4 +117,10 @@ img.circle{
 
 ul > li.is-dropdown-submenu-parent.is-down-arrow > ul {
   background-color: #e6e6e6 !important;
+}
+
+@media screen and (min-width: 40em){
+	.sidebar{
+		padding-left: 0;
+	}
 }
