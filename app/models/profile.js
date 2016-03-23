@@ -9,5 +9,8 @@ export default DS.Model.extend({
 	works: DS.hasMany('work-experience'),
 	industry: DS.attr('string'),
 	occupationOne: DS.attr('string'),
-	occupationTwo: DS.attr('string')
+	occupationTwo: DS.attr('string'),
+	industryId: DS.attr('string'),
+	occupationOneId: DS.attr('string'),
+	occupationTwoId: DS.attr('string')
 });
