@@ -30,8 +30,24 @@ export default Ember.Route.extend(ApplicationRouteMixin, {
       console.log(" >>>> application:route:registeruser:data", data);
       const self = this;
       this.store.createRecord('user', data).save()
-        .then(function() {
-          self.transitionTo('home');
+        .then(function(res) {
+
+          let { username, password } = res.getProperties('username', 'password');
+
+          const _this = this;
+          self.get('session').authenticate('authenticator:oauth2', username, password)
+            .then((user) => {
+              const userid = self.get('session.data.authenticated.account_id');
+              const name = self.get('session.data.authenticated.name');
+              self.get('session').set('data.userid', userid);
+              self.get('session').set('data.name', name);
+              self.transitionTo('home');
+            },
+          (err) => {
+          this.set('errorMessage', err.errors[0].details);
+          // console.log(err, this.get('errorMessage'));
+          });
+
         }).catch(function(err) {
           console.log("Error saving user:", err);
         });
