@@ -16,7 +16,7 @@
 
         </div>
         <small class="subheader">{{post.user.profile.jobTitle}}</small>
-        <p class="small subheader">{{#link-to 'post' post.user.id post.id }}{{moment-from-now post.updated_at}}{{/link-to}}</p>
+        <p class="small subheader">{{#link-to 'post' post.user.id post.id }}{{postDateFormat post.updatedAt}}{{/link-to}}</p>
       </div>
     </div>
     <p>{{{post.content}}}</p>
@@ -57,4 +57,3 @@
     </div>
 
   </div>
-

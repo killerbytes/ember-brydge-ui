@@ -11,8 +11,8 @@ export default DS.Model.extend({
   siteName: DS.attr(),
   screenshot: DS.attr(),
   score: DS.attr('number'),
-  created_at: DS.attr('date'),
-  updated_at: DS.attr('date'),
+  createdAt: DS.attr('date'),
+  updatedAt: DS.attr('date'),
   user: DS.belongsTo('user'),
   previewImage: Ember.computed('image', 'screenshot', function(){
     if (this.get('image') === undefined) return `${this.get('screenshot') || 'assets/undefined.png'}`;
