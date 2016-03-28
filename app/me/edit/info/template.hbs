@@ -1,12 +1,2 @@
-<form {{action 'save' model.firstName model.lastName model.location on='submit'}}>
-  <div class='row'>
-    <div class='columns'>
-      {{input value=model.firstName placeholder='First Name'}}
-      {{input value=model.lastName placeholder='Last Name'}}
-      {{input value=model.location placeholder='Location'}}
-      {{input value=model.jobTitle placeholder='Job Title'}}
-      <button type='submit' class='button'>Save Changes</button>
-    </div>
-    
-  </div>
-</form>
+
+{{ particular-info model=model store=store}}

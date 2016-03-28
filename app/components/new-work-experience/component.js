@@ -1,0 +1,28 @@
+import Ember from 'ember';
+
+export default Ember.Component.extend({
+	fromChanged: function () { 
+		console.log('from date changed =>', this.get('from'));
+	}.observes('from'),
+
+	fromChanged: function () { 
+		console.log('to date changed =>', this.get('to'));
+	}.observes('to'),
+
+	actions: {
+		save: function () {
+			let work = this.store.createRecord('experience',{
+				company: this.get('company'),
+				title: this.get('title'),
+				location: this.get('location'),
+				content: this.get('content'),
+				from: this.get('from'),
+				to: this.get('to')
+			});
+
+			work.save().then(() => {
+				console.log('saved successfully');
+			})
+		}
+	}
+});

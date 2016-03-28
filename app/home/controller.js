@@ -7,6 +7,14 @@ export default Ember.Controller.extend({
   isCheckedOccupationTwo: false,
 
   actions: {
+    sayhi: function () {
+      console.log('sayhi');
+    },
+
+    checkboxChanged: function(value, checked) {
+      console.log('<<< action-checkbox component <<<', value, checked);
+    },
+    
     postFeed: function (content) {
       console.log('<<< post feed from (Home => Controller)',
         content,
@@ -14,6 +22,9 @@ export default Ember.Controller.extend({
         this.get('isCheckedOccupationOne'),
         this.get('isCheckedOccupationTwo'));
 
+      // 
+      // save the post
+      //
       this.store.createRecord('post', {
         content: content
       }).save().

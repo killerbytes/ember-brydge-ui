@@ -1,0 +1,31 @@
+<div class="row">
+  <div class='columns'>
+  	<label>
+	  Company Name:
+	  {{input value=company}}
+		</label>
+		<label>
+	  Job Title:
+	  {{input value=title}}
+		</label>
+		<label>
+	  Location:
+	  {{input value=location}}
+		</label>
+		<label>
+	  Job Description:
+	  {{input value=content}}
+		</label>
+
+		<label>
+	  Start Date:
+	   {{date-picker date=from format='YYYY-MM-DD' valueFormat='date' allowBlank=true}}
+		</label>
+
+		<label>
+	  End Date:
+	   {{date-picker date=to format='YYYY-MM-DD' valueFormat='date' allowBlank=true}}
+		</label>
+    <button class='button' {{ action 'save' }}>Save</button>
+  </div>
+</div>

@@ -7,7 +7,6 @@ const Router = Ember.Router.extend({
 
 Router.map(function() {
   this.route("login");
-  this.route('industry-category');
   this.route('home');
 
   this.route('me', function() {
@@ -25,11 +24,6 @@ Router.map(function() {
   // /teo-choong-pin
   this.route('public-profile', {path:'/:username'});
   this.route('public-profile-error');
-  this.route('about');
-
-  this.route('notification');
-  this.route('discover');
-
 
   this.route('messaging', function() {
     this.route('conversation', { path: ':conversation_id', resetNamespace: true});
@@ -39,6 +33,7 @@ Router.map(function() {
   this.route('profile', {path: ':username'});
   this.route('ask', {path: ':username/ask'});
   this.route('connections');
+  this.route('rating');
 });
 
 export default Router;

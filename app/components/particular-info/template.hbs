@@ -1,0 +1,9 @@
+<div class="row">
+  <div class='columns'>
+    {{input value=model.firstName placeholder='First Name'}}
+    {{input value=model.lastName placeholder='Last Name'}}
+    {{input value=model.location placeholder='Location'}}
+    {{input value=model.jobTitle placeholder='Job Title'}}
+    <button class='button' {{ action 'save' }}>Save Changes</button>
+  </div>
+</div>

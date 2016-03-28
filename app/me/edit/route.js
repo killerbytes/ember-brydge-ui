@@ -3,6 +3,12 @@ import Ember from 'ember';
 export default Ember.Route.extend({
 	profileid: null,
 
+	propertyObserver: function () {
+    var firstName = this.get('model.firstName');
+    console.log('changes firstName (Route) =>', firstName);
+  }.observes('model.firstName'),
+
+
 	model: function(params) {
 		const profileId = params.profile_id;
 		this.profileid = profileId;
@@ -52,16 +58,16 @@ export default Ember.Route.extend({
 		},
 
 		saveWork: function(company, title, desc) {
-			console.log('saveWork from route',company, title, desc);
+			// console.log('saveWork from route',company, title, desc);
 			
-			let profile = this.store.peekRecord('profile', this.profileid);
-			let work = this.store.createRecord('work-experience', {
-				company: company,
-				jobTitle: title,
-				description: desc
-			});
-			profile.get('works').pushObject(work);
-			work.save();
+			// let profile = this.store.peekRecord('profile', this.profileid);
+			// let work = this.store.createRecord('work-experience', {
+			// 	company: company,
+			// 	jobTitle: title,
+			// 	description: desc
+			// });
+			// profile.get('works').pushObject(work);
+			// work.save();
 		},
 
 		updateProfile: function(data) {

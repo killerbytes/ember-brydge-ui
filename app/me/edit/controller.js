@@ -12,6 +12,11 @@ export default Ember.Controller.extend({
   chosenOccupTwo: null,
   chosenOccupOne: null,
 
+  // propertyObserver: function () {
+  //   var firstName = this.get('model.firstName');
+  //   console.log('changes firstName (Controller) =>', firstName);
+  // }.observes('model.firstName'),
+
   actions: {
   	addNewWork: function() {
   		console.log('add new work');
@@ -29,6 +34,5 @@ export default Ember.Controller.extend({
   		console.log('cancel education');
   		this.set('isNewEducation', status);
   	}
-    
   }
 });
