@@ -10,6 +10,11 @@ export default Ember.Component.extend({
 	}.observes('to'),
 
 	actions: {
+		cancel: function () {
+			console.log('cancel new experience << Component');
+			this.set('isNewWork', false);
+		},
+
 		save: function () {
 			let work = this.store.createRecord('experience',{
 				company: this.get('company'),
