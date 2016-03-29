@@ -1,6 +1,8 @@
+<div style="margin: 10px;">
+	{{#each model as |work|}}
+		{{ work-experience work=work }}
+	{{/each}}
+</div>
 
-{{#each model.works as |work|}}
-	{{ work-box work=work }}
-{{/each}}
 
 <button type="button" class="success button expanded" {{action 'addNewWork'}}>{{fa-icon "plus"}} Add More Work</button>

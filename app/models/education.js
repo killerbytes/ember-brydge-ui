@@ -5,6 +5,6 @@ export default DS.Model.extend({
   degree: DS.attr('string'),
   field: DS.attr('string'),
   description: DS.attr('string'),
-  from: DS.attr('Date'),
-  to: DS.attr('Date')
+  from: DS.attr('date'),
+  to: DS.attr('date')
 });

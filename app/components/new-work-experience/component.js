@@ -27,6 +27,7 @@ export default Ember.Component.extend({
 
 			work.save().then(() => {
 				console.log('saved successfully');
+				this.set('isNewWork', false);
 			})
 		}
 	}

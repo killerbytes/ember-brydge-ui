@@ -5,6 +5,7 @@ export default DS.Model.extend({
   title: DS.attr('string'),
   location: DS.attr('string'),
   content: DS.attr('string'),
-  from: DS.attr('Date'),
-  to: DS.attr('Date')
+  from: DS.attr('date'),
+  to: DS.attr('date'),
+  updatedAt: DS.attr('date'),
 });
