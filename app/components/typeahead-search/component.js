@@ -2,11 +2,13 @@ import Ember from 'ember';
 
 export default Ember.Component.extend({
 	selectionObserver: function () { 
-		var text = this.get('selection').get('text');
-		var code = this.get('selection').get('id');
-		var id = this.get('id');
+		let text = this.get('selection').get('text');
+		let code = this.get('selection').get('id');
+		let id = this.get('id');
 		
 	  this.sendAction('action', id, code, text);
+
+
 	}.observes('selection'),
 
 	actions: {

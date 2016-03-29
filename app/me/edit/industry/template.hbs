@@ -1,6 +1,6 @@
 
 
-<form {{action 'saveIndustry' 
+<!-- <form {{action 'saveIndustry' 
 	chosenIndustry.text 
 	chosenOccupOne.text 
 	chosenOccupTwo.text    
@@ -30,9 +30,16 @@
 </label>
 </div>
 <button type='submit' class='button'>Save Changes</button>
-</form>
+</form> -->
 
-
+{{typeahead-search
+	id='industry'
+	selection=industry 
+	store=store
+	label='Business Industry' 
+	placeholder='Please select the industry'
+	minimumInputLength=3
+	action="selectionChanged" class="form-control"}}
 
 
 

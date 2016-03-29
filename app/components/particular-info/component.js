@@ -3,8 +3,8 @@ import Ember from 'ember';
 export default Ember.Component.extend({
 	actions: {
 		save: function () {
-			this.get('model').save().then(()=>{
-				console.log('success saved');
+			this.get('profile').save().then(()=>{
+				console.log('particular info saved');
 			});
 		}
 	}

@@ -7,6 +7,10 @@ module.exports = function(defaults) {
     // Add options here
     'ember-cli-foundation-6-sass': {
       'foundationJs': 'all'
+    },
+
+    select2: {
+      includeAssets: false
     }
   });
 
