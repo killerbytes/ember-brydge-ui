@@ -7,26 +7,17 @@ export default Ember.Controller.extend({
   isCheckedOccupationTwo: false,
 
   actions: {
-    sayhi: function () {
-      console.log('sayhi');
-    },
-
-    checkboxChanged: function(value, checked) {
-      console.log('<<< action-checkbox component <<<', value, checked);
-    },
-    
-    postFeed: function (content) {
+   
+    postFeed: function (content, categories) {
       console.log('<<< post feed from (Home => Controller)',
-        content,
-        this.get('isCheckedIndustry'), 
-        this.get('isCheckedOccupationOne'),
-        this.get('isCheckedOccupationTwo'));
+        content,categories);
 
       // 
       // save the post
       //
       this.store.createRecord('post', {
-        content: content
+        content: content,
+        categories: categories
       }).save().
       then((res) => {
         //

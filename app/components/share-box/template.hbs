@@ -22,9 +22,9 @@
 			<strong>Relevant Industry Channels</strong>
 			<ul class="no-bullet">
 
-				<li>{{ profile.industry }} {{action-checkbox value='industry' action="checkboxChanged"}}</li>
-				<li>{{ profile.occupationOne }} {{action-checkbox value='occupationOne' action="checkboxChanged"}}</li>
-				<li>{{ profile.occupationTwo }} {{action-checkbox value='occupationOne' action="checkboxChanged"}}</li>
+				<li>{{ profile.industry }} {{action-checkbox value=profile.industryId action="checkboxChanged"}}</li>
+				<li>{{ profile.occupationOne }} {{action-checkbox value=profile.occupationOneId action="checkboxChanged"}}</li>
+				<li>{{ profile.occupationTwo }} {{action-checkbox value=profile.occupationTwoId action="checkboxChanged"}}</li>
 			</ul>
 			<p><a href="">Edit Occupation Insdustry</a></p>
 			<div class="dim-text">Broadcast will also be shared with Connections by default</div>

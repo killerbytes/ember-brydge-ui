@@ -33,7 +33,7 @@ export default Ember.Route.extend({
   },
 
 	actions: {
-   
+
     selectionChanged: function(id, code, text) {
       console.log('<< typeahead component <<<', id, code, text);
       

@@ -10,5 +10,5 @@ export default DS.Model.extend({
   updatedAt: DS.attr('date'),
   user: DS.belongsTo('user'),
   profile: DS.belongsTo('profile'),
-  categories: DS.hasMany('category')
+  categories: DS.attr()
 });
