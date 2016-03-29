@@ -1,6 +1,6 @@
 <div class="row column">
   <div style="margin-top: 10px;">
-    {{#link-to 'me.edit' model.profile.id}} <button type="button" class="success button">Edit</button>  {{/link-to}}  
+    {{#link-to 'me.edit' model.profile.id}} <button type="button" class="success button">Edit</button>  {{/link-to}}
   </div>
   <div class="box profile profile-top">
     <div class="columns medium-6 text-right name">
@@ -12,7 +12,7 @@
       </div>
 
     </div>
-	
+
     <div class="columns medium-6 text-left location">
       <span class="subheader">
         {{model.profile.location}}
@@ -54,7 +54,7 @@
 
       </div>
     </div>
-	
+
 	{{share-box postToNewsfeed='postToNewsfeed'}}
 
     {{newsfeed-list newsfeed=model.posts}}
@@ -79,12 +79,7 @@
     <div class="box snapshot">
       <h5 class="box-header">Snapshot</h5>
       <div class="columns">
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-        proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        {{model.profile.snapshot}}
       </div>
     </div>
     <div class="box">
