@@ -12,5 +12,6 @@ export default DS.Model.extend({
 	occupationTwo: DS.attr('string'),
 	industryId: DS.attr('string'),
 	occupationOneId: DS.attr('string'),
-	occupationTwoId: DS.attr('string')
+	occupationTwoId: DS.attr('string'),
+	snapshot: DS.attr('string')
 });

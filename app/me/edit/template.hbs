@@ -14,7 +14,7 @@
     <div class="medium-9 columns">
     	<div class="tabs-content vertical" data-tabs-content="example-tabs">
 
-    		<div class="tabs-panel" id="personal">
+    		<div class="tabs-panel is-active" id="personal">
     			 {{partial 'me/edit/info'}}
     		</div>
     		<div class="tabs-panel" id="industry">
@@ -24,7 +24,7 @@
     			{{partial 'me/edit/occupindustry'}}
     		</div>
     		<div class="tabs-panel" id="snapshot">
-    			
+    			{{partial 'me/edit/snapshot'}}
     		</div>
     		<div class="tabs-panel" id="work">
     			{{#if isNewWork}}
