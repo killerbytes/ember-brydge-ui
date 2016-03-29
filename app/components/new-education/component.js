@@ -19,14 +19,16 @@ export default Ember.Component.extend({
 			let education = this.store.createRecord('education',{
 				school: this.get('school'),
 				degree: this.get('degree'),
-				field: this.get('field'),
-				description: this.get('description'),
+				studyField: this.get('studyField'),
+				content: this.get('content'),
+				location: this.get('location'),
 				from: this.get('from'),
 				to: this.get('to')
 			});
 
 			education.save().then(() => {
 				console.log('saved successfully');
+				this.set('isNewEducation', false);
 			})
 		}
 	}
