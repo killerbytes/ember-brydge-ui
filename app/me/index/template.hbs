@@ -26,7 +26,7 @@
 
 
   <div class="medium-6 float-left box profile role-bar">
-    <div class="position">{{ model.profile.jobTitle}}</div>
+    <div class="position">{{ model.jobTitle}}</div>
     <strong>{{model.company}}</strong>
 
   </div>
@@ -101,12 +101,13 @@
 
     <div class="box rounded academia">
       <h5 class="box-header">Academia</h5>
-      <div class="columns">
+      {{partial 'me/index/academia'}}
+      <!-- <div class="columns">
           <div class="name">Stanford University</div>
 
           Bachelor of Science, International Business Management <br>
           Class of 2001          
-      </div>
+      </div> -->
     </div>
     <div class="box rounded languages">
       <h5 class="box-header">Languages</h5>
