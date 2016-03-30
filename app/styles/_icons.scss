@@ -1,0 +1,30 @@
+
+// $icons: sprite-map("toolbar/*.png");
+
+
+// @include all-icon-sprites;
+
+.icons{
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-size: 100%;
+	display: table;
+	width: 24px;
+	height: 24px;
+	&.caret{
+		background-image: url(icons/caret.png);
+		width: 15px;
+	}
+	&.user{
+		background-image: url(icons/user.png);
+	}
+	&.bino{
+		background-image: url(icons/bino.png);
+	}
+	&.messages{
+		background-image: url(icons/messages.png);
+	}
+	&.stack{
+		background-image: url(icons/stack.png)
+	}
+}

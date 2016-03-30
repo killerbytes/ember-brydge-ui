@@ -1,14 +1,17 @@
 
 .button{
+	&.default{
+		background-color: #FFF;
+	}
+	&.success{
+		color: #FFF;
+	}
 	&.secondary{
-		// border-color: #D2D2D2;
-		color: #000;
-		// text-transform: uppercase;
+		color: #666;
 	}
 	&.large{
-		// color: #8A8A8A;
-		font-size: 20px;		
-		padding: 8px;
+		font-size: 24px;		
+		padding: 13px;
 	}
 	&.clear{
 		background: transparent;
@@ -26,7 +29,10 @@
 
 .dropdown-button{
 	position: relative;
+	padding: 8px;
 	padding-right: 35px;
+	font-family: 'Arial';
+	font-size: 12px;
 	.fa-caret-down{
 		font-size: 18px;
 		position: absolute;

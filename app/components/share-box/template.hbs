@@ -21,12 +21,11 @@
 		<section>
 			<strong>Relevant Industry Channels</strong>
 			<ul class="no-bullet">
-
 				<li>{{ profile.industry }} {{action-checkbox value=profile.industryId action="checkboxChanged"}}</li>
 				<li>{{ profile.occupationOne }} {{action-checkbox value=profile.occupationOneId action="checkboxChanged"}}</li>
 				<li>{{ profile.occupationTwo }} {{action-checkbox value=profile.occupationTwoId action="checkboxChanged"}}</li>
 			</ul>
-			<p><a href="">Edit Occupation Insdustry</a></p>
+			<p>{{#link-to 'me.edit' profile.id}}Edit Occupation Insdustry{{/link-to}}</p>
 			<div class="dim-text">Broadcast will also be shared with Connections by default</div>
 		</section>
 		<hr>
@@ -37,7 +36,7 @@
 			</ul>			
 		</section>
 	{{/zf-dropdown}}
-      <button class="button" type="submit">BROADCAST</button>
+      <button class="success button" type="submit">BROADCAST</button>
     </div>
   </div>
 </div>

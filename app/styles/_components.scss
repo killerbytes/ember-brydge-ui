@@ -3,14 +3,14 @@
 	@extend .clearfix;
 	background-color: #FFF;
 	border: 1px solid $border-color;
-	margin-bottom: 5px;
+	margin-bottom: 10px;
 	>.column, >.columns{
 		padding: 1rem;
 		padding-top: 10px;
 		padding-bottom: 10px;
 	}
 	.box-header{
-		// font-size: 10px;
+		font-size: 11px;
 		margin-bottom: 0;
 		font-weight: bold;
 		text-transform: uppercase;
@@ -18,68 +18,23 @@
 		padding-top: 10px;
 		padding-bottom: 10px;
 		background: #F1F1F1;
+		border-bottom: 1px solid $border-color;
+		border-top-left-radius: 3px;
+		border-top-right-radius: 3px;
+	}
+	.box-footer{
+		@extend .padded;
+		border-top: 1px solid $border-color;
+		line-height: 2em;
 	}
 	.button.small.expanded{
 		margin-bottom: 0;
 	}
 }
-
-.sidebox{
-	min-height: 110px;
-	position: relative;
-	padding: $global-padding;
-	padding-bottom: 25px;
-	border-bottom: 1px solid $border-color;
-	h4{
-		margin: 0;
-	}
-	.columns{
-		border-bottom: 1px solid $border-color;
-	}
-	a.more{
-		position: absolute;
-		bottom: 5px;
-	}
-}
-.snapshot{
-	font-size: 11px;
+.rounded{
+	border-radius: 3px;	
 }
 
-.question-box{
-	color: #A3A3BD;
-	h2{
-		font-size: 26px;
-		font-weight: bold;
-		color: #717171;
-		margin: 10px 0 20px;
-	}
-	a{
-		font-weight: bold;
-	}
-	p{
-		font-size: 22px;
-		line-height: 1.4em;
-		font-weight: bold;
-	}
-	button{
-		text-transform: uppercase;
-		padding :4px;
-		font-weight: bold;
-		font-size: 11px;
-	}
-	.wrapper{
-		max-height: 190px;
-		overflow: hidden
-	}
-	.floated{
-		position: absolute;
-		left: 0;
-		width: 100%;
-		background: #FFF;
-		bottom: 0;
-		padding: 3px 10px;		
-	}
-}
 .jumbotron{
 	margin: 150px auto;
 	h1{
@@ -118,3 +73,28 @@ ul.menu-dotted{
 		padding-right: 0;
 	}
 }
+
+.dropdown-pane{
+	background-color: #FFF;
+	box-shadow: 0px 5px 6px -5px #404040;
+	border: 1px solid #CCC;
+	right: 0 !important;
+	left: auto !important;
+}
+.triangle{
+	width: 0;
+	height: 0;
+	border-style: solid;
+	border-width: 0 7px 7px 7px;
+	border-color: transparent transparent #ffffff transparent;
+	margin: auto;
+}
+
+ul.list-lined{
+	>li:not(:last-child){
+		border-bottom: 1px solid $border-color;		
+	}
+
+}
+
+

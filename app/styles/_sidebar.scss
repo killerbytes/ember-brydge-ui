@@ -1,0 +1,117 @@
+.sidebar{
+	.name{
+		font-size: 16px;
+	}
+	.position, .title{
+		color: #000;
+		font-size: 13px;
+	}
+
+	ul.box-list li{
+		// min-height: 93px;
+		position: relative;
+		padding: $global-padding;
+		h4{
+			margin: 0;
+		}
+		.columns{
+			border-bottom: 1px solid $border-color;
+		}
+		a.more{
+			position: absolute;
+			bottom: 5px;
+		}
+	}
+	ul.box-list li:not(:last-child){
+		border-bottom: 1px solid $border-color;
+	}
+	ul.sidebox li{
+		min-height: 93px;
+		position: relative;
+		padding: $global-padding;
+		padding-bottom: 25px;
+		h4{
+			margin: 0;
+		}
+		.columns{
+			border-bottom: 1px solid $border-color;
+		}
+		a.more{
+			position: absolute;
+			bottom: 5px;
+		}
+	}
+
+	.sidebox:not(:last-child){
+		border-bottom: 1px solid $border-color;	
+	}
+
+	.snapshot{
+		font-family: Arial;
+		font-size: 12px;
+	}
+
+	.question-box{
+		color: #A3A3BD;
+		h2{
+			font-size: 26px;
+			font-weight: bold;
+			color: #717171;
+			margin: 10px 0 20px;
+		}
+		a{
+			font-weight: bold;
+		}
+		p{
+			font-size: 22px;
+			line-height: 1.4em;
+			font-weight: bold;
+		}
+		button{
+			text-transform: uppercase;
+			padding :4px;
+			font-weight: bold;
+			font-size: 11px;
+		}
+		.wrapper{
+			max-height: 190px;
+			overflow: hidden
+		}
+		.floated{
+			position: absolute;
+			left: 0;
+			width: 100%;
+			background: #FFF;
+			bottom: 0;
+			padding: 3px 10px;		
+		}
+	}
+	.work-history{
+	}
+	.languages{
+		h3{
+			margin-bottom: 0;
+		}
+		h3+span{
+			text-transform: uppercase;
+		}
+	}
+	.academia{
+		.name{
+			margin-bottom: 5px;
+		}
+	}
+	.compliments{
+		.title{
+			text-transform: uppercase;
+			font-weight: bold;
+		}
+		p{
+			margin-bottom: 5px;
+		}
+		span{
+			color: #000;
+		}
+	}
+
+}

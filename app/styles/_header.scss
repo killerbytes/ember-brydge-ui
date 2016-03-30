@@ -1,25 +1,41 @@
+
 header.top-bar {
+	.top-bar-right {
+		position: relative;
+	}
 	padding: 0;
+	border-bottom: 1px solid #50B1DA;
+	box-shadow: 0px 0px 2px 0px #404040;
 	ul{
 		background-color: transparent;
 	}
-	ul.menu>li>span, ul.menu>li>a{
-		color: #FFF;
-		padding: 10px 7px;
-		i{
-			margin: 0;
-		}
-
-	}
-	.actions{
+	ul.menu-actions{
 		vertical-align: top;
 		.fa{
 			color: #417993;
 			font-size: 18px;
 			vertical-align: bottom;
 		}
-		li{
+		>li>a{
+			padding: 11px 7px;
+			min-width: 38px;
+			text-align: center;
 			position: relative;
+		}
+		>li>a:hover, li>a.hover{
+			background-color: $dark-blue;
+			// position: relative;
+			.wrapper{
+				width: 100%;
+				position: absolute;
+				bottom: -1px;
+				left: 0;
+			}
+		}
+		a:not(.hover){
+			.triangle{
+				display: none;
+			}
 		}
 		.badge{
 			border-radius: 0;
@@ -33,36 +49,25 @@ header.top-bar {
 			left: 0;
 		}
 	}
-	ul.main-menu{
-		margin-top: 10px;
-		font-weight: bold;
+	ul.menu-links{
+		margin-top: 13px;
 		li{
-			border-right: 1px solid #68C7EF;
+			border-right: 1px solid $dark-blue;
 		}
 		li:last-child{
 			border: none;
 		}
 		li > a{
+			color: #FFF;
 			padding: 0.3rem 1rem;
+			font-size: 13px;
 			font-weight: bold;
 		}
 	}
-	.hover{
-		background-color: #F5F5F5;
-	}
-//   background-color: #6BCDFD !important;
-//   ul {
-//     background-color: #6BCDFD !important;
-//   }
 	#dd-messages{
-		left: -250px !important;
 		width: 350px;
-		ul>li{
-			border-bottom: 1px solid $border-color;		
-		}
 	}
 	#dd-menu{
-		left: -65px !important;
 		width: 150px;
 		ul.menu{
 			border-bottom: 1px solid $border-color;
@@ -75,13 +80,16 @@ header.top-bar {
 				padding: 0
 			}
 		}	
+		.triangle{
+			top: -7px;
+			position: absolute;
+			right: 14px;
+		}
 	}
 	.dropdown-pane{
 		border-top: none;
-		background-color: #F5F5F5;
-		top: 38px !important;
+		top: 47px !important;
 		padding: 0;
-		box-shadow: 0px 2px 2px #DDD;
 		.thumbnail{
 			width: 35px;
 			height: 35px;
@@ -117,6 +125,7 @@ header.top-bar {
   line-height: 1.4em;
   font-weight: bold;
   color: #FFF;
+  padding: 5px;
 	img{
 		width: 120px;
 		margin-bottom: 5px;
@@ -131,7 +140,7 @@ header.top-bar {
 
 .top-bar-search {
 	width: 300px;
-	margin-top: 5px;
+	margin-top: 10px;
 }
 
 .top-bar-search input[type="search"]{
@@ -148,4 +157,8 @@ header.top-bar {
 	background-color: #F5F5F5;
 	padding: 0 8px;
 	border-left: 1px solid $border-color;
+}
+i.divider{
+	border-left: 1px solid $dark-blue;
+	padding: 3px 0;
 }

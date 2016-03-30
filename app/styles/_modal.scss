@@ -1,0 +1,22 @@
+#complimentModal{
+	select{
+		border-color: $brydge-blue;
+		font-size: 14px;
+		width: 30%;
+		padding: 5px 10px;
+		height: auto;
+	}
+	.content{
+		padding: 0 30px;
+	}
+	textarea{
+		box-shadow: none;
+		resize: none;
+		margin-bottom: 5px;
+	}
+	button{
+		padding: 5px 15px;
+		font-weight: bold;
+		text-transform: uppercase;
+	}
+}

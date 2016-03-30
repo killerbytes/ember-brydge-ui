@@ -45,11 +45,11 @@
 // ---------
 
 $global-font-size: 12px;
-$global-width: rem-calc(780);
+$global-width: rem-calc(970);
 $global-lineheight: 1.5;
-$primary-color: $brydge-blue;
+$primary-color: #FFF;
 $secondary-color: #DEDEDE;
-$success-color: #3adb76;
+$success-color: $brydge-blue;
 $warning-color: #ffae00;
 $alert-color: #ec5840;
 $light-gray: #e6e6e6;
@@ -230,7 +230,7 @@ $button-margin: 0; //0 0 $global-margin 0;
 $button-fill: solid;
 $button-background: $primary-color;
 $button-background-hover: scale-color($button-background, $lightness: -15%);
-$button-color: #fff;
+$button-color: #000;
 $button-color-alt: #000;
 $button-radius: $global-radius;
 $button-sizes: (

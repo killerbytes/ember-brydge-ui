@@ -1,35 +1,38 @@
 .profile{
+	.button.connect{
+		width: 180px;
+	}
 	&.profile-top{
 		margin-top: 50px;
-		padding-bottom: 40px;
+		padding-bottom: 65px;
+		padding-top: 30px;
 	}
 	&.role-bar{
-		padding: 0 5px;
+		padding: 4px 5px;
 		border-right: none;
+		width: 378px;
 	}
-	&.profile-industry{
-		ul{
-			width: 100%;
-			margin: 0;
-			font-size: 11px;
+	&.role-actions{
+		width: 561px;
+	}
+
+	.profile-industry{
+		display: table;
+		.content{
 			display: table-cell;
 			vertical-align: middle;
 		}
-		.industry-column{
-			display: table;
-		}
 		.fa{
-			padding: 12px;
-			font-size: 20px;
+			padding: 10px;
+			font-size: 32px;
 			background-color: #F1F1F1;
 			color: #717171;	
-
 			border-right: 1px solid $border-color;
-			float: left;
 			margin-right: 5px;
+			display: inline-block;
 		}
-		.float-left:not(:first-child){
-			border-left: 1px solid $border-color;
+		a{
+			display: block;
 		}
 	}
 
@@ -37,27 +40,38 @@
 	h1{
 		line-height: 1.4em;
 		span{
-			text-transform: uppercase;
-			font-weight: bold;
+			font-size: 21px;
+			display: block;
+			line-height: 1em;
+			color: #999;
+		}
+		strong{
+			text-transform: uppercase;		
+			font-size: 26px;
 		}
 	}
 	.profile-center{
 		position: absolute;
 		width: 100%;
-		top: -30%;
+		top: -15%;
 	}
 	.profile-photo{
-		width: 150px;
-		height: 150px;
+		width: 180px;
+		height: 180px;
 		margin: auto;
 	}
 	.name{
-		padding-right: 100px;
+		padding-right: 110px;
+		width: 50%;
 	}
 	.location{
-		font-size: 11px;
-		padding-left: 100px;
-		margin-top: 60px;
+		font-size: 12px;
+		padding-left: 110px;
+		width: 50%;
+		float: right;
+	}
+	.position{
+		font-size: 16px;
 	}
 
 }

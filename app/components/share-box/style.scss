@@ -1,5 +1,4 @@
 .share-box{
-	margin-top: 5px;
 	.post-bar{
 		padding: 5px;
 		.thumbnail{
@@ -28,11 +27,11 @@
 	}
 	.button{
 		float: left;
-		font-weight: bold;
 		margin: 0;
-		background-color: #F5F5F5;
-		color: $brydge-blue;
 		border-left: 1px solid $border-color;
+	}
+	.button.success{
+		font-weight: bold;
 	}
 	.dropdown-button{
 		color :$body-color;

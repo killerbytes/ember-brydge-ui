@@ -1,9 +1,9 @@
-<header class="top-bar">{{log this}}
+<header class="top-bar" data-sticky data-options="marginTop:0;" style="width:100%">
 	<div class="row columns">
 		<div class="top-bar-title"><a href="/"><img src="assets/logo.svg"></a></div>
 		<div>
 			<div class="top-bar-left">
-				<ul class="menu main-menu">
+				<ul class="menu menu-links">
 					<li>{{#link-to 'me'}}Profile{{/link-to}}</li>
 					<li>{{#link-to 'home'}}Home{{/link-to}}</li>
 				</ul>
@@ -15,19 +15,27 @@
 						{{fa-icon "search"}}
 					</div>
 				</div>
-				<ul class="top-bar-group menu actions">
+				<ul class="top-bar-group menu menu-actions">
 
-					<li> <span>{{fa-icon "user-plus"}}</span></li>
+					<li> <a><i class="icons user"></i></a></li>
 					<li>
-						<span class="alert badge">3</span>
-						{{#link-to 'messaging'}}{{fa-icon "fa-envelope"}}{{/link-to}}
+						
+						{{#link-to 'messaging'}}
+							<span class="alert badge">3</span>
+							<i class="icons messages"></i>
+						{{/link-to}}
 					</li>
 					<li>
-						<span class="alert badge">5</span>
-						<span class="fa fa-tasks"
-							data-toggle="dd-messages"></span>
-							{{#zf-dropdown id="dd-messages" data-auto-focus="true"}}
-								<ul class="no-bullet">
+						<a data-toggle="dd-messages">
+							<span class="alert badge">5</span>
+							<i class="icons bino"></i>
+							<div class="wrapper">
+								<div class="triangle"></div>
+							</div>
+						</a>
+							{{#zf-dropdown id="dd-messages" closeOnClick="true" }}
+								
+								<ul class="no-bullet list-lined">
 									<li>
 										<div class="media-object">
 											<div class="media-object-section">
@@ -106,35 +114,48 @@
 								{{/link-to}}
 
 							{{/zf-dropdown}}
-
-
-						</li>
-					<li> <span>{{fa-icon "fort-awesome"}}</span></li>
-					
-					<li class="hide">
-
-						{{#zf-dropdown-menu}}
-						  <li>
-						    <a href="#"></a>
-						    <ul class="menu">
-						      <li>
-						      	<!-- {{#link-to 'home.logout'}}
-						      		<a href="#" style="color: black; background-color: white">logout</a>
-						      	{{/link-to}} -->
-
-						      	<!-- <button {{logout}}>logout</button> -->
-						      	<a href="#" style="color: black; background-color: white" {{action 'logout'}}>logout</a>
-						      </li>
-						    </ul>
-						  </li>
-						 
-						{{/zf-dropdown-menu}}
-
 					</li>
 					<li>
-						<span class="fa fa-caret-down"
-							data-toggle="dd-menu"></span>
-							{{#zf-dropdown id="dd-menu" data-auto-focus="true"}}
+						<a data-toggle="dd-stack">
+							<i class="icons stack"></i>
+							<div class="wrapper">
+								<div class="triangle"></div>
+							</div>							
+						</a>
+							{{#zf-dropdown id="dd-stack" closeOnClick="true"}}
+								<ul class="menu">
+									<li>{{link-to "Home" "home"}}</li>
+								</ul>
+								<ul class="menu">
+									<li>{{link-to "Profile" "me"}}</li>
+									<li>{{link-to "Edit Profile" "me"}}</li>
+									
+								</ul>
+								<ul class="menu">
+									<li><a href="">People Search</a></li>									
+								</ul>
+								<ul class="menu">
+									<li><a href="">Settings</a></li>
+									<li><a href="">User Guide</a></li>
+									<li><a href="" {{action 'logout'}}>Log out</a></li>
+									
+								</ul>
+
+							{{/zf-dropdown}}
+
+					</li>	
+				</ul>
+				<ul class="top-bar-group menu menu-actions">	
+					<li><i class="divider"></i></li>			
+					<li>
+						<a data-toggle="dd-menu">
+							<i class="icons caret"></i>
+							<div class="wrapper">
+								<div class="triangle"></div>
+							</div>
+						</a>
+
+							{{#zf-dropdown id="dd-menu" closeOnClick="true"}}
 								<ul class="menu">
 									<li>{{link-to "Home" "home"}}</li>
 								</ul>

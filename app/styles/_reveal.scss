@@ -1,10 +1,11 @@
 .reveal-popup{
-	background-color: rgba(0,0,0,.5);
-	border-radius: 7px;
-	.wrapper{
-		overflow: hidden;
-		background-color: #FFF;
-	}
+	border-radius: 3px;
+	border: 2px solid #999;
+	padding: 0;
+	// .wrapper{
+	// 	overflow: hidden;
+	// 	background-color: #FFF;
+	// }
 	h4{
 		background-color: $brydge-blue;
 		color: #FFF;
@@ -18,12 +19,16 @@
 		margin: 0;
 	}
 	p.lead{
-		font-size: inherit;
-		padding: 5px;
+		font-size: 10px;
+		padding: 3px 5px;
 		background-color: #EFEFEF;
 	}
 	.reveal-footer{
 		padding: 5px;
+		margin-top: 5px;
 		background-color: #EFEFEF;
 	}
+}
+.reveal-overlay{
+	background-color: rgba(65,65,65,.25);
 }
