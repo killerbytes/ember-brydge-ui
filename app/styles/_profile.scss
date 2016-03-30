@@ -1,42 +1,46 @@
-.profile{
+.profile-bar{
+	padding: 4px 5px;
+	border-right: none;
+	width: 378px;
+	min-height: 52px;
+	.position{
+		font-size: 16px;
+	}	
+}
+.profile-actions{
+	width: 561px;
+	position: relative;
 	.button.connect{
 		width: 180px;
-	}
-	&.profile-top{
-		margin-top: 50px;
-		padding-bottom: 65px;
-		padding-top: 30px;
-	}
-	&.role-bar{
-		padding: 4px 5px;
-		border-right: none;
-		width: 378px;
-	}
-	&.role-actions{
-		width: 561px;
-	}
+	}	
+}
 
-	.profile-industry{
-		display: table;
-		.content{
-			display: table-cell;
-			vertical-align: middle;
-		}
-		.fa{
-			padding: 10px;
-			font-size: 32px;
-			background-color: #F1F1F1;
-			color: #717171;	
-			border-right: 1px solid $border-color;
-			margin-right: 5px;
-			display: inline-block;
-		}
-		a{
-			display: block;
-		}
+.profile-industry{
+	display: table;
+	.content{
+		display: table-cell;
+		vertical-align: middle;
 	}
+	.fa{
+		padding: 10px;
+		font-size: 32px;
+		background-color: #F1F1F1;
+		color: #717171;	
+		border-right: 1px solid $border-color;
+		margin-right: 5px;
+		display: inline-block;
+	}
+	a{
+		display: block;
+	}
+}
 
+.profile-cover{
+	margin-top: 50px;
+	padding-bottom: 65px;
+	padding-top: 30px;
 	position: relative;
+	min-height: 176px;
 	h1{
 		line-height: 1.4em;
 		span{
@@ -70,8 +74,4 @@
 		width: 50%;
 		float: right;
 	}
-	.position{
-		font-size: 16px;
-	}
-
 }

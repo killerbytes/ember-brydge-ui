@@ -23,6 +23,7 @@ $body-color: #434343;
 @import "reveal";
 @import "tabs";
 @import "modal";
+@import "dropdowns";
 
 body{
 	background-color: #ECEDEF;
@@ -37,11 +38,17 @@ header{
 	position: fixed;
 	z-index: 100;
 }
+textarea{
+	box-shadow: none;
+	resize: none;
+	margin-bottom: 5px;
+}
+
 select{
 	border-radius: 3px;
 }
 .main{
-	padding-top: 40px;
+	padding-top: 47px;
 }
 .wrapper{
 	position: relative;
@@ -59,6 +66,21 @@ a.more{
 	font-weight: normal;
 	display: block;
 }	
+a.hover{
+	position: relative;
+	.wrapper{
+		width: 100%;
+		position: absolute;
+		bottom: -1px;
+		left: 0;
+	}	
+}
+a:not(.hover){
+	.triangle{
+		display: none;
+	}
+}
+
 .index{
 	max-width: 85rem;
 }
@@ -106,7 +128,7 @@ p.dim-text{
 	padding-right: 0;
 	padding-bottom: 0;
 }
-.full-padding{
+.padding{
 	padding: $global-padding;
 }
 .padded{
@@ -122,6 +144,9 @@ p.dim-text{
 }
 .border-b{
 	border-bottom: 1px solid $border-color;
+}
+.mt{
+	margin-top: 10px;
 }
 .mt5{
 	margin-top: 5px;

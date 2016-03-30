@@ -1,5 +1,5 @@
 <div class="row column">
-  <div class="box profile profile-top">
+  <div class="box profile profile-cover">
     <div class="text-right name">
 
       <h1>
@@ -25,17 +25,44 @@
   </div>
 
 
-  <div class="medium-6 float-left box profile role-bar">
+  <div class="medium-6 float-left box profile profile-bar">
     <div class="position">{{ model.profile.jobTitle}}</div>
     <strong>{{model.company}}</strong>
 
   </div>
-  <div class="medium-6 float-left profile role-actions">
-    <div class="profile-actions expanded button-group">
+  <div class="medium-6 float-left profile profile-actions">
+    <div class="expanded button-group">
       <a class="button large connect success">CONNECT</a>
       <a class="secondary button large">MESSAGE</a>
-      {{link-to "ASK" "me.ask" class="secondary button large"}}
+      <a class="secondary button large" data-toggle="dd-ask">
+        ASK
+        <div class="wrapper">
+          <div class="triangle"></div>
+        </div>
+
+      </a>
+
+
     </div>
+      {{#zf-dropdown id="dd-ask" closeOnClick="true"}}
+        <section class="padding ask-form">
+          <textarea name="" id="" rows="3"></textarea>
+          <div class="row">
+            <div class="columns text-right">
+              <span class="name dim-text">@Jon</span>
+              <button class="button success">ASK</button>            
+            </div>
+          </div>
+          <p class="dim-text">
+            Ask anyone a professional question. <br>
+            If answered, it will appear on both profiles.
+          </p>
+          <small><a href="">Tips on how to use ASK</a></small>
+
+        </section>
+
+      {{/zf-dropdown}}
+
   </div>
 </div>
 <div class="row">
@@ -173,3 +200,4 @@
         </div>
 		  </div>
 	{{/zf-reveal}}
+

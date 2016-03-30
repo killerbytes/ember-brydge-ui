@@ -24,18 +24,6 @@ header.top-bar {
 		}
 		>li>a:hover, li>a.hover{
 			background-color: $dark-blue;
-			// position: relative;
-			.wrapper{
-				width: 100%;
-				position: absolute;
-				bottom: -1px;
-				left: 0;
-			}
-		}
-		a:not(.hover){
-			.triangle{
-				display: none;
-			}
 		}
 		.badge{
 			border-radius: 0;
@@ -64,58 +52,6 @@ header.top-bar {
 			font-weight: bold;
 		}
 	}
-	#dd-messages{
-		width: 350px;
-	}
-	#dd-menu{
-		width: 150px;
-		ul.menu{
-			border-bottom: 1px solid $border-color;
-			li{
-				display: inline-block;
-				width: 100%;
-			}
-			a{
-				color: $body-color;
-				padding: 0
-			}
-		}	
-		.triangle{
-			top: -7px;
-			position: absolute;
-			right: 14px;
-		}
-	}
-	.dropdown-pane{
-		border-top: none;
-		top: 47px !important;
-		padding: 0;
-		.thumbnail{
-			width: 35px;
-			height: 35px;
-			img{
-				width: 100%;
-			}
-		}
-		button{
-			background-color: #F1F1F1;
-			text-transform: uppercase;
-			padding: 5px;
-			color: #000;
-		}
-		ul>li{
-			padding: 1rem;
-		}
-		.media-object, p{
-			margin: 0;
-		}
-		p{
-			font-size: 11px;
-		}
-		.media-object-section:first-child{
-			padding-right: 2rem;
-		}
-	}
 
 
 }
@@ -141,23 +77,28 @@ header.top-bar {
 .top-bar-search {
 	width: 300px;
 	margin-top: 10px;
+	margin-right: 100px;
+	input[type="search"]{
+		border-top-left-radius: 3px;
+		border-bottom-left-radius: 3px;
+		width: 100%;
+		margin-right: 0px;
+		padding: 6px 8px;
+		font-size: 12px;
+		height: auto;
+		box-shadow: none;
+		border: none;
+		
+	}
+	input[type="search"]+.input-group-button{
+		border-top-right-radius: 3px;
+		border-bottom-right-radius: 3px;
+		background-color: #F5F5F5;
+		padding: 0 8px;
+		border-left: 1px solid $border-color;
+	}
 }
 
-.top-bar-search input[type="search"]{
-	width: 100%;
-	margin-right: 0px;
-	padding: 6px 8px;
-	font-size: 12px;
-	height: auto;
-	box-shadow: none;
-	border: none;
-	
-}
-.top-bar-search input[type="search"]+.input-group-button{
-	background-color: #F5F5F5;
-	padding: 0 8px;
-	border-left: 1px solid $border-color;
-}
 i.divider{
 	border-left: 1px solid $dark-blue;
 	padding: 3px 0;

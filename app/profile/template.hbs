@@ -1,111 +1,226 @@
 <div class="row column">
+  <div class="box profile profile-cover">
+    <div class="text-right name">
 
-  <div class="box profile profile-top">
-    <div class="columns medium-6 text-right name">
-      <h1><small>{{model.firstName}}</small><br> <span>{{model.lastName}}</span></h1>
+      <h1>
+        <span>{{model.profile.firstName}}</span>
+        <strong>{{model.profile.lastName}}</strong>
+      </h1>
     </div>
+    <div class="location">
+      <span class="subheader">
+        {{model.profile.location}}
+      </span>
+    </div>
+
     <div class="profile-center">
       <div class="profile-photo">
-        <img src="assets/avatar-beta.png" class="circle">
+        {{#link-to 'me.edit' model.profile.id}}
+          <img src="assets/avatar-1.jpg" class="circle">
+        {{/link-to}}
       </div>
 
     </div>
 
-    <div class="columns medium-6 text-left location">
-      <span class="subheader">
-        {{model.location}}
-      </span>
-
-    </div>
   </div>
-  <div class="medium-6 float-left box profile role-bar">
-    Head of Digital Marketing <br/>
+
+
+  <div class="medium-6 float-left box profile profile-bar">
+    <div class="position">{{ model.profile.jobTitle}}</div>
     <strong>PEPSICO</strong>
 
   </div>
-  <div class="medium-6 float-left">
-    <div class="profile-actions expanded button-group">
-		{{#link-to 'connections' class="large button"}}
-			CONNECT
-		{{/link-to}}
+  <div class="medium-6 float-left profile profile-actions">
+    <div class="expanded button-group">
+      <a class="button large connect success">CONNECT</a>
+      <a class="secondary button large">MESSAGE</a>
+      <a class="secondary button large" data-toggle="dd-ask">
+        ASK
+        <div class="wrapper">
+          <div class="triangle"></div>
+        </div>
 
-		<a class="large secondary button">MESSAGE</a>
-		{{#link-to 'ask' model.username class="large secondary button"}}
-			ASK
-		{{/link-to}}
+      </a>
+
 
     </div>
+      {{#zf-dropdown id="dd-ask" closeOnClick="true"}}
+        <section class="padding ask-form">
+          <textarea name="" id="" rows="3"></textarea>
+          <div class="row">
+            <div class="columns text-right">
+              <span class="name dim-text">@Jon</span>
+              <button class="button success">ASK</button>            
+            </div>
+          </div>
+          <p class="dim-text">
+            Ask anyone a professional question. <br>
+            If answered, it will appear on both profiles.
+          </p>
+          <small><a href="">Tips on how to use ASK</a></small>
+
+        </section>
+
+      {{/zf-dropdown}}
+
   </div>
 </div>
 <div class="row">
   <div class="columns medium-7">
-    <div class="box profile profile-industry">
-      <div class="medium-6 float-left industry-column">
-        {{fa-icon "building"}}
-
-        <ul class="no-bullet">
-          <li><a href="">Food &amp; Beverage</a></li>
-        </ul>
-      </div>
-      <div class="medium-6 float-left industry-column">
-        {{fa-icon "building"}}
-        <ul class="no-bullet">
-          <li><a href="">Advertising &amp; Marketing </a></li>
-          <li><a href="">Digital Marketing</a></li>
-        </ul>
-
-      </div>
-    </div>
-
+   {{share-box postToNewsfeed='postToNewsfeed' profile=model.profile}}
 
     {{newsfeed-list newsfeed=trendingPosts}}
 
 
   </div>
   <div class="columns medium-5 sidebar">
-    <div class="box question-box">
+    <div class="box rounded profile overflow">
+      <ul class="no-bullet list-lined no-margin">
+        <li>
+          <div class="profile-industry">
+              {{fa-icon "building"}}
+              <div class="content">
+                <a href="">{{model.profile.industry}}</a>
+              </div>        
+          </div>
+          
+        </li>
+        <li>
+          <div class="profile-industry">
+              {{fa-icon "building"}}
+              <div class="content">
+                <a href="">{{model.profile.occupationOne}}</a>
+                <a href="">{{model.profile.occupationTwo}}</a>
+              </div>
+          </div>
+          
+        </li>
+      </ul>
+    </div>
+
+
+    <div class="box rounded question-box">
       <div class="columns wrapper clearfix">
         <a href="">Nikhil Charan</a> asked <a href="">Jon Wayne</a>
         <h2>What is your opinion on the latest WHO regulations on Soda advertising?</h2>
-       	<div class="floated">
-        	<a href="" class="more">See Answer</a>
+        <div class="floated">
+          <a href="" class="more">See Answer</a>
         </div>
       </div>
       {{#link-to 'me.ask' }}
-      <button class="button expanded">
+      <button class="success button expanded">
         see more questions
       </button>
       {{/link-to}}
     </div>
-    <div class="box snapshot">
+    <div class="box rounded snapshot">
       <h5 class="box-header">Snapshot</h5>
-      <div class="columns">
-        {{model.snapshot}}
+      <div class="columns text-light-gray">
+        {{model.profile.snapshot}}
       </div>
     </div>
-    <div class="box">
+    <div class="box rounded work-history">
       <h5 class="box-header">Work History</h5>
-      <div class="sidebox">
-          Head of Digital Marketing, Asia Pacific <br/>
-          <h4>Pepsico</h4>
-          <small class="subheader">May 2013 - Present (2 Years and 6 Months)</small>
+      <ul class="no-bullet sidebox box-list">
+        <li>
+          <div class="position">Head of Digital Marketing, Asia Pacific</div>
+          <div class="name">Pepsico</div>
+          <span class="dim-text">May 2013 - Present (2 Years and 6 Months)</span>
 
           <a href="" class="more">Show More</a>
-      </div>
-      <div class="sidebox">
-          Senior Director, Digital Marketing <br/>
-          <h4>Pepsico</h4>
-          <small class="subheader">May 2013 - Present (2 Years and 6 Months)</small>
+          
+        </li>
+        <li>
+          <div class="position">Senior Director, Digital Marketing </div>
+          <div class="name">Pepsico</div>
+          <span class="dim-text">May 2013 - Present (2 Years and 6 Months)</span>
 
           <a href="" class="more">Show More</a>
-      </div>
-      <div class="sidebox">
-          Head, Social & Digital Marketing <br/>
-          <h4>Leo Burnett</h4>
-          <small class="subheader">May 2013 - Present (2 Years and 6 Months)</small>
+          
+        </li>
+        <li>
+          <div class="position">Head, Social & Digital Marketing</div>
+          <div class="name">Leo Burnett</div>
+          <span class="dim-text">May 2013 - Present (2 Years and 6 Months)</span>
 
           <a href="" class="more">Show More</a>
+          
+        </li>
+      </ul>
+    </div>
+
+    <div class="box rounded academia">
+      <h5 class="box-header">Academia</h5>
+      <div class="columns">
+          <div class="name">Stanford University</div>
+
+          Bachelor of Science, International Business Management <br>
+          Class of 2001          
       </div>
     </div>
+    <div class="box rounded languages">
+      <h5 class="box-header">Languages</h5>
+      <ul class="box-list no-bullet">
+        <li>
+          <div class="name">English</div>
+          <span>Native Proficiency</span>            
+        </li>
+        <li>
+          <div class="name">English</div>
+          <span>Native Proficiency</span>            
+        </li>
+        <li>
+          <div class="name">English</div>
+          <span>Native Proficiency</span>            
+        </li>
+      </ul>          
+    </div>
+
+    <div class="box rounded compliments">
+      <h5 class="box-header">Compliments</h5>
+      <ul class="box-list no-bullet">
+        <li>
+          <div class="title">Thank you for</div>
+          <p>your excellent work in making the Evian launch event a success.</p>            
+          <span>Posted by</span> <a>Nikhil Charan</a>
+        </li>
+        <li>
+          <div class="title">Good job on</div>
+          <p>exceeding your sales target this quarter. You're a star!</p>            
+          <span>Posted by</span> <a>Nikhil Charan</a>
+        </li>
+      </ul>   
+      <div class="box-footer">
+        <a href="">See all</a>  
+        <a class="float-right" data-open="complimentModal">Post a compliment</a>
+      </div>
+      
+    </div>
+
   </div>
 </div>
+
+
+  {{#zf-reveal id="complimentModal" overlay=true class="reveal-popup"}}
+      <h4>Compliments</h4>
+      <p class="lead">Show your appreciation for Jon WAYNE by complementing him</p>
+      <div class="content clearfix">
+        
+        <select name="" id="">
+          <option value="">Thank you for</option>
+          <option value="">Good job on</option>
+          <option value="">Congratulations on</option>
+          <option value="">Kudos on</option>
+        </select>
+        <textarea name="" id="" cols="30" rows="5" class="rounded"></textarea>
+        <a href="">See Tips</a>
+        <span class="float-right dim-text">250 characters</span>
+      </div>
+      <div class="reveal-footer text-right">
+        <div class="content">
+          <button class="button success">Post</button>
+          <button class="button success" data-close>Cancel</button>
+        </div>
+      </div>
+  {{/zf-reveal}}
+

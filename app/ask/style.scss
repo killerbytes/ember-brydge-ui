@@ -10,7 +10,7 @@
 	}
 }
 .ask-box{
-	@extend .full-padding;
+	@extend .padding;
 	background: #F3F3F3;
 	textarea{
 		margin-bottom: 10px;
@@ -25,7 +25,7 @@
 }
 .questions{
 	.box{
-		@extend .full-padding;
+		@extend .padding;
 		h1{
 			font-style: italic;
 		}

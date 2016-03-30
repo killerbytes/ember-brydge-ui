@@ -74,21 +74,6 @@ ul.menu-dotted{
 	}
 }
 
-.dropdown-pane{
-	background-color: #FFF;
-	box-shadow: 0px 5px 6px -5px #404040;
-	border: 1px solid #CCC;
-	right: 0 !important;
-	left: auto !important;
-}
-.triangle{
-	width: 0;
-	height: 0;
-	border-style: solid;
-	border-width: 0 7px 7px 7px;
-	border-color: transparent transparent #ffffff transparent;
-	margin: auto;
-}
 
 ul.list-lined{
 	>li:not(:last-child){
@@ -98,3 +83,15 @@ ul.list-lined{
 }
 
 
+
+.ask-form{
+	padding-bottom: 5px;
+	span.name{
+		margin-right: 15px;
+		font-size: 14px;
+	}
+	button{
+		font-size: 14px;
+		padding: 10px 15px;
+	}
+}
