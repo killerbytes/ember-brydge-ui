@@ -26,6 +26,14 @@
 	  End Date:
 	   {{date-picker date=to format='YYYY-MM-DD' valueFormat='date' allowBlank=true}}
 		</label>
+
+		<label>
+	  Current Company:
+	  {{input type="checkbox" name="currentCompany" checked=currentCompany}}
+		</label>
+
+		
+
 		<button class='alert button' {{action 'cancel'}}>Cancel</button>
     <button class='button' {{ action 'save' }}>Save</button>
   </div>

@@ -22,7 +22,8 @@ export default Ember.Component.extend({
 				location: this.get('location'),
 				content: this.get('content'),
 				from: this.get('from'),
-				to: this.get('to')
+				to: this.get('to'),
+				currentCompany: this.get('currentCompany')
 			});
 
 			work.save().then(() => {

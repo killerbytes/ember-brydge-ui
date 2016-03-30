@@ -27,7 +27,7 @@
 
   <div class="medium-6 float-left box profile role-bar">
     <div class="position">{{ model.profile.jobTitle}}</div>
-    <strong>PEPSICO</strong>
+    <strong>{{model.company}}</strong>
 
   </div>
   <div class="medium-6 float-left profile role-actions">
@@ -94,32 +94,9 @@
     </div>
     <div class="box rounded work-history">
       <h5 class="box-header">Work History</h5>
-      <ul class="no-bullet sidebox box-list">
-        <li>
-          <div class="position">Head of Digital Marketing, Asia Pacific</div>
-          <div class="name">Pepsico</div>
-          <span class="dim-text">May 2013 - Present (2 Years and 6 Months)</span>
 
-          <a href="" class="more">Show More</a>
-          
-        </li>
-        <li>
-          <div class="position">Senior Director, Digital Marketing </div>
-          <div class="name">Pepsico</div>
-          <span class="dim-text">May 2013 - Present (2 Years and 6 Months)</span>
-
-          <a href="" class="more">Show More</a>
-          
-        </li>
-        <li>
-          <div class="position">Head, Social & Digital Marketing</div>
-          <div class="name">Leo Burnett</div>
-          <span class="dim-text">May 2013 - Present (2 Years and 6 Months)</span>
-
-          <a href="" class="more">Show More</a>
-          
-        </li>
-      </ul>
+      {{partial 'me/index/workhistory'}}
+      
     </div>
 
     <div class="box rounded academia">
