@@ -8,4 +8,5 @@ export default DS.Model.extend({
   from: DS.attr('date'),
   to: DS.attr('date'),
   updatedAt: DS.attr('date'),
+  currentCompany: DS.attr('boolean', { defaultValue: false })
 });
