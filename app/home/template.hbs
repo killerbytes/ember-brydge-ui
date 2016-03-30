@@ -9,7 +9,7 @@
 		<div class="row two-cols">
 			<div class="columns large-6 medium-6">
 				<div class="wrapper">
-					<a class="box default button dropdown-button expanded" data-toggle="industry-dropdown">
+					<!-- <a class="box default button dropdown-button expanded" data-toggle="industry-dropdown">
 						My Connections
 						<i class="fa fa-caret-down"></i>
 					</a>
@@ -33,7 +33,8 @@
 							</ul>
 							<a href="">Add other Industry Channels to follow</a>
 						</section>
-					{{/zf-dropdown}}	
+					{{/zf-dropdown}} -->	
+					{{channel-filter-dropdown selection=selection model=model.industryChannels}}
 				</div>		
 			</div>
 			<div class="columns large-6 medium-6">
@@ -71,7 +72,7 @@
 	</div>
 
 
-    {{newsfeed-list newsfeed=model}}
+    {{newsfeed-list newsfeed=model.newsfeed}}
   </div>
   <div class="large-4 medium-4 columns sidebar">
     <img src="https://placeholdit.imgix.net/~text?txtsize=33&txt=Placeholder&w=323&h=650">

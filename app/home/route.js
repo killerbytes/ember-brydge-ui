@@ -1,10 +1,16 @@
 import Ember from 'ember';
 import AuthenticatedRouteMixin from 'ember-simple-auth/mixins/authenticated-route-mixin';
 import ENV from 'web/config/environment';
+import FilterDropdownListMixin from 'web/mixins/filter-dropdown-list';
 
 
-export default Ember.Route.extend(AuthenticatedRouteMixin, {
+
+
+export default Ember.Route.extend(AuthenticatedRouteMixin, FilterDropdownListMixin, {
   session: Ember.inject.service('session'),
+
+  categoryid: '',
+
 
   beforeModel(transition, params) {
     this._super(transition, params);
@@ -12,18 +18,21 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
   },
 
   model() {
-  	return this.store.query('newsfeed', {target:'home'});
-  },
-
-  setupController: function(controller, model) {
+    console.log('<<<<<<<< categoryid', this.get('categoryid'));
     let ownerid = this.get('session.data.authenticated.user_id');
-    
-    model.profile = this.store.findRecord('profile', ownerid);
-    
-    controller.set('model', model);
+    return Ember.RSVP.hash({
+      newsfeed: this.store.query('newsfeed', {categoryid:this.get('categoryid')}),
+      profile: this.store.findRecord('profile', ownerid)
+    });
   },
 
   actions: {
+
+    setCategory: function(categoryid) {
+      console.log('<<<< send action from controller', categoryid)
+      this.set('categoryid',categoryid);
+      this.refresh();
+    },
 
     logout: function(){
       console.log('home/logout>>>')

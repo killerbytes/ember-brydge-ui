@@ -18,13 +18,28 @@ const pizzas = [{
     description: "For the exotic ones"
   }];
 
+const content = [
+  {
+    text: "Select a Channel",
+    children: [
+      {
+        id: "myconnections",
+        text: "My Connections"
+      }, {
+        id: "pep",
+        text: "Pineapples"
+      }
+    ]
+  }
+];
+
 export default Ember.Route.extend({
   industry: null,
   occupOne: null,
   occupTwo: null,
 
 	model: function() {
-		return pizzas;
+		return content;
 	},
 
   actions: {

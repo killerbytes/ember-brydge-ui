@@ -2,9 +2,14 @@ import Ember from 'ember';
 
 export default Ember.Controller.extend({
   
-  isCheckedIndustry: false,
-  isCheckedOccupationOne: true,
-  isCheckedOccupationTwo: false,
+  selection: {
+    id: 'myconnections',
+    text: 'My Connections'
+  },
+
+  selectionChanged: function () {
+    this.send('setCategory',this.get('selection.id'));
+  }.observes('selection'),
 
   actions: {
    
