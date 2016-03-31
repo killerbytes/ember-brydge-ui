@@ -1,56 +1,63 @@
-<div class="row collapse">
-  <div class="medium-3 columns">
-  {{#zf-tabs class="vertical"}}
-	  <li class="tabs-title is-active"><a href="#personal" aria-selected="true">Personal Particulars</a></li>
-	   <li class="tabs-title"><a href="#industry">Industry</a></li>
-	  <li class="tabs-title"><a href="#occupindustry">Occupation Industry</a></li>
-	  <li class="tabs-title"><a href="#snapshot">Snapshot</a></li>
-	   <li class="tabs-title"><a href="#work">Work History</a></li>
-	   <li class="tabs-title"><a href="#academia">Academia</a></li>
-	  <li class="tabs-title"><a href="#language">Languages</a></li>
-	  <li class="tabs-title"><a href="#interest">Interests</a></li>
-	{{/zf-tabs}}
+<div class="row">
+    <div class="columns">
+        <h2 class="page-title">EDIT PROFILE</h2>
     </div>
-    <div class="medium-9 columns">
-    	<div class="tabs-content vertical" data-tabs-content="example-tabs">
-
-    		<div class="tabs-panel is-active" id="personal">
-    			 {{partial 'me/edit/info'}}
-    		</div>
-    		<div class="tabs-panel" id="industry">
-    			{{partial 'me/edit/industry'}}
-    		</div>
-    		<div class="tabs-panel" id="occupindustry">
-    			{{partial 'me/edit/occupindustry'}}
-    		</div>
-    		<div class="tabs-panel" id="snapshot">
-    			{{partial 'me/edit/snapshot'}}
-    		</div>
-    		<div class="tabs-panel" id="work">
-    			{{#if isNewWork}}
-					  {{partial 'me/edit/new/work'}}
-					{{else}}
-					  {{partial 'me/edit/work'}}
-					{{/if}}
-    		</div>
-    		<div class="tabs-panel" id="academia">
-    			{{#if isNewEducation}}
-					  {{partial 'me/edit/new/education'}}
-					{{else}}
-					  {{partial 'me/edit/education'}}
-					{{/if}}
-    		</div>
-    		<div class="tabs-panel" id="language">
-    			
-    		</div>
-    		<div class="tabs-panel" id="interest">
-    			
-    		</div>
-
-
-    	</div>
-
-
-			
+</div>
+<div class="row">
+    <div class="columns">
+        <div class="row collapse tab-wrapper">
+        
+          <div class="medium-3 columns">
+          {{#zf-tabs class="vertical"}}
+              <li class="tabs-title is-active"><a href="#personal" aria-selected="true">Personal Particulars</a></li>
+               <li class="tabs-title"><a href="#industry">Industry</a></li>
+              <li class="tabs-title"><a href="#occupindustry">Occupation Industry</a></li>
+              <li class="tabs-title"><a href="#snapshot">Snapshot</a></li>
+               <li class="tabs-title"><a href="#work">Work History</a></li>
+               <li class="tabs-title"><a href="#academia">Academia</a></li>
+              <li class="tabs-title"><a href="#language">Languages</a></li>
+              <li class="tabs-title"><a href="#interest">Interests</a></li>
+            {{/zf-tabs}}
+            </div>
+            <div class="medium-9 columns">
+                <div class="tabs-content vertical" data-tabs-content="example-tabs">
+        
+                    <div class="tabs-panel is-active" id="personal">
+                         {{partial 'me/edit/info'}}
+                    </div>
+                    <div class="tabs-panel" id="industry">
+                        {{partial 'me/edit/industry'}}
+                    </div>
+                    <div class="tabs-panel" id="occupindustry">
+                        {{partial 'me/edit/occupindustry'}}
+                    </div>
+                    <div class="tabs-panel" id="snapshot">
+                        {{partial 'me/edit/snapshot'}}
+                    </div>
+                    <div class="tabs-panel" id="work">
+                        {{#if isNewWork}}
+                              {{partial 'me/edit/new/work'}}
+                            {{else}}
+                              {{partial 'me/edit/work'}}
+                            {{/if}}
+                    </div>
+                    <div class="tabs-panel" id="academia">
+                        {{#if isNewEducation}}
+                              {{partial 'me/edit/new/education'}}
+                            {{else}}
+                              {{partial 'me/edit/education'}}
+                            {{/if}}
+                    </div>
+                    <div class="tabs-panel" id="language">
+                        
+                    </div>
+                    <div class="tabs-panel" id="interest">
+                        
+                    </div>
+        
+        
+                </div>            
+            </div>
+        </div>
     </div>
 </div>

@@ -7,7 +7,7 @@
 		font-size: 13px;
 	}
 	
-	ul.box-list li{
+	ul.box-list > li{
 		// min-height: 93px;
 		position: relative;
 		padding: $global-padding;
@@ -17,15 +17,11 @@
 		.columns{
 			border-bottom: 1px solid $border-color;
 		}
-		a.more{
-			position: absolute;
-			bottom: 5px;
-		}
 	}
 	ul.box-list li:not(:last-child){
 		border-bottom: 1px solid $border-color;
 	}
-	ul.sidebox li{
+	ul.sidebox > li{
 		min-height: 93px;
 		position: relative;
 		padding: $global-padding;
@@ -38,8 +34,21 @@
 		}
 		a.more{
 			position: absolute;
-			bottom: 5px;
+			bottom: 7px;
+			padding: 0;
 		}
+
+		li[aria-expanded=true]{
+			span.content-more{
+				display: none;
+			}
+		}
+		li[aria-expanded=false]{
+			span.content-less{
+				display: none;
+			}
+		}
+
 	}
 
 	.sidebox:not(:last-child){
@@ -87,6 +96,9 @@
 		}
 	}
 	.work-history{
+		a.more:after{
+			display: none;
+		}
 	}
 	.languages{
 		h3{

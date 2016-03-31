@@ -70,6 +70,7 @@ header.top-bar {
 .top-bar-group{
 	vertical-align: top;
 	display: inline-table;
+	float: left;
 }
 
 /*  Search input in topbar has weird 1em offset bottom and right */
