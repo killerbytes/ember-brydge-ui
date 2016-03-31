@@ -1,5 +1,5 @@
 <div class="row mt">
-  <div class="large-8 medium-8 columns">
+  <div class="large-7 medium-7 columns">
     {{ share-box postToNewsfeed='postToNewsfeed' profile=model.profile 
      isCheckedIndustry=isCheckedIndustry isCheckedOccupationOne=isCheckedOccupationOne
      isCheckedOccupationTwo=isCheckedOccupationTwo
@@ -71,10 +71,27 @@
 		</div>
 	</div>
 
+	<div class="curated-box clearfix">
+		<label for="toggle_live">
+			<input type="radio" id="toggle_live" name="toggle" value="live">
+			<span>Live</span>
+		</label>
+		<label for="toggle_curated">
+			<input type="radio"  id="toggle_curated" name="toggle" checked value="curated">
+			<span>Curated</span>
+		</label>
+		<div class="search-box">
+			<div class="input-group-button">
+				{{fa-icon "search"}}
+			</div>
+			<input class="input-group-field flat" type="search" placeholder="Search this channel">
+		</div>
+	</div>
+
 
     {{newsfeed-list newsfeed=model.newsfeed}}
   </div>
-  <div class="large-4 medium-4 columns sidebar">
+  <div class="large-5 medium-5 columns sidebar">
     <img src="https://placeholdit.imgix.net/~text?txtsize=33&txt=Placeholder&w=323&h=650">
   </div>
 </div>

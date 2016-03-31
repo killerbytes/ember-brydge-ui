@@ -1,5 +1,5 @@
 .profile-bar{
-	padding: 4px 5px;
+	padding: 4px 1rem;
 	border-right: none;
 	width: 378px;
 	min-height: 52px;
@@ -23,11 +23,11 @@
 	}
 	.fa{
 		padding: 10px;
-		font-size: 32px;
+		font-size: 42px;
 		background-color: #F1F1F1;
 		color: #717171;	
 		border-right: 1px solid $border-color;
-		margin-right: 5px;
+		margin-right: 1rem;
 		display: inline-block;
 	}
 	a{
@@ -45,6 +45,7 @@
 		line-height: 1.4em;
 		span{
 			font-size: 21px;
+			font-weight: normal;
 			display: block;
 			line-height: 1em;
 			color: #999;
@@ -60,9 +61,13 @@
 		top: -15%;
 	}
 	.profile-photo{
+
 		width: 180px;
 		height: 180px;
 		margin: auto;
+		img{
+			border: 2px solid $border-color;			
+		}
 	}
 	.name{
 		padding-right: 110px;

@@ -1,6 +1,6 @@
 
 
-  <div class="padded border-b">
+  <div class="padded">
     <div class="media-object">
       <div class="media-object-section">
         <div class="thumbnail">
@@ -9,51 +9,66 @@
       </div>
       <div class="media-object-section">
         <div class="name">
-
           {{#link-to "profile" post.user.username}}
             <strong>{{post.user.name}}</strong>
           {{/link-to}}
-
         </div>
-        <small class="subheader">{{post.user.profile.jobTitle}}</small>
-        <p class="small subheader">{{#link-to 'post' post.user.id post.id }}{{postDateFormat post.updatedAt}}{{/link-to}}</p>
+        <div class="position">{{post.user.profile.jobTitle}} <span></span> {{post.user.profile.jobTitle}}</div>
+        <p class="timestamp">{{#link-to 'post' post.user.id post.id }}{{postDateFormat post.updatedAt}}{{/link-to}}</p>
       </div>
     </div>
-    <p>{{{post.content}}}</p>
-    {{#if post.screenshot}}
-	    <div class="shadowed media">
-		    <img src="{{post.previewImage}}">
-		    <div class="post-caption">
-		      <small class="subheader">{{post.siteName}}</small>
-		      <h3>{{post.title}}</h3>
-		      <!-- <p>{{post.summary}}</p> -->
-		    </div>
-	    </div>
-    {{/if}}
-  </div>
-  <div class="padded post-footer border-b">
-    <div class="float-left">
-      <ul>
-        <li><a href="" {{action "vote"}}>Upvote </a> <span>21</span></li>
-        <li><a href="">Downvote</a></li>
-      </ul>
+    <div class="menu">
+
+      <a data-toggle="dd-post-menu-{{post.id}}"><i class="icons ellipsis"></i></a>      
 
     </div>
-    <div class="float-right">
-      <ul>
-        <li><a href="">Comment</a></li>
-        <li><a href="">Share</a></li>
-      </ul>
+    {{#zf-dropdown id=menuName closeOnClick="true" class="dropdown-flat post-menu-dropdown"}}
+      <button class="button expanded">Delete Post</button>
+    {{/zf-dropdown}}
+
+  </div>
+
+  <div class="media border-b">
+
+    <p>{{{post.content}}}</p>
+    {{#if post.screenshot}}
+      <div class="post-image">
+        <img src="{{post.previewImage}}">
+      </div>
+      <div class="post-caption">
+        <small class="subheader">{{post.siteName}}</small>
+        <h3>{{post.title}}</h3>
+      <!-- <p>{{post.summary}}</p> -->
+      </div>
+    {{/if}}
+  </div>
+  
+
+<div class="padded post-actions border-b">
+  <div class="float-left">
+    <a {{action "vote"}}>Upvote</a> <span>21</span>
+    <a>Downvote</a> <span>21</span>
+  </div>
+  <div class="float-right">
+    <a {{action "focusInput"}}>Comment</a><span>12</span>
+    <a>Share</a><span>99</span>
+  </div>
+</div>
+
+<div class="post-footer">
+  <div class="padded border-b">
+    <div class="post-comment-form">
+      <div class="media-object">
+        <div class="thumbnail">
+          <img src= "assets/avatar-beta.png">
+        </div>
+        <div class="comment-form">
+          <input type="text" placeholder="Write your comment">
+        </div>
+      </div>
     </div>
   </div>
   <div class="padded post-comments">
-    <div class="media-object">
-      <div class="thumbnail">
-        <img src= "assets/avatar-beta.png">
-      </div>
-      <div class="comment-form">
-        <input type="text" placeholder="Write your comment">
-      </div>
-    </div>
-
-  </div>
+    <a>View Comments</a>    
+  </div>  
+</div>

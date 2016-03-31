@@ -27,4 +27,8 @@
 	&.stack{
 		background-image: url(icons/stack.png)
 	}
+	&.ellipsis{
+		background-image: url(icons/ellipsis.gif);
+		width: 20px;
+	}
 }

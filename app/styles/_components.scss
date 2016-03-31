@@ -2,7 +2,14 @@
 .box{
 	@extend .clearfix;
 	background-color: #FFF;
+
 	border: 1px solid $border-color;
+
+	border: none;	
+	border-style: solid;
+	border-width: 1px;
+	border-color: #e5e6e9 #dfe0e4 #d0d1d5;
+
 	margin-bottom: 10px;
 	>.column, >.columns{
 		padding: 1rem;
@@ -59,7 +66,6 @@ ul.footer-menu{
 	}
 }
 ul.menu-dotted{
-	font-size: 11px;
 	li{
 		padding-right: 5px;
 	}
@@ -93,5 +99,68 @@ ul.list-lined{
 	button{
 		font-size: 14px;
 		padding: 10px 15px;
+	}
+}
+
+.curated-box{
+	margin-bottom: 10px;
+	position: relative;
+	label{
+		width: 20%;		
+		float: left;
+	}
+	input[type=radio]{
+		opacity: 0;
+		position: absolute;
+	}
+	span{
+		border: 1px solid $border-color;
+		border-top: 0;
+		border-bottom-width: 4px;
+		padding: 8px 10px;
+		color: #999;
+		width: 100%;
+		line-height: 1em;
+		display: block;
+		text-align: center;
+		font-size: 12px;
+	}
+	input:checked+span{
+		background-color: #FFF;
+		border-bottom-color: $brydge-blue;
+	}
+	.search-box{
+		width: 60%;
+		float: left;
+		.input-group-button{
+			position: absolute;
+			width: 30px;
+			height: 30px;
+			display: table;
+			color: #999;
+			i{
+				display: table-cell;
+				vertical-align: middle;
+			}
+		}
+		input{
+			font-size: 12px;
+			padding: 7px;
+			padding-left: 35px;
+			height: auto;
+			border-color: $border-color;
+			border-style: solid;
+			border-bottom-width: 4px;
+			border-right-width: 1px;
+		}
+		input:focus{
+			border: none;
+			border-bottom: 4px solid $border-color;
+		}
+	}
+	.search-box.active{
+		input{
+			border-bottom-color: $brydge-blue;
+		}
 	}
 }
