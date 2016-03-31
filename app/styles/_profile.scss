@@ -1,3 +1,7 @@
+.profile-form-wrapper{
+	width: 60%;
+	margin: 10% auto;
+}
 .profile-bar{
 	padding: 4px 1rem;
 	border-right: none;
@@ -10,8 +14,26 @@
 .profile-actions{
 	width: 561px;
 	position: relative;
+	.button-group{
+		.button{
+			display: inline-block;
+			width: calc(33.33333% - 2px);
+
+		}
+	}
+	.button{
+		@extend .box;
+		@extend .rounded;
+		margin-left: 2px;
+		color: $brydge-blue;
+	}
 	.button.connect{
-		width: 180px;
+		background-color: $brydge-blue;
+		color: #FFF;
+		&:hover{
+			background-color: $dark-blue;
+			color: #FFF;
+		}
 	}	
 }
 
@@ -60,15 +82,6 @@
 		width: 100%;
 		top: -15%;
 	}
-	.profile-photo{
-
-		width: 180px;
-		height: 180px;
-		margin: auto;
-		img{
-			border: 2px solid $border-color;			
-		}
-	}
 	.name{
 		padding-right: 110px;
 		width: 50%;
@@ -78,5 +91,15 @@
 		padding-left: 110px;
 		width: 50%;
 		float: right;
+	}
+}
+
+.profile-photo{
+
+	width: 180px;
+	height: 180px;
+	margin: auto;
+	img{
+		border: 2px solid $border-color;			
 	}
 }

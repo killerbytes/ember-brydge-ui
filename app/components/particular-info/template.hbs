@@ -1,9 +1,68 @@
-<div class="row">
-  <div class='columns'>
-    {{input value=profile.firstName placeholder='First Name'}}
-    {{input value=profile.lastName placeholder='Last Name'}}
-    {{input value=profile.location placeholder='Location'}}
-    {{input value=profile.jobTitle placeholder='Job Title'}}
-    <button class='button' {{ action 'save' }}>Save Changes</button>
-  </div>
+<div class="profile-form-wrapper">
+	<form action="" class="form-profile">
+      <div class="profile-photo">
+          <img src="assets/avatar-1.jpg" class="circle">
+      </div>
+		<div class="row">
+			<div class="columns inline-input-two">
+			    {{input value=profile.firstName placeholder='First Name'}}
+			    {{input value=profile.lastName placeholder='Last Name'}}
+				
+			</div>
+		</div>
+		<div class="row">
+		  <div class='columns'>
+		    {{input value=profile.location placeholder='Location'}}
+		    {{input value=profile.jobTitle placeholder='Job Title'}}
+		    {{pikaday-input value=profile.dob placeholder='DOB'}}
+
+		    {{select-2
+			    content=list
+			    value=selection
+			    placeholder="Choose a channel"
+			    allowClear=true
+			}}
+			<a class="button sucess" data-open="locationModal">Can't Find Your City?</a>
+		  </div>
+		</div>
+	    <button class='button success' {{ action 'save' }}>Save Changes</button>
+
+	</form>
 </div>
+
+{{#zf-reveal id="locationModal" overlay=true class="tiny reveal-popup"}}
+  <h4>Select Your Location</h4>
+  <div class="padding">
+  	<p>This is a comprehensive list of all countries (and their respective states and cities) available on Brydge.</p>
+  	<p>If you can't find your city or town, select the city or town closest to you.</p>
+  </div>
+  <div class="medium-7 small-centered columns">
+  	
+    <select name="" id="">
+      <option value="">Thank you for</option>
+      <option value="">Good job on</option>
+      <option value="">Congratulations on</option>
+      <option value="">Kudos on</option>
+    </select>
+    <select name="" id="">
+      <option value="">Thank you for</option>
+      <option value="">Good job on</option>
+      <option value="">Congratulations on</option>
+      <option value="">Kudos on</option>
+    </select>
+    <select name="" id="">
+      <option value="">Thank you for</option>
+      <option value="">Good job on</option>
+      <option value="">Congratulations on</option>
+      <option value="">Kudos on</option>
+    </select>
+
+  </div>
+  <div class="reveal-footer text-right">
+  	<div class="medium-8 small-centered columns text-center">
+		<button class="button success">Select</button>
+		<button class="button success" data-close>Cancel</button>
+  	</div>
+  </div>
+{{/zf-reveal}}
+

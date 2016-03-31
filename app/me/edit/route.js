@@ -7,7 +7,7 @@ export default Ember.Route.extend({
 		return Ember.RSVP.hash({
 	    educations: this.store.findAll('education'),
 	    experiences: this.store.findAll('experience'),
-	    profile: this.store.peekRecord('profile', params.profile_id),
+	    profile: this.store.peekRecord('profile', params.profile_id)
       // educations: [],
       // experiences: [],
       // profile: []
@@ -18,7 +18,6 @@ export default Ember.Route.extend({
     var educations = models.educations;
     var experiences = models.experiences;
     var profile = models.profile;
-    return false;
     controller.set('educations', educations);
     controller.set('experiences', experiences);
     controller.set('profile', profile);

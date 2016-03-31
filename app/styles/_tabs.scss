@@ -3,3 +3,45 @@
 		color: #000;
 	}
 }
+
+.profile.tab-wrapper{	
+	border-top: none;
+	.tab-header{
+		@extend .text-center;
+		border-right: 1px solid $border-color;
+		padding: 25px;
+		h2{
+			margin-bottom: 20px;
+			color: $brydge-blue;
+		}
+		p{
+			@extend .text-light-gray;
+			margin: 0;
+			line-height: 1.2em;
+		}
+	}
+	.tabs, .tabs-content{
+		border: none;
+	}
+	.tabs{
+		border-top: 1px solid $border-color;
+		@extend .text-center;
+		.tabs-title{
+			a{
+				border-right: 1px solid $border-color;
+				font-size: 14px;
+				line-height: 2em;
+			}
+			> a:focus, > a[aria-selected='true']{
+				border-right-color: #FFF;
+				background-color: #FFF;
+			}
+		}
+		.tabs-title:not(:last-child){
+			border-bottom: 1px solid $border-color;			
+		}
+	}
+	.tabs-content{
+		padding :10px 25px;
+	}
+}

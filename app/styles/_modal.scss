@@ -1,3 +1,44 @@
+.reveal-popup{
+	border-radius: 3px;
+	border: 2px solid #999;
+	padding: 0;
+	select{
+		font-size: 14px;
+		height: auto;
+	}
+	.button{
+		padding: 5px 10px;
+		font-weight: bold;
+		text-transform: uppercase;
+	}
+
+	h4{
+		background-color: $brydge-blue;
+		color: #FFF;
+		padding: 5px;
+		margin: 0;
+	}
+	.content{
+		padding: 5px;
+	}
+	textarea{
+		margin: 0;
+	}
+	p.lead{
+		font-size: 10px;
+		padding: 3px 5px;
+		background-color: #EFEFEF;
+	}
+	.reveal-footer{
+		padding: 5px;
+		margin-top: 15px;
+		background-color: #EFEFEF;
+	}
+}
+.reveal-overlay{
+	background-color: rgba(65,65,65,.25);
+}
+
 #complimentModal{
 	select{
 		border-color: $brydge-blue;
@@ -13,5 +54,15 @@
 		padding: 5px 15px;
 		font-weight: bold;
 		text-transform: uppercase;
+	}
+}
+
+#locationModal{
+	select{
+		margin-bottom: 5px;
+	}
+	p{
+		@extend .text-light-gray;
+		line-height: 1.2em;
 	}
 }

@@ -5,6 +5,10 @@
 	}
 	&.success{
 		color: #FFF;
+		&:hover{
+			color: #FFF;
+			background-color: $dark-blue;
+		}
 	}
 	&.secondary{
 		color: #666;

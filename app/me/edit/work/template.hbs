@@ -1,8 +1,18 @@
+<p>Your current job (title and employer) will be highlighted at the top of your profile. If you are currently self-employed, unemployed, on a sabbatical, or on a break, click here to pick one of the standard titles.</p>
 <div style="margin: 10px;">
 	{{#each experiences as |work|}}
 		{{ work-experience work=work }}
 	{{/each}}
 </div>
+
+<form action="" class="floating-form">
+	{{input placeholder='Company'}}
+	{{pikaday-input placeholder='Start Date'}}
+	{{pikaday-input placeholder='End Date'}}
+	{{input placeholder='Title'}}
+	<textarea name="" id="" rows="10"></textarea>
+	
+</form>
 
 
 <button type="button" class="success button expanded" {{action 'addNewWork'}}>{{fa-icon "plus"}} Add More Work</button>

@@ -1,14 +1,21 @@
 <div class="row">
     <div class="columns">
-        <h2 class="page-title">EDIT PROFILE</h2>
+        <div class="bordered bg-gray">
+            <h2 class="page-title">EDIT PROFILE</h2>
+        </div>
     </div>
 </div>
 <div class="row">
     <div class="columns">
-        <div class="row collapse tab-wrapper">
+        <div class="row collapse profile tab-wrapper bordered">
         
-          <div class="medium-3 columns">
-          {{#zf-tabs class="vertical"}}
+          <div class="medium-3 columns bg-gray">
+            <div class="tab-header">
+                <h2>Invest some time here. It'll do you good!</h2>
+                <p>A complete profile increases your chances of being noticed by industry peers.</p>
+            </div>
+
+          {{#zf-tabs class="vertical bg-gray"}}
               <li class="tabs-title is-active"><a href="#personal" aria-selected="true">Personal Particulars</a></li>
                <li class="tabs-title"><a href="#industry">Industry</a></li>
               <li class="tabs-title"><a href="#occupindustry">Occupation Industry</a></li>
@@ -19,7 +26,7 @@
               <li class="tabs-title"><a href="#interest">Interests</a></li>
             {{/zf-tabs}}
             </div>
-            <div class="medium-9 columns">
+            <div class="medium-9 columns float-left">
                 <div class="tabs-content vertical" data-tabs-content="example-tabs">
         
                     <div class="tabs-panel is-active" id="personal">

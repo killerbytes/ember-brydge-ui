@@ -50,3 +50,22 @@ form{
 		font-size: 11px;
 	}
 }
+
+.form-profile{
+	.profile-photo{
+		margin-bottom: 20px;
+	}
+	.inline-input-two input{
+		width: calc(50% - 7px);
+		display: inline-block;
+	}
+	.inline-input-two input:not(:last-child){
+		margin: 0;
+		margin-right: 10px;
+	}
+}
+
+.floating-form{
+	background-color: #CFEFFF;
+	padding: 20px 30px;
+}
