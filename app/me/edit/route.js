@@ -5,12 +5,12 @@ export default Ember.Route.extend({
 		this.profileid = params.profile_id;
 
 		return Ember.RSVP.hash({
-	    // educations: this.store.findAll('education'),
-	    // experiences: this.store.findAll('experience'),
-	    // profile: this.store.peekRecord('profile', params.profile_id),
-      educations: [],
-      experiences: [],
-      profile: []
+	    educations: this.store.findAll('education'),
+	    experiences: this.store.findAll('experience'),
+	    profile: this.store.peekRecord('profile', params.profile_id),
+      // educations: [],
+      // experiences: [],
+      // profile: []
 	  });
 	},
 

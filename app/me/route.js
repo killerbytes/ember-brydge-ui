@@ -14,16 +14,16 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, CurrentCompanyMixin, 
     let userid = this.get('session.data.authenticated.user_id');
     
     return Ember.RSVP.hash({
-      // account: this.store.findRecord('user', userid),
-      // posts: this.store.findAll('post', userid),
-      // profile: this.store.findRecord('profile', userid),
-      // experiences: this.store.findAll('experience'),
-      // educations: this.store.findAll('education')
-      account: [],
-      posts: [],
-      profile: [],
-      experiences: [],
-      educations: []
+      account: this.store.findRecord('user', userid),
+      posts: this.store.findAll('post', userid),
+      profile: this.store.findRecord('profile', userid),
+      experiences: this.store.findAll('experience'),
+      educations: this.store.findAll('education')
+      // account: [],
+      // posts: [],
+      // profile: [],
+      // experiences: [],
+      // educations: []
     });
   }
 

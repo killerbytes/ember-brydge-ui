@@ -181,3 +181,38 @@ ul > li.is-dropdown-submenu-parent.is-down-arrow > ul {
 		padding-left: 0;
 	}
 }
+
+.box{
+	@extend .clearfix;
+	background-color: #FFF;
+	border-style: solid;
+	border-width: 1px;
+	border-color: #e5e6e9 #dfe0e4 #d0d1d5;
+	margin-bottom: 10px;
+	>.column, >.columns{
+		padding: 1rem;
+		padding-top: 10px;
+		padding-bottom: 10px;
+	}
+	.box-header{
+		font-size: 11px;
+		margin-bottom: 0;
+		font-weight: bold;
+		text-transform: uppercase;
+		padding: $global-padding;
+		padding-top: 10px;
+		padding-bottom: 10px;
+		background: #F1F1F1;
+		border-bottom: 1px solid $border-color;
+		border-top-left-radius: 3px;
+		border-top-right-radius: 3px;
+	}
+	.box-footer{
+		@extend .padded;
+		border-top: 1px solid $border-color;
+		line-height: 2em;
+	}
+	.button.small.expanded{
+		margin-bottom: 0;
+	}
+}
