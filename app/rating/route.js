@@ -53,6 +53,11 @@ export default Ember.Route.extend({
 
     inputChanged: function(value, id) {
       console.log('<<< action-input component <<<<', value, id)
+    },
+
+    clickedConnect: function (callback) {
+      console.log('component clicked');
+      callback();
     }
   }
 });

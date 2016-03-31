@@ -47,5 +47,15 @@ export default Ember.Route.extend({
     model.username = this.get('username');
     controller.set('model', model)
     controller.set('trendingPosts', this.get('trendingPosts'))
+  },
+
+  actions: {
+    clickedConnect: function (callback) {
+      console.log('component clicked');
+      // var connection = this.store.createRecord('connection',{
+      //   from: 
+      // })
+      callback();
+    }
   }
 });
