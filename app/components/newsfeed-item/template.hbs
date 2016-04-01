@@ -13,7 +13,7 @@
             <strong>{{post.user.name}}</strong>
           {{/link-to}}
         </div>
-        <div class="position">{{post.user.profile.jobTitle}} <span></span> {{post.user.profile.jobTitle}}</div>
+        <div class="position">{{post.user.profile.jobTitle}}</div>
         <p class="timestamp">{{#link-to 'post' post.user.id post.id }}{{postDateFormat post.updatedAt}}{{/link-to}}</p>
       </div>
     </div>
