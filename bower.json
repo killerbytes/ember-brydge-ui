@@ -18,6 +18,8 @@
     "Faker": "~3.0.0",
     "uri-templates": "^0.1.9",
     "select2": "3.5.2",
-    "pikaday": "^1.4.0"
+    "pikaday": "^1.4.0",
+    "selectize": "miguelcobain/selectize.js#master",
+    "spin.js": "^2.3.2"
   }
 }
