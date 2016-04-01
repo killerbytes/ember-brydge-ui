@@ -21,7 +21,13 @@
         }}
 
 		    <!-- {{input value=profile.jobTitle placeholder='Job Title'}} -->
-        {{date-picker placeholder="Date of Birth" date=to format='YYYY-MM-DD' valueFormat='date' allowBlank=true}}
+        {{date-picker 
+        placeholder="Date of Birth" 
+        date=profile.birthDay 
+        format='YYYY-MM-DD' 
+        valueFormat='date' 
+        allowBlank=true
+        yearRange='-80, 0'}}
 
 			<a class="button sucess" data-open="locationModal">Can't Find Your City?</a>
 		  </div>
