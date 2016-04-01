@@ -8,6 +8,7 @@ export default Ember.Route.extend({
     const paramsUsername = transition.params['profile'].username;
 
     // console.log("Transit to own profile?", myUsername, paramsUsername, (myUsername === paramsUsername));
+    this.set('currentUserid', this.get('session.data.authenticated.user_id'));
 
     if (myUsername === paramsUsername) {
       this.transitionTo('me');
@@ -22,17 +23,10 @@ export default Ember.Route.extend({
 
   afterModel: function(model, transition) {
 
-    console.log(model);
-
-    console.log('<<<<', model.get('firstName'),
-      model.get('lastName'),
-      model.get('location'),
-      model.get('userid'),
-      this.get('username'));
-
     let userid = model.get('userid');
     let _this = this;
 
+    this.set('userid', userid);
     if (!userid) return true;
 
     return this.store.query('post', {
@@ -52,10 +46,20 @@ export default Ember.Route.extend({
   actions: {
     clickedConnect: function (callback) {
       console.log('component clicked');
-      // var connection = this.store.createRecord('connection',{
-      //   from: 
-      // })
-      callback();
+      
+      let currentUserid = this.get('currentUserid');
+      let userid = this.get('userid');
+      
+      console.log(currentUserid, userid)
+      var connection = this.store.createRecord('connection',{
+        to: userid
+      });
+
+      connection.save().then(()=>{
+        console.log('connection saved');
+        callback();
+      });
+     
     }
   }
 });
