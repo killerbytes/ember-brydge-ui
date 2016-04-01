@@ -1,6 +1,6 @@
 
 header.top-bar {
-	.top-bar-right {
+	.top-bar-left, .top-bar-right{
 		position: relative;
 	}
 	padding: 0;
@@ -11,6 +11,7 @@ header.top-bar {
 	}
 	ul.menu-actions{
 		vertical-align: top;
+		margin-left: 25px;
 		.fa{
 			color: #417993;
 			font-size: 18px;
@@ -76,9 +77,9 @@ header.top-bar {
 /*  Search input in topbar has weird 1em offset bottom and right */
 
 .top-bar-search {
-	width: 300px;
+	width: 350px;
 	margin-top: 10px;
-	margin-right: 100px;
+	margin-right: 25px;
 	input[type="search"]{
 		border-top-left-radius: 3px;
 		border-bottom-left-radius: 3px;

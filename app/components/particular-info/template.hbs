@@ -13,16 +13,16 @@
 		</div>
 		<div class="row">
 		  <div class='columns'>
-		    {{input value=profile.location placeholder='Location'}}
-		    {{input value=profile.jobTitle placeholder='Job Title'}}
-        {{date-picker placeholder="End Date" date=to format='YYYY-MM-DD' valueFormat='date' allowBlank=true}}
+        {{select-2
+          content=list
+          value=profile.location
+          placeholder="Location"
+          allowClear=true
+        }}
 
-		    {{select-2
-			    content=list
-			    value=selection
-			    placeholder="Choose a channel"
-			    allowClear=true
-			}}
+		    <!-- {{input value=profile.jobTitle placeholder='Job Title'}} -->
+        {{date-picker placeholder="Date of Birth" date=to format='YYYY-MM-DD' valueFormat='date' allowBlank=true}}
+
 			<a class="button sucess" data-open="locationModal">Can't Find Your City?</a>
 		  </div>
 		</div>

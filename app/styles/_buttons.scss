@@ -12,9 +12,12 @@
 	}
 	&.secondary{
 		color: #666;
+		&:hover{
+			color: inherit;
+		}
 	}
 	&.large{
-		font-size: 24px;		
+		font-size: 21px;		
 		padding: 13px;
 	}
 	&.clear{
@@ -34,13 +37,15 @@
 .dropdown-button{
 	position: relative;
 	padding: 8px;
-	padding-right: 35px;
+	padding-right: 30px;
 	font-family: 'Arial';
 	font-size: 12px;
-	.fa-caret-down{
+	.icons{
 		font-size: 18px;
 		position: absolute;
 		right: 10px;
-		top: 5px;
+		top: 2px;
+		width: 10px;
+		opacity: .5;
 	}
 }

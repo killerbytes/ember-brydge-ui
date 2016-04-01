@@ -1,9 +1,10 @@
 .sidebar{
 	.name{
+		color: $feed-text-color;
 		font-size: 16px;
 	}
-	.position, .title{
-		color: #000;
+	.title{
+		color: $feed-text-color;
 		font-size: 13px;
 	}
 	
@@ -61,8 +62,9 @@
 	}
 
 	.question-box{
-		color: #A3A3BD;
+		@extend .text-light-gray;
 		h2{
+			font-family: 'Din Alternate', helvetica;
 			font-size: 26px;
 			font-weight: bold;
 			color: #717171;
@@ -95,7 +97,10 @@
 			padding: 3px 10px;		
 		}
 	}
-	.work-history{
+	.work-history, .academia{
+		.name{
+			margin-bottom: 5px;
+		}
 	}
 	.languages{
 		h3{
@@ -105,22 +110,49 @@
 			text-transform: uppercase;
 		}
 	}
-	.academia{
-		.name{
-			margin-bottom: 5px;
-		}
-	}
 	.compliments{
 		.title{
 			text-transform: uppercase;
 			font-weight: bold;
 		}
 		p{
+			@extend .text-light-gray;
 			margin-bottom: 5px;
 		}
 		span{
 			color: #000;
 		}
 	}
-
+	.progress-box{
+		.progress-item{
+			@extend .clearfix;
+			margin-bottom: 10px;
+		}
+		.col{
+			width: 50%;
+			float: left;
+		}
+		.col:not(:last-child){
+			padding-right: 1rem;
+		}
+		.progress{
+			position: relative;
+			height: .5rem;
+			margin-top: 10px;
+			margin-right: 40px;
+			.progress-meter-text{
+				@extend .text-light-gray;
+				right: -55px;
+				left: auto;
+				width: 30px;
+			}
+		}
+	}
+	footer{
+		@extend .dim-text;
+		padding: 0 5px;
+		ul.last{
+			margin-bottom: 5px;
+		}
+	}
 }

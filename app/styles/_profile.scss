@@ -1,3 +1,11 @@
+.profile-cover-wrapper{
+	/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#000000+0,000000+100&0+0,0.65+100 */
+	background: -moz-linear-gradient(top,  rgba(0,0,0,0) 0%, rgba(0,0,0,0.65) 100%); /* FF3.6-15 */
+	background: -webkit-linear-gradient(top,  rgba(0,0,0,0) 0%,rgba(0,0,0,0.65) 100%); /* Chrome10-25,Safari5.1-6 */
+	background: linear-gradient(to bottom,  rgba(0,0,0,0) 0%,rgba(0,0,0,0.65) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#a6000000',GradientType=0 ); /* IE6-9 */
+
+}
 .profile-form-wrapper{
 	width: 60%;
 	margin: 10% auto;
@@ -5,35 +13,38 @@
 .profile-bar{
 	padding: 4px 1rem;
 	border-right: none;
-	width: 378px;
-	min-height: 52px;
+	min-height: 49px;
 	.position{
-		font-size: 16px;
+		font-size: 15px;
+		line-height: 1.2em;
 	}	
 }
 .profile-actions{
-	width: 561px;
 	position: relative;
 	.button-group{
 		.button{
 			@extend .box;
 			display: inline-block;
 			width: calc(33.33333% - 2px);
+			&.connect{
+				background-color: $brydge-blue;
+				border-color: #cfefff #96dcfe #96dcfe;
+				color: #FFF;
+				&:hover{
+					background-color: $dark-blue;
+					color: #FFF;
+				}
+			}				
 		}
 	}
 	.button{
 		@extend .rounded;
 		margin-left: 2px;
 		color: $brydge-blue;
-	}
-	.button.connect{
-		background-color: $brydge-blue;
-		color: #FFF;
 		&:hover{
-			background-color: $dark-blue;
-			color: #FFF;
+			color: $brydge-blue;			
 		}
-	}	
+	}
 }
 
 .profile-industry{
@@ -63,13 +74,14 @@
 	position: relative;
 	min-height: 176px;
 	h1{
+		color: #FFF;
 		line-height: 1.4em;
 		span{
 			font-size: 21px;
 			font-weight: normal;
 			display: block;
 			line-height: 1em;
-			color: #999;
+			// color: #999;
 		}
 		strong{
 			text-transform: uppercase;		
@@ -86,11 +98,13 @@
 		width: 50%;
 	}
 	.location{
-		font-size: 12px;
+		font-size: 13px;
 		padding-left: 110px;
 		width: 50%;
 		float: right;
+		color: #FFF;
 	}
+
 }
 
 .profile-photo{
@@ -99,6 +113,6 @@
 	height: 180px;
 	margin: auto;
 	img{
-		border: 2px solid $border-color;			
+		border: 2px solid #FFF;			
 	}
 }

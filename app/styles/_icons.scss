@@ -29,6 +29,31 @@
 	}
 	&.ellipsis{
 		background-image: url(icons/ellipsis.gif);
-		width: 20px;
+		width: 17px;
 	}
+	&.building{
+		background-image: url(icons/building.png);
+		height: 45px;
+		width: 45px;
+		margin: 3px;
+		display: inline-block;
+		float: left;
+		opacity: .6;
+	}
+	&.briefcase{
+		background-image: url(icons/briefcase.svg);
+		height: 35px;
+		width: 35px;
+		margin: 8px;
+		display: inline-block;
+		float: left;
+		opacity: .4;
+	}
+}
+
+.icon-wrapper{
+	@extend .clearfix;
+	margin-right: 1rem;
+	background-color: #F1F1F1;
+	border-right: 1px solid #D9D9D9;
 }

@@ -1,28 +1,31 @@
-<div class="row column">
-  <div class="box profile profile-cover">
-    <div class="text-right name">
+<div class="full-width profile-cover-wrapper">
+  <div class="row column">
+    <div class="profile profile-cover">
+      <div class="text-right name">
 
-      <h1>
-        <span>{{model.profile.firstName}}</span>
-        <strong>{{model.profile.lastName}}</strong>
-      </h1>
-    </div>
-    <div class="location">
-      <span class="subheader">
+        <h1>
+          <span>{{model.profile.firstName}}</span>
+          <strong>{{model.profile.lastName}}</strong>
+        </h1>
+      </div>
+      <div class="location">
         {{model.profile.location}}
-      </span>
-    </div>
+      </div>
 
-    <div class="profile-center">
-      <div class="profile-photo">
-        {{#link-to 'me.edit' model.profile.id}}
-          <img src="assets/avatar-1.jpg" class="circle">
-        {{/link-to}}
+      <div class="profile-center">
+        <div class="profile-photo">
+          {{#link-to 'me.edit' model.profile.id}}
+            <img src="assets/jane_austen_circle_profile.png" class="circle">
+          {{/link-to}}
+        </div>
+
       </div>
 
     </div>
+  </div>  
+</div>
 
-  </div>
+<div class="row column">
 
 
   <div class="medium-6 float-left box profile profile-bar">
@@ -78,7 +81,9 @@
       <ul class="no-bullet list-lined no-margin">
         <li>
           <div class="profile-industry">
-              {{fa-icon "building"}}
+              <div class="icon-wrapper">
+                <i class="icons building"></i>
+              </div>
               <div class="content">
                 <a href="">{{model.profile.industry}}</a>
               </div>        
@@ -87,7 +92,9 @@
         </li>
         <li>
           <div class="profile-industry">
-              {{fa-icon "building"}}
+              <div class="icon-wrapper">
+                <i class="icons briefcase"></i>
+              </div>
               <div class="content">
                 <a href="">{{model.profile.occupationOne}}</a>
                 <a href="">{{model.profile.occupationTwo}}</a>
@@ -141,15 +148,15 @@
       <ul class="box-list no-bullet">
         <li>
           <div class="name">English</div>
-          <span>Native Proficiency</span>            
+          <div class="text-light-gray">Native Proficiency</div>            
         </li>
         <li>
           <div class="name">English</div>
-          <span>Native Proficiency</span>            
+          <div class="text-light-gray">Native Proficiency</div>            
         </li>
         <li>
           <div class="name">English</div>
-          <span>Native Proficiency</span>            
+          <div class="text-light-gray">Native Proficiency</div>            
         </li>
       </ul>          
     </div>
@@ -183,26 +190,7 @@
       
     </div>
 
-    <div class="box rounded">
-      <h5 class="box-header">Your Profile</h5>
-      <div class="columns">
-          <label>Completeness:</label>
-          <div class="progress" role="progressbar" tabindex="0" aria-valuenow="20" aria-valuemin="0" aria-valuetext="50 percent" aria-valuemax="100">
-          <span class="progress-meter" style="width: 50%">
-            <p class="progress-meter-text">50%</p>
-          </span>
-        </div>
-          <label>Activity:</label>
-          <div class="progress" role="progressbar" tabindex="1" aria-valuenow="10" aria-valuemin="0" aria-valuetext="25 percent" aria-valuemax="100">
-          <span class="progress-meter" style="width: 15%">
-            <p class="progress-meter-text">15%</p>
-          </span>
-        </div>
-        <p class="dim-text">Complete and active profiles have a higher chance of being surfaced and noticed.</p>
-        <small><a href="">See how you can be more active on Brydge.</a></small>
-      </div>
-    </div>
-
+    {{render "progress-box"}}
     {{render "sidebar-footer"}}
 
   </div>

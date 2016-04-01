@@ -3,19 +3,12 @@
 		<div class="top-bar-title"><a href="/"><img src="assets/logo.svg"></a></div>
 		<div>
 			<div class="top-bar-left">
-				<ul class="menu menu-links">
+				<ul class="menu menu-links hide">
 					<li>{{#link-to 'me'}}Profile{{/link-to}}</li>
 					<li>{{#link-to 'home'}}Home{{/link-to}}</li>
 				</ul>
-			</div>
-			<div class="top-bar-right">
-				<div class="top-bar-group top-bar-search rounded">
-					<input class="input-group-field" type="search" placeholder="Search">
-					<div class="input-group-button">
-						{{fa-icon "search"}}
-					</div>
-				</div>
 				<ul class="top-bar-group menu menu-actions">
+					<li><i class="divider"></i></li>			
 
 					<li> <a><i class="icons user"></i></a></li>
 					<li>
@@ -144,7 +137,18 @@
 							{{/zf-dropdown}}
 
 					</li>	
+					<li><i class="divider"></i></li>			
+					
 				</ul>
+
+			</div>
+			<div class="top-bar-right">
+				<div class="top-bar-group top-bar-search rounded">
+					<input class="input-group-field" type="search" placeholder="Search">
+					<div class="input-group-button">
+						{{fa-icon "search"}}
+					</div>
+				</div>
 				<ul class="top-bar-group menu menu-actions">	
 					<li><i class="divider"></i></li>			
 					<li>

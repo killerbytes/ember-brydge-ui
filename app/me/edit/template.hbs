@@ -18,6 +18,7 @@
 
             {{#zf-tabs class="vertical bg-gray"}}
               <li class="tabs-title is-active"><a href="#personal" aria-selected="true">Personal Particulars</a></li>
+              <li class="tabs-title"><a href="#type">Profile Type</a></li>
               <li class="tabs-title"><a href="#industry">Industry</a></li>
               <li class="tabs-title"><a href="#occupindustry">Occupation Industry</a></li>
               <li class="tabs-title"><a href="#snapshot">Snapshot</a></li>
@@ -32,6 +33,8 @@
       
                   <div class="tabs-panel is-active" id="personal">
                        {{partial 'me/edit/info'}}
+                  </div>
+                  <div class="tabs-panel" id="type">
                   </div>
                   <div class="tabs-panel" id="industry">
                       {{partial 'me/edit/industry'}}
