@@ -1,0 +1,11 @@
+{{#if editing}}
+  <form>
+    {{input value=name}}
+    <a href="#" {{action "cancelEditing"}} class="alert button">Cancel</a>
+    <a href="#" {{action "stopEditing"}} class="secondary button">Save</a>
+  </form>
+{{else}}
+  <span id="a" {{action "startEditing"}}>
+    {{name}}
+  </span>
+{{/if}}
