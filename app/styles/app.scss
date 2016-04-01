@@ -79,6 +79,10 @@ a:not(.hover){
 		display: none;
 	}
 }
+a.more.no-arrow:after{
+	display: none;
+}
+
 ul{
 	margin: 0;
 }

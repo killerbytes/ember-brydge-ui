@@ -1,40 +1,43 @@
-<div class="row">
-  <div class='columns'>
-  	<label>
-	  Company Name:
-	  {{input value=company}}
-		</label>
-		<label>
-	  Job Title:
-	  {{input value=title}}
-		</label>
-		<label>
-	  Location:
-	  {{input value=location}}
-		</label>
-		<label>
-	  Job Description:
-	  {{input value=content}}
-		</label>
+{{#zf-accordion allowAllClosed="true" id="accordion-work" class="form-accordion"}}
+	<li data-accordion-item>
+		<div class="accordion-content" data-tab-content>
+		  	<form action="">
+				<label>
+					{{input value=company placeholder="Company"}}
+				</label>
+				<div class="row">
+					<div class="columns medium-4">
+						<label>
+							{{date-picker placeholder="Start Date" date=from format='YYYY-MM-DD' valueFormat='date' allowBlank=true}}
+						</label>							
+					</div>
+					<div class="columns medium-4">
+						<label>
+							{{date-picker placeholder="End Date" date=to format='YYYY-MM-DD' valueFormat='date' allowBlank=true}}
+						</label>
+					</div>
+					<div class="columns medium-4">
+						<div class="checkbox">
+							<label>
+								{{input type="checkbox" name="currentCompany" checked=currentCompany}} I currently work here
+							</label>
+						</div>
+					</div>
+				</div>
+				<label>
+					{{input value=title placeholder="Title"}}
+				</label>
 
-		<label>
-	  Start Date:
-	   {{date-picker date=from format='YYYY-MM-DD' valueFormat='date' allowBlank=true}}
-		</label>
+				<label>
+					{{input value=location placeholder="Location"}}
+				</label>
+				<label>
+					{{textarea value=content rows="10" placeholder="Description"}}
+				</label>
+			    <button class='button success' {{ action 'save' }}>SAVE</button>
+			</form>								
+		</div>
+  		<a class="more no-arrow button success expanded">{{fa-icon "plus"}}</a>
+	</li>
+{{/zf-accordion}}
 
-		<label>
-	  End Date:
-	   {{date-picker date=to format='YYYY-MM-DD' valueFormat='date' allowBlank=true}}
-		</label>
-
-		<label>
-	  Current Company:
-	  {{input type="checkbox" name="currentCompany" checked=currentCompany}}
-		</label>
-
-		
-
-		<button class='alert button' {{action 'cancel'}}>Cancel</button>
-    <button class='button' {{ action 'save' }}>Save</button>
-  </div>
-</div>

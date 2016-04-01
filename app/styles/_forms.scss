@@ -20,9 +20,12 @@ form{
 	[type='time'], 
 	[type='url'], 
 	[type='color'], 
-	textarea{
+	textarea,
+	select{
 		box-shadow: none;
-		padding: 5px 10px;
+		// padding: 5px 10px;
+		font-size: 12px;
+		height: auto;
 	}	
 }
 
@@ -65,7 +68,27 @@ form{
 	}
 }
 
-.floating-form{
-	background-color: #CFEFFF;
-	padding: 20px 30px;
+.form-accordion{
+	border: none;
+	.accordion-content{
+		background-color: #CFEFFF;
+		padding: 20px 40px;
+		margin-bottom: 2px;
+		border: none;
+	}
+	a.more{
+		font-size: 20px;
+		color: #FFF;
+	}
+	.checkbox{
+		margin-top: 5px;
+	}
+	label{
+		font-size: 12px;
+	}
+	input,textarea{
+		font-size: 12px;
+		margin-bottom: 10px;
+	}		
+
 }

@@ -16,6 +16,7 @@ export default Ember.Component.extend({
 		},
 
 		save: function () {
+			this.$('.form-accordion').foundation('toggle', $('.accordion-content'))
 			let education = this.store.createRecord('education',{
 				school: this.get('school'),
 				degree: this.get('degree'),

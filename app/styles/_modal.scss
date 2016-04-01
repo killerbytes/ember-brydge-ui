@@ -2,10 +2,6 @@
 	border-radius: 3px;
 	border: 2px solid #999;
 	padding: 0;
-	select{
-		font-size: 14px;
-		height: auto;
-	}
 	.button{
 		padding: 5px 10px;
 		font-weight: bold;
@@ -42,10 +38,7 @@
 #complimentModal{
 	select{
 		border-color: $brydge-blue;
-		font-size: 14px;
 		width: 30%;
-		padding: 5px 10px;
-		height: auto;
 	}
 	.content{
 		padding: 0 30px;

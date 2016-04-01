@@ -1,7 +1,7 @@
-<div style="margin: 10px;">
-	{{#each educations as |education|}}
-		{{ education-box education=education }}
-	{{/each}}
-</div>
-<button type="button" class="success button expanded" {{action 'addNewEducation'}}>Add New Education</button>
+<p>Academia</p>
+
+{{ education-box items=educations }}
+
+{{ new-education store=store isNewWork=isNewWork}}
+
 {{outlet}}

@@ -4,17 +4,18 @@
           <img src="assets/avatar-1.jpg" class="circle">
       </div>
 		<div class="row">
-			<div class="columns inline-input-two">
+			<div class="columns medium-6">
 			    {{input value=profile.firstName placeholder='First Name'}}
-			    {{input value=profile.lastName placeholder='Last Name'}}
-				
 			</div>
+      <div class="columns medium-6">
+          {{input value=profile.lastName placeholder='Last Name'}}        
+      </div>
 		</div>
 		<div class="row">
 		  <div class='columns'>
 		    {{input value=profile.location placeholder='Location'}}
 		    {{input value=profile.jobTitle placeholder='Job Title'}}
-		    {{pikaday-input value=profile.dob placeholder='DOB'}}
+        {{date-picker placeholder="End Date" date=to format='YYYY-MM-DD' valueFormat='date' allowBlank=true}}
 
 		    {{select-2
 			    content=list

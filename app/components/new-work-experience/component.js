@@ -16,6 +16,7 @@ export default Ember.Component.extend({
 		},
 
 		save: function () {
+			this.$('.form-accordion').foundation('toggle', $('.accordion-content'))
 			let work = this.store.createRecord('experience',{
 				company: this.get('company'),
 				title: this.get('title'),
@@ -29,6 +30,7 @@ export default Ember.Component.extend({
 			work.save().then(() => {
 				console.log('saved successfully');
 				this.set('isNewWork', false);
+
 			})
 		}
 	}
