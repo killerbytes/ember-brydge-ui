@@ -36,8 +36,10 @@
         <img src="{{post.previewImage}}">
       </div>
       <div class="post-caption">
-        <small class="subheader">{{post.siteName}}</small>
-        <h3>{{post.title}}</h3>
+        {{#if post.siteName}}
+          <div class="subheader">{{post.siteName}}</div>
+        {{/if}}
+        <h3>{{title}}</h3>
       <!-- <p>{{post.summary}}</p> -->
       </div>
     {{/if}}

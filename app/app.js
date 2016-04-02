@@ -13,6 +13,7 @@ App = Ember.Application.extend({
   Resolver
 });
 
+
 loadInitializers(App, config.modulePrefix);
 
 // Ember.Router.reopen({
@@ -24,5 +25,8 @@ loadInitializers(App, config.modulePrefix);
 //       });
 //   }.on('didTransition')
 // });
+
+Ember.deprecate = function(){};
+Ember.warn = function(i){};
 
 export default App;

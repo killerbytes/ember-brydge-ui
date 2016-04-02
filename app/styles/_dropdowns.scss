@@ -21,8 +21,15 @@
 }
 
 #dd-ask{
-  top: 52px !important;
-  width: 65%;
+  top: 49px !important;
+  width: 90%;
+  background-color: #EEE;
+  
+}
+a[data-toggle="dd-ask"]{
+  .triangle{
+    border-color: rgba(0, 0, 0, 0) rgba(0, 0, 0, 0) #EEE rgba(0, 0, 0, 0);
+  }
 }
 #dd-messages{
   width: 350px;
