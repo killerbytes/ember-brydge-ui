@@ -46,20 +46,33 @@ export default Ember.Route.extend({
   actions: {
     clickedConnect: function (callback) {
       console.log('component clicked');
-      
-      let currentUserid = this.get('currentUserid');
-      let userid = this.get('userid');
-      
-      console.log(currentUserid, userid)
-      var connection = this.store.createRecord('connection',{
-        to: userid
-      });
+
+      var _this = this;
+
+      var connection = this.store.createRecord('connection');
+
+      let target = this.store.peekRecord('user', this.get('userid'));
+      let user = this.store.peekRecord('user', this.get('currentUserid'));
+
+      connection.set('from', user);
+      connection.set('to', target);
 
       connection.save().then(()=>{
         console.log('connection saved');
         callback();
       });
-     
+
+      // this.store.peekRecord('user', this.get('userid')).then((targetUser)=>{
+      //   this.store.peekRecord('user', this.get('currentUserid')).then((user)=>{
+      //     connection.set('from', user);
+      //     connection.set('to', targetUser);
+
+      //     connection.save().then(()=>{
+      //       console.log('connection saved');
+      //       callback();
+      //     });
+      //   });  
+      // });
     }
   }
 });

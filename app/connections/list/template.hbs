@@ -1,21 +1,6 @@
-<!-- <ul class="no-bullet sidebox box-list">
-{{#each model.connections as |person|}}
-  <li>
-    <div class="position">{{work.title}}</div>
-    <div class="name">{{work.company}}</div>
-    <span class="dim-text">May 2013 - Present (2 Years and 6 Months)</span>
-
-    <a href="" class="more">Show More</a>
-    
-  </li>
-  
-{{/each}}
-</ul>
-
- -->
 
 <ul class="no-bullet sidebox box-list">
-{{#each model as |person|}}
+{{#each model as |connection|}}
 <li>
 <div class="padded">
   <div class="media-object">
@@ -26,10 +11,10 @@
     </div>
     <div class="media-object-section">
       <div class="name">
-        <strong>Hein Zeya</strong>
+        <strong>{{connection.to.profile.firstName}} {{connection.to.profile.lastName}}</strong>
       </div>
-      <div class="position">Manager</div>
-      <p class="timestamp">Pepsico</p>
+      <div class="position">{{person.profile.jobTitle}}</div>
+      <p class="timestamp">{{person.profile.location}}</p>
     </div>
   </div>
 </div>

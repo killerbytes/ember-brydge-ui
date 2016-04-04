@@ -6,7 +6,7 @@
 <div class="row">
 	<div class="column medium-8">
 		<div class="content-container">
-			
+			{{partial 'connections/list'}}
 		</div>
 		
 	</div>
@@ -16,3 +16,11 @@
 		</div>
 	</div>
 </div>
+
+<!-- {{#each model as |connection| }}
+              
+                
+	<span><strong>{{ connection.to.name }}</strong></span>
+	{{ connection.to.profile.firstName}}
+
+{{/each}}  -->
