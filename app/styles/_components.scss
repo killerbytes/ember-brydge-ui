@@ -175,3 +175,19 @@ ul.work-list{
 .thumbnail img{
 	border: 1px solid #DDD;	
 }
+
+.flash-notification{
+    border: 1px solid $border-color;
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    width: 180px;
+    .alert-box{
+    	padding: 5px;
+		background-color: #FFF;
+    }
+    .alert-box:not(:last-child){
+    	margin-bottom: 2px; 
+    	border-bottom: 1px solid $border-color;
+    }
+}

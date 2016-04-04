@@ -4,6 +4,7 @@
 	font-size: 14px;
 	position: relative;
 	h3{
+		font-family: 'Din Alternate', helvetica;
 		display: table-cell;
 		vertical-align: middle;
 		font-size: 18px;
@@ -119,8 +120,16 @@
 		background-color: #999;
 		padding: 5px 1rem;
 		min-height: 83px;
+		.subheader{
+			color: #CCC;
+			text-transform: uppercase;
+		}
+		.subheader+h3{
+			display: block;
+		}
 	}
 	.post-image{
+		text-align: center;
 		border: 1px solid #DDD;
 		margin-bottom: 1px;
 	}
