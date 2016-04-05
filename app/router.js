@@ -2,7 +2,11 @@ import Ember from 'ember';
 import config from './config/environment';
 
 const Router = Ember.Router.extend({
-  location: config.locationType
+  location: config.locationType,
+  willTransition(transition) {
+    //close all menus
+    if($('.dropdown-pane').length) $('.dropdown-pane').foundation('close');
+  }
 });
 
 Router.map(function() {

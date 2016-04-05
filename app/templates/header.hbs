@@ -1,6 +1,6 @@
 <header class="top-bar" data-sticky data-options="marginTop:0;" style="width:100%">
 	<div class="row columns">
-		<div class="top-bar-title"><a href="/"><img src="assets/logo.svg"></a></div>
+		<div class="top-bar-title">{{#link-to 'home'}}<img src="assets/logo.svg">{{/link-to}}</div>
 		<div>
 			<div class="top-bar-left">
 				<ul class="menu menu-links hide">
@@ -8,9 +8,13 @@
 					<li>{{#link-to 'home'}}Home{{/link-to}}</li>
 				</ul>
 				<ul class="top-bar-group menu menu-actions">
-					<li><i class="divider"></i></li>			
 
-					<li> <a><i class="icons user"></i></a></li>
+					<li>
+						<a>
+							<i class="divider"></i>
+							<i class="icons user"></i>
+						</a>
+					</li>
 					<li>
 						
 						{{#link-to 'messaging'}}
@@ -111,6 +115,7 @@
 					<li>
 						<a data-toggle="dd-stack">
 							<i class="icons stack"></i>
+							<i class="divider"></i>						
 							<div class="wrapper">
 								<div class="triangle"></div>
 							</div>							
@@ -137,7 +142,6 @@
 							{{/zf-dropdown}}
 
 					</li>	
-					<li><i class="divider"></i></li>			
 					
 				</ul>
 
@@ -150,9 +154,9 @@
 					</div>
 				</div>
 				<ul class="top-bar-group menu menu-actions">	
-					<li><i class="divider"></i></li>			
 					<li>
 						<a data-toggle="dd-menu">
+							<i class="divider"></i>
 							<i class="icons caret"></i>
 							<div class="wrapper">
 								<div class="triangle"></div>
