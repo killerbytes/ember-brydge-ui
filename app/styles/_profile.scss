@@ -41,7 +41,6 @@
 	.button-group > .button{
 		@extend .rounded;
 		margin-left: 2px;
-		color: $brydge-blue;
 		&:hover{
 			color: $brydge-blue;			
 		}

@@ -1,10 +1,10 @@
 .sidebar{
 	.name{
-		color: $feed-text-color;
+		color: $text-color1;
 		font-size: 16px;
 	}
 	.title{
-		color: $feed-text-color;
+		color: $text-color1;
 		font-size: 13px;
 	}
 	
@@ -61,42 +61,6 @@
 		font-size: 12px;
 	}
 
-	.question-box{
-		@extend .text-light-gray;
-		h2{
-			font-family: 'Din Alternate', helvetica;
-			font-size: 26px;
-			font-weight: bold;
-			color: #717171;
-			margin: 10px 0 20px;
-		}
-		a{
-			font-weight: bold;
-		}
-		p{
-			font-size: 22px;
-			line-height: 1.4em;
-			font-weight: bold;
-		}
-		button{
-			text-transform: uppercase;
-			padding :4px;
-			font-weight: bold;
-			font-size: 11px;
-		}
-		.wrapper{
-			max-height: 190px;
-			overflow: hidden
-		}
-		.floated{
-			position: absolute;
-			left: 0;
-			width: 100%;
-			background: #FFF;
-			bottom: 0;
-			padding: 3px 10px;		
-		}
-	}
 	.work-history, .academia{
 		.name{
 			margin-bottom: 5px;
@@ -156,3 +120,4 @@
 		}
 	}
 }
+

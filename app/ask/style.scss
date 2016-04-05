@@ -1,6 +1,7 @@
 .ask-top-banner{
+	@extend .bg-gray;
 	text-align: center;
-	padding: 40px 35px;
+	padding: 20px 35px;
 	background: white;
 	p{
 	    text-align: justify;

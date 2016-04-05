@@ -199,3 +199,58 @@ ul.work-list{
 	width: 100%;
 	height: 100%;
 }
+
+.question-box{
+	position: relative;
+	@extend .text-light-gray;
+	h2{
+		font-family: 'Din Alternate', helvetica;
+		font-size: 26px;
+		font-weight: bold;
+		color: #717171;
+		margin: 10px 0 20px;
+	}
+	h4{
+		color: $text-color2;
+	}
+	a{
+		font-weight: bold;
+	}
+	p{
+		font-size: 22px;
+		line-height: 1.4em;
+		font-weight: bold;
+	}
+	button{
+		text-transform: uppercase;
+		padding :4px;
+		font-weight: bold;
+		font-size: 11px;
+	}
+	.wrapper{
+		max-height: 190px;
+		overflow: hidden
+	}
+	.floated{
+		position: absolute;
+		left: 0;
+		width: 100%;
+		background: #FFF;
+		bottom: 0;
+		padding: 5px 10px;		
+	}
+	.question-box-footer{
+		@extend .clearfix;
+		@extend .padded;
+		overflow: hidden;
+		border-top: 1px solid $border-color;
+		border-bottom: 1px solid $border-color;
+		padding: 3px 1rem;		
+	}
+	.pending-list{
+		.wrapper{
+			padding-top: 7px;
+			padding-bottom: 7px;
+		}
+	}
+}

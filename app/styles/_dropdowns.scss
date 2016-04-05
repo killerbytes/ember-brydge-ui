@@ -40,13 +40,14 @@ a[data-toggle="dd-ask"]{
     li{
       display: inline-block;
       width: 100%;
+      padding: 0;
       &:hover{
         background-color: darken(#D9D9D9, 1%);
       }
     }
     a{
       color: $body-color;
-      padding: 0
+      padding: 1rem;
     }
   } 
   ul.menu:not(:last-child){

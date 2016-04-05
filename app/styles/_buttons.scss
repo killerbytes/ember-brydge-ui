@@ -1,8 +1,6 @@
 
 .button{
-	&.default{
-		background-color: #FFF;
-	}
+	background-color: #FFF;
 	&.success{
 		color: #FFF;
 		&:hover{
@@ -24,6 +22,12 @@
 		background: transparent;
 		color: #000;
 	}
+	&.text-blue:hover{
+		color: $brydge-blue;
+	}
+	&:hover{
+		background-color: #FFF;
+	}
 }
 
 .button-group .button{
@@ -33,6 +37,9 @@
 	border-right: none;
 }
 
+.button-group.expanded .button{
+	border: 1px solid $brydge-blue;
+}
 
 .dropdown-button{
 	position: relative;

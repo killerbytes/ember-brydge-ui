@@ -1,5 +1,5 @@
 .newsfeed-item{
-	color: $feed-text-color;
+	color: $text-color1;
 	padding-top: 20px;
 	font-size: 14px;
 	position: relative;
@@ -14,6 +14,7 @@
 	}
 	p{
 		line-height: 1.4em;
+		word-break: break-word;
 	}
 	.menu{
 		position: absolute;

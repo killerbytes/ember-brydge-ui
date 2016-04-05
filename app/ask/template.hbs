@@ -1,46 +1,83 @@
-<div class="row column">
-	<div class="ask-top-banner mb5 box">
-		<h1>ASK @{{model.username}}</h1>
-		<p>{{model.username}} is currently taking your questions. Below are the questions professionals have asked {{model.username}}, which he's replied to. Use ASK to interact with {{model.username}} one-on-one. If he responds, the question and answer will be displayed on both your profiles. </p>
+<div class="row">
+	<div class="columns">
+		<div class="ask-top-banner box">
+			<h1>ASK <span class="text-upper">{{model.username}}</span></h1>
+			<p><span class="text-title">{{model.username}}</span> is currently taking your questions. Below are the questions professionals have asked {{model.username}}, which he's replied to. Use ASK to interact with {{model.username}} one-on-one. If he responds, the question and answer will be displayed on both your profiles. </p>
 
-		<p>If you're not sure how to use this, see our tips <a href="">here</a>.</p>
+			<p>If you're not sure how to use this, see our tips <a href="">here</a>.</p>
+		</div>
+		
 	</div>
-
-	<div class="row">
-	  <div class="large-8 medium-8 columns">
-	  	<div class="ask-box box">
-			{{ ask-box store=store model=model}}
-		</div>
-		<div class="questions">
-			{{ questions-list model=model.asks answer=false }}
-		</div>
-	  </div>
-	  <div class="large-4 medium-4 columns sidebar">
-		<div class="box">
-			<h5 class="box-header">Your Profile</h5>
-			<div class="columns">
-	  			<label>Completeness:</label>
-	  			<div class="progress" role="progressbar" tabindex="0" aria-valuenow="20" aria-valuemin="0" aria-valuetext="50 percent" aria-valuemax="100">
-				  <span class="progress-meter" style="width: 50%">
-				    <p class="progress-meter-text">50%</p>
-				  </span>
-				</div>
-	  			<label>Activity:</label>
-	  			<div class="progress" role="progressbar" tabindex="1" aria-valuenow="10" aria-valuemin="0" aria-valuetext="25 percent" aria-valuemax="100">
-				  <span class="progress-meter" style="width: 15%">
-				    <p class="progress-meter-text">15%</p>
-				  </span>
-				</div>
-				<p class="dim-text">Complete and active profiles have a higher chance of being surfaced and noticed.</p>
-				<small><a href="">See how you can be more active on Brydge.</a></small>
-			</div>
-		</div>
-		<!-- {{render "sidebar-footer"}} -->
-	  </div>
-	</div>
-
 	
 	<!-- {{ ask-box store=store model=model}} -->
 
+</div>
+
+
+<div class="row">
+  <div class="medium-7 columns">
+  	<div class="ask-box box hide">
+		{{ ask-box store=store model=model}}
+	</div>
+
+	<div class="row collapse mb ask button-group expanded">
+		<div class="columns medium-6"><button class="button success expanded text-upper">Questions JON has answered</button></div>
+		<div class="columns medium-6"><button class="button expanded text-upper">Questions JON has asked</button></div>
+	</div>
+	<div class="questions">
+		{{ questions-list model=model.asks answer=false }}
+	    <div class="box rounded question-box">
+	      <div class="clearfix">
+	        <a href="">Nikhil Charan</a> asked <a href="">Jon Wayne</a>
+	        <h2>What is your opinion on the latest WHO regulations on Soda advertising?</h2>
+	       	<div class="floated">
+	        	<a href="" class="more">See Answer</a>
+	        </div>
+	      </div>
+	    </div>
+	    <div class="box rounded question-box">
+	      <div class="clearfix">
+	        <a href="">Nikhil Charan</a> asked <a href="">Jon Wayne</a>
+	        <h2>What is your opinion on the latest WHO regulations on Soda advertising?</h2>
+	       	<div class="floated">
+	        	<a href="" class="more">See Answer</a>
+	        </div>
+	      </div>
+	    </div>
+	    <div class="box rounded question-box">
+	      <div class="clearfix">
+	        <a href="">Nikhil Charan</a> asked <a href="">Jon Wayne</a>
+	        <h2>What is your opinion on the latest WHO regulations on Soda advertising?</h2>
+	       	<div class="floated">
+	        	<a href="" class="more">See Answer</a>
+	        </div>
+	      </div>
+	    </div>
+	    <div class="box rounded question-box">
+	      <div class="clearfix">
+	        <a href="">Nikhil Charan</a> asked <a href="">Jon Wayne</a>
+	        <h2>What is your opinion on the latest WHO regulations on Soda advertising?</h2>
+	       	<div class="floated">
+	        	<a href="" class="more">See Answer</a>
+	        </div>
+	      </div>
+	    </div>
+	    <div class="box rounded question-box">
+	      <div class="clearfix">
+	        <a href="">Nikhil Charan</a> asked <a href="">Jon Wayne</a>
+	        <h2>What is your opinion on the latest WHO regulations on Soda advertising?</h2>
+	       	<div class="floated">
+	        	<a href="" class="more">See Answer</a>
+	        </div>
+	      </div>
+	    </div>
+	</div>
+  </div>
+  <div class="medium-5 columns sidebar">
+  	<button class="button expanded large text-blue box">ASK JON</button>
+
+    {{render "progress-box"}}
+    {{render "footer"}}
+  </div>
 </div>
 
