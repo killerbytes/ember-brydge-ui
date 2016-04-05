@@ -48,8 +48,8 @@
 
 <div class="padded post-actions border-b">
   <div class="float-left">
-    <a {{action "vote"}}>Upvote</a> <span>21</span>
-    <a>Downvote</a>
+    <a {{action "vote" "up"}}>Upvote</a> <span>{{data.attributes.counter}}</span>
+    <a {{action "vote" "down"}}>Downvote</a>
   </div>
   <div class="float-right">
     <a {{action "focusInput"}}>Comment</a><span>12</span>

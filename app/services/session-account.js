@@ -53,10 +53,10 @@ export default Ember.Service.extend({
     //  return this.get('ajax').put('/users/report/' + targetid)
   },
   upvote(postid)  {
-    // XXX Todo
+    return this.get('ajax').request('/v1/posts/'+postid+'/up');
   },
   downvote(postid) {
-    // XXX Todo
+    return this.get('ajax').request('/v1/posts/'+postid+'/down');
   }
 
 

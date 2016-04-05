@@ -40,12 +40,12 @@ header.top-bar {
 			top: 5px;
 			left: 0;
 		}
-		li:first-child i.divider{
-			left: 0;
-		}
 		li:last-child i.divider{
 			right: 0;
 			left: auto;
+		}
+		li:first-child i.divider{
+			left: 0;
 		}
 	}
 	ul.menu-links{
