@@ -4,7 +4,7 @@ export default Ember.Component.extend({
 	actions: {
 		ask: function(to, from, question) {
 			console.log('to/from/question', to,from,question);
-
+			
 			var store = this.store;
 
 			var ask = store.createRecord('ask',{

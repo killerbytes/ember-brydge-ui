@@ -1,7 +1,7 @@
 <div class="row column">
 	<div class="ask-top-banner mb5 box">
 		<h1>ASK @{{model.username}}</h1>
-		<p>Jon is currently taking your questions. Below are the questions professionals have asked Jon, which he's replied to. Use ASK to interact with Jon one-on-one. If he responds, the question and answer will be displayed on both your profiles. </p>
+		<p>{{model.username}} is currently taking your questions. Below are the questions professionals have asked {{model.username}}, which he's replied to. Use ASK to interact with {{model.username}} one-on-one. If he responds, the question and answer will be displayed on both your profiles. </p>
 
 		<p>If you're not sure how to use this, see our tips <a href="">here</a>.</p>
 	</div>
@@ -9,7 +9,7 @@
 	<div class="row">
 	  <div class="large-8 medium-8 columns">
 	  	<div class="ask-box box">
-			<form {{action 'ask' model.userid model.ownerid question on='submit'}}>
+			<!-- <form {{action 'ask' model.userid model.ownerid question on='submit'}}>
 				{{input value=model.userid type="hidden"}}
 				{{input value=model.ownerid type="hidden"}}
 			 	{{textarea value=question placeholder='Ask' rows="4"}}
@@ -28,10 +28,14 @@
 				 		<button type="submit" class="button expanded">ASK</button>	
 				 	</div>
 			 	</div>			 
-			</form>
+			</form> -->
+
+			{{ ask-box store=store model=model}}
 		</div>
 		<div class="questions">
-			<div class="box">
+			{{ questions-list model=model.asks answer=false }}
+			
+			<!-- <div class="box">
 				<a href="">Nikhil Charan</a> asked <a href="">Jon Wayne</a>
 				<h1>What is your opinion on the latest WHO regulations on Soda advertising?</h1>
 				<a href="">See Answer</a>
@@ -45,7 +49,7 @@
 				<a href="">Nikhil Charan</a> asked <a href="">Jon Wayne</a>
 				<h1>What is your opinion on the latest WHO regulations on Soda advertising?</h1>
 				<a href="">See Answer</a>
-			</div>
+			</div> -->
 		</div>
 	  </div>
 	  <div class="large-4 medium-4 columns sidebar">
@@ -68,13 +72,12 @@
 				<small><a href="">See how you can be more active on Brydge.</a></small>
 			</div>
 		</div>
-		{{render "sidebar-footer"}}
+		<!-- {{render "sidebar-footer"}} -->
 	  </div>
 	</div>
 
 	
 	<!-- {{ ask-box store=store model=model}} -->
 
-{{ questions-list model=model.asks answer=false }}
 </div>
 

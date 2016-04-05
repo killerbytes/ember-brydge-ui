@@ -1,4 +1,4 @@
-
+<!-- 
 <form {{action 'ask' model.userid model.ownerid question on='submit'}}>
   <div class="row">
   	 {{input value=model.userid type="hidden"}}
@@ -12,3 +12,25 @@
   </div>
 </form>
 
+ -->
+
+ <form {{action 'ask' model.userid model.ownerid question on='submit'}}>
+    {{input value=model.userid type="hidden"}}
+    {{input value=model.ownerid type="hidden"}}
+    {{textarea value=question placeholder='Ask' rows="4"}}
+    <div class="row">
+      <div class="medium-7 columns">
+        <p class="dim-text">
+          Ask anyone a professional question. <br>
+          If answered, it will appear on both profiles.
+        </p>
+        <small><a href="">Tips on how to use ASK</a></small>
+      </div>
+      <div class="medium-3 columns text-right user dim-text">
+        @{{model.username}}
+      </div>
+      <div class="medium-2 columns">
+        <button type="submit" class="button expanded">ASK</button>  
+      </div>
+    </div>       
+  </form>
