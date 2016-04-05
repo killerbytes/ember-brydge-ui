@@ -2,9 +2,9 @@ import Ember from 'ember';
 
 export default Ember.Component.extend({
 	actions: {
-		ask: function(to, from, question) {
-			console.log('ask dropdown to/from/question', to,from,question);
-			
+		ask: function(to, from, username,question) {
+			console.log('ask dropdown to/from/username/question', to,from,username,question);
+			var _this = this;
 			var store = this.store;
 
 			var ask = store.createRecord('ask',{
@@ -13,6 +13,7 @@ export default Ember.Component.extend({
 
 			var savedCallback = function() {
 				console.log('saved ask');
+				_this.sendAction('action', username);
 			};
 
 			store.findRecord('user', from).then(function(user) {

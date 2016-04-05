@@ -72,18 +72,11 @@ export default Ember.Route.extend({
         console.log('connection saved');
         callback();
       });
+    },
 
-      // this.store.peekRecord('user', this.get('userid')).then((targetUser)=>{
-      //   this.store.peekRecord('user', this.get('currentUserid')).then((user)=>{
-      //     connection.set('from', user);
-      //     connection.set('to', targetUser);
-
-      //     connection.save().then(()=>{
-      //       console.log('connection saved');
-      //       callback();
-      //     });
-      //   });  
-      // });
+    goToAsk: function (username) {
+      console.log('routing to ask');
+      this.transitionTo('ask', username); 
     }
   }
 });

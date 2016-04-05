@@ -1,9 +1,9 @@
 
 
-<form {{action 'ask' model.userid model.ownerid question on='submit'}}>
+<form {{action 'ask' model.userid model.ownerid model.username question on='submit'}}>
   {{input value=model.userid type="hidden"}}
   {{input value=model.ownerid type="hidden"}}
-  
+  {{input value=model.username type="hidden"}}
 
   <section class="padding ask-form">
     {{textarea value=question rows="3"}}
