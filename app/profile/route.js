@@ -22,11 +22,16 @@ export default Ember.Route.extend({
   },
 
   afterModel: function(model, transition) {
-
-    let userid = model.get('userid');
     let _this = this;
 
-    this.set('userid', userid);
+    // get current user id
+    let ownerid = this.get('session.data.authenticated.user_id');
+    _this.set('ownerid', ownerid);
+
+    // get ask user id
+    let userid = model.get('userid');
+    _this.set('userid', userid);
+
     if (!userid) return true;
 
     return this.store.query('post', {
@@ -34,13 +39,19 @@ export default Ember.Route.extend({
     }).then(function(trendingPosts) {
       _this.set('trendingPosts', trendingPosts);
     });
-
   },
 
   setupController: function(controller, model) {
-    model.username = this.get('username');
-    controller.set('model', model)
-    controller.set('trendingPosts', this.get('trendingPosts'))
+    //model.username = this.get('username');
+    //controller.set('model', model)
+    //controller.set('trendingPosts', this.get('trendingPosts'))
+
+    controller.set('model',{
+      username: this.get('username'),
+      ownerid: this.get('ownerid'),
+      userid: this.get('userid'),
+      trendingPosts: this.get('trendingPosts')
+    });
   },
 
   actions: {

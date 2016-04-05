@@ -10,11 +10,6 @@ export default Ember.Route.extend({
   },
 
   afterModel: function(model, transaction) {
-  	console.log('<<<<',model.get('firstName'),
-  		model.get('lastName'),
-  		model.get('location'),
-  		model.get('userid'));
-
   	let _this = this;
 
   	// get current user id
