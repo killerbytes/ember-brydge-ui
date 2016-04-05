@@ -37,11 +37,40 @@
 				background-color: #FFF;
 			}
 		}
-		.tabs-title:not(:last-child){
+		.tabs-title{
 			border-bottom: 1px solid $border-color;			
 		}
 	}
 	.tabs-content{
 		padding :10px 25px;
 	}
+}
+
+
+.profile.tab-wrapper:before{ display: block;}
+.profile.tab-wrapper:after {
+     visibility: hidden;
+     display: block;
+     font-size: 0;
+     content: " ";
+     clear: both;
+     height: 0;
+     }
+
+.profile.tab-wrapper {
+	display: inline-block;
+	position: relative; 
+	z-index: 1; 
+	width: 100%; 
+	background-color: #FFF;
+}
+.profile.tab-wrapper:before, .profile:after {
+   content: "";
+   position: absolute;
+   z-index: -1;
+   top: 0;
+   left: 0;
+   width: 25%;
+   height: 100%;
+   background-color: #EFEFEF;
 }
