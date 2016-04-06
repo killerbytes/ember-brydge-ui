@@ -35,7 +35,7 @@
 	background-color: rgba(65,65,65,.25);
 }
 
-#complimentModal{
+#complimentModal, #answerFormModal{
 	select{
 		border-color: $brydge-blue;
 		width: 30%;
@@ -48,6 +48,8 @@
 		font-weight: bold;
 		text-transform: uppercase;
 	}
+}
+#answerFormModal{
 }
 
 #locationModal{

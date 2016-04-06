@@ -6,12 +6,17 @@
 <li>
 	<div class="columns wrapper clearfix">
 		<div class="title">{{q.content}}</div>
-		<div class="dim-text">asked by <a>{{ q.from.content.name }}</a></div>
+		<div class="dim-text">asked by {{link-to q.from.content.name "profile" q.from.content.username }}</div>
 	</div>
 	<div class="question-box-footer">
-		<a class="float-left">Write Answer</a>
-		<a class="float-right">Delete</a>
+		<ul class="menu menu-dotted">
+			<li><a {{action "select" q }} class="float-left" data-open="answerFormModal">Write Answer</a></li>
+			<li><a class="float-right">Delete</a></li>
+			<li><a class="float-right">Flag</a></li>
+		</ul>												
 	</div>			
+
 </li>
 {{/each}}
 </ul>
+

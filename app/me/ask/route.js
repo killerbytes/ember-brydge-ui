@@ -15,4 +15,5 @@ export default Ember.Route.extend({
       toQuestions: this.store.query('ask',{to: ownerid})
     })
 	}
+
 });
