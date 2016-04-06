@@ -1,0 +1,13 @@
+<form role="form"
+  method="post"
+  enctype="multipart/form-data">
+
+<!--  {{input type=file style="display:none" value=selection id='fileInput'}} -->
+  <input type="file" id="files" name="files[]" id='fileInput' style="display: none" />
+  
+  <div class="profile-photo" {{action "clicked"}}>
+      <!-- <img src="assets/jane_austen_circle_profile.png" class="circle" id='imgPreview'>  -->
+      <img src={{logoUrl}} class="circle">      
+  </div>
+
+</form>

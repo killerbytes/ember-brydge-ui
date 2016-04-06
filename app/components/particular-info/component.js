@@ -9,6 +9,9 @@ export default Ember.Component.extend(GetCountryListMixin,{
 			this.get('profile').save().then(()=>{
 				Ember.get(this, 'flashMessages').success('Success!');
 			});
-		}
+		},
+		fileLoaded: function(file){
+      console.log('particular info Component=>',file);
+    }
 	}
 });
