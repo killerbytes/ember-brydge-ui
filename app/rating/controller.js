@@ -5,5 +5,11 @@ export default Ember.Controller.extend({
   
   itChanged: function() {
     console.log('itChanged');
-  }.observes('fullName')
+  }.observes('fullName'),
+
+  actions:{
+  	fileLoaded: function(file){
+  		console.log(file);
+  	}
+  }
 });
