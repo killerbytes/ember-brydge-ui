@@ -12,6 +12,9 @@ export default Ember.Controller.extend({
   }.observes('currentPath'),
 
   actions: {
+    closeTooltip(){
+      console.log($('body').find('.tooltip').hide())
+    },
     registerUser() {
       // console.log(" >>>> application:controller:registeruser:data", this.session.account.name );
       return true;

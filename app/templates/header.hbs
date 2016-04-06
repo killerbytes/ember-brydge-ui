@@ -3,29 +3,37 @@
 		<div class="top-bar-title">{{#link-to 'home'}}<img src="assets/logo.svg">{{/link-to}}</div>
 		<div>
 			<div class="top-bar-left">
+
 				<ul class="menu menu-links hide">
 					<li>{{#link-to 'me'}}Profile{{/link-to}}</li>
 					<li>{{#link-to 'home'}}Home{{/link-to}}</li>
 				</ul>
-				<ul class="top-bar-group menu menu-actions">
 
+				<ul class="top-bar-group menu menu-actions" {{ action "closeTooltip" }}>
 					<li>
 						<a>
+							{{#zf-tooltip title="Requests"}}
 							<i class="divider"></i>
 							<i class="icons user"></i>
+							{{/zf-tooltip}}
 						</a>
 					</li>
 					<li>
 						
-						{{#link-to 'messaging'}}
+						{{#link-to 'messaging' }}
+							{{#zf-tooltip title="Messages"}}
 							<span class="alert badge">3</span>
 							<i class="icons messages"></i>
+							{{/zf-tooltip}}
+
 						{{/link-to}}
 					</li>
 					<li>
 						<a data-toggle="dd-messages">
+							{{#zf-tooltip title="Profile Views"}}
 							<span class="alert badge">5</span>
 							<i class="icons bino"></i>
+							{{/zf-tooltip}}
 							<div class="wrapper">
 								<div class="triangle"></div>
 							</div>
@@ -114,36 +122,37 @@
 					</li>
 					<li>
 						<a data-toggle="dd-stack">
+							{{#zf-tooltip title="Questions" clickOpen="false"}}
 							<i class="icons stack"></i>
 							<i class="divider"></i>						
+							{{/zf-tooltip}}
 							<div class="wrapper">
 								<div class="triangle"></div>
 							</div>							
 						</a>
-							{{#zf-dropdown id="dd-stack" closeOnClick="true"}}
-								<ul class="menu">
-									<li>{{link-to "Home" "home"}}</li>
-								</ul>
-								<ul class="menu">
-									<li>{{link-to "Profile" "me"}}</li>
-									<li>{{link-to "Edit Profile" "me"}}</li>
-									
-								</ul>
-								<ul class="menu">
-									<li><a href="">People Search</a></li>									
-								</ul>
-								<ul class="menu">
-									<li><a href="">Settings</a></li>
-									<li><a href="">User Guide</a></li>
-									<li><a href="" {{action 'logout'}}>Log out</a></li>
-									
-								</ul>
+						{{#zf-dropdown id="dd-stack" closeOnClick="true"}}
+							<ul class="menu">
+								<li>{{link-to "Home" "home"}}</li>
+							</ul>
+							<ul class="menu">
+								<li>{{link-to "Profile" "me"}}</li>
+								<li>{{link-to "Edit Profile" "me"}}</li>
+								
+							</ul>
+							<ul class="menu">
+								<li><a href="">People Search</a></li>									
+							</ul>
+							<ul class="menu">
+								<li><a href="">Settings</a></li>
+								<li><a href="">User Guide</a></li>
+								<li><a href="" {{action 'logout'}}>Log out</a></li>
+								
+							</ul>
 
-							{{/zf-dropdown}}
-
-					</li>	
-					
+						{{/zf-dropdown}}
+					</li>						
 				</ul>
+
 
 			</div>
 			<div class="top-bar-right">
@@ -156,8 +165,10 @@
 				<ul class="top-bar-group menu menu-actions">	
 					<li>
 						<a data-toggle="dd-menu">
-							<i class="divider"></i>
-							<i class="icons caret"></i>
+							<span>
+								<i class="divider"></i>
+								<i class="icons caret"></i>
+							</span>
 							<div class="wrapper">
 								<div class="triangle"></div>
 							</div>

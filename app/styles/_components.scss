@@ -1,3 +1,11 @@
+.tooltip{
+	z-index: 100;
+}
+.has-tip{
+	border-bottom: none;
+	cursor: pointer;
+	font-weight: inherit;
+}
 .page-title{
 	margin: 25px;
 	text-align: center;
