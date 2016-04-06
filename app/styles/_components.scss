@@ -75,6 +75,10 @@ ul.menu-dotted{
 	li{
 		padding-right: 5px;
 	}
+	li>a{
+		line-height: inherit;
+		padding: 0;
+	}
 	li:before{
 		content:'\00B7';
 		padding-right:5px;
@@ -218,16 +222,22 @@ ul.work-list{
 		color: #717171;
 		margin: 10px 0 20px;
 	}
-	h4{
+	div.title{
+		font-size: 14px;
 		color: $text-color2;
+		line-height: 1.3em;
+		margin-bottom: 10px;
 	}
 	a{
 		font-weight: bold;
 	}
 	p{
-		font-size: 22px;
-		line-height: 1.4em;
-		font-weight: bold;
+		margin-bottom: 0;
+	}
+	ul.menu-dotted {
+		a{
+			font-weight: normal;
+		}
 	}
 	button{
 		text-transform: uppercase;

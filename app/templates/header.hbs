@@ -11,24 +11,6 @@
 
 				<ul class="top-bar-group menu menu-actions" {{ action "closeTooltip" }}>
 					<li>
-						<a>
-							{{#zf-tooltip title="Requests" vOffset=0}}
-							<i class="divider"></i>
-							<i class="icons user"></i>
-							{{/zf-tooltip}}
-						</a>
-					</li>
-					<li>
-						
-						{{#link-to 'messaging' }}
-							{{#zf-tooltip title="Messages" vOffset=0}}
-							<span class="alert badge">3</span>
-							<i class="icons messages"></i>
-							{{/zf-tooltip}}
-
-						{{/link-to}}
-					</li>
-					<li>
 						<a data-toggle="dd-messages">
 							{{#zf-tooltip title="Profile Views" vOffset=0}}
 							<span class="alert badge">5</span>
@@ -38,8 +20,7 @@
 								<div class="triangle"></div>
 							</div>
 						</a>
-						{{#zf-dropdown id="dd-messages" closeOnClick="true" }}
-							
+						{{#zf-dropdown id="dd-messages" closeOnClick="true" }}							
 							<ul class="no-bullet list-lined">
 								<li>
 									<div class="media-object">
@@ -117,12 +98,28 @@
 									See All Messages
 								</button>
 							{{/link-to}}
-
 						{{/zf-dropdown}}
 					</li>
 					<li>
+						<a>
+							{{#zf-tooltip title="Connection Requests" vOffset=0}}
+							<i class="divider"></i>
+							<i class="icons user"></i>
+							{{/zf-tooltip}}
+						</a>
+					</li>
+					<li>						
+						{{#link-to 'messaging' }}
+							{{#zf-tooltip title="Messages" vOffset=0}}
+							<span class="alert badge">3</span>
+							<i class="icons messages"></i>
+							{{/zf-tooltip}}
+
+						{{/link-to}}
+					</li>
+					<li>
 						<a data-toggle="dd-stack">
-							{{#zf-tooltip title="Questions" vOffset=0}}
+							{{#zf-tooltip title="Notifications" vOffset=0}}
 							<i class="icons stack"></i>
 							<i class="divider"></i>						
 							{{/zf-tooltip}}
@@ -148,7 +145,6 @@
 								<li><a href="" {{action 'logout'}}>Log out</a></li>
 								
 							</ul>
-
 						{{/zf-dropdown}}
 					</li>						
 				</ul>
@@ -174,17 +170,18 @@
 							</div>
 						</a>
 
-							{{#zf-dropdown id="dd-menu" closeOnClick="true" clickOpen="false"}}
+							{{#zf-dropdown id="dd-menu" closeOnClick="true"}}
 								<ul class="menu">
 									<li>{{link-to "Home" "home"}}</li>
 								</ul>
 								<ul class="menu">
 									<li>{{link-to "Profile" "me"}}</li>
-									<li>{{link-to "Edit Profile" "me"}}</li>
+									<li>{{link-to "Edit Profile" "me.edit" sessionAccount.account.userid}}</li>
 									
 								</ul>
 								<ul class="menu">
-									<li><a href="">People Search</a></li>									
+									<li><a href="">People Search</a></li>
+									<li>{{link-to "Your ASK page" "me.ask"}}</li>
 								</ul>
 								<ul class="menu">
 									<li><a href="">Settings</a></li>
