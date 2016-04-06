@@ -1,0 +1,12 @@
+
+{{#each model.toQuestions as |q| }}
+	<div class="box rounded question-box">
+	  <div class="clearfix">
+	    <a href="">{{q.from.name}}</a> asked <a href="">{{q.to.name}}</a>
+	    <h2>{{q.content}}</h2>
+	   	<div class="floated">
+	    	<a href="" class="more">See Answer</a>
+	    </div>
+	  </div>
+	</div>
+{{/each}}

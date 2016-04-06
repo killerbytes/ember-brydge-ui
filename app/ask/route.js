@@ -20,10 +20,13 @@ export default Ember.Route.extend({
   	let userid = model.get('userid');
   	_this.set('userid', userid);
 
-  	// get the questions list
-	  return this.store.findAll('ask').then(function (asks) {
-	    _this.set('asks', asks);
-	  });
+    return Ember.RSVP.hash({
+      fromQuestions: this.store.query('ask',{from: userid}),
+      toQuestions: this.store.query('ask',{to: userid})
+    }).then(function(result){
+      _this.set('fromQuestions',result.fromQuestions);
+      _this.set('toQuestions', result.toQuestions);
+    });
   },
 
   setupController: function(controller, model) {
@@ -33,7 +36,8 @@ export default Ember.Route.extend({
       username: this.username,
 	  	ownerid: this.get('ownerid'),
 	  	userid: this.get('userid'),
-	  	asks: this.get('asks')
+	  	fromQuestions: this.get('fromQuestions'),
+      toQuestions: this.get('toQuestions')
 	  });
 	}
 });
