@@ -41,33 +41,8 @@
   <div class="medium-5 columns sidebar">
 
 	<div class="wrapper">
-		<a class="button expanded large text-blue box" data-toggle="dd-ask-form">
-			ASK
-			<div class="wrapper">
-				<div class="triangle"></div>
-			</div>
-		</a>
-		{{#zf-dropdown id="dd-ask-form" closeOnClick="true"}}
-		<!-- <section class="padding ask-form">
-		  <textarea name="" id="" rows="3"></textarea>
-		  <div class="row">
-		    <div class="columns text-right">
-		      <button class="button success">ASK</button>            
-		    </div>
-		  </div>
-		  <p class="dim-text">
-		    Ask anyone a professional question. <br>
-		    If answered, it will appear on both profiles.
-		  </p>
-		  <small><a href="">Tips on how to use ASK</a></small>
-		
-		</section> -->
 		 {{ ask-dropdown store=store model=model }}
-		{{/zf-dropdown}}
 	</div>
-
-
-
 
 
     {{render "progress-box"}}

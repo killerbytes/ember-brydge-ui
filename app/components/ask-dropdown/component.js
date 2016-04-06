@@ -4,16 +4,17 @@ export default Ember.Component.extend({
 	actions: {
 		ask: function(to, from, username,question) {
 			console.log('ask dropdown to/from/username/question', to,from,username,question);
-			var _this = this;
 			var store = this.store;
 
 			var ask = store.createRecord('ask',{
 				content: question
 			});
 
-			var savedCallback = function() {
+			var savedCallback = () => {
+				this.sendAction('action', username);
+				this.$('#dd-ask-form').foundation('close')
 				console.log('saved ask');
-				_this.sendAction('action', username);
+
 			};
 
 			store.findRecord('user', from).then(function(user) {
