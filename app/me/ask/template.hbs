@@ -23,64 +23,20 @@
 	<div class="mb">
 		{{#zf-tabs}}
 			<li class="medium-6 tabs-title is-active">
-				<a href="#question_answered" class="button expanded text-upper" aria-selected="true">Questions JON has answered</a>
+				<a href="#question_answered" class="button expanded text-upper" aria-selected="true">Questions {{model.username}} has answered</a>
 			</li>
 			<li class="medium-6 tabs-title">
-				<a href="#question_asked" class="button expanded text-upper">Questions JON has asked</a>
+				<a href="#question_asked" class="button expanded text-upper">Questions {{model.user}} has asked</a>
 			</li>
 		{{/zf-tabs}}
 	</div>
 	<div class="tabs-content questions" data-tabs-content="example-tabs">
 		<div class="tabs-panel is-active" id="question_answered">
-			{{ questions-list model=model answer=true store=store }}
+			{{ partial 'ask/to'}}
 
-		    <div class="box rounded question-box">
-		      <div class="clearfix">
-		        <a href="">Nikhil Charan</a> asked <a href="">Jon Wayne</a>
-		        <h2>What is your opinion on the latest WHO regulations on Soda advertising?</h2>
-		       	<div class="floated">
-		        	<a href="" class="more">See Answer</a>
-		        </div>
-		      </div>
-		    </div>
-		    <div class="box rounded question-box">
-		      <div class="clearfix">
-		        <a href="">Nikhil Charan</a> asked <a href="">Jon Wayne</a>
-		        <h2>What is your opinion on the latest WHO regulations on Soda advertising?</h2>
-		       	<div class="floated">
-		        	<a href="" class="more">See Answer</a>
-		        </div>
-		      </div>
-		    </div>
-		    <div class="box rounded question-box">
-		      <div class="clearfix">
-		        <a href="">Nikhil Charan</a> asked <a href="">Jon Wayne</a>
-		        <h2>What is your opinion on the latest WHO regulations on Soda advertising?</h2>
-		       	<div class="floated">
-		        	<a href="" class="more">See Answer</a>
-		        </div>
-		      </div>
-		    </div>
 		</div>
 		<div class="tabs-panel" id="question_asked">
-		    <div class="box rounded question-box">
-		      <div class="clearfix">
-		        <a href="">Nikhil Charan</a> asked <a href="">Jon Wayne</a>
-		        <h2>Tab 2 What is your opinion on the latest WHO regulations on Soda advertising?</h2>
-		       	<div class="floated">
-		        	<a href="" class="more">See Answer</a>
-		        </div>
-		      </div>
-		    </div>
-		    <div class="box rounded question-box">
-		      <div class="clearfix">
-		        <a href="">Nikhil Charan</a> asked <a href="">Jon Wayne</a>
-		        <h2>What is your opinion on the latest WHO regulations on Soda advertising?</h2>
-		       	<div class="floated">
-		        	<a href="" class="more">See Answer</a>
-		        </div>
-		      </div>
-		    </div>
+		    {{ partial 'ask/from'}}
 		</div>
 	</div>
 
@@ -89,7 +45,7 @@
   <div class="medium-5 columns sidebar">
     <div class="box rounded question-box">
       <h5 class="box-header">Pending Questions</h5>
-      	<ul class="no-bullet pending-list">
+      	<!-- <ul class="no-bullet pending-list">
       		<li>
 				<div class="columns wrapper clearfix">
 					<h4>What is your opinion on the latest WHO regulations on Soda advertising?</h4>
@@ -117,7 +73,8 @@
 					<a href="" class="float-right">Delete</a>
 				</div>		
       		</li>
-      	</ul>
+      	</ul> -->
+      	{{ partial 'me/ask/pendinglist'}}
       {{#link-to 'me.ask' }}
       <button class="success button expanded">
        Load More
