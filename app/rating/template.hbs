@@ -10,24 +10,9 @@
 
 
 <div class="fileupload row">
-  <h2>Upload Photo</h2>
-  {{image-upload label="Upload File" property="fileName" selectedFile=photoFile }}
+  
+  {{image-upload}}
+  
 </div>
 	
-<div class="profile-actions">
-    <a class="button large text-blue" data-toggle="dd-ask">
-        ASK
-        <div class="wrapper">
-          <div class="triangle"></div>
-        </div>
-
-      </a>
-      {{#zf-dropdown id="dd-ask" closeOnClick="true"}}
-        
-        {{ ask-dropdown store=store model=model action='goToAsk'}}
-
-      {{/zf-dropdown}}
-
-  </div>
-
 </div>
