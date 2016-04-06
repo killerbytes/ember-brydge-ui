@@ -1,0 +1,16 @@
+
+
+
+<ul class="no-bullet pending-list">
+{{#each model.toQuestions as |q| }}
+<li>
+	<div class="columns wrapper clearfix">
+		<h4>{{q.content}}</h4>
+	</div>
+	<div class="question-box-footer">
+		<a href="" class="float-left">Write Answer</a>
+		<a href="" class="float-right">Delete</a>
+	</div>			
+</li>
+{{/each}}
+</ul>
