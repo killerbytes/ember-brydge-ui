@@ -10,11 +10,28 @@
 				</ul>
 
 				<ul class="top-bar-group menu menu-actions" {{ action "closeTooltip" }}>
+					<li>						
+						{{#link-to 'messaging' }}
+							{{#zf-tooltip title="Profile Views" vOffset=0}}
+							<span class="alert badge">3</span>
+							<i class="icons bino"></i>
+							{{/zf-tooltip}}
+
+						{{/link-to}}
+					</li>
+					<li>
+						<a>
+							{{#zf-tooltip title="Connection Requests" vOffset=0}}
+							<i class="divider"></i>
+							<i class="icons user"></i>
+							{{/zf-tooltip}}
+						</a>
+					</li>
 					<li>
 						<a data-toggle="dd-messages">
-							{{#zf-tooltip title="Profile Views" vOffset=0}}
+							{{#zf-tooltip title="Messages" vOffset=0}}
 							<span class="alert badge">5</span>
-							<i class="icons bino"></i>
+							<i class="icons messages"></i>
 							{{/zf-tooltip}}
 							<div class="wrapper">
 								<div class="triangle"></div>
@@ -93,29 +110,10 @@
 									</div>
 								</li>
 							</ul>
-							{{#link-to 'messaging'}}
-								<button class="button expanded">
-									See All Messages
-								</button>
+							{{#link-to 'messaging' class="button expanded"}}
+								See All Messages
 							{{/link-to}}
 						{{/zf-dropdown}}
-					</li>
-					<li>
-						<a>
-							{{#zf-tooltip title="Connection Requests" vOffset=0}}
-							<i class="divider"></i>
-							<i class="icons user"></i>
-							{{/zf-tooltip}}
-						</a>
-					</li>
-					<li>						
-						{{#link-to 'messaging' }}
-							{{#zf-tooltip title="Messages" vOffset=0}}
-							<span class="alert badge">3</span>
-							<i class="icons messages"></i>
-							{{/zf-tooltip}}
-
-						{{/link-to}}
 					</li>
 					<li>
 						<a data-toggle="dd-stack">
