@@ -9,15 +9,14 @@
 		}
 		.post-form{
 			padding-left: 40px;
-			textarea{
+			.content-editable{
 				padding-left: 0;
 				border: none;
 				box-shadow: none;
 				resize: none;
 				font-size: 12px;
 				margin: 0;
-				min-height: auto;
-				height: 35px;
+				min-height: 55px;
 			}
 		}
 	}
@@ -60,6 +59,12 @@
 	}
 	.dropdown-pane:not(.top){
 		border-top: 0;		
+	}
+	.broadcast-list{
+		@extend .dim-text;
+		padding: 5px;
+		padding-bottom: 0;
+		border-top: 1px solid $border-color;
 	}
 
 }

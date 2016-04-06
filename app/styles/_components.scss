@@ -1,3 +1,4 @@
+
 .tooltip{
 	z-index: 100;
 }
@@ -57,6 +58,9 @@
 
 }
 
+ul.accordion-menu>li>a{
+	padding: 0;
+}
 ul.footer-menu{
 	display: table;
 	margin: 20px auto;
@@ -230,9 +234,6 @@ ul.work-list{
 	}
 	a{
 		font-weight: bold;
-	}
-	p{
-		margin-bottom: 0;
 	}
 	ul.menu-dotted {
 		a{

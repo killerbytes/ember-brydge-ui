@@ -38,18 +38,6 @@
 			bottom: 7px;
 			padding: 0;
 		}
-
-		li[aria-expanded=true]{
-			span.content-more{
-				display: none;
-			}
-		}
-		li[aria-expanded=false]{
-			span.content-less{
-				display: none;
-			}
-		}
-
 	}
 
 	.sidebox:not(:last-child){

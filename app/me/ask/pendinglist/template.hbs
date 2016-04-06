@@ -5,11 +5,12 @@
 {{#each model.toQuestions as |q| }}
 <li>
 	<div class="columns wrapper clearfix">
-		<h4>{{q.content}}</h4>
+		<div class="title">{{q.content}}</div>
+		<div class="dim-text">asked by <a>{{ q.from.content.name }}</a></div>
 	</div>
 	<div class="question-box-footer">
-		<a href="" class="float-left">Write Answer</a>
-		<a href="" class="float-right">Delete</a>
+		<a class="float-left">Write Answer</a>
+		<a class="float-right">Delete</a>
 	</div>			
 </li>
 {{/each}}

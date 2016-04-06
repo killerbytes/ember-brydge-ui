@@ -244,3 +244,14 @@ ul > li.is-dropdown-submenu-parent.is-down-arrow > ul {
 .select2-container .select2-choice abbr{
 	display: none;
 }
+
+li[aria-expanded=true]{
+	span.content-more{
+		display: none;
+	}
+}
+li[aria-expanded=false]{
+	span.content-less{
+		display: none;
+	}
+}

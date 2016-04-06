@@ -35,7 +35,7 @@
   </div>
   <div class="medium-6 float-left profile profile-actions">
     <div class="expanded button-group">
-      <a class="button large connect success">CONNECT</a>
+      {{#connect-button action="clickedConnect"}}CONNECT{{/connect-button}}
       <a class="button large text-blue">MESSAGE</a>
       <a class="button large text-blue" data-toggle="dd-ask">
         ASK
@@ -43,37 +43,21 @@
           <div class="triangle"></div>
         </div>
       </a>
-
-
     </div>
-      {{#zf-dropdown id="dd-ask" closeOnClick="true"}}
-        <section class="padding ask-form">
-          <textarea name="" id="" rows="3"></textarea>
-          <div class="row">
-            <div class="columns text-right">
-              <button class="button success">ASK</button>            
-            </div>
-          </div>
-          <p class="dim-text">
-            Ask anyone a professional question. <br>
-            If answered, it will appear on both profiles.
-          </p>
-          <small><a href="">Tips on how to use ASK</a></small>
-
-        </section>
-
+      {{#zf-dropdown id="dd-ask" closeOnClick="true"}}      
+        {{ ask-dropdown store=store model=model action='goToAsk'}}
       {{/zf-dropdown}}
 
   </div>
 </div>
+
 <div class="row">
   <div class="columns medium-7">
-	 {{share-box postToNewsfeed='postToNewsfeed' profile=model.profile}}
+    {{share-box postToNewsfeed='postToNewsfeed' profile=model.profile}}
 
     {{newsfeed-list newsfeed=model.posts}}
-
-
   </div>
+
   <div class="columns medium-5 sidebar">
     <div class="box rounded profile overflow">
       <ul class="no-bullet list-lined no-margin">
@@ -85,8 +69,7 @@
               <div class="content">
                 <a href="">{{model.profile.industry}}</a>
               </div>        
-          </div>
-          
+          </div>          
         </li>
         <li>
           <div class="profile-industry">
@@ -97,12 +80,10 @@
                 <a href="">{{model.profile.occupationOne}}</a>
                 <a href="">{{model.profile.occupationTwo}}</a>
               </div>
-          </div>
-          
+          </div>          
         </li>
       </ul>
     </div>
-
 
     <div class="box rounded question-box">
       <div class="columns wrapper clearfix">
@@ -118,29 +99,24 @@
       </button>
       {{/link-to}}
     </div>
+
     <div class="box rounded snapshot">
       <h5 class="box-header">Snapshot</h5>
       <div class="columns text-light-gray">
         {{model.profile.snapshot}}
       </div>
     </div>
+
     <div class="box rounded work-history">
       <h5 class="box-header">Work History</h5>
-
-      {{partial 'me/index/workhistory'}}
-      
+      {{partial 'me/index/workhistory'}}      
     </div>
 
     <div class="box rounded academia">
       <h5 class="box-header">Academia</h5>
       {{partial 'me/index/academia'}}
-      <!-- <div class="columns">
-          <div class="name">Stanford University</div>
-
-          Bachelor of Science, International Business Management <br>
-          Class of 2001          
-      </div> -->
     </div>
+
     <div class="box rounded languages">
       <h5 class="box-header">Languages</h5>
       <ul class="box-list no-bullet">
@@ -165,7 +141,6 @@
         <p>Scuba diving, Rock-climbing, Travel, Advenure sports</p>
       </div>
     </div>
-
 
     <div class="box rounded compliments">
       <h5 class="box-header">Compliments</h5>
