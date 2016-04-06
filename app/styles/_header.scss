@@ -18,6 +18,9 @@ header.top-bar {
 			vertical-align: bottom;
 		}
 		>li>a{
+			padding: 0;
+		}
+		>li>a>span{
 			padding: 11px 7px;
 			min-width: 38px;
 			text-align: center;
