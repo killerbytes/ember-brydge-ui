@@ -23,7 +23,7 @@
 .profile-actions{
 	position: relative;
 	.button-group{
-		.button{
+		>.button, > div{
 			@extend .box;
 			display: inline-block;
 			width: calc(33.33333% - 2px);
@@ -38,7 +38,7 @@
 			}				
 		}
 	}
-	.button-group > .button{
+	.button-group > .button, .button-groupx > div{
 		@extend .rounded;
 		margin-left: 2px;
 		&:hover{

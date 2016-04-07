@@ -37,16 +37,9 @@
     <div class="expanded button-group">
       {{#connect-button action="clickedConnect"}}CONNECT{{/connect-button}}
       <a class="button large text-blue">MESSAGE</a>
-      <a class="button large text-blue" data-toggle="dd-ask">
-        ASK
-        <div class="wrapper">
-          <div class="triangle"></div>
-        </div>
-      </a>
+      {{ ask-dropdown store=store model=model action='goToAsk' }}
+
     </div>
-      {{#zf-dropdown id="dd-ask" closeOnClick="true"}}      
-        {{ ask-dropdown store=store model=model action='goToAsk'}}
-      {{/zf-dropdown}}
 
   </div>
 </div>

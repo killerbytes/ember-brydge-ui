@@ -1,3 +1,54 @@
+<div class="row">
+	<div class="columns">
+		<div class="ask-top-banner box">
+			<h1>ASK <span class="text-upper">{{model.username}}</span></h1>
+			<p><span class="text-title">{{model.username}}</span> is currently taking your questions. Below are the questions professionals have asked {{model.username}}, which he's replied to. Use ASK to interact with {{model.username}} one-on-one. If he responds, the question and answer will be displayed on both your profiles. </p>
+
+			<p>If you're not sure how to use this, see our tips <a href="">here</a>.</p>
+		</div>
+		
+	</div>
+	
+	<!-- {{ ask-box store=store model=model}} -->
+
+</div>
+
+
+<div class="row ask">
+  <div class="medium-7 columns">
+  	<div class="ask-box box hide">
+		{{ ask-box store=store model=model}}
+	</div>
+	<div class="mb">
+		{{#zf-tabs}}
+			<li class="medium-6 tabs-title is-active">
+				<a href="#question_answered" class="button expanded text-upper" aria-selected="true">Questions {{model.username}} has answered</a>
+			</li>
+			<li class="medium-6 tabs-title">
+				<a href="#question_asked" class="button expanded text-upper">Questions {{model.username}} has asked</a>
+			</li>
+		{{/zf-tabs}}
+	</div>
+	<div class="tabs-content questions" data-tabs-content="example-tabs">
+		<div class="tabs-panel is-active" id="question_answered">
+			  {{ partial 'ask/to'}}
+		</div>
+		<div class="tabs-panel" id="question_asked">
+				{{ partial 'ask/from'}}
+		</div>
+	</div>
+  </div>
+  <div class="medium-5 columns sidebar">
+
+	{{ ask-dropdown store=store model=model }}
+
+
+    {{render "progress-box"}}
+    {{render "footer"}}
+  </div>
+</div>
+
+
 <div class="row column">
 	<div class="connections-top">
 		<h1>Connections</h1>
