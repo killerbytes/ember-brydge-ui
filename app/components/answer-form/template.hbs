@@ -1,0 +1,14 @@
+<h4>Write Answer</h4>
+<form {{action 'answer' on='submit'}}>
+	<div class="mt content clearfix question-box">
+		<div class="dim-text">asked by <a>{{selectedQuestion.from.name}}</a></div>		
+		<h2>{{selectedQuestion.content}}</h2>
+		<textarea name="" id="" rows="5" placeholder="Type answer here..."></textarea>
+	</div>
+	<div class="reveal-footer text-right">
+		<div class="content">
+			<button class="button success">Post</button>
+			<a class="button success" data-close>Cancel</a>
+		</div>
+	</div>
+</form>

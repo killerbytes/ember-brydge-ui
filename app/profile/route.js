@@ -22,6 +22,8 @@ export default Ember.Route.extend({
   },
 
   afterModel: function(model, transition) {
+    console.log(model.get('avatarUrl'),model.get('firstName'))
+
     let _this = this;
 
     // get current user id
@@ -45,8 +47,9 @@ export default Ember.Route.extend({
     //model.username = this.get('username');
     //controller.set('model', model)
     //controller.set('trendingPosts', this.get('trendingPosts'))
-
+    console.log('public-profile =>', model.get('avatarUrl'))
     controller.set('model',{
+      profile: model,
       username: this.get('username'),
       ownerid: this.get('ownerid'),
       userid: this.get('userid'),
