@@ -81,8 +81,6 @@
     <div class="box rounded question-box">
       <div class="columns wrapper clearfix">
 
-       <!--  <a href="">Nikhil Charan</a> asked <a href="">Jon Wayne</a>
- -->
         {{link-to model.lastestQuestion.from.content.name "profile" model.lastestQuestion.from.content.username }} asked {{link-to model.lastestQuestion.to.content.name "profile" model.lastestQuestion.to.content.username }}
 
         <h2>{{model.lastestQuestion.content}}cc</h2>
@@ -102,6 +100,26 @@
       <div class="columns text-light-gray">
         {{model.profile.snapshot}}
       </div>
+    </div>
+
+    <div class="box rounded compliments">
+      <h5 class="box-header">Compliments</h5>
+      <ul class="box-list no-bullet">
+        <li>
+          <div class="title">Thank you for</div>
+          <p>your excellent work in making the Evian launch event a success.</p>            
+          <span>Posted by</span> <a>Nikhil Charan</a>
+        </li>
+        <li>
+          <div class="title">Good job on</div>
+          <p>exceeding your sales target this quarter. You're a star!</p>            
+          <span>Posted by</span> <a>Nikhil Charan</a>
+        </li>
+      </ul>   
+      <div class="box-footer">
+        <a href="">See all</a>  
+        <a class="float-right" data-open="complimentModal">Post a compliment</a>
+      </div>      
     </div>
 
     <div class="box rounded work-history">
@@ -139,26 +157,6 @@
       </div>
     </div>
 
-    <div class="box rounded compliments">
-      <h5 class="box-header">Compliments</h5>
-      <ul class="box-list no-bullet">
-        <li>
-          <div class="title">Thank you for</div>
-          <p>your excellent work in making the Evian launch event a success.</p>            
-          <span>Posted by</span> <a>Nikhil Charan</a>
-        </li>
-        <li>
-          <div class="title">Good job on</div>
-          <p>exceeding your sales target this quarter. You're a star!</p>            
-          <span>Posted by</span> <a>Nikhil Charan</a>
-        </li>
-      </ul>   
-      <div class="box-footer">
-        <a href="">See all</a>  
-        <a class="float-right" data-open="complimentModal">Post a compliment</a>
-      </div>
-      
-    </div>
 
     {{render "progress-box"}}
     {{render "footer"}}

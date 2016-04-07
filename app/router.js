@@ -38,6 +38,7 @@ Router.map(function() {
   this.route('ask', {path: ':username/ask'});
   this.route('connections');
   this.route('rating');
+  this.route('testing');
 });
 
 export default Router;

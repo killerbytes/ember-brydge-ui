@@ -1,0 +1,18 @@
+{{#zf-accordion allowAllClosed="true" id="accordion-language" class="form-accordion"}}
+	<li data-accordion-item>
+		<div class="accordion-content" data-tab-content>
+		  	<form action="">
+				<label>
+					{{input value=company placeholder="Language"}}
+				</label>
+				<label>
+					{{input value=title placeholder="Proficiency"}}
+				</label>
+
+			    <button class='button success' {{ action 'save' }}>SAVE</button>
+			</form>								
+		</div>
+  		<a class="more no-arrow button success expanded">{{fa-icon "plus"}}</a>
+	</li>
+{{/zf-accordion}}
+

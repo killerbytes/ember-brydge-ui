@@ -1,5 +1,8 @@
 .search-bar{
 	padding: 1rem;
+	input{
+		margin-bottom: 0;
+	}
 }
 .pending-request-box{
 	@extend .question-box;
