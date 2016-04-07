@@ -7,6 +7,7 @@ export default Ember.Route.extend(ApplicationRouteMixin, {
   actions: {
     error(error, transition) {
       if (error) console.log("Error:", error);
+      return true;
       // XXX: TODO Display error notification on page template
     },
     logout() {

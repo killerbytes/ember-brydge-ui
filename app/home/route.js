@@ -18,7 +18,7 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, FilterDropdownListMix
   },
 
   model() {
-    console.log('<<<<<<<< categoryid', this.get('categoryid'));
+    //console.log('<<<<<<<< categoryid', this.get('categoryid'));
     let ownerid = this.get('session.data.authenticated.user_id');
     return Ember.RSVP.hash({
       newsfeed: this.store.query('newsfeed', {categoryid:this.get('categoryid')}),
