@@ -1,16 +1,21 @@
 import Ember from 'ember';
 
 export default Ember.Component.extend({
+	ajax: Ember.inject.service(),
+
 	_fileChanged: function(evt) {
 		console.log('file change', evt.target.files[0]);
 		var _this = this;
-		this.sendAction('fileLoaded', evt.target.files[0]);
 
+		var form = this.$('form')[0]; // You need to use standart javascript object here
+		var formData = new FormData(form);
+		
 		var oFReader = new FileReader();
 	  oFReader.readAsDataURL(evt.target.files[0]);
 	  
 	  oFReader.onload = function(oFREvent) {
 	  	_this.set('logoUrl',oFREvent.target.result);
+	  	_this.sendAction('fileLoaded', formData);
 	  };
 	},
 

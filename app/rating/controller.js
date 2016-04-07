@@ -8,8 +8,8 @@ export default Ember.Controller.extend({
   }.observes('fullName'),
 
   actions:{
-  	fileLoaded: function(file){
-  		console.log(file);
+  	fileLoaded: function(){
+  		console.log(this.get('file'));
   	}
   }
 });
