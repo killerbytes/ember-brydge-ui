@@ -76,20 +76,24 @@
       </ul>
     </div>
 
+    {{#if model.lastestQuestion}}
     <div class="box rounded question-box">
-      <div class="columns wrapper clearfix">
-        <a href="">Nikhil Charan</a> asked <a href="">Jon Wayne</a>
-        <h2>What is your opinion on the latest WHO regulations on Soda advertising?</h2>
-        <div class="floated">
-          <a href="" class="more">See Answer</a>
+        <div class="columns wrapper clearfix">
+           {{link-to model.lastestQuestion.from.content.name "profile" model.lastestQuestion.from.content.username }} asked {{link-to model.lastestQuestion.to.content.name "profile" model.lastestQuestion.to.content.username }}
+
+          <h2>{{model.lastestQuestion.content}}</h2>
+          <div class="floated">
+            <a href="" class="more">See Answer</a>
+          </div>
         </div>
-      </div>
-      {{#link-to 'me.ask' }}
+      
+      {{#link-to 'ask' }}
       <button class="success button expanded">
         see more questions
       </button>
       {{/link-to}}
     </div>
+     {{/if}}
 
     <div class="box rounded snapshot">
       <h5 class="box-header">Snapshot</h5>
