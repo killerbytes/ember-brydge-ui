@@ -26,7 +26,11 @@ form{
 		// padding: 5px 10px;
 		font-size: 12px;
 		height: auto;
-	}	
+	}
+	[type='text']:last-child{
+		margin-bottom: 0;
+	}
+
 }
 
 .form-signin, .form-signup{

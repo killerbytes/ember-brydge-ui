@@ -191,6 +191,9 @@ ul.work-list{
 .thumbnail img{
 	border: 1px solid #DDD;	
 }
+.thumbnail.flat img{
+	border: none;
+}
 
 .flash-notification{
     position: absolute;
@@ -232,16 +235,16 @@ ul.work-list{
 		color: $text-color2;
 		line-height: 1.3em;
 		margin-bottom: 10px;
-	}
-	a{
-		font-weight: bold;
+		a{
+			font-weight: bold;
+		}
 	}
 	ul.menu-dotted {
 		a{
 			font-weight: normal;
 		}
 	}
-	button{
+	button, a.button{
 		text-transform: uppercase;
 		padding :4px;
 		font-weight: bold;
@@ -272,5 +275,17 @@ ul.work-list{
 			padding-top: 7px;
 			padding-bottom: 7px;
 		}
+	}
+}
+
+.top-banner{
+	@extend .bg-gray;
+	text-align: center;
+	padding: 10px 35px;
+	p{
+	    text-align: justify;
+	}
+	p:last-child{
+		margin-bottom: 0;
 	}
 }

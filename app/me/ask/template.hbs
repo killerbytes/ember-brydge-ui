@@ -59,54 +59,11 @@
   </div>
   <div class="medium-5 columns sidebar">
     <div class="box rounded question-box">
-      <h5 class="box-header">Pending Questions</h5>
-      	<!-- <ul class="no-bullet pending-list">
-      		<li>
-				<div class="columns wrapper clearfix">
-					<div class="title">What is your opinion on the latest WHO regulations on Soda advertising?</div>
-					<p class="dim-text">asked by <a href="">Jon Wayne</a></p>
-				</div>
-				<div class="question-box-footer">
-					<ul class="menu menu-dotted">
-						<li><a href="" class="float-left">Write Answer</a></li>
-						<li><a href="" class="float-right">Delete</a></li>
-						<li><a href="" class="float-right">Flag</a></li>
-					</ul>												
-				</div>			
-      		</li>
-      		<li>
-				<div class="columns wrapper clearfix">
-					<div class="title">What is your opinion on the latest WHO regulations on Soda advertising?</div>
-					<p class="dim-text">asked by <a href="">Jon Wayne</a></p>
-				</div>
-				<div class="question-box-footer">
-					<ul class="menu menu-dotted">
-						<li><a href="" class="float-left">Write Answer</a></li>
-						<li><a href="" class="float-right">Delete</a></li>
-						<li><a href="" class="float-right">Flag</a></li>
-					</ul>												
-				</div>			
-      		</li>
-      		<li>
-				<div class="columns wrapper clearfix">
-					<div class="title">What is your opinion on the latest WHO regulations on Soda advertising?</div>
-					<p class="dim-text">asked by <a href="">Jon Wayne</a></p>
-				</div>
-				<div class="question-box-footer">
-					<ul class="menu menu-dotted">
-						<li><a href="" class="float-left">Write Answer</a></li>
-						<li><a href="" class="float-right">Delete</a></li>
-						<li><a href="" class="float-right">Flag</a></li>
-					</ul>												
-				</div>			
-      		</li>
-      	</ul> -->
+		<h5 class="box-header">Pending Questions</h5>
       	{{ partial 'me/ask/pendinglist'}}
-      {{#link-to 'me.ask' }}
-      <button class="success button expanded">
-       Load More
-      </button>
-      {{/link-to}}
+		{{#link-to 'me.ask' class="success button expanded" }}
+			Load More
+		{{/link-to}}
     </div>
 
     {{render "progress-box"}}

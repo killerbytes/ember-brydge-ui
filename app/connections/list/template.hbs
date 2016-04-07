@@ -1,23 +1,32 @@
 
-<ul class="no-bullet sidebox box-list">
-{{#each model as |connection|}}
-<li>
-<div class="padded">
-  <div class="media-object">
-    <div class="media-object-section">
-      <div class="thumbnail">
-      <img src= "assets/avatar.png">
+<ul class="no-bullet connections-list">
+  {{#each model as |connection|}}
+  <li>
+      <div class="media-object">
+        <div class="media-object-section">
+          <div class="thumbnail">
+            <img src= "assets/avatar.png">
+          </div>
+        </div>
+        <div class="media-object-section media-object-content">
+          {{#link-to "profile" connection.to.username class="name"}}  
+            {{connection.to.name }}
+          {{/link-to}}
+          
+          <div class="position">
+            {{connection.to.profile.jobTitle}} <br>
+            PEPSICO
+          </div>
+          <p class="location">{{connection.to.profile.location}}</p>
+        </div>
       </div>
-    </div>
-    <div class="media-object-section">
-      <div class="name">
-        <strong>{{connection.to.profile.firstName}} {{connection.to.profile.lastName}}</strong>
+      <div class="menu">
+        <a data-toggle="dd-connection-item-menu"><i class="icons ellipsis"></i></a>      
       </div>
-      <div class="position">{{connection.to.profile.jobTitle}}</div>
-      <p class="timestamp">{{connection.to.profile.location}}</p>
-    </div>
-  </div>
-</div>
-</li>
-{{/each}}
+      {{#zf-dropdown id="dd-connection-item-menu" closeOnClick="true" class="dropdown-flat item-menu-dropdown"}}
+        <button class="button expanded">Action</button>
+      {{/zf-dropdown}}
+
+  </li>
+  {{/each}}
 </ul>

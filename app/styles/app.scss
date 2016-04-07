@@ -13,6 +13,7 @@ $text-color2: #999;
 @import "settings";
 @import 'foundation';
 @include foundation-everything;
+@import "overrides";
 @import "components";
 @import "icons";
 
@@ -135,14 +136,8 @@ p.dim-text{
 	overflow: hidden;
 }
 .shadowed{
-	// box-shadow: 0 0 0 .5px rgba(0, 0, 0, .1) inset, 0 1px 1px rgba(0, 0, 0, .01);	
 	box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.5) inset, 0 0px 1px rgba(0, 0, 0, 0.5)
 }
-// form > div.row.column.log-in-form {
-//   border: 1px solid #cacaca;
-//   padding: 1.0rem !important;
-//   border-radius: 3px;
-// }
 .bordered{
 	border: 1px solid $border-color;
 }
