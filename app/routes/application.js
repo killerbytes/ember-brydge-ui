@@ -3,12 +3,18 @@ import ApplicationRouteMixin from 'ember-simple-auth/mixins/application-route-mi
 import ENV from 'web/config/environment';
 
 export default Ember.Route.extend(ApplicationRouteMixin, {
+  tmp: Ember.inject.service('temp'),
 
   actions: {
     error(error, transition) {
       if (error) console.log("Error:", error);
+      this.get('tmp').set('retryTransition', transition);
       return true;
       // XXX: TODO Display error notification on page template
+    },
+    retry() {
+      var transition = this.get('tmp').getAndRemove('retryTransition');
+      if (transition) transition.retry();
     },
     logout() {
       var accessToken = this.get('session.data.authenticated.access_token');
