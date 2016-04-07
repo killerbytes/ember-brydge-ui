@@ -59,6 +59,7 @@
   </div>
   <div class="medium-5 columns sidebar">
     <div class="box rounded question-box">
+
 		<h5 class="box-header">Pending Questions</h5>
       	{{ partial 'me/ask/pendinglist'}}
 		{{#link-to 'me.ask' class="success button expanded" }}
@@ -73,5 +74,5 @@
 
 
 	{{#zf-reveal id="answerFormModal" overlay=true class="reveal-popup small"}}
-		{{answer-form selectedQuestion=selectedQuestion}}
+		{{answer-form selectedQuestion=selectedQuestion store=store}}
 	{{/zf-reveal}}

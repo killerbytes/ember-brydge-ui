@@ -3,7 +3,8 @@
 	<div class="mt content clearfix question-box">
 		<div class="dim-text">asked by <a>{{selectedQuestion.from.name}}</a></div>		
 		<h2>{{selectedQuestion.content}}</h2>
-		<textarea name="" id="" rows="5" placeholder="Type answer here..."></textarea>
+		 {{textarea value=selectedQuestion.answer placeholder='Type answer here...' rows="5"}}
+		<!-- <textarea rows="5" placeholder="Type answer here..." value=></textarea> -->
 	</div>
 	<div class="reveal-footer text-right">
 		<div class="content">

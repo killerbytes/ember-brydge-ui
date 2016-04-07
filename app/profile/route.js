@@ -36,24 +36,29 @@ export default Ember.Route.extend({
 
     if (!userid) return true;
 
-    return this.store.query('post', {
-      userid: userid
-    }).then(function(trendingPosts) {
-      _this.set('trendingPosts', trendingPosts);
+    // return this.store.query('post', {
+    //   userid: userid
+    // }).then(function(trendingPosts) {
+    //   _this.set('trendingPosts', trendingPosts);
+    // });
+
+    return Ember.RSVP.hash({
+      toQuestions: this.store.query('ask',{to: this.get('userid')}),
+      trendingPosts: this.store.query('post', {userid: userid})
+    }).then(function(result){
+      _this.set('trendingPosts',result.trendingPosts);
+      _this.set('lastestQuestion', result.toQuestions.get('firstObject'));
     });
   },
 
   setupController: function(controller, model) {
-    //model.username = this.get('username');
-    //controller.set('model', model)
-    //controller.set('trendingPosts', this.get('trendingPosts'))
-    console.log('public-profile =>', model.get('avatarUrl'))
     controller.set('model',{
       profile: model,
       username: this.get('username'),
       ownerid: this.get('ownerid'),
       userid: this.get('userid'),
-      trendingPosts: this.get('trendingPosts')
+      trendingPosts: this.get('trendingPosts'),
+      lastestQuestion: this.get('lastestQuestion')
     });
   },
 

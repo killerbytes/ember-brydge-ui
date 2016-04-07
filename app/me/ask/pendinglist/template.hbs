@@ -3,6 +3,7 @@
 
 <ul class="no-bullet pending-list">
 {{#each model.toQuestions as |q| }}
+{{#unless q.answer}}
 <li>
 	<div class="columns wrapper clearfix">
 		<div class="title">{{q.content}}</div>
@@ -17,6 +18,7 @@
 	</div>			
 
 </li>
+{{/unless}}
 {{/each}}
 </ul>
 
