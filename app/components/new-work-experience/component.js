@@ -16,22 +16,29 @@ export default Ember.Component.extend({
 		},
 
 		save: function () {
-			this.$('.form-accordion').foundation('toggle', $('.accordion-content'))
-			let work = this.store.createRecord('experience',{
-				company: this.get('company'),
-				title: this.get('title'),
-				location: this.get('location'),
-				content: this.get('content'),
-				from: this.get('from'),
-				to: this.get('to'),
-				currentCompany: this.get('currentCompany')
-			});
+			// this.$('.form-accordion').foundation('toggle', $('.accordion-content'))			
+			// let work = this.get('form');
+			let work = this.store.findRecord('experience', this.get('form.id'));
+			// work.destroyRecord();
+			// work.save();
+			console.log(work)
 
-			work.save().then(() => {
-				console.log('saved successfully');
-				this.set('isNewWork', false);
+			return false;
+			// let work = this.store.createRecord('experience',{
+			// 	company: this.get('company'),
+			// 	title: this.get('title'),
+			// 	location: this.get('location'),
+			// 	content: this.get('content'),
+			// 	from: this.get('from'),
+			// 	to: this.get('to'),
+			// 	currentCompany: this.get('currentCompany')
+			// });
 
-			})
+			// work.save().then(() => {
+			// 	console.log('saved successfully');
+			// 	this.set('isNewWork', false);
+
+			// })
 		}
 	}
 });

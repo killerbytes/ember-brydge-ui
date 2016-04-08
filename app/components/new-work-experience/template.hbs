@@ -1,19 +1,16 @@
-{{#zf-accordion allowAllClosed="true" id="accordion-work" class="form-accordion"}}
-	<li data-accordion-item>
-		<div class="accordion-content" data-tab-content>
-		  	<form action="">
+	  	<form action="">
 				<label>
-					{{input value=company placeholder="Company"}}
+					{{input value=form.company placeholder="Company"}}
 				</label>
 				<div class="row">
 					<div class="columns medium-4">
 						<label>
-							{{date-picker placeholder="Start Date" date=from format='YYYY-MM-DD' valueFormat='date' allowBlank=true}}
+							{{date-picker placeholder="Start Date" date=form.from format='YYYY-MM-DD' valueFormat='date' allowBlank=true}}
 						</label>							
 					</div>
 					<div class="columns medium-4">
 						<label>
-							{{date-picker placeholder="End Date" date=to format='YYYY-MM-DD' valueFormat='date' allowBlank=true}}
+							{{date-picker placeholder="End Date" date=form.to format='YYYY-MM-DD' valueFormat='date' allowBlank=true}}
 						</label>
 					</div>
 					<div class="columns medium-4">
@@ -25,17 +22,21 @@
 					</div>
 				</div>
 				<label>
-					{{input value=title placeholder="Title"}}
+					{{input value=form.title placeholder="Title"}}
 				</label>
 
 				<label>
-					{{input value=location placeholder="Location"}}
+					{{input value=form.location placeholder="Location"}}
 				</label>
 				<label>
-					{{textarea value=content rows="10" placeholder="Description"}}
+					{{textarea value=form.content rows="10" placeholder="Description"}}
 				</label>
 			    <button class='button success' {{ action 'save' }}>SAVE</button>
 			</form>								
+
+{{#zf-accordion allowAllClosed="true" id="accordion-work" class="form-accordion"}}
+	<li data-accordion-item>
+		<div class="accordion-content" data-tab-content>
 		</div>
   		<a class="more no-arrow button success expanded">{{fa-icon "plus"}}</a>
 	</li>

@@ -14,6 +14,7 @@ export default Ember.Controller.extend({
   //
   // actions
   //
+  selectedItem: null,
   actions: {
   	addNewWork: function() {
   		this.set('isNewWork', true);
@@ -21,6 +22,12 @@ export default Ember.Controller.extend({
   	
   	addNewEducation: function() {
   		this.set('isNewEducation', true);
-  	}
+  	},
+    cancel: function(){
+      console.log('cancel')
+    },
+    selectItem: function(item){
+      this.set('selectedItem', item)
+    }
   }
 });
