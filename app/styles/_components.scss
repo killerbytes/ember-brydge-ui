@@ -236,12 +236,6 @@ ul.list-lined{
 			font-weight: normal;
 		}
 	}
-	button, a.button{
-		text-transform: uppercase;
-		padding :4px;
-		font-weight: bold;
-		font-size: 11px;
-	}
 	.wrapper{
 		max-height: 190px;
 		overflow: hidden
@@ -279,4 +273,46 @@ ul.list-lined{
 	p:last-child{
 		margin-bottom: 0;
 	}
+}
+
+.people-search-filter{
+	@extend .padding;
+	border-bottom: 1px solid $border-color;
+	min-height: 115px;
+	select{
+		width: 80%;
+		font-size: 14px;
+		height: auto;
+		border: 1px solid $brydge-blue;
+		margin-bottom: 10px;
+		padding: 6px 10px;
+	}
+	.fa-plus-circle{
+		color: $brydge-blue;
+		font-size: 30px;
+		float: right;
+	}
+	.label{
+		background-color: $panel-color;
+		position: relative;
+		padding-left: 25px;
+		font-size: 12px;
+		margin-bottom: 5px;
+		.fa-close{
+			background-color: $brydge-blue;
+			color: #FFF;
+			position: absolute;
+			left: 0;
+			top: 0;
+			font-size: 16px;
+			padding: 2px 3px;
+		}
+	}
+}
+
+.footer-button{
+	text-transform: uppercase;
+	padding: 5px;
+	font-weight: bold;
+	font-size: 11px;
 }
