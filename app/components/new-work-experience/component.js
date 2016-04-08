@@ -14,49 +14,50 @@ export default Ember.Component.extend({
 			console.log('cancel new experience << Component');
 			this.set('isNewWork', false);
 		},
-
-		save: function () {
-			console.log('work => save');
+		new: function(){
+			let work = this.store.createRecord('experience',{});
+			this.set('form', work)
+		},
+		update: function () {
+			console.log('work => save', this);
+			return false;
 			
-			let workToUpdate = this.store.peekRecord('experience', '0zlvyfmnmty');
-			console.log(workToUpdate.get('company'))
-			workToUpdate.set('company','edited company');
-			workToUpdate.save(()=>{
+			let work = this.get('form');
+			// let workToUpdate = this.store.peekRecord('experience', '0zlvyfmnmty');
+			// console.log(workToUpdate.get('company'))
+			// workToUpdate.set('company','edited company');
+			work.save(()=>{
 				console.log('successfully updated')
 			});
 
-			let workToDelete = this.store.peekRecord('experience', '0zocti4smyz');
-			console.log(workToDelete.get('company'))
-			workToDelete.deleteRecord();
-			workToDelete.save(()=>{
-				console.log('successfully saved');
+			// let workToDelete = this.store.peekRecord('experience', '0zocti4smyz');
+			// console.log(workToDelete.get('company'))
+			// workToDelete.deleteRecord();
+			// workToDelete.save(()=>{
+			// 	console.log('successfully saved');
+			// })
+		},
+
+		create: function () {
+			this.$('.form-accordion').foundation('toggle', $('.accordion-content'))		
+			console.log(this.getProperties(), this)
+			return false;	
+			let work = this.store.createRecord('experience',{
+				company: this.get('form.company'),
+				title: this.get('form.title'),
+				location: this.get('form.location'),
+				content: this.get('form.content'),
+				from: this.get('form.from'),
+				to: this.get('form.to'),
+				currentCompany: this.get('form.currentCompany')
+			});
+			// let work = this.get('form');
+
+			work.save().then(() => {
+				console.log('saved successfully');
+				this.set('isNewWork', false);
+
 			})
 		}
-
-		// save: function () {
-		// 	// this.$('.form-accordion').foundation('toggle', $('.accordion-content'))			
-		// 	// let work = this.get('form');
-		// 	let work = this.store.findRecord('experience', this.get('form.id'));
-		// 	// work.destroyRecord();
-		// 	// work.save();
-		// 	console.log(work)
-
-		// 	return false;
-		// 	// let work = this.store.createRecord('experience',{
-		// 	// 	company: this.get('company'),
-		// 	// 	title: this.get('title'),
-		// 	// 	location: this.get('location'),
-		// 	// 	content: this.get('content'),
-		// 	// 	from: this.get('from'),
-		// 	// 	to: this.get('to'),
-		// 	// 	currentCompany: this.get('currentCompany')
-		// 	// });
-
-		// 	// work.save().then(() => {
-		// 	// 	console.log('saved successfully');
-		// 	// 	this.set('isNewWork', false);
-
-		// 	// })
-		// }
 	}
 });

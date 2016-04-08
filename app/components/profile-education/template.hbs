@@ -1,0 +1,79 @@
+{{#zf-accordion allowAllClosed="true"}}
+
+{{#each items as |item|}}
+
+	<li class="accordion-item" data-accordion-item >
+			<a class="accordion-header">
+				{{ item.degree }} <br>
+				<strong>{{ item.school }}</strong>
+			</a>
+		<div class="accordion-content" data-tab-content>
+	  	<form action="" class="form-accordion	">
+				<label>
+					{{input value=item.degree placeholder="Degree"}}
+				</label>
+				<div class="row">
+					<div class="columns medium-6">
+						<label>
+							{{date-picker placeholder="Start Date" date=item.from format='YYYY-MM-DD' valueFormat='date' allowBlank=true}}
+						</label>							
+					</div>
+					<div class="columns medium-6">
+						<label>
+							{{date-picker placeholder="End Date" date=item.to format='YYYY-MM-DD' valueFormat='date' allowBlank=true}}
+						</label>
+					</div>
+				</div>
+				<label>
+					{{input value=item.school placeholder="School"}}
+				</label>
+
+				<label>
+					{{input value=item.location placeholder="Location"}}
+				</label>
+				<label>
+					{{textarea value=item.content rows="10" placeholder="Description"}}
+				</label>
+			    <button class='button success' {{ action 'update' item }}>SAVE</button>
+			    <button class='button success float-right' {{ action 'delete' item }}>DELETE</button>
+			</form>								
+
+		</div>
+	</li>
+{{/each}}
+	<li class="accordion-item" data-accordion-item>
+		<div class="accordion-content" data-tab-content>
+	  	<form action="" class="form-accordion">
+				<label>
+					{{input value=degree placeholder="Degree"}}
+				</label>
+				<div class="row">
+					<div class="columns medium-6">
+						<label>
+							{{date-picker placeholder="Start Date" date=from format='YYYY-MM-DD' valueFormat='date' allowBlank=true}}
+						</label>							
+					</div>
+					<div class="columns medium-6">
+						<label>
+							{{date-picker placeholder="End Date" date=to format='YYYY-MM-DD' valueFormat='date' allowBlank=true}}
+						</label>
+					</div>
+				</div>
+				<label>
+					{{input value=school placeholder="School"}}
+				</label>
+
+				<label>
+					{{input value=location placeholder="Location"}}
+				</label>
+				<label>
+					{{textarea value=content rows="10" placeholder="Description"}}
+				</label>
+			    <button class='button success' {{ action 'create' }}>SAVE</button>
+			</form>								
+		</div>
+  		<a class="more no-arrow button success expanded">{{fa-icon "plus"}}</a>
+	</li>
+	
+  
+{{/zf-accordion}}

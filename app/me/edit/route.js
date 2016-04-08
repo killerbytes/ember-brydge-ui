@@ -8,9 +8,6 @@ export default Ember.Route.extend({
 	    educations: this.store.findAll('education'),
 	    experiences: this.store.findAll('experience'),
 	    profile: this.store.peekRecord('profile', params.profile_id)
-      // educations: [],
-      // experiences: [],
-      // profile: []
 	  });
 	},
 

@@ -1,0 +1,26 @@
+.profile-accordion{
+	font-size: 14px;
+	.accordion{
+		border: none;
+	}
+	a.more{
+		font-size: 20px;
+		color: #FFF;
+	}
+	
+	li{
+		background-color: $brydge-blue;
+		margin-bottom: 2px;
+		.accordion-header{
+			padding: 10px 20px;
+			display: block;
+		}
+		.accordion-content{
+			padding: 0;
+			border: none;
+		}
+		a{
+			color: $body-color;
+		}
+	}
+}

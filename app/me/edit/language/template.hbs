@@ -1,12 +1,5 @@
 <p>Languages</p>
-<ul class="work-list no-bullet">
-{{#each experiences as |item|}}
-	<li>
-		<div>{{ item.title }}</div>
-		<div><strong>{{ item.company }}</strong></div>
-	</li>
-{{/each}}
-</ul>
+
+{{ profile-education items=educations store=store}}
 
 
-{{ new-language store=store}}

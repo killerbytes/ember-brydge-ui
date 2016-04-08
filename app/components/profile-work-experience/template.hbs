@@ -1,0 +1,93 @@
+{{#zf-accordion allowAllClosed="true"}}
+
+{{#each items as |item|}}
+
+	<li class="accordion-item" data-accordion-item >
+			<a class="accordion-header">
+				{{ item.title }} <br>
+				<strong>{{ item.company }}</strong>
+			</a>
+		<div class="accordion-content" data-tab-content>
+	  	<form action="" class="form-accordion	">
+				<label>
+					{{input value=item.company placeholder="Company"}}
+				</label>
+				<div class="row">
+					<div class="columns medium-4">
+						<label>
+							{{date-picker placeholder="Start Date" date=item.from format='YYYY-MM-DD' valueFormat='date' allowBlank=true}}
+						</label>							
+					</div>
+					<div class="columns medium-4">
+						<label>
+							{{date-picker placeholder="End Date" date=item.to format='YYYY-MM-DD' valueFormat='date' allowBlank=true}}
+						</label>
+					</div>
+					<div class="columns medium-4">
+						<div class="checkbox">
+							<label>
+								{{input type="checkbox" name="currentCompany" checked=item.currentCompany}} I currently work here
+							</label>
+						</div>
+					</div>
+				</div>
+				<label>
+					{{input value=item.title placeholder="Title"}}
+				</label>
+
+				<label>
+					{{input value=item.location placeholder="Location"}}
+				</label>
+				<label>
+					{{textarea value=item.content rows="10" placeholder="Description"}}
+				</label>
+			    <button class='button success' {{ action 'update' item }}>SAVE</button>
+			    <button class='button success float-right' {{ action 'delete' item }}>DELETE</button>
+			</form>								
+
+		</div>
+	</li>
+{{/each}}
+	<li class="accordion-item" data-accordion-item>
+		<div class="accordion-content" data-tab-content>
+	  	<form action="" class="form-accordion">
+				<label>
+					{{input value=company placeholder="Company"}}
+				</label>
+				<div class="row">
+					<div class="columns medium-4">
+						<label>
+							{{date-picker placeholder="Start Date" date=from format='YYYY-MM-DD' valueFormat='date' allowBlank=true}}
+						</label>							
+					</div>
+					<div class="columns medium-4">
+						<label>
+							{{date-picker placeholder="End Date" date=to format='YYYY-MM-DD' valueFormat='date' allowBlank=true}}
+						</label>
+					</div>
+					<div class="columns medium-4">
+						<div class="checkbox">
+							<label>
+								{{input type="checkbox" name="currentCompany" checked=currentCompany}} I currently work here
+							</label>
+						</div>
+					</div>
+				</div>
+				<label>
+					{{input value=title placeholder="Title"}}
+				</label>
+
+				<label>
+					{{input value=location placeholder="Location"}}
+				</label>
+				<label>
+					{{textarea value=content rows="10" placeholder="Description"}}
+				</label>
+			    <button class='button success' {{ action 'create' }}>SAVE</button>
+			</form>								
+		</div>
+  		<a class="more no-arrow button success expanded">{{fa-icon "plus"}}</a>
+	</li>
+	
+  
+{{/zf-accordion}}
