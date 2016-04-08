@@ -1,12 +1,13 @@
 import Ember from 'ember';
 
 export default Ember.Component.extend({
+	flashMessages: Ember.inject.service(),
 	classNames: ['profile-accordion', 'no-bullet'],
 	actions: {
 		update: function (item) {
 			this.$('ul.accordion').foundation('toggle', $('.accordion-content'))		
 			item.save(()=>{
-				console.log('successfully updated')				
+				Ember.get(this, 'flashMessages').success('Success!');
 			});
 
 		},
@@ -17,7 +18,16 @@ export default Ember.Component.extend({
 			let work = this.store.createRecord('education', data);
 
 			work.save().then(() => {
-				console.log('saved successfully');
+				Ember.get(this, 'flashMessages').success('Success!');
+				Foundation.reInit($('ul.accordion'))
+				this.setProperties({
+					degree: null,
+					school: null,
+					location: null,
+					content: null,
+					from: null,
+					to: null
+				})
 			})
 		},
 		delete: function(item){

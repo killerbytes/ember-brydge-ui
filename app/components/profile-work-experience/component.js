@@ -6,7 +6,7 @@ export default Ember.Component.extend({
 		update: function (item) {
 			this.$('ul.accordion').foundation('toggle', $('.accordion-content'))		
 			item.save(()=>{
-				console.log('successfully updated')				
+				Ember.get(this, 'flashMessages').success('Success!');
 			});
 
 		},
@@ -17,7 +17,17 @@ export default Ember.Component.extend({
 			let work = this.store.createRecord('experience', data);
 
 			work.save().then(() => {
-				console.log('saved successfully');
+				Ember.get(this, 'flashMessages').success('Success!');
+				Foundation.reInit($('ul.accordion'))
+				this.setProperties({
+					company: null,
+					title: null,
+					location: null,
+					content: null,
+					from: null,
+					to: null,
+					currentCompany: null
+				})
 			})
 		},
 		delete: function(item){
