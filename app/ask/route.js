@@ -21,12 +21,30 @@ export default Ember.Route.extend({
   	_this.set('userid', userid);
 
     return Ember.RSVP.hash({
-      fromQuestions: this.store.query('ask',{from: userid}),
-      toQuestions: this.store.query('ask',{to: userid})
+      fromQuestions: this.store.query('ask',{from: userid, userid: userid}),
+      toQuestions: this.store.query('ask',{to: userid, userid: userid})
     }).then(function(result){
       _this.set('fromQuestions',result.fromQuestions);
       _this.set('toQuestions', result.toQuestions);
     });
+
+
+    // return Ember.RSVP.hash({
+    //   questions: this.store.query('ask',{userid: userid}).then(function(asks){
+    //      return asks.filterBy('answer');
+    //   })
+    // }).then(function(result){
+      
+    //   result.questions.forEach(function(item){
+    //     console.log('Qust => ',item.get('content'));
+    //     console.log('From =>',item.get('from').get('name'));
+    //     console.log('Ans =>', item.get('answer'));
+    //     console.log('---------------')
+    //   });
+
+    //   //_this.set('trendingPosts',result.trendingPosts);
+    //   //_this.set('lastestQuestion', result.questions.get('firstObject'));
+    // });
   },
 
   setupController: function(controller, model) {

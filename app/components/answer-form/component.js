@@ -9,9 +9,11 @@ export default Ember.Component.extend({
 			console.log('ask id =>', selectedQuestion.get('id'));
 			console.log('answer =>', selectedQuestion.get('answer'))
 
+			
 			var store = this.store;
 			var savedCallback = function() {
 				console.log('saved ask');
+				this.$('#answerFormModal').foundation('close');
 			};
 
 			store.findRecord('ask', selectedQuestion.get('id')).then(function(ask){
