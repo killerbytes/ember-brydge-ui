@@ -13,7 +13,6 @@ export default Ember.Component.extend({
 			var store = this.store;
 			var savedCallback = function() {
 				console.log('saved ask');
-				this.$('#answerFormModal').foundation('close');
 			};
 
 			store.findRecord('ask', selectedQuestion.get('id')).then(function(ask){

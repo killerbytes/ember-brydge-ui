@@ -84,9 +84,23 @@
         {{link-to model.lastestQuestion.from.content.name "profile" model.lastestQuestion.from.content.username }} asked {{link-to model.lastestQuestion.to.content.name "profile" model.lastestQuestion.to.content.username }}
 
         <h2>{{model.lastestQuestion.content}}</h2>
-       	<div class="floated">
+
+
+        {{#zf-accordion-menu class="accordion-menu"}}
+        <li>
+          <ul class="no-bullet vertical nested">
+            <li>
+              <p>{{model.lastestQuestion.answer}}</p>
+            </li>
+          </ul>
+          <a class="more no-arrow"><span class="content-more" disabled=true>See Answer</span><span class="content-less">Hide Answer</span></a>
+        </li>
+      {{/zf-accordion-menu}}    
+
+
+       	<!-- <div class="floated">
         	<a href="" class="more">See Answer</a>
-        </div>
+        </div> -->
       </div>
       {{#link-to 'me.ask' }}
       <button class="success button expanded">
