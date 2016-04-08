@@ -36,18 +36,29 @@ export default Ember.Route.extend({
 
     if (!userid) return true;
 
-    // return this.store.query('post', {
-    //   userid: userid
-    // }).then(function(trendingPosts) {
-    //   _this.set('trendingPosts', trendingPosts);
+    // return Ember.RSVP.hash({
+    //   toQuestions: this.store.query('ask',{to: this.get('userid')}),
+    //   trendingPosts: this.store.query('post', {userid: userid})
+    // }).then(function(result){
+    //   _this.set('trendingPosts',result.trendingPosts);
+    //   _this.set('lastestQuestion', result.toQuestions.get('firstObject'));
     // });
 
+    console.log('userid =>', this.get('userid'))
     return Ember.RSVP.hash({
-      toQuestions: this.store.query('ask',{to: this.get('userid')}),
+      questions: this.store.query('ask',{userid: this.get('userid')}).then(function(asks){
+         return asks.filterBy('answer');
+      }),
       trendingPosts: this.store.query('post', {userid: userid})
     }).then(function(result){
+      
+      result.questions.forEach(function(item){
+        console.log('Qust => ',item.get('content'));
+        console.log('Ans =>', item.get('answer'));
+      });
+
       _this.set('trendingPosts',result.trendingPosts);
-      _this.set('lastestQuestion', result.toQuestions.get('firstObject'));
+      _this.set('lastestQuestion', result.questions.get('firstObject'));
     });
   },
 

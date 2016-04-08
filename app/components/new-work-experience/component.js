@@ -18,14 +18,14 @@ export default Ember.Component.extend({
 		save: function () {
 			console.log('work => save');
 			
-			let workToUpdate = this.store.peekRecord('experience', '0zlvyfmnmty');
-			console.log(workToUpdate.get('company'))
-			workToUpdate.set('company','edited company');
-			workToUpdate.save(()=>{
-				console.log('successfully updated')
-			});
+			// let workToUpdate = this.store.peekRecord('experience', '0zlvyfmnmty');
+			// console.log(workToUpdate.get('company'))
+			// workToUpdate.set('company','edited company');
+			// workToUpdate.save(()=>{
+			// 	console.log('successfully updated')
+			// });
 
-			let workToDelete = this.store.peekRecord('experience', '0zocti4smyz');
+			let workToDelete = this.store.peekRecord('experience', '6zm0kb53dji');
 			console.log(workToDelete.get('company'))
 			workToDelete.deleteRecord();
 			workToDelete.save(()=>{
