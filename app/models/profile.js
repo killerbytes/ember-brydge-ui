@@ -15,5 +15,5 @@ export default DS.Model.extend({
 	occupationTwoId: DS.attr('string'),
 	snapshot: DS.attr('string'),
 	birthDay: DS.attr('date'),
-	avatarUrl: DS.attr('string', { defaultValue: 'assets/jane_austen_circle_profile.png' })
+	avatarUrl: DS.attr('string', { defaultValue: 'assets/blank-user.jpg' })
 });

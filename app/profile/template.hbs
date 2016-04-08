@@ -14,9 +14,7 @@
 
       <div class="profile-center">
         <div class="profile-photo">
-          {{#link-to 'me.edit' model.profile.id}}
-            <img src= {{model.profile.avatarUrl}} class="circle">
-          {{/link-to}}
+          <img src= {{model.profile.avatarUrl}} class="circle">
         </div>
 
       </div>
@@ -44,8 +42,8 @@
 
 <div class="row">
   <div class="columns medium-7">
-    {{share-box postToNewsfeed='postToNewsfeed' profile=model.profile}}
-
+    <!-- {{share-box postToNewsfeed='postToNewsfeed' profile=model.profile}}
+ -->
     {{newsfeed-list newsfeed=model.trendingPosts}}
   </div>
 
