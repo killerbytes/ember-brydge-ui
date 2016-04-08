@@ -16,29 +16,47 @@ export default Ember.Component.extend({
 		},
 
 		save: function () {
-			// this.$('.form-accordion').foundation('toggle', $('.accordion-content'))			
-			// let work = this.get('form');
-			let work = this.store.findRecord('experience', this.get('form.id'));
-			// work.destroyRecord();
-			// work.save();
-			console.log(work)
+			console.log('work => save');
+			
+			let workToUpdate = this.store.peekRecord('experience', '0zlvyfmnmty');
+			console.log(workToUpdate.get('company'))
+			workToUpdate.set('company','edited company');
+			workToUpdate.save(()=>{
+				console.log('successfully updated')
+			});
 
-			return false;
-			// let work = this.store.createRecord('experience',{
-			// 	company: this.get('company'),
-			// 	title: this.get('title'),
-			// 	location: this.get('location'),
-			// 	content: this.get('content'),
-			// 	from: this.get('from'),
-			// 	to: this.get('to'),
-			// 	currentCompany: this.get('currentCompany')
-			// });
-
-			// work.save().then(() => {
-			// 	console.log('saved successfully');
-			// 	this.set('isNewWork', false);
-
-			// })
+			let workToDelete = this.store.peekRecord('experience', '0zocti4smyz');
+			console.log(workToDelete.get('company'))
+			workToDelete.deleteRecord();
+			workToDelete.save(()=>{
+				console.log('successfully saved');
+			})
 		}
+
+		// save: function () {
+		// 	// this.$('.form-accordion').foundation('toggle', $('.accordion-content'))			
+		// 	// let work = this.get('form');
+		// 	let work = this.store.findRecord('experience', this.get('form.id'));
+		// 	// work.destroyRecord();
+		// 	// work.save();
+		// 	console.log(work)
+
+		// 	return false;
+		// 	// let work = this.store.createRecord('experience',{
+		// 	// 	company: this.get('company'),
+		// 	// 	title: this.get('title'),
+		// 	// 	location: this.get('location'),
+		// 	// 	content: this.get('content'),
+		// 	// 	from: this.get('from'),
+		// 	// 	to: this.get('to'),
+		// 	// 	currentCompany: this.get('currentCompany')
+		// 	// });
+
+		// 	// work.save().then(() => {
+		// 	// 	console.log('saved successfully');
+		// 	// 	this.set('isNewWork', false);
+
+		// 	// })
+		// }
 	}
 });
