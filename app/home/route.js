@@ -49,6 +49,11 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, FilterDropdownListMix
       console.log(">>>home:route:error -->", err.status);
       console.log(err, transition);
       return true;
+    },
+    add: function(){
+      this.store.push('post', {
+        data: {"test": 1},
+      })
     }
   }
 });

@@ -102,6 +102,9 @@
   </div>
 </div>
 
+{{selected.id}}:{{selected.name}}
 
+{{dropdown-filter items=model.location model=selected template="partials/location-filter" onclick="openLocationModal"}}
 
-{{test-test items=items}}
+<a class="button sucess" data-open="locationModal">Can't Find Your City?</a>
+

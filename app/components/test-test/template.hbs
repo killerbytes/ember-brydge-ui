@@ -1,9 +1,0 @@
-{{input value=model key-up="onchange" focus-in="open"}}
-<ul classxx="{{if isOpen 'is-open'}}">
-  {{#each list as |item|}}
-
-	<li {{action "select" item}}>{{item.name}}</li>
-	{{/each}}
-</ul>
-
-{{selected.name}}

@@ -7,7 +7,24 @@ export default Ember.Route.extend({
 		return Ember.RSVP.hash({
 	    educations: this.store.findAll('education'),
 	    experiences: this.store.findAll('experience'),
-	    profile: this.store.peekRecord('profile', params.profile_id)
+	    profile: this.store.peekRecord('profile', params.profile_id),
+      locations: [{
+          id: 1,
+          name: "San Francisco, CA, USA"
+        },{
+          id: 2,
+          name: "San Diego, CA, USA"
+        },{
+          id: 3,
+          name: "San Andreas, CA, USA"
+        },{
+          id: 4,
+          name: "Los Angeles, CA, USA"
+        },{
+          id: 5,
+          name: "Houston, TX, USA"
+        }]
+
 	  });
 	},
 
@@ -29,6 +46,7 @@ export default Ember.Route.extend({
     controller.set('occupTwo',{
       text: profile.get('occupationTwo')
     });
+    controller.set('locations', models.locations);
   },
 
 	actions: {
