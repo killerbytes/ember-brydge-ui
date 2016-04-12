@@ -1,0 +1,39 @@
+<ul class="no-bullet pending-list clearfix">
+{{#each model.pendingListTop as |connection|}}
+
+	<li>
+    {{connection-pending-item 
+    connection=connection 
+    selectAcceptItem='selectAcceptItem' 
+    selectRejectItem='selectRejectItem'}}		
+	</li>
+	
+{{/each}}
+
+{{#if model.pendingList}}
+{{#zf-accordion-menu class="accordion-menu"}}
+  <li>
+    <ul class="no-bullet vertical nested">
+    {{#each model.pendingList as |connection|}}
+
+      <li>
+        {{connection-pending-item 
+        connection=connection 
+        selectAcceptItem='selectAcceptItem' 
+        selectRejectItem='selectRejectItem'}} 
+      </li>
+
+     {{/each}}
+    </ul>
+    <a class="more no-arrow success button expanded"><span class="content-more" disabled=true>Load More</span>
+    <span class="content-less">Hide More</span></a>
+  </li>
+{{/zf-accordion-menu}}
+{{/if}}
+</ul>
+
+
+
+
+
+
