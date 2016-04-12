@@ -4,7 +4,7 @@
     <div class="triangle"></div>
   </div>
 </a>
-{{#zf-dropdown id="dd-ask-form" closeOnClick="true"}}
+{{#zf-dropdown id="dd-ask-form" closeOnClick=true}}
   <form {{action 'ask' model.userid model.ownerid model.username question on='submit'}}>
     {{input value=model.userid type="hidden"}}
     {{input value=model.ownerid type="hidden"}}
