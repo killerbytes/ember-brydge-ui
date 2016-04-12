@@ -1,0 +1,70 @@
+<ul class="no-bullet pending-list clearfix">
+{{#each model.pendingListTop as |connection|}}
+
+	<li>
+    <div class="media-object">
+      <div class="media-object-section">
+        <div class="thumbnail flat">
+          <img src= {{connection.from.profile.avatarUrl}}>
+        </div>
+      </div>
+      <div class="media-object-section media-object-content">
+        <div class="title"><a>{{connection.from.name}}</a></div>        
+        <div class="position">
+         {{connection.from.profile.currentTitle}} <br>
+         {{connection.from.profile.currentCompany}}
+        </div>
+      </div>
+    </div>
+		<div class="question-box-footer">
+			<a {{action "selectItem" connection}} class="float-left" data-open="acceptFormModal">Accept</a>
+
+  
+			<a {{action "selectItem" connection}} class="float-right" data-open="rejectFormModal">Reject Request</a>
+		</div>			
+	</li>
+	
+{{/each}}
+
+{{#zf-accordion-menu class="accordion-menu"}}
+  <li>
+    <ul class="no-bullet vertical nested">
+    {{#each model.pendingList as |connection|}}
+
+      <li>
+        <div class="media-object">
+          <div class="media-object-section">
+            <div class="thumbnail flat">
+              <img src= {{connection.from.profile.avatarUrl}}>
+            </div>
+          </div>
+          <div class="media-object-section media-object-content">
+            <div class="title"><a>{{connection.from.name}}</a></div>        
+            <div class="position">
+             {{connection.from.profile.currentTitle}} <br>
+             {{connection.from.profile.currentCompany}}
+            </div>
+          </div>
+        </div>
+        <div class="question-box-footer">
+          <a {{action "selectItem" connection}} class="float-left" data-open="acceptFormModal">Accept</a>
+
+      
+          <a {{action "selectItem" connection}} class="float-right" data-open="rejectFormModal">Reject Request</a>
+        </div>
+    
+      </li>
+
+     {{/each}}
+    </ul>
+    <a class="more no-arrow success button expanded"><span class="content-more" disabled=true>Load More</span>
+    <span class="content-less">Hide More</span></a>
+  </li>
+{{/zf-accordion-menu}}
+</ul>
+
+
+
+
+
+

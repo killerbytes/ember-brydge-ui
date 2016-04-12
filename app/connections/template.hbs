@@ -26,57 +26,24 @@
 		<h5 class="box-header">Pending Requests</h5>
 
 
+		{{partial 'connections/pending'}}
+		
+    <!-- {{partial 'connections/more-pending'}}   -->  
 
-		<ul class="no-bullet pending-list clearfix">
-			<li>
-		    <div class="media-object">
-		      <div class="media-object-section">
-		        <div class="thumbnail flat">
-		          <img src="assets/avatar.png">
-		        </div>
-		      </div>
-		      <div class="media-object-section media-object-content">
-		        <div class="title"><a>Jon Wayne</a></div>        
-		        <div class="position">
-		          Head of Digital Marketing <br>
-		          PEPSICO
-		        </div>
-		      </div>
-		    </div>
-				<div class="question-box-footer">
-					<a {{action "select" }} class="float-left" data-open="answerFormModal">Accept</a>
-					<a class="float-right">Delete Request</a>
-				</div>			
-			</li>
-			<li>
-		    <div class="media-object">
-		      <div class="media-object-section">
-		        <div class="thumbnail flat">
-		          <img src="assets/avatar.png">
-		        </div>
-		      </div>
-		      <div class="media-object-section media-object-content">
-		        <div class="title"><a>Jon Wayne</a></div>        
-		        <div class="position">
-		          Head of Digital Marketing <br>
-		          PEPSICO
-		        </div>
-		      </div>
-		    </div>
-				<div class="question-box-footer">
-					<a {{action "select" }} class="float-left" data-open="answerFormModal">Accept</a>
-					<a class="float-right">Delete Request</a>
-				</div>			
-			</li>
-		</ul>
-
-
-		{{#link-to 'me.ask' class="success button expanded" }}
+		<!-- {{#link-to 'me.ask' class="success button expanded" }}
 			Load More
-		{{/link-to}}
+		{{/link-to}} -->
     </div>
 
     {{render "progress-box"}}
     {{render "footer"}}
   </div>
 </div>
+
+{{#zf-reveal id="acceptFormModal" overlay=true class="reveal-popup small"}}
+  {{accept-form selectedConnection=selectedConnection resp='refreshModel' store=store}}
+{{/zf-reveal}}
+
+{{#zf-reveal id="rejectFormModal" overlay=true class="reveal-popup small"}}
+  {{accept-form selectedConnection=selectedConnection resp='refreshModel' store=store}}
+{{/zf-reveal}}

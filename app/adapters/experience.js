@@ -5,6 +5,8 @@ import UrlTemplates from "ember-data-url-templates";
 export default ApplicationAdapter.extend(UrlTemplates, {
 	session: Ember.inject.service('session'),
 
+	adapterContext: Ember.inject.service('public-profile'),
+
 	urlTemplate: '{+host}/v1/profile/{userid}/experience/{id}',
 
 	findAllUrlTemplate: '{+host}/v1/profile/{userid}/experience',
@@ -15,7 +17,8 @@ export default ApplicationAdapter.extend(UrlTemplates, {
 	
 	urlSegments: {
     userid() {
-      return this.get('session.data.authenticated.user_id');
+    	console.log('userid =>',this.get('adapterContext.user.id'));
+      return this.get('adapterContext.user.id');
     }
   }
 });

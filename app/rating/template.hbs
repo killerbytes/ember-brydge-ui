@@ -14,5 +14,13 @@
   {{image-upload fileLoaded="fileLoaded" logoUrl='assets/jane_austen_circle_profile.png'}}
   
 </div>
+
+
+<p><a data-open="exampleModal">Click me for a modal</a></p>
+{{#zf-reveal id="exampleModal" overlay=showDialogOverlay}}
+  {{accept-form}}
+{{/zf-reveal}}
+<p>{{input type="checkbox" name="showDialogOverlay" checked=showDialogOverlay}} Show Overlay</p>
+
 	
 </div>
