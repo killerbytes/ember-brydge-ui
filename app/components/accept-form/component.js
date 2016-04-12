@@ -6,6 +6,7 @@ export default Ember.Component.extend({
 	actions: {
 		accept: function( targetid ) {
 			console.log('targetid=>', targetid);
+			if(targetid === undefined) return;
 
 			var ctx = this;
 			var url = '/v1/connections/'+targetid+'/accept';

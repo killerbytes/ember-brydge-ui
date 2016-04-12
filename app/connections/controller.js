@@ -1,12 +1,17 @@
 import Ember from 'ember';
 
 export default Ember.Controller.extend({
-	selectedConnection: null,
+	selectedAccept: null,
+	selectedReject: null,
 
   actions: {
-  	selectItem: function(item) {
-  		console.log('selectedConnection',item);
-  		this.set('selectedConnection', item);
+  	selectAcceptItem: function(item) {
+  		console.log('selectedAccept',item);
+  		this.set('selectedAccept', item);
+  	},
+  	selectRejectItem: function(item) {
+  		console.log('selectedReject',item);
+  		this.set('selectedReject', item);
   	}
   }
 });

@@ -1,18 +1,18 @@
 <h4>Accept the Connection.</h4>
-<form {{action 'accept' selectedConnection.from.userid on='submit'}}>
+<form {{action 'accept' selectedAccept.from.userid on='submit'}}>
 	<div class="mt content clearfix question-box">
 
 		<div class="media-object">
       <div class="media-object-section">
         <div class="thumbnail flat">
-          <img src= {{selectedConnection.from.profile.avatarUrl}} class="accept-form-image">
+          <img src= {{selectedAccept.from.profile.avatarUrl}} class="accept-form-image">
         </div>
       </div>
       <div class="media-object-section media-object-content">
-        <div class="title"><a>{{selectedConnection.from.name}}</a></div>        
+        <div class="title"><a>{{selectedAccept.from.name}}</a></div>        
         <div class="position">
-         {{selectedConnection.from.profile.currentTitle}} <br>
-         {{selectedConnection.from.profile.currentCompany}}
+         {{selectedAccept.from.profile.currentTitle}} <br>
+         {{selectedAccept.from.profile.currentCompany}}
         </div>
       </div>
     </div>

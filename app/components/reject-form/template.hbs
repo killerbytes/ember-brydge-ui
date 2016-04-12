@@ -1,25 +1,25 @@
 <h4>Reject the request.</h4>
-<form {{action 'reject' selectedConnection.from.userid on='submit'}}>
+<form {{action 'reject' selectedReject.from.userid on='submit'}}>
 	<div class="mt content clearfix question-box">
 
 		<div class="media-object">
       <div class="media-object-section">
         <div class="thumbnail flat">
-          <img src= {{selectedConnection.from.profile.avatarUrl}} class="accept-form-image">
+          <img src= {{selectedReject.from.profile.avatarUrl}} class="accept-form-image">
         </div>
       </div>
       <div class="media-object-section media-object-content">
-        <div class="title"><a>{{selectedConnection.from.name}}</a></div>        
+        <div class="title"><a>{{selectedReject.from.name}}</a></div>        
         <div class="position">
-         {{selectedConnection.from.profile.currentTitle}} <br>
-         {{selectedConnection.from.profile.currentCompany}}
+         {{selectedReject.from.profile.currentTitle}} <br>
+         {{selectedReject.from.profile.currentCompany}}
         </div>
       </div>
     </div>
 	</div>
 	<div class="reveal-footer text-right">
 		<div class="content">
-			<button class="button success" data-close type="submit">Accept</button>
+			<button class="button success" data-close type="submit">Reject</button>
 			<a class="button success" data-close>Close</a>
 		</div>
 	</div>

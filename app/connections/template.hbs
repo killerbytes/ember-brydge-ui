@@ -41,9 +41,9 @@
 </div>
 
 {{#zf-reveal id="acceptFormModal" overlay=true class="reveal-popup small"}}
-  {{accept-form selectedConnection=selectedConnection resp='refreshModel' store=store}}
+  {{accept-form selectedAccept=selectedAccept resp='refreshModel' store=store}}
 {{/zf-reveal}}
 
 {{#zf-reveal id="rejectFormModal" overlay=true class="reveal-popup small"}}
-  {{accept-form selectedConnection=selectedConnection resp='refreshModel' store=store}}
+  {{reject-form selectedReject=selectedReject resp='refreshModel' store=store}}
 {{/zf-reveal}}
