@@ -6,11 +6,13 @@ export default Ember.Controller.extend({
 
   actions: {
   	selectAcceptItem: function(item) {
-  		console.log('selectedAccept',item);
+  		console.log('selectedAccept');
+      console.log(item.get('from').get('userid'),item.get('from').get('name'))
   		this.set('selectedAccept', item);
   	},
   	selectRejectItem: function(item) {
-  		console.log('selectedReject',item);
+  		console.log('selectedReject');
+      console.log(item.get('from').get('userid'),item.get('from').get('name'))
   		this.set('selectedReject', item);
   	}
   }

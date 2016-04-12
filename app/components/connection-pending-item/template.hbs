@@ -1,0 +1,18 @@
+<div class="media-object">
+  <div class="media-object-section">
+    <div class="thumbnail flat">
+      <img src= {{connection.from.profile.avatarUrl}}>
+    </div>
+  </div>
+  <div class="media-object-section media-object-content">
+    <div class="title"><a>{{connection.from.name}}</a></div>        
+    <div class="position">
+     {{connection.from.profile.currentTitle}} <br>
+     {{connection.from.profile.currentCompany}}
+    </div>
+  </div>
+</div>
+<div class="question-box-footer">
+	<a {{action "selectAcceptItem" connection}} class="float-left" data-open="acceptFormModal">Accept</a>
+	<a {{action "selectRejectItem" connection}} class="float-right" data-open="rejectFormModal">Reject Request</a>
+</div>

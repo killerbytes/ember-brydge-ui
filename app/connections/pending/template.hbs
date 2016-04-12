@@ -2,57 +2,25 @@
 {{#each model.pendingListTop as |connection|}}
 
 	<li>
-    <div class="media-object">
-      <div class="media-object-section">
-        <div class="thumbnail flat">
-          <img src= {{connection.from.profile.avatarUrl}}>
-        </div>
-      </div>
-      <div class="media-object-section media-object-content">
-        <div class="title"><a>{{connection.from.name}}</a></div>        
-        <div class="position">
-         {{connection.from.profile.currentTitle}} <br>
-         {{connection.from.profile.currentCompany}}
-        </div>
-      </div>
-    </div>
-		<div class="question-box-footer">
-			<a {{action "selectAcceptItem" connection}} class="float-left" data-open="acceptFormModal">Accept</a>
-
-  
-			<a {{action "selectRejectItem" connection}} class="float-right" data-open="rejectFormModal">Reject Request</a>
-		</div>			
+    {{connection-pending-item 
+    connection=connection 
+    selectAcceptItem='selectAcceptItem' 
+    selectRejectItem='selectRejectItem'}}		
 	</li>
 	
 {{/each}}
 
+{{#if model.pendingList}}
 {{#zf-accordion-menu class="accordion-menu"}}
   <li>
     <ul class="no-bullet vertical nested">
     {{#each model.pendingList as |connection|}}
 
       <li>
-        <div class="media-object">
-          <div class="media-object-section">
-            <div class="thumbnail flat">
-              <img src= {{connection.from.profile.avatarUrl}}>
-            </div>
-          </div>
-          <div class="media-object-section media-object-content">
-            <div class="title"><a>{{connection.from.name}}</a></div>        
-            <div class="position">
-             {{connection.from.profile.currentTitle}} <br>
-             {{connection.from.profile.currentCompany}}
-            </div>
-          </div>
-        </div>
-        <div class="question-box-footer">
-          <a {{action "selectAcceptItem" connection}} class="float-left" data-open="acceptFormModal">Accept</a>
-
-      
-          <a {{action "selectRejectItem" connection}} class="float-right" data-open="rejectFormModal">Reject Request</a>
-        </div>
-    
+        {{connection-pending-item 
+        connection=connection 
+        selectAcceptItem='selectAcceptItem' 
+        selectRejectItem='selectRejectItem'}} 
       </li>
 
      {{/each}}
@@ -61,6 +29,7 @@
     <span class="content-less">Hide More</span></a>
   </li>
 {{/zf-accordion-menu}}
+{{/if}}
 </ul>
 
 
