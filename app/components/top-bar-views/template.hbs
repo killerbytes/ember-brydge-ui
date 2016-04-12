@@ -1,0 +1,116 @@
+<a data-toggle="dd-views">
+	{{#zf-tooltip title="Profile Views" vOffset=0}}
+	<span class="alert badge">3</span>
+	<i class="divider"></i>
+	<i class="icons bino"></i>
+	{{/zf-tooltip}}
+	<div class="wrapper">
+		<div class="triangle"></div>
+	</div>
+</a>
+
+{{#zf-dropdown id="dd-views" closeOnClick="true" }}
+
+	<div class="columns">
+		<div class="row collapse profile-view-settings">
+			<div class="columns medium-8">
+				<strong>SEE WHO'S VIEWED YOUR PROFILE</strong>
+				<p>Turning this ON will also let others know you've seen their profile</p>
+			</div>
+			<div class="columns medium-4">
+				<div class="switch">
+				  <input class="switch-input" id="exampleSwitch" type="checkbox" name="exampleSwitch">
+				  <label class="switch-paddle" for="exampleSwitch">
+				    <span class="show-for-sr">Download Kittens</span>
+				  </label>
+				</div>
+
+			</div>
+		</div>
+	</div>
+	<ul class="no-bullet list-lined">
+		<li>
+			<div class="media-object">
+				<div class="media-object-section">
+					<div class="thumbnail">
+						<img src= "assets/avatar-1.jpg">
+					</div>
+				</div>
+				<div class="media-object-section main-section">
+					<a class="name">Mark JUDGE</a>
+					<p class="position">
+						Strategic Partnerships Lead <br>
+						Samsung Electronics
+					</p>
+				</div>
+			</div>
+		</li>
+		<li>
+			<div class="media-object">
+				<div class="media-object-section">
+					<div class="thumbnail">
+						<img src= "assets/avatar-1.jpg">
+					</div>
+				</div>
+				<div class="media-object-section main-section">
+					<a class="name">Mark JUDGE</a>
+					<p class="position">
+						Strategic Partnerships Lead <br>
+						Samsung Electronics
+					</p>
+				</div>
+			</div>
+		</li>
+		<li>
+			<div class="media-object">
+				<div class="media-object-section">
+					<div class="thumbnail">
+						<img src= "assets/avatar-1.jpg">
+					</div>
+				</div>
+				<div class="media-object-section main-section">
+					<a class="name">Mark JUDGE</a>
+					<p class="position">
+						Strategic Partnerships Lead <br>
+						Samsung Electronics
+					</p>
+				</div>
+			</div>
+		</li>
+		<li>
+			<div class="media-object">
+				<div class="media-object-section">
+					<div class="thumbnail">
+						<img src= "assets/avatar-1.jpg">
+					</div>
+				</div>
+				<div class="media-object-section main-section">
+					<a class="name">Mark JUDGE</a>
+					<p class="position">
+						Strategic Partnerships Lead <br>
+						Samsung Electronics
+					</p>
+				</div>
+			</div>
+		</li>
+		<li>
+			<div class="media-object">
+				<div class="media-object-section">
+					<div class="thumbnail">
+						<img src= "assets/avatar-1.jpg">
+					</div>
+				</div>
+				<div class="media-object-section main-section">
+					<a class="name">Mark JUDGE</a>
+					<p class="position">
+						Strategic Partnerships Lead <br>
+						Samsung Electronics
+					</p>
+				</div>
+			</div>
+		</li>
+	</ul>
+	{{#link-to 'messaging' class="footer-button success button expanded"}}
+		SEE ALL PROFILE VIEWS
+	{{/link-to}}
+{{/zf-dropdown}}

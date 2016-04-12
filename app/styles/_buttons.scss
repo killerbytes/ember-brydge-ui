@@ -13,7 +13,7 @@
 	background-color: #FFF;
 	&.success{
 		color: #FFF;
-		&:hover{
+		&:hover, &:focus{
 			color: #FFF;
 			background-color: $dark-blue;
 		}

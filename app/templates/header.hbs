@@ -10,111 +10,9 @@
 				</ul>
 
 				<ul class="top-bar-group menu menu-actions" {{ action "closeTooltip" }}>
-					<li>						
-						{{#link-to 'messaging' }}
-							{{#zf-tooltip title="Profile Views" vOffset=0}}
-							<span class="alert badge">3</span>
-							<i class="icons bino"></i>
-							{{/zf-tooltip}}
-
-						{{/link-to}}
-					</li>
-					<li>
-						<a>
-							{{#zf-tooltip title="Connection Requests" vOffset=0}}
-							<i class="divider"></i>
-							<i class="icons user"></i>
-							{{/zf-tooltip}}
-						</a>
-					</li>
-					<li>
-						<a data-toggle="dd-messages">
-							{{#zf-tooltip title="Messages" vOffset=0}}
-							<span class="alert badge">5</span>
-							<i class="icons messages"></i>
-							{{/zf-tooltip}}
-							<div class="wrapper">
-								<div class="triangle"></div>
-							</div>
-						</a>
-						{{#zf-dropdown id="dd-messages" closeOnClick="true" }}							
-							<ul class="no-bullet list-lined">
-								<li>
-									<div class="media-object">
-										<div class="media-object-section">
-											<div class="thumbnail">
-												<img src= "assets/avatar-1.jpg">
-											</div>
-										</div>
-										<div class="media-object-section main-section">
-											<span>Mark JUDGE</span>
-											<span class="float-right subheader">2:30pm</span>
-											<p>Hey Jon, I thought you should take a look a this.</p>
-										</div>
-									</div>
-								</li>
-								<li>
-									<div class="media-object">
-										<div class="media-object-section">
-											<div class="thumbnail">
-												<img src= "assets/avatar-2.jpg">
-											</div>
-										</div>
-										<div class="media-object-section main-section">
-											<span>Mark JUDGE</span>
-											<span class="float-right subheader">2:30pm</span>
-											<p>Hey Jon, I thought you should take a look a this.</p>
-										</div>
-									</div>
-								</li>
-								<li>
-									<div class="media-object">
-										<div class="media-object-section">
-											<div class="thumbnail">
-												<img src= "assets/avatar-1.jpg">
-											</div>
-										</div>
-										<div class="media-object-section main-section">
-											<span>Mark JUDGE</span>
-											<span class="float-right subheader">2:30pm</span>
-											<p>Hey Jon, I thought you should take a look a this.</p>
-										</div>
-									</div>
-								</li>
-								<li>
-									<div class="media-object">
-										<div class="media-object-section">
-											<div class="thumbnail">
-												<img src= "assets/avatar-2.jpg">
-											</div>
-										</div>
-										<div class="media-object-section main-section">
-											<span>Mark JUDGE</span>
-											<span class="float-right subheader">2:30pm</span>
-											<p>Hey Jon, I thought you should take a look a this.</p>
-										</div>
-									</div>
-								</li>
-								<li>
-									<div class="media-object">
-										<div class="media-object-section">
-											<div class="thumbnail">
-												<img src= "assets/avatar-1.jpg">
-											</div>
-										</div>
-										<div class="media-object-section main-section">
-											<span>Mark JUDGE</span>
-											<span class="float-right subheader">2:30pm</span>
-											<p>Hey Jon, I thought you should take a look a this.</p>
-										</div>
-									</div>
-								</li>
-							</ul>
-							{{#link-to 'messaging' class="button expanded"}}
-								See All Messages
-							{{/link-to}}
-						{{/zf-dropdown}}
-					</li>
+					{{top-bar-views}}
+					{{top-bar-requests}}
+					{{top-bar-messages}}
 					<li>
 						<a data-toggle="dd-stack">
 							{{#zf-tooltip title="Notifications" vOffset=0}}
@@ -150,12 +48,7 @@
 
 			</div>
 			<div class="top-bar-right">
-				<div class="top-bar-group top-bar-search rounded">
-					<input class="input-group-field" type="search" placeholder="Search">
-					<div class="input-group-button">
-						{{fa-icon "search"}}
-					</div>
-				</div>
+				{{top-bar-search}}
 				<ul class="top-bar-group menu menu-actions" {{ action "closeTooltip" }}>	
 					<li>
 						<a data-toggle="dd-menu">

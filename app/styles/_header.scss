@@ -41,6 +41,7 @@ header.top-bar {
 			position: absolute;
 			top: 5px;
 			left: 0;
+			z-index: 100;
 		}
 		li:last-child i.divider{
 			right: 0;
@@ -92,6 +93,7 @@ header.top-bar {
 	width: 350px;
 	margin-top: 10px;
 	margin-right: 25px;
+	position: relative;
 	input[type="search"]{
 		border-top-left-radius: 3px;
 		border-bottom-left-radius: 3px;
@@ -110,6 +112,9 @@ header.top-bar {
 		background-color: #F5F5F5;
 		padding: 0 8px;
 		border-left: 1px solid $border-color;
+	}
+	.search-form{
+		display: inline-table;
 	}
 }
 
