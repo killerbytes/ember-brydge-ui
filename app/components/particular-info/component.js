@@ -18,7 +18,10 @@ export default Ember.Component.extend(GetCountryListMixin,{
         data: formData,
         contentType: false,
         processData: false,
-      });
+      }).then((res)=>{
+      	console.log(res);
+      	this.get('profile').set('avatarUrl',res.data.attributes.avatarUrl);
+      })
     }
 	}
 });
