@@ -17,5 +17,6 @@ export default DS.Model.extend({
 	birthDay: DS.attr('date'),
 	avatarUrl: DS.attr('string', { defaultValue: 'assets/blank-user.jpg' }),
 	currentTitle: DS.attr('string'),
-	currentCompany: DS.attr('string')
+	currentCompany: DS.attr('string'),
+	search: DS.hasMany()
 });

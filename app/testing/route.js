@@ -6,28 +6,13 @@ export default Ember.Route.extend({
 	// 	this.controllerFor('posts').set('currentPost', post);
 	// }
 	selected: null,
-	model: function(){
-		return Ember.RSVP.hash({
-			location: [{
-					id: 1,
-					name: "Beginner"
-				},{
-					id: 2,
-					name: "Intermediate"
-				},{
-					id: 3,
-					name: "Upper Intermediate"
-				},{
-					id: 4,
-					name: "Advanced"
-				},{
-					id: 5,
-					name: "Native or Bilingual"
-				}]
-		})
-	},
+	// model: function(){
+	// 	// return this.store.findAll('newsfeed');
+	// 	// return this.store.findAll('search', {query: 'ca', type: 'profile'});
+	// 	return this.store.query('search', { "query": 'ca', "type": 'profile' });
+	// },
 	actions: {
-		openLocationModal: function(){
+		openLocationModal: function(){	
 			console.log('openModal');
 		}
 	}

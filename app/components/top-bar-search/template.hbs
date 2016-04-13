@@ -9,13 +9,14 @@
 <a data-toggle="dd-search" class="hide">
 </a>
 
+
 {{#zf-dropdown id="dd-search" closeOnClick=true autoFocus=false}}
 	<div class="wrapper">
 		<div class="triangle"></div>
 	</div>
 	
 	<ul class="no-bullet list-lined">
-		{{#each docs as |item|}}
+		{{#each search.results as |item|}}
 		<li>
 			<div class="media-object">
 				<div class="media-object-section">
