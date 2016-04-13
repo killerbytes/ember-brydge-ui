@@ -13,9 +13,16 @@ export default ApplicationAdapter.extend(UrlTemplates, {
 	
 	findRecordUrlTemplate: '{+host}/v1/profile/{userid}/education/{id}',
 
+	queryUrlTemplate: '{+host}/v1/profile/{queryid}/education',
+
 	urlSegments: {
     userid() {
       return this.get('session.data.authenticated.user_id');
+    },
+    queryid: function(type, id, snapshot, query) {
+      var userid = query.userid;
+      delete query.userid;
+      return userid;
     }
   }
 });

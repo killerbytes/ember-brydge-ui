@@ -26,8 +26,8 @@
 
 <div class="row column">
   <div class="medium-6 float-left box profile profile-bar">
-    <div class="position">{{ model.profile.jobTitle}}</div>
-    <strong class="text-upper">{{model.company}}</strong>
+    <div class="position">{{ model.profile.currentTitle}}</div>
+    <strong class="text-upper">{{model.profile.currentCompany}}</strong>
 
   </div>
   <div class="medium-6 float-left profile profile-actions">
@@ -44,7 +44,7 @@
   <div class="columns medium-7">
     <!-- {{share-box postToNewsfeed='postToNewsfeed' profile=model.profile}}
  -->
-    {{newsfeed-list newsfeed=model.trendingPosts}}
+    {{newsfeed-list newsfeed=model.trendingPosts profile=model.profile avatar=model.avatar}}
   </div>
 
   <div class="columns medium-5 sidebar">
