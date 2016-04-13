@@ -1,4 +1,4 @@
-{{#each model.educations as |edu|}}
+<!-- {{#each model.educations as |edu|}}
 <div class="columns">
   <div class="name">{{edu.school}}</div>
 	
@@ -8,3 +8,15 @@
   <div class="dim-text">Class of 2001</div>          
 </div>
 {{/each}}
+ -->
+
+<ul class="no-bullet sidebox box-list">
+{{#each model.educations as |edu|}}
+  <li>
+    <div class="name">{{edu.school}}</div>
+    <div class="text-light-gray">{{edu.degree}} , {{edu.studyField}}</div>
+    <span class="dim-text">May 2013 - Present (2 Years and 6 Months)</span>          
+    
+  </li>
+{{/each}}
+</ul>

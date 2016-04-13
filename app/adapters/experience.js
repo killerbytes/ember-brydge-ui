@@ -12,10 +12,19 @@ export default ApplicationAdapter.extend(UrlTemplates, {
 	createRecordUrlTemplate: '{+host}/v1/profile/{userid}/experience',
 
 	findRecordUrlTemplate: '{+host}/v1/profile/{userid}/experience/{id}',
-	
+
+	queryUrlTemplate: '{+host}/v1/profile/{queryid}/experience',
+
 	urlSegments: {
-    userid() {
+
+		userid() {
       return this.get('session.data.authenticated.user_id');
-    }
+    },
+
+    queryid: function(type, id, snapshot, query) {
+      var userid = query.userid;
+      delete query.userid;
+      return userid;
+    },
   }
 });
