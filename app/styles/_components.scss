@@ -1,7 +1,4 @@
 
-.tooltip{
-	z-index: 100;
-}
 .has-tip{
 	border-bottom: none;
 	cursor: pointer;
@@ -11,6 +8,7 @@
 	margin: 25px;
 	text-align: center;
 }
+/*
 .box{
 	@extend .clearfix;
 	background-color: #FFF;
@@ -45,6 +43,42 @@
 		margin-bottom: 0;
 	}
 }
+*/
+.box{
+	@extend .clearfix;
+	background-color: #FFF;
+	border-style: solid;
+	border-width: 1px;
+	border-color: #e5e6e9 #dfe0e4 #d0d1d5;
+	margin-bottom: 10px;
+	>.column, >.columns{
+		padding: 1rem;
+		padding-top: 10px;
+		padding-bottom: 10px;
+	}
+	.box-header{
+		font-size: 11px;
+		margin-bottom: 0;
+		font-weight: bold;
+		text-transform: uppercase;
+		padding: $global-padding;
+		padding-top: 10px;
+		padding-bottom: 10px;
+		background: #F1F1F1;
+		border-bottom: 1px solid $border-color;
+		border-top-left-radius: 3px;
+		border-top-right-radius: 3px;
+	}
+	.box-footer{
+		@extend .padded;
+		border-top: 1px solid $border-color;
+		line-height: 2em;
+	}
+	.button.small.expanded{
+		margin-bottom: 0;
+	}
+}
+
 .rounded{
 	border-radius: 3px;	
 }
@@ -58,9 +92,6 @@
 
 }
 
-ul.accordion-menu>li>a{
-	padding: 0;
-}
 ul.footer-menu{
 	display: table;
 	margin: 20px auto;
@@ -180,9 +211,6 @@ ul.list-lined{
 }
 
 
-.thumbnail img{
-	border: 1px solid #DDD;	
-}
 .thumbnail.flat img{
 	border: none;
 }
@@ -231,6 +259,9 @@ ul.list-lined{
 			font-weight: bold;
 		}
 	}
+	.asked a{
+		font-weight: bold;
+	}
 	ul.menu-dotted {
 		a{
 			font-weight: normal;
@@ -266,12 +297,11 @@ ul.list-lined{
 
 .top-banner{
 	text-align: center;
-	padding: 10px 35px;
-	p{
-	    text-align: justify;
+	h1{
+		margin: 2rem;
 	}
-	p:last-child{
-		margin-bottom: 0;
+	.switch{
+		margin: 0;
 	}
 }
 
@@ -315,4 +345,32 @@ ul.list-lined{
 	padding: 5px;
 	font-weight: bold;
 	font-size: 11px;
+}
+
+
+.dropdown-select{
+	position: relative;
+	margin-bottom: 1.33rem;
+	input{ margin: 0; }
+
+	.wrapper{
+		display: none;
+	}
+	.wrapper.is-open{
+		display: block;
+	}
+	ul{
+		border-bottom: 1px solid $border-color;
+		position: absolute;
+		width: 100%;
+		background-color: #FFF;
+	}
+	li{
+		padding: 5px;
+		border: 1px solid $border-color;
+		border-bottom: none;
+	}
+	li:hover{
+		background-color: #CCC;
+	}
 }

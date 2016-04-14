@@ -1,0 +1,50 @@
+<div class="row">
+	<div class="columns">
+		<div class="top-banner bg-gray box">
+			<h1>PENDING QUESTIONS</h1>
+		</div>		
+	</div>
+</div>
+
+
+<div class="row">
+  <div class="medium-8 columns">
+  	<div class="box rounded">
+      <div class="padding">
+        <strong>PENDING QUESTIONS FOR JON</strong>
+      </div>
+
+      <ul class="no-bullet question-pending-list">
+        <li>
+          <p class="title">What is your opinion on the latest WHO regulations on soda advertising?</p>
+          <p class="asked">asked by <a href="">Nikhil</a></p>
+          <div class="question-box-footer">
+            <ul class="menu menu-dotted">
+              <li><a {{action "selectItem" q }} class="float-left" data-open="answerFormModal">Write Answer</a></li>
+              <li><a class="float-right">Delete</a></li>
+              <li><a class="float-right">Flag</a></li>
+            </ul>                       
+          </div>      
+        </li>
+        <li>
+          <p class="title">What is your opinion on the latest WHO regulations on soda advertising?</p>
+          <p class="asked">asked by <a href="">Nikhil</a></p>
+          <div class="question-box-footer">
+            <ul class="menu menu-dotted">
+              <li><a {{action "selectItem" q }} class="float-left" data-open="answerFormModal">Write Answer</a></li>
+              <li><a class="float-right">Delete</a></li>
+              <li><a class="float-right">Flag</a></li>
+            </ul>                       
+          </div>      
+        </li>
+      </ul>
+  		
+  	</div>
+
+  </div>    
+  <div class="medium-4 columns sidebar">
+
+    {{render "progress-box"}}
+    {{render "footer"}}
+  </div>
+</div>

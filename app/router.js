@@ -37,6 +37,9 @@ Router.map(function() {
   this.route('profile', {path: ':username'});
   this.route('ask', {path: ':username/ask'});
   this.route('connections');
+  this.route('requests');
+  this.route('notifications');
+  this.route('questions');
   this.route('rating');
   this.route('testing');
 });

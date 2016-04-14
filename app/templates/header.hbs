@@ -13,36 +13,7 @@
 					{{top-bar-views}}
 					{{top-bar-requests}}
 					{{top-bar-messages}}
-					<li>
-						<a data-toggle="dd-stack">
-							{{#zf-tooltip title="Notifications" vOffset=0}}
-							<i class="icons stack"></i>
-							<i class="divider"></i>						
-							{{/zf-tooltip}}
-							<div class="wrapper">
-								<div class="triangle"></div>
-							</div>							
-						</a>
-						{{#zf-dropdown id="dd-stack" closeOnClick=true}}
-							<ul class="menu">
-								<li>{{link-to "Home" "home"}}</li>
-							</ul>
-							<ul class="menu">
-								<li>{{link-to "Profile" "me"}}</li>
-								<li>{{link-to "Edit Profile" "me"}}</li>
-								
-							</ul>
-							<ul class="menu">
-								<li><a href="">People Search</a></li>									
-							</ul>
-							<ul class="menu">
-								<li><a href="">Settings</a></li>
-								<li><a href="">User Guide</a></li>
-								<li><a href="" {{action 'logout'}}>Log out</a></li>
-								
-							</ul>
-						{{/zf-dropdown}}
-					</li>						
+					{{top-bar-notifications}}
 				</ul>
 
 
@@ -61,7 +32,7 @@
 							</div>
 						</a>
 
-							{{#zf-dropdown id="dd-menu" closeOnClick=false}}
+							{{#zf-dropdown id="dd-menu" class="dropdown-topbar" closeOnClick=false}}
 								<ul class="menu">
 									<li>{{link-to "Home" "home"}}</li>
 								</ul>

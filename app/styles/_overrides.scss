@@ -1,0 +1,40 @@
+header{
+	position: fixed;
+	z-index: 100;
+}
+textarea{
+	box-shadow: none;
+	resize: none;
+	margin-bottom: 5px;
+}
+
+select{
+	border-radius: 3px;
+}
+ul{
+	margin: 0;
+}
+
+.tooltip{
+	z-index: 100;
+	max-width: none !important;
+}
+ul.accordion-menu>li>a{
+	padding: 0;
+}
+
+.thumbnail img{
+	border: 1px solid #DDD;	
+	width: 100%;
+}
+.tabs{
+	.tabs-title a{
+		color: #000;
+	}
+}
+
+/*  Drop down menu to be in gray instead of the overrided blue */
+
+ul > li.is-dropdown-submenu-parent.is-down-arrow > ul {
+  background-color: #e6e6e6 !important;
+}

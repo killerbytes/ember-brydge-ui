@@ -4,11 +4,12 @@ $light-blue: #CFEFFF;
 $dark-blue: #43BFFB;
 $sky-blue: #96DCFE;
 $border-color: #D9D9D9;
-$body-color: #434343;
+$body-color: #666;
 $panel-color: #EFEFEF;
 
 $text-color1: #3B3E46;
 $text-color2: #999;
+$text-color3: #CCC;
 
 
 
@@ -31,7 +32,8 @@ $text-color2: #999;
 @import "dropdowns";
 @import "ask";
 @import "accordions";
-@import "custom";
+@import "lists";
+@import "media";
 
 body{
 	background-color: #ECEDEF;
@@ -41,19 +43,6 @@ body{
 *{
 	outline-width: 0;
 
-}
-header{
-	position: fixed;
-	z-index: 100;
-}
-textarea{
-	box-shadow: none;
-	resize: none;
-	margin-bottom: 5px;
-}
-
-select{
-	border-radius: 3px;
 }
 .main{
 	padding-top: 47px;
@@ -91,9 +80,6 @@ a.more.no-arrow:after{
 	display: none;
 }
 
-ul{
-	margin: 0;
-}
 .index{
 	max-width: 85rem;
 }
@@ -190,52 +176,8 @@ img.circle{
 /*  #override foundation basic */
 
 
-/*  Drop down menu to be in gray instead of the overrided blue */
 
-ul > li.is-dropdown-submenu-parent.is-down-arrow > ul {
-  background-color: #e6e6e6 !important;
-}
 
-@media screen and (min-width: 40em){
-	.sidebar{
-		padding-left: 0;
-	}
-}
-
-.box{
-	@extend .clearfix;
-	background-color: #FFF;
-	border-style: solid;
-	border-width: 1px;
-	border-color: #e5e6e9 #dfe0e4 #d0d1d5;
-	margin-bottom: 10px;
-	>.column, >.columns{
-		padding: 1rem;
-		padding-top: 10px;
-		padding-bottom: 10px;
-	}
-	.box-header{
-		font-size: 11px;
-		margin-bottom: 0;
-		font-weight: bold;
-		text-transform: uppercase;
-		padding: $global-padding;
-		padding-top: 10px;
-		padding-bottom: 10px;
-		background: #F1F1F1;
-		border-bottom: 1px solid $border-color;
-		border-top-left-radius: 3px;
-		border-top-right-radius: 3px;
-	}
-	.box-footer{
-		@extend .padded;
-		border-top: 1px solid $border-color;
-		line-height: 2em;
-	}
-	.button.small.expanded{
-		margin-bottom: 0;
-	}
-}
 
 .select2-container .select2-choice abbr{
 	display: none;
