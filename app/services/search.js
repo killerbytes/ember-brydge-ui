@@ -19,7 +19,7 @@ export default Ember.Service.extend({
   	// this.get('store').findAll('search').then((res)=>{
   	// 	this.set('results', res)
   	// })
-		this.get('store').query('search', { "query": 'ca', "type": 'profile' }).then((res)=>{
+		this.get('store').query('search', { "q": q, "type": 'profile' }).then((res)=>{
 			this.set('results', res);
 		})  	
   },
