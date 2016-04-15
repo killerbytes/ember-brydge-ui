@@ -1,9 +1,9 @@
-      {{#each newsfeed as |post|}}
-          
-          {{newsfeed-item post=post avatar=avatar}}
+{{#each newsfeed as |post|}}
+    
+    {{newsfeed-item post=post avatar=avatar}}
 
-        {{else}}
-        <div class="small-12 column">
-          <p>(No records found)</p>
-        </div>
-      {{/each}}
+  {{else}}
+  <div class="small-12 column">
+    <p>(No records found)</p>
+  </div>
+{{/each}}
