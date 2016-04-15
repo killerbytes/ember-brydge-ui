@@ -17,6 +17,7 @@ export default Ember.Route.extend({
   },
 
   model: function(params) {
+    console.log(params)
     return this.store.findRecord('public-profile', params.username).then((p)=>{
       this.set('paramsUserProfile',p);
     });

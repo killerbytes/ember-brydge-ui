@@ -15,27 +15,28 @@
 		<div class="triangle"></div>
 	</div>
 	
-	<ul class="no-bullet list-lined">
+	<ul class="media-list no-bullet list-lined">
 		{{#each search.results as |item|}}
+
 		<li>
 			<div class="media-object">
 				<div class="media-object-section">
 					<div class="thumbnail">
-						<img src= "assets/avatar-1.jpg">
+						<img src="{{ item.avatarUrl }}">
 					</div>
 				</div>
 				<div class="media-object-section main-section">
-					{{#link-to "profile" item class="name"}}{{item.name}}{{/link-to}}
-						<p class="position">
-						{{item.occupation}} <br>
-						Samsung Electronics
-					</p>
+					{{#link-to "profile" item.username class="name"}}{{item.name}}{{/link-to}}
+						<div class="position">
+						<div>{{item.title}}</div>
+						<div>{{item.company}}</div>
+						</div>
 				</div>
 			</div>
 		</li>
 		{{/each}}
 	</ul>
-	{{#link-to 'messaging' class="footer-button success button expanded"}}
+	{{#link-to 'search' class="footer-button success button expanded"}}
 		Advanced People Search
 	{{/link-to}}
 {{/zf-dropdown}}

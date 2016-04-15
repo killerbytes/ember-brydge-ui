@@ -41,6 +41,7 @@ Router.map(function() {
   this.route('notifications');
   this.route('questions');
   this.route('rating');
+  this.route('search');
   this.route('testing');
 });
 

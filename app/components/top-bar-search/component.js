@@ -8,6 +8,7 @@ export default Ember.Component.extend({
 	actions: {
 		search: function(q){
 			let shouldDropdown = this.get('search.shouldDropdown');
+			if(q.length < 3) return false;
 			this.get('search').query(q);
 
 			// this.store.findAll('search', {query: q});

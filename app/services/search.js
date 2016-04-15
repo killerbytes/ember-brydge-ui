@@ -11,14 +11,11 @@ export default Ember.Service.extend({
   session: Ember.inject.service(),
   ajax: Ember.inject.service(),
 	shouldDropdown: Ember.computed('results', function(){
-		return getOwner(this).lookup('controller:application').currentPath != 'testing' ? true : false;
+		return getOwner(this).lookup('controller:application').currentPath != 'search' ? true : false;
 	}),
   results: [],
   query(q)  {
 
-  	// this.get('store').findAll('search').then((res)=>{
-  	// 	this.set('results', res)
-  	// })
 		this.get('store').query('search', { "q": q, "type": 'profile' }).then((res)=>{
 			this.set('results', res);
 		})  	
