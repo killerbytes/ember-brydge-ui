@@ -26,7 +26,7 @@
 	}
 	&.large{
 		font-size: 21px;		
-		padding: 13px;
+		padding: 13px 15px;
 	}
 	&.clear{
 		background: transparent;
@@ -40,12 +40,12 @@
 	}
 }
 
-.button-group .button{
-	border: 1px solid $border-color;
-}
-.button-group .button:not(:last-child){
-	border-right: none;
-}
+// .button-group .button{
+// 	border: 1px solid $border-color;
+// }
+// .button-group .button:not(:last-child){
+// 	border-right: none;
+// }
 
 
 .dropdown-button{

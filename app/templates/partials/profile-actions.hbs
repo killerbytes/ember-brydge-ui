@@ -1,0 +1,37 @@
+<div class="profile-actions">
+  <div class="table-cell">
+  {{#connect-button action="clickedConnect" disabled=true}}CONNECT{{/connect-button}}
+  </div>
+  <div class="table-cell">
+    <a class="button large expanded disabled">MESSAGE</a>
+  </div>
+  <div class="table-cell">
+    {{ ask-dropdown store=store model=model action='goToAsk' disabledxx=true}}      
+  </div>
+  <div class="table-cell">
+    <a class="button large expanded">...</a>
+  </div>
+</div>
+
+{{#zf-dropdown id="dd-ask-form" closeOnClick=true}}
+  <form {{action 'ask' model.userid model.ownerid model.username question on='submit'}}>
+    {{input value=model.userid type="hidden"}}
+    {{input value=model.ownerid type="hidden"}}
+    {{input value=model.username type="hidden"}}
+
+    <section class="padding ask-form">
+      {{textarea value=question rows="3"}}
+      <div class="row">
+        <div class="columns text-right">
+          <button class="button success" type="submit">ASK</button>            
+        </div>
+      </div>
+      <p class="dim-text">
+        Ask anyone a professional question. <br>
+        If answered, it will appear on both profiles.
+      </p>
+      <small><a href="">Tips on how to use ASK</a></small>
+    </section>
+       
+  </form>
+{{/zf-dropdown}}

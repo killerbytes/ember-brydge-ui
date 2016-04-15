@@ -1,8 +1,10 @@
 import Ember from 'ember';
 
 export default Ember.Component.extend({
-	classNames: ['wrapper', 'button', 'expanded', 'large', 'text-blue', 'box', 'rounded'],
-	attributeBindings: ['disabled'],
+	tagName: 'a',
+	'data-toggle': "dd-ask-form",
+	classNames: ['button', 'large', 'expanded'],
+	attributeBindings: ['disabled', 'data-toggle'],
 	actions: {
 		ask: function(to, from, username,question) {
 			console.log('ask dropdown to/from/username/question', to,from,username,question);

@@ -33,14 +33,8 @@
     <strong class="text-upper">{{model.company}}</strong>
 
   </div>
-  <div class="medium-6 float-left profile profile-actions">
-    <div class="expanded button-group">
-      {{#connect-button action="clickedConnect" disabled=true}}CONNECT{{/connect-button}}
-      <a class="button large text-blue disabled">MESSAGE</a>
-      {{ ask-dropdown store=store model=model action='goToAsk' disabled=true}}
-      <a class="button large">...</a>
-    </div>
-
+  <div class="medium-6 float-left profile">
+    {{partial "partials/profile-actions" }}
   </div>
 </div>
 

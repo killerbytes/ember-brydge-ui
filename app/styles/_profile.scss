@@ -20,30 +20,31 @@
 		line-height: 1.2em;
 	}	
 }
-.profile-actions{
+.profile-actionsxxx{
 	position: relative;
-	.button-group{
-		>.button, > div{
-			@extend .box;
-			display: inline-block;
-			width: calc(33.33333% - 2px);
-			&.connect{
-				background-color: $brydge-blue;
-				border-color: #cfefff #96dcfe #96dcfe;
-				color: #FFF;
-				&:hover{
-					background-color: $dark-blue;
-					color: #FFF;
-				}
-			}				
-		}
+	.button{
+	// 	@extend .box;
+		// display: inline-block;
+		// width: calc(33.33333% - 2px);
+	// 	&.connect{
+	// 		background-color: $brydge-blue;
+	// 		border-color: #cfefff #96dcfe #96dcfe;
+	// 		color: #FFF;
+	// 		&:hover{
+	// 			background-color: $dark-blue;
+	// 			color: #FFF;
+	// 		}
+	// 	}				
 	}
-	.button-group > .button, .button-groupx > div{
-		@extend .rounded;
-		margin-left: 2px;
-		&:hover{
-			color: $brydge-blue;			
-		}
+	// .button-group > .button, .button-groupx > div{
+	// 	@extend .rounded;
+	// 	margin-left: 2px;
+	// 	&:hover{
+	// 		color: $brydge-blue;			
+	// 	}
+	// }
+	.button:last-child{
+		display: none;
 	}
 }
 
