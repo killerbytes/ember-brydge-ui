@@ -69,8 +69,8 @@ export default Ember.Route.extend({
 
       var connection = this.store.createRecord('connection');
 
-      let target = this.store.peekRecord('user', this.get('userid'));
-      let user = this.store.peekRecord('user', this.get('currentUserid'));
+      let target = this.store.peekRecord('user', this.get('paramsUserProfile').get('userid'));
+      let user = this.store.peekRecord('user', this.get('loggedinUser').user_id);
 
       connection.set('from', user);
       connection.set('to', target);
