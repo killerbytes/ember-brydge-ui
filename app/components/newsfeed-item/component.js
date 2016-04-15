@@ -34,7 +34,7 @@ export default Ember.Component.extend({
 						console.log('downvote =>', res);
 						
 						post.get('vote').set('upVotes', res.data.attributes.upVotes);
-						post.get('vote').set('downVotes', res.data.attributes.downVotes);
+						//post.get('vote').set('downVotes', res.data.attributes.downVotes);
 
 						//this.setProperties({data})
 						this.set('disabled', false);
@@ -44,7 +44,7 @@ export default Ember.Component.extend({
 					this.get('sessionAccount').upvote(postId).then((res) => { 
 						console.log('upvote =>', res);
 						post.get('vote').set('upVotes', res.data.attributes.upVotes);
-						post.get('vote').set('downVotes', res.data.attributes.downVotes);
+						//post.get('vote').set('downVotes', res.data.attributes.downVotes);
 
 						//this.setProperties({data: res.data})
 						this.set('disabled', false);
