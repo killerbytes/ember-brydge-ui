@@ -17,5 +17,6 @@ export default DS.Model.extend({
   previewImage: Ember.computed('image', 'screenshot', function(){
     if (this.get('image') === undefined) return `${this.get('screenshot') || 'assets/undefined.png'}`;
     return `${this.get('image') || 'assets/undefined.png'}`;
-  })
+  }),
+  vote: DS.belongsTo('vote',{async: true}),
 });

@@ -1,7 +1,7 @@
 import Ember from 'ember';
 
 export default Ember.Component.extend({
-  	sessionAccount: Ember.inject.service('session-account'),
+  sessionAccount: Ember.inject.service('session-account'),
 	ajax: Ember.inject.service(),
 	classNames: ['newsfeed-item', 'box', 'rounded'],
 	menuName: Ember.computed('post.id', function(){
@@ -18,20 +18,35 @@ export default Ember.Component.extend({
 			this.$('input').focus()
 		},
 		vote(type){
-			let postId = this.get('post.id');
+			let post = this.get('post');
+			let upvotes = post.get('upvotes');
+			let postId = post.get('id');
+
+			console.log('vote =>', upvotes, postId);
+			
+			//let postId = this.get('post.id');
 
 			if(this.get('disabled')) return false;
 			this.set('disabled', true);
 			switch(type){
 				case 'down':
-					this.get('sessionAccount').downvote(postId).then((data) => { 
-						this.setProperties({data})
+					this.get('sessionAccount').downvote(postId).then((res) => { 
+						console.log('downvote =>', res);
+						
+						post.get('vote').set('upVotes', res.data.attributes.upVotes);
+						//post.get('vote').set('downVotes', res.data.attributes.downVotes);
+
+						//this.setProperties({data})
 						this.set('disabled', false);
 					});
 				break;
 				default:
 					this.get('sessionAccount').upvote(postId).then((res) => { 
-						this.setProperties({data: res.data})
+						console.log('upvote =>', res);
+						post.get('vote').set('upVotes', res.data.attributes.upVotes);
+						//post.get('vote').set('downVotes', res.data.attributes.downVotes);
+
+						//this.setProperties({data: res.data})
 						this.set('disabled', false);
 					});
 				break;
