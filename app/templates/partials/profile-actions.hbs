@@ -1,4 +1,4 @@
-<div class="profile-actions connected">
+<div class="profile-actions">
   <div class="table-cell">
   {{#connect-button action="clickedConnect" }}CONNECT{{/connect-button}}
   </div>
@@ -12,24 +12,23 @@
     <a class="button large expanded" data-toggle="dd-public-options">
       ...
       <div class="wrapper">
-        <div class="triangle"></div>
+        <div class="triangle triangle-gray"></div>
       </div>
     </a>
 
-      {{#zf-dropdown id="dd-public-options" class="dropdown-topbar" closeOnClick=true}}
-        <ul class="menu">
-          <li>{{link-to "Profile" "me"}}</li>
-          <li>{{link-to "Profile" "me"}}</li>
-          <li>{{link-to "Profile" "me"}}</li>
-          <li>{{link-to "Profile" "me"}}</li>
-        </ul>
-
-      {{/zf-dropdown}}
+    {{#zf-dropdown id="dd-public-options" class="dropdown-gray" closeOnClick=true}}
+      <ul class="no-bullet menu-list">
+        <li><a href="">Jon's connection (156)</a></li>
+        <li><a href="">Jon's ASK Page</a></li>
+        <li><a href="">Compliment Jon</a></li>
+        <li><a href="" class="warning">Disconnect from Jon</a></li>
+      </ul>
+    {{/zf-dropdown}}
 
   </div>
 </div>
 
-{{#zf-dropdown id="dd-ask-form" closeOnClick=true}}
+{{#zf-dropdown id="dd-ask-form" class="dropdown-gray" closeOnClick=true}}
   <form {{action 'ask' model.userid model.ownerid model.username question on='submit'}}>
     {{input value=model.userid type="hidden"}}
     {{input value=model.ownerid type="hidden"}}

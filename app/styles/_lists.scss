@@ -77,3 +77,24 @@ ul.question-pending-list{
     }
   }
 }
+
+ul.menu-list{
+  li{
+    padding: 0 1em;
+  }
+  li:hover{
+    background-color: darken(#EEE, 5%);
+  }
+  li:not(:last-child){
+  }
+  a{
+    font-size: 13px;
+    border-bottom: 1px solid $border-color;
+    padding: .5em .3em;
+    display: block;
+    color: $text-color1;
+  }
+  .warning{
+    color: $text-orange;
+  }
+}

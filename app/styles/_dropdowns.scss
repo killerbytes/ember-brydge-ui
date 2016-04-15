@@ -19,6 +19,9 @@
   border-color: transparent transparent #ffffff transparent;
   margin: auto;
 }
+.dropdown-gray{
+  background-color: #EEE;      
+}
 
 #dd-ask{
   top: 49px !important;
@@ -27,16 +30,19 @@
   
 }
 #dd-ask-form{
-  background-color: #EEE;
-  width: 400px !important;
+  // width: 400px !important;
 }
 
-a[data-toggle="dd-ask"], 
-a[data-toggle="dd-ask-form"]{
-  .triangle{
-    border-color: rgba(0, 0, 0, 0) rgba(0, 0, 0, 0) #EEE rgba(0, 0, 0, 0);
-  }
+// a[data-toggle="dd-ask"], 
+// a[data-toggle="dd-ask-form"]{
+//   .triangle{
+//     border-color: rgba(0, 0, 0, 0) rgba(0, 0, 0, 0) #EEE rgba(0, 0, 0, 0);
+//   }
+// }
+.triangle-gray{
+  border-color: rgba(0, 0, 0, 0) rgba(0, 0, 0, 0) #EEE rgba(0, 0, 0, 0);
 }
+
 #dd-menu{
   width: 150px;
   ul.menu{
@@ -129,4 +135,8 @@ a[data-toggle="dd-ask-form"]{
       width: 100%;
     }
   }
+}
+
+#dd-public-options{
+  width: 200px;
 }
