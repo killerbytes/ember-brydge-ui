@@ -19,4 +19,5 @@ export default DS.Model.extend({
     return `${this.get('image') || 'assets/undefined.png'}`;
   }),
   vote: DS.belongsTo('vote',{async: true}),
+  comments: DS.hasMany('comment',{async: true})
 });

@@ -5,7 +5,7 @@ export default Ember.Component.extend({
 
   // classNames: ['button','large','connect'],
 
-	attributeBindings: [ 'disabled', 'title'],
+	//attributeBindings: [ 'disabled', 'title'],
 
 	isSpinning: false,
 
