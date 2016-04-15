@@ -1,15 +1,31 @@
-<div class="profile-actions">
+<div class="profile-actions connected">
   <div class="table-cell">
-  {{#connect-button action="clickedConnect" disabled=true}}CONNECT{{/connect-button}}
+  {{#connect-button action="clickedConnect"}}CONNECT{{/connect-button}}
   </div>
   <div class="table-cell">
-    <a class="button large expanded disabled">MESSAGE</a>
+    <a class="button large expanded">MESSAGE</a>
   </div>
   <div class="table-cell">
-    {{ ask-dropdown store=store model=model action='goToAsk' disabledxx=true}}      
+    {{ ask-dropdown store=store model=model action='goToAsk'}}      
   </div>
   <div class="table-cell">
-    <a class="button large expanded">...</a>
+    <a class="button large expanded" data-toggle="dd-public-options">
+      ...
+      <div class="wrapper">
+        <div class="triangle"></div>
+      </div>
+    </a>
+
+      {{#zf-dropdown id="dd-public-options" class="dropdown-topbar" closeOnClick=true}}
+        <ul class="menu">
+          <li>{{link-to "Profile" "me"}}</li>
+          <li>{{link-to "Profile" "me"}}</li>
+          <li>{{link-to "Profile" "me"}}</li>
+          <li>{{link-to "Profile" "me"}}</li>
+        </ul>
+
+      {{/zf-dropdown}}
+
   </div>
 </div>
 

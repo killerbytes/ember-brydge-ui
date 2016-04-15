@@ -13,20 +13,44 @@
       <div class="padding">
         <strong>PENDING CONNECTION REQUESTS FOR JON</strong>
       </div>
-      <ul class="media-list no-bullet list-lined">
+
+
+      <ul class="media-list no-bullet">
+        {{#each model as |item|}}
         <li>
           <div class="media-object">
             <div class="media-object-section">
               <div class="thumbnail">
-                <img src= "assets/avatar-1.jpg">
+                <img src= "{{item.from.profile.avatarUrl}}">
               </div>
             </div>
             <div class="media-object-section main-section">
-              <a class="name">Mark JUDGE</a>
-              <p class="position">
-                Strategic Partnerships Lead <br>
-                Samsung Electronics
-              </p>
+              {{link-to item.from.name 'profile' item.from.username class="name"}}
+              <div class="position">
+                <div>{{item.from.profile.currentTitle}}</div>
+                <div>{{item.from.profile.currentCompany}}</div>
+              </div>
+            </div>
+            <div class="media-object-section actions-section">
+              <a class="button expanded success">ACCEPT</a>
+              <a class="button expanded default">DELETE</a>
+            </div>
+          </div>
+        </li>
+
+        <li>
+          <div class="media-object">
+            <div class="media-object-section">
+              <div class="thumbnail">
+                <img src= "{{item.from.profile.avatarUrl}}">
+              </div>
+            </div>
+            <div class="media-object-section main-section">
+              {{link-to item.from.name 'profile' item.from.username class="name"}}
+              <div class="position">
+                <div>{{item.from.profile.currentTitle}}</div>
+                <div>{{item.from.profile.currentCompany}}</div>
+              </div>
             </div>
             <div class="media-object-section actions-section">
               <a class="button expanded success">ACCEPT</a>
@@ -38,15 +62,15 @@
           <div class="media-object">
             <div class="media-object-section">
               <div class="thumbnail">
-                <img src= "assets/avatar-1.jpg">
+                <img src= "{{item.from.profile.avatarUrl}}">
               </div>
             </div>
             <div class="media-object-section main-section">
-              <a class="name">Mark JUDGE</a>
-              <p class="position">
-                Strategic Partnerships Lead <br>
-                Samsung Electronics
-              </p>
+              {{link-to item.from.name 'profile' item.from.username class="name"}}
+              <div class="position">
+                <div>{{item.from.profile.currentTitle}}</div>
+                <div>{{item.from.profile.currentCompany}}</div>
+              </div>
             </div>
             <div class="media-object-section actions-section">
               <a class="button expanded success">ACCEPT</a>
@@ -54,66 +78,7 @@
             </div>
           </div>
         </li>
-        <li>
-          <div class="media-object">
-            <div class="media-object-section">
-              <div class="thumbnail">
-                <img src= "assets/avatar-1.jpg">
-              </div>
-            </div>
-            <div class="media-object-section main-section">
-              <a class="name">Mark JUDGE</a>
-              <p class="position">
-                Strategic Partnerships Lead <br>
-                Samsung Electronics
-              </p>
-            </div>
-            <div class="media-object-section actions-section">
-              <a class="button expanded success">ACCEPT</a>
-              <a class="button expanded default">DELETE</a>
-            </div>
-          </div>
-        </li>
-        <li>
-          <div class="media-object">
-            <div class="media-object-section">
-              <div class="thumbnail">
-                <img src= "assets/avatar-1.jpg">
-              </div>
-            </div>
-            <div class="media-object-section main-section">
-              <a class="name">Mark JUDGE</a>
-              <p class="position">
-                Strategic Partnerships Lead <br>
-                Samsung Electronics
-              </p>
-            </div>
-            <div class="media-object-section actions-section">
-              <a class="button expanded success">ACCEPT</a>
-              <a class="button expanded default">DELETE</a>
-            </div>
-          </div>
-        </li>
-        <li>
-          <div class="media-object">
-            <div class="media-object-section">
-              <div class="thumbnail">
-                <img src= "assets/avatar-1.jpg">
-              </div>
-            </div>
-            <div class="media-object-section main-section">
-              <a class="name">Mark JUDGE</a>
-              <p class="position">
-                Strategic Partnerships Lead <br>
-                Samsung Electronics
-              </p>
-            </div>
-            <div class="media-object-section actions-section">
-              <a class="button expanded success">ACCEPT</a>
-              <a class="button expanded default">DELETE</a>
-            </div>
-          </div>
-        </li>
+        {{/each}}
       </ul>
   		
   	</div>
