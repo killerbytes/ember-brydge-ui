@@ -3,16 +3,6 @@ ul.media-list{
   li{
     padding: .5rem 0;
   }
-  .name{
-    font-size: 14px;
-    font-weight: bold;
-    line-height: 1em;
-  }
-  .position{
-    @extend .dim-text;
-    font-size: 10px;
-    line-height: 1.4em;
-  }
   .thumbnail{
     width: 50px;
     height: 50px;
@@ -79,22 +69,43 @@ ul.question-pending-list{
 }
 
 ul.menu-list{
-  li{
-    padding: 0 1em;
-  }
+  .media-object{ margin-bottom: 0; }
   li:hover{
     background-color: darken(#EEE, 5%);
   }
-  li:not(:last-child){
-  }
+}
+.menu-list-menu{
   a{
     font-size: 13px;
     border-bottom: 1px solid $border-color;
-    padding: .5em .3em;
+    padding: .5em;
+    margin: 0 .7em;
     display: block;
     color: $text-color1;
   }
   .warning{
     color: $text-orange;
+  }  
+}
+
+.menu-media-list{
+  @extend .menu-list;
+  li>a{
+    display: block;
+    padding: .5em 0;
+    margin: 0 1em;
+    border-bottom: 1px solid $border-color;    
+
   }
+  .name{
+    font-size: 14px;
+    font-weight: bold;
+    line-height: 1em;
+  }
+  .position{
+    color: $text-color3;
+    font-size: 10px;
+    line-height: 1.4em;
+  }
+
 }

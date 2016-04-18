@@ -15,24 +15,26 @@
 		<div class="triangle"></div>
 	</div>
 	
-	<ul class="media-list no-bullet list-lined">
+	<ul class="menu-media-list no-bullet">
 		{{#each search.results as |item|}}
 
 		<li>
-			<div class="media-object">
-				<div class="media-object-section">
-					<div class="thumbnail">
-						<img src="{{ item.avatarUrl }}">
+			{{#link-to "profile" item.username class="name"}}
+				<div class="media-object">
+					<div class="media-object-section">
+						<div class="thumbnail">
+							<img src="{{ item.avatarUrl }}">
+						</div>
+					</div>
+					<div class="media-object-section main-section">
+							<span class="name">{{item.name}}</span>
+							<div class="position">
+								<div>{{item.title}}</div>
+								<div>{{item.company}}</div>
+							</div>
 					</div>
 				</div>
-				<div class="media-object-section main-section">
-					{{#link-to "profile" item.username class="name"}}{{item.name}}{{/link-to}}
-						<div class="position">
-						<div>{{item.title}}</div>
-						<div>{{item.company}}</div>
-						</div>
-				</div>
-			</div>
+			{{/link-to}}
 		</li>
 		{{/each}}
 	</ul>
