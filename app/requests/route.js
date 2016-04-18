@@ -1,9 +1,25 @@
 import Ember from 'ember';
 
 export default Ember.Route.extend({
-	session: Ember.inject.service('session'),
+	connection: Ember.inject.service(),
 	model: function(){
-		var userid = this.get('session.data.authenticated.user_id');
-		return this.store.query('connection',{to: userid});
+		return this.store.findAll('connection');
+
+	},
+	actions: {
+		accept: function(item){
+			this.get('connection').accept(item)
+			.then((res)=>{
+				this.store.push(res);
+			})
+		},
+		reject: function(item) {
+			this.get('connection').reject(item)
+			.then((res)=>{
+				console.log(res)
+				this.store.push(res)
+			})
+		}
+
 	}
 });

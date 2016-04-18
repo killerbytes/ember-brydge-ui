@@ -11,12 +11,10 @@
   <div class="medium-8 columns">
   	<div class="box rounded">
       <div class="padding">
-        <strong>PENDING CONNECTION REQUESTS FOR JON</strong>
+        <strong class="text-upper">PENDING CONNECTION REQUESTS FOR {{ sessionAccount.account.profile.firstName }}</strong>
       </div>
-
-
       <ul class="media-list no-bullet">
-        {{#each model as |item|}}
+        {{#each filteredContent as |item|}}
         <li>
           <div class="media-object">
             <div class="media-object-section">
@@ -27,60 +25,20 @@
             <div class="media-object-section main-section">
               {{link-to item.from.name 'profile' item.from.username class="name"}}
               <div class="position">
+                {{item.status}}
                 <div>{{item.from.profile.currentTitle}}</div>
                 <div>{{item.from.profile.currentCompany}}</div>
               </div>
             </div>
             <div class="media-object-section actions-section">
-              <a class="button expanded success">ACCEPT</a>
-              <a class="button expanded default">DELETE</a>
-            </div>
-          </div>
-        </li>
-
-        <li>
-          <div class="media-object">
-            <div class="media-object-section">
-              <div class="thumbnail">
-                <img src= "{{item.from.profile.avatarUrl}}">
-              </div>
-            </div>
-            <div class="media-object-section main-section">
-              {{link-to item.from.name 'profile' item.from.username class="name"}}
-              <div class="position">
-                <div>{{item.from.profile.currentTitle}}</div>
-                <div>{{item.from.profile.currentCompany}}</div>
-              </div>
-            </div>
-            <div class="media-object-section actions-section">
-              <a class="button expanded success">ACCEPT</a>
-              <a class="button expanded default">DELETE</a>
-            </div>
-          </div>
-        </li>
-        <li>
-          <div class="media-object">
-            <div class="media-object-section">
-              <div class="thumbnail">
-                <img src= "{{item.from.profile.avatarUrl}}">
-              </div>
-            </div>
-            <div class="media-object-section main-section">
-              {{link-to item.from.name 'profile' item.from.username class="name"}}
-              <div class="position">
-                <div>{{item.from.profile.currentTitle}}</div>
-                <div>{{item.from.profile.currentCompany}}</div>
-              </div>
-            </div>
-            <div class="media-object-section actions-section">
-              <a class="button expanded success">ACCEPT</a>
-              <a class="button expanded default">DELETE</a>
+              <a class="button expanded success" {{action "accept" item.from.userid }}>ACCEPT</a>
+              <a class="button expanded default" {{action "reject" item.from.userid }}>DELETE</a>
             </div>
           </div>
         </li>
         {{/each}}
       </ul>
-  		
+
   	</div>
 
   </div>    
