@@ -40,6 +40,7 @@ Router.map(function() {
   this.route('requests');
   this.route('notifications');
   this.route('questions');
+  this.route('profileviews');
   this.route('rating');
   this.route('search');
   this.route('testing');

@@ -1,5 +1,14 @@
-<div class="profile-actions">
+<div class="profile-actions {{if isCurrentUser 'connected'}}">
+  {{#if isCurrentUser}}
   <div class="table-cell">
+    <a class="button large expanded">Edit Profile</a>
+  </div>
+  <div class="table-cell">
+    <a class="button large expanded">Settings</a>
+  </div>
+  {{else}}
+
+  <div class="table-cell cell-connected">
   {{#connect-button action="clickedConnect" }}CONNECT{{/connect-button}}
   </div>
   <div class="table-cell">
@@ -8,6 +17,7 @@
   <div class="table-cell">
     {{ ask-dropdown store=store model=model action='goToAsk'}}      
   </div>
+  {{/if}}
   <div class="table-cell">
     <a class="button large expanded" data-toggle="dd-public-options">
       ...
@@ -18,10 +28,15 @@
 
     {{#zf-dropdown id="dd-public-options" class="dropdown-gray" closeOnClick=true}}
       <ul class="no-bullet menu-list menu-list-menu">
+        {{#if isCurrentUser}}
+        <li><a href="">Connections</a></li>
+        <li><a href="">Your ASK Page</a></li>
+        {{else}}
         <li><a href="">Jon's connection (156)</a></li>
         <li><a href="">Jon's ASK Page</a></li>
         <li><a href="">Compliment Jon</a></li>
         <li><a href="" class="warning">Disconnect from Jon</a></li>
+        {{/if}}
       </ul>
     {{/zf-dropdown}}
 

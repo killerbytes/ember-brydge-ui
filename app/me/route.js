@@ -4,7 +4,6 @@ import CurrentCompanyMixin from 'web/mixins/current-company';
 
 export default Ember.Route.extend(AuthenticatedRouteMixin, CurrentCompanyMixin, {
   session: Ember.inject.service('session'),
-
   beforeModel(transition, params) {
     this._super(transition, params);
     return this.get('sessionAccount.account'); // needed to make sure sessionAccount is full realized

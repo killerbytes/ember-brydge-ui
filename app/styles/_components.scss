@@ -379,12 +379,16 @@ ul.list-lined{
 	display: table;
 	width: 100%;
 	position: relative;
+	// .table-cell:first-child{
+	// 	display: none;
+	// }
+
 	&.connected{
+		.cell-connected{
+			display: none;
+		}
 		.table-cell{
 			width: 50%;
-		}
-		.table-cell:first-child{
-			display: none;
 		}
 		.table-cell:last-child{
 			display: table-cell;
@@ -420,5 +424,22 @@ ul.list-lined{
 		width: 80px;
 		display: none;
 		padding-left: 0;
+	}
+}
+
+.switch{
+	input:checked ~ .switch-paddle{
+		background-color: #4CD864;
+		border-radius: 100px;
+	}
+	.switch-paddle{
+		border-radius: 100px;
+		width: 5rem;
+		height: 3rem;
+	}
+	.switch-paddle::after{
+		width: 2.5rem;
+		height: 2.5rem;
+		border-radius: 100px;
 	}
 }
