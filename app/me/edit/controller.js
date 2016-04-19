@@ -1,6 +1,10 @@
 import Ember from 'ember';
+import LocationMixin from 'web/mixins/locationMixin';
+import AvatarMixin from 'web/mixins/avatarMixin';
+import SaveProfileMixin from 'web/mixins/saveProfileMixin';
 
-export default Ember.Controller.extend({
+export default Ember.Controller.extend(LocationMixin,AvatarMixin,SaveProfileMixin,{
+  
   // add work form
   isNewWork: false,
   // add education form
@@ -15,6 +19,7 @@ export default Ember.Controller.extend({
   // actions
   //
   selectedItem: null,
+
   actions: {
   	addNewWork: function() {
   		this.set('isNewWork', true);
