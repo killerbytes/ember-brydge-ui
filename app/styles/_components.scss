@@ -351,7 +351,7 @@ ul.list-lined{
 .dropdown-select{
 	position: relative;
 	margin-bottom: 1.33rem;
-	input{ margin: 0; }
+	input{ margin: 0 !important; }
 
 	.wrapper{
 		display: none;

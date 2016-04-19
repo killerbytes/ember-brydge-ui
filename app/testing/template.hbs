@@ -1,90 +1,19 @@
-<div>
-  <div class="profile-actions">
-    <div class="table-cell">
-      <a class="button large expanded success connect">Connect</a>
-    </div>
-    <div class="table-cell">
-      <a class="button large expanded">Message</a>
-    </div>
-    <div class="table-cell">
-      <a class="button large expanded">Ask</a>
-    </div>
-    <div class="table-cell">
-      <a href="" class="button large expanded dx">...</a>
-    </div>
-  </div>
-</div>
-<div class="row">
-	<div class="columns">
-		<div class="top-banner box bg-white">
-			<h1>People Search</h1>
+<h1>Testing</h1>
+<ul>
+	{{#each model as |item|}}
+	<li><a {{action "select" item}}>{{item.name}} - {{item.proficiency}}</a></li>
+	{{/each}}
+</ul>
 
-		</div>
-	</div>
-</div>
-<div class="row">
-  <div class="medium-8 columns">
-  	<div class="box rounded">
-  		<div class="padding">
-	  		We found <span>{{search.results.length}}</span> results based on your search terms:
-  		</div>
-			<ul class="no-bullet connections-list">
-				{{#each search.results as |item|}}
-			  <li>
-        {{log item}}
-			      <div class="media-object">
-			        <div class="media-object-section">
-			          <div class="thumbnail">
-			            <img src="{{item.user.profile.avatarUrl}}">
-			          </div>
-			        </div>
-			        <div class="media-object-section media-object-content">
-                {{#link-to 'profile' item.user.username class="name"}}
-                  {{ item.name }}
-                {{item.user.profile.lastName}}{{/link-to}}
-			          <div class="position">
-			            {{item.user.profile.currentTitle}}<br>
-			            {{item.user.profile.currentCompany}}
-			          </div>
-			          <p class="location">{{item.user.profile.location}}</p>
-			        </div>
-			      </div>
-			  </li>
-			  {{/each}}
-			</ul>
+<form {{action "save" on="submit"}} >
+	{{input value=selected.name}}
+	{{input value=selected.proficiency}}
+	<button type="submit" class="button">Save</button>
+	<button {{action "delete"}}>Delete</button>
+</form>
 
-  	</div>
-
-  </div>
-  <div class="medium-4 columns sidebar">
-  		<div class="box rounded">
-  			
-  			<div class="people-search-filter">
-  				<select>
-  					<option>Industry</option>
-  				</select>
-	  			{{fa-icon "plus-circle"}}
-  				<span class="label">{{fa-icon "close"}} Fast Moving Consumer Goods</span>
-  				<span class="label">{{fa-icon "close"}} Food & Beverages</span>
-  			</div>
-  			<div class="people-search-filter">
-  				<select>
-  					<option>Industry</option>
-  				</select>
-	  			{{fa-icon "plus-circle"}}
-  				<span class="label">{{fa-icon "close"}} Fast Moving Consumer Goods</span>
-  			</div>
-  			<div class="people-search-filter">
-  				<select>
-  					<option>Industry</option>
-  				</select>
-	  			{{fa-icon "plus-circle"}}
-  				<span class="label">{{fa-icon "close"}} Fast Moving Consumer Goods</span>
-  				<span class="label">{{fa-icon "close"}} Food & Beverages</span>
-  			</div>
-  			<a class="footer-button success button expanded">REFINE SEARCH</a>
-  		</div>
-  </div>
-</div>
-
-
+<form {{action "create" on="submit"}} >
+	{{input value=name}}
+	{{input value=proficiency}}
+	<button type="submit" class="button">Create</button>
+</form>

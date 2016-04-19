@@ -1,0 +1,10 @@
+
+{{input value=selected.name key-down="clear" key-up="onchange" focus-in="open"}}
+<div class="wrapper {{if isOpen 'is-open'}}">
+	<ul class="no-bullet shadowed">
+	{{#each list as |item|}}
+		<li {{action "select" item }}>{{item}}</li>			
+	{{/each}}
+	</ul>
+	
+</div>
