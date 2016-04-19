@@ -5,31 +5,27 @@ export default Ember.Component.extend({
 	attributeBindings: ['tabindex'],
 	isOpen: false,
 	tabindex: 0,
-	list: [],
+	content: [],
+	selected: null,
 	init: function(){
     this._super(...arguments);
-		this.set('list', this.get('items'))
-		this.set('selected', {name: this.get('model')})
+		//this.set('list', this.get('items'))
+		//this.set('selected', { name: this.get('model') })
+
+		if (!this.get('locations')) {
+      this.set('content', []);
+    }
 	},
 	filter: function(list, query){
 		return _.filter(list, function(i) {
 			var found = false;
 			var fields = ["name"];
-			switch(typeof i){
-				case "string": 
-					if (i.toLowerCase().indexOf(query.toLowerCase()) >= 0 ? true : false) {
-						found = true;
-					}
-					break;
-				case "object":
-					_.forEach(fields, function(key) {
-						if (i[key] && i[key].toLowerCase().indexOf(query.toLowerCase()) >= 0 ? true : false) {
-							found = true;
-							return false;
-						}
-					})			
-					break;
-			}
+			_.forEach(fields, function(key) {
+				if (i[key] && i[key].toLowerCase().indexOf(query.toLowerCase()) >= 0 ? true : false) {
+					found = true;
+					return false;
+				}
+			})
 			return found;
 		})
 	},
@@ -47,32 +43,24 @@ export default Ember.Component.extend({
 	},
 	actions: {
 		onchange: function(e){
-			let items = this.get('items');
-			this.set('list', this.filter(items, e))
+			//let items = this.get('items');
+			//this.set('list', this.filter(items, e))
+			this.sendAction('willChangeAction', e);
 		},
 		open: function(){
-			this.set('list', this.filter(this.get('items'), ''))
+			//this.set('list', this.filter(this.get('items'), ''))
 			this.set('isOpen', true)
-			console.log('isOpen')
 		},
 		select: function(selected) {
-			switch(typeof selected){
-				case "string":
-					this.set('model', _.clone(selected));
-					this.set('selected', _.clone({name: selected}));
-					break;
-				case "object": 
-					this.set('model', _.clone(selected[this.get('field')]));
-					this.set('selected', _.clone(selected));
-					break;
-			}
 
+			//this.set('model', _.clone(selected[this.get('field')]));
+			this.set('selected', selected.state+','+selected.city+','+selected.country);
 			this.set('isOpen', false);
-
+			this.sendAction('didChangeAction', selected);
 		},
 		clear: function(){
-			this.set('model', null);
-			this.set('selected', null)
+			//this.set('model', null);
+			//this.set('selected', null)
 		},
 		openMe: function(){
 			this.sendAction("onclick")

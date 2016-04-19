@@ -1,4 +1,8 @@
-<div class="profile-form-wrapper">
+<!-- {{ particular-info locations=locations profile=profile store=store}}
+
+ -->
+
+ <div class="profile-form-wrapper">
 	<form action="" class="form-profile">
       <div class="profile-photo"> 
           {{image-upload fileLoaded="fileLoaded" logoUrl=profile.avatarUrl}}
@@ -13,7 +17,7 @@
 		</div>
 		<div class="row">
 		  <div class='columns'>
-        {{dropdown-filter items=locations model=profile.location field="name" template="partials/location-filter" onclick="openLocationModal"}}
+        {{dropdown-filter content=locations template="partials/location-filter" onclick="openLocationModal" willChangeAction='queryCities' didChangeAction='citySelected' model=profile}}
 		  </div>
     <div class="columns">
         {{date-picker 
