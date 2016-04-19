@@ -1,15 +1,18 @@
 <a data-toggle="dd-requests">
 	{{#zf-tooltip title="Connection Requests" vOffset=0}}
+	{{#if notification.connectionStore}}
+		<span class="alert badge">{{notification.connectionStore.length}}</span>
+	{{/if}}
 	<i class="icons user"></i>
 	{{/zf-tooltip}}
 	<div class="wrapper">
 		<div class="triangle"></div>
 	</div>
 </a>
-
 {{#zf-dropdown id="dd-requests" class="dropdown-topbar" closeOnClick=true }}
 
 	<ul class="media-list no-bullet list-lined">
+		{{#each notification.connectionStore as |item|}}
 		<li>
 			<div class="media-object">
 				<div class="media-object-section">
@@ -18,98 +21,20 @@
 					</div>
 				</div>
 				<div class="media-object-section main-section">
-					<a class="name">Mark JUDGE</a>
+					<a class="name">{{item.from.name}}</a>
 					<p class="position">
-						Strategic Partnerships Lead <br>
-						Samsung Electronics
+						{{item.from.profile.currentTitle}}<br>
+						{{item.from.profile.currentCompany}}
 					</p>
 				</div>
 				<div class="media-object-section actions-section">
-					<a class="button expanded success">ACCEPT</a>
-					<a class="button expanded default">DELETE</a>
+          <a class="button expanded success" {{action "accept" item.from.userid }}>ACCEPT</a>
+          <a class="button expanded default" {{action "reject" item.from.userid }}>DELETE</a>
+
 				</div>
 			</div>
 		</li>
-		<li>
-			<div class="media-object">
-				<div class="media-object-section">
-					<div class="thumbnail">
-						<img src= "assets/avatar-1.jpg">
-					</div>
-				</div>
-				<div class="media-object-section main-section">
-					<a class="name">Mark JUDGE</a>
-					<p class="position">
-						Strategic Partnerships Lead <br>
-						Samsung Electronics
-					</p>
-				</div>
-				<div class="media-object-section actions-section">
-					<a class="button expanded success">ACCEPT</a>
-					<a class="button expanded default">DELETE</a>
-				</div>
-			</div>
-		</li>
-		<li>
-			<div class="media-object">
-				<div class="media-object-section">
-					<div class="thumbnail">
-						<img src= "assets/avatar-1.jpg">
-					</div>
-				</div>
-				<div class="media-object-section main-section">
-					<a class="name">Mark JUDGE</a>
-					<p class="position">
-						Strategic Partnerships Lead <br>
-						Samsung Electronics
-					</p>
-				</div>
-				<div class="media-object-section actions-section">
-					<a class="button expanded success">ACCEPT</a>
-					<a class="button expanded default">DELETE</a>
-				</div>
-			</div>
-		</li>
-		<li>
-			<div class="media-object">
-				<div class="media-object-section">
-					<div class="thumbnail">
-						<img src= "assets/avatar-1.jpg">
-					</div>
-				</div>
-				<div class="media-object-section main-section">
-					<a class="name">Mark JUDGE</a>
-					<p class="position">
-						Strategic Partnerships Lead <br>
-						Samsung Electronics
-					</p>
-				</div>
-				<div class="media-object-section actions-section">
-					<a class="button expanded success">ACCEPT</a>
-					<a class="button expanded default">DELETE</a>
-				</div>
-			</div>
-		</li>
-		<li>
-			<div class="media-object">
-				<div class="media-object-section">
-					<div class="thumbnail">
-						<img src= "assets/avatar-1.jpg">
-					</div>
-				</div>
-				<div class="media-object-section main-section">
-					<a class="name">Mark JUDGE</a>
-					<p class="position">
-						Strategic Partnerships Lead <br>
-						Samsung Electronics
-					</p>
-				</div>
-				<div class="media-object-section actions-section">
-					<a class="button expanded success">ACCEPT</a>
-					<a class="button expanded default">DELETE</a>
-				</div>
-			</div>
-		</li>
+		{{/each}}
 	</ul>
 	{{#link-to 'requests' class="footer-button success button expanded"}}
 		SEE ALL CONNECTION REQUESTS

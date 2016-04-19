@@ -1,8 +1,13 @@
 import Ember from 'ember';
 
 export default Ember.Controller.extend({
+	notification: Ember.inject.service(),
+
   selected: null,
 	actions: {
+		test: function(){
+			this.get('notification').requestConnections();
+		},
 		select: function(item){
 			this.set('selected', item);
 		},

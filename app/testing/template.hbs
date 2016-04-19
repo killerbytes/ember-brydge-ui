@@ -1,19 +1,2 @@
 <h1>Testing</h1>
-<ul>
-	{{#each model as |item|}}
-	<li><a {{action "select" item}}>{{item.name}} - {{item.proficiency}}</a></li>
-	{{/each}}
-</ul>
-
-<form {{action "save" on="submit"}} >
-	{{input value=selected.name}}
-	{{input value=selected.proficiency}}
-	<button type="submit" class="button">Save</button>
-	<button {{action "delete"}}>Delete</button>
-</form>
-
-<form {{action "create" on="submit"}} >
-	{{input value=name}}
-	{{input value=proficiency}}
-	<button type="submit" class="button">Create</button>
-</form>
+<button class="button"{{action "test"}}>Test</button>

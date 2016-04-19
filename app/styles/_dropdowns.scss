@@ -121,6 +121,7 @@
   .name{
     font-size: 14px;
     font-weight: bold;
+    line-height: 1em;
   }
   .position{
     @extend .dim-text;
