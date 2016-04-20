@@ -35,14 +35,15 @@ export default Ember.Route.extend({
 	},
 
   setupController: function(controller, model) {
-    var educations = model.educations;
-    var experiences = model.experiences;
+    // var educations = model.educations;
+    // var experiences = model.experiences;
     var profile = model.profile;
-    controller.set('educations', educations);
-    controller.set('experiences', experiences);
-    controller.set('profile', profile);
-    controller.set('languages', model.languages);
-    controller.set('interests', model.interests);
+    controller.setProperties(model);
+    // controller.set('educations', educations);
+    // controller.set('experiences', experiences);
+    // controller.set('profile', profile);
+    // controller.set('languages', model.languages);
+    // controller.set('interests', model.interests);
     controller.set('industry',{
       text: profile.get('industry')
     }); 
@@ -54,7 +55,7 @@ export default Ember.Route.extend({
     controller.set('occupTwo',{
       text: profile.get('occupationTwo')
     });
-    controller.set('locations', model.locations);
+    // controller.set('locations', model.locations);
   },
 
 	actions: {

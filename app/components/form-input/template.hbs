@@ -1,0 +1,9 @@
+{{input value=value placeholder=placeholder name=valuePath}}
+
+<div class="input-error">
+    {{#if showMessage}}
+        <div class="error">
+            {{v-get model valuePath 'message'}}
+        </div>
+    {{/if}}
+</div>

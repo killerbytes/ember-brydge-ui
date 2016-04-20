@@ -27,7 +27,24 @@ form{
 		font-size: 12px;
 		height: auto;
 	}
+	.validated-input{
+		margin-bottom: 10px;
+		&.has-error{
+			input{
+				border: 1px solid red;
+			}
+		}
+		input{
+			margin-bottom: 0;
+		}
+		.input-error{
+			color: red;
+		}
+
+	}
+
 }
+
 
 .form-signin, .form-signup{
 	width: 65%;

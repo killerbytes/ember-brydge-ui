@@ -29,8 +29,8 @@
     {{#zf-dropdown id="dd-public-options" class="dropdown-gray" closeOnClick=true}}
       <ul class="no-bullet menu-list menu-list-menu">
         {{#if isCurrentUser}}
-        <li><a href="">Connections</a></li>
-        <li><a href="">Your ASK Page</a></li>
+        <li>{{link-to "Connections" "connections"}}</li>
+        <li>{{link-to "Your ASK Page" "me.ask"}}</li>
         {{else}}
         <li><a href="">Jon's connection (156)</a></li>
         <li><a href="">Jon's ASK Page</a></li>

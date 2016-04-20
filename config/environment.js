@@ -37,9 +37,6 @@ module.exports = function(environment) {
       // sticky: true,
       showProgress: true,
 
-      // type: 'alpaca',
-      // types: [ 'alpaca', 'notice', 'foobar' ],
-      // preventDuplicates: false
     }
 
   };

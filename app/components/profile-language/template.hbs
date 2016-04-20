@@ -1,7 +1,6 @@
 {{#zf-accordion allowAllClosed="true"}}
 
 {{#each items as |item|}}
-
 	<li class="accordion-item" data-accordion-item >
 			<a class="accordion-header">
 				{{ item.name }} <br>
@@ -10,14 +9,14 @@
 		<div class="accordion-content" data-tab-content>
 	  	<form action="" class="form-accordion	">
 				<label>
-					{{input value=item.name placeholder="Name"}}
+					{{form-input model=item valuePath='name' placeholder="Name"}}
 				</label>
 				<label>
-        	{{xx-filter items=languageProficiency model=item.proficiency template="partials/language-proficiency-filter"}}
+        	{{dropdown-proficiency-filter items=languageProficiency model=item.proficiency template="partials/proficiency-filter"}}
 
 				</label>
 	  	
-			    <button class='button success' {{ action 'update' item }}>SAVE</button>
+			    <button class='button success' disabled={{v-get item 'isInvalid'}} {{ action 'update' item }}>SAVE</button>
 			    <button class='button success float-right' {{ action 'delete' item }}>DELETE</button>
 			</form>								
 
@@ -28,18 +27,16 @@
 		<div class="accordion-content" data-tab-content>
 	  	<form action="" class="form-accordion">
 				<label>
-					{{input value=name placeholder="Name"}}
+					{{form-input model=this valuePath='name' placeholder="Name"}}
 				</label>
 
 				<label>
-        	{{dropdown-filter items=languageProficiency model=proficiency template="partials/language-proficiency-filter"}}
+        	{{dropdown-proficiency-filter items=languageProficiency model=proficiency template="partials/proficiency-filter"}}
 
 				</label>
-			    <button class='button success' {{ action 'create' }}>SAVE</button>
+			    <button class='button success' disabled={{v-get this 'isInvalid'}} {{ action 'create' }}>SAVE</button>
 			</form>								
 		</div>
   		<a class="more no-arrow button success expanded">{{fa-icon "plus"}}</a>
-	</li>
-	
-  
+	</li>	  
 {{/zf-accordion}}

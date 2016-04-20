@@ -220,9 +220,11 @@ ul.list-lined{
     bottom: 20px;
     left: 20px;
     width: 180px;
+    z-index: 99999;
     .alert-box{
-    	padding: 5px;
-		background-color: #FFF;
+    	@extend .shadowed;
+    	padding: 5px 10px;;
+			background-color: #FFF;
 	    border: 1px solid $border-color;
     }
     .alert-box:not(:last-child){
