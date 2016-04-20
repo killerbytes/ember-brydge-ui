@@ -31,7 +31,7 @@
           <div class="medium-9 columns float-left">
               <div class="tabs-content vertical" data-tabs-content="example-tabs">
       
-                  <div class="tabs-panel" id="personal">
+                  <div class="tabs-panel is-active" id="personal">
                     {{partial 'me/edit/info'}}
                   </div>
                   <div class="tabs-panel" id="type">
@@ -53,7 +53,7 @@
                   <div class="tabs-panel" id="academia">
                     {{ profile-education items=educations store=store}}
                   </div>
-                  <div class="tabs-panel is-active" id="language">
+                  <div class="tabs-panel" id="language">
                     {{ profile-language items=languages store=store}}
                   </div>
                   <div class="tabs-panel" id="interest">
