@@ -5,7 +5,8 @@ const Validations = buildValidations({
   company: validator('presence', true),
   title: validator('presence', true),
   name: validator('presence', true),
-  location: validator('presence', true)
+  location: validator('presence', true),
+  from: validator('presence', true)
 });
 
 export default Ember.Component.extend(Validations, {

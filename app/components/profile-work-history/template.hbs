@@ -15,7 +15,8 @@
 				<div class="row">
 					<div class="columns medium-4">
 						<label>
-							{{date-picker placeholder="Start Date" date=item.from format='YYYY-MM-DD' valueFormat='date' allowBlank=true}}
+
+							{{form-input-date model=item valuePath="from" placeholder="Start Date"}}
 						</label>							
 					</div>
 					<div class="columns medium-4">
@@ -57,7 +58,7 @@
 				<div class="row">
 					<div class="columns medium-4">
 						<label>
-							{{date-picker placeholder="Start Date" date=from format='YYYY-MM-DD' valueFormat='date' allowBlank=true}}
+							{{form-input-date model=this valuePath="from" placeholder="Start Date"}}
 						</label>							
 					</div>
 					<div class="columns medium-4">

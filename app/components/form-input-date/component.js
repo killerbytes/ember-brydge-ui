@@ -29,6 +29,10 @@ export default Ember.Component.extend({
   isInvalid: computed.oneWay('validation.isInvalid'),
   showErrorClass: computed.and('notValidating', 'showMessage', 'hasContent', 'validation'),
   showMessage: computed('validation.isDirty', 'isInvalid', 'didValidate', function() {
+    console.log(this)
     return (this.get('validation.isDirty') || this.get('didValidate')) && this.get('isInvalid');
+  }),
+  test: Ember.computed('date', function(){
+    console.log('value')
   })
 });

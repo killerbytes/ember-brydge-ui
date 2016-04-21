@@ -1,0 +1,10 @@
+{{pikaday-input value=value placeholder=placeholder name=valuePath format="YYYY-MM-DD"}}
+{{input value=value placeholder=placeholder name=valuePath}}
+{{v-get model valuePath 'message'}}
+<div class="input-error">
+    {{#if showMessage}}
+        <div class="error">
+            {{v-get model valuePath 'message'}}
+        </div>
+    {{/if}}
+</div>
