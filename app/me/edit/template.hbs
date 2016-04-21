@@ -31,7 +31,7 @@
           <div class="medium-9 columns float-left">
               <div class="tabs-content vertical" data-tabs-content="example-tabs">
       
-                  <div class="tabs-panel is-active" id="personal">
+                  <div class="tabs-panel" id="personal">
                     {{partial 'me/edit/info'}}
                   </div>
                   <div class="tabs-panel" id="type">
@@ -46,9 +46,9 @@
                   <div class="tabs-panel" id="snapshot">
                       {{partial 'me/edit/snapshot'}}
                   </div>
-                  <div class="tabs-panel" id="work">
+                  <div class="tabs-panel is-active" id="work">
                     <p>Your current job (title and employer) will be highlighted at the top of your profile. If you are currently self-employed, unemployed, on a sabbatical, or on a break, click here to pick one of the standard titles.</p>
-                    {{ profile-work-experience items=experiences store=store }}
+                    {{ profile-work-history items=experiences store=store }}
                   </div>
                   <div class="tabs-panel" id="academia">
                     {{ profile-education items=educations store=store}}

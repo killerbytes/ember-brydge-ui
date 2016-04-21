@@ -1,6 +1,14 @@
 import Ember from 'ember';
+import { validator, buildValidations } from 'ember-cp-validations';
 
-export default Ember.Component.extend({
+const Validations = buildValidations({
+  company: validator('presence', true),
+  title: validator('presence', true),
+  name: validator('presence', true),
+  location: validator('presence', true)
+});
+
+export default Ember.Component.extend(Validations, {
 	classNames: ['profile-accordion', 'no-bullet'],
 	actions: {
 		update: function (item) {
