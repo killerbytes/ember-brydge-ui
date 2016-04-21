@@ -1,6 +1,9 @@
 <h1>Testing</h1>
 <button class="button"{{action "test"}}>Test</button>
-<form {{on "submit" action "save"}}>
-{{form-input model=model valuePath='name' placeholder="Name"}}
-<button class="button" type="submit" disabled={{v-get model 'isInvalid'}}>Save</button>
-</form>
+
+
+{{test-component clicked="click" value="Submit"}}
+
+{{spinning-button clicked="click" value="Connect" class="button large connected expanded"}}
+
+

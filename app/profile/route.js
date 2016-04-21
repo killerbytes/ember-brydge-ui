@@ -62,7 +62,7 @@ export default Ember.Route.extend({
   },
 
   actions: {
-    clickedConnect: function (callback) {
+    clickedConnect: function (cb) {
       console.log('component clicked');
 
       var _this = this;
@@ -77,7 +77,7 @@ export default Ember.Route.extend({
 
       connection.save().then(()=>{
         console.log('connection saved');
-        callback();
+        cb();
       });
     },
 

@@ -1,9 +1,5 @@
 import Ember from 'ember';
-import { validator, buildValidations } from 'ember-cp-validations';
-
-const Validations = buildValidations({
-  name: validator('presence', true)
-});
+import Validations from '../../models/validations/language';
 
 export default Ember.Component.extend(Validations, {
 	flashMessages: Ember.inject.service(),

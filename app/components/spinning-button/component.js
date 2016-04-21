@@ -1,9 +1,7 @@
 import Ember from 'ember';
 
 export default Ember.Component.extend({
-	tagName: 'button',
-
-  // classNames: ['button','large','connect'],
+	tagName: 'a',
 
 	//attributeBindings: [ 'disabled', 'title'],
 
@@ -58,31 +56,36 @@ export default Ember.Component.extend({
       });
     }
   })),
+  
+  click: function() {
 
-  click() {
     let _this = this;
 
     if (!this.get('isSpinning')) {
       this.set('isSpinning', true);
       this.set('disabled', true);
 
-      if(this.get('action')) {
-        this.sendAction( 'action', function(){
-          console.log('callback');
+      // if(this.get('action')) {
+      //   this.sendAction( 'action', function(){
+      //     console.log('callback');
 
-          //
-          // add delay after callback
-          //
-          Ember.run.later((function() {
-            _this.set('isSpinning', false);
-            _this.set('disabled', false);
-          }), _this.get('timeOut'));
-        });
-      }
+      //     //
+      //     // add delay after callback
+      //     //
+      //     Ember.run.later((function() {
+      //       _this.set('isSpinning', false);
+      //       _this.set('disabled', false);
+      //     }), _this.get('timeOut'));
+      //   });
+      // }
+      this.sendAction('clicked', ()=>{
+        this.set('isSpinning', false);
+        this.set('disabled', false);
+      })
 
-      if (typeof this.get('onclick') === 'function') {
-        this.get('onclick')();
-      }
+      // if (typeof this.get('onclick') === 'function') {
+      //   this.get('onclick')();
+      // }
     }
   }
 });

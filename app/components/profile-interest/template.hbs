@@ -9,7 +9,7 @@
 		<div class="accordion-content" data-tab-content>
 	  	<form action="" class="form-accordion	">
 				<label>
-					{{input value=item.content placeholder="Name"}}
+					{{form-input model=item valuePath='content' placeholder="Interest (Trekking, Model-building, Gardening etc.)"}}	
 				</label>
 	  	
 			    <button class='button success' {{ action 'update' item }}>SAVE</button>
@@ -23,7 +23,7 @@
 		<div class="accordion-content" data-tab-content>
 	  	<form action="" class="form-accordion">
 				<label>
-					{{input value=content placeholder="Name"}}
+					{{form-input model=this valuePath='content' placeholder="Interest (Trekking, Model-building, Gardening etc.)"}}	
 				</label>
 
 			    <button class='button success' {{ action 'create' }}>SAVE</button>
