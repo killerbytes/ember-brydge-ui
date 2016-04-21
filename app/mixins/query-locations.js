@@ -19,19 +19,19 @@ export default Ember.Mixin.create({
       });
     },
 
-    citySelected: function (item) {
-      console.log('select (mixin) =>', item.city, item.state, item.country);
+    // citySelected: function (item) {
+    //   console.log('select (mixin) =>', item.city, item.state, item.country);
 
-       // var filtered = item.state + ',' + item.city + ',' + item.country;
-       // this.set('selectedLoc', filtered);
+    //    // var filtered = item.state + ',' + item.city + ',' + item.country;
+    //    // this.set('selectedLoc', filtered);
 
 
-       var filtered ={
-        id : item.state + '_' + item.city + '_' + item.country,
-        text: item.state + ',' + item.city + ',' + item.country
-       };
+    //    var filtered ={
+    //     id : item.state + '_' + item.city + '_' + item.country,
+    //     text: item.state + ',' + item.city + ',' + item.country
+    //    };
 
-       this.set('selectedLoc', filtered);
-    }
+    //    this.set('selectedLoc', filtered);
+    // }
   }
 });
