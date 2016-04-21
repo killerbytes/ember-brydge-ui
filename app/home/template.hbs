@@ -34,12 +34,34 @@
 							<a href="">Add other Industry Channels to follow</a>
 						</section>
 					{{/zf-dropdown}} -->	
-					{{channel-filter-dropdown selection=selection model=model.industryChannels}}
+					<!-- {{channel-filter-dropdown selection=selection model=model.industryChannels}} -->
+
+					{{select-custom
+					 	 filtered=filteredIndustry
+					 	 myCompany=model.myCompany
+					 	 myIndustries=model.myIndustries
+					 	 myConnections=model.myConnections
+					 	 select='setGeoChannel'
+					 	 template="partials/select-industry-menu"}}
 				</div>		
 			</div>
 			<div class="columns large-6 medium-6">
 				<div class="wrapper">
-					<a class="box button dropdown-button expanded" data-toggle="location-dropdown">
+					
+					<!-- {{select-custom target=this locations=locations geo=model.geo didChangeAction='didFilterLocation' geoSelection=geoSelection}}
+ -->
+					 {{select-custom
+					 	 items=locations
+					 	 selected=selectedLoc
+					 	 filtered=filteredLoc
+					 	 query='query'
+					 	 select='setCategory'
+					 	 target=this
+					 	 myLocation=model.myLocation
+					 	 template="partials/select-location-menu"}}
+
+
+					<!-- <a class="box button dropdown-button expanded" data-toggle="location-dropdown">
 						Everywhere
 						<i class="fa fa-caret-down"></i>
 					</a>
@@ -65,7 +87,7 @@
 							<input type="text">
 							<a href="" class="button">Select</a>
 						</section>
-					{{/zf-dropdown}}	
+					{{/zf-dropdown}} -->	
 				</div>
 			</div>
 		</div>

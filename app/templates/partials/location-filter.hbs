@@ -1,8 +1,9 @@
-{{input value=model.location key-down="clear" key-up="onchange" focus-in="open"}}
+
+{{input value=selected key-up="onchange" focus-in="open"}}
 
 <div class="wrapper {{if isOpen 'is-open'}}">
 	<ul class="no-bullet shadowed">
-	{{#each content as |item|}}
+	{{#each items as |item|}}
 		<li {{action "select" item preventDefault=false}}>{{item.city}},{{item.country}},{{item.state}}</li>
 	{{/each}}
 	</ul>

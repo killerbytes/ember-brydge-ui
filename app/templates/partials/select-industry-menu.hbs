@@ -1,0 +1,26 @@
+<a class="box default button dropdown-button expanded" data-toggle="industry-dropdown">
+		{{filtered}}
+		<i class="fa fa-caret-down"></i>
+	</a>
+	{{#zf-dropdown id="industry-dropdown"}}
+		<section class="custom-select-list">
+			<div class="dim-text">Select a Channel</div>
+			<ul class="no-bullet">
+				<li>{{myConnections.text}}</li>
+				<li {{action "select" myCompany preventDefault=false }}>{{myCompany.text}}</li>
+			</ul>
+			<div class="dim-text">Industry Channels</div>
+			<ul class="no-bullet">
+			{{#each myIndustries as |industry|}}
+				<li {{action "select" industry preventDefault=false }}>{{industry.text}}</li>
+			{{/each}}
+			</ul>
+			<!-- <div class="dim-text">Other Industry Channels you follow</div>
+			<ul class="no-bullet">
+				<li>Consumer Web & Mobile</li>
+				<li>Enterprise Software & Technology</li>
+				<li>Broadcast Media</li>
+			</ul> -->
+			<a href="">Add other Industry Channels to follow</a>
+		</section>
+	{{/zf-dropdown}}

@@ -1,19 +1,13 @@
 import Ember from 'ember';
+import QueryLocationMixin from 'web/mixins/query-locations';
 
-export default Ember.Controller.extend({
+export default Ember.Controller.extend(QueryLocationMixin,{
   
-  selection: {
-    id: 'myconnections',
-    text: 'My Connections'
-  },
   sortProps: ['createdAt:desc'],
   newsfeed: Ember.computed.sort('model.newsfeed', 'sortProps'),
 
-  selectionChanged: function () {
-    this.send('setCategory',this.get('selection.id'));
-  }.observes('selection'),
-
-  actions: {  
+  actions: {
+    
     postFeed: function (content, categories) {
       // console.log('<<< post feed from (Home => Controller)',
       //   content,categories);

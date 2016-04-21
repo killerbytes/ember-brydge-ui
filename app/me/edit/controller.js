@@ -1,9 +1,9 @@
 import Ember from 'ember';
-import LocationMixin from 'web/mixins/locationMixin';
+import QueryLocationMixin from 'web/mixins/query-locations';
 import AvatarMixin from 'web/mixins/avatarMixin';
 import SaveProfileMixin from 'web/mixins/saveProfileMixin';
 
-export default Ember.Controller.extend(LocationMixin,AvatarMixin,SaveProfileMixin,{
+export default Ember.Controller.extend(QueryLocationMixin,AvatarMixin,SaveProfileMixin,{
   
   // add work form
   isNewWork: false,
