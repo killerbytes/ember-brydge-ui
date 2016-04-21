@@ -10,6 +10,7 @@ export default Ember.Component.extend({
     post() {
       console.log('<<< post feed from (Home => Component)', this.get('postContent'));
       this.sendAction('postFeed', this.get('postContent'), this.categories);
+      this.set('postContent', null);
     },
     cancel() {
       console.log("Cancel: clear the form", this.get('postContent'));

@@ -9,41 +9,14 @@ export default Ember.Route.extend({
 	    experiences: this.store.findAll('experience'),
 	    profile: this.store.peekRecord('profile', params.profile_id),
       languages: this.store.findAll('language'),
-      interests: this.store.findAll('interest'),
-      // educations: [],
-      // experiences: [],
-      // profile: [],
-
-      locations: [{
-          id: 1,
-          name: "San Francisco, CA, USA"
-        },{
-          id: 2,
-          name: "San Diego, CA, USA"
-        },{
-          id: 3,
-          name: "San Andreas, CA, USA"
-        },{
-          id: 4,
-          name: "Los Angeles, CA, USA"
-        },{
-          id: 5,
-          name: "Houston, TX, USA"
-        }]
-
+      interests: this.store.findAll('interest')
 	  });
 	},
 
   setupController: function(controller, model) {
-    // var educations = model.educations;
-    // var experiences = model.experiences;
     var profile = model.profile;
     controller.setProperties(model);
-    // controller.set('educations', educations);
-    // controller.set('experiences', experiences);
-    // controller.set('profile', profile);
-    // controller.set('languages', model.languages);
-    // controller.set('interests', model.interests);
+    
     controller.set('industry',{
       text: profile.get('industry')
     }); 
@@ -55,7 +28,8 @@ export default Ember.Route.extend({
     controller.set('occupTwo',{
       text: profile.get('occupationTwo')
     });
-    // controller.set('locations', model.locations);
+    
+    controller.set('selectedLoc', profile.get('location'));
   },
 
 	actions: {

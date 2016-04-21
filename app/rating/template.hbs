@@ -1,26 +1,27 @@
 <div class="row columns" style="margin:100px;">
-	<h2>Components:</h2>
-	  {{#inline-edit-2 text=fullName}}
-	    {{input value=fullName}}
-	  {{/inline-edit-2}}
+	<!-- {{select-custom target=this locations=locations model=model}}
+ -->
 
+ 	<div>
+ 		<h2>Test custom dropdown</h2>
+ 		{{dropdown-filter
+ 			items=locations 
+ 			selected=selectedLoc 
+ 			query='query'
+ 			itemSelected = 'citySelected'
+ 			template="partials/location-filter"}}
+ 	</div>
 
+ 	<!-- <div>
+ 		<h2>Test Custom select</h2>
+ 		
 
- {{inline-edit name=fullName}}
-
-
-<div class="fileupload row">
-  
-  {{image-upload fileLoaded="fileLoaded" logoUrl='assets/jane_austen_circle_profile.png'}}
-  
-</div>
-
-
-<p><a data-open="exampleModal">Click me for a modal</a></p>
-{{#zf-reveal id="exampleModal" overlay=showDialogOverlay}}
-  {{accept-form}}
-{{/zf-reveal}}
-<p>{{input type="checkbox" name="showDialogOverlay" checked=showDialogOverlay}} Show Overlay</p>
-
-	
+ 	 {{select-custom
+ 	 items=locations
+ 	 selected=selectedLoc
+ 	 query='query'
+ 	 select='select'
+ 	 itemSelected='citySelected'
+ 	 target=this}}
+ 	</div> -->
 </div>

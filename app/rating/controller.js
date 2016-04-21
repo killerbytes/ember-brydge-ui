@@ -1,15 +1,6 @@
 import Ember from 'ember';
+import QueryLocationMixin from 'web/mixins/query-locations';
 
-export default Ember.Controller.extend({
-  fullName: 'Hein Zeya',
-  
-  itChanged: function() {
-    console.log('itChanged');
-  }.observes('fullName'),
 
-  actions:{
-  	fileLoaded: function(){
-  		console.log(this.get('file'));
-  	}
-  }
+export default Ember.Controller.extend(QueryLocationMixin,{
 });

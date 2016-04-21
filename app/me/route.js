@@ -1,8 +1,8 @@
 import Ember from 'ember';
 import AuthenticatedRouteMixin from 'ember-simple-auth/mixins/authenticated-route-mixin';
-import CurrentCompanyMixin from 'web/mixins/current-company';
+import GeoChannelFilterMixin from 'web/mixins/geo-channel-filter';
 
-export default Ember.Route.extend(AuthenticatedRouteMixin, CurrentCompanyMixin, {
+export default Ember.Route.extend(AuthenticatedRouteMixin,{
   session: Ember.inject.service('session'),
   beforeModel(transition, params) {
     this._super(transition, params);

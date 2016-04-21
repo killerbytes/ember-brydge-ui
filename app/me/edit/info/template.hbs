@@ -17,7 +17,15 @@
 		</div>
 		<div class="row">
 		  <div class='columns'>
-        {{dropdown-filter content=locations template="partials/location-filter" onclick="openLocationModal" willChangeAction='queryCities' didChangeAction='citySelected' model=profile}}
+       <!--  {{dropdown-filter content=locations template="partials/location-filter" onclick="openLocationModal" willChangeAction='queryCities' didChangeAction='citySelected' model=profile}} -->
+
+       {{dropdown-filter
+          items=locations 
+          selected=selectedLoc 
+          query='query'
+          itemSelected='citySelected'
+          template="partials/location-filter"}}
+
 		  </div>
     <div class="columns">
         {{date-picker 

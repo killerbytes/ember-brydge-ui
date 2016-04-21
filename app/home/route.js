@@ -3,14 +3,11 @@ import AuthenticatedRouteMixin from 'ember-simple-auth/mixins/authenticated-rout
 import ENV from 'web/config/environment';
 import FilterDropdownListMixin from 'web/mixins/filter-dropdown-list';
 
-
-
-
 export default Ember.Route.extend(AuthenticatedRouteMixin, FilterDropdownListMixin, {
   session: Ember.inject.service('session'),
 
   categoryid: '',
-
+  geoChannels: '',
 
   beforeModel(transition, params) {
     this._super(transition, params);
@@ -18,10 +15,22 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, FilterDropdownListMix
   },
 
   model() {
-    //console.log('<<<<<<<< categoryid', this.get('categoryid'));
     let ownerid = this.get('session.data.authenticated.user_id');
+    let query = '';
+    
+    if(this.get('categoryid') && this.get('geoChannels')) {
+      query = this.get('categoryid')+','+this.get('geoChannels');
+    }else if(this.get('categoryid')){
+      query = this.get('categoryid');
+    }else if(this.get('geoChannels')){
+      query = this.get('geoChannels');
+    }
+
+    console.log('<<< filtering =>', query);
+    
     return Ember.RSVP.hash({
-      newsfeed: this.store.query('newsfeed', {categoryid:this.get('categoryid')}),
+      // newsfeed: this.store.query('newsfeed', {categoryid:this.get('categoryid')}),
+      newsfeed: this.store.query('newsfeed', {channel:query}),
       profile: this.store.findRecord('profile', ownerid)
     });
   },
@@ -30,7 +39,15 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, FilterDropdownListMix
 
     setCategory: function(categoryid) {
       console.log('<<<< send action from controller', categoryid)
+      console.log('Geo filtering =>', this.get('geoChannels'))
       this.set('categoryid',categoryid);
+      this.refresh();
+    },
+
+    setGeoChannel: function(geo) {
+      console.log('<<< send action from controller', geo);
+      console.log('Category filtering =>', this.get('categoryid'))
+      this.set('geoChannels',geo);
       this.refresh();
     },
 
