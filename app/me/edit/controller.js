@@ -4,6 +4,8 @@ import AvatarMixin from 'web/mixins/avatarMixin';
 import SaveProfileMixin from 'web/mixins/saveProfileMixin';
 
 export default Ember.Controller.extend(LocationMixin,AvatarMixin,SaveProfileMixin,{
+  queryParams: ['tab'],
+  tab: 'personal',
   
   // add work form
   isNewWork: false,

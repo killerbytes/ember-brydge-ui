@@ -1,6 +1,7 @@
 import Ember from 'ember';
+import Validations from '../../models/validations/education';
 
-export default Ember.Component.extend({
+export default Ember.Component.extend(Validations, {
 	flashMessages: Ember.inject.service(),
 	classNames: ['profile-accordion', 'no-bullet'],
 	actions: {

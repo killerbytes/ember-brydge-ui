@@ -10,14 +10,14 @@
 		<div class="accordion-content" data-tab-content>
 	  	<form action="" class="form-accordion	">
 				<label>
-					{{input value=item.school placeholder="School"}}
+					{{form-input model=item valuePath='school' placeholder="School"}}					
 				</label>
 				<label>
-					{{input value=item.location placeholder="Location"}}
+					{{form-input model=item valuePath='location' placeholder="Location"}}					
 				</label>
 	  	
 				<label>
-					{{input value=item.degree placeholder="Degree"}}
+					{{form-input model=item valuePath='degree' placeholder="Degree"}}					
 				</label>
 				<div class="row">
 					<div class="columns medium-6">
@@ -46,14 +46,14 @@
 		<div class="accordion-content" data-tab-content>
 	  	<form action="" class="form-accordion">
 				<label>
-					{{input value=school placeholder="School"}}
+					{{form-input model=this valuePath='school' placeholder="School"}}					
 				</label>
 
 				<label>
-					{{input value=location placeholder="Location"}}
+					{{form-input model=this valuePath='location' placeholder="Location"}}					
 				</label>
 				<label>
-					{{input value=degree placeholder="Degree"}}
+					{{form-input model=this valuePath='degree' placeholder="Degree"}}					
 				</label>
 				<div class="row">
 					<div class="columns medium-6">
