@@ -39,7 +39,10 @@ export default Ember.Component.extend({
       
       //this.broadcastList =  this.categories.join(' ');
 
-      this.set('broadcast',','+this.categoriesLabels.join(', '))
+      var s = (this.categoriesLabels.length >0) ? ','+ this.categoriesLabels.join(' , '): this.categoriesLabels.join(' , ');
+      this.set('broadcast',s);
+
+      console.log(s);
       console.log(this.categories);
     },
   }
