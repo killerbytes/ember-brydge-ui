@@ -1,4 +1,4 @@
-{{typeahead-search 
+<!-- {{typeahead-search 
     id='occupationOne'
 	selection=occupOne 
 	store=store
@@ -14,4 +14,27 @@
 	label='Occupation Two' 
 	placeholder='Please select the industry'
 	minimumInputLength=3
-	action="selectionChanged"}}
+	action="selectionChanged"}} -->
+
+<div class="row">
+  <div class="medium-6 columns">
+  	{{dropdown-filter
+	    items=industries 
+	    selected=selectedOccupOne
+	    query='queryIndustries'
+	    itemSelected='occupOneSelected'
+	    template="partials/industry-filter"}}
+  </div>
+  <div class="medium-6 columns">
+  	{{dropdown-filter
+	    items=industries 
+	    selected=selectedOccupTwo
+	    query='queryIndustries'
+	    itemSelected='occupTwoSelected'
+	    template="partials/industry-filter"}}
+  </div>
+</div>
+
+<div>
+<button class='button success' {{ action 'save' }}>Save Changes</button>
+</div>
