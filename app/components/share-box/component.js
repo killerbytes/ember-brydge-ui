@@ -5,6 +5,9 @@ export default Ember.Component.extend({
 	classNames: ['share-box'],
   
   categories: [],
+  categoriesLabels: [],
+
+  broadcastList: '',
 
 	actions: {
     post() {
@@ -16,18 +19,27 @@ export default Ember.Component.extend({
       console.log("Cancel: clear the form", this.get('postContent'));
       this.set('postContent', '');
     },
-    checkboxChanged: function(value, checked) {
-      console.log('<<< share-box component <<<', value, checked);
+    checkboxChanged: function(value, checked, text) {
+      console.log('<<< share-box component <<<', value, checked, text);
+      
       if(checked) {
         console.log('push')
         this.categories.push(value);
+        this.categoriesLabels.push(text);
       }else{
         console.log('remove');
         this.categories = _.remove(this.categories, function(n) {
           return n !== value;
         });
+
+        this.categoriesLabels = _.remove(this.categoriesLabels, function(n) {
+          return n !== text;
+        });
       }
       
+      //this.broadcastList =  this.categories.join(' ');
+
+      this.set('broadcast',','+this.categoriesLabels.join(', '))
       console.log(this.categories);
     },
   }
