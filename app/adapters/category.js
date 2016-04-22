@@ -8,6 +8,5 @@
 // });
 
 export default DS.RESTAdapter.extend({
-	host: 'http://api.brydge.me',
-	namespace: 'v1'
+	host: 'http://api.brydge.me/v1'
 });

@@ -17,15 +17,18 @@ export default Ember.Route.extend({
     var profile = model.profile;
     controller.setProperties(model);
     
-    controller.set('industry',{
+    controller.set('selectedIndustry',{
+      id: profile.get('industryId'),
       text: profile.get('industry')
     }); 
 
-    controller.set('occupOne',{
+    controller.set('selectedOccupOne',{
+      id: profile.get('occupationOneId'),
       text: profile.get('occupationOne')
     });
 
-    controller.set('occupTwo',{
+    controller.set('selectedOccupTwo',{
+      id: profile.get('occupationTwoId'),
       text: profile.get('occupationTwo')
     });
     
@@ -35,22 +38,6 @@ export default Ember.Route.extend({
   },
 
 	actions: {
-
-    selectionChanged: function(id, code, text) {
-      console.log('<< typeahead component <<<', id, code, text);
-      
-      let keyText = id;
-      let keyId = id +'Id';
-
-      let profile = this.controller.get('profile');
-
-      profile.set(keyText,text);
-      profile.set(keyId,code);
-
-      profile.save().then(()=>{
-        console.log('typehead saved');
-      });
-    },
 
     citySelected: function (item) {
       console.log('citySelected (route) =>', item.city, item.state, item.country);
@@ -63,6 +50,48 @@ export default Ember.Route.extend({
       this.controller.set('selectedLoc',filtered);
       let profile = this.controller.get('profile');
       profile.set('location',filtered.text);
+    },
+
+    industrySelected: function (item) {
+      console.log('industrySelected (route) =>', item);
+
+       var filtered ={
+        id : item.id,
+        text: item.text
+       };
+
+      this.controller.set('selectedIndustry', filtered);
+      let profile = this.controller.get('profile');
+      profile.set('industryId',filtered.id);
+      profile.set('industry',filtered.text);
+    },
+
+    occupOneSelected: function (item) {
+      console.log('occupOneSelected (route) =>', item);
+
+       var filtered ={
+        id : item.id,
+        text: item.text
+       };
+
+      this.controller.set('selectedOccupOne', filtered);
+      let profile = this.controller.get('profile');
+      profile.set('occupationOneId',filtered.id);
+      profile.set('occupationOne',filtered.text);
+    },
+
+    occupTwoSelected: function (item) {
+      console.log('occupTwoSelected (route) =>', item);
+
+       var filtered ={
+        id : item.id,
+        text: item.text
+       };
+
+      this.controller.set('selectedOccupTwo', filtered);
+      let profile = this.controller.get('profile');
+      profile.set('occupationTwoId',filtered.id);
+      profile.set('occupationTwo',filtered.text);
     }
   }
 });

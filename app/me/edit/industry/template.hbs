@@ -1,36 +1,4 @@
-
-
-<!-- <form {{action 'saveIndustry' 
-	chosenIndustry.text 
-	chosenOccupOne.text 
-	chosenOccupTwo.text    
-	chosenIndustry.id
-	chosenOccupOne.id
-	chosenOccupTwo.id
-	on='submit'}}>
-<div class="row column">
-	<label>
-	  Job Industry:
-	  
-	  {{ typehead-industry-search store=store chosenData=chosenIndustry}}
-	</label>
-</div>
-<div class="row column">
-	<label>
-	  Occupation Industry - 1:
-	  
-	  {{ typehead-industry-search store=store chosenData=chosenOccupOne}}
-	</label>
-</div>
-<div class="row column">
-	<label>
-  Occupation Industry - 2:
-  
-  {{ typehead-industry-search store=store chosenData=chosenOccupTwo}}
-</label>
-</div>
-<button type='submit' class='button'>Save Changes</button>
-</form> -->
+<!-- 
 
 {{typeahead-search
 	id='industry'
@@ -48,4 +16,14 @@
 
  
 
- 
+  -->
+<div>
+   {{dropdown-filter
+    items=industries 
+    selected=selectedIndustry
+    query='queryIndustries'
+    itemSelected='industrySelected'
+    template="partials/industry-filter"}}
+</div>
+
+<button class='button success' {{ action 'save' }}>Save Changes</button>
