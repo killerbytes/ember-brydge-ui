@@ -62,5 +62,8 @@
     "loader.js": "^4.0.0",
     "moment": "^2.12.0",
     "ui-list": "0.3.16"
+  },
+  "dependencies": {
+    "lodash": "^4.11.1"
   }
 }
