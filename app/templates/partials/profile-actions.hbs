@@ -44,7 +44,7 @@
     </div>
   </div>
 
-
+  {{#unless isCurrentUser}}
   {{#zf-dropdown id="dd-ask-form" class="dropdown-gray" closeOnClick=true}}
     <form {{action 'ask' model.userid model.ownerid model.username question on='submit'}}>
       {{input value=model.userid type="hidden"}}
@@ -67,4 +67,5 @@
          
     </form>
   {{/zf-dropdown}}
+  {{/unless}}
 </div>
