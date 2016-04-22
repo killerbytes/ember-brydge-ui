@@ -1,1 +1,8 @@
- {{snapshot-box profile=profile store=store}}
+ <!-- {{snapshot-box profile=profile store=store}}
+ -->
+ <label>
+  Snapshot:
+  {{textarea placeholder="None" value=profile.snapshot rows="10"}}
+</label>
+
+<button class='button success' {{ action 'save' }}>Save Changes</button>
