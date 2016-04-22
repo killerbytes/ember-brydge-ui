@@ -84,9 +84,15 @@
 }
 
 .jumbotron{
+	width: 500px;
+  text-align: center;
+  border: 1px solid $border-color;
+  border-radius: 10px;
+  padding: 50px;
+  background-color: #FFF;
 	margin: 150px auto;
-	h1{
-		font-size: 35px;
+	h2{
+		// font-size: 35px;
 		font-weight: bold;
 	}
 

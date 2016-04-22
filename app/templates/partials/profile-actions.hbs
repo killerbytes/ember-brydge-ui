@@ -1,67 +1,70 @@
-<div class="profile-actions {{if isCurrentUser 'connected'}}">
-  {{#if isCurrentUser}}
-  <div class="table-cell">
-    <a class="button large expanded">Edit Profile</a>
-  </div>
-  <div class="table-cell">
-    <a class="button large expanded">Settings</a>
-  </div>
-  {{else}}
+<div class="wrapper">
+  <div class="profile-actions {{if isCurrentUser 'connected'}} {{if connected 'connected' }}">
+    {{#if isCurrentUser}}
+    <div class="table-cell">
+      {{link-to "Edit Profile" "me.edit" model.profile.id class="button large expanded"}}
+    </div>
+    <div class="table-cell">
+      <a class="button large expanded">Settings</a>
+    </div>
+    {{else}}
 
-  <div class="table-cell cell-connected">
-  {{spinning-button clicked="clickedConnect" value="CONNECT" class="button large connect success"}}
-  </div>
-  <div class="table-cell">
-    <a class="button large expanded">MESSAGE</a>
-  </div>
-  <div class="table-cell">
-    {{ ask-dropdown store=store model=model action='goToAsk'}}      
-  </div>
-  {{/if}}
-  <div class="table-cell">
-    <a class="button large expanded" data-toggle="dd-public-options">
-      ...
-      <div class="wrapper">
-        <div class="triangle triangle-gray"></div>
-      </div>
-    </a>
-
-    {{#zf-dropdown id="dd-public-options" class="dropdown-gray" closeOnClick=true}}
-      <ul class="no-bullet menu-list menu-list-menu">
-        {{#if isCurrentUser}}
-        <li>{{link-to "Connections" "connections"}}</li>
-        <li>{{link-to "Your ASK Page" "me.ask"}}</li>
-        {{else}}
-        <li><a href="">Jon's connection (156)</a></li>
-        <li><a href="">Jon's ASK Page</a></li>
-        <li><a href="">Compliment Jon</a></li>
-        <li><a href="" class="warning">Disconnect from Jon</a></li>
-        {{/if}}
-      </ul>
-    {{/zf-dropdown}}
-
-  </div>
-</div>
-
-{{#zf-dropdown id="dd-ask-form" class="dropdown-gray" closeOnClick=true}}
-  <form {{action 'ask' model.userid model.ownerid model.username question on='submit'}}>
-    {{input value=model.userid type="hidden"}}
-    {{input value=model.ownerid type="hidden"}}
-    {{input value=model.username type="hidden"}}
-
-    <section class="padding ask-form">
-      {{textarea value=question rows="3"}}
-      <div class="row">
-        <div class="columns text-right">
-          <button class="button success" type="submit">ASK</button>            
+    <div class="table-cell cell-connected">
+    {{spinning-button clicked="clickedConnect" value="CONNECT" class="button large connect success"}}
+    </div>
+    <div class="table-cell">
+      <a class="button large expanded">MESSAGE</a>
+    </div>
+    <div class="table-cell">
+      {{ ask-dropdown store=store model=model action='goToAsk'}}      
+    </div>
+    {{/if}}
+    <div class="table-cell">
+      <a class="button large expanded" data-toggle="dd-public-options">
+        ...
+        <div class="wrapper">
+          <div class="triangle triangle-gray"></div>
         </div>
-      </div>
-      <p class="dim-text">
-        Ask anyone a professional question. <br>
-        If answered, it will appear on both profiles.
-      </p>
-      <small><a href="">Tips on how to use ASK</a></small>
-    </section>
-       
-  </form>
-{{/zf-dropdown}}
+      </a>
+
+      {{#zf-dropdown id="dd-public-options" class="dropdown-gray" closeOnClick=true}}
+        <ul class="no-bullet menu-list menu-list-menu">
+          {{#if isCurrentUser}}
+          <li>{{link-to "Connections" "me.connections"}}</li>
+          <li>{{link-to "Your ASK Page" "me.ask"}}</li>
+          {{else}}
+          <li>{{#link-to "connections" model.profile.id }} {{model.profile.firstName}}'s connection (999){{/link-to}}</li>
+          <li>{{#link-to "ask" model.profile.id }} {{model.profile.firstName}}'s ASK Page{{/link-to}}</li>
+          <li><a href="">Compliment {{model.profile.firstName}}</a></li>
+          <li><a href="" class="warning">Disconnect from {{model.profile.firstName}}</a></li>
+          {{/if}}
+        </ul>
+      {{/zf-dropdown}}
+
+    </div>
+  </div>
+
+
+  {{#zf-dropdown id="dd-ask-form" class="dropdown-gray" closeOnClick=true}}
+    <form {{action 'ask' model.userid model.ownerid model.username question on='submit'}}>
+      {{input value=model.userid type="hidden"}}
+      {{input value=model.ownerid type="hidden"}}
+      {{input value=model.username type="hidden"}}
+
+      <section class="padding ask-form">
+        {{textarea value=question rows="3"}}
+        <div class="row">
+          <div class="columns text-right">
+            <button class="button success" type="submit">ASK</button>            
+          </div>
+        </div>
+        <p class="dim-text">
+          Ask anyone a professional question. <br>
+          If answered, it will appear on both profiles.
+        </p>
+        <small><a href="">Tips on how to use ASK</a></small>
+      </section>
+         
+    </form>
+  {{/zf-dropdown}}
+</div>

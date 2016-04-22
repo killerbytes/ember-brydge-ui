@@ -69,3 +69,24 @@
    height: 100%;
    background-color: #EFEFEF;
 }
+
+.tabs{
+	.tabs-title > a:focus, .tabs-title > a[aria-selected='true']{
+		background-color: $brydge-blue;
+		color: #FFF;
+	}
+	.tabs-title .button{
+		border: 1px solid $brydge-blue;
+		padding: 10px;
+		font-size: 11px;
+		font-weight: bold;
+	}
+	.tabs-content{
+		background-color: transparent;
+		border: none;
+	}
+	.tabs-panel{
+		padding: 0;
+	}
+
+}

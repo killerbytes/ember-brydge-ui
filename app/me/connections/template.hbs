@@ -1,0 +1,53 @@
+<div class="row">
+	<div class="columns">
+		<div class="top-banner bg-gray box">
+			<h1>YOUR CONNECTIONS</h1>
+		</div>		
+	</div>
+</div>
+
+
+<div class="row">
+  <div class="medium-8 columns">
+  	<div class="box rounded">
+  		<div class="search-bar">
+  			<form action="">
+  				<input type="text" placeholder="Search by Name">
+  			</form>
+  		</div>
+			{{partial 'me/connections/list'}}
+  		
+  	</div>
+
+  </div>    
+  <div class="medium-4 columns sidebar">
+
+    <div class="box rounded pending-request-box">
+		<h5 class="box-header">Pending Requests</h5>
+
+    {{#if model.pendingListTop}}
+
+		{{partial 'me/connections/pending'}}
+    {{else}}
+     <div class="columns">No pending</div>
+    {{/if}}
+		
+    <!-- {{partial 'connections/more-pending'}}   -->  
+
+		<!-- {{#link-to 'me.ask' class="success button expanded" }}
+			Load More
+		{{/link-to}} -->
+    </div>
+
+    {{render "progress-box"}}
+    {{render "footer"}}
+  </div>
+</div>
+
+{{#zf-reveal id="acceptFormModal" overlay=true class="reveal-popup tiny"}}
+  {{accept-form selectedAccept=selectedAccept resp='refreshModel' store=store}}
+{{/zf-reveal}}
+
+{{#zf-reveal id="rejectFormModal" overlay=true class="reveal-popup tiny"}}
+  {{reject-form selectedReject=selectedReject resp='refreshModel' store=store}}
+{{/zf-reveal}}

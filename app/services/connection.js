@@ -4,6 +4,10 @@ import Ember from 'ember';
 export default Ember.Service.extend({
   store: Ember.inject.service(),
   ajax: Ember.inject.service(),
+  status(id){
+    var url = '/v1/connections/'+id+'/status';
+    return this.get('ajax').request(url);
+  },
   accept(id)  {
     var url = '/v1/connections/'+id+'/accept';
     return this.get('ajax').request(url, {

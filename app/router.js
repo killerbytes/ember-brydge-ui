@@ -16,6 +16,7 @@ Router.map(function() {
   this.route('me', function() {
     this.route('edit',{path:'/edit/:profile_id'});
     this.route('ask');
+    this.route('connections');
   });
 
 
@@ -36,7 +37,7 @@ Router.map(function() {
 
   this.route('profile', {path: ':username'});
   this.route('ask', {path: ':username/ask'});
-  this.route('connections');
+  this.route('connections', {path: ':username/connections'});
   this.route('requests');
   this.route('notifications');
   this.route('questions');

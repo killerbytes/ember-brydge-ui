@@ -1,7 +1,7 @@
 <div class="row">
 	<div class="columns">
 		<div class="top-banner bg-gray box">
-			<h1>YOUR CONNECTIONS</h1>
+			<h1 class="text-upper">{{profile.firstName}}'s CONNECTIONS</h1>
 		</div>		
 	</div>
 </div>
@@ -9,36 +9,80 @@
 
 <div class="row">
   <div class="medium-8 columns">
-  	<div class="box rounded">
-  		<div class="search-bar">
-  			<form action="">
-  				<input type="text" placeholder="Search by Name">
-  			</form>
-  		</div>
-			{{partial 'connections/list'}}
-  		
-  	</div>
+    <div class="tabs">
+      {{#zf-tabs}}
+        <li class="medium-6 tabs-title is-active">
+          <a href="#question_answered" class="button expanded text-upper" aria-selected="true">All Connections</a>
+        </li>
+        <li class="medium-6 tabs-title">
+          <a href="#question_asked" class="button expanded text-upper">Mutual Connections</a>
+        </li>
+      {{/zf-tabs}}
+      <div class="tabs-content questions" data-tabs-content="example-tabs">
+        <div class="tabs-panel is-active" id="question_answered">
+          <div class="search-bar">
+            <form action="">
+              <input type="text" placeholder="Search by Name">
+            </form>
+          </div>
+          <ul class="no-bullet connections-list">
+            {{#each list as |connection|}}
+            <li>
+                <div class="media-object">
+                  <div class="media-object-section">
+                    <div class="thumbnail">
+                      <img src= {{connection.from.profile.avatarUrl}}>
+                    </div>
+                  </div>
+                  <div class="media-object-section media-object-content">
+                    {{#link-to "profile" connection.from.username class="name"}}  
+                      {{connection.from.name }}
+                    {{/link-to}}
+                    
+                    <div class="position">
+                      {{connection.from.profile.currentTitle}} <br>
+                      {{connection.from.profile.currentCompany}}
+                    </div>
+                    <p class="location">{{connection.from.profile.location}}</p>
+                  </div>
+                </div>
+            </li>
+            {{/each}}
+          </ul>
+        </div>
+        <div class="tabs-panel" id="question_asked">
+          <ul class="no-bullet connections-list">
+            {{#each model.mutual
+             as |connection|}}
+            <li>
+                <div class="media-object">
+                  <div class="media-object-section">
+                    <div class="thumbnail">
+                      <img src= {{connection.from.profile.avatarUrl}}>
+                    </div>
+                  </div>
+                  <div class="media-object-section media-object-content">
+                    {{#link-to "profile" connection.from.username class="name"}}  
+                      {{connection.from.name }}
+                    {{/link-to}}
+                    
+                    <div class="position">
+                      {{connection.from.profile.currentTitle}} <br>
+                      {{connection.from.profile.currentCompany}}
+                    </div>
+                    <p class="location">{{connection.from.profile.location}}</p>
+                  </div>
+                </div>
+            </li>
+            {{/each}}
+          </ul>
+        </div>
+      </div>
+    </div>
+
 
   </div>    
   <div class="medium-4 columns sidebar">
-
-    <div class="box rounded pending-request-box">
-		<h5 class="box-header">Pending Requests</h5>
-
-    {{#if model.pendingListTop}}
-
-		{{partial 'connections/pending'}}
-    {{else}}
-     <div class="columns">No pending</div>
-    {{/if}}
-		
-    <!-- {{partial 'connections/more-pending'}}   -->  
-
-		<!-- {{#link-to 'me.ask' class="success button expanded" }}
-			Load More
-		{{/link-to}} -->
-    </div>
-
     {{render "progress-box"}}
     {{render "footer"}}
   </div>

@@ -2,6 +2,7 @@ import Ember from 'ember';
 
 export default Ember.Route.extend({
   session: Ember.inject.service('session'),
+  connection: Ember.inject.service(),
   
   loggedinUser: null,
   paramsUserProfile: null,
@@ -29,8 +30,8 @@ export default Ember.Route.extend({
 
     console.log('userids =>', userid, ownerid);
     var self = this;
-
     return Ember.RSVP.hash({
+      connectionStatus: this.get('connection').status(userid),
       accountProfile: this.store.findRecord('profile', ownerid),
       experiences: this.store.query('experience',{userid: userid}),
       educations: this.store.query('education',{userid: userid}),
@@ -39,6 +40,7 @@ export default Ember.Route.extend({
       }),
       trendingPosts: this.store.query('post', {userid: userid})
     }).then((result)=>{
+      self.set('connectionStatus', result.connectionStatus);
       self.set('accountProfile', result.accountProfile);
       self.set('experiences', result.experiences);
       self.set('educations', result.educations);
@@ -49,8 +51,8 @@ export default Ember.Route.extend({
 
   setupController: function(controller, model) {
     var avatar = this.get('accountProfile').get('avatarUrl');
-
     controller.set('model',{
+      connectionStatus: this.get('connectionStatus'),
       profile: this.get('paramsUserProfile'),
       avatar: avatar,
       loggedinUser: this.get('loggedinUser'),

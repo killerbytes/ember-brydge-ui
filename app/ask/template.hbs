@@ -17,31 +17,53 @@
 <div class="row ask">
   <div class="medium-7 columns">
   	<div class="ask-box box hide">
-		{{ ask-box store=store model=model}}
-	</div>
-	<div class="mb">
-		{{#zf-tabs}}
-			<li class="medium-6 tabs-title is-active">
-				<a href="#question_answered" class="button expanded text-upper" aria-selected="true">Questions {{model.username}} has answered</a>
-			</li>
-			<li class="medium-6 tabs-title">
-				<a href="#question_asked" class="button expanded text-upper">Questions {{model.username}} has asked&nbsp;&nbsp;&nbsp;&nbsp;</a>
-			</li>
-		{{/zf-tabs}}
-	</div>
-	<div class="tabs-content questions" data-tabs-content="example-tabs">
-		<div class="tabs-panel is-active" id="question_answered">
-			  {{ partial 'ask/to'}}
+			{{ ask-box store=store model=model}}
 		</div>
-		<div class="tabs-panel" id="question_asked">
-				{{ partial 'ask/from'}}
+		<div class="mb">
+			{{#zf-tabs}}
+				<li class="medium-6 tabs-title is-active">
+					<a href="#question_answered" class="button expanded text-upper" aria-selected="true">Questions {{model.username}} has answered</a>
+				</li>
+				<li class="medium-6 tabs-title">
+					<a href="#question_asked" class="button expanded text-upper">Questions {{model.username}} has asked&nbsp;&nbsp;&nbsp;&nbsp;</a>
+				</li>
+			{{/zf-tabs}}
 		</div>
-	</div>
+		<div class="tabs-content questions" data-tabs-content="example-tabs">
+			<div class="tabs-panel is-active" id="question_answered">
+				  {{ partial 'ask/to'}}
+			</div>
+			<div class="tabs-panel" id="question_asked">
+					{{ partial 'ask/from'}}
+			</div>
+		</div>
   </div>
   <div class="medium-5 columns sidebar">
+  	<div class="wrapper">
+			{{ ask-dropdown store=store model=model class="mb"}}
+			{{#zf-dropdown id="dd-ask-form" class="dropdown-gray" closeOnClick=true}}
+			  <form {{action 'ask' model.userid model.ownerid model.username question on='submit'}}>
+			    {{input value=model.userid type="hidden"}}
+			    {{input value=model.ownerid type="hidden"}}
+			    {{input value=model.username type="hidden"}}
 
-	{{ ask-dropdown store=store model=model }}
-
+			    <section class="padding ask-form">
+			      {{textarea value=question rows="3"}}
+			      <div class="row">
+			        <div class="columns text-right">
+			          <button class="button success" type="submit">ASK</button>            
+			        </div>
+			      </div>
+			      <p class="dim-text">
+			        Ask anyone a professional question. <br>
+			        If answered, it will appear on both profiles.
+			      </p>
+			      <small><a href="">Tips on how to use ASK</a></small>
+			    </section>
+			       
+			  </form>
+			{{/zf-dropdown}}
+		</div>
 
     {{render "progress-box"}}
     {{render "footer"}}

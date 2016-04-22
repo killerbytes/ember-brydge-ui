@@ -1,12 +1,15 @@
 
-<h2>
+<div class="jumbotron">
+	<h2>
     {{#if message}}
         {{status}}: <small>{{message}}</small>
     {{else}}
       Something is wrong. Lets try again?
     {{/if}}
-</h2>
+	</h2>
 
-<div>
-    <button {{action 'retry'}}>Try again</button>
+	<div>
+	    <a {{action 'retry'}}>Try again</a>
+	</div>
+	
 </div>

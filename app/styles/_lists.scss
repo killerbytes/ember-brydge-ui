@@ -75,9 +75,11 @@ ul.menu-list{
   }
 }
 .menu-list-menu{
-  a{
-    font-size: 13px;
+  li:not(:last-child)>a{
     border-bottom: 1px solid $border-color;
+  }
+  li>a{
+    font-size: 13px;
     padding: .5em;
     margin: 0 .7em;
     display: block;
@@ -90,12 +92,13 @@ ul.menu-list{
 
 .menu-media-list{
   @extend .menu-list;
+  li:not(:last-child){
+    border-bottom: 1px solid $border-color;        
+  }
   li>a{
     display: block;
     padding: .5em 0;
     margin: 0 1em;
-    border-bottom: 1px solid $border-color;    
-
   }
   .name{
     font-size: 14px;
