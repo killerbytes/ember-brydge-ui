@@ -5,7 +5,6 @@ export default Ember.Controller.extend(QueryLocationMixin,{
   
   sortProps: ['createdAt:desc'],
   newsfeed: Ember.computed.sort('model.newsfeed', 'sortProps'),
-
   actions: {
     
     postFeed: function (content, categories) {

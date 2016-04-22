@@ -27,7 +27,12 @@ export default Ember.Mixin.create({
 
     // model.industryChannels = content;
 
-     model.myConnections = {
+    model.global = {
+      id: '',
+      text: 'Everywhere'
+    };
+
+    model.myConnections = {
       id: 'myconnections',
       text: 'My Connections'
     };

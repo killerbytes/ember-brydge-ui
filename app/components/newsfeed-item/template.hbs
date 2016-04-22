@@ -13,7 +13,7 @@
             <strong>{{post.user.name}}</strong>
           {{/link-to}}
         </div>
-        <div class="position">{{post.user.profile.jobTitle}}</div>
+        <div class="position">{{post.user.profile.currentTitle}}</div>
         <p class="timestamp">{{#link-to 'post' post.user.id post.id }}{{postDateFormat post.updatedAt}}{{/link-to}}</p>
       </div>
     </div>
@@ -59,19 +59,5 @@
 </div>
 
 <div class="post-footer">
-  <div class="padded border-b">
-    <div class="post-comment-form">
-      <div class="media-object">
-        <div class="thumbnail">
-          <img src= {{avatar}}>
-        </div>
-        <div class="comment-form">
-          <input type="text" placeholder="Write your comment">
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="padded post-comments">
-    <a>View Comments</a>    
-  </div>  
+    {{comment-box avatar=avatar}}
 </div>

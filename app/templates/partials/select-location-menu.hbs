@@ -11,7 +11,7 @@
 			</ul>
 			<div class="dim-text">Global</div>
 			<ul class="no-bullet">
-				<li>Everywhere</li>
+				<li {{action "select" global preventDefault=false }}>{{global.text}}</li>
 			</ul>
 <!-- 			<div class="dim-text">Favourites (Max. 5)</div>
 			<ul class="no-bullet">
@@ -33,7 +33,7 @@
 
  			{{dropdown-filter
  				items=items 
- 				selected=selected.text
+ 				selected=selected
  				query='query'
  				itemSelected = 'citySelected'
  				template="partials/location-filter"}}
