@@ -1,7 +1,7 @@
 import Ember from 'ember';
 export default Ember.Component.extend({
   // From http://emberjs.jsbin.com/rwjblue/58/edit?html,css,js,output
-  attributeBindings: ['type', 'value'],
+  attributeBindings: ['type', 'value', 'text'],
   tagName: 'input',
   type: 'checkbox',
   checked: false,
@@ -12,6 +12,6 @@ export default Ember.Component.extend({
 
   change: function() {
     this._updateElementValue();
-    this.sendAction('action', this.get('value'), this.get('checked'));
+    this.sendAction('action', this.get('value'), this.get('checked'), this.get('text'));
   }
 });

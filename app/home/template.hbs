@@ -3,6 +3,7 @@
     {{ share-box postToNewsfeed='postToNewsfeed' profile=model.profile 
      isCheckedIndustry=isCheckedIndustry isCheckedOccupationOne=isCheckedOccupationOne
      isCheckedOccupationTwo=isCheckedOccupationTwo
+     broadcast = broadcast
      postFeed='postFeed' }}
 
 	<div class="newsfeed-filter">
@@ -58,6 +59,7 @@
 					 	 select='setCategory'
 					 	 target=this
 					 	 myLocation=model.myLocation
+					 	 global=model.global
 					 	 template="partials/select-location-menu"}}
 
 

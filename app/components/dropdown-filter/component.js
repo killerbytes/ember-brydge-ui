@@ -98,7 +98,7 @@ export default Ember.Component.extend({
 	},
 	actions: {
 		onchange: function(e){
-			if(e.length < 3) return;
+			//if(e.length < 3) return;
 			this.sendAction('query', e);
 		},
 		open: function(){
