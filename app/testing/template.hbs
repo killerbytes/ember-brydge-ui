@@ -1,20 +1,5 @@
 <h1>Testing</h1>
 <button class="button"{{action "test"}}>Test</button>
-	    {{#zf-accordion-menu class="accordion-menu"}}
-	      <li>
-	        <ul class="no-bullet vertical nested">
-	          <li>
-	          	<p>{{q.answer}}</p>
-	          </li>
-	        </ul>
-	        <a class="more no-arrow"><span class="content-more" disabled=true>See Answer</span><span class="content-less">Hide Answer</span></a>
-	      </li>
-	    {{/zf-accordion-menu}}           
 
 
-{{test-component clicked="click" value="Submit"}}
-
-{{spinning-button clicked="click" value="Connect" class="button large connected expanded"}}
-
-
-    {{partial "partials/profile-actions" }}
+{{notification.requests.length}}

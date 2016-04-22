@@ -1,12 +1,10 @@
 import Ember from 'ember';
-const {
-  Component,
-  computed,
-  getOwner
-} = Ember;
 
 export default Ember.Controller.extend({
+	session: Ember.inject.service(),
   isCurrentUser: Ember.computed('', function(){
-    return getOwner(this).lookup('controller:application').currentPath != 'me' ? true : false;
-  }),
+    let userid = this.get('session.data.authenticated.user_id');
+
+  	return this.get('model.profile.id') == userid ? true : false;
+  })
 });

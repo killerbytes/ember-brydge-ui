@@ -2,9 +2,8 @@ import Ember from 'ember';
 
 export default Ember.Route.extend({
 	connection: Ember.inject.service(),
-	model: function(){
+	model(){
 		return this.store.findAll('connection');
-
 	},
 	actions: {
 		accept: function(item){

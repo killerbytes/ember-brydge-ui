@@ -1,7 +1,7 @@
 <a data-toggle="dd-requests">
 	{{#zf-tooltip title="Connection Requests" vOffset=0}}
 	{{#if notification.connectionStore}}
-		<span class="alert badge">{{notification.connectionStore.length}}</span>
+		<span class="alert badge">{{notification.requests.length}}</span>
 	{{/if}}
 	<i class="icons user"></i>
 	{{/zf-tooltip}}
@@ -12,7 +12,7 @@
 {{#zf-dropdown id="dd-requests" class="dropdown-topbar" closeOnClick=true }}
 
 	<ul class="media-list no-bullet list-lined">
-		{{#each notification.connectionStore as |item|}}
+		{{#each notification.requests as |item|}}
 		<li>
 			<div class="media-object">
 				<div class="media-object-section">
