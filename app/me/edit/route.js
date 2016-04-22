@@ -29,7 +29,9 @@ export default Ember.Route.extend({
       text: profile.get('occupationTwo')
     });
     
-    controller.set('selectedLoc', profile.get('location'));
+    controller.set('selectedLoc', {
+      text: profile.get('location')
+    });
   },
 
 	actions: {
@@ -48,6 +50,19 @@ export default Ember.Route.extend({
       profile.save().then(()=>{
         console.log('typehead saved');
       });
+    },
+
+    citySelected: function (item) {
+      console.log('citySelected (route) =>', item.city, item.state, item.country);
+
+       var filtered ={
+        id : item.state + '_' + item.city + '_' + item.country,
+        text: item.state + ',' + item.city + ',' + item.country
+       };
+
+      this.controller.set('selectedLoc',filtered);
+      let profile = this.controller.get('profile');
+      profile.set('location',filtered.text);
     }
   }
 });
