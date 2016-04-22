@@ -1,0 +1,16 @@
+{{#each model as |item|}}
+  <li>
+    <div class="name">{{item.title}}</div>
+    <div class="text-light-gray">{{item.company}}</div>
+    <span class="dim-text">May 2013 - Present (2 Years and 6 Months)</span>
+
+    {{#zf-accordion-menu}}
+      <li>
+        <ul class="no-bullet vertical nested">
+          <li><p>{{item.content}}</p></li>
+        </ul>
+        <a class="more no-arrow"><span class="content-more">Show More</span><span class="content-less">Show Less</span></a>
+      </li>
+    {{/zf-accordion-menu}}               
+  </li>
+{{/each}}

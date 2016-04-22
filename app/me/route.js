@@ -16,12 +16,16 @@ export default Ember.Route.extend(AuthenticatedRouteMixin,{
       account: this.store.findRecord('user', userid),
       posts: this.store.findAll('post', userid),
       profile: this.store.findRecord('profile', userid),
+      languages: this.store.findAll('language'),
       experiences: this.store.query('experience',{userid: userid}),
       educations: this.store.query('education',{userid: userid}),
       lastestQuestion: this.store.query('ask',{userid: userid}).then((asks)=>{
         return asks.filterBy('answer').get('firstObject');
       })
     });
+  },
+  afterModel(){
+    console.log(arguments)
   }
 
 });

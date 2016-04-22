@@ -33,6 +33,7 @@ export default Ember.Route.extend({
     return Ember.RSVP.hash({
       connectionStatus: this.get('connection').status(userid),
       accountProfile: this.store.findRecord('profile', ownerid),
+      languages: this.store.findAll('language'),
       experiences: this.store.query('experience',{userid: userid}),
       educations: this.store.query('education',{userid: userid}),
       questions: this.store.query('ask',{userid: userid}).then(function(asks){
@@ -42,6 +43,7 @@ export default Ember.Route.extend({
     }).then((result)=>{
       self.set('connectionStatus', result.connectionStatus);
       self.set('accountProfile', result.accountProfile);
+      self.set('languages', result.languages);
       self.set('experiences', result.experiences);
       self.set('educations', result.educations);
       self.set('trendingPosts', result.trendingPosts);
@@ -56,6 +58,7 @@ export default Ember.Route.extend({
       profile: this.get('paramsUserProfile'),
       avatar: avatar,
       loggedinUser: this.get('loggedinUser'),
+      languages: this.get('languages'),
       educations: this.get('educations'),
       experiences: this.get('experiences'),
       trendingPosts: this.get('trendingPosts'),

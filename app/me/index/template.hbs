@@ -143,18 +143,12 @@
     <div class="box rounded languages">
       <h5 class="box-header">Languages</h5>
       <ul class="box-list no-bullet">
+        {{#each model.languages as |item|}}
         <li>
-          <div class="name">English</div>
-          <div class="text-light-gray">Native Proficiency</div>            
+          <div class="name">{{item.name}}</div>
+          <div class="text-light-gray">{{item.proficiency}}</div>            
         </li>
-        <li>
-          <div class="name">English</div>
-          <div class="text-light-gray">Native Proficiency</div>            
-        </li>
-        <li>
-          <div class="name">English</div>
-          <div class="text-light-gray">Native Proficiency</div>            
-        </li>
+        {{/each}}
       </ul>          
     </div>
 
