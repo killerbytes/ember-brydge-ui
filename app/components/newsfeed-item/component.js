@@ -1,6 +1,8 @@
 import Ember from 'ember';
+import ViewCommentsActionMixin from 'web/mixins/view-comments-action';
 
-export default Ember.Component.extend({
+
+export default Ember.Component.extend(ViewCommentsActionMixin,{
   sessionAccount: Ember.inject.service('session-account'),
 	ajax: Ember.inject.service(),
 	classNames: ['newsfeed-item', 'box', 'rounded'],
@@ -52,6 +54,10 @@ export default Ember.Component.extend({
 				break;
 			}
 
+		},
+		viewComments: function() {
+			this.viewComments(this.get('post.id'))
+			$("#"+this.get('post.shortid')).trigger('click');
 		}
 	}
 });

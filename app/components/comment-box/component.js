@@ -1,6 +1,8 @@
 import Ember from 'ember';
+import ViewCommentsActionMixin from 'web/mixins/view-comments-action';
 
-export default Ember.Component.extend({
+
+export default Ember.Component.extend(ViewCommentsActionMixin,{
 	store: Ember.inject.service(),
 
 	actions:{
@@ -34,15 +36,17 @@ export default Ember.Component.extend({
 		viewComments: function () {
 			console.log('view comments', this.get('post.shortid'));
 
-			var store = this.get('store');
+			this.viewComments(this.get('post.shortid'));
 
-			var post = store.peekRecord('newsfeed', this.get('post.shortid'));
+			// var store = this.get('store');
+
+			// var post = store.peekRecord('newsfeed', this.get('post.shortid'));
 
 
-			store.query('comment',this.get('post.shortid')).then((comments)=>{
-				console.log('<<<<<<', comments)
-				post.set('comments', comments);
-			})
+			// store.query('comment',this.get('post.shortid')).then((comments)=>{
+			// 	console.log('<<<<<<', comments)
+			// 	post.set('comments', comments);
+			// })
 		}
 	}
 });
