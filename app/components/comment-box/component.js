@@ -11,6 +11,8 @@ export default Ember.Component.extend({
 			// Fetch reference to store as a
       // property on this component 
       var store = this.get('store');
+      var post = store.peekRecord('newsfeed', this.get('post.shortid'));
+      var self = this;
 
       var comment = store.createRecord('comment',{ 
 				content: this.get('commentContent'), 
@@ -19,7 +21,14 @@ export default Ember.Component.extend({
 			
       comment.save().then(()=>{
       	console.log('save comment')
+
+      	$("#"+this.get('post.shortid')).trigger('click');
+      	self.set('commentContent','');
+      	post.set('commentCount',post.get('commentCount')+1);
       })
+
+      //$(".accordion li").removeClass("active").addClass("active");
+
 		},
 
 		viewComments: function () {
