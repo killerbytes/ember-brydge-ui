@@ -7,7 +7,8 @@ export default Ember.Mixin.create({
   selectedLoc: null,
   filteredLoc: 'Everywhere',
   filteredIndustry: 'My Connections',
-  
+  isCurated: true,
+
   actions: {
     query: function (q) {
       var self = this;

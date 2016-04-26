@@ -14,20 +14,8 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, FilterDropdownListMix
     return this.get('sessionAccount.account');
   },
 
-  model(params) {
+  model: function (params) {
     let ownerid = this.get('session.data.authenticated.user_id');
-    // let query = '';
-    
-    // if(this.get('categoryid') && this.get('geoChannels')) {
-    //   query = this.get('categoryid')+','+this.get('geoChannels');
-    // }else if(this.get('categoryid')){
-    //   query = this.get('categoryid');
-    // }else if(this.get('geoChannels')){
-    //   query = this.get('geoChannels');
-    // }
-
-    // console.log('<<< filtering =>', query);
-    console.log('params =>', params);
     
     return Ember.RSVP.hash({
       newsfeed: this.store.query('newsfeed',params),
@@ -38,22 +26,12 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, FilterDropdownListMix
   actions: {
 
     setLocation: function(location) {
-      // console.log('<<<< send action from controller', categoryid)
-      // console.log('Geo filtering =>', this.get('geoChannels'))
-      // this.set('categoryid',categoryid);
-      // this.refresh();
-
       console.log('location =>', location);
       this.transitionTo('home', { queryParams: { location: location }});
       this.refresh();
     },
 
     setChannel: function(geo) {
-      // console.log('<<< send action from controller', geo);
-      // console.log('Category filtering =>', this.get('categoryid'))
-      // this.set('geoChannels',geo);
-      // this.refresh();
-      
       console.log('<< geo', geo);
       this.transitionTo('home', { queryParams: { channels: geo }});
       this.refresh();
@@ -61,9 +39,11 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, FilterDropdownListMix
 
     showMoreFields: function(tab) {
       console.log('<<< tab', tab);
-      if(tab === 'isCurated') {
+      if(tab === 'curated') {
+        console.log('<<< curated');
         this.controller.set('isCurated',true);
-      }else {
+      }else{
+        console.log('<<< live');
         this.controller.set('isCurated',false);
       }
       

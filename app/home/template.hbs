@@ -97,11 +97,13 @@
 
 	<div class="curated-box clearfix">
 		<label for="toggle_live">
-			<input type="radio" id="toggle_live" name="toggle" value="live"  {{action 'showMoreFields' 'live' preventDefault=false }} checked=!!isCurated>
+			<input type="radio" id="toggle_live" name="toggle" value="live"  {{action 'showMoreFields' 'live' preventDefault=false }} checked={{!isCurated}} >
+
 			<span>Live</span>
 		</label>
 		<label for="toggle_curated">
-			<input type="radio"  id="toggle_curated" name="toggle" value="curated" {{action 'showMoreFields' 'curated' preventDefault=false }} checked=isCurated>
+			<input type="radio"  id="toggle_curated" name="toggle" value="curated" {{action 'showMoreFields' 'curated' preventDefault=false }} checked={{isCurated}}>
+
 			<span>Curated</span>
 		</label>
 		<div class="search-box">

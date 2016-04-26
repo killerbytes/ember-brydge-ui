@@ -18,12 +18,6 @@ export default Ember.Controller.extend(QueryLocationMixin,{
     }
   },
 
-  isCurated: true,
-
-  checkedIsCurated: function(){
-    console.log('isCurated', this.get('isCurated'));
-  }.observes('isCurated'),
-
   actions: {
     
     postFeed: function (content, categories) {
@@ -43,6 +37,10 @@ export default Ember.Controller.extend(QueryLocationMixin,{
 
     postComment: function (content, postId) {
       console.log('post comment =>', comment, postId);
+    },
+
+    setSelected: function (a,b){
+      console.log('setSelected', a,b)
     }
   }
 });
