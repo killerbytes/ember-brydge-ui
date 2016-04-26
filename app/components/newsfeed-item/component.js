@@ -1,6 +1,8 @@
 import Ember from 'ember';
+import ViewCommentsActionMixin from 'web/mixins/view-comments-action';
 
-export default Ember.Component.extend({
+
+export default Ember.Component.extend(ViewCommentsActionMixin,{
   sessionAccount: Ember.inject.service('session-account'),
   sharePost: Ember.inject.service(),
 	ajax: Ember.inject.service(),
@@ -55,7 +57,11 @@ export default Ember.Component.extend({
 
 		},
 		share(post){
-			this.get('sharePost').selectPost(post)
+			this.get('sharePost').selectPost(post);
+		},
+		viewComments: function() {
+			this.viewComments(this.get('post.id'))
+			$("#"+this.get('post.shortid')).trigger('click');
 		}
 	}
 });

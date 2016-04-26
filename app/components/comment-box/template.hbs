@@ -17,7 +17,8 @@
   {{/each}} -->
 
 
-  {{#zf-accordion-menu class="accordion-menu"}}
+
+  {{#zf-accordion-menu class="accordion-menu" multiOpen=true}}
     <li>
       
       <ul class="media-list no-bullet list-lined">
@@ -40,7 +41,7 @@
       </ul>
 
 
-      <a class="more no-arrow"><span class="content-more" disabled=true {{action 'viewComments'}}>View Comments</span><span class="content-less">Hide Comments</span></a>
+      <a class="more no-arrow"><span class="content-more" disabled=true {{action 'viewComments'}} id={{post.id}}>View Comments</span><span class="content-less">Hide Comments</span></a>
     </li>
   {{/zf-accordion-menu}}    
 
