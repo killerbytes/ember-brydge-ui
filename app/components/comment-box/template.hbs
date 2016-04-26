@@ -5,11 +5,14 @@
         <img src= {{avatar}}>
       </div>
       <div class="comment-form">
-        <input type="text" placeholder="Write your comment">
+        {{input type="text" placeholder="Write your comment" enter="comment" value=commentContent}}
       </div>
     </div>
   </div>
 </div>
 <div class="padded post-comments">
-  <a>View Comments</a>    
+  <a>View Comments</a>  
+  {{#each post.comments as |comment|}}  
+  <p>{{comment.content}}</p>
+  {{/each}}
 </div>

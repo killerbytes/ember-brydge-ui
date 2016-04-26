@@ -5,6 +5,25 @@ export default Ember.Controller.extend(QueryLocationMixin,{
   
   sortProps: ['createdAt:desc'],
   newsfeed: Ember.computed.sort('model.newsfeed', 'sortProps'),
+  
+  queryParams: {
+    tab: {
+      refreshModel: true
+    },
+    channels: {
+      refreshModel: true
+    },
+    location: {
+      refreshModel: true
+    }
+  },
+
+  isCurated: true,
+
+  checkedIsCurated: function(){
+    console.log('isCurated', this.get('isCurated'));
+  }.observes('isCurated'),
+
   actions: {
     
     postFeed: function (content, categories) {
@@ -20,6 +39,10 @@ export default Ember.Controller.extend(QueryLocationMixin,{
       }).catch((err) => {
         console.log("Error posting to newsfeed:", err);
       });
+    },
+
+    postComment: function (content, postId) {
+      console.log('post comment =>', comment, postId);
     }
   }
 });
