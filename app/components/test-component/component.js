@@ -7,6 +7,9 @@ export default Ember.Component.extend({
 	isLoading: false,
 	actions: {
 		click: function( targetid ) {
+		},
+		test: function(){
+			this.sendAction('parent')
 		}
 	},
 

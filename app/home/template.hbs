@@ -123,3 +123,31 @@
 </div>
 
 
+
+  {{#zf-reveal id="shareModal" overlay=true class="reveal-popup newsfeed-item"}}
+      <h4>Share this content</h4>
+      <form action="">
+				<div class="content">
+		      {{content-editable class="content-editable" value=postContent placeholder='Get noticed: broadcast opinions, Industry news, and request'}}
+			    <p>{{{sharePost.selected.content}}}</p>
+			    {{#if sharePost.selected.screenshot}}
+			      <div class="post-image">
+			        <img src="{{sharePost.selected.previewImage}}">
+			      </div>
+			      <div class="post-caption">
+			        {{#if sharePost.selected.siteName}}
+			          <div class="subheader">{{sharePost.selected.siteName}}</div>
+			        {{/if}}
+			        <h3>{{sharePost.selected.title}}</h3>
+			      </div>
+			    {{/if}}
+					
+				</div>
+        <div class="reveal-footer text-right">
+          <div class="content">
+            <button {{action "sharePost" }} class="button success">Post</button>
+            <a class="button success" data-close>Cancel</a>
+          </div>
+        </div>
+      </form>
+  {{/zf-reveal}}

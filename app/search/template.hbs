@@ -6,6 +6,44 @@
 		</div>
 	</div>
 </div>
+
+<div class="row">
+  <div class="column">
+    <div class="row column collapse box rounded">
+      <div class="medium-4 columns">
+        <div class="people-search-filter">
+          <a class="button success expanded" data-open="industryModal">Industry</a>
+        </div>    
+      </div>
+      <div class="medium-4 columns">
+        <div class="people-search-filter">
+         {{dropdown-filter
+            items=locations 
+            selected=valueText 
+            query='query'
+            itemSelected='citySelected'
+            template="partials/location-filter"}}
+
+          <a {{action "addCity"}}>{{fa-icon "plus-circle"}}</a>
+          {{#each cities as |item|}}
+            <span class="label">{{fa-icon "close"}} {{item}}</span>
+          {{/each}}
+        </div>    
+      </div>
+      <div class="medium-4 columns">
+        <div class="people-search-filter">
+          <select>
+            <option>Industry</option>
+          </select>
+          {{fa-icon "plus-circle"}}
+          <span class="label">{{fa-icon "close"}} Fast Moving Consumer Goods</span>
+        </div>    
+      </div>
+    </div>
+  </div>
+</div>
+
+
 <div class="row">
   <div class="medium-8 columns">
   	<div class="box rounded">
@@ -37,12 +75,14 @@
 			</ul>
 
   	</div>
-
+          <a class="button" data-open="industryModal">Industry</a>
   </div>
+
   <div class="medium-4 columns sidebar">
   		<div class="box rounded">
   			
   			<div class="people-search-filter">
+          <a class="button" data-open="industryModal">Industry</a>
   				<select>
   					<option>Industry</option>
   				</select>
@@ -71,3 +111,19 @@
 </div>
 
 
+
+
+{{#zf-reveal id="industryModal" overlay=true class="reveal-popup"}}
+    <h4>Industry</h4>
+    <form action="">
+      <div class="content">        
+    
+      </div>
+      <div class="reveal-footer text-right">
+        <div class="content">
+          <button class="button success">Done</button>
+          <a class="button success" data-close>Cancel</a>
+        </div>
+      </div>
+    </form>
+{{/zf-reveal}}

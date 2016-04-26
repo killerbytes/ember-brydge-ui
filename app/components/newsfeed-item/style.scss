@@ -27,6 +27,7 @@
 	.media{
 		padding: 0 20px 30px;
 	}
+	
 	.media-object{
 		margin-bottom: 10px;
 		.name{
@@ -74,6 +75,8 @@
 		padding: 3px 20px;
 		color: #717171;	
 		font-size: 12px;
+		border-top: 1px solid $border-color;
+		border-bottom: 1px solid $border-color;
 		a{
 			margin-right: 5px;
 		}

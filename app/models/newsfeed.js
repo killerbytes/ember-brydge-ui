@@ -20,5 +20,6 @@ export default DS.Model.extend({
   }),
   vote: DS.belongsTo('vote',{async: true}),
   commentCount: DS.attr(),
+  sharedPost: DS.belongsTo('newsfeed'),
   comments: DS.hasMany('comment',{async: true})
 });

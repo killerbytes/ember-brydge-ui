@@ -1,10 +1,9 @@
-
 {{input value=selected.text key-up="onchange" focus-in="open"}}
 
 <div class="wrapper {{if isOpen 'is-open'}}">
 	<ul class="no-bullet shadowed">
 	{{#each items as |item|}}
-		<li {{action "select" item preventDefault=false}}>{{item.city}},{{item.country}},{{item.state}}</li>
+		<li {{action "select" item preventDefault=false}}>{{item.city}}, {{item.country}}, {{item.state}}</li>
 	{{/each}}
 	</ul>
 	<a class="button success expanded" data-open="locationModal">Can't find your city?</a>

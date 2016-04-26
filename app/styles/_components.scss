@@ -315,8 +315,20 @@ ul.list-lined{
 
 .people-search-filter{
 	@extend .padding;
-	border-bottom: 1px solid $border-color;
-	min-height: 115px;
+	border-left: 1px solid $border-color;
+	// min-height: 115px;
+	.dropdown-select{
+		display: inline-block;
+		width: 80%;
+		margin-bottom: 10px;
+		input{
+			@extend .rounded;
+			font-size: 14px;
+			height: auto;
+			padding: 6px 10px;
+			border: 1px solid $brydge-blue;
+		}
+	}
 	select{
 		width: 80%;
 		font-size: 14px;

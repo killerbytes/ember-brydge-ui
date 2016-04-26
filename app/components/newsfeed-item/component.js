@@ -2,6 +2,7 @@ import Ember from 'ember';
 
 export default Ember.Component.extend({
   sessionAccount: Ember.inject.service('session-account'),
+  sharePost: Ember.inject.service(),
 	ajax: Ember.inject.service(),
 	classNames: ['newsfeed-item', 'box', 'rounded'],
 	menuName: Ember.computed('post.id', function(){
@@ -52,6 +53,9 @@ export default Ember.Component.extend({
 				break;
 			}
 
+		},
+		share(post){
+			this.get('sharePost').selectPost(post)
 		}
 	}
 });

@@ -11,6 +11,7 @@ export default DS.Model.extend({
   user: DS.belongsTo('user'),
   profile: DS.belongsTo('profile'),
   categories: DS.attr(),
+  sharedPostid: DS.attr(),
   previewImage: Ember.computed('image', 'screenshot', function(){
     if (this.get('image') === undefined) return `${this.get('screenshot') || 'assets/undefined.png'}`;
     return `${this.get('image') || 'assets/undefined.png'}`;

@@ -1,65 +1,77 @@
-
-
-  <div class="padded">
-    <div class="media-object">
-      <div class="media-object-section">
-        <div class="thumbnail">
-        <img src= {{post.user.profile.avatarUrl}}>
-        </div>
-      </div>
-      <div class="media-object-section">
-        <div class="name">
-          {{#link-to "profile" post.user.username}}
-            <strong>{{post.user.name}}</strong>
-          {{/link-to}}
-        </div>
-        <div class="position">{{post.user.profile.currentTitle}}</div>
-        <p class="timestamp">{{#link-to 'post' post.user.id post.id }}{{postDateFormat post.updatedAt}}{{/link-to}}</p>
+<div class="padded">
+  <div class="media-object">
+    <div class="media-object-section">
+      <div class="thumbnail">
+      <img src= {{post.user.profile.avatarUrl}}>
       </div>
     </div>
+    <div class="media-object-section">
+      <div class="name">
+        {{#link-to "profile" post.user.username}} 
+          <strong>{{post.user.name}}</strong>
+        {{/link-to}}
+        {{#if post.sharedPost}}
+          {{#unless shared}}
+            shared a post
+          {{/unless}}
+        {{/if}}
+
+      </div>
+      <div class="position">{{post.user.profile.currentTitle}}</div>
+      <p class="timestamp">{{#link-to 'post' post.user.id post.id }}{{postDateFormat post.updatedAt}}{{/link-to}}</p>
+    </div>
+  </div>
+
+  {{#unless shared }}
     <div class="menu-wrapper">
-
       <a data-toggle="dd-post-menu-{{post.id}}"><i class="icons ellipsis"></i></a>      
-
     </div>
     {{#zf-dropdown id=menuName closeOnClick=true class="post-menu-dropdown"}}
       <ul class="menu">
         <li><a href="">Delete Post</a></li>
       </ul>
     {{/zf-dropdown}}
-
-  </div>
-
-  <div class="media border-b">
-
-    <p>{{{post.content}}}</p>
-    {{#if post.screenshot}}
-      <div class="post-image">
-        <img src="{{post.previewImage}}">
-      </div>
-      <div class="post-caption">
-        {{#if post.siteName}}
-          <div class="subheader">{{post.siteName}}</div>
-        {{/if}}
-        <h3>{{title}}</h3>
-      <!-- <p>{{post.summary}}</p> -->
-      </div>
-    {{/if}}
-  </div>
-  
-
-<div class="padded post-actions border-b">
-  <div class="float-left"> 
-
-    <a {{action "vote" "up"}}>Upvote</a> <span> {{post.vote.upVotes}}</span>
-    <a {{action "vote" "down"}}>Downvote</a> 
-  </div>
-  <div class="float-right">
-    <a {{action "focusInput"}}>Comment</a><span>{{post.commentCount}}</span>
-    <a>Share</a><span>99</span>
-  </div>
+  {{/unless}}
 </div>
 
-<div class="post-footer">
-    {{comment-box avatar=avatar post=post}}
+
+<div class="media">
+
+  <p>{{{post.content}}}</p>
+  {{#if post.screenshot}}
+    <div class="post-image">
+      <img src="{{post.previewImage}}">
+    </div>
+    <div class="post-caption">
+      {{#if post.siteName}}
+        <div class="subheader">{{post.siteName}}</div>
+      {{/if}}
+      <h3>{{title}}</h3>
+    </div>
+  {{/if}}
+
+  {{#if post.sharedPost }}
+    {{#unless shared }}
+        {{newsfeed-item post=post.sharedPost shared=true class="shared-post"}}
+    {{/unless}}
+  {{/if}}
 </div>
+
+
+{{#unless shared }}
+  <div class="padded post-actions">
+    <div class="float-left"> 
+
+      <a {{action "vote" "up"}}>Upvote</a> <span> {{post.vote.upVotes}}</span>
+      <a {{action "vote" "down"}}>Downvote</a> 
+    </div>
+    <div class="float-right">
+      <a {{action "focusInput"}}>Comment</a><span>{{post.commentCount}}</span>
+      <a {{action "share" post}} data-open="shareModal">Share</a><span>99</span>
+    </div>
+  </div>
+
+  <div class="post-footer">
+      {{comment-box avatar=avatar post=post}}
+  </div>
+{{/unless}}

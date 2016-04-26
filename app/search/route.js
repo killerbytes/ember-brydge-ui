@@ -1,6 +1,13 @@
 import Ember from 'ember';
 
 export default Ember.Route.extend({
+	ajax: Ember.inject.service(),
+  model: function (params) {    
+    return Ember.RSVP.hash({
+      categories: this.get('ajax').request('http://api.brydge.me/categories/menu')
+    })
+  },
+
 	// setupController: function(controller, post) {
 	// 	this._super(controller, post);
 	// 	this.controllerFor('posts').set('currentPost', post);
