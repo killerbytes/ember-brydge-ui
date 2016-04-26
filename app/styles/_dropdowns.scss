@@ -43,7 +43,7 @@
   border-color: rgba(0, 0, 0, 0) rgba(0, 0, 0, 0) #EEE rgba(0, 0, 0, 0);
 }
 
-#dd-menu{
+#dd-menu, .dd-menu{
   width: 150px;
   ul.menu{
     padding: 0;
@@ -140,4 +140,10 @@
 
 #dd-public-options{
   width: 200px;
+}
+
+.post-menu-dropdown{
+  @extend .dd-menu;
+  margin-right: 5px; 
+  border-top: 1px solid $border-color;
 }

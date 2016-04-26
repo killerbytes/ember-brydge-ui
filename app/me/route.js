@@ -4,6 +4,7 @@ import GeoChannelFilterMixin from 'web/mixins/geo-channel-filter';
 
 export default Ember.Route.extend(AuthenticatedRouteMixin,{
   session: Ember.inject.service('session'),
+  notification: Ember.inject.service(),
   beforeModel(transition, params) {
     this._super(transition, params);
     return this.get('sessionAccount.account'); // needed to make sure sessionAccount is full realized
@@ -11,7 +12,8 @@ export default Ember.Route.extend(AuthenticatedRouteMixin,{
 
   model() {
     let userid = this.get('session.data.authenticated.user_id');
-    
+    this.get('notification').requestConnections();
+
     return Ember.RSVP.hash({
       account: this.store.findRecord('user', userid),
       posts: this.store.findAll('post', userid),

@@ -49,17 +49,16 @@
 		font-size: 12px;
 	}
 
-	.work-history, .academia{
-		.name{
-			margin-bottom: 5px;
-		}
-	}
 	.languages{
 		h3{
 			margin-bottom: 0;
 		}
 		h3+span{
 			text-transform: uppercase;
+		}
+		ul li{
+			min-height: auto;
+			padding-bottom: 1rem;
 		}
 	}
 	.compliments{
@@ -86,6 +85,7 @@
 		}
 		.col:not(:last-child){
 			padding-right: 1rem;
+			width: 44%;
 		}
 		.progress{
 			position: relative;

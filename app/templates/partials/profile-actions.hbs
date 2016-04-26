@@ -2,26 +2,26 @@
   <div class="profile-actions {{if isCurrentUser 'connected'}} {{if connected 'connected' }}">
     {{#if isCurrentUser}}
     <div class="table-cell">
-      {{link-to "Edit Profile" "me.edit" model.profile.id class="button large expanded"}}
+      {{link-to "Edit Profile" "me.edit" model.profile.id class="button large rounded expanded"}}
     </div>
     <div class="table-cell">
-      <a class="button large expanded">Settings</a>
+      <a class="button large rounded expanded">Settings</a>
     </div>
     {{else}}
 
     <div class="table-cell cell-connected">
-    {{spinning-button clicked="clickedConnect" value="CONNECT" class="button large connect success"}}
+    {{spinning-button clicked="clickedConnect" value="CONNECT" class="button large rounded connect success"}}
     </div>
     <div class="table-cell">
-      <a class="button large expanded">MESSAGE</a>
+      <a class="button large rounded expanded">MESSAGE</a>
     </div>
     <div class="table-cell">
       {{ ask-dropdown store=store model=model action='goToAsk'}}      
     </div>
     {{/if}}
     <div class="table-cell">
-      <a class="button large expanded" data-toggle="dd-public-options">
-        ...
+      <a class="button large rounded expanded" data-toggle="dd-public-options">
+        <i class="icons ellipsis"></i>
         <div class="wrapper">
           <div class="triangle triangle-gray"></div>
         </div>

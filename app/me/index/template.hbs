@@ -28,7 +28,7 @@
 <div class="row column">
 
 
-  <div class="medium-6 float-left box profile profile-bar">
+  <div class="medium-6 float-left box profile profile-bar rounded">
     <div class="position">{{ model.profile.currentTitle}}</div>
     <strong class="text-upper">{{model.profile.currentCompany}}</strong>
 
@@ -75,7 +75,7 @@
     <div class="box rounded question-box">
       <div class="columns wrapper clearfix">
 
-        {{link-to model.lastestQuestion.from.content.name "profile" model.lastestQuestion.from.content.username }} asked {{link-to model.lastestQuestion.to.content.name "profile" model.lastestQuestion.to.content.username }}
+        {{link-to model.lastestQuestion.from.content.name "profile" model.lastestQuestion.from.content.username class="user"}} asked {{link-to model.lastestQuestion.to.content.name "profile" model.lastestQuestion.to.content.username class="user"}}
 
         <h2>{{model.lastestQuestion.content}}</h2>
 
@@ -116,12 +116,12 @@
         <li>
           <div class="title">Thank you for</div>
           <p>your excellent work in making the Evian launch event a success.</p>            
-          <span>Posted by</span> <a>Nikhil Charan</a>
+          <span>Posted by</span> <a class="user">Nikhil Charan</a>
         </li>
         <li>
           <div class="title">Good job on</div>
           <p>exceeding your sales target this quarter. You're a star!</p>            
-          <span>Posted by</span> <a>Nikhil Charan</a>
+          <span>Posted by</span> <a class="user">Nikhil Charan</a>
         </li>
       </ul>   
       <div class="box-footer">

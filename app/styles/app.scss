@@ -78,6 +78,9 @@ a:not(.hover){
 		display: none;
 	}
 }
+a.user{
+	font-weight: bold;
+}
 a.more.no-arrow:after{
 	display: none;
 }

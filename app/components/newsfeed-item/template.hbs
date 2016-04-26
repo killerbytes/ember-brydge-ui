@@ -17,13 +17,15 @@
         <p class="timestamp">{{#link-to 'post' post.user.id post.id }}{{postDateFormat post.updatedAt}}{{/link-to}}</p>
       </div>
     </div>
-    <div class="menu">
+    <div class="menu-wrapper">
 
       <a data-toggle="dd-post-menu-{{post.id}}"><i class="icons ellipsis"></i></a>      
 
     </div>
-    {{#zf-dropdown id=menuName closeOnClick=true class="dropdown-flat item-menu-dropdown"}}
-      <button class="button expanded">Delete Post</button>
+    {{#zf-dropdown id=menuName closeOnClick=true class="post-menu-dropdown"}}
+      <ul class="menu">
+        <li><a href="">Delete Post</a></li>
+      </ul>
     {{/zf-dropdown}}
 
   </div>

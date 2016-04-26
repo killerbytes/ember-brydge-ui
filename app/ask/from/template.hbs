@@ -3,7 +3,7 @@
 	<div class="box rounded question-box">
 	  <div class="clearfix">
 
-	    {{link-to q.from.content.name "profile" q.from.content.username }} asked {{link-to q.to.content.name "profile" q.to.content.username }}
+	    {{link-to q.from.content.name "profile" q.from.content.username class="user" }} asked {{link-to q.to.content.name "profile" q.to.content.username class="user"}}
 	    <h2>{{q.content}}</h2>
 	    {{#zf-accordion-menu class="accordion-menu"}}
 	      <li>
