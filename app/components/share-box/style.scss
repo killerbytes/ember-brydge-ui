@@ -1,4 +1,4 @@
-.share-box{
+.share-boxxx{
 	.thumbnail{
 		float: left;
 	}
@@ -90,9 +90,9 @@
 	.broadcast-list{
 		@extend .dim-text;
 		padding: 5px;
-		// padding-bottom: 0;
+		padding-bottom: 0;
 		border-top: 1px solid $border-color;
-		border-bottom: 1px solid $border-color;
+		// border-bottom: 1px solid $border-color;
 	}
 
 }
