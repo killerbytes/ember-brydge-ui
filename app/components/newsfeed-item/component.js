@@ -60,8 +60,9 @@ export default Ember.Component.extend(ViewCommentsActionMixin,{
 			this.get('sharePost').selectPost(post);
 		},
 		viewComments: function() {
+			console.log('newsfeed-item => viewComments')
 			this.viewComments(this.get('post.id'))
-			$("#"+this.get('post.shortid')).trigger('click');
+			$("#"+this.get('post.id')).trigger('click');
 		}
 	}
 });

@@ -7,8 +7,8 @@ export default Ember.Component.extend(ViewCommentsActionMixin,{
 
 	actions:{
 		comment: function() {
-			console.log('Key pressed =>', this.get('commentContent'), this.get('post.shortid'))
-			this.sendAction('postComment', this.get('commentContent'), this.get('post.shortid'));
+			console.log('Key pressed =>', this.get('commentContent'), this.get('post.id'))
+			this.sendAction('postComment', this.get('commentContent'), this.get('post.id'));
 
 			// Fetch reference to store as a
       // property on this component 
