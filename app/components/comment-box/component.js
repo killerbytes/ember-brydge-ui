@@ -20,6 +20,20 @@ export default Ember.Component.extend({
       comment.save().then(()=>{
       	console.log('save comment')
       })
+		},
+
+		viewComments: function () {
+			console.log('view comments', this.get('post.shortid'));
+
+			var store = this.get('store');
+
+			var post = store.peekRecord('newsfeed', this.get('post.shortid'));
+
+
+			store.query('comment',this.get('post.shortid')).then((comments)=>{
+				console.log('<<<<<<', comments)
+				post.set('comments', comments);
+			})
 		}
 	}
 });
