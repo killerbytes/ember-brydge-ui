@@ -42,7 +42,7 @@
 					 	 myCompany=model.myCompany
 					 	 myIndustries=model.myIndustries
 					 	 myConnections=model.myConnections
-					 	 select='setGeoChannel'
+					 	 select='setChannel'
 					 	 template="partials/select-industry-menu"}}
 				</div>		
 			</div>
@@ -56,7 +56,7 @@
 					 	 selected=selectedLoc
 					 	 filtered=filteredLoc
 					 	 query='query'
-					 	 select='setCategory'
+					 	 select='setLocation'
 					 	 target=this
 					 	 myLocation=model.myLocation
 					 	 global=model.global
@@ -97,11 +97,11 @@
 
 	<div class="curated-box clearfix">
 		<label for="toggle_live">
-			<input type="radio" id="toggle_live" name="toggle" value="live">
+			<input type="radio" id="toggle_live" name="toggle" value="live"  {{action 'showMoreFields' 'live' preventDefault=false }} checked=!!isCurated>
 			<span>Live</span>
 		</label>
 		<label for="toggle_curated">
-			<input type="radio"  id="toggle_curated" name="toggle" checked value="curated">
+			<input type="radio"  id="toggle_curated" name="toggle" value="curated" {{action 'showMoreFields' 'curated' preventDefault=false }} checked=isCurated>
 			<span>Curated</span>
 		</label>
 		<div class="search-box">
