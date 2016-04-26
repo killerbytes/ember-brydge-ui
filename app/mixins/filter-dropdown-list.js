@@ -1,9 +1,35 @@
 import Ember from 'ember';
+import GetIndustryFromCodeMixin from 'web/mixins/get-industry-from-code';
 
-export default Ember.Mixin.create({
+
+
+export default Ember.Mixin.create(GetIndustryFromCodeMixin,{
 	
-	setupController: function(controller, model) {
+	setupController: function(controller, model, transition) {
     let _this = this;
+
+    console.log('<< queryParams', transition.queryParams);
+
+    var isCurated = controller.get('isCurated');
+    var selectedLoc = controller.get('selectedLoc');
+    var filteredLoc = controller.get('filteredLoc');
+    var filteredIndustry = controller.get('filteredIndustry');
+
+    console.log('isCurated =>', isCurated);
+    console.log('selectedLoc =>', selectedLoc);
+    console.log('filteredLoc =>', filteredLoc);
+    console.log('filteredIndustry =>', filteredIndustry);
+
+   
+
+    if( !_.isEmpty(transition.queryParams) ) {
+      if(transition.queryParams.location) controller.set('filteredLoc',transition.queryParams.location);
+      if(transition.queryParams.tab) controller.set('isCurated',(transition.queryParams.tab === 'curated'));
+      if(transition.queryParams.channels) {
+        var industry =  this.getIndustryName(model.profile, transition.queryParams.channels);
+        controller.set('filteredIndustry',industry);
+      }
+    }
     
     model.global = {
       id: '',
