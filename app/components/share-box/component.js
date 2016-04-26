@@ -1,5 +1,5 @@
 import Ember from 'ember';
-import _ from 'lodash/lodash';
+//import _ from 'lodash/lodash';
 
 export default Ember.Component.extend({
 	classNames: ['share-box', 'mb'],
@@ -28,13 +28,13 @@ export default Ember.Component.extend({
         this.categoriesLabels.push(text);
       }else{
         console.log('remove');
-        this.categories = _.remove(this.categories, function(n) {
-          return n !== value;
-        });
+        // this.categories = _.remove(this.categories, function(n) {
+        //   return n !== value;
+        // });
 
-        this.categoriesLabels = _.remove(this.categoriesLabels, function(n) {
-          return n !== text;
-        });
+        // this.categoriesLabels = _.remove(this.categoriesLabels, function(n) {
+        //   return n !== text;
+        // });
       }
       
       //this.broadcastList =  this.categories.join(' ');
