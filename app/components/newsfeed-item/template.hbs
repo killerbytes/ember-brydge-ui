@@ -36,8 +36,13 @@
 
 
 <div class="media">
-
-  <p>{{{post.content}}}</p>
+  <p>
+    {{#unless shared }}
+      {{{post.content }}}
+    {{else}}
+      {{{post.content.content }}}
+    {{/unless}}
+  </p>
   {{#if post.screenshot}}
     <div class="post-image">
       <img src="{{post.previewImage}}">
