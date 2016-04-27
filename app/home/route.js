@@ -5,7 +5,6 @@ import FilterDropdownListMixin from 'web/mixins/filter-dropdown-list';
 
 export default Ember.Route.extend(AuthenticatedRouteMixin, FilterDropdownListMixin, {
   session: Ember.inject.service('session'),
-
   categoryid: '',
   geoChannels: '',
 
@@ -84,5 +83,6 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, FilterDropdownListMix
        this.controller.set('selectedLoc',filtered);
        //this.set('selectedLoc', filtered);
     }
+
   }
 });

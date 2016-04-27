@@ -2,17 +2,18 @@ import Ember from 'ember';
 import AjaxService from 'ember-ajax/services/ajax';
 
 export default Ember.Route.extend({
-	ajax: Ember.inject.service(),
+  ajax: Ember.inject.service('ajax-api'),
   model: function (params) {    
     return Ember.RSVP.hash({
-      categories: this.get('ajax').request('http://api.brydge.me/categories/menu')
+      categories: this.get('ajax').request('categories/menu')
     })
   },
 
-	// setupController: function(controller, post) {
-	// 	this._super(controller, post);
-	// 	this.controllerFor('posts').set('currentPost', post);
-	// }
+	// setupController: function(controller, model) {
+	// 	this._super(...arguments);
+	// 	console.log(model)
+	// 	this.setProperties(model);
+	// },
 	selected: null,
 	// model: function(){
 	// 	// return this.store.findAll('newsfeed');

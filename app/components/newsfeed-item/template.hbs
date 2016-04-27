@@ -15,7 +15,6 @@
             shared a post
           {{/unless}}
         {{/if}}
-
       </div>
       <div class="position">{{post.user.profile.currentTitle}}</div>
       <p class="timestamp">{{#link-to 'post' post.user.id post.id }}{{postDateFormat post.updatedAt}}{{/link-to}}</p>
@@ -55,11 +54,12 @@
     </div>
   {{/if}}
 
-  {{#if post.sharedPost }}
-    {{#unless shared }}
-        {{newsfeed-item post=post.sharedPost shared=true class="shared-post"}}
-    {{/unless}}
-  {{/if}}
+  {{#unless shared }}
+
+    {{#if post.sharedPost }}
+      {{newsfeed-item post=post.sharedPost shared=true class="shared-post"}}
+    {{/if}}
+  {{/unless}}
 </div>
 
 {{#unless shared }}
@@ -70,7 +70,7 @@
     </div>
     <div class="float-right">
       <a {{action "viewComments"}}>Comment</a><span>{{post.commentCount}}</span>
-      <a {{action "share" post}} data-open="shareModal">Share</a><span>99</span>
+      <a {{action "share" post }} data-open="shareModal">Share</a><span>99</span>
     </div>
   </div>
   <div class="post-footer">

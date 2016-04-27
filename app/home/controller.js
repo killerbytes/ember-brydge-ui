@@ -2,6 +2,7 @@ import Ember from 'ember';
 import QueryLocationMixin from 'web/mixins/query-locations';
 
 export default Ember.Controller.extend(QueryLocationMixin,{
+  flashMessages: Ember.inject.service(),
   sharePost: Ember.inject.service(),
   sortProps: ['createdAt:desc'],
   newsfeed: Ember.computed.sort('model.newsfeed', 'sortProps'),
@@ -41,19 +42,12 @@ export default Ember.Controller.extend(QueryLocationMixin,{
     setSelected: function (a,b){
       console.log('setSelected', a,b)
     },
-    sharePost: function(){
-      // console.log('sharePost', this.get('sharePost.selected.id'), this.get('postContent'));
-      this.store.createRecord('post', {
-        content: this.get('postContent'),
-        categories: [],
-        sharedPostid: this.get('sharePost.selected.id')
-      }).save().then((res) => {
-        console.log(res)
+    sharePost(cb){
+      this.get('sharePost').submit().then((res)=>{
         var newsfeed = this.get('model.newsfeed');
-        newsfeed.pushObject(res._internalModel)
-
-      }).catch((err) => {
-        console.log("Error posting to newsfeed:", err);
+        newsfeed.pushObject(res._internalModel);
+        Ember.get(this, 'flashMessages').success('Post Shared!');     
+        cb();
       });
     }
 

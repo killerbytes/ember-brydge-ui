@@ -150,16 +150,11 @@
       <div class="columns">
         <p>
           {{#each model.interests as |item index|}}
-            {{item.content}},
-          {{/each}}
-
-          {{#each model.interests as |item index|}}
             {{#if index}}
-            , {{item.content}}
+              , {{item.content}}
             {{else}}
               {{item.content}}
             {{/if}}
-
           {{/each}}          
         </p>
       </div>

@@ -1,0 +1,56 @@
+{{#zf-reveal id="shareModal" overlay=true class="reveal-popup newsfeed-item"}}
+  <h4>Share this content</h4>
+  <form action="">
+    <div class="content">
+      {{content-editable class="content-editable" value=value placeholder='Get noticed: broadcast opinions, Industry news, and request'}}
+      <p>{{{model.content}}}</p>
+      {{#if model.screenshot}}
+        <div class="post-image">
+          <img src="{{model.previewImage}}">
+        </div>
+        <div class="post-caption">
+          {{#if model.siteName}}
+            <div class="subheader">{{model.siteName}}</div>
+          {{/if}}
+          <h3>{{model.title}}</h3>
+        </div>
+      {{/if}}      
+    </div>
+    <div class="reveal-footer text-right">
+      <div class="content">
+
+        <div class="button-wrapper text-left">
+          <a class="button dropdown-button" data-toggle="dd-select-channel-post-sharer">
+            Select Channel
+            <i class="icons caret"></i>
+          </a>
+          {{#zf-dropdown id="dd-select-channel-post-sharer" closeOnClick=true}}
+            <section>
+              <strong>Relevant Industry Channels</strong>
+              <ul class="no-bullet">
+                <li>{{ profile.industry }} 
+                {{action-checkbox value=profile.industryId text=profile.industry action="checkboxChanged"}}</li>
+                <li>{{ profile.occupationOne }} 
+                {{action-checkbox value=profile.occupationOneId text=profile.occupationOne action="checkboxChanged"}}</li>
+                <li>{{ profile.occupationTwo }} 
+                {{action-checkbox value=profile.occupationTwoId text=profile.occupationTwo action="checkboxChanged"}}</li>
+              </ul>
+            </section>
+            <hr>
+            <section>
+              <strong>My Connections</strong>
+              <ul class="no-bullet">
+                <li>Only Broadcast to My Connections <input type="checkbox" selected></li>
+              </ul>     
+            </section>
+          {{/zf-dropdown}}
+        </div>
+
+        <button {{action "sharePost" }} class="button success">Share</button>
+        <a class="button success" data-close>Cancel</a>
+      </div>
+    </div>
+  </form>
+{{/zf-reveal}}
+
+

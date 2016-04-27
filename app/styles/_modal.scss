@@ -59,7 +59,23 @@
 	}
 
 }
-#answerFormModal{
+#shareModal{
+	width: 520px;
+	overflow: visible;
+
+	.button-wrapper{
+		display: inline-block;
+	}
+	.dropdown-pane{
+		right: 0 !important;
+		left: auto !important;
+	}
+	.dropdown-button{
+		padding-right: 30px;
+		.icons{
+			top: 0;
+		}
+	}
 }
 
 #locationModal{

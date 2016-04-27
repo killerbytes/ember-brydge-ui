@@ -9,36 +9,53 @@
 
 <div class="row">
   <div class="column">
-    <div class="row column collapse box rounded">
-      <div class="medium-4 columns">
-        <div class="people-search-filter">
-          <a class="button success expanded" data-open="industryModal">Industry</a>
-        </div>    
+    <div class="box rounded">
+      <div class="row column collapse border-b">
+        <div class="medium-4 columns">
+          <div class="people-search-filter-column">
+            <a class="button success expanded" data-open="industryModal">Industry</a>
+          </div>    
+        </div>
+        <div class="medium-4 columns">
+          <div class="people-search-filter-column">
+           {{dropdown-filter
+              items=locations 
+              selected=valueText 
+              query='query'
+              itemSelected='citySelected'
+              template="partials/location-filter"}}
+      
+            <a {{ action "addCity" }}>{{fa-icon "plus-circle"}}</a>
+          </div>    
+        </div>
+        <div class="medium-4 columns">
+          <div class="people-search-filter-column">
+            {{input value=keyword }}
+            <a {{ action "addKeyword" }}>{{fa-icon "plus-circle"}}</a>            
+          </div>    
+        </div>      
       </div>
-      <div class="medium-4 columns">
-        <div class="people-search-filter">
-         {{dropdown-filter
-            items=locations 
-            selected=valueText 
-            query='query'
-            itemSelected='citySelected'
-            template="partials/location-filter"}}
-
-          <a {{action "addCity"}}>{{fa-icon "plus-circle"}}</a>
-          {{#each cities as |item|}}
-            <span class="label">{{fa-icon "close"}} {{item}}</span>
-          {{/each}}
-        </div>    
+      <div class="columns medium-10 filter-selections">
+        <ul class="menu">
+        {{#each cities as |item|}}
+          <li><span class="label label-item"><a>{{fa-icon "close"}}</a> {{item}}</span></li>
+        {{/each}}
+        </ul>
+        <ul class="menu">
+          <li><span class="label label-item"><a>{{fa-icon "close"}}</a> Fast Moving Consumer Goods</span></li>
+          <li><span class="label label-item"><a>{{fa-icon "close"}}</a> Fast Moving Consumer Goods</span></li>
+        </ul>      
+        <ul class="menu">
+        {{#each keywords as |item|}}
+          <li><span class="label label-item"><a>{{fa-icon "close"}}</a> {{item}}</span></li>
+        {{/each}}
+        </ul>
       </div>
-      <div class="medium-4 columns">
-        <div class="people-search-filter">
-          <select>
-            <option>Industry</option>
-          </select>
-          {{fa-icon "plus-circle"}}
-          <span class="label">{{fa-icon "close"}} Fast Moving Consumer Goods</span>
-        </div>    
-      </div>
+      <div class="columns medium-2">
+        <div>
+          <a href="" class="success button expanded">Refresh</a>
+        </div>
+      </div>        
     </div>
   </div>
 </div>
@@ -79,37 +96,11 @@
   </div>
 
   <div class="medium-4 columns sidebar">
-  		<div class="box rounded">
-  			
-  			<div class="people-search-filter">
-          <a class="button" data-open="industryModal">Industry</a>
-  				<select>
-  					<option>Industry</option>
-  				</select>
-	  			{{fa-icon "plus-circle"}}
-  				<span class="label">{{fa-icon "close"}} Fast Moving Consumer Goods</span>
-  				<span class="label">{{fa-icon "close"}} Food & Beverages</span>
-  			</div>
-  			<div class="people-search-filter">
-  				<select>
-  					<option>Industry</option>
-  				</select>
-	  			{{fa-icon "plus-circle"}}
-  				<span class="label">{{fa-icon "close"}} Fast Moving Consumer Goods</span>
-  			</div>
-  			<div class="people-search-filter">
-  				<select>
-  					<option>Industry</option>
-  				</select>
-	  			{{fa-icon "plus-circle"}}
-  				<span class="label">{{fa-icon "close"}} Fast Moving Consumer Goods</span>
-  				<span class="label">{{fa-icon "close"}} Food & Beverages</span>
-  			</div>
-  			<a class="footer-button success button expanded">REFINE SEARCH</a>
-  		</div>
   </div>
 </div>
 
+<ul>
+</ul>
 
 
 
@@ -127,3 +118,69 @@
       </div>
     </form>
 {{/zf-reveal}}
+
+
+
+{{#zf-tabs class="hide"}}
+  <li class="tabs-title is-active"><a href="#root">Root</a></li>
+  {{#each model.categories as |item|}}
+      <li class="tabs-title"><a href="#{{item.code}}">{{item.name}}</a></li>
+      {{#each item.categories as |category|}}
+        <li class="tabs-title"><a href="#{{category.code}}">{{category.name}}</a></li>
+      {{/each}}
+  {{/each}}  
+{{/zf-tabs}}
+
+<div class="tabs-content" data-tabs-content="example-tabs">
+
+  <div class="tabs-panel is-active" id="root">
+    <p>
+      <strong>Sectors</strong>
+    </p>
+    <ul class="no-bullet">
+      {{#each model.categories as |item|}}
+        <li><a {{action "goto" item.code }}>{{item.name}}</a></li>
+      {{/each}}
+    </ul>
+  </div>
+
+  {{#each model.categories as |item|}}
+    <div class="tabs-panel" id="{{item.code}}">
+      <a {{action "goto" "root" }} class="button">Back</a>
+      <p>
+        <strong>{{item.name}}</strong>
+      </p>
+      <p>
+        <ul class="no-bullet">
+        {{#each item.categories as |item|}}
+          <li><a {{action "goto" item.code }}>{{item.name}}</a></li>
+        {{/each}}
+        </ul>
+      </p>
+    </div>
+
+    {{#each item.categories as |category|}}
+      <div class="tabs-panel" id="{{category.code}}">
+        <a {{action "goto" item.code }} class="button">Back</a>
+        <p>
+          <strong>{{category.name}}</strong>
+        </p>
+        <p>          
+          <ul class="no-bullet">
+          {{#each category.industries as |industry|}}
+            <li>
+              <label for="{{industry.data.code}}"> 
+                <input type="checkbox"
+                 id="{{industry.data.code}}"
+                 {{action "selected" industry on="change"}}/>            
+                 {{industry.data.subIndustry}}
+              </label>
+            </li>
+          {{/each}}
+          </ul>
+        </p>
+      </div>
+
+    {{/each}}
+  {{/each}}
+</div>

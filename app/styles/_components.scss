@@ -312,53 +312,38 @@ ul.list-lined{
 		margin: 0;
 	}
 }
-
 .people-search-filter{
-	@extend .padding;
 	border-left: 1px solid $border-color;
-	// min-height: 115px;
+}
+.people-search-filter-column{
+	@extend .padding;
 	.dropdown-select{
 		display: inline-block;
-		width: 80%;
-		margin-bottom: 10px;
+		width: 85%;
+		margin-bottom: 0;
 		input{
-			@extend .rounded;
-			font-size: 14px;
-			height: auto;
-			padding: 6px 10px;
-			border: 1px solid $brydge-blue;
+			width: 100%;
 		}
 	}
-	select{
-		width: 80%;
+	
+	input{
+		@extend .rounded;
+		width: 85%;
 		font-size: 14px;
 		height: auto;
 		border: 1px solid $brydge-blue;
-		margin-bottom: 10px;
+		margin-bottom: 0;
 		padding: 6px 10px;
+		display: inline-block;
 	}
 	.fa-plus-circle{
 		color: $brydge-blue;
 		font-size: 30px;
 		float: right;
 	}
-	.label{
-		background-color: $panel-color;
-		position: relative;
-		padding-left: 25px;
-		font-size: 12px;
-		margin-bottom: 5px;
-		.fa-close{
-			background-color: $brydge-blue;
-			color: #FFF;
-			position: absolute;
-			left: 0;
-			top: 0;
-			font-size: 16px;
-			padding: 2px 3px;
-		}
-	}
 }
+
+
 
 .footer-button{
 	text-transform: uppercase;
@@ -462,5 +447,33 @@ ul.list-lined{
 		width: 2.5rem;
 		height: 2.5rem;
 		border-radius: 100px;
+	}
+}
+
+.label-item{
+	background-color: $panel-color;
+	position: relative;
+	padding-left: 25px;
+	font-size: 12px;
+	margin-bottom: 5px;
+	.fa-close{
+		background-color: $brydge-blue;
+		color: #FFF;
+		position: absolute;
+		left: 0;
+		top: 0;
+		font-size: 16px;
+		padding: 2px 3px;
+	}
+}
+
+
+.filter-selections{
+	padding: .5rem 1rem;
+	li:not(:last-child) .label-item{
+		margin-right: 5px;
+	}
+	.menu > li {
+		display: inline-block;
 	}
 }

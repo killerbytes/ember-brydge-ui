@@ -4,15 +4,26 @@ import QueryLocationMixin from 'web/mixins/query-locations';
 export default Ember.Controller.extend(QueryLocationMixin, {
   search: Ember.inject.service(),
   cities: [],
+  keywords: [],
   actions: {
   	citySelected(location){
   		this.set('valueText', {text: location.city})
-  		this.set('selectedCity', location.city)
+  		// this.set('selectedCity', location.city)
   	},
   	addCity(){
-  		this.get('cities').pushObject(this.get('selectedCity'))
-  		this.set('selectedCity', null);
+  		this.get('cities').pushObject(this.get('valueText.text'))
   		this.set('valueText', null)
-  	}
+  	},
+    addKeyword(){
+      console.log(this.get('keyword'))
+      this.get('keywords').pushObject(this.get('keyword'))
+      this.set('keyword', null)
+    },
+    goto(link){
+      $('.tabs').foundation('selectTab', $('#'+link))
+    },
+    selected(){
+      console.log('selected', arguments)
+    }
   }
 });
