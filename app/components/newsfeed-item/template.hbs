@@ -65,8 +65,25 @@
 {{#unless shared }}
   <div class="padded post-actions">
     <div class="float-left"> 
-      <a {{action "vote" "up"}}>Upvote</a> <span> {{post.vote.upVotes}}</span>
+     
+      {{#if post.vote.upVoted}}
+      <a {{action "vote" "reset"}}>Upvoted</a> 
+      {{else}}
+      <a {{action "vote" "up"}}>Upvote</a> 
+      {{/if}}
+
+       <span> {{post.vote.upVotes}}</span>
+
+
+      {{#if post.vote.downVoted}}
+      <a {{action "vote" "reset"}}>Downvoted</a> 
+      {{else}}
       <a {{action "vote" "down"}}>Downvote</a> 
+      {{/if}}
+
+     <!--  <span> {{post.vote.downVotes}}
+       {{post.vote.downVoted}} {{post.vote.downVoters}}</span> -->
+     
     </div>
     <div class="float-right">
       <a {{action "viewComments"}}>Comment</a><span>{{post.commentCount}}</span>

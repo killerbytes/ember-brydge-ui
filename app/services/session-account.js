@@ -57,6 +57,9 @@ export default Ember.Service.extend({
   },
   downvote(postid) {
     return this.get('ajax').request('/v1/posts/'+postid+'/down');
+  },
+  resetVote(postid) {
+    return this.get('ajax').request('/v1/posts/'+postid+'/votereset');
   }
 
 
