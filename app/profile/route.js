@@ -39,7 +39,8 @@ export default Ember.Route.extend({
       questions: this.store.query('ask',{userid: userid}).then(function(asks){
          return asks.filterBy('answer');
       }),
-      trendingPosts: this.store.query('post', {userid: userid})
+      //trendingPosts: this.store.query('post', {userid: userid})
+      trendingPosts: this.store.query('newsfeed',{filter: userid, tab: 'curated'})
     }).then((result)=>{
       self.set('connectionStatus', result.connectionStatus);
       self.set('accountProfile', result.accountProfile);
