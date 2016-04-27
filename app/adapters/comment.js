@@ -8,7 +8,6 @@ export default ApplicationAdapter.extend(UrlTemplates, {
 	urlSegments: {
 		threadid: function(type, id, snapshot, query) {
 			console.log(type, id, snapshot, query);
-			console.log('post id',this.get('post.shortid'));
 			return query;
 		}
 	}
