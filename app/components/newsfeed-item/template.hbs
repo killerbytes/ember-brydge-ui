@@ -67,7 +67,7 @@
     <div class="float-left"> 
      
       {{#if post.vote.upVoted}}
-      <a {{action "vote" "reset"}}>Upvoted</a> 
+      <a {{action "vote" "reset"}}><span class="acted">Upvoted</span></a> 
       {{else}}
       <a {{action "vote" "up"}}>Upvote</a> 
       {{/if}}
@@ -76,7 +76,7 @@
 
 
       {{#if post.vote.downVoted}}
-      <a {{action "vote" "reset"}}>Downvoted</a> 
+      <a {{action "vote" "reset"}}><span class="acted">Downvoted</span></a> 
       {{else}}
       <a {{action "vote" "down"}}>Downvote</a> 
       {{/if}}

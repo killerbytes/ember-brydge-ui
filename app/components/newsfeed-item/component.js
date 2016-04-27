@@ -81,8 +81,14 @@ export default Ember.Component.extend(
 		},
 		viewComments: function() {
 			console.log('newsfeed-item => viewComments')
-			this.viewComments(this.get('post.id'))
-			$("#"+this.get('post.id')).trigger('click');
+			//this.viewComments(this.get('post.id'))
+			//$("#"+this.get('post.id')).trigger('click');
+			var postid = this.get('post.id');
+			console.log(this.$('#comment-form-'+postid))
+
+			var $commentform = this.$('#comment-form-'+postid+' input');
+
+			$commentform.focus();
 		}
 	}
 });
