@@ -6,5 +6,6 @@ export default DS.Model.extend({
   upVoted: DS.attr(),
   downVoted: DS.attr(),
   upVoters: DS.attr(),
-  downVoters: DS.attr()
+  downVoters: DS.attr(),
+  sharedCount: DS.attr()
 });
