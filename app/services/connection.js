@@ -18,8 +18,18 @@ export default Ember.Service.extend({
 		return this.get('ajax').request(url, {
 			method: 'POST'
 		})
+  },
+  request(id){
+    var url = '/v1/connections/'+id;
+    return this.get('ajax').request(url, {
+      method: 'POST'
+    })
+  },
+  disconnect(id){
+    var url = '/v1/connections/'+id+'/disconnect';
+    return this.get('ajax').request(url, {
+      method: 'POST'
+    })
   }
-
-
 });
 

@@ -36,7 +36,7 @@
           <li>{{#link-to "connections" model.profile.id }} {{model.profile.firstName}}'s connection (999){{/link-to}}</li>
           <li>{{#link-to "ask" model.profile.id }} {{model.profile.firstName}}'s ASK Page{{/link-to}}</li>
           <li><a href="">Compliment {{model.profile.firstName}}</a></li>
-          <li><a href="" class="warning">Disconnect from {{model.profile.firstName}}</a></li>
+          <li><a href="" class="warning" {{action 'clickedDisconnect'}}>Disconnect from {{model.profile.firstName}}</a></li>
           {{/if}}
         </ul>
       {{/zf-dropdown}}
