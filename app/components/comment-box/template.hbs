@@ -2,7 +2,7 @@
   <div class="post-comment-form">
     <div class="media-object">
       <div class="thumbnail">
-        <img src= {{avatar}}>
+        <img src= {{ post.user.profile.avatarUrl }}>
       </div>
       <div class="comment-form">
         {{input type="text" placeholder="Write your comment" enter="comment" value=commentContent}}
@@ -10,7 +10,7 @@
     </div>
   </div>
 </div>
-<div class="padded post-comments">
+<div class="post-comments">
   <!-- <a {{action 'viewComments'}}>View Comments</a>   -->
   <!-- {{#each post.comments as |comment|}}  
   <p>{{comment.content}} by {{comment.user.name}}</p>
@@ -21,7 +21,7 @@
   {{#zf-accordion-menu class="accordion-menu" multiOpen=true}}
     <li>
       
-      <ul class="media-list no-bullet list-lined">
+      <ul class="media-list no-bullet">
        {{#each post.comments as |comment|}}  
         <li>
           <div class="media-object">
@@ -32,8 +32,10 @@
             </div>
             <div class="media-object-section main-section">
               <a class="name">{{comment.user.name}}</a>
-              <span class="float-right dim-text">{{postDateFormat comment.createdAt}}</span>
-              <p class="position">{{comment.content}}</p>
+              <div class="position">{{comment.user.profile.currentTitle }} <span class="bullet">&bull;</span> {{ comment.user.profile.currentCompany }}</div>
+              
+              <p class="comment-content">{{comment.content}}</p>
+              <div class="dim-text">{{postDateFormat comment.createdAt}}</div>
             </div>
           </div>
         </li>

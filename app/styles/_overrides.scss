@@ -38,9 +38,13 @@ ul.accordion-menu>li>a{
 		color: #000;
 	}
 }
-
+label.middle{
+	padding-top: 0.3rem;
+	padding-bottom: 0.3rem;
+}
 /*  Drop down menu to be in gray instead of the overrided blue */
 
 ul > li.is-dropdown-submenu-parent.is-down-arrow > ul {
   background-color: #e6e6e6 !important;
 }
+

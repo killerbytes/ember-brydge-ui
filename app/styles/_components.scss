@@ -456,6 +456,7 @@ ul.list-lined{
 	padding-left: 25px;
 	font-size: 12px;
 	margin-bottom: 5px;
+	margin-right: 5px;
 	.fa-close{
 		background-color: $brydge-blue;
 		color: #FFF;
@@ -476,4 +477,81 @@ ul.list-lined{
 	.menu > li {
 		display: inline-block;
 	}
+}
+
+
+
+	.post-footer{
+		background-color: #EFEFEF;		
+		font-size: 12px;
+
+		.post-comment-form{
+			padding-top: 8px;
+			padding-bottom: 8px;
+
+		}
+		.media-object{
+			margin-bottom: 0;
+			.thumbnail{
+				float: left;
+				width: 30px;
+				height: 30px;
+				img{
+					width: 100%;
+				}
+			}
+			.comment-form{
+				padding-left: 40px;
+				input{
+					font-size: 10px;					
+					height: auto;
+					margin: 0;
+				}
+			}
+
+		}
+
+		.post-comments{
+			ul.media-list li{
+				padding-bottom: 0;
+			}
+			ul.media-list li:not(:last-child){
+				.main-section{
+					border-bottom: 1px solid $border-color;
+				}				
+			}
+			.media-object{
+				.media-object-section:first-child{
+					padding-right: .8rem;
+				}
+				.name{
+					font-size: 13px;
+				}
+				.comment-content{
+					color: #434343;
+					margin-bottom: .5rem;
+				}
+
+			}
+			ul.media-list[aria-hidden="false"]+a.more{
+				border-top: 1px solid $border-color;
+			}
+			a.more{
+				@extend .padded;
+				padding: 5px;
+			}
+			a:hover, a:focus{
+				color: $brydge-blue;
+			}
+		}
+
+	}
+
+
+span.bullet{
+	color: #9DA4B3;
+  font-weight: bold;
+  margin: 2px;
+  font-size: 11px;
+  line-height: 1em;
 }

@@ -5,6 +5,17 @@ export default Ember.Controller.extend(QueryLocationMixin, {
   search: Ember.inject.service(),
   cities: [],
   keywords: [],
+  industries: [],
+  onIndustryChanged: function(value, checked, text){
+      var industries = this.get('industries');
+      if(checked){
+        industries.pushObject({code: value, name: text});
+      }else{
+        var list = industries.toArray();
+        _.remove(list, {code: value })
+        this.set('industries', list);
+      }
+  },
   actions: {
   	citySelected(location){
   		this.set('valueText', {text: location.city})
@@ -22,8 +33,11 @@ export default Ember.Controller.extend(QueryLocationMixin, {
     goto(link){
       $('.tabs').foundation('selectTab', $('#'+link))
     },
-    selected(){
-      console.log('selected', arguments)
-    }
+    checkboxChanged(value, checked, text){
+      this.onIndustryChanged(value, checked, text);
+    },
+    removeIndustry(value, text){
+      this.onIndustryChanged(value, false, text);
+    },
   }
 });

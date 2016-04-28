@@ -13,7 +13,7 @@
       <div class="row column collapse border-b">
         <div class="medium-4 columns">
           <div class="people-search-filter-column">
-            <a class="button success expanded" data-open="industryModal">Industry</a>
+            <a class="button success expanded" data-open="industryModal">Choose Industries</a>
           </div>    
         </div>
         <div class="medium-4 columns">
@@ -92,7 +92,6 @@
 			</ul>
 
   	</div>
-          <a class="button" data-open="industryModal">Industry</a>
   </div>
 
   <div class="medium-4 columns sidebar">
@@ -104,83 +103,80 @@
 
 
 
-{{#zf-reveal id="industryModal" overlay=true class="reveal-popup"}}
-    <h4>Industry</h4>
-    <form action="">
-      <div class="content">        
-    
-      </div>
-      <div class="reveal-footer text-right">
-        <div class="content">
-          <button class="button success">Done</button>
-          <a class="button success" data-close>Cancel</a>
+{{#zf-reveal id="industryModal" overlay=true class="reveal-popup large"}}
+  <h4>Industry</h4>
+  <form action="">
+    <div class="content">        
+      {{#zf-tabs class="hide"}}
+        <li class="tabs-title is-active"><a href="#root">Root</a></li>
+        {{#each model.categories as |item|}}
+            <li class="tabs-title"><a href="#{{item.code}}">{{item.name}}</a></li>
+            {{#each item.categories as |category|}}
+              <li class="tabs-title"><a href="#{{category.code}}">{{category.name}}</a></li>
+            {{/each}}
+        {{/each}}  
+      {{/zf-tabs}}
+      <div class="tabs-contentx" data-tabs-content="example-tabs">
+
+        <div class="tabs-panel is-active" id="root">
+          <p>
+            <h3>Sectors</h3>
+          </p>
+          <ul class="no-bullet">
+            {{#each model.categories as |item|}}
+              <li><a {{action "goto" item.code }}>{{item.name}}</a></li>
+            {{/each}}
+          </ul>
         </div>
+
+        {{#each model.categories as |item|}}
+          <div class="tabs-panel" id="{{item.code}}">
+            <a {{action "goto" "root" }}>Back</a>
+            <p>
+              <h3>{{item.name}}</h3>
+            </p>
+            <p>
+              <ul class="no-bullet">
+              {{#each item.categories as |item|}}
+                <li><a {{action "goto" item.code }}>{{item.name}}</a></li>
+              {{/each}}
+              </ul>
+            </p>
+          </div>
+
+          {{#each item.categories as |category|}}
+            <div class="tabs-panel" id="{{category.code}}">
+              <a {{action "goto" item.code }}>Back</a>
+              <p>
+                <h3>{{category.name}}</h3>
+              </p>
+              <p>          
+                <ul class="no-bullet">
+                {{#each category.industries as |industry|}}
+                  <li>
+                    {{action-checkbox-bind value=industry.data.code text=industry.data.subIndustry checked=industry.data.checked}}
+                  </li>
+                {{/each}}
+                </ul>
+              </p>
+            </div>
+
+          {{/each}}
+        {{/each}}
       </div>
-    </form>
+      <ul class="menu">
+        {{#each industries as |item|}}
+          <li><span class="label label-item"><a {{action "removeIndustry" item.code item.name}}>{{fa-icon "close"}}</a> {{item.name}}</span></li>
+        {{/each}}
+      </ul>  
+    </div>
+    <div class="reveal-footer text-right">
+      <div class="content">
+        <button class="button success">Done</button>
+        <a class="button success" data-close>Cancel</a>
+      </div>
+    </div>
+  </form>
 {{/zf-reveal}}
 
 
-
-{{#zf-tabs class="hide"}}
-  <li class="tabs-title is-active"><a href="#root">Root</a></li>
-  {{#each model.categories as |item|}}
-      <li class="tabs-title"><a href="#{{item.code}}">{{item.name}}</a></li>
-      {{#each item.categories as |category|}}
-        <li class="tabs-title"><a href="#{{category.code}}">{{category.name}}</a></li>
-      {{/each}}
-  {{/each}}  
-{{/zf-tabs}}
-
-<div class="tabs-content" data-tabs-content="example-tabs">
-
-  <div class="tabs-panel is-active" id="root">
-    <p>
-      <strong>Sectors</strong>
-    </p>
-    <ul class="no-bullet">
-      {{#each model.categories as |item|}}
-        <li><a {{action "goto" item.code }}>{{item.name}}</a></li>
-      {{/each}}
-    </ul>
-  </div>
-
-  {{#each model.categories as |item|}}
-    <div class="tabs-panel" id="{{item.code}}">
-      <a {{action "goto" "root" }} class="button">Back</a>
-      <p>
-        <strong>{{item.name}}</strong>
-      </p>
-      <p>
-        <ul class="no-bullet">
-        {{#each item.categories as |item|}}
-          <li><a {{action "goto" item.code }}>{{item.name}}</a></li>
-        {{/each}}
-        </ul>
-      </p>
-    </div>
-
-    {{#each item.categories as |category|}}
-      <div class="tabs-panel" id="{{category.code}}">
-        <a {{action "goto" item.code }} class="button">Back</a>
-        <p>
-          <strong>{{category.name}}</strong>
-        </p>
-        <p>          
-          <ul class="no-bullet">
-          {{#each category.industries as |industry|}}
-            <li>
-              <label for="{{industry.data.code}}"> 
-                <input type="checkbox"
-                 id="{{industry.data.code}}"
-                 {{action "selected" industry on="change"}}/>            
-                 {{industry.data.subIndustry}}
-              </label>
-            </li>
-          {{/each}}
-          </ul>
-        </p>
-      </div>
-
-    {{/each}}
-  {{/each}}
-</div>

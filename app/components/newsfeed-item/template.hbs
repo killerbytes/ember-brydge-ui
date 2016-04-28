@@ -1,7 +1,7 @@
 <div class="padded">
   <div class="media-object">
     <div class="media-object-section">
-      <div class="thumbnail">
+      <div class="avatar thumbnail">
       <img src= {{post.user.profile.avatarUrl}}>
       </div>
     </div>
@@ -16,7 +16,7 @@
           {{/unless}}
         {{/if}}
       </div>
-      <div class="position">{{post.user.profile.currentTitle}}</div>
+      <div class="position">{{post.user.profile.currentTitle}} <span class="bullet">&bull;</span> {{post.user.profile.currentCompany}}</div>
       <p class="timestamp">{{#link-to 'post' post.user.id post.id }}{{postDateFormat post.updatedAt}}{{/link-to}}</p>
     </div>
   </div>
@@ -34,7 +34,7 @@
 </div>
 
 
-<div class="media">
+<div class="media media-top">
   <p>
     {{#unless shared }}
       {{{post.content }}}
@@ -42,15 +42,19 @@
       {{{post.content.content }}}
     {{/unless}}
   </p>
+</div>
   {{#if post.screenshot}}
     <div class="post-image">
       <img src="{{post.previewImage}}">
     </div>
+  {{/if}}
+<div class="media">
+  {{#if post.screenshot}}
     <div class="post-caption">
+      <h3>{{title}}</h3>
       {{#if post.siteName}}
         <div class="subheader">{{post.siteName}}</div>
       {{/if}}
-      <h3>{{title}}</h3>
     </div>
   {{/if}}
 

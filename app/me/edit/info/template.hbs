@@ -3,22 +3,32 @@
  -->
 
  <div class="profile-form-wrapper">
+
 	<form action="" class="form-profile">
       <div class="profile-photo"> 
           {{image-upload fileLoaded="fileLoaded" logoUrl=profile.avatarUrl}}
       </div>
 		<div class="row">
-			<div class="columns medium-6">
-			    {{input value=profile.firstName placeholder='First Name'}}
+      <div class="columns medium-3 ">
+        <label class="text-right middle">First Name</label>
+      </div>
+			<div class="columns medium-9">
+			    {{input value=profile.firstName}}
 			</div>
-      <div class="columns medium-6">
-          {{input value=profile.lastName placeholder='Last Name'}}        
+    </div>
+    <div class="row">
+      <div class="columns medium-3 ">
+        <label class="text-right middle">Last Name</label>
+      </div>
+      <div class="columns medium-9">
+          {{input value=profile.lastName}}        
       </div>
 		</div>
 		<div class="row">
-		  <div class='columns'>
-       <!--  {{dropdown-filter content=locations template="partials/location-filter" onclick="openLocationModal" willChangeAction='queryCities' didChangeAction='citySelected' model=profile}} -->
-
+      <div class="columns medium-3">
+        <label class="text-right middle">City</label>
+      </div>
+		  <div class='columns medium-9'>
        {{dropdown-filter
           items=locations 
           selected=selectedLoc 
@@ -27,18 +37,27 @@
           template="partials/location-filter"}}
 
 		  </div>
-    <div class="columns">
-        {{date-picker 
-        placeholder="Date of Birth" 
-        date=profile.birthDay 
-        format='YYYY-MM-DD' 
-        valueFormat='date' 
-        allowBlank=true
-        yearRange='-80, 0'}}
-      
     </div>
+    <div class="row">
+      <div class="columns medium-3">
+        <label class="text-right middle">Date of birth</label>
+      </div>
+      <div class="columns medium-9">
+          {{date-picker 
+          placeholder="Date of Birth" 
+          date=profile.birthDay 
+          format='YYYY-MM-DD' 
+          valueFormat='date' 
+          allowBlank=true
+          yearRange='-80, 0'}}
+        
+      </div>
 		</div>
-	    <button class='button success' {{ action 'save' }}>Save Changes</button>
+    <div class="row">
+      <div class="columns medium-9 medium-offset-3">
+        <button class='button success' {{ action 'save' }}>Save Changes</button>
+      </div>
+    </div>
 	</form>
 </div>
 

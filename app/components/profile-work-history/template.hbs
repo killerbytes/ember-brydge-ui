@@ -9,40 +9,81 @@
 			</a>
 		<div class="accordion-content" data-tab-content>
 	  	<form action="" class="form-accordion	">
-				<label>
-					{{form-input model=item valuePath='company' placeholder="Company"}}
-				</label>
-				<div class="row">
-					<div class="columns medium-4">
-						<label>
-							{{form-input-date model=item valuePath="from" placeholder="Start Date"}}
-						</label>							
+	  		<div class="row">
+	  			<div class="columns medium-3">
+						<label class="text-right middle">
+							Company
+						</label>
+	  			</div>
+					<div class="columns medium-9">
+						{{form-input model=item valuePath='company'}}
 					</div>
-					<div class="columns medium-4">
-						<label>
-							{{form-input-date model=item valuePath="to" placeholder="End Date"}}
+				</div>
+				<div class="row">
+					<div class="columns medium-3">
+						<label class="text-right middle">Start Date</label>
+					</div>
+					<div class="columns medium-9">
+						{{form-input-date model=item valuePath="from"}}						
+					</div>
+				</div>
+				<div class="row">
+					<div class="columns medium-3">
+						<label class="text-right middle">
+							End Date							
 						</label>
 					</div>
-					<div class="columns medium-4">
+					<div class="columns medium-9">
+						{{form-input-date model=item valuePath="to" disabled=item.currentCompany}}
+					</div>
+				</div>
+				<div class="row">
+					<div class="columns medium-9 medium-offset-3">
 						<div class="checkbox">
-							<label>
+							<label class="middle">
 								{{input type="checkbox" name="currentCompany" checked=item.currentCompany}} I currently work here
 							</label>
 						</div>
 					</div>
 				</div>
-				<label>					
-					{{form-input model=item valuePath="title" placeholder="Title"}}
-				</label>
+				<div class="row">
+					<div class="columns medium-3">
+						<label class="text-right middle">					
+							Title
+						</label>						
+					</div>
+					<div class="columns medium-9">
+						{{form-input model=item valuePath="title"}}
+					</div>
+				</div>
+				<div class="row">
+					<div class="column medium-3">
+						<label class="text-right middle">
+							Location
+						</label>						
+					</div>
+					<div class="columns medium-9">
+						{{form-input model=item valuePath="location"}}
+					</div>
+				</div>
+				<div class="row">
+					<div class="columns medium-3">
+						<label class="text-right middle">
+							Description
+						</label>						
+					</div>
+					<div class="columns medium-9">
+						{{form-textarea-counter limit=500 value=item.content rows=10 }}				
+					</div>
+				</div>
+				<div class="row">
+					<div class="columns medium-9 medium-offset-3">
+				    <button class='button success' disabled={{v-get item 'isInvalid'}} {{ action 'update' item }}>SAVE</button>
+				    <button class='button success float-right' {{ action 'delete' item }}>DELETE</button>
+						
+					</div>
+				</div>
 
-				<label>
-					{{form-input model=item valuePath="location" placeholder="Location"}}
-				</label>
-				<label>
-					{{textarea value=item.content rows="10" placeholder="Description"}}
-				</label>
-			    <button class='button success' disabled={{v-get item 'isInvalid'}} {{ action 'update' item }}>SAVE</button>
-			    <button class='button success float-right' {{ action 'delete' item }}>DELETE</button>
 			</form>								
 
 		</div>

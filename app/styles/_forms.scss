@@ -42,7 +42,9 @@ form{
 		}
 
 	}
-
+	label.middle{
+		color: $text-color3;
+	}
 }
 
 
@@ -92,9 +94,6 @@ form{
 	margin-bottom: 2px;
 	.checkbox{
 		margin-top: 5px;
-	}
-	label{
-		font-size: 12px;
 	}
 	input,textarea{
 		font-size: 12px;
