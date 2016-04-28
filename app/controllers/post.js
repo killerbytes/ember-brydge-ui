@@ -1,6 +1,7 @@
 import Ember from 'ember';
 
 export default Ember.Controller.extend({
+  sessionAccount: Ember.inject.service('session-account'),
   flashMessages: Ember.inject.service(),
   sharePost: Ember.inject.service(),
   actions: {

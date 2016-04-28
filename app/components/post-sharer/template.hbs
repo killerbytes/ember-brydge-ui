@@ -16,8 +16,17 @@
         </div>
       {{/if}}      
     </div>
-    <div class="reveal-footer text-right">
-      <div class="content">
+    <div class="reveal-footer">
+      {{#if sharePost.categories }}
+        <div class="broadcast-list">Broadcasting to: My Connections
+          {{#each sharePost.categories as |item|}}
+            {{concat ', ' item.text }}
+          {{/each}}
+        </div>
+      {{else}}
+        <div class="broadcast-list">Broadcasting to: My Connections Only</div>
+      {{/if}}
+      <div class="content text-right">
 
         <div class="button-wrapper text-left">
           <a class="button dropdown-button" data-toggle="dd-select-channel-post-sharer">
@@ -25,24 +34,7 @@
             <i class="icons caret"></i>
           </a>
           {{#zf-dropdown id="dd-select-channel-post-sharer" closeOnClick=true}}
-            <section>
-              <strong>Relevant Industry Channels</strong>
-              <ul class="no-bullet">
-                <li>{{ profile.industry }} 
-                {{action-checkbox value=profile.industryId text=profile.industry action="checkboxChanged"}}</li>
-                <li>{{ profile.occupationOne }} 
-                {{action-checkbox value=profile.occupationOneId text=profile.occupationOne action="checkboxChanged"}}</li>
-                <li>{{ profile.occupationTwo }} 
-                {{action-checkbox value=profile.occupationTwoId text=profile.occupationTwo action="checkboxChanged"}}</li>
-              </ul>
-            </section>
-            <hr>
-            <section>
-              <strong>My Connections</strong>
-              <ul class="no-bullet">
-                <li>Only Broadcast to My Connections <input type="checkbox" selected></li>
-              </ul>     
-            </section>
+            {{partial 'partials/select-channel-menu'}}
           {{/zf-dropdown}}
         </div>
 

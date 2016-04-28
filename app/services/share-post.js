@@ -12,7 +12,7 @@ export default Ember.Service.extend({
   submit: function(){
     return this.get('store').createRecord('post', {
       content: this.get('valueText'),
-      categories: this.get('categories'),
+      categories: _.map(this.get('categories'), 'id'),
       sharedPostid: this.get('selected.id')
     }).save();
   }

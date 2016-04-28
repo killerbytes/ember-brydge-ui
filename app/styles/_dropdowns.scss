@@ -147,3 +147,11 @@
   margin-right: 5px; 
   border-top: 1px solid $border-color;
 }
+
+#dd-select-channel, #dd-select-channel-post-sharer{
+  label{
+    font-size: inherit;
+    color: $text-color1;
+  }
+
+}

@@ -38,6 +38,14 @@ export default Ember.Route.extend({
   },
 
 	actions: {
+    didTransition: function(){
+      Ember.run.later(function(){
+        Ember.$('.profile .tabs:first').on('change.zf.tabs', function(){
+          console.log('change.zf.tabs')
+        })
+
+      })
+    },
 
     citySelected: function (item) {
       console.log('citySelected (route) =>', item.city, item.state, item.country);

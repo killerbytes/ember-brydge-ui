@@ -8,36 +8,25 @@
 	    <div class="post-form">
 	      {{content-editable class="content-editable" value=postContent placeholder='Would you like to say about this?'}}
 	    </div>
-	    <div class="broadcast-list">Broadcasting to: My Connections Only {{broadcast}}</div>
+	    {{#if categories}}
+	    	<div class="broadcast-list">Broadcasting to: My Connections
+	    		{{#each categories as |item|}}
+			    	{{concat ', ' item.text }}
+			    {{/each}}
+	    	</div>
+	    {{else}}
+	    	<div class="broadcast-list">Broadcasting to: My Connections Only</div>
+	    {{/if}}
 	  </div>
 	  
 	  <div class="actions">
 	    <div class="float-right wrapper">
-				<a class="button dropdown-button" data-toggle="dd-select-channelxx">
+				<a class="button dropdown-button" data-toggle="dd-select-channel">
 					Select Channel
 					<i class="icons caret"></i>
 				</a>
-				{{#zf-dropdown id="dd-select-channelxx" closeOnClick=true}}
-					<section>
-						<strong>Relevant Industry Channels</strong>
-						<ul class="no-bullet">
-							<li>{{ profile.industry }} 
-							{{action-checkbox value=profile.industryId text=profile.industry action="checkboxChanged"}}</li>
-							<li>{{ profile.occupationOne }} 
-							{{action-checkbox value=profile.occupationOneId text=profile.occupationOne action="checkboxChanged"}}</li>
-							<li>{{ profile.occupationTwo }} 
-							{{action-checkbox value=profile.occupationTwoId text=profile.occupationTwo action="checkboxChanged"}}</li>
-						</ul>
-						<p>{{#link-to 'me.edit' profile.id}}Edit Occupation Industry{{/link-to}}</p>
-						<div class="dim-text">Broadcast will also be shared with Connections by default</div>
-					</section>
-					<hr>
-					<section>
-						<strong>My Connections</strong>
-						<ul class="no-bullet">
-							<li>Only Broadcast to My Connections <input type="checkbox" selected></li>
-						</ul>			
-					</section>
+				{{#zf-dropdown id="dd-select-channel" closeOnClick=true}}
+					{{partial 'partials/select-channel-menu'}}
 				{{/zf-dropdown}}
 	      <button class="success button" type="submit">BROADCAST</button>
 	    </div>

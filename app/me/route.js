@@ -27,6 +27,6 @@ export default Ember.Route.extend(AuthenticatedRouteMixin,{
         return asks.filterBy('answer').get('firstObject');
       })
     });
-  }
+  },
 
 });

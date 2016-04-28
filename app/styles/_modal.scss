@@ -76,6 +76,17 @@
 			top: 0;
 		}
 	}
+	.broadcast-list{
+		border-top: none;
+		border-bottom: 1px solid $border-color;
+		padding: 0 30px 5px;
+		font-size: 12px;
+		margin-bottom: 5px;
+	}
+	.reveal-footer{
+		padding-right: 0;
+		padding-left: 0;
+	}
 }
 
 #locationModal{

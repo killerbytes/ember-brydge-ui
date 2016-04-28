@@ -1,1 +1,5 @@
-<label for="{{value}}">{{input type='checkbox' checked=checked id=value change=(action onChange) }} {{text}}</label>
+{{#if reversed }}
+	{{text}} {{input type='checkbox' checked=checked if=for change=(action onChange) }} 
+{{else}}
+	{{input type='checkbox' checked=checked if=for change=(action onChange) }} {{text}}
+{{/if}}

@@ -3,16 +3,13 @@ import Ember from 'ember';
 export default Ember.Component.extend({
 	sharePost: Ember.inject.service(),
 	actions: {
-		checkboxChanged(value, checked){
-			// console.log('checkboxChange', arguments)
-			if(checked){
-				this.get('sharePost.categories').push(value);
+		checkboxChanged(value, checked, name){
 
+			if(checked){
+				this.get('sharePost.categories').pushObject({id: value, text: name });
 			}else{
-				var categories = this.get('sharePost.categories');
-				_.remove(categories, function(i){
-					return i == value;
-				})
+				var categories = this.get('sharePost.categories').toArray();
+				_.remove(categories, {id: value})
 				this.set('sharePost.categories', categories)
 			}
 		},
