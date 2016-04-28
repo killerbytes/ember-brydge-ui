@@ -27,8 +27,8 @@ export default Ember.Controller.extend(QueryLocationMixin,{
   actions: {
     
     postFeed: function (content, categories) {
-      // console.log('<<< post feed from (Home => Controller)',
-      //   content,categories);
+      console.log('<<< post feed from (Home => Controller)',
+        content,categories);
       this.store.createRecord('post', {
         content: content,
         categories: categories

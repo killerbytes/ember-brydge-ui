@@ -6,10 +6,8 @@ export default DS.JSONAPISerializer.extend({
     const result = this._super(...arguments),
       attr = result.data.attributes || {},
       rel = result.data.relationships || {};
-
-      console.log('attr:',attr);
-      console.log('rel:', rel);
-
+      console.log('attr=>',attr)
+      console.log('rel=>', rel)
     var payloadData= {
       to: rel.to.data.id,
       status: attr.status

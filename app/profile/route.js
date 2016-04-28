@@ -70,21 +70,25 @@ export default Ember.Route.extend({
 
   actions: {
     clickedConnect: function (cb) {
-      console.log('component clicked');
+      console.log('connect =>');
+      var userid = this.get('paramsUserProfile').get('userid');
 
-      var _this = this;
-
-      var connection = this.store.createRecord('connection');
-
-      let target = this.store.peekRecord('user', this.get('paramsUserProfile').get('userid'));
-      let user = this.store.peekRecord('user', this.get('loggedinUser').user_id);
-
-      connection.set('from', user);
-      connection.set('to', target);
-
-      connection.save().then(()=>{
-        console.log('connection saved');
+      this.get('connection').request(userid)
+      .then((res)=>{
+        console.log('res=>', res)
         cb();
+      });
+    },
+
+    clickedDisconnect: function () {
+      console.log('disconnet =>');
+      var userid = this.get('paramsUserProfile').get('userid');
+
+      var self = this;
+      this.get('connection').disconnect(userid)
+      .then((res)=>{
+        console.log('res=>', res);
+        self.refresh();
       });
     },
 
