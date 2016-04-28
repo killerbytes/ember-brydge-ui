@@ -1,45 +1,41 @@
-<div class="wrapper">
-	<a class="box button dropdown-button expanded" data-toggle="location-dropdown">
-		{{getShortString filtered}}
-		<i class="fa fa-caret-down"></i>
-	</a>
-	{{#zf-dropdown id="location-dropdown"}}
-		<section class="custom-select-list">
-			<div class="dim-text">Your Location</div>
-			<ul class="no-bullet">
-				<li {{action "select" myLocation preventDefault=false }}>{{myLocation.text}}</li>
-			</ul>
-			<div class="dim-text">Global</div>
-			<ul class="no-bullet">
-				<li {{action "select" global preventDefault=false }}>{{global.text}}</li>
-			</ul>
-<!-- 			<div class="dim-text">Favourites (Max. 5)</div>
-			<ul class="no-bullet">
-				<li>Singapore</li>
-				<li>New York, NY, USA</li>
-				<li>George Town, Penang, Malaysia</li>
-				<li>Penang, Malaysia</li>
-				<li>Malaysia</li>
-			</ul> -->
-			<div class="dim-text">Search</div>
-			
-			
-<!-- 			{{dropdown-filter
- 				items=items 
- 				selected=selected 
- 				query='query'
- 				itemSelected = 'citySelected'
- 				template="partials/location-filter"}} -->
-
- 			{{dropdown-filter
- 				items=items 
- 				selected=selected
- 				query='query'
- 				itemSelected = 'citySelected'
- 				template="partials/location-filter"}}
-
-
-			<a href="" class="button" {{action 'select' selected}}>Select</a>
-		</section>
-	{{/zf-dropdown}}	
-</div>
+<a class="box button dropdown-button expanded text-center" data-toggle="location-dropdown">
+	<strong>{{filtered}}</strong>
+	<i class="fa fa-caret-down"></i>
+</a>
+{{#zf-dropdown id="location-dropdown"}}
+	<section class="custom-select-list">
+		<div class="title-bar dim-text text-center">Select Location</div>
+			<div class="mt mb clearfix">
+				<div class="columns medium-6">
+					<strong>Your Location</strong>
+					<ul class="no-bullet">
+						<li {{action "select" myLocation preventDefault=false }}>{{myLocation.text}}</li>
+					</ul>				
+				</div>
+				<div class="columns medium-6">
+					<strong>Global</strong>
+					<ul class="no-bullet">
+						<li {{action "select" global preventDefault=false }}>{{global.text}}</li>
+					</ul>
+				</div>
+			</div>
+			<div class="mt mb clearfix">
+				<div class="columns">
+					<form>
+						<strong>Search</strong>
+						{{dropdown-filter
+							items=items 
+							selected=selected
+							query='query'
+							itemSelected = 'citySelected'
+							template="partials/location-filter"}}		
+					</form>						
+				</div>
+				<div class="columns">
+					<p>
+						<button class="success button" {{action 'select' selected}}>Select</button>				
+					</p>
+				</div>
+			</div>
+	</section>
+{{/zf-dropdown}}	

@@ -55,13 +55,19 @@
 	font-family: 'Arial';
 	font-size: 12px;
 	.icons{
-		font-size: 18px;
+		opacity: .5;
+	}
+	.fa-caret-down{
+		font-size: 16px;
+		line-height: 1.6em;
+	}
+	.icons, .fa-caret-down{
 		position: absolute;
 		right: 10px;
 		top: 2px;
 		width: 10px;
-		opacity: .5;
 	}
+
 }
 
 

@@ -1,6 +1,8 @@
 import Ember from 'ember';
 
 export default Ember.Component.extend({
+  sessionAccount: Ember.inject.service('session-account'),
+	classNames: ['wrapper'],
   filtered: '',
   actions: {
     select: function (item) {

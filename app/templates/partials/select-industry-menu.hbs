@@ -1,28 +1,36 @@
-<a class="box default button dropdown-button expanded" data-toggle="industry-dropdown">
-		{{filtered}}
-		<i class="fa fa-caret-down"></i>
-	</a>
-	{{#zf-dropdown id="industry-dropdown"}}
-		<section class="custom-select-list">
-			<div class="dim-text">Select a Channel</div>
-			<ul class="no-bullet">
-				<li>{{myConnections.text}}</li>
-				<!-- <li {{action "select" myCompany preventDefault=false }}>{{myCompany.text}}</li> -->
+<a class="box default button dropdown-button expanded text-center" data-toggle="industry-dropdown">
+	<strong>{{filtered}}</strong>
+	<i class="fa fa-caret-down"></i>
+</a>
+{{#zf-dropdown id="industry-dropdown"}}
+	<section class="custom-select-list">
+		<div class="title-bar dim-text text-center">Select a Channel</div>
+			<div class="columns medium-6">
+				<ul class="no-bullet">
+					<li>{{myConnections.text}}</li>
+					<!-- <li {{action "select" myCompany preventDefault=false }}>{{myCompany.text}}</li> -->
 
-				<li>{{myCompany.text}}</li>
-			</ul>
-			<div class="dim-text">Industry Channels</div>
-			<ul class="no-bullet">
-			{{#each myIndustries as |industry|}}
-				<li {{action "select" industry preventDefault=false }}>{{industry.text}}</li>
-			{{/each}}
-			</ul>
-			<!-- <div class="dim-text">Other Industry Channels you follow</div>
-			<ul class="no-bullet">
-				<li>Consumer Web & Mobile</li>
-				<li>Enterprise Software & Technology</li>
-				<li>Broadcast Media</li>
-			</ul> -->
-			<a href="">Add other Industry Channels to follow</a>
-		</section>
-	{{/zf-dropdown}}
+					<li>{{myCompany.text}}</li>
+				</ul>
+				
+			</div>
+			<div class="columns medium-6">
+				<strong>Business Industry</strong>
+				<p><a href="">Add other Industry Channels to follow</a></p>
+
+				<strong>Occupational Industry</strong>
+				<ul class="no-bullet">
+				{{#each myIndustries as |industry|}}
+					<li {{action "select" industry preventDefault=false }}>{{industry.text}}</li>
+				{{/each}}
+				</ul>
+				<p>{{#link-to 'me.edit' sessionAccount.account.profile.id}}Edit Occupation Industry{{/link-to}}</p>				
+			</div>
+		<!-- <div class="dim-text">Other Industry Channels you follow</div>
+		<ul class="no-bullet">
+			<li>Consumer Web & Mobile</li>
+			<li>Enterprise Software & Technology</li>
+			<li>Broadcast Media</li>
+		</ul> -->
+	</section>
+{{/zf-dropdown}}
