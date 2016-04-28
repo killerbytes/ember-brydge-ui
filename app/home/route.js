@@ -18,7 +18,9 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, FilterDropdownListMix
   model: function (params) {
     let ownerid = this.get('session.data.authenticated.user_id');
     console.log('params =>', params);
-    if(params.q && params.q=='null') delete params.q;
+    if(params.q && params.q=='null') {
+      delete params.q;
+    }
 
     if(!params.tab) {
       console.log('no tab');
@@ -59,7 +61,7 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, FilterDropdownListMix
         this.controller.set('isLive',true);
       }
 
-      
+      this.controller.set('isSearch', false);
       this.controller.set('searchContent',null);
       this.transitionTo('home', { queryParams: { tab: tab, q:null }});
 
@@ -74,6 +76,7 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, FilterDropdownListMix
 
       this.controller.set('isCurated',false);
       this.controller.set('isLive',false);
+      this.controller.set('isSearch', true);
 
       this.transitionTo('home', { queryParams: { tab: 'search' }});
     },
@@ -83,6 +86,7 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, FilterDropdownListMix
       
       this.controller.set('isCurated',this.get('isCurated'));
       this.controller.set('isLive',this.get('isLive'));
+      this.controller.set('isSearch', false);
       
       this.transitionTo('home', { queryParams: { tab: 'curated',q:null }});
     },

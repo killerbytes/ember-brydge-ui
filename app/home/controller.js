@@ -22,6 +22,8 @@ export default Ember.Controller.extend(QueryLocationMixin,{
     }
   },
 
+  isSearch: false,
+
   actions: {
     
     postFeed: function (content, categories) {
