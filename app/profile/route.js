@@ -33,7 +33,7 @@ export default Ember.Route.extend({
     return Ember.RSVP.hash({
       connectionStatus: this.get('connection').status(userid),
       accountProfile: this.store.findRecord('profile', ownerid),
-      languages: this.store.findAll('language'),
+      languages: this.store.query('language',{userid: userid}),
       experiences: this.store.query('experience',{userid: userid}),
       educations: this.store.query('education',{userid: userid}),
       questions: this.store.query('ask',{userid: userid}).then(function(asks){
@@ -54,6 +54,7 @@ export default Ember.Route.extend({
 
   setupController: function(controller, model) {
     var avatar = this.get('accountProfile').get('avatarUrl');
+    console.log('<<<<<<< avatar', avatar);
     controller.set('model',{
       connectionStatus: this.get('connectionStatus'),
       profile: this.get('paramsUserProfile'),

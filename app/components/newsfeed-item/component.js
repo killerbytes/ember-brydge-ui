@@ -37,7 +37,24 @@ export default Ember.Component.extend(
 						console.log('downvote =>', res);
 						
 						post.get('vote').set('upVotes', res.data.attributes.upVotes);
-						//post.get('vote').set('downVotes', res.data.attributes.downVotes);
+						post.get('vote').set('downVotes', res.data.attributes.downVotes);
+						post.get('vote').set('upVoted', false);
+						post.get('vote').set('downVoted', true);
+
+						//this.setProperties({data})
+						this.set('disabled', false);
+					});
+				break;
+				case 'reset':
+					this.get('sessionAccount').resetVote(postId).then((res) => { 
+						console.log('resetvote =>', res);
+						
+						post.get('vote').set('upVotes', res.data.attributes.upVotes);
+						post.get('vote').set('upVoted', false);
+
+						post.get('vote').set('downVotes', res.data.attributes.downVotes);
+						post.get('vote').set('downVoted', false);
+
 
 						//this.setProperties({data})
 						this.set('disabled', false);
@@ -47,7 +64,10 @@ export default Ember.Component.extend(
 					this.get('sessionAccount').upvote(postId).then((res) => { 
 						console.log('upvote =>', res);
 						post.get('vote').set('upVotes', res.data.attributes.upVotes);
-						//post.get('vote').set('downVotes', res.data.attributes.downVotes);
+						post.get('vote').set('upVoted', true);
+
+						post.get('vote').set('downVotes', res.data.attributes.downVotes);
+						post.get('vote').set('downVoted', false);
 
 						//this.setProperties({data: res.data})
 						this.set('disabled', false);
@@ -61,8 +81,14 @@ export default Ember.Component.extend(
 		},
 		viewComments: function() {
 			console.log('newsfeed-item => viewComments')
-			this.viewComments(this.get('post.id'))
-			$("#"+this.get('post.id')).trigger('click');
+			//this.viewComments(this.get('post.id'))
+			//$("#"+this.get('post.id')).trigger('click');
+			var postid = this.get('post.id');
+			console.log(this.$('#comment-form-'+postid))
+
+			var $commentform = this.$('#comment-form-'+postid+' input');
+
+			$commentform.focus();
 		}
 	}
 });

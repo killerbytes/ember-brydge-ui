@@ -4,13 +4,13 @@
       <div class="thumbnail">
         <img src= {{ post.user.profile.avatarUrl }}>
       </div>
-      <div class="comment-form">
+      <div class="comment-form" id="comment-form-{{post.id}}">
         {{input type="text" placeholder="Write your comment" enter="comment" value=commentContent}}
       </div>
     </div>
   </div>
 </div>
-<div class="post-comments">
+<div class="padded post-comments" style="display: {{checkCount post.commentCount}}">
   <!-- <a {{action 'viewComments'}}>View Comments</a>   -->
   <!-- {{#each post.comments as |comment|}}  
   <p>{{comment.content}} by {{comment.user.name}}</p>
@@ -42,11 +42,8 @@
       {{/each}}
       </ul>
 
-
+     
       <a class="more no-arrow"><span class="content-more" disabled=true {{action 'viewComments'}} id={{post.id}}>View Comments</span><span class="content-less">Hide Comments</span></a>
     </li>
   {{/zf-accordion-menu}}    
-
-
-  
 </div>
