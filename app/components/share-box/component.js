@@ -4,9 +4,8 @@ import _ from 'lodash/lodash';
 export default Ember.Component.extend({
 	classNames: ['share-box', 'mb'],
   categories: [],
-  broadcastList: '',
-  didInsertElement(){
-    this.set('categories', []),
+  didInsertElement: function(){
+    this.set('categories', [])
   },
 	actions: {
     post() {

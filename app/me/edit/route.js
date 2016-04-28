@@ -41,7 +41,9 @@ export default Ember.Route.extend({
     didTransition: function(){
       Ember.run.later(function(){
         Ember.$('.profile .tabs:first').on('change.zf.tabs', function(){
-          console.log('change.zf.tabs')
+          console.log(arguments)
+          // this.set('tab', )
+
         })
 
       })
