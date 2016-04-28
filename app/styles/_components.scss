@@ -64,7 +64,9 @@
 		padding: $global-padding;
 		padding-top: 10px;
 		padding-bottom: 10px;
-		background: #F1F1F1;
+		// background: #F1F1F1;
+		background: $brydge-blue;
+		color: #FFF;
 		border-bottom: 1px solid $border-color;
 		border-top-left-radius: 3px;
 		border-top-right-radius: 3px;
@@ -300,6 +302,11 @@ ul.list-lined{
 			padding-top: 7px;
 			padding-bottom: 7px;
 		}
+	}
+	.footer-button.success{
+		border-top: 1px solid $border-color;
+		background-color: #FFF;
+		color: $brydge-blue;
 	}
 }
 

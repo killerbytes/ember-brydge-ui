@@ -8,7 +8,18 @@ export default Ember.Controller.extend(
   QueryLocationMixin,
   AvatarMixin,
   SaveProfileMixin,
-  QueryIndustryMixin,{
+  QueryIndustryMixin, {
     queryParams: ['tab'],
-    tab: 'personal'
+    tab: 'personal',
+		actions: {
+	    didTransition: function(){
+	    	console.log('didTransition')
+	      // Ember.run.later(function(){
+	      //   Ember.$('.profile .tabs:first').on('change.zf.tabs', function(e, elem){
+	      //     this.set('tab', elem.data('tab'))
+	      //   })
+	      // })
+	    }
+	  }
+
 });

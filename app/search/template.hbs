@@ -37,14 +37,15 @@
       </div>
       <div class="columns medium-10 filter-selections">
         <ul class="menu">
+        {{#each industries as |item|}}
+          <li><span class="label label-item"><a>{{fa-icon "close"}}</a> {{item.name}}</span></li>
+        {{/each}}
+        </ul>      
+        <ul class="menu">
         {{#each cities as |item|}}
           <li><span class="label label-item"><a>{{fa-icon "close"}}</a> {{item}}</span></li>
         {{/each}}
         </ul>
-        <ul class="menu">
-          <li><span class="label label-item"><a>{{fa-icon "close"}}</a> Fast Moving Consumer Goods</span></li>
-          <li><span class="label label-item"><a>{{fa-icon "close"}}</a> Fast Moving Consumer Goods</span></li>
-        </ul>      
         <ul class="menu">
         {{#each keywords as |item|}}
           <li><span class="label label-item"><a>{{fa-icon "close"}}</a> {{item}}</span></li>
@@ -154,7 +155,7 @@
                 <ul class="no-bullet">
                 {{#each category.industries as |industry|}}
                   <li>
-                    {{action-checkbox-bind value=industry.data.code text=industry.data.subIndustry checked=industry.data.checked}}
+                    {{action-checkbox-bind value=industry.data.code text=industry.data.subIndustry action="onCheckIndustry" checked=industry.data.checked}}
                   </li>
                 {{/each}}
                 </ul>
@@ -165,18 +166,16 @@
         {{/each}}
       </div>
       <ul class="menu">
-        {{#each industries as |item|}}
-          <li><span class="label label-item"><a {{action "removeIndustry" item.code item.name}}>{{fa-icon "close"}}</a> {{item.name}}</span></li>
+        {{#each selectedIndustries as |item|}}
+          <li><span class="label label-item"><a {{action "removeSelectedIndustry" item.code item.name}}>{{fa-icon "close"}}</a> {{item.name}}</span></li>
         {{/each}}
       </ul>  
     </div>
     <div class="reveal-footer text-right">
       <div class="content">
-        <button class="button success">Done</button>
+        <button class="button success" {{action "onSelectDone"}} data-close>Done</button>
         <a class="button success" data-close>Cancel</a>
       </div>
     </div>
   </form>
 {{/zf-reveal}}
-
-

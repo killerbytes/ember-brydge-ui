@@ -8,17 +8,22 @@ export default Ember.Route.extend({
       categories: this.get('ajax').request('categories/menu')
     })
   },
+ //  afterModel(model){
+	// 	var x = _.chain(_.map(model.categories, 'categories'))
+	// 							.flatten()
+	// 							.map((i)=>{
+	// 								return i.industries;
+	// 							})
+	// 							.flatten()
+	// 							.filter((d)=>{
+	// 								return d.data.code == "30501";
+	// 							})
+	// 							.first()
+	// 							.value()
+	// 	Ember.set(x, 'data.checked', true)
+	// 	console.log(model.categories)
 
-	// setupController: function(controller, model) {
-	// 	this._super(...arguments);
-	// 	console.log(model)
-	// 	this.setProperties(model);
-	// },
-	selected: null,
-	// model: function(){
-	// 	// return this.store.findAll('newsfeed');
-	// 	// return this.store.findAll('search', {query: 'ca', type: 'profile'});
-	// 	return this.store.query('search', { "query": 'ca', "type": 'profile' });
+
 	// },
 	actions: {
 		openLocationModal: function(){	
