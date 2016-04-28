@@ -11,6 +11,9 @@ export default Ember.Controller.extend(QueryLocationMixin,{
     tab: {
       refreshModel: true
     },
+    q: {
+      refreshModel: true
+    },
     channels: {
       refreshModel: true
     },
