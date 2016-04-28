@@ -7,6 +7,8 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, FilterDropdownListMix
   session: Ember.inject.service('session'),
   categoryid: '',
   geoChannels: '',
+  isCurated: null,
+  isLive: null,
 
   beforeModel(transition, params) {
     this._super(transition, params);
@@ -16,10 +18,14 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, FilterDropdownListMix
   model: function (params) {
     let ownerid = this.get('session.data.authenticated.user_id');
     console.log('params =>', params);
+    if(params.q && params.q=='null') delete params.q;
+
     if(!params.tab) {
       console.log('no tab');
       params.tab='curated';
     }
+
+    console.log('updated params =>', params)
     
     return Ember.RSVP.hash({
       newsfeed: this.store.query('newsfeed',params),
@@ -46,12 +52,44 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, FilterDropdownListMix
       if(tab === 'curated') {
         console.log('<<< curated');
         this.controller.set('isCurated',true);
+        this.controller.set('isLive', false);
       }else{
         console.log('<<< live');
         this.controller.set('isCurated',false);
+        this.controller.set('isLive',true);
       }
+
       
-      this.transitionTo('home', { queryParams: { tab: tab }});
+      this.controller.set('searchContent',null);
+      this.transitionTo('home', { queryParams: { tab: tab, q:null }});
+
+      this.refresh();
+    },
+
+    focusedInSearch: function () {
+      console.log('focus search')
+      
+      this.set('isCurated',this.controller.get('isCurated'));
+      this.set('isLive',this.controller.get('isLive'));
+
+      this.controller.set('isCurated',false);
+      this.controller.set('isLive',false);
+
+      this.transitionTo('home', { queryParams: { tab: 'search' }});
+    },
+
+    focusedOutSearch: function () {
+      console.log('focus out')
+      
+      this.controller.set('isCurated',this.get('isCurated'));
+      this.controller.set('isLive',this.get('isLive'));
+      
+      this.transitionTo('home', { queryParams: { tab: 'curated',q:null }});
+    },
+
+    pressedSearch: function () {
+      console.log('pressed search', this.controller.get('searchContent'))
+      this.transitionTo('home', { queryParams: { q: this.controller.get('searchContent') }});
       this.refresh();
     },
 

@@ -97,7 +97,7 @@
 
 	<div class="curated-box clearfix">
 		<label for="toggle_live">
-			<input type="radio" id="toggle_live" name="toggle" value="live"  {{action 'showMoreFields' 'live' preventDefault=false }} checked={{!isCurated}} >
+			<input type="radio" id="toggle_live" name="toggle" value="live"  {{action 'showMoreFields' 'live' preventDefault=false }} checked={{isLive}} >
 
 			<span>Live</span>
 		</label>
@@ -110,7 +110,9 @@
 			<div class="input-group-button">
 				{{fa-icon "search"}}
 			</div>
-			<input class="input-group-field flat" type="search" placeholder="Search this channel">
+			{{input class="input-group-field flat" type="search" placeholder="Search this channel" 
+			focus-in='focusedInSearch' focus-out ='focusedOutSearch' enter='pressedSearch'
+			value=searchContent}}
 		</div>
 	</div>
     {{newsfeed-list newsfeed=newsfeed profile=model.profile avatar=model.profile.avatarUrl}}
