@@ -1,76 +1,79 @@
+.profile, .settings{
 
-.profile.tab-wrapper{	
-	border-top: none;
-	.tab-header{
-		@extend .text-center;
-		border-right: 1px solid $border-color;
-		padding: 25px;
-		h2{
-			margin-bottom: 20px;
-			color: $brydge-blue;
-		}
-		p{
-			@extend .text-light-gray;
-			margin: 0;
-			line-height: 1.2em;
-		}
-	}
-	.tabs, .tabs-content{
-		border: none;
-	}
-	.tabs{
-		border-top: 1px solid $border-color;
-		@extend .text-center;
-		.tabs-title{
-			a{
-				border-right: 1px solid $border-color;
-				font-size: 14px;
-				line-height: 2em;
+	.tab-wrapper{	
+		border-top: none;
+		.tab-header{
+			@extend .text-center;
+			border-right: 1px solid $border-color;
+			padding: 25px;
+			h2{
+				margin-bottom: 20px;
+				color: $brydge-blue;
 			}
-			> a:focus, > a[aria-selected='true']{
-				border-right-color: #FFF;
-				background-color: #FFF;
-				color: #000;
+			p{
+				@extend .text-light-gray;
+				margin: 0;
+				line-height: 1.2em;
 			}
 		}
-		.tabs-title{
-			border-bottom: 1px solid $border-color;			
+		.tabs, .tabs-content{
+			border: none;
+		}
+		.tabs{
+			border-top: 1px solid $border-color;
+			@extend .text-center;
+			.tabs-title{
+				a{
+					border-right: 1px solid $border-color;
+					font-size: 14px;
+					line-height: 2em;
+				}
+				> a:focus, > a[aria-selected='true']{
+					border-right-color: #FFF;
+					background-color: #FFF;
+					color: #000;
+				}
+			}
+			.tabs-title{
+				border-bottom: 1px solid $border-color;			
+			}
+		}
+		.tabs-content{
+			padding :10px 25px;
 		}
 	}
-	.tabs-content{
-		padding :10px 25px;
+
+
+	.tab-wrapper:before{ display: block;}
+	.tab-wrapper:after {
+	     visibility: hidden;
+	     display: block;
+	     font-size: 0;
+	     content: " ";
+	     clear: both;
+	     height: 0;
+	     }
+
+	.tab-wrapper {
+		display: inline-block;
+		position: relative; 
+		z-index: 1; 
+		width: 100%; 
+		background-color: #FFF;
 	}
+	.tab-wrapper:before, .tab-wrapper:after {
+	   content: "";
+	   position: absolute;
+	   z-index: -1;
+	   top: 0;
+	   left: 0;
+	   width: 25%;
+	   height: 100%;
+	   background-color: #EFEFEF;
+	}
+
+	
 }
-
-
-.profile.tab-wrapper:before{ display: block;}
-.profile.tab-wrapper:after {
-     visibility: hidden;
-     display: block;
-     font-size: 0;
-     content: " ";
-     clear: both;
-     height: 0;
-     }
-
-.profile.tab-wrapper {
-	display: inline-block;
-	position: relative; 
-	z-index: 1; 
-	width: 100%; 
-	background-color: #FFF;
-}
-.profile.tab-wrapper:before, .profile:after {
-   content: "";
-   position: absolute;
-   z-index: -1;
-   top: 0;
-   left: 0;
-   width: 25%;
-   height: 100%;
-   background-color: #EFEFEF;
-}
-
 .tabs{
 	.tabs-title > a:focus, .tabs-title > a[aria-selected='true']{
 		background-color: $brydge-blue;

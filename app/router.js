@@ -44,6 +44,7 @@ Router.map(function() {
   this.route('profileviews');
   this.route('rating');
   this.route('search');
+  this.route('settings');
   this.route('user-guide');
   this.route('testing');
 });

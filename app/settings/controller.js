@@ -4,12 +4,7 @@ import AvatarMixin from 'web/mixins/avatar';
 import SaveProfileMixin from 'web/mixins/save-profile';
 import QueryIndustryMixin from 'web/mixins/query-industries';
 
-export default Ember.Controller.extend(
-  QueryLocationMixin,
-  AvatarMixin,
-  SaveProfileMixin,
-  QueryIndustryMixin, {
+export default Ember.Controller.extend({
     queryParams: ['tab'],
-    tab: 'personal'
-
+    tab: 'email'
 });

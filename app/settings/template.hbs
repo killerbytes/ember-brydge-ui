@@ -1,0 +1,151 @@
+
+<div class="row">
+    <div class="columns">
+        <div class="bordered bg-gray">
+            <h2 class="page-title">SETTINGS</h2>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="columns settings">
+        <div class="row collapse tab-wrapper bordered" data-equalizer data-equalize-by-row="true">
+        
+          <div class="medium-3 columns bg-gray">
+            <div class="tab-header padding">
+                <h2>Stay in control!</h2>
+            </div>
+
+            {{#zf-tabs class="vertical bg-gray"}}
+              <li data-tab='email' class="tabs-title {{active-tab 'email' tab}}"><a href="#email">Email address</a></li>
+              <li data-tab='password' class="tabs-title {{active-tab 'password' tab}}"><a href="#password">Password</a></li>
+              <li data-tab='notification' class="tabs-title {{active-tab 'notification' tab}}"><a href="#notification">Notification settings</a></li>
+              <li data-tab='ask' class="tabs-title {{active-tab 'ask' tab}}"><a href="#ask">ASK settings</a></li>
+              <li data-tab='views' class="tabs-title {{active-tab 'views' tab}}"><a href="#views">Profile views</a></li>
+            {{/zf-tabs}}
+          </div>
+          <div class="medium-9 columns float-left">
+            <div class="tabs-content vertical" data-tabs-content="example-tabs">      
+              <div class="tabs-panel {{active-tab 'email' tab}}" id="email">
+                <form>
+                  <div class="row">
+                    <div class="medium-8 columns medium-centered">
+                      <div class="columns">
+                        <label>Replace with new email
+                          <input type="text">
+                        </label>                        
+                      </div>
+                      <div class="text-center">
+                        <button class="button success">SAVE & VERIFY</button>
+                      </div>
+                    </div>
+                  </div>
+                </form>              
+              </div>
+              <div class="tabs-panel {{active-tab 'password' tab}}" id="password">
+                <form>
+                  <div class="row">
+                    <div class="medium-8 columns medium-centered">
+                      <div class="columns">
+                        <label>Old Password
+                          <input type="text">
+                        </label>                        
+                      </div>
+                      <div class="columns">
+                        <label>New Password
+                          <input type="text">
+                        </label>                        
+                      </div>
+                      <div class="columns">
+                        <label>Re-type new password
+                          <input type="text">
+                        </label>                        
+                      </div>
+                      <div class="text-center">
+                        <button class="button success">SAVE</button>
+                      </div>
+                    </div>
+                  </div>
+                </form>              
+              </div>
+              <div class="tabs-panel {{active-tab 'notification' tab}}" id="notification">
+                <table>
+                  <thead>
+                    <tr>
+                      <th></th>
+                      <th width="50" class="text-center">ON BRYDGE</th>
+                      <th width="50" class="text-center">ON EMAIL</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>This is longer content Donec id elit non mi porta gravida at eget metus.</td>
+                      <td class="text-center"><input type='checkbox'></td>
+                      <td class="text-center"><input type='checkbox'></td>
+                    </tr>
+                    <tr>
+                      <td>This is longer Donec id elit non mi porta gravida at eget metus.</td>
+                      <td class="text-center"><input type='checkbox'></td>
+                      <td class="text-center"><input type='checkbox'></td>
+                    </tr>
+                    <tr>
+                      <td>This is longer Donec id elit non mi porta gravida at eget metus.</td>
+                      <td class="text-center"><input type='checkbox'></td>
+                      <td class="text-center"><input type='checkbox'></td>
+                    </tr>
+                  </tbody>
+                </table>  
+                <div class="mt text-center">
+                  <button class="button success">Save</button>
+                </div>            
+              </div>
+              <div class="tabs-panel {{active-tab 'ask' tab}}" id="ask">
+                <div class="row">
+                  <div class="columns medium-8 medium-centered">
+                    <div class="row">
+                      <div class="columns medium-6">
+                        <label for="">Turn ASK OFF</label>
+                      </div>
+                      <div class="columns medium-6">
+                        <div class="switch">
+                          <input class="switch-input" id="askSwitch" type="checkbox" name="askSwitch">
+                          <label class="switch-paddle" for="askSwitch">
+                            <span class="show-for-sr">Download Kittens</span>
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                    <p class="text-center">
+                      Turning ASK off will also... Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam
+                    </p>          
+                    
+                  </div>
+                </div>
+              </div>
+              <div class="tabs-panel {{active-tab 'views' tab}}" id="views">
+                <div class="row">
+                  <div class="columns medium-8 medium-centered">
+                    <div class="row">
+                      <div class="columns medium-6">
+                        <label for="">Turn Profile Views OFF</label>
+                      </div>
+                      <div class="columns medium-6">
+                        <div class="switch">
+                          <input class="switch-input" id="askSwitch" type="checkbox" name="askSwitch">
+                          <label class="switch-paddle" for="askSwitch">
+                            <span class="show-for-sr">Download Kittens</span>
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                    <p class="text-center">
+                      Turning ASK off will also... Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam
+                    </p>          
+                    
+                  </div>
+                </div>
+              </div>            
+            </div>            
+          </div>
+        </div>
+    </div>
+</div>
