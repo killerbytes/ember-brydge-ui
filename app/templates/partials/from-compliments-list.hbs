@@ -1,0 +1,15 @@
+<ul class="no-bullet connections-list">
+  {{#each model.fromCompliments as |compliment|}}
+  <div class="box rounded question-box">
+    <div class="clearfix">
+    <li>
+      {{link-to 'You' "profile" 'me' class="user"}} 
+      has complimented to
+      {{link-to compliment.to.name "profile" compliment.to.username class="user"}}
+       <h2>{{compliment.title}}</h2>
+       <p>{{compliment.content}}</p>
+    </li>
+  </div>
+  </div>
+  {{/each}}
+</ul>

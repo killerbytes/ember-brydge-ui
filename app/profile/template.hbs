@@ -155,22 +155,26 @@
   {{#zf-reveal id="complimentModal" overlay=true class="reveal-popup"}}
       <h4>Compliments</h4>
       <p class="lead">Show your appreciation for Jon WAYNE by complementing him</p>
-      <form action="">
+      <form {{action 'postCompliment' on='submit'}}>
         <div class="content clearfix">
           
-          <select name="" id="">
+         <!--  <select value=selected>
             <option value="">Thank you for</option>
             <option value="">Good job on</option>
             <option value="">Congratulations on</option>
             <option value="">Kudos on</option>
-          </select>
-          <textarea name="" id="" cols="30" rows="5" class="rounded"></textarea>
+          </select> -->
+
+
+          {{select-native content=titles action=(action (mut complimentTitle))}}
+
+          {{textarea name="" id="" cols="30" rows="5" class="rounded" value=complimentContent}}
           <a href="">See Tips</a>
           <span class="float-right dim-text">250 characters</span>
         </div>
         <div class="reveal-footer text-right">
           <div class="content">
-            <button class="button success">Post</button>
+            <button class="button success {{if flagCompliment 'disabled'}}" type="submit" data-close>Post</button>
             <a class="button success" data-close>Cancel</a>
           </div>
         </div>
