@@ -29,8 +29,10 @@
   background-color: #EEE;
   
 }
-#dd-ask-form{
-  // width: 400px !important;
+.dd-ask-form.dropdown-pane{
+  button{
+    display: inline-block;
+  }
 }
 
 // a[data-toggle="dd-ask"], 

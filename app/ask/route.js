@@ -10,23 +10,24 @@ export default Ember.Route.extend({
   },
 
   afterModel: function(model, transaction) {
-  	let _this = this;
-
+  	// let _this = this;
+   //  console.log(this)
   	// get current user id
-  	let ownerid = this.get('session.data.authenticated.user_id');
-  	_this.set('ownerid', ownerid);
+  	// let ownerid = this.get('session.data.authenticated.user_id');
+  	// _this.set('ownerid', ownerid);
 
   	// get ask user id
-  	let userid = model.get('userid');
-  	_this.set('userid', userid);
+  	// let userid = model.get('userid');
+  	// _this.set('userid', userid);
 
-    return Ember.RSVP.hash({
-      fromQuestions: this.store.query('ask',{from: userid, userid: userid}),
-      toQuestions: this.store.query('ask',{to: userid, userid: userid})
-    }).then(function(result){
-      _this.set('fromQuestions',result.fromQuestions);
-      _this.set('toQuestions', result.toQuestions);
-    });
+    // return Ember.RSVP.hash({
+    //   fromQuestions: this.store.query('ask',{from: userid, userid: userid}),
+    //   toQuestions: this.store.query('ask',{to: userid, userid: userid})
+    // }).then((result)=>{
+    //   console.log(this.controller)
+    //   _this.set('fromQuestions',result.fromQuestions);
+    //   _this.set('toQuestions', result.toQuestions);
+    // });
 
 
     // return Ember.RSVP.hash({
@@ -48,14 +49,29 @@ export default Ember.Route.extend({
   },
 
   setupController: function(controller, model) {
-		console.log('setupController', this.username)
+    this._super(...arguments)
 		// controller set the neccessary items 
-	  controller.set('model',{
-      username: this.username,
-	  	ownerid: this.get('ownerid'),
-	  	userid: this.get('userid'),
-	  	fromQuestions: this.get('fromQuestions'),
-      toQuestions: this.get('toQuestions')
-	  });
+    let userid = model.get('userid');
+
+    Ember.RSVP.hash({
+      fromQuestions: this.store.query('ask',{from: userid, userid: userid}),
+      toQuestions: this.store.query('ask',{to: userid, userid: userid})
+    }).then((result)=>{
+      controller.setProperties(result)
+      // _this.set('fromQuestions',result.fromQuestions);
+      // _this.set('toQuestions', result.toQuestions);
+    });
+    
+    let ownerid = this.get('session.data.authenticated.user_id');
+    controller.set('ownerid', ownerid);
+    console.log(controller)
+    // controller.setProperties(this);
+	  // controller.set('model',{
+   //    username: this.username,
+	  // 	ownerid: this.get('ownerid'),
+	  // 	userid: this.get('userid'),
+	  // 	fromQuestions: this.get('fromQuestions'),
+   //    toQuestions: this.get('toQuestions')
+	  // });
 	}
 });

@@ -1,34 +1,24 @@
 import Ember from 'ember';
 
 export default Ember.Component.extend({
-	tagName: 'a',
-	'data-toggle': "dd-ask-form",
-	classNames: ['button', 'large', 'expanded'],
-	attributeBindings: ['disabled', 'data-toggle'],
+	store: Ember.inject.service(),
 	actions: {
 		ask: function(to, from, username,question) {
-			console.log('ask dropdown to/from/username/question', to,from,username,question);
-			var store = this.store;
-
+			var store = this.get('store');
 			var ask = store.createRecord('ask',{
 				content: question
 			});
 
 			var savedCallback = () => {
-				this.sendAction('action', username);
-				this.$('#dd-ask-form').foundation('close')
-				console.log('saved ask');
-
+				this.sendAction('action', this.get('model.id'));
+				this.$('#'+this.get('name')).foundation('close')
 			};
-
-			store.findRecord('user', from).then(function(user) {
+			
+			store.findRecord('user', this.get('from')).then((user)=>{
 				ask.set('from', user);
-
-				store.findRecord('user', to).then(function(user) {
+				store.findRecord('user', this.get('model.id')).then((user)=>{
 					ask.set('to', user);
-
-					ask.save().then(savedCallback);
-					
+					ask.save().then(savedCallback);					
 				})
 			})
 		}

@@ -1,6 +1,25 @@
-ASK
-<div class="wrapper">
-  <div class="triangle triangle-gray"></div>
-</div>
+{{#zf-dropdown id=name class="dd-ask-form dropdown-gray" closeOnClick=true}}
+  <form {{action 'ask' model.userid ownerid model.username question on='submit'}}>
+    {{input value=model.userid type="hidden"}}
+    {{input value=ownerid type="hidden"}}
+    {{input value=model.username type="hidden"}}
+
+    <section class="padding ask-form">
+      {{textarea value=question rows="3"}}
+      <div class="row">
+        <div class="columns text-right">
+          <button class="button success" type="submit">ASK</button>            
+        </div>
+      </div>
+      <p class="dim-text">
+        Ask anyone a professional question. <br>
+        If answered, it will appear on both profiles.
+      </p>
+      <small>{{link-to "Tips on how to use ASK" "user-guide"}}</small>
+    </section>
+       
+  </form>
+{{/zf-dropdown}}
+
 
 

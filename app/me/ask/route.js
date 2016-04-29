@@ -14,6 +14,10 @@ export default Ember.Route.extend({
       fromQuestions: this.store.query('ask',{from: ownerid}),
       toQuestions: this.store.query('ask',{to: ownerid})
     })
+	},
+	setupController(controller, model){
+		this._super(...arguments);
+		controller.setProperties(model);
 	}
 
 });

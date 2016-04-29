@@ -1,20 +1,22 @@
 
-{{#each model.fromQuestions as |q| }}
+{{#each fromQuestions as |q| }}
 	<div class="box rounded question-box">
 	  <div class="clearfix">
 
 	    {{link-to q.from.content.name "profile" q.from.content.username class="user" }} asked {{link-to q.to.content.name "profile" q.to.content.username class="user"}}
 	    <h2>{{q.content}}</h2>
-	    {{#zf-accordion-menu class="accordion-menu"}}
-	      <li>
-	        <ul class="no-bullet vertical nested">
-	          <li>
-	          	<p>{{q.answer}}</p>
-	          </li>
-	        </ul>
-	        <a class="more no-arrow"><span class="content-more" disabled=true>See Answer</span><span class="content-less">Hide Answer</span></a>
-	      </li>
-	    {{/zf-accordion-menu}}           
+	    {{#if q.answer}}
+		    {{#zf-accordion-menu class="accordion-menu"}}
+		      <li>
+		        <ul class="no-bullet vertical nested">
+		          <li>
+		          	<p>{{q.answer}}</p>
+		          </li>
+		        </ul>
+		        <a class="more no-arrow"><span class="content-more" disabled=true>See Answer</span><span class="content-less">Hide Answer</span></a>
+		      </li>
+		    {{/zf-accordion-menu}}           
+	    {{/if}}
 
 <!-- 	   	<div class="floated">
 	    	<a href="" class="more">See Answer</a>

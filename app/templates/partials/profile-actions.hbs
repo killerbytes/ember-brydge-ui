@@ -5,7 +5,7 @@
       {{link-to "Edit Profile" "me.edit" model.profile.id class="button large rounded expanded"}}
     </div>
     <div class="table-cell">
-      <a class="button large rounded expanded">Settings</a>
+      {{link-to "Settings" "settings" class="button large rounded expanded" }}
     </div>
     {{else}}
 
@@ -16,7 +16,12 @@
       <a class="button large rounded expanded">MESSAGE</a>
     </div>
     <div class="table-cell">
-      {{ ask-dropdown store=store model=model action='goToAsk'}}      
+      <a data-toggle="dd-ask-form1" class="button large expanded">ASK
+        <div class="wrapper">
+          <div class="triangle triangle-gray"></div>
+        </div>
+      </a>
+      {{ ask-dropdown name="dd-ask-form1" from=ownerid model=model.profile action='goToAsk'}}      
     </div>
     {{/if}}
     <div class="table-cell">

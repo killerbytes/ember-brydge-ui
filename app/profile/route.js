@@ -55,6 +55,7 @@ export default Ember.Route.extend({
   setupController: function(controller, model) {
     var avatar = this.get('accountProfile').get('avatarUrl');
     console.log('<<<<<<< avatar', avatar);
+    controller.set('ownerid', this.get('session.data.authenticated.user_id'))
     controller.set('model',{
       connectionStatus: this.get('connectionStatus'),
       profile: this.get('paramsUserProfile'),

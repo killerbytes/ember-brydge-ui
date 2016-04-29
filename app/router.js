@@ -15,9 +15,9 @@ Router.map(function() {
 
   this.route('me', function() {
     this.route('edit',{path:'/edit/:profile_id'});
-    this.route('ask');
     this.route('connections');
   });
+  this.route('me.ask', {path: 'me/ask'});
 
 
 
@@ -46,6 +46,10 @@ Router.map(function() {
   this.route('search');
   this.route('settings');
   this.route('user-guide');
+  this.route('help');
+  this.route('feedback');
+  this.route('terms-of-use');
+  this.route('privacy-policy');
   this.route('testing');
 });
 
