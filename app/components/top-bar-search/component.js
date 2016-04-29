@@ -9,7 +9,10 @@ export default Ember.Component.extend({
 		search: function(q){
 			let shouldDropdown = this.get('search.shouldDropdown');
 			if(q.length < 3) return false;
-			this.get('search').query(q);
+			this.get('search').query({
+				q: q,
+				type: 'profile'
+			});
 
 			// this.store.findAll('search', {query: q});
 			// return false;

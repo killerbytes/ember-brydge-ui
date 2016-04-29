@@ -2,15 +2,15 @@
  -->
 
  <form>
- 	<divr class="row">
+ 	<div class="row">
  		<div class="columns">
  			<label class="middle">
  			 Snapshot:
  				{{form-textarea-counter limit=500 value=profile.snapshot rows=10 }}   			
  			</label>
  		</div>
- 	</divr>
- 	
- 	
- 	<button class='button success' {{ action 'save' }}>Save Changes</button>
+ 		<div class="columns">
+			<button class='button success' {{ action 'save' }}>Save Changes</button>
+ 		</div>
+ 	</div>
  </form>

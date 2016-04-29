@@ -1,5 +1,4 @@
 .profile, .settings{
-
 	.tab-wrapper{	
 		border-top: none;
 		.tab-header{
@@ -34,12 +33,15 @@
 					color: #000;
 				}
 			}
-			.tabs-title{
+			.tabs-title:not(:last-child){
 				border-bottom: 1px solid $border-color;			
 			}
 		}
-		.tabs-content{
-			padding :10px 25px;
+		.tabs-panel{
+			padding: 25px;
+		}
+		.tabs-panel.space-filler{
+			padding: 80px 25px;
 		}
 	}
 

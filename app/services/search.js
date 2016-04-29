@@ -14,9 +14,9 @@ export default Ember.Service.extend({
 		return getOwner(this).lookup('controller:application').currentPath != 'search' ? true : false;
 	}),
   results: [],
-  query(q)  {
+  query(params)  {
 
-		this.get('store').query('search', { "q": q, "type": 'profile' }).then((res)=>{
+		this.get('store').query('search', params).then((res)=>{
 			this.set('results', res);
 		})  	
   },

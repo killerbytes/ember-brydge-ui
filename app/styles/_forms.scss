@@ -42,15 +42,19 @@ form{
 		}
 
 	}
-	label{
+	label, .label{
+		font-size: $form-label-font-size;
 		color: $text-color3;
 	}
-	label.reversed{
+	label.reversed, .label.reversed{
 		input{
 			float: right;
 			margin: 0;
 			margin-top: 6px;
 		}
+	}
+	p{
+		color: $text-color3;
 	}
 }
 

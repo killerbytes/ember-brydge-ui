@@ -25,10 +25,14 @@
           </div>
           <div class="medium-9 columns float-left">
             <div class="tabs-content vertical" data-tabs-content="example-tabs">      
-              <div class="tabs-panel {{active-tab 'email' tab}}" id="email">
+              <div class="tabs-panel space-filler {{active-tab 'email' tab}}" id="email">
                 <form>
                   <div class="row">
                     <div class="medium-8 columns medium-centered">
+                      <div class="label columns mb50 text-center">
+                        <span>Current email: </span><a>{{model.email}}</a>
+                      </div>
+
                       <div class="columns">
                         <label>Replace with new email
                           <input type="text">
@@ -41,11 +45,11 @@
                   </div>
                 </form>              
               </div>
-              <div class="tabs-panel {{active-tab 'password' tab}}" id="password">
+              <div class="tabs-panel space-filler {{active-tab 'password' tab}}" id="password">
                 <form>
                   <div class="row">
                     <div class="medium-8 columns medium-centered">
-                      <div class="columns">
+                      <div class="columns mb40">
                         <label>Old Password
                           <input type="text">
                         </label>                        
@@ -68,7 +72,7 @@
                 </form>              
               </div>
               <div class="tabs-panel {{active-tab 'notification' tab}}" id="notification">
-                <table>
+                <table class="mb30">
                   <thead>
                     <tr>
                       <th></th>
@@ -95,54 +99,48 @@
                   </tbody>
                 </table>  
                 <div class="mt text-center">
-                  <button class="button success">Save</button>
+                  <button class="button success">SAVE</button>
                 </div>            
               </div>
-              <div class="tabs-panel {{active-tab 'ask' tab}}" id="ask">
-                <div class="row">
-                  <div class="columns medium-8 medium-centered">
-                    <div class="row">
-                      <div class="columns medium-6">
-                        <label for="">Turn ASK OFF</label>
-                      </div>
-                      <div class="columns medium-6">
-                        <div class="switch">
-                          <input class="switch-input" id="askSwitch" type="checkbox" name="askSwitch">
-                          <label class="switch-paddle" for="askSwitch">
-                            <span class="show-for-sr">Download Kittens</span>
-                          </label>
-                        </div>
+              <div class="tabs-panel space-filler {{active-tab 'ask' tab}}" id="ask">
+                <form>
+                  <div class="row">
+                    <div class="columns medium-6 text-right">
+                      <label class="middle">Turn ASK OFF</label>
+                    </div>
+                    <div class="columns medium-6">
+                      <div class="switch">
+                        <input class="switch-input" id="askSwitch" type="checkbox" name="askSwitch">
+                        <label class="switch-paddle" for="askSwitch">
+                          <span class="show-for-sr">Turn ASK OFF</span>
+                        </label>
                       </div>
                     </div>
-                    <p class="text-center">
-                      Turning ASK off will also... Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam
-                    </p>          
-                    
                   </div>
-                </div>
+                  <p class="text-center">
+                    Turning ASK off will also... Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam
+                  </p>          
+                </form>
               </div>
-              <div class="tabs-panel {{active-tab 'views' tab}}" id="views">
-                <div class="row">
-                  <div class="columns medium-8 medium-centered">
-                    <div class="row">
-                      <div class="columns medium-6">
-                        <label for="">Turn Profile Views OFF</label>
-                      </div>
-                      <div class="columns medium-6">
-                        <div class="switch">
-                          <input class="switch-input" id="askSwitch" type="checkbox" name="askSwitch">
-                          <label class="switch-paddle" for="askSwitch">
-                            <span class="show-for-sr">Download Kittens</span>
-                          </label>
-                        </div>
+              <div class="tabs-panel space-filler {{active-tab 'views' tab}}" id="views">
+                <form>
+                  <div class="row">
+                    <div class="columns medium-6 text-right">
+                      <label class="middle">Turn Profile Views OFF</label>
+                    </div>
+                    <div class="columns medium-6">
+                      <div class="switch">
+                        <input class="switch-input" id="askSwitch" type="checkbox" name="askSwitch">
+                        <label class="switch-paddle" for="askSwitch">
+                          <span class="show-for-sr">Turn Profile Views OFF</span>
+                        </label>
                       </div>
                     </div>
-                    <p class="text-center">
-                      Turning ASK off will also... Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam
-                    </p>          
-                    
                   </div>
-                </div>
+                  <p class="text-center">
+                    Turning Profile Views off will also... Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam
+                  </p>          
+                </form>
               </div>            
             </div>            
           </div>

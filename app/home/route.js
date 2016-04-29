@@ -34,6 +34,9 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, FilterDropdownListMix
       profile: this.store.findRecord('profile', ownerid)
     });
   },
+  afterModel(model){
+    console.log(model)
+  },
 
   actions: {
 

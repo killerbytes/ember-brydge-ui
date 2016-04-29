@@ -15,7 +15,6 @@ export default Ember.Mixin.create({
       this.get('ajax').request('cities?q='+q, {
           method: 'GET'
         }).then((res)=>{
-          console.log(res.data);
           self.set('locations', res.data)
       });
     }

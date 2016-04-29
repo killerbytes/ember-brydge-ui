@@ -50,10 +50,11 @@ export default Ember.Mixin.create(GetIndustryFromCodeMixin,{
       id: model.profile.get('currentCompany'),
       text: model.profile.get('currentCompany')
     };
-    model.myIndustries = [{
+    model.myIndustry = {
       id: model.profile.get('industryId'),
       text: model.profile.get('industry')
-    },{
+    };
+    model.myOccupations = [{
       id: model.profile.get('occupationOneId'),
       text: model.profile.get('occupationOne')
     },{

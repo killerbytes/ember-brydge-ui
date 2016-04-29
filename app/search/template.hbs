@@ -18,7 +18,7 @@
         </div>
         <div class="medium-4 columns">
           <div class="people-search-filter-column">
-           {{dropdown-filter
+            {{dropdown-filter
               items=locations 
               selected=valueText 
               query='query'
@@ -30,7 +30,7 @@
         </div>
         <div class="medium-4 columns">
           <div class="people-search-filter-column">
-            {{input value=keyword }}
+            {{input value=keyword action="addKeyword" on="enter" }}
             <a {{ action "addKeyword" }}>{{fa-icon "plus-circle"}}</a>            
           </div>    
         </div>      
@@ -38,23 +38,23 @@
       <div class="columns medium-10 filter-selections">
         <ul class="menu">
         {{#each industries as |item|}}
-          <li><span class="label label-item"><a>{{fa-icon "close"}}</a> {{item.name}}</span></li>
+          <li><span class="label label-item"><a {{action "removeIndustry" item}}>{{fa-icon "close"}}</a> {{item.name}}</span></li>
         {{/each}}
         </ul>      
         <ul class="menu">
         {{#each cities as |item|}}
-          <li><span class="label label-item"><a>{{fa-icon "close"}}</a> {{item}}</span></li>
+          <li><span class="label label-item"><a {{action "removeItem" item 'cities' 'city'}}>{{fa-icon "close"}}</a> {{item}}</span></li>
         {{/each}}
         </ul>
         <ul class="menu">
         {{#each keywords as |item|}}
-          <li><span class="label label-item"><a>{{fa-icon "close"}}</a> {{item}}</span></li>
+          <li><span class="label label-item"><a {{action "removeItem" item 'keywords' 'key'}}>{{fa-icon "close"}}</a> {{item}}</span></li>
         {{/each}}
         </ul>
       </div>
       <div class="columns medium-2">
         <div>
-          <a href="" class="success button expanded">Refresh</a>
+          <a {{ action "refresh" }} class="success button expanded">Refresh</a>
         </div>
       </div>        
     </div>
@@ -167,7 +167,7 @@
       </div>
       <ul class="menu">
         {{#each selectedIndustries as |item|}}
-          <li><span class="label label-item"><a {{action "removeSelectedIndustry" item.code item.name}}>{{fa-icon "close"}}</a> {{item.name}}</span></li>
+          <li><span class="label label-item"><a {{action "removeSelectedIndustry" item}}>{{fa-icon "close"}}</a> {{item.name}}</span></li>
         {{/each}}
       </ul>  
     </div>
