@@ -7,13 +7,22 @@
 				{{ item.content }}
 			</a>
 		<div class="accordion-content" data-tab-content>
-	  	<form action="" class="form-accordion	">
-				<label>
-					{{form-input model=item valuePath='content' placeholder="Interest (Trekking, Model-building, Gardening etc.)"}}	
-				</label>
-	  	
-			    <button class='button success' {{ action 'update' item }}>SAVE</button>
-			    <button class='button success float-right' {{ action 'delete' item }}>DELETE</button>
+	  	<form class="form-accordion	">
+			  <div class="row">
+			    <div class="columns">
+			      <form>
+			      	<label>Interest (Trekking, Model-building, Gardening etc.)
+			      	{{form-input model=item valuePath='content'}}	
+			      	</label>
+			      </form>
+			    </div>
+			  </div>	  	
+				<div class="row">
+					<div class="columns">
+				    <button class='button success float-left' {{ action 'update' item }}>SAVE</button>
+				    <button class='button success float-right' {{ action 'delete' item }}>DELETE</button>
+					</div>
+				</div>	  	
 			</form>								
 
 		</div>
@@ -21,13 +30,24 @@
 {{/each}}
 	<li class="accordion-item" data-accordion-item>
 		<div class="accordion-content" data-tab-content>
-	  	<form action="" class="form-accordion">
-				<label>
-					{{form-input model=this valuePath='content' placeholder="Interest (Trekking, Model-building, Gardening etc.)"}}	
-				</label>
-
-			    <button class='button success' {{ action 'create' }}>SAVE</button>
+	  	<form class="form-accordion	">
+			  <div class="row">
+			    <div class="columns">
+			      <form>
+			      	<label>Interest (Trekking, Model-building, Gardening etc.)
+			      	{{form-input model=this valuePath='content'}}	
+			      	</label>
+			      	<p class="help-text">Add Interests one at a time</p>
+			      </form>
+			    </div>
+			  </div>	  	
+				<div class="row">
+					<div class="columns text-center">
+				    <button class='button success' {{ action 'create' }}>SAVE</button>
+					</div>
+				</div>	  	
 			</form>								
+
 		</div>
   		<a class="more no-arrow button success expanded">{{fa-icon "plus"}}</a>
 	</li>

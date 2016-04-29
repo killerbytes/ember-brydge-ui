@@ -1,6 +1,7 @@
 import Ember from 'ember';
 
 export default Ember.Route.extend({
+  flashMessages: Ember.inject.service(),
 	model: function (params) {
 		this.profileid = params.profile_id;
 
@@ -99,6 +100,30 @@ export default Ember.Route.extend({
       let profile = this.controller.get('profile');
       profile.set('occupationTwoId',filtered.id);
       profile.set('occupationTwo',filtered.text);
-    }
+    },
+    createWork(component, cb){
+      let data = component.getProperties("company", "title", "location", "content", "from", "to", "currentCompany");
+      let work = this.store.createRecord('experience', data);
+
+      work.save().then(() => {
+        Ember.get(this, 'flashMessages').success('Success!');
+        component.setProperties({
+          company: null,
+          title: null,
+          location: null,
+          content: null,
+          from: null,
+          to: null,
+          currentCompany: null
+        });
+        cb.apply();
+      })
+    },
+    updateWork(item, cb){
+      item.save().then(()=>{
+        Ember.get(this, 'flashMessages').success('Success!');
+        cb.apply();
+      });
+    },
   }
 });

@@ -48,7 +48,7 @@
                   </div>
                   <div class="tabs-panel {{active-tab 'work' tab}}" id="work">
                     <p>Your current job (title and employer) will be highlighted at the top of your profile. If you are currently self-employed, unemployed, on a sabbatical, or on a break, click here to pick one of the standard titles.</p>
-                    {{ profile-work-history items=experiences store=store }}
+                    {{ profile-work-history items=experiences store=store create="createWork" update="updateWork" delete="deleteWork" }}
                   </div>
                   <div class="tabs-panel {{active-tab 'academia' tab}}" id="academia">
                     {{ profile-education items=educations store=store}}

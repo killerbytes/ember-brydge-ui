@@ -2,7 +2,6 @@ import Ember from 'ember';
 import Validations from '../../models/validations/language';
 
 export default Ember.Component.extend(Validations, {
-	flashMessages: Ember.inject.service(),
 	classNames: ['profile-accordion', 'no-bullet'],
   languageProficiency: ["Beginner", "Intermediate", "Upper Intermediate", "Advanced", "Native or Bilingual"],
   isValid: Ember.computed('validations.isValid', function(){

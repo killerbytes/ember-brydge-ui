@@ -53,7 +53,7 @@ form{
 			margin-top: 6px;
 		}
 	}
-	p{
+	p, p.help-text{
 		color: $text-color3;
 	}
 }
@@ -101,7 +101,7 @@ form{
 .form-accordion{
 	border: none;
 	background-color: #CFEFFF;
-	padding: 20px 40px;
+	padding: 20px 30px;
 	margin-bottom: 2px;
 	.checkbox{
 		margin-top: 5px;
