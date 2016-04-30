@@ -3,6 +3,7 @@ import Ember from 'ember';
 export default Ember.Route.extend({
   session: Ember.inject.service('session'),
   connection: Ember.inject.service(),
+  compliment: Ember.inject.service(),
   
   loggedinUser: null,
   paramsUserProfile: null,
@@ -96,6 +97,22 @@ export default Ember.Route.extend({
     goToAsk: function (username) {
       console.log('routing to ask');
       this.transitionTo('ask', username); 
+    },
+
+    postCompliment: function () {
+      console.log('post compliment =>');
+
+      console.log('content =>',  this.controller.get('complimentContent'));
+      console.log('title =>', this.controller.get('complimentTitle'));
+
+      var content = this.controller.get('complimentContent');
+      var userid = this.get('paramsUserProfile').get('userid');
+      var title = this.controller.get('complimentTitle');
+
+      this.get('compliment').post(userid,title,content)
+      .then((res)=>{
+        console.log('compliment saved');
+      })
     }
   }
 });

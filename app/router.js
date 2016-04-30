@@ -16,6 +16,7 @@ Router.map(function() {
   this.route('me', function() {
     this.route('edit',{path:'/edit/:profile_id'});
     this.route('connections');
+    this.route('compliments');
   });
   this.route('me.ask', {path: 'me/ask'});
 
