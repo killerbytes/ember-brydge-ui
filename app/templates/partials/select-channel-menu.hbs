@@ -1,9 +1,13 @@
 <section>
-	<strong>Relevant Industry Channels</strong>
+	<strong>Your Business Industry</strong>
 	<ul class="no-bullet">
 		<li>
 			{{action-checkbox-bind value=profile.industryId text=profile.industry action="checkboxChanged" reversed=true}}
 		</li>
+	</ul>
+	<p>{{#link-to 'me.edit' profile.id}}Edit Business Industry{{/link-to}}</p>
+	<strong>Your Occupational Industry</strong>
+	<ul class="no-bullet">	
 		<li>
 			{{action-checkbox-bind value=profile.occupationOneId text=profile.occupationOne action="checkboxChanged" reversed=true}}
 		</li>
@@ -11,6 +15,9 @@
 			{{action-checkbox-bind value=profile.occupationTwoId text=profile.occupationTwo action="checkboxChanged" reversed=true}}
 		</li>
 	</ul>
-	<p>{{#link-to 'me.edit' profile.id}}Edit Occupation Industry{{/link-to}}</p>
-	<div class="dim-text">Broadcast will also be shared with Connections by default</div>
+	<p>{{#link-to 'me.edit' profile.id}}Edit Occupational Industry{{/link-to}}</p>
+</section>
+	<hr>
+<section>
+	<p class="dim-text">Broadcast will also be shared with Connections by default</p>
 </section>

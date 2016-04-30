@@ -106,6 +106,9 @@
 		ul.last{
 			margin-bottom: 5px;
 		}
+		a{
+			@extend .dim-text;
+		}
 	}
 }
 

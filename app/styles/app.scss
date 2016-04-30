@@ -41,7 +41,7 @@ $text-color3: #CCC;
 body{
 	background-color: #ECEDEF;
 	color: $body-color;
-	font-family: Arial;
+  font-family: 'Helvetica Neue', Arial, sans-serif;
 }
 *{
 	outline-width: 0;
@@ -162,11 +162,14 @@ p.dim-text{
 .mt{
 	margin-top: 10px;
 }
+.mt25{
+	margin-top: 25px;
+}
 .mt5{
 	margin-top: 5px;
 }
 .mb{
-	margin-bottom: 10px;
+	margin-bottom: 10px !important;
 }
 .mb5{ margin-bottom: 5px !important;}
 .mb20{ margin-bottom: 20px !important;}

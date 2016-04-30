@@ -1,21 +1,22 @@
 <a class="box button dropdown-button expanded text-center" data-toggle="location-dropdown">
 	<strong>{{filtered}}</strong>
-	<i class="fa fa-caret-down"></i>
+	<i class="icons caret"></i>
 </a>
 {{#zf-dropdown id="location-dropdown"}}
 	<section class="custom-select-list">
-		<div class="title-bar dim-text text-center">Select Location</div>
+		<div class="title-bar dim-text text-center">Select a Location</div>
 			<div class="mt mb clearfix">
 				<div class="columns medium-6">
 					<strong>Your Location</strong>
 					<ul class="no-bullet">
-						<li {{action "select" myLocation preventDefault=false }}>{{myLocation.text}}</li>
+						<li {{action "select" myLocation preventDefault=false }}><label for="">{{myLocation.text}}</label></li>
 					</ul>				
+					<p>{{#link-to 'me.edit' sessionAccount.account.profile.id (query-params tab="personal")}}Edit Your Location{{/link-to}}</p>				
 				</div>
 				<div class="columns medium-6">
 					<strong>Global</strong>
 					<ul class="no-bullet">
-						<li {{action "select" global preventDefault=false }}>{{global.text}}</li>
+						<li {{action "select" global preventDefault=false }}><label for="">{{global.text}}</label></li>
 					</ul>
 				</div>
 			</div>

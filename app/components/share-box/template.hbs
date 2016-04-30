@@ -6,28 +6,32 @@
 	    </div>
 	    
 	    <div class="post-form">
-	      {{content-editable class="content-editable" value=postContent placeholder='Would you like to say about this?'}}
+	      {{content-editable class="content-editable" value=postContent placeholder='Get noticed! Broadcast opinions, industry news, trends.'}}
 	    </div>
 	    {{#if categories}}
-	    	<div class="broadcast-list">Broadcasting to: My Connections
-	    		{{#each categories as |item|}}
-			    	{{concat ', ' item.text }}
-			    {{/each}}
+	    	<div class="broadcast-list">Broadcasting to: 
+	    	<span>My Connections
+	    			{{#each categories as |item|}}
+				    	{{concat '; ' item.text }}
+				    {{/each}}
+	    	</span>
 	    	</div>
 	    {{else}}
-	    	<div class="broadcast-list">Broadcasting to: My Connections Only</div>
+	    	<div class="broadcast-list">Broadcasting to: <span>My Connections Only</span></div>
 	    {{/if}}
 	  </div>
 	  
 	  <div class="actions">
 	    <div class="float-right wrapper">
-				<a class="button dropdown-button" data-toggle="dd-select-channel">
-					Select Channel
-					<i class="icons caret"></i>
-				</a>
-				{{#zf-dropdown id="dd-select-channel" closeOnClick=true}}
-					{{partial 'partials/select-channel-menu'}}
-				{{/zf-dropdown}}
+				<span class="wrapper">
+					<a class="button dropdown-button" data-toggle="dd-select-channel">
+						Add Industry Channel
+						<i class="icons caret"></i>
+					</a>
+					{{#zf-dropdown id="dd-select-channel" closeOnClick=true}}
+						{{partial 'partials/select-channel-menu'}}
+					{{/zf-dropdown}}
+				</span>
 	      <button class="success button" type="submit">BROADCAST</button>
 	    </div>
 	  </div>

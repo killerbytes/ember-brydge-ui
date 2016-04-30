@@ -1,12 +1,16 @@
 .share-box{
 	.content-editable{
+		color:  $text-color1;
 		padding-left: 0;
 		border: none;
 		box-shadow: none;
 		resize: none;
-		font-size: 12px;
+		font-size: 14px;
 		margin: 0;
 		min-height: 55px;
+	}
+	.content-editable:before{
+		color: #A9A9A9;
 	}
 	.post-bar{
 		padding: 5px;
@@ -40,8 +44,9 @@
 		text-transform: capitalize;
 	}
 	.dropdown-pane{
-		left: -124px !important;
-		width: 250px;
+		left: auto;
+		right: 0;
+		width: 300px;
 		padding: 0;
 		ul>li>input[type="checkbox"]{
 			float: right;
@@ -49,24 +54,28 @@
 		}
 		section{
 			padding: .5rem;
+			p:last-child{
+				margin-bottom: 0;
+			}
 		}
+
 		hr{
 			margin: 0;
+			margin-bottom: .5rem;
 		}
 		section:last-child ul{
 			margin: 0;
-		}
-		strong{
-			text-transform: uppercase;
 		}
 	}
 	.dropdown-pane:not(.top){
 		border-top: 0;		
 	}
 	.broadcast-list{
-		@extend .dim-text;
 		padding: 5px;
 		padding-bottom: 0;
 		border-top: 1px solid $border-color;
+		span{
+			@extend .dim-text;
+		}
 	}
 }

@@ -12,7 +12,7 @@
         {{/link-to}}
         {{#if post.sharedPost}}
           {{#unless shared}}
-            shared a post
+            <span class="dim-text">shared a post</span>
           {{/unless}}
         {{/if}}
       </div>
@@ -82,7 +82,9 @@
       {{#if post.vote.downVoted}}
       <a {{action "vote" "reset"}}><span class="acted">Downvoted</span></a> 
       {{else}}
-      <a {{action "vote" "down"}}>Downvote</a> 
+        {{#zf-tooltip title="Downvoting is anonymous" vOffset=0 class="top"}}
+          <a {{action "vote" "down"}}>Downvote</a> 
+        {{/zf-tooltip}}
       {{/if}}
 
      <!--  <span> {{post.vote.downVotes}}

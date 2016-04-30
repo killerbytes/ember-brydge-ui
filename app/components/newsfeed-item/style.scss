@@ -97,7 +97,8 @@
 
 	.post-caption{
 		position: relative;
-		display: table;
+		// display: table;
+		display: block;
 		width: 100%;
 		border: 1px solid #dedede;
 		background-color: #efefef;
@@ -105,7 +106,7 @@
 		min-height: 83px;
 		margin-top: -8px;
 		text-align: center;
-		border-radius: 6px;
+		border-radius: 4px;
 		.subheader{
 			color: #A7B1B3;
 			text-transform: uppercase;
@@ -121,8 +122,10 @@
 	}
 	.post-image{
 		text-align: center;
-		border: 1px solid #dedede;
-		margin: 0 8px;
+		// border: 1px solid #dedede;
+		margin: 0 5px;
 		margin-bottom: 1px;
+		padding: 0 20px;
+
 	}
 }

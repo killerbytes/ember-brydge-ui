@@ -3,12 +3,7 @@
 		background: #FFF;
 		color: $brydge-blue;
 		font-weight: bold;
-	}
-	.title-bar{
-		background-color: #F3F3F3;
-		margin-bottom: 10px;
-		color: $body-color;
-		border-bottom: 1px solid $border-color;
+		padding-right: 0;
 	}
 	.dropdown-pane{
 		ul{
@@ -18,9 +13,6 @@
 		}
 	}
 	.custom-select-list{
-	  ul{
-	  	margin: 5px 0;
-	  }
 	  li:hover{
 	    color:#6BCDFD;
 	    cursor: pointer; 

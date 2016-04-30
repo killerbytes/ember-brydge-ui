@@ -1,6 +1,6 @@
 <a class="box default button dropdown-button expanded text-center" data-toggle="industry-dropdown">
 	<strong>{{filtered}}</strong>
-	<i class="fa fa-caret-down"></i>
+	<i class="icons caret"></i>
 </a>
 {{#zf-dropdown id="industry-dropdown"}}
 	<section class="custom-select-list">
@@ -8,34 +8,36 @@
 			<div class="columns medium-6">
 				<strong>Your Network</strong>
 				<ul class="no-bullet">
-					<li>{{myConnections.text}}</li>
+					<li><label for="">{{myConnections.text}}</label></li>
 					<!-- <li {{action "select" myCompany preventDefault=false }}>{{myCompany.text}}</li> -->
 
-					<li>{{myCompany.text}}</li>
+					<li><label for="">{{myCompany.text}}</label></li>
 				</ul>
-				
-			</div>
-			<div class="columns medium-6">
-				<strong>Business Industry</strong>
+				<p></p>
+				<strong>Your Business Industry</strong>
 				<ul class="no-bullet">{{log model}}
-					<li {{action "select" model.myIndustry preventDefault=false }}>{{model.myIndustry.text}}</li>
+					<li {{action "select" model.myIndustry preventDefault=false }}><label for="">{{model.myIndustry.text}}</label></li>
 				</ul>
 				<p>{{#link-to 'me.edit' sessionAccount.account.profile.id (query-params tab="industry")}}Edit Business Industry{{/link-to}}</p>				
 				<!-- <p><a href="">Add other Industry Channels to follow</a></p> -->
 
-				<strong>Occupational Industry</strong>
+				<strong>Your Occupational Industry</strong>
 				<ul class="no-bullet">{{log model}}
 				{{#each model.myOccupations as |industry|}}
-					<li {{action "select" industry preventDefault=false }}>{{industry.text}}</li>
+					<li {{action "select" industry preventDefault=false }}><label for="">{{industry.text}}</label></li>
 				{{/each}}
 				</ul>
-				<p>{{#link-to 'me.edit' sessionAccount.account.profile.id (query-params tab="occupindustry")}}Edit Occupation Industry{{/link-to}}</p>				
+				<p>{{#link-to 'me.edit' sessionAccount.account.profile.id (query-params tab="occupindustry")}}Edit Occupational Industry{{/link-to}}</p>				
+				
 			</div>
-		<!-- <div class="dim-text">Other Industry Channels you follow</div>
-		<ul class="no-bullet">
-			<li>Consumer Web & Mobile</li>
-			<li>Enterprise Software & Technology</li>
-			<li>Broadcast Media</li>
-		</ul> -->
+			<div class="columns medium-6">
+				<strong>Industry Channels you follow</strong>
+				<ul class="no-bullet">
+					<li>Consumer Web & Mobile</li>
+					<li>Enterprise Software & Technology</li>
+					<li>Broadcast Media</li>
+				</ul>
+				<p><a>Add Industry Channels to follow</a></p>
+			</div>
 	</section>
 {{/zf-dropdown}}

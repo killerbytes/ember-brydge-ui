@@ -11,7 +11,7 @@ header.top-bar {
 	}
 	ul.menu-actions{
 		vertical-align: top;
-		margin-left: 25px;
+		margin-left: 16px;
 		.fa{
 			color: #417993;
 			font-size: 18px;
@@ -32,8 +32,8 @@ header.top-bar {
 			background-color: $dark-blue;
 		}
 		.badge{
-			border-radius: 0;
-			padding: 0;
+			border-radius: 4px;
+			padding: 0 3px;
 			min-width: 1.2em;
 			font-size: 11px;
 			text-align: center;
@@ -92,7 +92,6 @@ header.top-bar {
 .top-bar-search {
 	width: 350px;
 	margin-top: 10px;
-	margin-right: 25px;
 	position: relative;
 	input[type="search"]{
 		border-top-left-radius: 3px;
@@ -104,7 +103,7 @@ header.top-bar {
 		height: auto;
 		box-shadow: none;
 		border: none;
-		
+		background-color: $light-blue;
 	}
 	input[type="search"]+.input-group-button{
 		border-top-right-radius: 3px;
@@ -122,5 +121,5 @@ i.divider{
 	border-left: 1px solid $dark-blue;
 	padding: 10px 0;
 	position: absolute;
-	top: 12px;
+	top: 13px;
 }

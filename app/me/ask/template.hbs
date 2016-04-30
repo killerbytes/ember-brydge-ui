@@ -2,7 +2,6 @@
 	<div class="columns">
 		<div class="top-banner bg-gray box">
 			<h1>YOUR ASK PAGE</h1>
-
 			<div class="row">
 				<div class="columns medium-4 medium-centered">
 					<div class="row">
@@ -20,16 +19,11 @@
 					</div>
 					<p class="text-center">
 						Turning ASK off will also... Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam
-					</p>					
-					
+					</p>										
 				</div>
 			</div>
-		</div>
-		
+		</div>		
 	</div>
-	
-	<!-- {{ ask-box store=store model=model}} -->
-
 </div>
 
 
@@ -39,18 +33,18 @@
 	<div class="mb">
 		{{#zf-tabs}}
 			<li class="medium-6 tabs-title is-active">
-				<a href="#question_answered" class="button expanded text-upper" aria-selected="true">Questions {{model.username}} has answered</a>
+				<a href="#question_answered" class="button expanded text-upper" aria-selected="true">Questions {{username}} has answered</a>
 			</li>
 			<li class="medium-6 tabs-title">
-				<a href="#question_asked" class="button expanded text-upper">Questions {{model.username}} has asked</a>
+				<a href="#question_asked" class="button expanded text-upper">Questions {{username}} has asked</a>
 			</li>
 		{{/zf-tabs}}
 	</div>
 	<div class="tabs-content questions" data-tabs-content="example-tabs">
-		<div class="tabs-panel is-active" id="question_answered">
+		<div class="tabs-panel " id="question_answered">
 			{{ partial 'ask/to'}}
 		</div>
-		<div class="tabs-panel" id="question_asked">
+		<div class="tabs-panel is-active" id="question_asked">
 		    {{ partial 'ask/from'}}
 		</div>
 	</div>
@@ -62,7 +56,7 @@
 
 		<h5 class="box-header">Pending Questions</h5>
       	{{ partial 'me/ask/pendinglist'}}
-		{{#link-to 'me.ask' class="success button expanded" }}
+		{{#link-to 'me.ask' class="footer-button button expanded" }}
 			Load More
 		{{/link-to}}
     </div>

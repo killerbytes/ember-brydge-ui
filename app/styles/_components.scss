@@ -304,11 +304,6 @@ ul.list-lined{
 			padding-bottom: 7px;
 		}
 	}
-	.footer-button.success{
-		border-top: 1px solid $border-color;
-		background-color: #FFF;
-		color: $brydge-blue;
-	}
 }
 
 .top-banner{
@@ -353,11 +348,19 @@ ul.list-lined{
 
 
 
+
 .footer-button{
+	border-top: 1px solid $border-color;
+	background-color: #FFF;
+	color: $brydge-blue;
 	text-transform: uppercase;
 	padding: 5px;
 	font-weight: bold;
 	font-size: 11px;
+	&:hover, &:focus{
+		background-color: #FFF;
+		color: $brydge-blue;
+	}
 }
 
 
@@ -511,7 +514,7 @@ ul.list-lined{
 			.comment-form{
 				padding-left: 40px;
 				input{
-					font-size: 10px;					
+					font-size: 12px;					
 					height: auto;
 					margin: 0;
 				}
@@ -521,23 +524,21 @@ ul.list-lined{
 
 		.post-comments{
 			ul.media-list li{
-				padding: .5rem 1rem;
+				padding: .5rem 0;
 				padding-bottom: 0;
 			}
 			ul.media-list li:not(:last-child){
-				.main-section{
-					border-bottom: 1px solid $border-color;
-				}				
+				border-bottom: 1px solid #E6E6E6;
 			}
 			.media-object{
 				.media-object-section:first-child{
 					padding-right: .8rem;
 				}
 				.name{
-					font-size: 13px;
+					font-size: 12px;
+					font-weight: bold;
 				}
 				.comment-content{
-					color: #434343;
 					margin-bottom: .5rem;
 				}
 

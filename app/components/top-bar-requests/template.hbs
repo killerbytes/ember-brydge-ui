@@ -1,6 +1,6 @@
 <a data-toggle="dd-requests">
 	{{#zf-tooltip title="Connection Requests" vOffset=0}}
-	{{#if notification.connectionStore}}
+	{{#if notification.request}}
 		<span class="alert badge">{{notification.requests.length}}</span>
 	{{/if}}
 	<i class="icons user"></i>
@@ -36,7 +36,7 @@
 		</li>
 		{{/each}}
 	</ul>
-	{{#link-to 'requests' class="footer-button success button expanded"}}
+	{{#link-to 'requests' class="footer-button button expanded"}}
 		SEE ALL CONNECTION REQUESTS
 	{{/link-to}}
 {{/zf-dropdown}}
