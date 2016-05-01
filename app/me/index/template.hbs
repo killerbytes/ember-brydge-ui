@@ -75,8 +75,8 @@
     <div class="box rounded question-box">
       <div class="columns wrapper clearfix">
 
-        {{link-to model.lastestQuestion.from.content.name "profile" model.lastestQuestion.from.content.username class="user"}} asked {{link-to model.lastestQuestion.to.content.name "profile" model.lastestQuestion.to.content.username class="user"}}
-
+        <div class="mb5">{{link-to model.lastestQuestion.from.content.name "profile" model.lastestQuestion.from.content.username class="user"}} asked {{link-to model.lastestQuestion.to.content.name "profile" model.lastestQuestion.to.content.username class="user"}}</div>
+        <p class="timestamp">{{postDateFormat model.lastestQuestion.createdAt}}</p>     
         <h2>{{model.lastestQuestion.content}}</h2>
 
 
@@ -105,7 +105,7 @@
 
     <div class="box rounded snapshot">
       <h5 class="box-header">Snapshot</h5>
-      <div class="columns text-light-gray">
+      <div class="columns">
         {{model.profile.snapshot}}
       </div>
     </div>

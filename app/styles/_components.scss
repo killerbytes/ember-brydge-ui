@@ -1,3 +1,7 @@
+.position, .timestamp{
+	color: $text-gray;
+	font-size: 11px;
+}
 
 .has-tip{
 	border-bottom: none;
@@ -252,7 +256,6 @@ ul.list-lined{
 
 .question-box{
 	position: relative;
-	@extend .text-light-gray;
 	h2{
 		font-family: 'Din Alternate', helvetica;
 		font-size: 26px;
@@ -564,4 +567,11 @@ span.bullet{
   margin: 2px;
   font-size: 11px;
   line-height: 1em;
+}
+
+.empty-message{
+	text-align: center;
+	font-size: 16px;
+	margin: 2.5rem 0;
+	color: $text-color3;
 }

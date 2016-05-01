@@ -38,7 +38,7 @@ ul.notifications-list{
     height: 35px;
   }
   .main-section{
-    @extend .dim-text;
+    color: $text-gray;
   }
   p{
     margin-bottom: 0;
@@ -106,8 +106,6 @@ ul.menu-list{
     line-height: 1em;
   }
   .position{
-    color: $text-color3;
-    font-size: 10px;
     line-height: 1.4em;
   }
 

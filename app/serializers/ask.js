@@ -28,7 +28,10 @@ export default DS.JSONAPISerializer.extend({
     console.log('<<<< payloadData <<<<<', payloadData);
     return payloadData;
     
- }
+  },
+  keyForAttribute: function(attr) {
+    return attr;
+  }
 
   // keyForAttribute: function(attr) {
   //   console.log('<<<<<<< Profile keyForAttribute <<<<<<<<<',attr)

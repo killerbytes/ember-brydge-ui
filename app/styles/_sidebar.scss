@@ -67,7 +67,6 @@
 			font-weight: bold;
 		}
 		p{
-			@extend .text-light-gray;
 			margin-bottom: 5px;
 		}
 		span{
@@ -93,7 +92,7 @@
 			margin-top: 10px;
 			margin-right: 40px;
 			.progress-meter-text{
-				@extend .text-light-gray;
+				color: $text-gray;
 				right: -55px;
 				left: auto;
 				width: 30px;
@@ -101,13 +100,13 @@
 		}
 	}
 	footer{
-		@extend .dim-text;
+		color: $text-gray;
 		padding: 0 5px;
 		ul.last{
 			margin-bottom: 5px;
 		}
 		a{
-			@extend .dim-text;
+			color: $text-gray;
 		}
 	}
 }

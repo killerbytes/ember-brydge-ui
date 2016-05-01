@@ -9,7 +9,7 @@ $body-color: #666;
 $panel-color: #EFEFEF;
 
 $text-orange: #FF5333;
-
+$text-gray: #9197A3;
 $text-color1: #3B3E46;
 $text-color2: #999;
 $text-color3: #CCC;
@@ -92,14 +92,11 @@ a.more.no-arrow:after{
 .no-margin{
 	margin: 0;
 }
-p.dim-text{
-	line-height: 1.2em;
+.dim-textxxx{
+	color: $text-gray;
 }
-.dim-text{
-	color: #9197A3;
-}
-.text-light-gray{
-	color: #666
+.text-gray{
+	color: $text-gray;
 }
 .text-blue{
 	color: $brydge-blue;

@@ -1,3 +1,9 @@
+<a data-toggle={{name}} class="button large expanded">ASK
+  <div class="wrapper">
+    <div class="triangle triangle-gray"></div>
+  </div>
+</a>
+
 {{#zf-dropdown id=name class="dd-ask-form dropdown-gray" closeOnClick=true}}
   <form {{action 'ask' model.userid ownerid model.username question on='submit'}}>
     {{input value=model.userid type="hidden"}}

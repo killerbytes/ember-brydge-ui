@@ -7,7 +7,13 @@ export default Ember.Component.extend({
 	classNames: ['top-bar-group', 'top-bar-search', 'rounded'],
 	actions: {
 		search: function(q){
-			let shouldDropdown = this.get('search.shouldDropdown');
+			// let shouldDropdown = true;//this.get('search.shouldDropdown');
+			if(q){
+				this.$('#dd-search').foundation('open');
+			}else{
+				this.$('#dd-search').foundation('close');	      		
+			}
+
 			if(q.length < 3) return false;
 			this.get('search').query({
 				q: q,
@@ -19,11 +25,6 @@ export default Ember.Component.extend({
 			// if(q.length > 0){
 			//     this.get('ajax').request('search/profile/'+ q).then((res)=>{
 			//     	this.setProperties(res.response);
-			    	if(shouldDropdown){
-			     	this.$('#dd-search').foundation('open');
-			    	}else{
-			     	this.$('#dd-search').foundation('close');	      		
-			    	}
 			//     });
 			// }else{
 			//    	this.set('docs', []);

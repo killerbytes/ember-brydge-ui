@@ -28,6 +28,7 @@
 		</div>
 	</div>
 	<ul class="media-list no-bullet list-lined">
+		{{#each notification.views as |item|}}
 		<li>
 			<div class="media-object">
 				<div class="media-object-section">
@@ -44,72 +45,16 @@
 				</div>
 			</div>
 		</li>
+		{{/each}}
+		{{#unless notification.views }}
 		<li>
-			<div class="media-object">
-				<div class="media-object-section">
-					<div class="thumbnail">
-						<img src= "assets/avatar-1.jpg">
-					</div>
-				</div>
-				<div class="media-object-section main-section">
-					<a class="name">Mark JUDGE</a>
-					<p class="position">
-						Strategic Partnerships Lead <br>
-						Samsung Electronics
-					</p>
-				</div>
+			<div class="empty-message">
+				You have turned Profile Views off
 			</div>
 		</li>
-		<li>
-			<div class="media-object">
-				<div class="media-object-section">
-					<div class="thumbnail">
-						<img src= "assets/avatar-1.jpg">
-					</div>
-				</div>
-				<div class="media-object-section main-section">
-					<a class="name">Mark JUDGE</a>
-					<p class="position">
-						Strategic Partnerships Lead <br>
-						Samsung Electronics
-					</p>
-				</div>
-			</div>
-		</li>
-		<li>
-			<div class="media-object">
-				<div class="media-object-section">
-					<div class="thumbnail">
-						<img src= "assets/avatar-1.jpg">
-					</div>
-				</div>
-				<div class="media-object-section main-section">
-					<a class="name">Mark JUDGE</a>
-					<p class="position">
-						Strategic Partnerships Lead <br>
-						Samsung Electronics
-					</p>
-				</div>
-			</div>
-		</li>
-		<li>
-			<div class="media-object">
-				<div class="media-object-section">
-					<div class="thumbnail">
-						<img src= "assets/avatar-1.jpg">
-					</div>
-				</div>
-				<div class="media-object-section main-section">
-					<a class="name">Mark JUDGE</a>
-					<p class="position">
-						Strategic Partnerships Lead <br>
-						Samsung Electronics
-					</p>
-				</div>
-			</div>
-		</li>
+		{{/unless}}
 	</ul>
-	{{#link-to 'profileviews' class="footer-button button expanded"}}
+	{{#link-to 'profileviews' class="footer-button success button expanded"}}
 		SEE ALL PROFILE VIEWS
 	{{/link-to}}
 {{/zf-dropdown}}

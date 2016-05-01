@@ -9,6 +9,7 @@
 </a>
 {{#zf-dropdown id="dd-messages" class="dropdown-topbar" closeOnClick=true }}
 	<ul class="media-list no-bullet list-lined">
+		{{#each notification.messages as |item|}}
 		<li>
 			<div class="media-object">
 				<div class="media-object-section">
@@ -23,64 +24,16 @@
 				</div>
 			</div>
 		</li>
+		{{/each}}
+		{{#unless notification.messages}}
 		<li>
-			<div class="media-object">
-				<div class="media-object-section">
-					<div class="thumbnail">
-						<img src= "assets/avatar-1.jpg">
-					</div>
-				</div>
-				<div class="media-object-section main-section">
-					<a class="name">Mark JUDGE</a>
-					<span class="float-right dim-text">2:30pm</span>
-					<p class="position">Hey Jon, I thought you should take a look a this. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae porro voluptatem temporibus</p>
-				</div>
+			<div class="empty-message">
+				You have turned Profile Views off
 			</div>
 		</li>
-		<li>
-			<div class="media-object">
-				<div class="media-object-section">
-					<div class="thumbnail">
-						<img src= "assets/avatar-1.jpg">
-					</div>
-				</div>
-				<div class="media-object-section main-section">
-					<a class="name">Mark JUDGE</a>
-					<span class="float-right dim-text">2:30pm</span>
-					<p class="position">Hey Jon, I thought you should take a look a this.</p>
-				</div>
-			</div>
-		</li>
-		<li>
-			<div class="media-object">
-				<div class="media-object-section">
-					<div class="thumbnail">
-						<img src= "assets/avatar-1.jpg">
-					</div>
-				</div>
-				<div class="media-object-section main-section">
-					<a class="name">Mark JUDGE</a>
-					<span class="float-right dim-text">2:30pm</span>
-					<p class="position">Hey Jon, I thought you should take a look a this.</p>
-				</div>
-			</div>
-		</li>
-		<li>
-			<div class="media-object">
-				<div class="media-object-section">
-					<div class="thumbnail">
-						<img src= "assets/avatar-1.jpg">
-					</div>
-				</div>
-				<div class="media-object-section main-section">
-					<a class="name">Mark JUDGE</a>
-					<span class="float-right dim-text">2:30pm</span>
-					<p class="position">Hey Jon, I thought you should take a look a this.</p>
-				</div>
-			</div>
-		</li>
+		{{/unless}}
 	</ul>
-	{{#link-to 'messaging' class="footer-button button expanded"}}
+	{{#link-to 'messaging' class="footer-button success button expanded"}}
 		See All Messages
 	{{/link-to}}
 {{/zf-dropdown}}

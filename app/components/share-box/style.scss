@@ -75,7 +75,7 @@
 		padding-bottom: 0;
 		border-top: 1px solid $border-color;
 		span{
-			@extend .dim-text;
+			color: $text-gray;
 		}
 	}
 }

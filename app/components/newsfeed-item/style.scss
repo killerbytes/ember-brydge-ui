@@ -40,19 +40,10 @@
 			font-size: 15px;
 		}
 		.position, .timestamp{
-			@extend .dim-text;
-			font-size: 11px;
 			line-height: 1em;
 			margin-bottom: 5px;
-			// span:after{
-			//     content: '\00B7';
-			//     font-weight: bold;
-			//     margin: 2px;
-			//     font-size: 11px;
-			//     line-height: 1em;
-			// }
 			a{
-				@extend .dim-text;
+				color: $text-gray;
 			}
 		}
 		p.small{
