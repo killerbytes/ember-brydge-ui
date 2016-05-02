@@ -1,12 +1,11 @@
 
-{{#each fromQuestions as |q| }}
+{{#each questionAnswered as |q| }}
 	<div class="box rounded question-box">
 	  <div class="clearfix">
 
 	    <div class="mb5">{{link-to q.from.content.name "profile" q.from.content.username class="user" }} asked {{link-to q.to.content.name "profile" q.to.content.username class="user"}}</div>
 			<p class="timestamp">{{postDateFormat q.createdAt}}</p>	    
 	    <h2>{{q.content}}</h2>
-	    {{#if q.answer}}
 		    {{#zf-accordion-menu class="accordion-menu"}}
 		      <li>
 		        <ul class="no-bullet vertical nested">
@@ -17,11 +16,7 @@
 		        <a class="more no-arrow"><span class="content-more" disabled=true>See Answer</span><span class="content-less">Hide Answer</span></a>
 		      </li>
 		    {{/zf-accordion-menu}}           
-	    {{/if}}
 
-<!-- 	   	<div class="floated">
-	    	<a href="" class="more">See Answer</a>
-	    </div> -->
 	  </div>
 	</div>
 {{/each}}

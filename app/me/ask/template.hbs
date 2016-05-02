@@ -1,26 +1,28 @@
+{{#each lang as |item|}}
+	{{item.name}}
+{{/each}}
+
 <div class="row">
 	<div class="columns">
 		<div class="top-banner bg-gray box">
 			<h1>YOUR ASK PAGE</h1>
-			<div class="row">
-				<div class="columns medium-4 medium-centered">
-					<div class="row">
-						<div class="columns medium-6">
-							<label for="">Turn ASK OFF</label>
-						</div>
-						<div class="columns medium-6">
-							<div class="switch">
-							  <input class="switch-input" id="askSwitch" type="checkbox" name="askSwitch">
-							  <label class="switch-paddle" for="askSwitch">
-							    <span class="show-for-sr">Download Kittens</span>
-							  </label>
-							</div>
+			<div class="columns">
+				<div class="row">
+					<div class="columns medium-6 text-right">
+						<label for="">Turn ASK OFF</label>
+					</div>
+					<div class="columns medium-6 text-left">
+						<div class="switch">
+						  <input class="switch-input" id="askSwitch" type="checkbox" name="askSwitch">
+						  <label class="switch-paddle" for="askSwitch">
+						    <span class="show-for-sr">Download Kittens</span>
+						  </label>
 						</div>
 					</div>
-					<p class="text-center">
-						Turning ASK off will also... Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam
-					</p>										
 				</div>
+				<p class="text-center">
+					Turning ASK off will also... Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam
+				</p>										
 			</div>
 		</div>		
 	</div>
@@ -52,14 +54,8 @@
 
   </div>
   <div class="medium-5 columns sidebar">
-    <div class="box rounded question-box">
+  	{{ partial 'me/ask/pendinglist'}}
 
-		<h5 class="box-header">Pending Questions</h5>
-      	{{ partial 'me/ask/pendinglist'}}
-		{{#link-to 'me.ask' class="footer-button button expanded" }}
-			Load More
-		{{/link-to}}
-    </div>
 
     {{render "progress-box"}}
     {{render "footer"}}
@@ -70,3 +66,5 @@
 	{{#zf-reveal id="answerFormModal" overlay=true class="reveal-popup small"}}
 		{{answer-form selectedQuestion=selectedQuestion store=store}}
 	{{/zf-reveal}}
+
+

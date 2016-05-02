@@ -10,9 +10,8 @@
 	    </div>
 	    {{#if categories}}
 	    	<div class="broadcast-list">Broadcasting to: 
-	    	<span>My Connections
-	    			{{#each categories as |item|}}
-				    	{{concat '; ' item.text }}
+	    	<span>My Connections{{#each categories as |item|}}
+				    	{{~ concat '; ' item.text ~}}
 				    {{/each}}
 	    	</span>
 	    	</div>

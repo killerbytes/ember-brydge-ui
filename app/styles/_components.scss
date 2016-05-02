@@ -264,26 +264,19 @@ ul.list-lined{
 		margin: 10px 0 20px;
 		line-height: 1.2em;
 	}
-	div.title{
-		font-size: 14px;
+	.question-title{
 		color: $text-color2;
+		font-size: 14px;
 		line-height: 1.3em;
 		margin-bottom: 10px;
 		a{
 			font-weight: bold;
 		}
 	}
-	.asked a{
-		font-weight: bold;
-	}
 	ul.menu-dotted {
 		a{
 			font-weight: normal;
 		}
-	}
-	.wrapper{
-		max-height: 190px;
-		overflow: hidden
 	}
 	.floated{
 		position: absolute;
@@ -293,12 +286,16 @@ ul.list-lined{
 		bottom: 0;
 		padding: 5px 10px;		
 	}
+	ul>li:not(:last-child){
+		.question-box-footer{
+			border-bottom: 1px solid $border-color;
+		}
+	}
 	.question-box-footer{
 		@extend .clearfix;
 		@extend .padded;
 		overflow: hidden;
 		border-top: 1px solid $border-color;
-		border-bottom: 1px solid $border-color;
 		padding: 3px 1rem;		
 	}
 	.pending-list{
@@ -573,5 +570,5 @@ span.bullet{
 	text-align: center;
 	font-size: 16px;
 	margin: 2.5rem 0;
-	color: $text-color3;
+	color: $text-light;
 }

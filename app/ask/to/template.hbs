@@ -1,6 +1,5 @@
 
-{{#each toQuestions as |q| }}
-{{#if q.answer}}
+{{#each questionAsked as |q| }}
 	<div class="box rounded question-box">
 	  <div class="clearfix">
 	    <div class="mb5">{{link-to q.from.content.name "profile" q.from.content.username class="user"}} asked {{link-to q.to.content.name "profile" q.to.content.username class="user"}}</div>
@@ -18,5 +17,4 @@
 	    {{/zf-accordion-menu}}           
 	  </div>
 	</div>
-{{/if}}
 {{/each}}

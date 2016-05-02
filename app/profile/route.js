@@ -49,7 +49,7 @@ export default Ember.Route.extend({
       self.set('experiences', result.experiences);
       self.set('educations', result.educations);
       self.set('trendingPosts', result.trendingPosts);
-      self.set('lastestQuestion', result.questions.get('firstObject'));
+      self.set('questions', result.questions);
     });
   },
 
@@ -66,7 +66,7 @@ export default Ember.Route.extend({
       educations: this.get('educations'),
       experiences: this.get('experiences'),
       trendingPosts: this.get('trendingPosts'),
-      lastestQuestion: this.get('lastestQuestion')
+      questions: this.get('questions')
     });
   },
 

@@ -44,7 +44,7 @@ form{
 	}
 	label, .label{
 		font-size: $form-label-font-size;
-		color: $text-color3;
+		color: $text-light;
 	}
 	label.reversed, .label.reversed{
 		input{
@@ -54,7 +54,7 @@ form{
 		}
 	}
 	p, p.help-text{
-		color: $text-color3;
+		color: $text-light;
 	}
 }
 

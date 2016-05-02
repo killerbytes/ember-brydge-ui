@@ -23,8 +23,8 @@ export default Ember.Route.extend(AuthenticatedRouteMixin,{
       interests: this.store.findAll('interest'),
       experiences: this.store.query('experience',{userid: userid}),
       educations: this.store.query('education',{userid: userid}),
-      lastestQuestion: this.store.query('ask',{userid: userid}).then((asks)=>{
-        return asks.filterBy('answer').get('firstObject');
+      questions: this.store.query('ask',{userid: userid}).then((asks)=>{
+        return asks.filterBy('answer');
       })
     });
   },

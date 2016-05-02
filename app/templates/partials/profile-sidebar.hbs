@@ -1,0 +1,151 @@
+<div class="box rounded profile overflow">
+  <ul class="no-bullet list-lined no-margin">
+    <li>
+      <div class="profile-industry">
+          <div class="icon-wrapper">
+            <i class="icons building"></i>
+          </div>
+          <div class="content">
+            <a href="">{{model.profile.industry}}</a>
+          </div>        
+      </div>          
+    </li>
+    <li>
+      <div class="profile-industry">
+          <div class="icon-wrapper">
+            <i class="icons briefcase"></i>
+          </div>
+          <div class="content">
+            <a href="">{{model.profile.occupationOne}}</a>
+            <a href="">{{model.profile.occupationTwo}}</a>
+          </div>
+      </div>          
+    </li>
+  </ul>
+</div>
+
+{{#if latestQuestion}}
+  <div class="box rounded question-box">
+    <div class="columns wrapper clearfix">
+
+      <div class="mb5">{{link-to latestQuestion.from.content.name "profile" latestQuestion.from.content.username class="user" }} asked {{link-to latestQuestion.to.content.name "profile" latestQuestion.to.content.username class="user"}}</div>
+      <p class="timestamp">{{postDateFormat latestQuestion.createdAt}}</p>          
+
+      <h2>{{latestQuestion.content}}</h2>
+      {{#zf-accordion-menu class="accordion-menu"}}
+        <li>
+          <ul class="no-bullet vertical nested">
+            <li>
+              <p>{{latestQuestion.answer}}</p>
+            </li>
+          </ul>
+          <a class="more no-arrow"><span class="content-more" disabled=true>See Answer</span><span class="content-less">Hide Answer</span></a>
+        </li>
+      {{/zf-accordion-menu}}           
+
+    </div>
+    
+    {{#link-to 'ask' latestQuestion.from.content.username}}
+    <button class="success button expanded">
+      see more questions
+    </button>
+    {{/link-to}}
+  </div>
+{{/if}}
+
+<div class="box rounded snapshot">
+  <h5 class="box-header">Snapshot</h5>
+  <div class="columns">
+    {{model.profile.snapshot}}
+  </div>
+  {{#unless model.profile.snapshot}}
+    <div class="empty-message">
+      {{model.profile.firstName}} hasn't added a Snapshot
+    </div>
+  {{/unless}}
+</div>
+
+<div class="box rounded compliments">
+  <h5 class="box-header">Compliments</h5>
+  {{#if model.compliments}}
+  <ul class="box-list no-bullet hide">
+    <li>
+      <div class="title">Thank you for</div>
+      <p>your excellent work in making the Evian launch event a success.</p>            
+      <span>Posted by</span> <a>Nikhil Charan</a>
+    </li>
+    <li>
+      <div class="title">Good job on</div>
+      <p>exceeding your sales target this quarter. You're a star!</p>            
+      <span>Posted by</span> <a>Nikhil Charan</a>
+    </li>
+  </ul> 
+  {{else}}
+  <div class="empty-message">
+    {{model.profile.firstName}} hasn't received any Compliments
+  </div>
+  {{/if}}
+  <div class="box-footer">
+    {{#if model.compliments}}
+    <a href="">See all</a>  
+    {{/if}}
+    <a class="float-right" data-open="complimentModal">Post a compliment</a>
+  </div>      
+</div>
+
+<div class="box rounded work-history">
+  <h5 class="box-header">Work History</h5>
+  {{#if model.experiences}}
+  {{ list-experience model=model.experiences class="sidebox box-list" }}
+  {{else}}
+    <div class="empty-message">
+      {{model.profile.firstName}} hasn't added any Work History
+    </div>
+  {{/if}}
+</div>
+
+<div class="box rounded academia">
+  <h5 class="box-header">Academia</h5>
+  {{#if model.educations}}
+  {{ list-academia model=model.educations class="sidebox box-list" }}
+  {{else}}
+    <div class="empty-message">
+      {{model.profile.firstName}} hasn't added any Academic Information
+    </div>
+  {{/if}}
+</div>
+
+<div class="box rounded languages">
+  <h5 class="box-header">Languages</h5>
+    {{#if model.languages}}
+    {{list-languages model=model.languages class="sidebox box-list"}}      
+    {{else}}
+      <div class="empty-message">
+        {{model.profile.firstName}} hasn't added any Languages
+      </div>
+    {{/if}}
+</div>
+
+<div class="box rounded">
+  <h5 class="box-header">Interests</h5>
+  {{#if model.interests}}
+  <div class="columns">
+    <p>
+      {{#each model.interests as |item index|}}
+        {{#if index~}}
+          , {{item.content~}}
+        {{else}}
+          {{item.content~}}
+        {{/if}}
+      {{/each}}          
+    </p>
+  </div>
+  {{else}}
+    <div class="empty-message">
+      {{model.profile.firstName}} hasn't added any Interests
+    </div>
+  {{/if}}
+</div>
+
+{{render "progress-box"}}
+{{render "footer"}}

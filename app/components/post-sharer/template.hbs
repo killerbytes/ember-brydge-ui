@@ -18,9 +18,8 @@
     </div>
     <div class="reveal-footer">
       {{#if sharePost.categories }}
-        <div class="broadcast-list">Broadcasting to: My Connections
-          {{#each sharePost.categories as |item|}}
-            {{concat ', ' item.text }}
+        <div class="broadcast-list">Broadcasting to: My Connections{{#each sharePost.categories as |item|}}
+            {{~ concat '; ' item.text ~}}
           {{/each}}
         </div>
       {{else}}

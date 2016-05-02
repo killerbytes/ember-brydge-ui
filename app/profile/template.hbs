@@ -2,33 +2,27 @@
   <div class="row column">
     <div class="profile profile-cover">
       <div class="text-right name">
-
         <h1>
           <span>{{model.profile.firstName}}</span>
           <strong>{{model.profile.lastName}}</strong>
         </h1>
       </div>
       <div class="location">
-        {{model.profile.location}} {{connected}}
+        {{model.profile.location}}
       </div>
-
       <div class="profile-center">
         <div class="profile-photo">
           <img src= {{model.profile.avatarUrl}} class="circle">
         </div>
-
       </div>
-
     </div>
   </div>  
 </div>
-
 
 <div class="row column">
   <div class="medium-6 float-left box profile profile-bar">
     <div class="position">{{ model.profile.currentTitle}}</div>
     <strong class="text-upper">{{model.profile.currentCompany}}</strong>
-
   </div>
   <div class="medium-6 float-left profile">
     {{partial "partials/profile-actions" }}
@@ -37,180 +31,31 @@
 
 <div class="row">
   <div class="columns medium-7">
-    <!-- {{share-box postToNewsfeed='postToNewsfeed' profile=model}}
- -->
     {{newsfeed-list newsfeed=model.trendingPosts profile=model.profile avatar=model.avatar}}
   </div>
 
   <div class="columns medium-5 sidebar">
-    <div class="box rounded profile overflow">
-      <ul class="no-bullet list-lined no-margin">
-        <li>
-          <div class="profile-industry">
-              <div class="icon-wrapper">
-                <i class="icons building"></i>
-              </div>
-              <div class="content">
-                <a href="">{{model.profile.industry}}</a>
-              </div>        
-          </div>          
-        </li>
-        <li>
-          <div class="profile-industry">
-              <div class="icon-wrapper">
-                <i class="icons briefcase"></i>
-              </div>
-              <div class="content">
-                <a href="">{{model.profile.occupationOne}}</a>
-                <a href="">{{model.profile.occupationTwo}}</a>
-              </div>
-          </div>          
-        </li>
-      </ul>
-    </div>
-
-    {{#if model.profile.lastestQuestion}}
-    <div class="box rounded question-box">
-        <div class="columns wrapper clearfix">
-           {{link-to model.profile.lastestQuestion.from.content.name "profile" model.profile.lastestQuestion.from.content.username }} asked {{link-to model.profile.lastestQuestion.to.content.name "profile" model.profile.lastestQuestion.to.content.username }}
-
-          <h2>{{model.profile.lastestQuestion.content}}</h2>
-          <div class="floated">
-            <a href="" class="more">See Answer</a>
-          </div>
-        </div>
-      
-      {{#link-to 'ask' model.profile.lastestQuestion.from.content.username}}
-      <button class="success button expanded">
-        see more questions
-      </button>
-      {{/link-to}}
-    </div>
-     {{/if}}
-
-    
-    <div class="box rounded snapshot">
-      <h5 class="box-header">Snapshot</h5>
-      <div class="columns">
-        {{model.profile.snapshot}}
-      </div>
-      {{#unless model.profile.snapshot}}
-        <div class="empty-message">
-          {{model.profile.firstName}} hasn't added a Snapshot
-        </div>
-      {{/unless}}
-
-    </div>
-
-    <div class="box rounded work-history">
-      <h5 class="box-header">Work History</h5>
-      {{#if model.experiences}}
-      {{ list-experience model=model.experiences class="sidebox box-list" }}
-      {{else}}
-        <div class="empty-message">
-          {{model.profile.firstName}} hasn't added any Work History
-        </div>
-      {{/if}}
-
-    </div>
-
-    <div class="box rounded academia">
-      <h5 class="box-header">Academia</h5>
-      {{#if model.educations}}
-      {{ list-academia model=model.educations class="sidebox box-list" }}
-      {{else}}
-        <div class="empty-message">
-          {{model.profile.firstName}} hasn't added any Academic Information
-        </div>
-      {{/if}}
-    </div>
-
-    <div class="box rounded languages">
-      <h5 class="box-header">Languages</h5>
-        {{#if model.languages}}
-        {{list-languages model=model.languages class="sidebox box-list"}}      
-        {{else}}
-          <div class="empty-message">
-            {{model.profile.firstName}} hasn't added any Languages
-          </div>
-        {{/if}}
-    </div>
-
-    <div class="box rounded">
-      <h5 class="box-header">Interests</h5>
-      {{#if model.interests}}
-      <div class="columns">
-        <p>
-          {{#each model.interests as |item index|}}
-            {{#if index}}
-              , {{item.content}}
-            {{else}}
-              {{item.content}}
-            {{/if}}
-          {{/each}}          
-        </p>
-      </div>
-      {{else}}
-        <div class="empty-message">
-          {{model.profile.firstName}} hasn't added any Interests
-        </div>
-      {{/if}}
-    </div>
-
-    <div class="box rounded compliments">
-      <h5 class="box-header">Compliments</h5>
-      {{#if model.compliments}}
-      <ul class="box-list no-bullet hide">
-        <li>
-          <div class="title">Thank you for</div>
-          <p>your excellent work in making the Evian launch event a success.</p>            
-          <span>Posted by</span> <a>Nikhil Charan</a>
-        </li>
-        <li>
-          <div class="title">Good job on</div>
-          <p>exceeding your sales target this quarter. You're a star!</p>            
-          <span>Posted by</span> <a>Nikhil Charan</a>
-        </li>
-      </ul> 
-      {{else}}
-      <div class="empty-message">
-        {{model.profile.firstName}} hasn't received any Compliments
-      </div>
-      {{/if}}
-
-      <div class="box-footer">
-        {{#if model.compliments}}
-        <a href="">See all</a>  
-        {{/if}}
-        <a class="float-right" data-open="complimentModal">Post a compliment</a>
-      </div>
-      
-    </div>
-
-    {{render "progress-box"}}
-    {{render "footer"}}
-
+    {{partial 'partials/profile-sidebar'}}
   </div>
 </div>
 
+{{#zf-reveal id="complimentModal" overlay=true class="reveal-popup"}}
+    <h4>Compliments</h4>
+    <p class="lead">Show your appreciation for {{model.profile.firstName}} by complementing him</p>
+    <form {{action 'postCompliment' on='submit'}}>
+      <div class="content clearfix">
+        
+        {{select-native content=titles action=(action (mut complimentTitle))}}
 
-  {{#zf-reveal id="complimentModal" overlay=true class="reveal-popup"}}
-      <h4>Compliments</h4>
-      <p class="lead">Show your appreciation for {{model.profile.firstName}} by complementing him</p>
-      <form {{action 'postCompliment' on='submit'}}>
-        <div class="content clearfix">
-          
-          {{select-native content=titles action=(action (mut complimentTitle))}}
-
-          {{form-text-counter limit=250 value=complimentContent rows=5 }}
-          {{link-to "See Tips" "user-guide"}}
+        {{form-text-counter limit=250 value=complimentContent rows=5 }}
+        {{link-to "See Tips" "user-guide"}}
+      </div>
+      <div class="reveal-footer text-right">
+        <div class="content">
+          <button class="button success {{if flagCompliment 'disabled'}}" type="submit" data-close>Post</button>
+          <a class="button success" data-close>Cancel</a>
         </div>
-        <div class="reveal-footer text-right">
-          <div class="content">
-            <button class="button success {{if flagCompliment 'disabled'}}" type="submit" data-close>Post</button>
-            <a class="button success" data-close>Cancel</a>
-          </div>
-        </div>
-      </form>
-  {{/zf-reveal}}
+      </div>
+    </form>
+{{/zf-reveal}}
 

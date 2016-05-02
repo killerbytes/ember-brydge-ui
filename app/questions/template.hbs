@@ -11,13 +11,17 @@
   <div class="medium-7 columns">
   	<div class="box rounded">
       <div class="padding">
-        <strong>PENDING QUESTIONS FOR JON</strong>
+        <strong class="text-upper">PENDING QUESTIONS FOR {{username}}</strong>
       </div>
 
       <ul class="no-bullet question-pending-list">
+      {{#each toQuestions as |item|}}
+        {{#unless item.answer}}
         <li>
-          <p class="title">What is your opinion on the latest WHO regulations on soda advertising?</p>
-          <p class="asked">asked by <a href="">Nikhil</a></p>
+          <p class="title">{{item.content}}</p>
+          <div class="mb5 text-light">asked by {{link-to item.from.content.name "profile" item.from.content.username class="user" }}</div>
+          <p class="timestamp text-light">{{postDateFormat item.createdAt}}</p>     
+
           <div class="question-box-footer">
             <ul class="menu menu-dotted">
               <li><a {{action "selectItem" q }} class="float-left" data-open="answerFormModal">Write Answer</a></li>
@@ -26,17 +30,8 @@
             </ul>                       
           </div>      
         </li>
-        <li>
-          <p class="title">What is your opinion on the latest WHO regulations on soda advertising?</p>
-          <p class="asked">asked by <a href="">Nikhil</a></p>
-          <div class="question-box-footer">
-            <ul class="menu menu-dotted">
-              <li><a {{action "selectItem" q }} class="float-left" data-open="answerFormModal">Write Answer</a></li>
-              <li><a class="float-right">Delete</a></li>
-              <li><a class="float-right">Flag</a></li>
-            </ul>                       
-          </div>      
-        </li>
+        {{/unless}}
+      {{/each}}
       </ul>
   		
   	</div>

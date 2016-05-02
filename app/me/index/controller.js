@@ -6,6 +6,9 @@ export default Ember.Controller.extend({
   sharePost: Ember.inject.service(),	
 	sortProps: ['createdAt:desc'],
   posts: Ember.computed.sort('model.posts', 'sortProps'),
+  latestQuestion: Ember.computed('model.questions', function(){
+    return this.get('model.questions.firstObject');
+  }),
 
   isCurrentUser: Ember.computed('', function(){
     let userid = this.get('session.data.authenticated.user_id');
