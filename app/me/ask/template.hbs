@@ -8,20 +8,23 @@
 			<h1>YOUR ASK PAGE</h1>
 			<div class="columns">
 				<div class="row">
-					<div class="columns medium-6 text-right">
-						<label for="">Turn ASK OFF</label>
-					</div>
-					<div class="columns medium-6 text-left">
-						<div class="switch">
-						  <input class="switch-input" id="askSwitch" type="checkbox" name="askSwitch">
-						  <label class="switch-paddle" for="askSwitch">
-						    <span class="show-for-sr">Download Kittens</span>
-						  </label>
-						</div>
+					<div class="columns medium-centered">
+						<form class="inline-block">
+								<span class="switch">
+									<label for="" class="middle">Turn ASK OFF</label>
+								  <input class="switch-input" id="askSwitch" type="checkbox" name="askSwitch">
+								  <label class="switch-paddle" for="askSwitch">
+								    <span class="show-for-sr">Download Kittens</span>
+								  </label>
+								</span>
+						</form>
 					</div>
 				</div>
 				<p class="text-center">
-					Turning ASK off will also... Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam
+					By turning ASK off, you are blocking anyone from asking you questions. <br>
+					It will also disable you from asking questions. <br><br>
+					Note: Questions <i>Pending Answers</i> and <i>Hidden Questions</i> are only visible to you.
+	
 				</p>										
 			</div>
 		</div>		
@@ -63,8 +66,7 @@
 </div>
 
 
-	{{#zf-reveal id="answerFormModal" overlay=true class="reveal-popup small"}}
 		{{answer-form selectedQuestion=selectedQuestion store=store}}
-	{{/zf-reveal}}
+
 
 
