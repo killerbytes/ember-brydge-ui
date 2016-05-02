@@ -67,17 +67,13 @@
 
 <div class="box rounded compliments">
   <h5 class="box-header">Compliments</h5>
+
   {{#if model.compliments}}
-  <ul class="box-list no-bullet hide">
+  <ul class="box-list no-bullet">
     <li>
-      <div class="title">Thank you for</div>
-      <p>your excellent work in making the Evian launch event a success.</p>            
-      <span>Posted by</span> <a>Nikhil Charan</a>
-    </li>
-    <li>
-      <div class="title">Good job on</div>
-      <p>exceeding your sales target this quarter. You're a star!</p>            
-      <span>Posted by</span> <a>Nikhil Charan</a>
+      <div class="title">{{latestCompliment.title}}</div>
+      <p>{{latestCompliment.content}}</p>            
+      <span>Posted by</span> <a>{{latestCompliment.from.name}}</a>
     </li>
   </ul> 
   {{else}}
@@ -87,9 +83,16 @@
   {{/if}}
   <div class="box-footer">
     {{#if model.compliments}}
-    <a href="">See all</a>  
+      {{#if isCurrentUser}}
+      {{link-to 'See all' 'me.compliments'}}
+      {{else}}
+      {{link-to 'See all' 'compliments' latestCompliment.to.username}}
+      {{/if}}
     {{/if}}
+
+    {{#unless isCurrentUser}}
     <a class="float-right" data-open="complimentModal">Post a compliment</a>
+    {{/unless}}
   </div>      
 </div>
 

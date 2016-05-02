@@ -1,6 +1,8 @@
 import Ember from 'ember';
+import CheckCurrentUserMixin from 'web/mixins/check-current-user';
 
-export default Ember.Controller.extend({
+
+export default Ember.Controller.extend(CheckCurrentUserMixin,{
 	session: Ember.inject.service(),
   flashMessages: Ember.inject.service(),
   sharePost: Ember.inject.service(),	
@@ -10,11 +12,16 @@ export default Ember.Controller.extend({
     return this.get('model.questions.firstObject');
   }),
 
-  isCurrentUser: Ember.computed('', function(){
-    let userid = this.get('session.data.authenticated.user_id');
+  // isCurrentUser: Ember.computed('', function(){
+  //   let userid = this.get('session.data.authenticated.user_id');
 
-  	return this.get('model.profile.id') == userid ? true : false;
+  // 	return this.get('model.profile.id') == userid ? true : false;
+  // }),
+
+  latestCompliment: Ember.computed('model.compliments', function () {
+    return this.get('model.compliments.firstObject');
   }),
+
   actions: {
     sharePost(cb){
       this.get('sharePost').submit().then((res)=>{
