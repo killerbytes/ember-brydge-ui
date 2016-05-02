@@ -1,7 +1,7 @@
 <div class="row">
   <div class="columns">
     <div class="top-banner bg-gray box">
-      <h1>YOUR COMPLIMENTS PAGE</h1>
+      <h1>{{profile.firstName}}'s COMPLIMENTS</h1>
     </div>
   </div>
 </div>
@@ -13,23 +13,23 @@
   <div class="mb">
     {{#zf-tabs}}
       <li class="medium-6 tabs-title is-active">
-        <a href="#question_answered" class="button expanded text-upper" aria-selected="true">Compliments By you</a>
+        <a href="#question_answered" class="button expanded text-upper" aria-selected="true">Compliments By {{profile.firstName}}</a>
       </li>
       <li class="medium-6 tabs-title">
-        <a href="#question_asked" class="button expanded text-upper">Compliments To you</a>
+        <a href="#question_asked" class="button expanded text-upper">Compliments To {{profile.firstName}}</a>
       </li>
     {{/zf-tabs}}
   </div>
   <div class="tabs-content questions" data-tabs-content="example-tabs">
     <div class="tabs-panel is-active" id="question_answered">
-      
+    
 
       <ul class="no-bullet connections-list">
         {{#each fromCompliments as |compliment|}}
         <div class="box rounded question-box">
           <div class="clearfix">
           <li>
-            {{link-to 'You' "profile" 'me' class="user"}} 
+            {{link-to compliment.from.name "profile" compliment.from.username class="user"}} 
             has complimented to
             {{link-to compliment.to.name "profile" compliment.to.username class="user"}}
              <h2>{{compliment.title}}</h2>
@@ -40,25 +40,25 @@
         {{/each}}
       </ul>
 
+
     </div>
     <div class="tabs-panel" id="question_asked">
-        
-
-        <ul class="no-bullet connections-list">
-          {{#each toAccept as |compliment|}}
-          <div class="box rounded question-box">
-            <div class="clearfix">
-            <li>
-              {{link-to compliment.from.name "profile" compliment.from.username class="user"}}
-              has complimented to
-              {{link-to 'You' "profile" 'me' class="user"}} 
-               <h2>{{compliment.title}}</h2>
-               <p>{{compliment.content}}</p>
-            </li>
-          </div>
-          </div>
-          {{/each}}
-        </ul>
+       
+       <ul class="no-bullet connections-list">
+        {{#each toCompliments as |compliment|}}
+        <div class="box rounded question-box">
+          <div class="clearfix">
+          <li>
+            {{link-to compliment.from.name "profile" compliment.from.username class="user"}}
+            has complimented to
+            {{link-to compliment.to.name "profile" compliment.to.username class="user"}} 
+             <h2>{{compliment.title}}</h2>
+             <p>{{compliment.content}}</p>
+          </li>
+        </div>
+        </div>
+        {{/each}}
+      </ul>
 
 
     </div>

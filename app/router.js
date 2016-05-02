@@ -52,6 +52,8 @@ Router.map(function() {
   this.route('terms-of-use');
   this.route('privacy-policy');
   this.route('testing');
+  this.route('pending-compliments');
+  this.route('compliments', {path: ':username/compliments'});
 });
 
 export default Router;
