@@ -13,19 +13,32 @@ export default Ember.Route.extend({
     })
 	},
 
+	setupController: function(controller, model){
+    this._super(controller, model);
+    controller.setProperties(model);
+  },
+
 	actions: {
 		acceptCompliment: function (id) {
+			var ctx = this;
 			console.log('acceptCompliment =>', id);
 			this.get('compliment').accept(id)
 	      .then((res)=>{
-	        console.log('compliment accepted');
+	        console.log('compliment accepted',res);
+
+	        var compliment = ctx.store.peekRecord('compliment',res.data.id);
+	        compliment.set('status','accept');
 	      })
 		},
 		rejectCompliment: function (id) {
 			console.log('rejectCompliment =>', id);
+			var ctx = this;
 			this.get('compliment').delete(id)
 	      .then((res)=>{
 	        console.log('compliment rejected');
+
+	        var compliment = ctx.store.peekRecord('compliment',res.data.id);
+	        compliment.set('status','reject');
 	      })
 		}
 	}
