@@ -1,15 +1,16 @@
-<h4>Write Answer</h4>
-<form {{action 'answer' on='submit'}}>
-	<div class="mt content clearfix question-box">
-		<div class="dim-text">asked by <a>{{selectedQuestion.from.name}}</a></div>		
-		<h2>{{selectedQuestion.content}}</h2>
-		 {{textarea value=selectedQuestion.answer placeholder='Type answer here...' rows="5"}}
-		<!-- <textarea rows="5" placeholder="Type answer here..." value=></textarea> -->
-	</div>
-	<div class="reveal-footer text-right">
-		<div class="content">
-			<button class="button success" data-close>Post</button>
-			<a class="button success" data-close>Cancel</a>
+{{#zf-reveal id="answerFormModal" overlay=true class="reveal-popup small"}}
+	<h4>Write Answer</h4>
+	<form {{action 'answer' on='submit'}}>
+		<div class="mt content clearfix question-box">
+			<div class="dim-text">asked by <a>{{selectedQuestion.from.name}}</a></div>		
+			<h2>{{selectedQuestion.content}}</h2>
+				{{froala-editor params=froalaEditor.params value=selectedQuestion.answer}}
 		</div>
-	</div>
-</form>
+		<div class="reveal-footer text-right">
+			<div class="content">
+				<button class="button success">Post</button>
+				<a class="button success" data-close>Cancel</a>
+			</div>
+		</div>
+	</form>
+{{/zf-reveal}}

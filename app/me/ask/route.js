@@ -17,9 +17,7 @@ export default Ember.Route.extend({
 	},
 	setupController(controller, model){
 		this._super(...arguments);
-		// controller.set('username', this.get('sessionAccount.account.username'))
 		controller.setProperties(model);
-		console.log(controller)
 	}
 
 });

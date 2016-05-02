@@ -8,7 +8,6 @@ export default Ember.Mixin.create({
 		});
 	}),
 	questionAsked: Ember.computed('toQuestions', function(){
-		console.log(this.get('toQuestions'))
 		var t = this.get('toQuestions').toArray();
 		return _.filter(t, function(i){
 			if(i.get('answer')) return true;

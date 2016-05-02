@@ -41,7 +41,8 @@ export default Ember.Route.extend({
          return asks.filterBy('answer');
       }),
       //trendingPosts: this.store.query('post', {userid: userid})
-      trendingPosts: this.store.query('newsfeed',{filter: userid, tab: 'curated'})
+      trendingPosts: this.store.query('newsfeed',{filter: userid, tab: 'curated'}),
+      compliments: this.store.query('compliment',{to: userid})
     }).then((result)=>{
       self.set('connectionStatus', result.connectionStatus);
       self.set('accountProfile', result.accountProfile);
@@ -50,6 +51,7 @@ export default Ember.Route.extend({
       self.set('educations', result.educations);
       self.set('trendingPosts', result.trendingPosts);
       self.set('questions', result.questions);
+      self.set('compliments', result.compliments);
     });
   },
 
@@ -66,7 +68,8 @@ export default Ember.Route.extend({
       educations: this.get('educations'),
       experiences: this.get('experiences'),
       trendingPosts: this.get('trendingPosts'),
-      questions: this.get('questions')
+      questions: this.get('questions'),
+      compliments: this.get('compliments')
     });
   },
 

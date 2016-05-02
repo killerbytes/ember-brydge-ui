@@ -1,5 +1,5 @@
 <div class="box rounded question-box">
-	<h5 class="box-header">Pending Questions</h5>
+	<h5 class="box-header">Pending Answers: Asked to you</h5>
 	<ul class="no-bullet pending-list">
 	{{#each questionPending as |q index| }}
 		<li>
@@ -24,8 +24,8 @@
 </div>
 
 <div class="box rounded question-box">
-	<h5 class="box-header">Your Pending Questions</h5>
-	<ul class="no-bullet pending-list">
+	<h5 class="box-header">Pending Answers: Asked by you</h5>
+	<ul class="no-bullet pending-list no-footer">
 	{{#each askedPending as |q index| }}
 		<li>
 			<div class="columns wrapper clearfix">
@@ -34,7 +34,7 @@
 				<p class="timestamp text-light mb5">{{postDateFormat q.createdAt}}</p>
 			</div>
 			<div class="question-box-footer">
-				<ul class="menu menu-dotted">
+				<ul class="menu menu-dotted hide">
 					<li><a {{action "selectItem" q }} class="float-left" data-open="answerFormModal">Write Answer</a></li>
 					<li><a class="float-right">Delete</a></li>
 					<li><a class="float-right">Flag</a></li>

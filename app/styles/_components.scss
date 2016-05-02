@@ -298,6 +298,11 @@ ul.list-lined{
 		border-top: 1px solid $border-color;
 		padding: 3px 1rem;		
 	}
+	.no-footer{
+		.question-box-footer{
+			border-top: none;
+		}
+	}
 	.pending-list{
 		.wrapper{
 			padding-top: 7px;
@@ -445,6 +450,11 @@ ul.list-lined{
 }
 
 .switch{
+	label:first-child{
+		float: left;
+		margin-top: 3px;
+		margin-right: 10px;
+	}
 	input:checked ~ .switch-paddle{
 		background-color: #4CD864;
 		border-radius: 100px;
@@ -571,4 +581,10 @@ span.bullet{
 	font-size: 16px;
 	margin: 2.5rem 0;
 	color: $text-light;
+}
+
+.froalaEditor{
+	p{
+		color: inherit;
+	}
 }
