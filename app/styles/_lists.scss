@@ -104,3 +104,44 @@ ul.menu-list{
   }
 
 }
+
+ul.contacts-list{
+  // margin: 0;
+  li{
+    border-bottom: 1px solid $border-color;
+    padding: 7px;
+  }
+  .media-object{
+    margin-bottom: 0;
+    .main-section{
+      width: 100%;
+    }
+    .thumbnail{
+      margin-bottom: 0;
+    }
+  }
+  p{
+    font-size: 11px;
+  }
+  // p, .subheader{
+  //   color: #999;
+  //   margin: 0;
+  // }
+
+}
+
+ul.messages-list{
+  li{
+    border-bottom: 1px solid $border-color;
+    padding: 7px;
+  }
+  .main-section{
+    width: 100%;
+  }
+
+  .thumbnail{
+    width: 35px;
+    height: 35px;
+  }
+
+}

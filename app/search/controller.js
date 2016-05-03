@@ -39,11 +39,14 @@ export default Ember.Controller.extend(QueryLocationMixin, {
     if(checked){
       industries.pushObject({code: value, name: text});
     }else{
-      var list = industries.toArray();
-      _.remove(list, {code: value })
-      this.set('industries', list);
-      this.set('selectedIndustries', list);
-      Ember.set(this.getCategory(value), 'data.checked', false)
+      // var list = industries.toArray();
+      // _.remove(list, {code: value })
+      // console.log(list)
+      // this.set('industries', list);
+      // console.log({code: value, name: text})
+      // industries.removeObject({code: value, name: text})
+      // this.set('selectedIndustries', list);
+      // Ember.set(this.getCategory(value), 'data.checked', false)
     }
   },
   onSelectedIndustryChanged: function(value, checked, text){
@@ -91,7 +94,14 @@ export default Ember.Controller.extend(QueryLocationMixin, {
       this.onSelectedIndustryChanged(value, checked, text);
     },
     removeIndustry(item){
-      this.onIndustryChanged(item.code, false, item.name);
+      // this.onIndustryChanged(item.code, false, item.name);
+      this.get('industries').removeObject(item)
+
+      this.set('selectedIndustries', this.get('industries').toArray());
+
+      this.set('industry', _.map(this.get('industries'),'code').join(','));
+      Ember.set(this.getCategory(item.code), 'data.checked', false)
+
     },
     removeSelectedIndustry(item){
       this.onSelectedIndustryChanged(item.code, false, item.name);
@@ -113,7 +123,7 @@ export default Ember.Controller.extend(QueryLocationMixin, {
     },
     refresh(){
       this.get('search').query({
-        q: 'car',
+        q: this.get('search.key'),
         industry: this.get('industry'),
         city: this.get('city'),
         key: this.get('key'),

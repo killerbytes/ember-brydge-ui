@@ -1,58 +1,53 @@
 <div class="container">
- <div class="row column">
-   <div class="medium-5 columns">
-     <aside>
-       <div class="left-header border-b">
-        	<div class="top-bar">
-       			<a href="#" class="button clear">Inbox</a>
-       			<a href="#" class="button clear">Others</a>
-
-				{{#link-to "messaging.compose" class="float-right secondary button" }}
-					New Message
-				{{/link-to}}
-        	</div>
+ <div class="row">
+   <div class="columns">
+     <div class="row column collapse conversations" data-equalizer>
+       <div class="medium-5 columns">
+         <aside data-equalizer-watch>
+           <div class="left-header">
+             <a href="#" class="button clear">Inbox</a>
+             <a href="#" class="button clear">Others</a>     
+             {{link-to "New Message" "messaging.compose" class="float-right secondary button" }}
+           </div>
+           <div class="search border-b">
+             <form action="">{{input placeholder='Search' class="flat"}}</form> 
+           </div>
+           <ul class="no-bullet contacts-list">
+              {{#each model as |item| }}                            
+                <li>
+                {{#link-to "conversation" item.id class="no-color"}}
+                  <div class="media-object">
+                    <div class="media-object-section">
+                      <div class="thumbnail">
+                        <img src= "assets/avatar-1.jpg" class="avatar">
+                      </div>
+                    </div>
+                    <div class="media-object-section main-section">
+                      <div class="row">
+                        <div class="columns medium-9">
+                          <strong>{{ item.other.profile.firstName }} <span class="text-upper">{{item.other.profile.lastName }}</span></strong>
+                        </div>
+                        <div class="columns medium-3 text-right">
+                          <span class="timestamp">
+                            {{moment-format item.updatedAt "hA"}}
+                          </span>
+                        </div>
+                      </div>
+                      {{#each item.messages as |item|}}
+                      <p>{{item.content}}</p>
+                      {{/each}}
+                    </div>
+                  </div>
+                {{/link-to}}
+                </li>
+              {{/each}} 
+            </ul>
+         </aside>
        </div>
-       <div class="search border-b">
-       	{{input placeholder='Search' class="flat"}} 
+       <div class="medium-7 columns">
+         <div data-equalizer-watch>{{ outlet }}</div>
        </div>
-       <div class="messages contacts-list">
-         <ul class="no-bullet">
-
-            {{#each model as |chat| }}
-              
-                
-
-              <li>
-              	{{#link-to "conversation" chat.id}}
-	                <div class="media-object">
-	                  <div class="media-object-section">
-	                    <div class="thumbnail">
-	                      <img src= "assets/avatar-1.jpg" class="avatar">
-	                    </div>
-	                  </div>
-	                  <div class="media-object-section main-section">
-	                    <span><strong>{{ chat.other.name }}</strong></span>
-	                    <span class="float-right subheader">
-	                      {{moment-format chat.updatedAt "hA"}}
-	                    </span>
-	                    <p>Hey Jon, I thought you should take a look at this.</p>
-	                  </div>
-	                </div>
-	            {{/link-to}}
-              </li>
-
-
-            {{/each}} 
-
-
-          </ul>
-       </div>
-     </aside>
-   </div>
-   <div class="medium-7 columns">
-     <div class="content-container">
-       {{ outlet }}
      </div>
    </div>
  </div>
- </div>
+</div>

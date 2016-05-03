@@ -23,6 +23,7 @@
               selected=valueText 
               query='query'
               itemSelected='citySelected'
+              placeholder="Enter Location"
               template="partials/location-filter"}}
       
             <a {{ action "addCity" }}>{{fa-icon "plus-circle"}}</a>
@@ -30,7 +31,7 @@
         </div>
         <div class="medium-4 columns">
           <div class="people-search-filter-column">
-            {{input value=keyword enter="addKeyword"}}
+            {{input value=keyword enter="addKeyword" placeholder="Keywords"}}
             <a {{ action "addKeyword" }}>{{fa-icon "plus-circle"}}</a>            
           </div>    
         </div>      

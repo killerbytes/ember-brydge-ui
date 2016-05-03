@@ -11,16 +11,9 @@
   </div>
 </div>
 <div class="post-comments" style="display: {{checkCount post.commentCount}}">
-  <!-- <a {{action 'viewComments'}}>View Comments</a>   -->
-  <!-- {{#each post.comments as |comment|}}  
-  <p>{{comment.content}} by {{comment.user.name}}</p>
-  {{/each}} -->
-
-
 
   {{#zf-accordion-menu class="accordion-menu" multiOpen=true}}
-    <li>
-      
+    <li>      
       <ul class="media-list no-bullet">
        {{#each post.comments as |comment|}}  
         <li>
@@ -39,10 +32,8 @@
             </div>
           </div>
         </li>
-      {{/each}}
-      </ul>
-
-     
+        {{/each}}
+      </ul>     
       <a class="more no-arrow"><span class="content-more" disabled=true {{action 'viewComments'}} id={{post.id}}>View Comments</span><span class="content-less">Hide Comments</span></a>
     </li>
   {{/zf-accordion-menu}}    
