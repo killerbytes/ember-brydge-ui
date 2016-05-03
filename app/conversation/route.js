@@ -4,7 +4,6 @@ import AuthenticatedRouteMixin from 'ember-simple-auth/mixins/authenticated-rout
 export default Ember.Route.extend(AuthenticatedRouteMixin, {
 
   model: function(params) {
-		console.log("/conversation/", params);
     return this.store.findRecord('conversation', params.conversation_id, { reload: true});
   },
 

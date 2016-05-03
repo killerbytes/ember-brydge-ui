@@ -131,9 +131,14 @@ ul.contacts-list{
 }
 
 ul.messages-list{
+  border-top: 1px solid $border-color;
   li{
     border-bottom: 1px solid $border-color;
     padding: 7px;
+    padding-right: 1rem;
+  }
+  .media-object{
+    margin-bottom: 0;
   }
   .main-section{
     width: 100%;

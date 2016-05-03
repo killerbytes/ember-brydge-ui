@@ -595,5 +595,44 @@ span.bullet{
 		input{
 			margin: 0;
 		}
+		input:focus{
+			border: none;
+		}
+	}
+	.conversations-top-bar{
+		@extend .clearfix;
+		border-bottom: 1px solid $border-color;
+		padding: 1rem;
+		h4{
+			margin-bottom: 0;
+		}
+		.button{
+	    font-weight: bold;
+		}
+		.button.clear{
+			padding: 0;
+			padding-right: 1rem;
+		}
+		.button.secondary{
+	    padding: 5px;
+	    border: 1px solid;
+	    border-radius: 3px;   
+		}
+	}
+	.message-container{
+		position: relative;
+		height: 600px;
+		border-left: 1px solid $border-color;
+	}
+	.message-content{
+		position: absolute;
+		bottom: 0;
+	}
+
+}
+.message-box{
+	form{
+		background-color: $panel-color;
+		padding: 1rem;
 	}
 }

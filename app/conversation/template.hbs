@@ -1,31 +1,39 @@
-{{ model.other.profile.firstName }} <span class="text-upper">{{ model.other.profile.lastName }}</span>
-<ul class="messages-list no-bullet">
-{{#each model.messages as |item| }}
-  <li>
-    <div class="media-object">
-      <div class="media-object-section">
-        <div class="thumbnail rounded">
-          <img src= {{item.from.profile.avatarUrl}}>
-        </div>
-      </div>
-      <div class="media-object-section main-section">
-        <div class="row">
-          <div class="columns medium-9">
-            <strong>
-              {{#link-to "profile" item.from.id }}
-              {{item.from.profile.firstName}} <span class="text-upper">{{item.from.profile.lastName}}</span>
-              {{/link-to}}
-            </strong>
+<div class="conversations-top-bar">
+  <h4>
+    {{ model.other.profile.firstName }} <span class="text-upper">{{ model.other.profile.lastName }}</span>
+    <button class="button secondary float-right">Delete</button>
+  </h4>
+  
+</div>
+<div class="message-content">
+  <ul class="messages-list no-bullet">
+    {{#each model.messages as |item| }}
+      <li>
+        <div class="media-object">
+          <div class="media-object-section">
+            <div class="thumbnail rounded">
+              <img src= {{item.from.profile.avatarUrl}}>
+            </div>
           </div>
-          <div class="columns medium-3">
-            <span class="timestamp">{{moment-format item.updatedAt "hA"}}</span>
+          <div class="media-object-section main-section">
+            <div class="row mb5">
+              <div class="columns medium-9">
+                <strong>
+                  {{#link-to "profile" item.from.id }}
+                  {{item.from.profile.firstName}} <span class="text-upper">{{item.from.profile.lastName}}</span>
+                  {{/link-to}}
+                </strong>
+              </div>
+              <div class="columns medium-3 text-right">
+                <span class="timestamp">{{moment-format item.updatedAt "h:ma"}}</span>
+              </div>
+            </div>
+            <p class="comment-content">{{item.content}}</p>
+            
           </div>
         </div>
-        <p class="comment-content">{{item.content}}</p>
-        
-      </div>
-    </div>
-  </li>
-{{/each}} 
-</ul>
-{{ message-box store=store resp='getResponse' buttonLabel='Reply' showToInput=false to=model.id}}
+      </li>
+    {{/each}} 
+  </ul>
+  {{ message-box store=store resp='getResponse' buttonLabel='Reply' showToInput=false to=model.id}}
+</div>

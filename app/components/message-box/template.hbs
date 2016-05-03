@@ -1,31 +1,11 @@
-<!-- 
-<form {{action 'compose' to msg on='submit'}}>
-  <div class="row">
-    {{#if showToInput}}
-    <div class="small-3 columns">
-      <label for="middle-label" class="text-right middle">To:</label>
-    </div>
-    <div class="small-9 columns">
-      {{input value=to type="text" id="middle-label" placeholder="Type a person name.."}}
-    </div>
-    {{/if}}
-     <div class="small-9 columns">
-      {{textarea value=msg placeholder="Message..." rows="4"}}
-    </div>
-    <div class="small-9 columns">
-    <button type="submit" class="secondary button">{{fa-icon "fa-paper-plane"}}
-    {{buttonLabel}}</button>
-    </div>
-  </div>
-</form> -->
-
 <form {{action 'compose' to msg on='submit'}}>
   {{#if showToInput}}
-  {{input value=to type="text" id="middle-label" placeholder="Type a person name.."}}
+  	{{input value=to type="text" id="middle-label" placeholder="Type a person name.."}}
   {{/if}}
-   {{textarea value=msg placeholder="Message..." rows="4"}}
-    <button type="submit" class="button">
-    {{buttonLabel}}</button>
+  {{textarea value=msg placeholder="Message..." rows="4"}}
+  <div class="text-right">
+  	<button type="submit" class="button success">{{buttonLabel}}</button>
+  </div>
 </form>
 
 

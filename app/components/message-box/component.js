@@ -1,6 +1,7 @@
 import Ember from 'ember';
 
 export default Ember.Component.extend({
+  classNames: ['message-box'],
 	actions: {
   	compose: function(to, msg) {
   		console.log('compose message', to, msg);

@@ -1,19 +1,20 @@
 <div class="container">
  <div class="row">
    <div class="columns">
-     <div class="row column collapse conversations" data-equalizer>
+     <div class="row column collapse conversations bordered">
        <div class="medium-5 columns">
-         <aside data-equalizer-watch>
-           <div class="left-header">
+           <div class="conversations-top-bar">
              <a href="#" class="button clear">Inbox</a>
              <a href="#" class="button clear">Others</a>     
-             {{link-to "New Message" "messaging.compose" class="float-right secondary button" }}
+             {{link-to "New Message" "messaging.compose" class="float-right secondary button btn-new-message" }}
            </div>
            <div class="search border-b">
              <form action="">{{input placeholder='Search' class="flat"}}</form> 
            </div>
            <ul class="no-bullet contacts-list">
               {{#each model as |item| }}                            
+                {{log item }}
+
                 <li>
                 {{#link-to "conversation" item.id class="no-color"}}
                   <div class="media-object">
@@ -29,23 +30,19 @@
                         </div>
                         <div class="columns medium-3 text-right">
                           <span class="timestamp">
-                            {{moment-format item.updatedAt "hA"}}
+                            {{ item.updatedAt }}
                           </span>
                         </div>
                       </div>
-                      {{#each item.messages as |item|}}
-                      <p>{{item.content}}</p>
-                      {{/each}}
                     </div>
                   </div>
                 {{/link-to}}
                 </li>
               {{/each}} 
             </ul>
-         </aside>
        </div>
-       <div class="medium-7 columns">
-         <div data-equalizer-watch>{{ outlet }}</div>
+       <div class="medium-7 columns message-container">
+        {{ outlet }}        
        </div>
      </div>
    </div>

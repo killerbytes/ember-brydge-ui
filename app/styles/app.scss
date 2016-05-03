@@ -5,7 +5,8 @@ $dark-blue: #43BFFB;
 $sky-blue: #96DCFE;
 $border-color: #D9D9D9;
 $box-border-color: #e5e6e9 #dfe0e4 #d0d1d5;
-$body-color: #666;
+$body-text-color: #666;
+$body-bg-color: #ECEDEF;
 $panel-color: #EFEFEF;
 
 $text-orange: #FF5333;
@@ -40,8 +41,8 @@ $text-color2: #999;
 @import "media";
 
 body{
-	background-color: #ECEDEF;
-	color: $body-color;
+	background-color: $body-bg-color;
+	color: $body-text-color;
   font-family: 'Helvetica Neue', Arial, sans-serif;
 }
 *{
