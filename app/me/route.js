@@ -24,7 +24,8 @@ export default Ember.Route.extend(AuthenticatedRouteMixin,{
       educations: this.store.query('education',{userid: userid}),
       questions: this.store.query('ask',{userid: userid}).then((asks)=>{
         return asks.filterBy('answer');
-      })
+      }),
+      compliments: this.store.query('compliment',{to: userid})
     });
   },
 
