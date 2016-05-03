@@ -21,7 +21,7 @@ module.exports = function(environment) {
       'font-src': "'self' fonts.gstatic.com",
       'img-src': "'self' * www.google-analytics.com placeholdit.imgix.net placehold.it s3.amazonaws.com",
       'style-src': "'self' 'unsafe-inline' fonts.gstatic.com fonts.googleapis.com",
-      'connect-src': "'self' http://localhost:8080 http://*:* api.brydge.com",
+      'connect-src': "'self' localhost:8080 * api.brydge.com",
       'script-src':  "'self' 'unsafe-inline' 'unsafe-eval' www.google-analytics.com/analytics.js www.reddit.com"
     },
     'ember-simple-auth':{
@@ -55,8 +55,8 @@ module.exports = function(environment) {
 
     if(ENV['ember-cli-mirage'].enabled == false) {
       ENV['ember-simple-auth'] = {
-        serverTokenEndpoint: 'http://localhost:8000/token',
-        authorizerHost: 'http://localhost:8000'
+        serverTokenEndpoint: '//localhost:8000/token',
+        authorizerHost: '//localhost:8000'
       };
     }
 
@@ -77,8 +77,8 @@ module.exports = function(environment) {
 
   if (environment === 'production') {
     ENV['ember-simple-auth'] = {
-      serverTokenEndpoint: 'http://api.brydge.me/token',
-      authorizerHost: 'http://api.brydge.me'
+      serverTokenEndpoint: '//api.brydge.me/token',
+      authorizerHost: '//api.brydge.me'
     }
   }
 

@@ -8,7 +8,7 @@ import UrlTemplates from "ember-data-url-templates";
 // });
 
 export default DS.RESTAdapter.extend(UrlTemplates, {
-	host: 'http://api.brydge.me',
+	host: '//api.brydge.me',
 	queryUrlTemplate: '{+host}/categories/{query}',
 	urlSegments: {
     query: function(type, id, snapshot, params) {
