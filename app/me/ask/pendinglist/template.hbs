@@ -1,12 +1,12 @@
 <div class="box rounded question-box">
 	<h5 class="box-header">Pending Answers: Asked to you</h5>
 	<ul class="no-bullet pending-list">
-	{{#each questionPending as |q index| }}
+	{{#each questions.pendingSidebar as |item| }}
 		<li>
 			<div class="columns wrapper clearfix">
-				<div class="question-title">{{q.content}}</div>
-				<div class="text-light">asked by {{link-to q.from.content.name "profile" q.from.content.username class="user"}}</div>
-				<p class="timestamp text-light mb5">{{postDateFormat q.createdAt}}</p>
+				<div class="question-title">{{item.content}}</div>
+				<div class="text-light">asked by {{link-to item.from.content.name "profile" item.from.content.username class="user"}}</div>
+				<p class="timestamp text-light mb5">{{postDateFormat item.createdAt}}</p>
 			</div>
 			<div class="question-box-footer">
 				<ul class="menu menu-dotted">
@@ -18,7 +18,7 @@
 		</li>
 	{{/each}}
 	</ul>
-	{{#link-to 'questions' class="footer-button button expanded" }}
+	{{#link-to 'questions' (query-params tab="questions")  class="footer-button button expanded" }}
 		Load More
 	{{/link-to}}
 </div>
@@ -26,12 +26,12 @@
 <div class="box rounded question-box">
 	<h5 class="box-header">Pending Answers: Asked by you</h5>
 	<ul class="no-bullet pending-list no-footer">
-	{{#each askedPending as |q index| }}
+	{{#each asked.pendingSidebar as |item| }}
 		<li>
 			<div class="columns wrapper clearfix">
-				<div class="question-title">{{q.content}}</div>
-				<div class="text-light">you asked {{link-to q.to.content.name "profile" q.to.content.username class="user"}}</div>
-				<p class="timestamp text-light mb5">{{postDateFormat q.createdAt}}</p>
+				<div class="question-title">{{item.content}}</div>
+				<div class="text-light">you asked {{link-to item.to.content.name "profile" item.to.content.username class="user"}}</div>
+				<p class="timestamp text-light mb5">{{postDateFormat item.createdAt}}</p>
 			</div>
 			<div class="question-box-footer">
 				<ul class="menu menu-dotted hide">
@@ -43,7 +43,7 @@
 		</li>
 	{{/each}}
 	</ul>
-	{{#link-to 'questions' class="footer-button button expanded" }}
+	{{#link-to 'questions' (query-params tab="asked") class="footer-button button expanded" }}
 		Load More
 	{{/link-to}}
 </div>

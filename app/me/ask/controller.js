@@ -4,7 +4,6 @@ import FilteredQuestionsMixin from 'web/mixins/filtered-questions';
 export default Ember.Controller.extend(FilteredQuestionsMixin, {
   actions: {
   	selectItem: function(item) {
-  		console.log('selectItem');
   		this.set('selectedQuestion', item);
   	}
   }

@@ -1,12 +1,13 @@
 import Ember from 'ember';
 
 export default Ember.Component.extend({
+  store: Ember.inject.service(),
   classNames: ['message-box'],
 	actions: {
   	compose: function(to, msg) {
   		console.log('compose message', to, msg);
 
-  		var store = this.store;
+  		var store = this.get('store');
   		var ctx = this;
 
       var message = store.createRecord('message', {

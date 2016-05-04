@@ -4,6 +4,7 @@ import DS from 'ember-data';
 export default DS.Model.extend({
 	content: DS.attr('string'),
 	answer: DS.attr('string'),
+	status: DS.attr(),
 	from: DS.belongsTo('user'),
 	to: DS.belongsTo('user'),
   createdAt: DS.attr()

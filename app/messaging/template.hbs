@@ -16,11 +16,11 @@
                 {{log item }}
 
                 <li>
-                {{#link-to "conversation" item.id class="no-color"}}
+                {{#link-to "messaging.conversation" item.id class="no-color"}}
                   <div class="media-object">
                     <div class="media-object-section">
                       <div class="thumbnail">
-                        <img src= "assets/avatar-1.jpg" class="avatar">
+                        <img src={{item.other.profile.avatarUrl}} class="avatar">
                       </div>
                     </div>
                     <div class="media-object-section main-section">
@@ -30,10 +30,11 @@
                         </div>
                         <div class="columns medium-3 text-right">
                           <span class="timestamp">
-                            {{ item.updatedAt }}
+                            {{ moment-format item.preview.createdAt "h:ma" }}                            
                           </span>
                         </div>
                       </div>
+                      <div class="truncate">{{ item.preview.content }}</div>
                     </div>
                   </div>
                 {{/link-to}}

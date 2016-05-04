@@ -2,12 +2,11 @@
   <h4>
     {{ model.other.profile.firstName }} <span class="text-upper">{{ model.other.profile.lastName }}</span>
     <button class="button secondary float-right">Delete</button>
-  </h4>
-  
+  </h4>  
 </div>
 <div class="message-content">
   <ul class="messages-list no-bullet">
-    {{#each model.messages as |item| }}
+    {{#each messages as |item| }}
       <li>
         <div class="media-object">
           <div class="media-object-section">
@@ -25,7 +24,8 @@
                 </strong>
               </div>
               <div class="columns medium-3 text-right">
-                <span class="timestamp">{{moment-format item.updatedAt "h:ma"}}</span>
+                <span class="timestamp">{{ moment-format item.createdAt "h:ma" }}</span>
+
               </div>
             </div>
             <p class="comment-content">{{item.content}}</p>
@@ -35,5 +35,5 @@
       </li>
     {{/each}} 
   </ul>
-  {{ message-box store=store resp='getResponse' buttonLabel='Reply' showToInput=false to=model.id}}
+  {{ message-box resp='getResponse' buttonLabel='Reply' showToInput=false to=model.id}}
 </div>

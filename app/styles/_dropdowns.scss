@@ -1,4 +1,14 @@
+.menu-wrapper{
+  position: absolute;
+  right: 25px;
+  top: 15px;
+  .icons{
+    opacity: .2;
+  }
+}
+
 .dropdown-pane{
+  @extend .no-select;
   padding: 0;
   background-color: #FFF;
   box-shadow: 0px 2px 4px -1px #404040;
@@ -154,7 +164,7 @@
   width: 200px;
 }
 
-.post-menu-dropdown{
+.card-menu-dropdown{
   @extend .dd-menu;
   margin-right: 5px; 
   border-top: 1px solid $border-color;

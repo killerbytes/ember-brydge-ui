@@ -3,10 +3,10 @@ import Ember from 'ember';
 export default Ember.Component.extend({
 	store: Ember.inject.service(),
 	actions: {
-		ask: function(to, from, username,question) {
+		ask: function() {
 			var store = this.get('store');
 			var ask = store.createRecord('ask',{
-				content: question
+				content: this.get('question')
 			});
 
 			var savedCallback = () => {

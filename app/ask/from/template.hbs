@@ -1,16 +1,16 @@
 
-{{#each questionAnswered as |q| }}
+{{#each asked.answered as |item| }}
 	<div class="box rounded question-box">
 	  <div class="clearfix">
 
-	    <div class="mb5">{{link-to q.from.content.name "profile" q.from.content.username class="user" }} asked {{link-to q.to.content.name "profile" q.to.content.username class="user"}}</div>
-			<p class="timestamp">{{postDateFormat q.createdAt}}</p>	    
-	    <h2>{{q.content}}</h2>
+	    <div class="mb5">{{link-to item.from.content.name "profile" item.from.content.username class="user" }} asked {{link-to item.to.content.name "profile" item.to.content.username class="user"}}</div>
+			<p class="timestamp">{{postDateFormat item.createdAt}}</p>	    
+	    <h2>{{item.content}}</h2>
 		    {{#zf-accordion-menu class="accordion-menu"}}
 		      <li>
 		        <ul class="no-bullet vertical nested">
 		          <li>
-		          	<p>{{{q.answer}}}</p>
+		          	<p>{{{item.answer}}}</p>
 		          </li>
 		        </ul>
 		        <a class="more no-arrow"><span class="content-more" disabled=true>See Answer</span><span class="content-less">Hide Answer</span></a>

@@ -49,7 +49,7 @@ ul.notifications-list{
 }
 
 ul.question-pending-list{
-  padding: 0 .5rem 1rem;
+  // padding: 0 .5rem 1rem;
   >li{
     padding: .5rem;
   }
@@ -131,6 +131,8 @@ ul.contacts-list{
 }
 
 ul.messages-list{
+  max-height: 404px;
+  overflow: auto;
   border-top: 1px solid $border-color;
   li{
     border-bottom: 1px solid $border-color;

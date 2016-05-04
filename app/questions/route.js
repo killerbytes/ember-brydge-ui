@@ -18,7 +18,16 @@ export default Ember.Route.extend({
 		this._super(...arguments);
 		controller.set('username', this.get('sessionAccount.account.username'))
 		controller.setProperties(model);
-		console.log(controller)
+	},
+	actions: {
+    didTransition: function(){
+      Ember.run.later(()=>{
+        Ember.$('.question-tab .tabs:first').on('change.zf.tabs', (e, elem)=>{
+          this.set('controller.tab', elem.data('tab'))
+        })
+      })
+    }
+
 	}
 
 });

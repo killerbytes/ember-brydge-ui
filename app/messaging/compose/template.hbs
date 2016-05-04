@@ -1,4 +1,28 @@
-
-
-{{ message-box store=store resp='getResponse' buttonLabel='Send' showToInput=true}}
+<div class="conversations-top-bar">
+	<input type="text">
+	<ul>
+	{{#each connections as |item|}}
+	{{log item.to}}
+		<li>
+			<div class="media-object">
+				<div class="media-object-section">
+					<div class="thumbnail">
+						<img src="{{ item.avatarUrl }}">
+					</div>
+				</div>
+				<div class="media-object-section main-section">
+						<span class="name">{{item.to.user.profile.firsName}}</span>
+						<div class="position">
+							{{item.to.user.profile.currentTitle}} <br>
+							{{item.to.user.profile.currentCompany}}
+						</div>
+				</div>
+			</div>
+		</li>
+	{{/each}}
+	</ul>
+</div>
+<div class="message-content">
+	{{ message-box resp='getResponse' buttonLabel='Send' showToInput=false}}
+</div>
 

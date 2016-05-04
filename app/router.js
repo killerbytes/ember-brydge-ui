@@ -32,7 +32,7 @@ Router.map(function() {
   this.route('public-profile-error');
 
   this.route('messaging', function() {
-    this.route('conversation', { path: ':conversation_id', resetNamespace: true});
+    this.route('conversation', { path: ':conversation_id'});
     this.route('compose');
   });
 

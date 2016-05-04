@@ -7,9 +7,6 @@ export default Ember.Component.extend(
   sharePost: Ember.inject.service(),
 	ajax: Ember.inject.service(),
 	classNames: ['newsfeed-item', 'box', 'rounded'],
-	menuName: Ember.computed('post.id', function(){
-		return "dd-post-menu-" + this.get('post.id');
-	}),
 	title: Ember.computed('post.title', function(){
 		let title = this.get('post.title');
 		return title.length > 100 ? title.substr(0, 100) + ' ...' : title;
