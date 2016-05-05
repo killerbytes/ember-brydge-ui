@@ -36,6 +36,24 @@
 				</div>
 			{{/link-to}}
 		</li>
+		<li>
+			{{#link-to "profile" item.username}}
+				<div class="media-object">
+					<div class="media-object-section">
+						<div class="thumbnail">
+							<img src="{{ item.avatarUrl }}">
+						</div>
+					</div>
+					<div class="media-object-section main-section">
+							<span class="name">{{item.name}}</span>
+							<div class="position">
+								{{item.title}} <br>
+								{{item.company}}
+							</div>
+					</div>
+				</div>
+			{{/link-to}}
+		</li>
 		{{/each}}
 		{{#unless search.results }}
 		<li>

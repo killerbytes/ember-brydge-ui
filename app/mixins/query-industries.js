@@ -1,7 +1,7 @@
 import Ember from 'ember';
 
 export default Ember.Mixin.create({
-  ajax: Ember.inject.service('ajax-api'),
+  ajaxApi: Ember.inject.service('ajax-api'),
 	
   industries: [],
   selectedIndustry: null,
@@ -12,7 +12,7 @@ export default Ember.Mixin.create({
     queryIndustries: function (q) {
       console.log('query industry =>', q);
       var self = this;
-      this.get('ajax').request('categories?q='+q, {
+      this.get('ajaxApi').request('categories?q='+q, {
           method: 'GET'
         }).then((res)=>{
           self.set('industries', res.data.map((d)=>{

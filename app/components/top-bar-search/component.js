@@ -14,7 +14,7 @@ export default Ember.Component.extend({
 				this.$('#dd-search').foundation('close');	      		
 			}
 
-			if(q.length < 3) return false;
+			if(q.length < 2) return false;
 			this.get('search').query({
 				q: q,
 				type: 'profile'

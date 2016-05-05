@@ -1,29 +1,35 @@
 <div class="conversations-top-bar">
-	<input type="text">
-	<ul>
-	{{log contacts}}
-
-	{{#each contacts as |item|}}
-		<li>
-			<div class="media-object">
-				<div class="media-object-section">
-					<div class="thumbnail">
-						<img src="{{ item.avatarUrl }}">
+	{{#if selected.name}}
+		<span class="label label-item"><a {{action "remove" }}>{{fa-icon "close"}}</a> {{selected.name}}</span>
+	{{else}}
+		{{input id="contact-input" value=key class="input-group-field" type="search" placeholder="Name"}}	
+	{{/if}}
+</div>
+		<ul class="contact-list no-bullet">
+		{{#each contacts as |item|}}
+			<li>
+				<a {{action "select" item }}>
+				<div class="media-object">
+					<div class="media-object-section">
+						<div class="thumbnail">
+							<img src="/assets/avatar-1.jpg">
+						</div>
+					</div>
+					<div class="media-object-section main-section">
+							<span class="name">{{item.name}}</span>
+							<div class="position">
+								{{item.title}} <br>
+								{{item.company}}
+							</div>
 					</div>
 				</div>
-				<div class="media-object-section main-section">
-						<span class="name">{{item.to.user.profile.firsName}}</span>
-						<div class="position">
-							{{item.to.user.profile.currentTitle}} <br>
-							{{item.to.user.profile.currentCompany}}
-						</div>
-				</div>
-			</div>
-		</li>
-	{{/each}}
-	</ul>
-</div>
+				</a>
+			</li>
+		{{/each}}
+		</ul>
+
+
 <div class="message-content">
-	{{ message-box resp='getResponse' buttonLabel='Send' showToInput=false}}
+	{{ message-box resp='getResponse' buttonLabel='Send' showToInput=false to=selected.id}}
 </div>
 

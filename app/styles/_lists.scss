@@ -105,7 +105,7 @@ ul.menu-list{
 
 }
 
-ul.contacts-list{
+ul.conversation-list{
   // margin: 0;
   li{
     border-bottom: 1px solid $border-color;
@@ -123,11 +123,14 @@ ul.contacts-list{
   p{
     font-size: 11px;
   }
-  // p, .subheader{
-  //   color: #999;
-  //   margin: 0;
-  // }
-
+}
+ul.contact-list{
+  @extend .menu-media-list;
+  li{
+    padding: .5rem;
+    border-bottom: 1px solid $border-color;
+    a{ color: inherit; }
+  }
 }
 
 ul.messages-list{

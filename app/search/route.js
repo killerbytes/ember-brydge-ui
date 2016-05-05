@@ -2,10 +2,10 @@ import Ember from 'ember';
 import AjaxService from 'ember-ajax/services/ajax';
 
 export default Ember.Route.extend({
-  ajax: Ember.inject.service('ajax-api'),
+  ajaxApi: Ember.inject.service('ajax-api'),
   model: function (params) {    
     return Ember.RSVP.hash({
-      categories: this.get('ajax').request('categories/menu')
+      categories: this.get('ajaxApi').request('categories/menu')
     })
   },
  //  afterModel(model){
