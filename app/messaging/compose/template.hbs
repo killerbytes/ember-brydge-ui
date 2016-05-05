@@ -2,7 +2,9 @@
 	{{#if selected.name}}
 		<span class="label label-item"><a {{action "remove" }}>{{fa-icon "close"}}</a> {{selected.name}}</span>
 	{{else}}
-		{{input id="contact-input" value=key class="input-group-field" type="search" placeholder="Name"}}	
+		<form>
+			{{input id="contact-input" value=key class="input-group-field" type="search" placeholder="Name"}}
+		</form>	
 	{{/if}}
 </div>
 		<ul class="contact-list no-bullet">
@@ -12,7 +14,8 @@
 				<div class="media-object">
 					<div class="media-object-section">
 						<div class="thumbnail">
-							<img src="/assets/avatar-1.jpg">
+							<img src={{item.avatarUrl}}>
+
 						</div>
 					</div>
 					<div class="media-object-section main-section">

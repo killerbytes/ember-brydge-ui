@@ -20,11 +20,11 @@
         </div>
         <div class="media-object-section main-section">
           {{#if (notification-type 'ask' item.type)}}
-            <p><a>{{item.profile.firstName}} {{item.profile.lastName}}</a> asked you a question <a>{{ item.content}}</a></p>
+            <p><strong>{{item.profile.firstName}} {{item.profile.lastName}}</strong> asked you a question <strong>{{ item.content}}</strong></p>
             <span>{{ postDateFormat item.createdAt }}</span>
           {{/if}}
           {{#if (notification-type 'post' item.type)}}
-            <p><a>{{item.profile.firstName}} {{item.profile.lastName}}</a> shared your post <a>{{ item.content}}</a></p>
+            <p><strong>{{item.profile.firstName}} {{item.profile.lastName}}</strong> shared your post <strong>{{ item.content}}</strong></p>
             <span>{{ postDateFormat item.createdAt }}</span>
           {{/if}}
 
