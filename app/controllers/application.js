@@ -3,7 +3,19 @@ import Ember from 'ember';
 export default Ember.Controller.extend({
   session: Ember.inject.service('session'),
   sessionAccount: Ember.inject.service('session-account'),
-
+  notification: Ember.inject.service(),
+  init(){
+    var notification = this.get('notification')
+    function notificationChecker(){
+      Ember.run.later(()=>{
+        notification.checkForNotifications(()=>{
+          notificationChecker();
+        });
+      },60000)    
+    }
+    notification.checkForNotifications();
+    notificationChecker.apply(this);
+  },
   updateCurrentPath: function(){
   	if(this.get('currentPath') == 'index'){
   		this.set('landingPage', true);

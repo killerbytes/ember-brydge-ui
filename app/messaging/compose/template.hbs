@@ -1,8 +1,9 @@
 <div class="conversations-top-bar">
 	<input type="text">
 	<ul>
-	{{#each connections as |item|}}
-	{{log item.to}}
+	{{log contacts}}
+
+	{{#each contacts as |item|}}
 		<li>
 			<div class="media-object">
 				<div class="media-object-section">

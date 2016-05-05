@@ -7,5 +7,6 @@ export default DS.Model.extend({
 	status: DS.attr(),
 	from: DS.belongsTo('user'),
 	to: DS.belongsTo('user'),
-  createdAt: DS.attr()
+  createdAt: DS.attr(),
+  updatedAt: DS.attr()
 });

@@ -14,60 +14,28 @@
         <strong>NOTIFICATIONS FROM THE LAST FEW  DAYS</strong>
       </div>
       <ul class="media-list notifications-list no-bullet list-lined">
+      {{#each model as |item|}}
         <li>
           <div class="media-object">
             <div class="media-object-section">
               <div class="thumbnail">
-                <img src= "assets/avatar-1.jpg">
+                <img src={{item.profile.avatarUrl}}>
               </div>
             </div>
             <div class="media-object-section main-section">
-              <p><a>Jon Wayne</a> commented on your post <a>Title of Post</a></p>
-              <span>Today at 2:30pm</span>
+              {{#if (notification-type 'ask' item.type)}}
+                <p><a>{{item.profile.firstName}} {{item.profile.lastName}}</a> asked you a question <a>{{ item.content}}</a></p>
+                <span>{{ postDateFormat item.createdAt }}</span>
+              {{/if}}
+              {{#if (notification-type 'post' item.type)}}
+                <p><a>{{item.profile.firstName}} {{item.profile.lastName}}</a> shared your post <a>{{ item.content}}</a></p>
+                <span>{{ postDateFormat item.createdAt }}</span>
+              {{/if}}
+
             </div>
           </div>
         </li>
-        <li>
-          <div class="media-object">
-            <div class="media-object-section">
-              <div class="thumbnail">
-                <img src= "assets/avatar-1.jpg">
-              </div>
-            </div>
-            <div class="media-object-section main-section">
-              <p>
-              <a>Jon Wayne</a> answered your question <a>What do you think of the new WHO regulations on soda advertising?</a>
-              </p>
-              <span>Today at 2:30pm</span>
-            </div>
-          </div>
-        </li>
-        <li>
-          <div class="media-object">
-            <div class="media-object-section">
-              <div class="thumbnail">
-                <img src= "assets/avatar-1.jpg">
-              </div>
-            </div>
-            <div class="media-object-section main-section">
-              <p><a>Jon Wayne</a> commented on your post <a>Title of Post</a></p>
-              <span>Today at 2:30pm</span>
-            </div>
-          </div>
-        </li>
-        <li>
-          <div class="media-object">
-            <div class="media-object-section">
-              <div class="thumbnail">
-                <img src= "assets/avatar-1.jpg">
-              </div>
-            </div>
-            <div class="media-object-section main-section">
-              <p><a>Jon Wayne</a> commented on your post <a>Title of Post</a></p>
-              <span>Today at 2:30pm</span>
-            </div>
-          </div>
-        </li>
+      {{/each}}
       </ul>
   		
   	</div>

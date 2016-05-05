@@ -31,8 +31,8 @@ export default Ember.Route.extend({
     //   // controller.set('toQuestions', result.toQuestions)
     // });
     
-    // let ownerid = this.get('session.data.authenticated.user_id');
-    // controller.set('ownerid', ownerid);
+    let ownerid = this.get('session.data.authenticated.user_id');
+    controller.set('ownerid', ownerid);
     // console.log(controller)
 	}
 });

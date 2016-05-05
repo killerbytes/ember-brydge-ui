@@ -1,28 +1,41 @@
-<a data-toggle="dd-stack">
+<a data-toggle="dd-notification">
 	{{#zf-tooltip title="Notifications" vOffset=0}}
-	<i class="icons stack"></i>
+		<span class="alert badge">{{notification.notifications.length}}</span>
+		<i class="icons stack"></i>
 	{{/zf-tooltip}}
 	<div class="wrapper">
 		<div class="triangle"></div>
 	</div>							
 </a>
-{{#zf-dropdown id="dd-stack" closeOnClick=true}}
-	<ul class="menu">
-		<li>{{link-to "Home" "home"}}</li>
-	</ul>
-	<ul class="menu">
-		<li>{{link-to "Profile" "me"}}</li>
-		<li>{{link-to "Edit Profile" "me"}}</li>
-		
-	</ul>
-	<ul class="menu">
-		<li><a href="">People Search</a></li>									
-	</ul>
-	<ul class="menu">
-		<li><a href="">Settings</a></li>
-		<li><a href="">User Guide</a></li>
-		<li><a href="" {{action 'logout'}}>Log out</a></li>		
-	</ul>
+{{#zf-dropdown id="dd-notification" class="dropdown-topbar" closeOnClick=true}}
+
+  <ul class="media-list notifications-list no-bullet list-lined">
+  {{#each notification.notifications as |item|}}
+    <li>
+      <div class="media-object">
+        <div class="media-object-section">
+          <div class="thumbnail">
+            <img src={{item.profile.avatarUrl}}>
+          </div>
+        </div>
+        <div class="media-object-section main-section">
+          {{#if (notification-type 'ask' item.type)}}
+            <p><a>{{item.profile.firstName}} {{item.profile.lastName}}</a> asked you a question <a>{{ item.content}}</a></p>
+            <span>{{ postDateFormat item.createdAt }}</span>
+          {{/if}}
+          {{#if (notification-type 'post' item.type)}}
+            <p><a>{{item.profile.firstName}} {{item.profile.lastName}}</a> shared your post <a>{{ item.content}}</a></p>
+            <span>{{ postDateFormat item.createdAt }}</span>
+          {{/if}}
+
+        </div>
+      </div>
+    </li>
+  {{/each}}
+  </ul>
+
+
+
 	{{#link-to 'notifications' class="footer-button success button expanded"}}
 		SEE ALL NOTIFICATIONS
 	{{/link-to}}

@@ -15,6 +15,12 @@ export default Ember.Service.extend({
   requestConnections(){
     this.set('connectionStore', this.get('store').findAll('connection'))
   },
+  checkForNotifications(cb){
+    this.get('store').findAll('notification').then((res)=>{
+      this.set('notifications', res);
+      cb.call();
+    })
+  }
 
 
 });

@@ -17,7 +17,7 @@ export default Ember.Mixin.create({
 		}
 	}),
 
-	questions: Ember.computed('toQuestions', 'toQuestions.@each.status', function(){
+	questions: Ember.computed('toQuestions.[].updateAt', function(){
 		var t = this.get('toQuestions').toArray();
 		return {
 			pendingSidebar: _.filter(t, function(i){
