@@ -12,26 +12,27 @@
              <form action="">{{input placeholder='Search' class="flat"}}</form> 
            </div>
            <ul class="no-bullet contacts-list">
-              {{#each contacts as |item| }}
+              {{#each model as |item| }}                            
                 <li>
                 {{#link-to "messaging.conversation" item.id class="no-color"}}
                   <div class="media-object">
                     <div class="media-object-section">
                       <div class="thumbnail">
-                        <img src={{item.avatarUrl}} class="avatar">
+                        <img src={{item.other.profile.avatarUrl}} class="avatar">
                       </div>
                     </div>
                     <div class="media-object-section main-section">
                       <div class="row">
-                        <div class="columns">
-                          <strong>{{ item.name }}</strong>
-                          <div class="position">
-                            {{item.title}} <br>
-                            {{item.company}}
-                          </div>
-
+                        <div class="columns medium-9">
+                          <strong>{{ item.other.profile.firstName }} <span class="text-upper">{{item.other.profile.lastName }}</span></strong>
+                        </div>
+                        <div class="columns medium-3 text-right">
+                          <span class="timestamp">
+                            {{ moment-format item.preview.createdAt "h:ma" }}                            
+                          </span>
                         </div>
                       </div>
+                      <div class="truncate">{{ item.preview.content }}</div>
                     </div>
                   </div>
                 {{/link-to}}

@@ -17,8 +17,9 @@ export default Ember.Service.extend({
   },
   checkForNotifications(cb){
     this.get('store').findAll('notification').then((res)=>{
+      console.log('Received notifications...');
       this.set('notifications', res);
-      cb.call();
+      if(cb) cb.call();
     })
   }
 
