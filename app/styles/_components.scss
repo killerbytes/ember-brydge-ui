@@ -455,6 +455,7 @@ ul.list-lined{
 		margin-top: 3px;
 		margin-right: 10px;
 	}
+	input[type=checkbox]{ display: none;}
 	input:checked ~ .switch-paddle{
 		background-color: #4CD864;
 		border-radius: 100px;

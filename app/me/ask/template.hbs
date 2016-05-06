@@ -6,13 +6,12 @@
 				<div class="row">
 					<div class="columns medium-centered">
 						<form class="inline-block">
-								<span class="switch">
-									<label for="" class="middle">Turn ASK OFF</label>
-								  <input class="switch-input" id="askSwitch" type="checkbox" name="askSwitch">
-								  <label class="switch-paddle" for="askSwitch">
-								    <span class="show-for-sr">Download Kittens</span>
-								  </label>
-								</span>
+              <div class="switch">
+                {{input type="checkbox" change=(action settingsChanged 'ask') checked=model.profile.settings.ask class="switch-iput" id="askSwitch" name="askSwitch" }}
+                <label class="switch-paddle" for="askSwitch">
+                  <span class="show-for-sr">Turn ASK OFF</span>
+                </label>
+              </div>
 						</form>
 					</div>
 				</div>

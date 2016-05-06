@@ -6,7 +6,7 @@ export default DS.Model.extend({
 	lastName: DS.attr('string'),
 	location: DS.attr('string'),
 	jobTitle: DS.attr('string'),
-	//works: DS.hasMany('experience'),
+	settings: DS.attr(),
 	industry: DS.attr('string'),
 	occupationOne: DS.attr('string'),
 	occupationTwo: DS.attr('string'),
@@ -18,5 +18,6 @@ export default DS.Model.extend({
 	avatarUrl: DS.attr('string', { defaultValue: 'assets/blank-user.jpg' }),
 	currentTitle: DS.attr('string'),
 	currentCompany: DS.attr('string'),
-	search: DS.hasMany()
+	search: DS.hasMany(),
+	user: DS.belongsTo('user')
 });

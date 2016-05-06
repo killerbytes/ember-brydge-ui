@@ -1,7 +1,6 @@
 import DS from 'ember-data';
 
-export default DS.JSONAPISerializer.extend({
-  
+export default DS.JSONAPISerializer.extend(DS.EmbeddedRecordsMixin, {
   serialize() {
     const result = this._super(...arguments),
       attr = result.data.attributes || {},
@@ -19,7 +18,7 @@ export default DS.JSONAPISerializer.extend({
       return acc;
 
     }, attr);
-
+    console.log(payloadData)
     return payloadData;
     
  },

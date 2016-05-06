@@ -1,14 +1,17 @@
 import Ember from 'ember';
 
 export default Ember.Route.extend({
-	sessionAccount: Ember.inject.service(),
-  beforeModel() {
-    this._super(...arguments);
-    return this.get('sessionAccount.account'); // needed to make sure sessionAccount is full realized
-  },
-	model: function (params) {
-		return this.store.findRecord('user', this.get('sessionAccount.account.id'));
+	session: Ember.inject.service(),
+	model: function () {
+    var userid = this.get('session.data.authenticated.user_id');
+    return this.store.findRecord('profile', userid);
 	},
+  setupController(controller, model){
+    this._super(...arguments);
+    controller.set('settingsChanged', function(value) {
+      this.send('settingsChanged', value);
+    });    
+  },
 	actions: {
     didTransition: function(){
       Ember.run.later(()=>{

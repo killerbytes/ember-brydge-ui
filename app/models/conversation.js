@@ -5,5 +5,5 @@ export default DS.Model.extend({
   other: DS.belongsTo('user'),
   preview: DS.attr(),
   createdAt: DS.attr(),
-  messages: DS.hasMany('message', { async: true })
+  messages: DS.hasMany('message')
 });
