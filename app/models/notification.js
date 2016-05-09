@@ -7,5 +7,5 @@ export default DS.Model.extend({
   read: DS.attr(),
   type: DS.attr(),
   user: DS.belongsTo('user'),
-  profile: DS.belongsTo('profile')
+  target: DS.belongsTo('user')
 });

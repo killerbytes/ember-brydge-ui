@@ -19,16 +19,28 @@
           <div class="media-object">
             <div class="media-object-section">
               <div class="thumbnail">
-                <img src={{item.profile.avatarUrl}}>
+                <img src={{item.target.profile.avatarUrl}}>
               </div>
             </div>
             <div class="media-object-section main-section">
               {{#if (notification-type 'ask' item.type)}}
-                <p><a>{{item.profile.firstName}} {{item.profile.lastName}}</a> asked you a question <a>{{ item.content}}</a></p>
+                <p><a>{{item.target.profile.firstName}} {{item.target.profile.lastName}}</a> asked you a question <a>{{ item.content}}</a></p>
                 <span>{{ postDateFormat item.createdAt }}</span>
               {{/if}}
-              {{#if (notification-type 'post' item.type)}}
-                <p><a>{{item.profile.firstName}} {{item.profile.lastName}}</a> shared your post <a>{{ item.content}}</a></p>
+              {{#if (notification-type 'comment' item.type)}}
+                <p><a>{{item.target.profile.firstName}} {{item.target.profile.lastName}}</a> commented your post <a>{{ item.content}}</a></p>
+                <span>{{ postDateFormat item.createdAt }}</span>
+              {{/if}}
+              {{#if (notification-type 'vote' item.type)}}
+                <p><a>{{item.target.profile.firstName}} {{item.target.profile.lastName}}</a> voted your post <a>{{ item.content}}</a></p>
+                <span>{{ postDateFormat item.createdAt }}</span>
+              {{/if}}
+              {{#if (notification-type 'compliment' item.type)}}
+                <p><a>{{item.target.profile.firstName}} {{item.target.profile.lastName}}</a> complimented to you <a>{{ item.content}}</a></p>
+                <span>{{ postDateFormat item.createdAt }}</span>
+              {{/if}}
+              {{#if (notification-type 'connection' item.type)}}
+                <p><a>{{item.target.profile.firstName}} {{item.target.profile.lastName}}</a> accepted your request <a>{{ item.content}}</a></p>
                 <span>{{ postDateFormat item.createdAt }}</span>
               {{/if}}
 
