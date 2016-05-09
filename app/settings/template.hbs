@@ -32,44 +32,15 @@
                       <div class="label columns mb50 text-center">
                         <span>Current email: </span><a>{{model.user.email}}</a>
                       </div>
-
-                      <div class="columns">
-                        <label>Replace with new email
-                          <input type="text">
-                        </label>                        
-                      </div>
-                      <div class="text-center">
-                        <button class="button success">SAVE & VERIFY</button>
-                      </div>
+                      {{update-email-form update="updateEmail"}}
                     </div>
                   </div>
-                </form>              
+                </form>
+
+                
               </div>
               <div class="tabs-panel space-filler {{active-tab 'password' tab}}" id="password">
-                <form>
-                  <div class="row">
-                    <div class="medium-8 columns medium-centered">
-                      <div class="columns mb40">
-                        <label>Old Password
-                          <input type="text">
-                        </label>                        
-                      </div>
-                      <div class="columns">
-                        <label>New Password
-                          <input type="text">
-                        </label>                        
-                      </div>
-                      <div class="columns">
-                        <label>Re-type new password
-                          <input type="text">
-                        </label>                        
-                      </div>
-                      <div class="text-center">
-                        <button class="button success">SAVE</button>
-                      </div>
-                    </div>
-                  </div>
-                </form>              
+                {{update-password-form update="updatePassword"}}
               </div>
               <div class="tabs-panel {{active-tab 'notification' tab}}" id="notification">
                 <table class="mb30">

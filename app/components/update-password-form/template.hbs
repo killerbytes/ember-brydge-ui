@@ -1,0 +1,22 @@
+<div class="row">
+  <div class="medium-8 columns medium-centered">
+    <div class="columns mb40">
+      <label>Old Password
+        <input type="text">
+      </label>                        
+    </div>
+    <div class="columns">
+      <label>New Password
+        {{form-input model=this valuePath="password"}}
+      </label>                        
+    </div>
+    <div class="columns">
+      <label>Re-type new password
+        {{form-input model=this valuePath="confirm_password"}}
+      </label>                        
+    </div>
+    <div class="text-center">
+      <button class="button success" {{action "update"}} disabled={{v-get this 'isInvalid'}}>SAVE</button>
+    </div>
+  </div>
+</div>

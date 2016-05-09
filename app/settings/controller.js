@@ -13,6 +13,16 @@ export default Ember.Controller.extend({
     	this.set('model.settings.'+value, !this.get('model.settings.'+value))
       this.get('settings').update(this.get('model.settings'));
     },
+    updateEmail(value, cb){
+      this.get('settings').updateEmail(value).then((res)=>{
+        cb.apply();
+      })
+    },
+    updatePassword(value, cb){
+      this.get('settings').updatePassword(value).then((res)=>{
+        cb.apply();
+      })
+    }
     // notificationChanged(){
     //   this.set('model.settings.notifications', !this.get('model.settings.notifications'))
     //   this.get('settings').updateSetting('notifications', this.get('model.settings.notifications'));
