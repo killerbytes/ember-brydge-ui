@@ -7,17 +7,17 @@ export default Ember.Mixin.create(GetIndustryFromCodeMixin,{
 	setupController: function(controller, model, transition) {
     let _this = this;
 
-    console.log('<< queryParams', transition.queryParams);
+    // console.log('<< queryParams', transition.queryParams);
 
     var isCurated = controller.get('isCurated');
     var selectedLoc = controller.get('selectedLoc');
     var filteredLoc = controller.get('filteredLoc');
     var filteredIndustry = controller.get('filteredIndustry');
 
-    console.log('isCurated =>', isCurated);
-    console.log('selectedLoc =>', selectedLoc);
-    console.log('filteredLoc =>', filteredLoc);
-    console.log('filteredIndustry =>', filteredIndustry);
+    // console.log('isCurated =>', isCurated);
+    // console.log('selectedLoc =>', selectedLoc);
+    // console.log('filteredLoc =>', filteredLoc);
+    // console.log('filteredIndustry =>', filteredIndustry);
 
    
 

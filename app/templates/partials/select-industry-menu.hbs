@@ -15,14 +15,14 @@
 				</ul>
 				<p></p>
 				<strong>Your Business Industry</strong>
-				<ul class="no-bullet">{{log model}}
+				<ul class="no-bullet">
 					<li {{action "select" model.myIndustry preventDefault=false }}><label for="">{{model.myIndustry.text}}</label></li>
 				</ul>
 				<p>{{#link-to 'me.edit' sessionAccount.account.profile.id (query-params tab="industry")}}Edit Business Industry{{/link-to}}</p>				
 				<!-- <p><a href="">Add other Industry Channels to follow</a></p> -->
 
 				<strong>Your Occupational Industry</strong>
-				<ul class="no-bullet">{{log model}}
+				<ul class="no-bullet">
 				{{#each model.myOccupations as |industry|}}
 					<li {{action "select" industry preventDefault=false }}><label for="">{{industry.text}}</label></li>
 				{{/each}}
