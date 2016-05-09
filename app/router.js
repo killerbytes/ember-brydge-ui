@@ -42,7 +42,7 @@ Router.map(function() {
   this.route('requests');
   this.route('notifications');
   this.route('questions');
-  this.route('profileviews');
+  this.route('profile-views');
   this.route('rating');
   this.route('search');
   this.route('settings');

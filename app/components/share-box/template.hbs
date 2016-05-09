@@ -9,14 +9,14 @@
 	      {{content-editable class="content-editable" value=postContent placeholder='Get noticed! Broadcast opinions, industry news, trends.'}}
 	    </div>
 	    {{#if categories}}
-	    	<div class="broadcast-list">Broadcasting to: 
+	    	<div class="broadcast-list"><span class="broadcast-title text-upper">Broadcasting to: </span> 
 	    	<span>My Connections{{#each categories as |item|}}
 				    	{{~ concat '; ' item.text ~}}
 				    {{/each}}
 	    	</span>
 	    	</div>
 	    {{else}}
-	    	<div class="broadcast-list">Broadcasting to: <span>My Connections Only</span></div>
+	    	<div class="broadcast-list"><span class="broadcast-title">Broadcasting to: </span><span>My Connections Only</span></div>
 	    {{/if}}
 	  </div>
 	  

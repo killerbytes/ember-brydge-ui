@@ -44,18 +44,20 @@
     {{/unless}}
   </p>
 </div>
-  {{#if post.screenshot}}
-    <div class="post-image">
-      <img src="{{post.previewImage}}">
-    </div>
-  {{/if}}
 <div class="media">
   {{#if post.screenshot}}
-    <div class="post-caption">
-      <h3>{{title}}</h3>
-      {{#if post.siteName}}
-        <div class="subheader">{{post.siteName}}</div>
+    <div class="media-main">
+      {{#if post.image}}
+      <div class="post-image">
+        <img src="{{post.image}}">
+      </div>
       {{/if}}
+      <div class="post-caption">
+        <h3>{{title}}</h3>
+        {{#if post.siteName}}
+          <div class="subheader">{{post.siteName}}</div>
+        {{/if}}
+      </div>
     </div>
   {{/if}}
 

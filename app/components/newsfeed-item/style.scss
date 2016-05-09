@@ -5,8 +5,8 @@
 	position: relative;
 	h3{
 		font-family: 'Din Alternate', helvetica;
-		// display: table-cell;
-		display: block;
+		display: table-cell;
+		// display: block;
 		vertical-align: middle;
 		font-size: 18px;
 		font-weight: bold;
@@ -77,38 +77,47 @@
 		}
 
 	}
-
+	.media-main{
+		background-color: #EFEFEF;
+		border: 1px solid $border-media-color;
+		border-radius: 4px;		
+		overflow: hidden;
+	}
+	.post-image+.post-caption{
+		border-top: 1px solid $border-media-color;		
+	}
+	.post-image{
+		text-align: center;
+		// margin-bottom: 1px;
+		img{
+			// border-top-left-radius: 4px;
+			// border-top-right-radius: 4px;			
+		}
+	}	
 	.post-caption{
 		position: relative;
-		// display: table;
-		display: block;
+		display: table;
+		// display: block;
 		width: 100%;
-		border: 1px solid #dedede;
-		background-color: #efefef;
+		background-color: #EFEFEF;
 		padding: 5px 1rem;
 		min-height: 83px;
-		margin-top: -8px;
+		// margin-top: -8px;
 		text-align: center;
-		border-radius: 4px;
+		// border-bottom-left-radius: 4px;
+		// border-bottom-right-radius: 4px;
 		.subheader{
 			color: #A7B1B3;
 			text-transform: uppercase;
-			position: absolute;
-			bottom: 0;
+			// position: absolute;
+			// bottom: 0;
 			font-size: 10px;
 			width: 100%;
-			left: 0;
+			// left: 0;
+			display: table-row;
 		}
 		.subheader+h3{
 			display: block;
 		}
-	}
-	.post-image{
-		text-align: center;
-		// border: 1px solid #dedede;
-		margin: 0 5px;
-		margin-bottom: 1px;
-		padding: 0 20px;
-
 	}
 }

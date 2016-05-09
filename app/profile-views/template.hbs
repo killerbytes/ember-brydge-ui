@@ -2,23 +2,22 @@
 	<div class="columns">
 		<div class="top-banner bg-gray box">
 			<h1>PROFILE VIEWS</h1>
-      <div class="row">
-        <div class="columns medium-4 medium-centered">
-          <div class="row">
-            <div class="columns">
+      <div class="columns">
+        <div class="row">
+          <div class="columns medium-centered">
+            <form class="inline-block">
               <div class="switch">
-                <input class="switch-input" id="askSwitch" type="checkbox" name="askSwitch">
-                <label class="switch-paddle" for="askSwitch">
-                  <span class="show-for-sr">Download Kittens</span>
+                {{input type="checkbox" change=(action settingsChanged 'profileView') checked=model.settings.profileView class="switch-iput" id="profileSwitch" name="profileSwitch" }}
+                <label class="switch-paddle" for="profileSwitch">
+                  <span class="show-for-sr">Turn Profile Views OFF</span>
                 </label>
               </div>
-            </div>
+            </form>
           </div>
-          <p class="text-center">
-            Turning ASK off will also... 
-          </p>          
-          
         </div>
+        <p class="text-center">
+          By turning Profile Views off...<br>  
+        </p>                    
       </div>
 
 		</div>		
