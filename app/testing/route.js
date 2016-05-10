@@ -8,13 +8,13 @@ export default Ember.Route.extend({
 	setupController(controller, model){
 		this._super(...arguments);
 		controller.set('newsfeed', model);
-		console.log(controller)
+		// console.log(controller)
 		// controller.setProperties(model);
 	},
 
 	actions: {
 		reload(){
-			console.log(this.controller.get('newsfeed'))
+			// console.log(this.controller.get('newsfeed'))
 			// this.store.findAll('newsfeed').reload();
 		}
 	}

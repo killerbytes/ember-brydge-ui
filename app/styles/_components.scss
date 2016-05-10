@@ -639,3 +639,17 @@ span.bullet{
 		padding: 1rem;
 	}
 }
+
+.overlay-wrapper{
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	padding: 0 1.25rem;
+}
+.overlay{
+	background-color: rgba(242,242,242,.7);
+	position: relative;
+	width: 100%;
+	height: 100%;
+	z-index: 1000;
+}

@@ -7,7 +7,7 @@ export default DS.Model.extend({
 	location: DS.attr('string'),
 	userid: DS.attr('string'),
 	jobTitle: DS.attr('string'),
-	//works: DS.hasMany('experience'),
+	settings: DS.attr(),
 	industry: DS.attr('string'),
 	occupationOne: DS.attr('string'),
 	occupationTwo: DS.attr('string'),

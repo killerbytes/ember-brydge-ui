@@ -27,29 +27,32 @@
 </div>
 
 
-<div class="row ask">
+<div class="row ask wrapper">
+	{{#unless model.profile.settings.ask}}	
+	<div class="overlay-wrapper">
+		<div class="overlay">		
+		</div>
+	</div>
+	{{/unless}}
   <div class="medium-7 columns">
-
-	<div class="mb">
-		{{#zf-tabs}}
-			<li class="medium-6 tabs-title is-active">
-				<a href="#question_answered" class="button expanded text-upper" aria-selected="true">Questions {{model.profile.firstName}} has answered</a>
-			</li>
-			<li class="medium-6 tabs-title">
-				<a href="#question_asked" class="button expanded text-upper">Questions {{model.profile.firstName}} has asked</a>
-			</li>
-		{{/zf-tabs}}
-	</div>
-	<div class="tabs-content questions" data-tabs-content="example-tabs">
-		<div class="tabs-panel is-active" id="question_answered">
-			{{ partial 'ask/to'}}
+		<div class="mb">
+			{{#zf-tabs}}
+				<li class="medium-6 tabs-title is-active">
+					<a href="#question_answered" class="button expanded text-upper" aria-selected="true">Questions {{model.profile.firstName}} has answered</a>
+				</li>
+				<li class="medium-6 tabs-title">
+					<a href="#question_asked" class="button expanded text-upper">Questions {{model.profile.firstName}} has asked</a>
+				</li>
+			{{/zf-tabs}}
 		</div>
-		<div class="tabs-panel" id="question_asked">
-		    {{ partial 'ask/from'}}
+		<div class="tabs-content questions" data-tabs-content="example-tabs">
+			<div class="tabs-panel is-active" id="question_answered">
+				{{ partial 'ask/to'}}
+			</div>
+			<div class="tabs-panel" id="question_asked">
+			    {{ partial 'ask/from'}}
+			</div>
 		</div>
-	</div>
-
-
   </div>
   <div class="medium-5 columns sidebar">
   	{{ partial 'me/ask/pendinglist'}}

@@ -8,7 +8,6 @@ export default Ember.Controller.extend(
 	settings: Ember.inject.service(),
   actions: {
     settingsChanged(value){
-    	console.log(this)
     	this.set('profile.settings.'+value, !this.get('profile.settings.'+value))
       this.get('settings').update(this.get('profile.settings'));
     },

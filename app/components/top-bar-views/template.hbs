@@ -20,12 +20,11 @@
 			</div>
 			<div class="columns medium-3 text-right">
         <div class="switch">
-          <input class="switch-input" id="viewSwitch" type="checkbox" name="viewSwitch">
-          <label class="switch-paddle" for="viewSwitch">
-            <span class="show-for-sr">Download Kittens</span>
+          {{input type="checkbox" change=(action settingsChanged 'profileView') checked=setting.profileView class="switch-iput" id="topBarProfileSwitch" name="topBarProfileSwitch" }}
+          <label class="switch-paddle" for="topBarProfileSwitch">
+            <span class="show-for-sr">Turn Profile Views OFF</span>
           </label>
         </div>
-
 			</div>
 		</div>
 	</div>

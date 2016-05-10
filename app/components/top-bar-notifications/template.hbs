@@ -1,6 +1,8 @@
 <a data-toggle="dd-notification">
 	{{#zf-tooltip title="Notifications" vOffset=0}}
-		<span class="alert badge">{{notification.notifications.length}}</span>
+		{{#if notification.notifications }}
+      <span class="alert badge">{{notification.notifications.length}}</span>    
+    {{/if}}
 		<i class="icons stack"></i>
 	{{/zf-tooltip}}
 	<div class="wrapper">

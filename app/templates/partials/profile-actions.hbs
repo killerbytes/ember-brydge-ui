@@ -16,7 +16,7 @@
       <a class="button large rounded expanded">MESSAGE</a>
     </div>
     <div class="table-cell">
-      {{#ask-dropdown from=ownerid model=model.profile action='goToAsk' name="dd-ask-form1" as |xx|}}
+      {{#ask-dropdown from=ownerid model=model.profile action='goToAsk' name="dd-ask-form1"}}
       {{/ask-dropdown}}
     </div>
     {{/if}}
@@ -35,6 +35,7 @@
           <li>{{link-to "Your ASK Page" "me.ask"}}</li>
           {{else}}
           <li>{{#link-to "connections" model.profile.id }} {{model.profile.firstName}}'s connection (999){{/link-to}}</li>
+          {{log model.profile }}
           <li>{{#link-to "ask" model.profile.id }} {{model.profile.firstName}}'s ASK Page{{/link-to}}</li>
           <li><a href="">Compliment {{model.profile.firstName}}</a></li>
           <li><a href="" class="warning" {{action 'clickedDisconnect'}}>Disconnect from {{model.profile.firstName}}</a></li>

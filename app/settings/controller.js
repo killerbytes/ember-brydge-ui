@@ -10,8 +10,16 @@ export default Ember.Controller.extend({
   tab: 'email',
   actions: {
     settingsChanged(value){
-    	this.set('model.settings.'+value, !this.get('model.settings.'+value))
-      this.get('settings').update(this.get('model.settings'));
+      if(this.get('model.settings')){
+        this.set('model.settings.'+value, !this.get('model.settings.'+value))
+        this.get('settings').update(this.get('model.settings'));
+      }else{
+        var settings = {};
+        settings[value] = !this.get('model.settings.'+value);
+        this.set('model.settings', settings);
+        this.get('settings').update(this.get('model.settings'));
+      }
+
     },
     updateEmail(value, cb){
       this.get('settings').updateEmail(value).then((res)=>{
