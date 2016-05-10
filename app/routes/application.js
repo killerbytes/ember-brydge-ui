@@ -36,6 +36,8 @@ export default Ember.Route.extend(
     registerUser(data) {
       console.log(" >>>> application:route:registeruser:data", data);
       const self = this;
+      this.controller.set('errorMessage', 'mmm');
+      return;
       this.store.createRecord('user', data).save()
         .then(function(res) {
 
