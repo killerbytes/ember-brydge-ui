@@ -31,7 +31,51 @@
         </form>
 
 
-    	{{signup-form signupUser='registerUser' }}
+    	<!-- {{signup-form signupUser='registerUser' }} -->
+
+      <div class="bg-sky-blue clearfix">
+        <form {{action 'signup' on='submit'}} class="form-signup" autocomplete="off">
+        <div class='row'>
+          <div class='columns'>
+            {{#if signupError}}
+              <div class="warning callout small" data-closable>
+                <h7>Signup failed</h7>
+                <p>{{signupError}}</p>
+                <button class="close-button" aria-label="Dismiss alert" type="button" data-close><span aria-hidden="true">&times;</span></button>
+              </div>
+            {{/if}}
+            {{input value=registerFirstName placeholder='FirstName'}}
+            {{input value=registerLastName placeholder='LastName'}}
+            {{input value=registerEmail placeholder='Email'}}
+            {{input value=registerPassword placeholder='Password' type='password'}}
+            <p>By signing up to the service you are agreeing to our {{link-to "Terms of Use" "home"}} and our {{link-to "Privacy Policy" "home"}}.</p>
+            <!-- <button type='submit' class='button'>CREATE ACCOUNT</button>
+ -->
+            {{spinning-button clicked="createAccount" value="CREATE ACCOUNT" class="button"}}
+          </div>
+        </div>
+      </form>
+      </div>
+
+      <!-- <form {{action 'signup' on='submit'}} class="form-signup" autocomplete="off">
+        <div class='row'>
+          <div class='columns'>
+            {{#if signupError}}
+              <div class="warning callout small" data-closable>
+                <h7>Signup failed</h7>
+                <p>{{signupError}}</p>
+                <button class="close-button" aria-label="Dismiss alert" type="button" data-close><span aria-hidden="true">&times;</span></button>
+              </div>
+            {{/if}}
+            {{input value=registerFirstName placeholder='firstName'}}
+            {{input value=registerLastName placeholder='lastName'}}
+            {{input value=registerEmail placeholder='Email'}}
+            {{input value=registerPassword placeholder='New password' type='password'}}
+            <p>By signing up to the service you are agreeing to our {{link-to "Terms of Use" "home"}} and our {{link-to "Privacy Policy" "home"}}.</p>
+            <button type='submit' class='button'>CREATE ACCOUNT</button>
+          </div>
+        </div>
+      </form> -->
 
   </div>
 
