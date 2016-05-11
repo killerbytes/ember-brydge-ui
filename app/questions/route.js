@@ -26,7 +26,13 @@ export default Ember.Route.extend({
           this.set('controller.tab', elem.data('tab'))
         })
       })
+    },
+    reloadQuestions(){
+      this.controller.get('model.fromQuestions').forEach((item)=>{
+        item.reload()
+      })
     }
+
 
 	}
 

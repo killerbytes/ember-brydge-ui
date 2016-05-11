@@ -11,6 +11,6 @@ export default Ember.Controller.extend(FilteredQuestionsMixin, {
   	},
   	rejectItem(item){
   		this.get('ask').delete(item.id);
-  	}
+  	},
   }
 });

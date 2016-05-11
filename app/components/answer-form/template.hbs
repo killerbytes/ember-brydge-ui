@@ -2,8 +2,8 @@
 	<h4>Write Answer</h4>
 	<form {{action 'save' on='submit'}}>
 		<div class="mt content clearfix question-box">
-			<div class="dim-text">asked by <a>{{selectedQuestion.from.name}}</a></div>		
-			<h2>{{selectedQuestion.content}}</h2>
+			<div class="dim-text">asked by <a>{{ask.selectedQuestion.from.name}}</a></div>		
+			<h2>{{ask.selectedQuestion.content}}</h2>
 			{{textarea value=answer rows=5}}
 		</div>
 		<div class="reveal-footer text-right">
