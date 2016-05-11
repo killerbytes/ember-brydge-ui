@@ -4,23 +4,27 @@
 	{{#each questions.pendingSidebar as |item| }}
 		<li>
 			<div class="columns wrapper clearfix">
-				<div class="question-title">{{item.content}}</div>
+				<div class="question-title">{{item.content}} {{item.id}}</div>
 				<div class="text-light">asked by {{link-to item.from.content.name "profile" item.from.content.username class="user"}}</div>
 				<p class="timestamp text-light mb5">{{postDateFormat item.createdAt}}</p>
 			</div>
 			<div class="question-box-footer">
 				<ul class="menu menu-dotted">
 					<li><a {{action "selectItem" item }} class="float-left" data-open="answerFormModal">Write Answer</a></li>
-					<li><a class="float-right">Delete</a></li>
+					<li><a {{action "rejectItem" item }} class="float-right">Delete</a></li>
 					<li><a class="float-right">Flag</a></li>
 				</ul>												
 			</div>			
 		</li>
+	{{else}}
+		<li class="padding">No Pending Questions</li>
 	{{/each}}
 	</ul>
-	{{#link-to 'questions' (query-params tab="questions")  class="footer-button button expanded" }}
-		Load More
-	{{/link-to}}
+	{{#if questions.pendingSidebar }}
+		{{#link-to 'questions' (query-params tab="questions")  class="footer-button button expanded" }}
+			Load More
+		{{/link-to}}
+	{{/if}}
 </div>
 
 <div class="box rounded question-box">
@@ -41,9 +45,52 @@
 				</ul>												
 			</div>			
 		</li>
+	{{else}}
+		<li class="padding">No Pending Questions</li>
 	{{/each}}
+
 	</ul>
-	{{#link-to 'questions' (query-params tab="asked") class="footer-button button expanded" }}
+	{{#if asked.pendingSidebar}}
+		{{#link-to 'questions' (query-params tab="asked") class="footer-button button expanded" }}
+			Load More
+		{{/link-to}}
+	{{/if}}
+</div>
+
+<div class="box rounded question-box">
+	<h5 class="box-header">Hidden Questions</h5>
+	<ul class="no-bullet pending-list">
+	{{#each questions.hiddenSidebar as |item| }}
+		<li>
+			<div class="columns wrapper clearfix">
+				<div class="question-title">{{item.content}}</div>
+				<div class="text-light">{{link-to item.from.content.name "profile" item.from.content.username class="user"}} asked {{link-to item.to.content.name "profile" item.to.content.username class="user"}}</div>
+				<p class="timestamp text-light mb5">{{postDateFormat item.createdAt}}</p>
+			</div>
+			<div class="question-box-footer">
+				<ul class="menu menu-dotted">
+					<li><a {{action "toggleItem" item }}>Unhide</a></li>
+				</ul>												
+			</div>			
+		</li>
+	{{/each}}
+	{{#each asked.hiddenSidebar as |item| }}
+		<li>
+			<div class="columns wrapper clearfix">
+				<div class="question-title">{{item.content}}</div>
+				<div class="text-light">You asked {{link-to item.to.content.name "profile" item.to.content.username class="user"}}</div>
+				<p class="timestamp text-light mb5">{{postDateFormat item.createdAt}}</p>
+			</div>
+			<div class="question-box-footer">
+				<ul class="menu menu-dotted">
+					<li><a {{action "toggleItem" item }}>Unhide</a></li>
+				</ul>												
+			</div>			
+		</li>
+	{{/each}}
+
+	</ul>
+	{{#link-to 'hidden-questions' class="footer-button button expanded" }}
 		Load More
 	{{/link-to}}
 </div>

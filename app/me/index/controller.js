@@ -1,8 +1,6 @@
 import Ember from 'ember';
-import CheckCurrentUserMixin from 'web/mixins/check-current-user';
 
-
-export default Ember.Controller.extend(CheckCurrentUserMixin,{
+export default Ember.Controller.extend({
 	session: Ember.inject.service(),
   flashMessages: Ember.inject.service(),
   sharePost: Ember.inject.service(),	
@@ -11,6 +9,7 @@ export default Ember.Controller.extend(CheckCurrentUserMixin,{
   latestQuestion: Ember.computed('model.questions', function(){
     return this.get('model.questions.firstObject');
   }),
+  isOwner: true,
 
   // isCurrentUser: Ember.computed('', function(){
   //   let userid = this.get('session.data.authenticated.user_id');

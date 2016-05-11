@@ -1,14 +1,13 @@
 
 {{#each questions.answered as |item| }}
 	<div class="box rounded question-box">
-  	{{#if isCurrentUser}}
+  	{{#if isOwner }}
       <div class="menu-wrapper">
         <a data-toggle="dd-card-menu-{{item.id}}"><i class="icons ellipsis"></i></a>      
       </div>
       {{#zf-dropdown id=(concat 'dd-card-menu-' item.id) closeOnClick=true class="card-menu-dropdown"}}
         <ul class="menu">
-          <li><a href="">Hide</a></li>
-          <li><a href="">{{item.id}}</a></li>
+          <li><a {{action "toggleItem" item }}>Hide</a></li>
         </ul>
       {{/zf-dropdown}}
     {{/if}}
@@ -16,7 +15,7 @@
     <div class="mb5">{{link-to item.from.content.name "profile" item.from.content.username class="user"}} asked {{link-to item.to.content.name "profile" item.to.content.username class="user"}}</div>
     <p class="timestamp">{{postDateFormat item.createdAt}}</p>	    
     <h2>{{item.content}}</h2>
-    {{#zf-accordion-menu class="accordion-menu"}}
+    {{#zf-accordion-menu class="accordion-menu" multiOpen=true}}
       <li>
         <ul class="no-bullet vertical nested">
           <li>
@@ -27,4 +26,6 @@
       </li>
     {{/zf-accordion-menu}}           
 	</div>
+{{else}}
+  No questions to show  
 {{/each}}

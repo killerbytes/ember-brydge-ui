@@ -7,13 +7,8 @@ export default DS.JSONAPISerializer.extend({
       attr = result.data.attributes || {},
       rel = result.data.relationships || {};
 
-      console.log('result:',result);
-      console.log('attr:',attr);
-      console.log('rel:',rel);
-
 
     var payloadData= Object.keys(rel).reduce(function(acc, elem) {
-     console.log('acc,elem',acc,elem);
       const data = rel[elem].data;
       if (data) {
         acc[elem + "_id"] = data.id;
@@ -25,7 +20,6 @@ export default DS.JSONAPISerializer.extend({
 
     }, attr);
 
-    console.log('<<<< payloadData <<<<<', payloadData);
     return payloadData;
     
   },

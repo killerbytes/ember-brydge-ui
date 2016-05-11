@@ -1,0 +1,80 @@
+<div class="row">
+	<div class="columns">
+		<div class="top-banner bg-gray box">
+			<h1>HIDDEN QUESTIONS</h1>
+		</div>		
+	</div>
+</div>
+
+<div class="row">
+  <div class="medium-7 columns">
+    <div class="question-tab">
+      <div class="tabs-content questions">    
+        <div class="padding">
+          {{#each questions.hidden as |item|}}
+            <div class="box rounded question-box">
+              {{#if isOwner}}
+                <div class="menu-wrapper">
+                  <a data-toggle="dd-card-menu-{{item.id}}"><i class="icons ellipsis"></i></a>      
+                </div>
+                {{#zf-dropdown id=(concat 'dd-card-menu-' item.id) closeOnClick=true class="card-menu-dropdown"}}
+                  <ul class="menu">
+                    <li><a {{action "toggleItem" item }}>Unhide</a></li>
+                  </ul>
+                {{/zf-dropdown}}
+              {{/if}}
+
+              <div class="mb5">{{link-to item.from.content.name "profile" item.from.content.username class="user"}} asked {{link-to item.to.content.name "profile" item.to.content.username class="user"}}</div>
+              <p class="timestamp">{{postDateFormat item.createdAt}}</p>      
+              <h2>{{item.content}}</h2>
+              {{#zf-accordion-menu class="accordion-menu" multiOpen=true}}
+                <li>
+                  <ul class="no-bullet vertical nested">
+                    <li>
+                      <p>{{{item.answer}}}</p>
+                    </li>
+                  </ul>
+                  <a class="more no-arrow"><span class="content-more">See Answer</span><span class="content-less">Hide Answer</span></a>
+                </li>
+              {{/zf-accordion-menu}}           
+
+            </div>
+          {{/each}}
+          {{#each asked.hidden as |item|}}
+            <div class="box rounded question-box">
+              {{#if isOwner}}
+                <div class="menu-wrapper">
+                  <a data-toggle="dd-card-menu-{{item.id}}"><i class="icons ellipsis"></i></a>      
+                </div>
+                {{#zf-dropdown id=(concat 'dd-card-menu-' item.id) closeOnClick=true class="card-menu-dropdown"}}
+                  <ul class="menu">
+                    <li><a {{action "toggleItem" item }}>Unhide</a></li>
+                  </ul>
+                {{/zf-dropdown}}
+              {{/if}}
+
+              <div class="mb5">{{link-to item.from.content.name "profile" item.from.content.username class="user" }} asked {{link-to item.to.content.name "profile" item.to.content.username class="user"}}</div>
+              <p class="timestamp">{{postDateFormat item.createdAt}}</p>      
+              <h2>{{item.content}}</h2>
+              {{#zf-accordion-menu class="accordion-menu"}}
+                <li>
+                  <ul class="no-bullet vertical nested">
+                    <li>
+                      <p>{{{item.answer}}}</p>
+                    </li>
+                  </ul>
+                  <a class="more no-arrow"><span class="content-more" disabled=true>See Answer</span><span class="content-less">Hide Answer</span></a>
+                </li>
+              {{/zf-accordion-menu}}           
+            </div>
+          {{/each}}
+        </div>  
+      </div>
+    </div>
+  </div>    
+  <div class="medium-5 columns sidebar">
+    {{render "progress-box"}}
+    {{render "footer"}}
+  </div>
+</div>
+{{answer-form}}

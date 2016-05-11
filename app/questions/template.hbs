@@ -13,14 +13,11 @@
     <div class="question-tab">
       <div class="mb">
         {{#zf-tabs}}
-          <li data-tab='questions' class="medium-4 tabs-title {{active-tab 'questions' tab}}">
+          <li data-tab='questions' class="medium-6 tabs-title {{active-tab 'questions' tab}}">
             <a href="#questions" class="button expanded text-upper" aria-selected="true">Asked to You</a>
           </li>
-          <li data-tab='asked' class="medium-4 tabs-title {{active-tab 'asked' tab}}">
+          <li data-tab='asked' class="medium-6 tabs-title {{active-tab 'asked' tab}}">
             <a href="#asked" class="button expanded text-upper">Asked by You</a>
-          </li>
-          <li data-tab='hidden' class="medium-4 tabs-title {{active-tab 'hidden' tab}}">
-            <a href="#hidden" class="button expanded text-upper">Hidden</a>
           </li>
         {{/zf-tabs}}
       </div>
@@ -30,7 +27,7 @@
           <ul class="no-bullet question-pending-list">
           {{#each questions.pending as |item|}}
             <li>
-              <p class="title">{{item.content}}</p>
+              <p class="title">{{item.content}} {{item.id}}</p>
               {{item.status}}
               <div class="mb5 text-light">asked by {{link-to item.from.content.name "profile" item.from.content.username class="user" }}</div>
               <p class="timestamp text-light">{{postDateFormat item.createdAt}}</p>     
@@ -44,6 +41,8 @@
                 </ul>                       
               </div>      
             </li>
+          {{else}}
+            <li>No Pending Questions</li>
           {{/each}}
           </ul>
       
@@ -69,8 +68,6 @@
           </ul>
       
         </div>
-        <div class="tabs-panel {{active-tab 'hidden' tab}}" id="hidden">
-        </div>
       </div>
     </div>
 
@@ -82,4 +79,4 @@
   </div>
 </div>
 
-{{answer-form callback="reloadQuestions"}}
+{{answer-form}}

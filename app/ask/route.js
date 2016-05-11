@@ -19,7 +19,6 @@ export default Ember.Route.extend({
     controller.setProperties(model);
     
     let ownerid = this.get('session.data.authenticated.user_id');
-    console.log(this.get('session.data'))
     controller.set('ownerid', ownerid);
 	}
 });

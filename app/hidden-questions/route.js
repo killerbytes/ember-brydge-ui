@@ -18,23 +18,6 @@ export default Ember.Route.extend({
 		this._super(...arguments);
 		controller.set('username', this.get('sessionAccount.account.username'))
 		controller.setProperties(model);
-    console.log(model)
-	},
-	actions: {
-    didTransition: function(){
-      Ember.run.later(()=>{
-        Ember.$('.question-tab .tabs:first').on('change.zf.tabs', (e, elem)=>{
-          this.set('controller.tab', elem.data('tab'))
-        })
-      })
-    },
-    // reloadQuestions(){
-    //   this.controller.get('model.fromQuestions').forEach((item)=>{
-    //     item.reload()
-    //   })
-    // }
-
-
 	}
 
 });
