@@ -9,6 +9,13 @@ export default Ember.Controller.extend({
   latestQuestion: Ember.computed('model.questions', function(){
     return this.get('model.questions.firstObject');
   }),
+  location: Ember.computed('model.location', function(){
+    var location = this.get('model.location').split(',');
+    return {
+      city: location.splice(0, 1),
+      state: location.join(', ')
+    }
+  }),
   isOwner: true,
 
   // isCurrentUser: Ember.computed('', function(){

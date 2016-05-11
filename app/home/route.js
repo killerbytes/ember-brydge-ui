@@ -126,10 +126,10 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, FilterDropdownListMix
       console.log('select home(route) =>', item.city, item.state, item.country);
 
        var filtered ={
-        id : item.state + ',' + item.city + ',' + item.country,
-        text: item.state + ',' + item.city + ',' + item.country
+        id : item.city + ',' + item.state + ',' + item.country,
+        text: item.city + ', ' + item.state + ', ' + item.country
        };
-       this.controller.set('selectedLoc',filtered);
+       this.controller.set('selectedLoc', filtered);
        //this.set('selectedLoc', filtered);
     }
 

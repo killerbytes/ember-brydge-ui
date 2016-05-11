@@ -76,6 +76,20 @@ export default Ember.Component.extend({
 	attributeBindings: ['tabindex'],
 	isOpen: false,
 	tabindex: 0,
+	items: [],
+	locations: Ember.computed('items', function(){
+		if(!this.get('items')) return false;
+		let locations = this.get('items').toArray();		
+		return _.map(locations, (item)=>{
+			var l = [];
+			if(item.city) l.push(item.city);
+			if(item.state) l.push(item.state);
+			if(item.country) l.push(item.country);
+			return {
+				text: l.join(', ')
+			}
+		})
+	}),
 
 	init: function(){
     this._super(...arguments);

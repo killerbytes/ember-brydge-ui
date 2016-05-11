@@ -11,12 +11,17 @@ export default Ember.Mixin.create({
 
   actions: {
     query: function (q) {
-      var self = this;
       this.get('ajax').request('cities?q='+q, {
           method: 'GET'
         }).then((res)=>{
-          self.set('locations', res.data)
+          if(this.get('controller')){
+            this.set('controller.locations', res.data)
+          }else{
+            this.set('locations', res.data)
+          }
+          
       });
     }
+
   }
 });

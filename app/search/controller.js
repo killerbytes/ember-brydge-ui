@@ -63,16 +63,16 @@ export default Ember.Controller.extend(QueryLocationMixin, {
 
   actions: {
   	citySelected(item){
-      var location = [];
-      if(item.city) location.push(item.city);       
-      if(item.state) location.push(item.state);
-      if(item.country) location.push(item.country);
+      // var location = [];
+      // if(item.city) location.push(item.city);       
+      // if(item.state) location.push(item.state);
+      // if(item.country) location.push(item.country);
 
-       var filtered ={
-        id : location.join('_'),
-        text: location.join(', ')
-       };
-      this.set('valueText', filtered);
+      //  var filtered ={
+      //   id : location.join('_'),
+      //   text: location.join(', ')
+      //  };
+      this.set('valueText', item);
     },
 
   	addCity(){

@@ -1,6 +1,7 @@
 import Ember from 'ember';
+import QueryLocationMixin from 'web/mixins/query-locations';
 
-export default Ember.Route.extend({
+export default Ember.Route.extend(QueryLocationMixin, {
   flashMessages: Ember.inject.service(),
 	model: function (params) {
 		this.profileid = params.profile_id;
@@ -36,6 +37,7 @@ export default Ember.Route.extend({
     controller.set('selectedLoc', {
       text: profile.get('location')
     });
+
   },
 
 	actions: {
@@ -46,20 +48,11 @@ export default Ember.Route.extend({
         })
       })
     },
-
-    citySelected: function (item) {
-      console.log('citySelected (route) =>', item.city, item.state, item.country);
-
-       var filtered ={
-        id : item.state + '_' + item.city + '_' + item.country,
-        text: item.state + ',' + item.city + ',' + item.country
-       };
-
-      this.controller.set('selectedLoc',filtered);
+    citySelected(item){
+      this.controller.set('selectedLoc', item);
       let profile = this.controller.get('profile');
-      profile.set('location',filtered.text);
+      profile.set('location', item.text);      
     },
-
     industrySelected: function (item) {
       console.log('industrySelected (route) =>', item);
 

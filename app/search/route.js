@@ -1,7 +1,8 @@
 import Ember from 'ember';
 import AjaxService from 'ember-ajax/services/ajax';
+import QueryLocationMixin from 'web/mixins/query-locations';
 
-export default Ember.Route.extend({
+export default Ember.Route.extend(QueryLocationMixin, {
   ajaxApi: Ember.inject.service('ajax-api'),
   model: function (params) {    
     return Ember.RSVP.hash({
