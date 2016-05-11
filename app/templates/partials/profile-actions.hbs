@@ -1,24 +1,23 @@
 <div class="wrapper">
-  <div class="profile-actions {{if isCurrentUser 'connected'}} {{if connected 'connected' }}">
+  <div class="profile-actions {{if isCurrentUser 'connected'}} {{if isConnected 'connected' }}">
     {{#if isCurrentUser}}
-    <div class="table-cell">
-      {{link-to "Edit Profile" "me.edit" model.profile.id class="button large rounded expanded"}}
-    </div>
-    <div class="table-cell">
-      {{link-to "Settings" "settings" class="button large rounded expanded" }}
-    </div>
+      <div class="table-cell">
+        {{link-to "Edit Profile" "me.edit" model.id class="button large rounded expanded"}}
+      </div>
+      <div class="table-cell">
+        {{link-to "Settings" "settings" class="button large rounded expanded" }}
+      </div>
     {{else}}
-
-    <div class="table-cell cell-connected">
-    {{spinning-button clicked="clickedConnect" value="CONNECT" class="button large rounded connect success"}}
-    </div>
-    <div class="table-cell">
-      <a class="button large rounded expanded">MESSAGE</a>
-    </div>
-    <div class="table-cell">
-      {{#ask-dropdown from=ownerid model=model.profile action='goToAsk' name="dd-ask-form1"}}
-      {{/ask-dropdown}}
-    </div>
+      <div class="table-cell cell-connected">
+      {{spinning-button clicked="clickedConnect" value="CONNECT" class="button large rounded connect success"}}
+      </div>
+      <div class="table-cell">
+        <a class="button large rounded expanded">MESSAGE</a>
+      </div>
+      <div class="table-cell">
+        {{#ask-dropdown from=ownerid model=model me=me action='goToAsk' name="dd-ask-form1"}}
+        {{/ask-dropdown}}
+      </div>
     {{/if}}
     <div class="table-cell">
       <a class="button large rounded expanded" data-toggle="dd-public-options">
@@ -31,14 +30,13 @@
       {{#zf-dropdown id="dd-public-options" class="dropdown-gray" closeOnClick=true}}
         <ul class="no-bullet menu-list menu-list-menu">
           {{#if isCurrentUser}}
-          <li>{{link-to "Connections" "me.connections"}}</li>
-          <li>{{link-to "Your ASK Page" "me.ask"}}</li>
+            <li>{{link-to "Connections" "me.connections"}}</li>
+            <li>{{link-to "Your ASK Page" "me.ask"}}</li>
           {{else}}
-          <li>{{#link-to "connections" model.profile.id }} {{model.profile.firstName}}'s connection (999){{/link-to}}</li>
-          {{log model.profile }}
-          <li>{{#link-to "ask" model.profile.id }} {{model.profile.firstName}}'s ASK Page{{/link-to}}</li>
-          <li><a href="">Compliment {{model.profile.firstName}}</a></li>
-          <li><a href="" class="warning" {{action 'clickedDisconnect'}}>Disconnect from {{model.profile.firstName}}</a></li>
+            <li>{{#link-to "connections" model.id }} {{model.firstName}}'s connection (99){{/link-to}}</li>
+            <li>{{#link-to "ask" model.id }} {{model.firstName}}'s ASK Page{{/link-to}}</li>
+            <li><a href="">Compliment {{model.firstName}}</a></li>
+            <li><a href="" class="warning" {{action 'clickedDisconnect'}}>Disconnect from {{model.firstName}}</a></li>
           {{/if}}
         </ul>
       {{/zf-dropdown}}

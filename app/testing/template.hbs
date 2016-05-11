@@ -1,7 +1,4 @@
 <h1>Testing</h1>
-<button class="button"{{action "reload"}}>Reload</button>
-<ul>
-{{#each model as |item|}}
-	<li>{{item.type}}: {{item.content}}</li>
-{{/each}}
-</ul>
+{{textarea value=text}}
+
+<button class="button"{{action "save"}}>Save</button>

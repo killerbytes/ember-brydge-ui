@@ -1,16 +1,15 @@
+<a data-toggle={{name}} class="button large expanded">ASK
+  <div class="wrapper">
+    <div class="triangle triangle-gray"></div>
+  </div>
+</a>
 
-
-  <a data-toggle={{name}} class="button large expanded">ASK
-    <div class="wrapper">
-      <div class="triangle triangle-gray"></div>
-    </div>
-  </a>
 {{#zf-dropdown id=name class="dd-ask-form dropdown-gray" closeOnClick=true}}
   <form {{action 'ask' on='submit'}}>
 
     <section class="padding ask-form">
       {{#if model.settings.ask }}
-        {{#if sessionAccount.settings.ask }}
+        {{#if me.settings.ask }}
           {{textarea value=question rows="3"}}
           <div class="row">
             <div class="columns text-right">
@@ -23,11 +22,12 @@
           </p>
           <small>{{link-to "Tips on how to use ASK" "user-guide"}}</small>
         {{else}}
-          <p>You have turned ASK off</p>
+          You have turned ASK off
           {{link-to "Settings" "settings" (query-params tab="ask") }}        
         {{/if}}
       {{else}}
-        <p>User has turned ASK off</p>
+
+        {{model.firstName }} has turned ASK off
       {{/if}}
 
     </section>

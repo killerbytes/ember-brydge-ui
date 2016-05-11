@@ -3,16 +3,16 @@
     <div class="profile profile-cover">
       <div class="text-right name">
         <h1>
-          <span>{{model.profile.firstName}}</span>
-          <strong>{{model.profile.lastName}}</strong>
+          <span>{{model.firstName}}</span>
+          <strong>{{model.lastName}}</strong>
         </h1>
       </div>
       <div class="location">
-        {{model.profile.location}}
+        {{model.location}}
       </div>
       <div class="profile-center">
         <div class="profile-photo">
-          <img src= {{model.profile.avatarUrl}} class="circle">
+          <img src= {{model.avatarUrl}} class="circle">
         </div>
       </div>
     </div>
@@ -21,8 +21,8 @@
 
 <div class="row column">
   <div class="medium-6 float-left box profile profile-bar">
-    <div class="position">{{ model.profile.currentTitle}}</div>
-    <strong class="text-upper">{{model.profile.currentCompany}}</strong>
+    <div class="position">{{ model.currentTitle}}</div>
+    <strong class="text-upper">{{model.currentCompany}}</strong>
   </div>
   <div class="medium-6 float-left profile">
     {{partial "partials/profile-actions" }}
@@ -31,7 +31,7 @@
 
 <div class="row">
   <div class="columns medium-7">
-    {{newsfeed-list newsfeed=model.trendingPosts profile=model.profile avatar=model.avatar}}
+    {{newsfeed-list newsfeed=trendingPosts profile=model avatar=model}}
   </div>
 
   <div class="columns medium-5 sidebar">
@@ -41,7 +41,7 @@
 
 {{#zf-reveal id="complimentModal" overlay=true class="reveal-popup"}}
     <h4>Compliments</h4>
-    <p class="lead">Show your appreciation for {{model.profile.firstName}} by complementing him</p>
+    <p class="lead">Show your appreciation for {{model.firstName}} by complementing him</p>
     <form {{action 'postCompliment' on='submit'}}>
       <div class="content clearfix">
         

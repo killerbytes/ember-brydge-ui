@@ -8,6 +8,7 @@ export default DS.Model.extend({
 	userid: DS.attr('string'),
 	jobTitle: DS.attr('string'),
 	settings: DS.attr(),
+	connection: DS.attr(),
 	industry: DS.attr('string'),
 	occupationOne: DS.attr('string'),
 	occupationTwo: DS.attr('string'),

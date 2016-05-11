@@ -7,7 +7,7 @@ export default Ember.Controller.extend(CheckCurrentUserMixin,{
   flashMessages: Ember.inject.service(),
   sharePost: Ember.inject.service(),	
 	sortProps: ['createdAt:desc'],
-  posts: Ember.computed.sort('model.posts', 'sortProps'),
+  newsfeed: Ember.computed.sort('model.posts', 'sortProps'),
   latestQuestion: Ember.computed('model.questions', function(){
     return this.get('model.questions.firstObject');
   }),
@@ -21,7 +21,6 @@ export default Ember.Controller.extend(CheckCurrentUserMixin,{
   latestCompliment: Ember.computed('model.compliments', function () {
     return this.get('model.compliments.firstObject');
   }),
-
   actions: {
     sharePost(cb){
       this.get('sharePost').submit().then((res)=>{

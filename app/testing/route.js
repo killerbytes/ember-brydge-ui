@@ -12,10 +12,4 @@ export default Ember.Route.extend({
 		// controller.setProperties(model);
 	},
 
-	actions: {
-		reload(){
-			// console.log(this.controller.get('newsfeed'))
-			// this.store.findAll('newsfeed').reload();
-		}
-	}
 });

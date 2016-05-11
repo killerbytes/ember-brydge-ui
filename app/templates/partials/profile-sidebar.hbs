@@ -6,7 +6,7 @@
             <i class="icons building"></i>
           </div>
           <div class="content">
-            <a href="">{{model.profile.industry}}</a>
+            <a href="">{{model.industry}}</a>
           </div>        
       </div>          
     </li>
@@ -16,8 +16,8 @@
             <i class="icons briefcase"></i>
           </div>
           <div class="content">
-            <a href="">{{model.profile.occupationOne}}</a>
-            <a href="">{{model.profile.occupationTwo}}</a>
+            <a href="">{{model.occupationOne}}</a>
+            <a href="">{{model.occupationTwo}}</a>
           </div>
       </div>          
     </li>
@@ -56,11 +56,11 @@
 <div class="box rounded snapshot">
   <h5 class="box-header">Snapshot</h5>
   <div class="columns">
-    {{model.profile.snapshot}}
+    {{model.snapshot}}
   </div>
-  {{#unless model.profile.snapshot}}
+  {{#unless model.snapshot}}
     <div class="empty-message">
-      {{model.profile.firstName}} hasn't added a Snapshot
+      {{model.firstName}} hasn't added a Snapshot
     </div>
   {{/unless}}
 </div>
@@ -68,7 +68,7 @@
 <div class="box rounded compliments">
   <h5 class="box-header">Compliments</h5>
 
-  {{#if model.compliments}}
+  {{#if compliments}}
   <ul class="box-list no-bullet">
     <li>
       <div class="title">{{latestCompliment.title}}</div>
@@ -78,11 +78,11 @@
   </ul> 
   {{else}}
   <div class="empty-message">
-    {{model.profile.firstName}} hasn't received any Compliments
+    {{model.firstName}} hasn't received any Compliments
   </div>
   {{/if}}
   <div class="box-footer">
-    {{#if model.compliments}}
+    {{#if compliments}}
       {{#if isCurrentUser}}
       {{link-to 'See all' 'me.compliments'}}
       {{else}}
@@ -91,50 +91,52 @@
     {{/if}}
 
     {{#unless isCurrentUser}}
-    <a class="float-right" data-open="complimentModal">Post a compliment</a>
+      {{#if isConnected}}
+        <a class="float-right" data-open="complimentModal">Post a compliment</a>
+      {{/if}}
     {{/unless}}
   </div>      
 </div>
 
 <div class="box rounded work-history">
   <h5 class="box-header">Work History</h5>
-  {{#if model.experiences}}
-  {{ list-experience model=model.experiences class="sidebox box-list" }}
+  {{#if experiences}}
+  {{ list-experience model=experiences class="sidebox box-list" }}
   {{else}}
     <div class="empty-message">
-      {{model.profile.firstName}} hasn't added any Work History
+      {{model.firstName}} hasn't added any Work History
     </div>
   {{/if}}
 </div>
 
 <div class="box rounded academia">
   <h5 class="box-header">Academia</h5>
-  {{#if model.educations}}
-  {{ list-academia model=model.educations class="sidebox box-list" }}
+  {{#if educations}}
+  {{ list-academia model=educations class="sidebox box-list" }}
   {{else}}
     <div class="empty-message">
-      {{model.profile.firstName}} hasn't added any Academic Information
+      {{model.firstName}} hasn't added any Academic Information
     </div>
   {{/if}}
 </div>
 
 <div class="box rounded languages">
   <h5 class="box-header">Languages</h5>
-    {{#if model.languages}}
-    {{list-languages model=model.languages class="sidebox box-list"}}      
+    {{#if languages}}
+    {{list-languages model=languages class="sidebox box-list"}}      
     {{else}}
       <div class="empty-message">
-        {{model.profile.firstName}} hasn't added any Languages
+        {{model.firstName}} hasn't added any Languages
       </div>
     {{/if}}
 </div>
 
 <div class="box rounded">
   <h5 class="box-header">Interests</h5>
-  {{#if model.interests}}
+  {{#if interests}}
   <div class="columns">
     <p>
-      {{#each model.interests as |item index|}}
+      {{#each interests as |item index|}}
         {{#if index~}}
           , {{item.content~}}
         {{else}}
@@ -145,7 +147,7 @@
   </div>
   {{else}}
     <div class="empty-message">
-      {{model.profile.firstName}} hasn't added any Interests
+      {{model.firstName}} hasn't added any Interests
     </div>
   {{/if}}
 </div>
