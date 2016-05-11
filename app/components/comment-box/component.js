@@ -4,7 +4,7 @@ import ViewCommentsActionMixin from 'web/mixins/view-comments-action';
 
 export default Ember.Component.extend(ViewCommentsActionMixin,{
 	store: Ember.inject.service(),
-
+	isExpend: false,
 	actions:{
 		comment: function() {
 			console.log('Key pressed =>', this.get('commentContent'), this.get('post.id'))

@@ -26,7 +26,9 @@
       
           <ul class="no-bullet question-pending-list">
           {{#each questions.pending as |item|}}
+          
             <li>
+              <div class="{{if (eq item.id qid) "highlight"}}">
               <p class="title">{{item.content}} {{item.id}}</p>
               <div class="mb5 text-light">asked by {{link-to item.from.content.name "profile" item.from.content.username class="user" }}</div>
               <p class="timestamp text-light">{{postDateFormat item.createdAt}}</p>     
@@ -36,8 +38,10 @@
                   <li><a {{action "rejectItem" item }}>Delete</a></li>
                   <li><a>Flag</a></li>
                 </ul>                       
+              </div>
               </div>      
             </li>
+            
           {{else}}
             <li>No Pending Questions</li>
           {{/each}}

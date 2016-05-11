@@ -5,5 +5,21 @@ export default Ember.Route.extend({
     const userid = params.user_id;
     const newsfeedid = params.newsfeed_id;
     return this.store.find('newsfeed', newsfeedid);
+  },
+   afterModel: function(model) {
+  	console.log('afterModel', model.get('id'));
+  	var postid = model.get('id');
+
+    var post = this.store.peekRecord('newsfeed', postid);
+
+    this.store.query('comment',postid).then((comments)=>{
+      console.log('<<<<<<', comments)
+      post.set('comments', comments);
+    })
+
+
+    //console.log(this.$('#comment-form-'+postid))
+
+    //var $commentform = this.$('#comment-form-'+postid+' input');
   }
 });

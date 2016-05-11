@@ -3,8 +3,9 @@ import FilteredQuestionsMixin from 'web/mixins/filtered-questions';
 
 export default Ember.Controller.extend(FilteredQuestionsMixin, {
 	ask: Ember.inject.service(),
-  queryParams: ['tab'],
+  queryParams: ['tab','qid'],
   tab: 'questions',
+  qid: null,
   actions: {
   	selectItem(item) {
   		this.set('ask.selectedQuestion', item);
