@@ -46,6 +46,12 @@
       </div>
     </li>
   {{/each}}
+  {{#unless notification.notifications }}
+  <li>
+    <div class="empty-message">No new notification</div>
+  </li>
+  {{/unless}}
+
   </ul>
 
 

@@ -4,18 +4,18 @@
       <div class="text-right name">
 
         <h1>
-          <span>{{model.profile.firstName}}</span>
-          <strong>{{model.profile.lastName}}</strong>
+          <span>{{model.firstName}}</span>
+          <strong>{{model.lastName}}</strong>
         </h1>
       </div>
       <div class="location">
-        {{model.profile.location}}
+        {{model.location}}
       </div>
 
       <div class="profile-center">
         <div class="profile-photo">
-          {{#link-to 'me.edit' model.profile.id}}
-            <img src= {{model.profile.avatarUrl}} class="circle">
+          {{#link-to 'me.edit' model.id}}
+            <img src= {{model.avatarUrl}} class="circle">
           {{/link-to}}
         </div>
 
@@ -29,8 +29,8 @@
 
 
   <div class="medium-6 float-left box profile profile-bar rounded">
-    <div class="position">{{ model.profile.currentTitle}}</div>
-    <strong class="text-upper">{{model.profile.currentCompany}}</strong>
+    <div class="position">{{ model.currentTitle}}</div>
+    <strong class="text-upper">{{model.currentCompany}}</strong>
 
   </div>
   <div class="medium-6 float-left profile wrapper">
@@ -40,9 +40,9 @@
 
 <div class="row">
   <div class="columns medium-7">
-    {{share-box postToNewsfeed='postToNewsfeed' profile=model.profile}}
+    {{share-box postToNewsfeed='postToNewsfeed' profile=model}}
 
-    {{newsfeed-list newsfeed=posts profile=model.profile avatar=model.profile.avatarUrl}}
+    {{newsfeed-list newsfeed=newsfeed profile=model avatar=model}}
   </div>
 
   <div class="columns medium-5 sidebar">
@@ -77,4 +77,4 @@
 	{{/zf-reveal}} -->
 
 
-{{ post-sharer model=sharePost.selected profile=model.profile value=sharePost.valueText submit="sharePost" }}
+{{ post-sharer model=sharePost.selected profile=model value=sharePost.valueText submit="sharePost" }}

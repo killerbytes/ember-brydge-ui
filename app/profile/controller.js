@@ -2,19 +2,20 @@ import Ember from 'ember';
 import CheckCurrentUserMixin from 'web/mixins/check-current-user';
 
 export default Ember.Controller.extend(CheckCurrentUserMixin,{
-  connected: Ember.computed('model.connectionStatus.status', function(value){
-    return this.get('model.connectionStatus.status') == 'accept' ? true : false;
+  isConnected: Ember.computed('model.connection.status', function(value){
+    return this.get('model.connection.status') == 'accept' ? true : false;
   }),
-  latestQuestion: Ember.computed('model.questions', function(){
-  	return this.get('model.questions.firstObject');
+
+  latestQuestion: Ember.computed('questions', function(){
+  	return this.get('questions.firstObject');
   }),
 
   flagCompliment: Ember.computed('complimentContent', function(){
   	return Ember.isEmpty(this.get('complimentContent'));
   }),
 
-  latestCompliment: Ember.computed('model.compliments', function () {
-    return this.get('model.compliments.firstObject');
+  latestCompliment: Ember.computed('compliments', function () {
+    return this.get('compliments.firstObject');
   }),
 
   complimentContent: '',

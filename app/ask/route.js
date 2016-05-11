@@ -6,6 +6,7 @@ export default Ember.Route.extend({
 	model: function(params) {  
     let userid = params.username;
     return Ember.RSVP.hash({
+      me: this.store.findRecord('profile', this.get('session.data.authenticated.user_id')),
       profile: this.store.findRecord('profile', userid),
       fromQuestions: this.store.query('ask',{from: userid, userid: userid}),
       toQuestions: this.store.query('ask',{to: userid, userid: userid})
@@ -18,6 +19,7 @@ export default Ember.Route.extend({
     controller.setProperties(model);
     
     let ownerid = this.get('session.data.authenticated.user_id');
+    console.log(this.get('session.data'))
     controller.set('ownerid', ownerid);
 	}
 });

@@ -12,21 +12,20 @@ export default Ember.Route.extend(AuthenticatedRouteMixin,{
 
   model() {
     let userid = this.get('session.data.authenticated.user_id');
-    this.get('notification').requestConnections();
-
-    return Ember.RSVP.hash({
-      account: this.store.findRecord('user', userid),
-      posts: this.store.query('newsfeed',{filter: userid, tab: 'curated'}),
-      profile: this.store.findRecord('profile', userid),
-      languages: this.store.findAll('language'),
-      interests: this.store.findAll('interest'),
-      experiences: this.store.query('experience',{userid: userid}),
-      educations: this.store.query('education',{userid: userid}),
-      questions: this.store.query('ask',{userid: userid}).then((asks)=>{
-        return asks.filterBy('answer');
-      }),
-      compliments: this.store.query('compliment',{to: userid})
-    });
+    return this.store.findRecord('profile', userid);
+    // return Ember.RSVP.hash({
+    //   // account: this.store.findRecord('user', userid),
+    //   posts: this.store.query('newsfeed',{filter: userid, tab: 'curated'}),
+    //   profile: this.store.findRecord('profile', userid),
+    //   languages: this.store.findAll('language'),
+    //   interests: this.store.findAll('interest'),
+    //   experiences: this.store.query('experience',{userid: userid}),
+    //   educations: this.store.query('education',{userid: userid}),
+    //   questions: this.store.query('ask',{userid: userid}).then((asks)=>{
+    //     return asks.filterBy('answer');
+    //   }),
+    //   compliments: this.store.query('compliment',{to: userid})
+    // });
   },
 
 });

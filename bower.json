@@ -19,8 +19,7 @@
     "select2": "3.5.2",
     "pikaday": "^1.4.0",
     "selectize": "miguelcobain/selectize.js#master",
-    "spin.js": "^2.3.2",
-    "froala-wysiwyg-editor": "^2.2.4"
+    "spin.js": "^2.3.2"
   },
   "devDependencies": {
     "lodash": "^4.11.2"

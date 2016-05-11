@@ -47,18 +47,7 @@ label.middle, .label.middle{
 	padding-top: 0.3rem;
 	padding-bottom: 0.3rem;
 }
-/* Froala WYSIWYG Editor */
 
-.fr-toolbar{
-	display: none;
-}
-.fr-box.fr-basic.fr-top .fr-wrapper{
-	box-shadow: none;
-	border: 1px solid $border-color;
-}
-.fr-basic .fr-element{
-	min-height: 100px;
-}
 /*  Drop down menu to be in gray instead of the overrided blue */
 
 ul > li.is-dropdown-submenu-parent.is-down-arrow > ul {
