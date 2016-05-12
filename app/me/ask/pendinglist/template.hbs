@@ -4,7 +4,7 @@
 	{{#each questions.pendingSidebar as |item| }}
 		<li>
 			<div class="columns wrapper clearfix">
-				<div class="question-title">{{item.content}} {{item.id}}</div>
+				<div class="question-title">{{item.content}}</div>
 				<div class="text-light">asked by {{link-to item.from.content.name "profile" item.from.content.username class="user"}}</div>
 				<p class="timestamp text-light mb5">{{postDateFormat item.createdAt}}</p>
 			</div>
