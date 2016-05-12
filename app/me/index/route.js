@@ -2,12 +2,6 @@ import Ember from 'ember';
 import AuthenticatedRouteMixin from 'ember-simple-auth/mixins/authenticated-route-mixin';
 
 export default Ember.Route.extend(AuthenticatedRouteMixin, {
-	session: Ember.inject.service(),
-  // model() {
-  //   let userid = this.get('session.data.authenticated.user_id');
-
-  //   return this.store.findRecord('profile', userid);
-  // },
   setupController(controller, model){
   	let userid = model.id;
     this._super(...arguments);
@@ -24,7 +18,6 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
       compliments: this.store.query('compliment',{to: userid})    	
     }).then((res)=>{
 	    controller.setProperties(res);
-      console.log(controller.get('me.id'))
     })
 
   },

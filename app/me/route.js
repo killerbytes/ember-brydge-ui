@@ -9,23 +9,9 @@ export default Ember.Route.extend(AuthenticatedRouteMixin,{
     this._super(transition, params);
     return this.get('sessionAccount.account'); // needed to make sure sessionAccount is full realized
   },
-
   model() {
     let userid = this.get('session.data.authenticated.user_id');
     return this.store.findRecord('profile', userid);
-    // return Ember.RSVP.hash({
-    //   // account: this.store.findRecord('user', userid),
-    //   posts: this.store.query('newsfeed',{filter: userid, tab: 'curated'}),
-    //   profile: this.store.findRecord('profile', userid),
-    //   languages: this.store.findAll('language'),
-    //   interests: this.store.findAll('interest'),
-    //   experiences: this.store.query('experience',{userid: userid}),
-    //   educations: this.store.query('education',{userid: userid}),
-    //   questions: this.store.query('ask',{userid: userid}).then((asks)=>{
-    //     return asks.filterBy('answer');
-    //   }),
-    //   compliments: this.store.query('compliment',{to: userid})
-    // });
   },
 
 });
