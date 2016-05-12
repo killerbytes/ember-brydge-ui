@@ -1,4 +1,41 @@
 <h1>Testing</h1>
+<div class="row">
+<div class="large-7 medium-7 columns">
+  {{ share-box postToNewsfeed='postToNewsfeed' profile=model.profile 
+   isCheckedIndustry=isCheckedIndustry isCheckedOccupationOne=isCheckedOccupationOne
+   isCheckedOccupationTwo=isCheckedOccupationTwo
+   broadcast = broadcast
+   postFeed='postFeed' }}
+ </div>
+</div>
+
 {{textarea value=text}}
 
+
+<button class="button"{{action "crawl"}}>Crawl</button>
+
 <button class="button"{{action "save"}}>Save</button>
+
+<ul>
+	{{#each newsfeed as |item|}}
+		<li>{{item.user.username}}: {{item.content}}</li>
+	{{/each}}
+</ul>
+
+<div class="media">
+    <div class="media-main">
+      {{#if site.image}}
+      <div class="post-image">
+        <a href="{{site.url}}">
+          <img src="{{site.image}}">
+        </a>
+      </div>
+      {{/if}}
+      <div class="post-caption">
+        <h3><a href="{{site.url}}">{{site.title}}</a></h3>
+        {{#if site.siteName}}
+          <div class="subheader"><a href="{{site.url}}">{{site.siteName}}</a></div>
+        {{/if}}
+      </div>
+    </div>
+</div>

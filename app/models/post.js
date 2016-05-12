@@ -9,6 +9,7 @@ export default DS.Model.extend({
   createdAt: DS.attr('date'),
   updatedAt: DS.attr('date'),
   user: DS.belongsTo('user'),
+  username: DS.attr(),
   profile: DS.belongsTo('profile'),
   categories: DS.attr(),
   sharedPostid: DS.attr(),

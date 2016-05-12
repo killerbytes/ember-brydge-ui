@@ -3,17 +3,12 @@ import FilteredQuestionsMixin from 'web/mixins/filtered-questions';
 
 export default Ember.Controller.extend(
 	FilteredQuestionsMixin, {
-	settings: Ember.inject.service(),
   ask: Ember.inject.service(),
   isOwner: true,
   queryParams: ['tab','qid'],
   tab: 'questions',
   qid: null,
   actions: {
-    settingsChanged(value){
-    	this.set('profile.settings.'+value, !this.get('profile.settings.'+value))
-      this.get('settings').update(this.get('profile.settings'));
-    },
   	selectItem(item) {
   		this.set('ask.selectedQuestion', item);
   	},

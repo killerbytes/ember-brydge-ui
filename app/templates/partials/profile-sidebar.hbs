@@ -83,14 +83,14 @@
   {{/if}}
   <div class="box-footer">
     {{#if compliments}}
-      {{#if isCurrentUser}}
+      {{#if isOwner }}
       {{link-to 'See all' 'me.compliments'}}
       {{else}}
       {{link-to 'See all' 'compliments' latestCompliment.to.username}}
       {{/if}}
     {{/if}}
 
-    {{#unless isCurrentUser}}
+    {{#unless isOwner }}
       {{#if isConnected}}
         <a class="float-right" data-open="complimentModal">Post a compliment</a>
       {{/if}}

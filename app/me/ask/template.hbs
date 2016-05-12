@@ -3,24 +3,17 @@
 		<div class="top-banner bg-gray box">
 			<h1>YOUR ASK PAGE</h1>
 			<div class="columns">
-				<div class="row">
-					<div class="columns medium-centered">
-						<form class="inline-block">
-              <div class="switch">
-                {{input type="checkbox" change=(action settingsChanged 'ask') checked=model.profile.settings.ask class="switch-iput" id="askSwitch" name="askSwitch" }}
-                <label class="switch-paddle" for="askSwitch">
-                  <span class="show-for-sr">Turn ASK OFF</span>
-                </label>
-              </div>
-						</form>
-					</div>
-				</div>
 				<p class="text-center">
-					By turning ASK off, you are blocking anyone from asking you questions. <br>
-					It will also disable you from asking questions. <br><br>
-					Note: Questions <i>Pending Answers</i> and <i>Hidden Questions</i> are only visible to you.
-	
+					{{#if model.profile.settings.ask}}
+						You are currently accepting questions. To disable the ASK feature go to {{link-to "Settings" "settings" (query-params tab="ask") }}.
+					{{else}}
+						You are currently not accepting questions. To enable the ASK feature go to {{link-to "Settings" "settings" (query-params tab="ask") }}.
+					{{/if}}
 				</p>										
+				<p class="text-center">
+					Note: <i>Hidden Questions</i> and questions <i>Pending Answers</i> are only visible to you
+				</p>
+				
 			</div>
 		</div>		
 	</div>

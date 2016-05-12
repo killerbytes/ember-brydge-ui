@@ -18,9 +18,6 @@ export default Ember.Route.extend({
 	setupController(controller, model){
 		this._super(...arguments);
 		controller.setProperties(model);
-    controller.set('settingsChanged', function(value) {
-      this.send('settingsChanged', value);
-    });    
 	}
 
 });

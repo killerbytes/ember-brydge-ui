@@ -1,9 +1,19 @@
 import Ember from 'ember';
 
 export default Ember.Controller.extend({
+	store: Ember.inject.service(),
 	actions: {
 		save(){
-			console.log(this.get('text').split("\n").join("<br />"))
+	    this.get('store').createRecord('post', {
+	      content: 'test',
+	      categories: [],
+	    }).save().then((res)=>{
+	    	// console.log(res)
+	    	this.get('model').addObject(res._internalModel)
+
+	    });
+
+			
 		}
 	}
 });
