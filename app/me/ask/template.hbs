@@ -46,10 +46,10 @@
 			{{/zf-tabs}}
 		</div>
 		<div class="tabs-content questions" data-tabs-content="example-tabs">
-			<div class="tabs-panel is-active" id="question_answered">
+			<div class="tabs-panel {{active-tab 'questions' tab}}" id="question_answered">
 				{{ partial 'ask/to'}}
 			</div>
-			<div class="tabs-panel" id="question_asked">
+			<div class="tabs-panel {{active-tab 'asked' tab}}" id="question_asked">
 			    {{ partial 'ask/from'}}
 			</div>
 		</div>

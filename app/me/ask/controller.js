@@ -6,6 +6,9 @@ export default Ember.Controller.extend(
 	settings: Ember.inject.service(),
   ask: Ember.inject.service(),
   isOwner: true,
+  queryParams: ['tab','qid'],
+  tab: 'questions',
+  qid: null,
   actions: {
     settingsChanged(value){
     	this.set('profile.settings.'+value, !this.get('profile.settings.'+value))

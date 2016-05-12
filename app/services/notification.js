@@ -12,6 +12,9 @@ export default Ember.Service.extend({
     	return i.get('from.id') != ownerid && i.get('status') == 'pending';
     })
   }),
+  mm: Ember.computed('notifications.@each', function(){
+    console.log('++++++++')
+  }),
   requestConnections(){
     this.set('connectionStore', this.get('store').findAll('connection'))
   },
@@ -21,8 +24,18 @@ export default Ember.Service.extend({
       this.set('notifications', res);
       if(cb) cb.call();
     })
+  },
+  readNotification(id) {
+    var url = '/v1/notifications/'+id+'/read';
+    return this.get('ajax').request(url, {
+      method: 'GET'
+    })
+  },
+  getNotifications() {
+    var url = '/v1/notifications';
+    return this.get('ajax').request(url, {
+      method: 'GET'
+    })
   }
-
-
 });
 

@@ -14,7 +14,7 @@
 
   {{#zf-accordion-menu class="accordion-menu" multiOpen=true}}
     <li>      
-      <ul class="media-list no-bullet">
+      <ul class="media-list no-bullet {{if isExpend "is-active"}} ">
        {{#each post.comments as |comment|}}  
         <li>
           <div class="media-object">
