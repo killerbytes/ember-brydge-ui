@@ -1,6 +1,6 @@
 
 {{#each asked.answered as |item| }}
-	<div class="box rounded question-box">
+	<div class="box rounded question-box {{if (eq item.id qid) "highlight"}}">
   	{{#if isOwner}}
       <div class="menu-wrapper">
         <a data-toggle="dd-card-menu-{{item.id}}"><i class="icons ellipsis"></i></a>      

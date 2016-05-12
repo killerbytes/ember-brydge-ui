@@ -16,6 +16,7 @@
       <ul class="media-list no-bullet">
         {{#each requests as |item|}}
         <li>
+        <div class="{{if (eq item.id qid) "highlight"}}">
           <div class="media-object">
             <div class="media-object-section">
               <div class="thumbnail">
@@ -35,6 +36,7 @@
               <a class="button expanded default" {{action "reject" item.id }}>REJECT</a>
             </div>
           </div>
+        </div>
         </li>
         {{/each}}
       </ul>

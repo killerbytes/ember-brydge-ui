@@ -2,6 +2,8 @@ import Ember from 'ember';
 
 export default Ember.Controller.extend({
 	sessionAccount: Ember.inject.service('session-account'),
+	queryParams: ['qid'],
+  qid: null,
   requests: Ember.computed('model.@each.status', function(i) {
     var ownerid = this.get('sessionAccount.account.id');
     return this.get('model').filter(function(i){

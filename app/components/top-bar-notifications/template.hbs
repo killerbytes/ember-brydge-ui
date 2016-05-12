@@ -13,7 +13,7 @@
 
   <ul class="media-list notifications-list no-bullet list-lined">
   {{#each notification.notifications as |item|}}
-    <li>
+    <li {{action "select" item preventDefault=false }}>
       <div class="media-object">
         <div class="media-object-section">
           <div class="thumbnail">
@@ -21,26 +21,42 @@
           </div>
         </div>
         <div class="media-object-section main-section">
-          {{#if (notification-type 'ask' item.type)}}
-            <p><strong>{{item.target.profile.firstName}} {{item.target.profile.lastName}}</strong> asked you a question <strong>{{ item.content}}</strong></p>
-            <span>{{ postDateFormat item.createdAt }}</span>
-          {{/if}}
-          {{#if (notification-type 'comment' item.type)}}
-            <p><strong>{{item.target.profile.firstName}} {{item.target.profile.lastName}}</strong> commented your post <strong>{{ item.content}}</strong></p>
-            <span>{{ postDateFormat item.createdAt }}</span>
-          {{/if}}
-          {{#if (notification-type 'vote' item.type)}}
-            <p><strong>{{item.target.profile.firstName}} {{item.target.profile.lastName}}</strong> voted your post <strong>{{ item.content}}</strong></p>
-            <span>{{ postDateFormat item.createdAt }}</span>
-          {{/if}}
-          {{#if (notification-type 'compliment' item.type)}}
-            <p><strong>{{item.target.profile.firstName}} {{item.target.profile.lastName}}</strong> complimented your post <strong>{{ item.content}}</strong></p>
-            <span>{{ postDateFormat item.createdAt }}</span>
-          {{/if}}
-          {{#if (notification-type 'connection' item.type)}}
-            <p><strong>{{item.target.profile.firstName}} {{item.target.profile.lastName}}</strong> accepted your request <strong>{{ item.content}}</strong></p>
-            <span>{{ postDateFormat item.createdAt }}</span>
-          {{/if}}
+
+          {{#if (notification-type 'answer' item.type)}}
+                <p><a>{{item.target.profile.firstName}} {{item.target.profile.lastName}}</a> answered your question</p>
+                <span>{{ postDateFormat item.createdAt }}</span>
+              {{/if}}
+
+
+              {{#if (notification-type 'ask' item.type)}}
+                <p><a>{{item.target.profile.firstName}} {{item.target.profile.lastName}}</a> asked you a question</p>
+                <span>{{ postDateFormat item.createdAt }}</span>
+              {{/if}}
+
+              {{#if (notification-type 'comment' item.type)}}
+                <p><a>{{item.target.profile.firstName}} {{item.target.profile.lastName}}</a> commented your broadcast <a>"{{ getNotificationContent item.content }}"</a></p>
+                <span>{{ postDateFormat item.createdAt }}</span>
+              {{/if}}
+
+              {{#if (notification-type 'vote' item.type)}}
+                <p><a>{{item.target.profile.firstName}} {{item.target.profile.lastName}}</a> upvoted your broadcast <a>"{{ getNotificationContent item.content }}"</a>  </p>
+                <span>{{ postDateFormat item.createdAt }}</span>
+              {{/if}}
+              {{#if (notification-type 'compliment' item.type)}}
+                <p><a>{{item.target.profile.firstName}} {{item.target.profile.lastName}}</a> posted a compliment to you </p>
+                <span>{{ postDateFormat item.createdAt }}</span>
+              {{/if}}
+
+              {{#if (notification-type 'accept' item.type)}}
+                <p><a>{{item.target.profile.firstName}} {{item.target.profile.lastName}}</a> accepted your request <a>{{ item.content}}</a></p>
+                <span>{{ postDateFormat item.createdAt }}</span>
+              {{/if}}
+
+
+              {{#if (notification-type 'share' item.type)}}
+                <p><a>{{item.target.profile.firstName}} {{item.target.profile.lastName}}</a> shared your broadcast <a>"{{ getNotificationContent item.content }}"</a></p>
+                <span>{{ postDateFormat item.createdAt }}</span>
+              {{/if}}
 
         </div>
       </div>
