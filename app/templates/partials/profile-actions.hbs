@@ -1,5 +1,5 @@
 <div class="wrapper">
-  <div class="profile-actions {{if isCurrentUser 'connected'}} {{if isOwner 'connected' }}">
+  <div class="profile-actions {{if isOwner 'connected'}} {{if isConnected 'connected' }}">
     {{#if isOwner }}
       <div class="table-cell">
         {{link-to "Edit Profile" "me.edit" model.id class="button large rounded expanded"}}
