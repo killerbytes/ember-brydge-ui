@@ -39,9 +39,11 @@ Router.map(function() {
   this.route('profile', {path: ':username'});
   this.route('ask', {path: ':username/ask'});
   this.route('connections', {path: ':username/connections'});
+  this.route('compliments', {path: ':username/compliments'});
+  this.route('pending-compliments');
+  this.route('pending-questions');
   this.route('requests');
   this.route('notifications');
-  this.route('questions');
   this.route('hidden-questions');
   this.route('profile-views');
   this.route('rating');
@@ -53,8 +55,6 @@ Router.map(function() {
   this.route('terms-of-use');
   this.route('privacy-policy');
   this.route('testing');
-  this.route('pending-compliments');
-  this.route('compliments', {path: ':username/compliments'});
 });
 
 export default Router;

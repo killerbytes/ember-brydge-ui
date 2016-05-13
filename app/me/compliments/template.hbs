@@ -5,82 +5,64 @@
     </div>
   </div>
 </div>
-
-
 <div class="row ask">
   <div class="medium-7 columns">
-
-  <div class="mb">
-    {{#zf-tabs}}
-      <li class="medium-6 tabs-title is-active">
-        <a href="#question_answered" class="button expanded text-upper" aria-selected="true">Compliments By you</a>
-      </li>
-      <li class="medium-6 tabs-title">
-        <a href="#question_asked" class="button expanded text-upper">Compliments To you</a>
-      </li>
-    {{/zf-tabs}}
-  </div>
-  <div class="tabs-content questions" data-tabs-content="example-tabs">
-    <div class="tabs-panel is-active" id="question_answered">
-      
-
-      <ul class="no-bullet connections-list">
-        {{#each fromCompliments as |compliment|}}
-        <div class="box rounded question-box">
-          <div class="clearfix">
-          <li>
-            {{link-to 'You' "profile" 'me' class="user"}} 
-            has complimented to
-            {{link-to compliment.to.name "profile" compliment.to.username class="user"}}
-             <h2>{{compliment.title}}</h2>
-             <p>{{compliment.content}}</p>
-          </li>
-        </div>
-        </div>
-        {{/each}}
-      </ul>
-
-    </div>
-    <div class="tabs-panel" id="question_asked">
-        
-
-        <ul class="no-bullet connections-list">
-          {{#each toAccept as |compliment|}}
-          <div class="box rounded question-box">
-            <div class="clearfix">
-            <li>
-              {{link-to compliment.from.name "profile" compliment.from.username class="user"}}
-              has complimented to
-              {{link-to 'You' "profile" 'me' class="user"}} 
-               <h2>{{compliment.title}}</h2>
-               <p>{{compliment.content}}</p>
-            </li>
-          </div>
+    <div class="tabs-content compliments box">
+      <div class="filter-bar columns text-right">
+        <form>
+          <label class="middle"> Filter compliments by </label>
+          <select name="" id="" class="medium-3">
+            <option value="">Thank You for</option>
+          </select>
+        </form>
+      </div>
+      <div class="padding clear">
+          {{#each toAccept as |item|}}
+          <div class="media-object">
+            <div class="media-object-section">
+              <div class="thumbnail">
+                <img src="{{item.from.profile.avatarUrl}}">
+              </div>
+            </div>
+            <div class="media-object-section main-section">
+              {{link-to item.from.name "profile" item.from.username class="user"}} <span class="text-light">complimented</span> {{link-to item.to.name "profile" 'me' class="user"}}
+              <p class="timestamp text-light">{{postDateFormat item.createdAt}}</p>              
+              <strong class="title text-upper">{{item.title}}</strong>
+              <p class="content">{{item.content}}</p>               
+            </div>
           </div>
           {{/each}}
-        </ul>
-
-
+      </div>
     </div>
   </div>
-
-
-  </div>
   <div class="medium-5 columns sidebar">
-    <div class="box rounded question-box">
-
-    <h5 class="box-header">Pending Compliments</h5>
-
-    {{#if toPending}}
-        {{ partial 'partials/pending-compliments-box'}}
-        {{#link-to 'me.ask' class="success button expanded" }}
+    <div class="box rounded question-box compliments">
+      <h5 class="box-header">COMPLIMENTS REQUIRING APPROVAL</h5>
+      {{#if toPending}}
+        <ul class="no-bullet pending-list">
+        {{#each toPending as |item| }}
+          <li>
+            <div class="columns wrapper clearfix">
+              <div class="title">{{item.title}}</div>
+              <p class="content">{{item.content}}</p>               
+              <div class="text-light">complimented by {{link-to item.from.name "profile" item.from.username class="user"}}</div>
+              <p class="timestamp text-light mb5">{{postDateFormat item.createdAt}}</p>
+            </div>
+            <div class="question-box-footer">
+              <ul class="menu menu-dotted">
+                <li><a class="float-right" {{action 'acceptCompliment' item.id}}>Add to profile</a></li>
+                <li><a class="float-right" {{action 'rejectCompliment' item.id}}>Delete</a></li>
+              </ul>                       
+            </div>      
+          </li>
+        {{/each}}
+        </ul>
+        {{#link-to 'pending-compliments' class="footer-button button expanded" }}
           Load More
         {{/link-to}}
-    {{else}}
-    <p>No pending</p>
-
-    {{/if}}
-    
+      {{else}}
+        <p>No pending</p>  
+      {{/if}}    
     </div>
 
     {{render "progress-box"}}

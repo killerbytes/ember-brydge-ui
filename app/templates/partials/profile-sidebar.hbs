@@ -67,8 +67,7 @@
 
 <div class="box rounded compliments">
   <h5 class="box-header">Compliments</h5>
-
-  {{#if compliments}}
+  {{#if latestCompliment}}
   <ul class="box-list no-bullet">
     <li>
       <div class="title">{{latestCompliment.title}}</div>
@@ -82,11 +81,11 @@
   </div>
   {{/if}}
   <div class="box-footer">
-    {{#if compliments}}
+    {{#if latestCompliment}}
       {{#if isOwner }}
-      {{link-to 'See all' 'me.compliments'}}
+        {{link-to 'See all' 'me.compliments'}}
       {{else}}
-      {{link-to 'See all' 'compliments' latestCompliment.to.username}}
+        {{link-to 'See all' 'compliments' latestCompliment.to.username}}
       {{/if}}
     {{/if}}
 

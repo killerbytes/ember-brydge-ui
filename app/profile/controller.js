@@ -15,8 +15,9 @@ export default Ember.Controller.extend(CheckCurrentUserMixin,{
   	return Ember.isEmpty(this.get('complimentContent'));
   }),
 
-  latestCompliment: Ember.computed('compliments', function () {
-    return this.get('compliments.firstObject');
+  acceptedCompliments: Ember.computed.filterBy('compliments', 'status', 'accept'),
+  latestCompliment: Ember.computed('acceptedCompliments', function(){
+    return this.get('acceptedCompliments.firstObject');
   }),
 
   complimentContent: '',

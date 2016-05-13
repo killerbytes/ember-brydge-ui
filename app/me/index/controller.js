@@ -9,9 +9,9 @@ export default Ember.Controller.extend({
   latestQuestion: Ember.computed('questions', function(){
     return this.get('questions.firstObject');
   }),
-  latestCompliment: Ember.computed('compliments', function () {
-    console.log('latestCompliment', this)
-    return this.get('compliments.firstObject');
+  acceptedCompliments: Ember.computed.filterBy('compliments', 'status', 'accept'),
+  latestCompliment: Ember.computed('acceptedCompliments', function(){
+    return this.get('acceptedCompliments.firstObject');
   }),
   location: Ember.computed('model.location', function(){
     var location = this.get('model.location').split(',');

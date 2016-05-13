@@ -9,43 +9,36 @@
 
 <div class="row">
   <div class="medium-7 columns">
-  	<div class="box rounded">
+  	<div class="box rounded compliments">
       <div class="padding">
         <strong class="text-upper">PENDING COMPLIMENT REQUESTS FOR {{ sessionAccount.account.profile.firstName }}</strong>
       </div>
-      <ul class="media-list no-bullet">
+      <div class="padding">
         {{#each requests as |item|}}
-        <li>
-        <div class="{{if (eq item.id qid) "highlight"}}">
-          <div class="media-object">
+          <div class="media-object {{if (eq item.id qid) "highlight"}}">
             <div class="media-object-section">
               <div class="thumbnail">
-                <img src= "{{item.from.profile.avatarUrl}}">
+                <img src="{{item.from.profile.avatarUrl}}">
               </div>
             </div>
             <div class="media-object-section main-section">
-              {{link-to item.from.name 'profile' item.from.username class="name"}}
-              <div class="position">
-                <div>{{item.from.profile.currentTitle}}</div>
-                <div>{{item.from.profile.currentCompany}}</div>
-                <div>{{item.content}}</div>
+              {{link-to item.from.name "profile" item.from.username class="user"}} <span class="text-light">complimented</span> {{link-to item.to.name "profile" 'me' class="user"}}
+              <p class="timestamp text-light">{{postDateFormat item.createdAt}}</p>              
+              <strong class="title text-upper">{{item.title}}</strong>
+              <p class="content">{{item.content}}</p>               
+              <div class="question-box-footer mb5">
+                <ul class="menu menu-dotted">
+                  <li><a {{action "accept" item.id }}>Add to profile</a></li>
+                  <li><a {{action "reject" item.id }}>Delete</a></li>
+                </ul>                       
               </div>
             </div>
-            <div class="media-object-section actions-section">
-              <a class="button expanded success" {{action "accept" item.id }}>ACCEPT</a>
-              <a class="button expanded default" {{action "reject" item.id }}>REJECT</a>
-            </div>
           </div>
-        </div>
-        </li>
         {{/each}}
-      </ul>
-
+      </div>
   	</div>
-
   </div>    
   <div class="medium-5 columns sidebar">
-
     {{render "progress-box"}}
     {{render "footer"}}
   </div>

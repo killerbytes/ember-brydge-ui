@@ -34,7 +34,7 @@
           {{else}}
             <li>{{#link-to "connections" model.id }} {{model.firstName}}'s connection ({{ activeConnections.length }}){{/link-to}}</li>
             <li>{{#link-to "ask" model.id }} {{model.firstName}}'s ASK Page{{/link-to}}</li>
-            <li><a href="">Compliment {{model.firstName}}</a></li>
+            <li>{{#link-to "compliments" model.id }} Compliment {{model.firstName}}{{/link-to}}</li>
             <li><a href="" class="warning" {{action 'clickedDisconnect'}}>Disconnect from {{model.firstName}}</a></li>
           {{/if}}
         </ul>
