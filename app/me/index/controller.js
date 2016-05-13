@@ -22,6 +22,19 @@ export default Ember.Controller.extend({
   }),
   isOwner: true,
   actions: {
+    postFeed(content, categories, site, cb) {
+      this.store.createRecord('post', {
+        content: content,
+        categories: categories
+      }).save().then((res) => {
+        var newsfeed = this.get('posts');
+        newsfeed.pushObject(res._internalModel);
+        cb.apply();
+      }).catch((err) => {
+        console.log("Error posting to newsfeed:", err);
+      });
+    },
+
     sharePost(cb){
       this.get('sharePost').submit().then((res)=>{
         cb();

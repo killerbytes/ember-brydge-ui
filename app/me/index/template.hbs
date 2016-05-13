@@ -41,7 +41,11 @@
 
 <div class="row">
   <div class="columns medium-7">
-    {{share-box postToNewsfeed='postToNewsfeed' profile=model}}
+    {{ share-box 
+      postToNewsfeed='postToNewsfeed' 
+      profile=model 
+      submit='postFeed' }}
+
     {{newsfeed-list newsfeed=posts profile=model avatar=model}}
   </div>
 

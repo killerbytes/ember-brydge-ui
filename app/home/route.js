@@ -39,7 +39,6 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, FilterDropdownListMix
   },
 
   actions: {
-
     setLocation: function(location) {
       console.log('location =>', location);
       this.transitionTo('home', { queryParams: { location: location }});

@@ -3,6 +3,7 @@ import QueryLocationMixin from 'web/mixins/query-locations';
 
 export default Ember.Controller.extend(QueryLocationMixin,{
   flashMessages: Ember.inject.service(),
+  ajax: Ember.inject.service(),
   sharePost: Ember.inject.service(),
   sortProps: ['createdAt:desc'],
   newsfeed: Ember.computed.sort('model.newsfeed', 'sortProps'),
@@ -25,17 +26,15 @@ export default Ember.Controller.extend(QueryLocationMixin,{
   isSearch: false,
 
   actions: {
-    
-    postFeed: function (content, categories) {
-      console.log('<<< post feed from (Home => Controller)',
-        content,categories);
+
+    postFeed: function (content, categories, site, cb) {
       this.store.createRecord('post', {
         content: content,
         categories: categories
       }).save().then((res) => {
         var newsfeed = this.get('model.newsfeed');
-        newsfeed.pushObject(res._internalModel)
-
+        newsfeed.pushObject(res._internalModel);
+        cb.apply();
       }).catch((err) => {
         console.log("Error posting to newsfeed:", err);
       });

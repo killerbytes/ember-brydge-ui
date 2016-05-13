@@ -9,7 +9,7 @@ export default Ember.Route.extend(QueryLocationMixin, {
 		return Ember.RSVP.hash({
 	    educations: this.store.findAll('education'),
 	    experiences: this.store.findAll('experience'),
-	    profile: this.store.peekRecord('profile', params.profile_id),
+	    profile: this.store.findRecord('profile', params.profile_id, {reload: true}),
       languages: this.store.findAll('language'),
       interests: this.store.findAll('interest')
 	  });

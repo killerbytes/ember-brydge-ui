@@ -8,7 +8,7 @@
     <div class="media-object-section">
       <div class="name">
         {{#link-to "profile" post.user.username}} 
-          <strong>{{post.user.profile.firstName}}</strong>
+          <strong>{{post.user.name}}</strong>
         {{/link-to}}
         {{#if post.sharedPost}}
           {{#unless shared}}
@@ -38,7 +38,7 @@
 <div class="media media-top">
   <p>
     {{#unless shared }}
-      {{{post.content }}}
+      {{{ post.content }}}
     {{else}}
       {{{post.content.content }}}
     {{/unless}}
