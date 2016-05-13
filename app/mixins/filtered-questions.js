@@ -43,7 +43,7 @@ export default Ember.Mixin.create({
 				if(i.get('status') == "hide") return true;				
 			}).slice(0, 2),
 			hidden: _.filter(t, function(i){
-				if(i.get('status') == "hide" && i.get('to') == ownerid) return true;				
+				if(i.get('status') == "hide") return true;				
 			})
 		}
 	}),

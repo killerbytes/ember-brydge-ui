@@ -21,8 +21,6 @@ export default Ember.Component.extend({
   // postContent: "http://www.viralthread.com/mcdonalds-is-changing-the-recipe-of-nuggets/",
 	actions: {
     post() {
-      // console.log(this.get('postContent'));
-      // return false;
       this.sendAction('submit', 
         this.get('postContent'), 
         _.map(this.get('categories'), 'id'), 
