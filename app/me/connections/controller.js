@@ -3,7 +3,8 @@ import Ember from 'ember';
 export default Ember.Controller.extend({
 	selectedAccept: null,
 	selectedReject: null,
-
+  queryParams: ['targetid'],
+  targetid: null,
   actions: {
   	selectAcceptItem: function(item) {
   		console.log('selectedAccept');

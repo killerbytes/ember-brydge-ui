@@ -1,7 +1,7 @@
 
 <ul class="no-bullet connections-list">
   {{#each model.acceptedList as |connection|}}
-  <li>
+  <li class="{{if (eq connection.from.id targetid) "highlight"}}">
       <div class="media-object">
         <div class="media-object-section">
           <div class="thumbnail">
