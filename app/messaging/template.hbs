@@ -12,7 +12,7 @@
              <form action="">{{input value=key placeholder='Search' class="flat"}}</form> 
            </div>
            <ul class="no-bullet conversation-list">
-              {{#each model as |item| }}                            
+              {{#each conversations as |item| }}                            
                 <li>
                 {{#link-to "messaging.conversation" item.id class="no-color"}}
                   <div class="media-object">

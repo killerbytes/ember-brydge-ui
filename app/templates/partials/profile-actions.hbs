@@ -9,7 +9,7 @@
       </div>
     {{else}}
       <div class="table-cell cell-connected">
-      {{spinning-button clicked="clickedConnect" value="CONNECT" class="button large rounded connect success"}}
+      {{spinning-button clicked="clickedConnect" value=connectionStatus class="button large rounded connect success"}}
       </div>
       <div class="table-cell">
         {{link-to "Message" "messaging.conversation" model.id class="button large rounded expanded"}}

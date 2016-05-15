@@ -5,6 +5,9 @@ export default Ember.Controller.extend(CheckCurrentUserMixin,{
   isConnected: Ember.computed('model.connection.status', function(){
     return this.get('model.connection.status') == 'accept' ? true : false;
   }),
+  connectionStatus: Ember.computed('model.connection.status', function(){
+    return this.get('model.connection.status') == 'pending' ? 'Pending' : 'Connect';
+  }),
   activeConnections: Ember.computed.filterBy('connections', 'status', 'accept'),
 
   latestQuestion: Ember.computed('questions', function(){

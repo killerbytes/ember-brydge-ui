@@ -3,8 +3,7 @@ import Ember from 'ember';
 export default Ember.Route.extend({
   session: Ember.inject.service('session'),
   connection: Ember.inject.service(),
-  compliment: Ember.inject.service(),
-  
+  compliment: Ember.inject.service(),  
   loggedinUser: null,
   paramsUserProfile: null,
 
@@ -17,7 +16,6 @@ export default Ember.Route.extend({
       return;
     }
   },
-
   model: function(params) {
     return this.store.findRecord('public-profile', params.username)
   },
@@ -71,51 +69,27 @@ export default Ember.Route.extend({
     }).then((result)=>{
       controller.setProperties(result);
     });
-
-    // var avatar = this.get('accountProfile').get('avatarUrl');
-    // controller.set('ownerid', this.get('session.data.authenticated.user_id'))
-    // controller.set('model',{
-    //   connectionStatus: this.get('connectionStatus'),
-    //   profile: this.get('paramsUserProfile'),
-    //   avatar: avatar,
-    //   loggedinUser: this.get('loggedinUser'),
-    //   languages: this.get('languages'),
-    //   educations: this.get('educations'),
-    //   experiences: this.get('experiences'),
-    //   trendingPosts: this.get('trendingPosts'),
-    //   questions: this.get('questions'),
-    //   compliments: this.get('compliments')
-    // });
   },
-
   actions: {
-    clickedConnect: function (cb) {
-      var userid = this.get('paramsUserProfile').get('userid');
-
+    clickedConnect (cb) {
+      var userid = this.get('currentModel.userid');
       this.get('connection').request(userid)
       .then((res)=>{
         console.log('res=>', res)
         cb();
       });
     },
-
-    clickedDisconnect: function () {
-      var userid = this.get('paramsUserProfile').get('userid');
-
-      var self = this;
+    clickedDisconnect() {
+      var userid = this.get('currentModel.userid');
       this.get('connection').disconnect(userid)
       .then((res)=>{
-        console.log('res=>', res);
-        self.refresh();
+        this.refresh();
       });
     },
-
-    goToAsk: function (username) {
+    goToAsk (username) {
       this.transitionTo('ask', username); 
     },
-
-    postCompliment(){
-      
+    postCompliment(){      
       var content = this.controller.get('complimentContent');
       var userid = this.get('currentModel.userid')
       var title = this.controller.get('complimentTitle');
