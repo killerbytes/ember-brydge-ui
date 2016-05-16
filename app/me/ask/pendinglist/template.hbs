@@ -21,7 +21,7 @@
 	{{/each}}
 	</ul>
 	{{#if questions.pendingSidebar }}
-		{{#link-to 'pending-questions' (query-params tab="questions")  class="footer-button button expanded" }}
+		{{#link-to 'me.ask.pending' (query-params tab="questions")  class="footer-button button expanded" }}
 			Load More
 		{{/link-to}}
 	{{/if}}
@@ -51,7 +51,7 @@
 
 	</ul>
 	{{#if asked.pendingSidebar}}
-		{{#link-to 'pending-questions' (query-params tab="asked") class="footer-button button expanded" }}
+		{{#link-to 'me.ask.pending' (query-params tab="asked") class="footer-button button expanded" }}
 			Load More
 		{{/link-to}}
 	{{/if}}
@@ -90,7 +90,7 @@
 	{{/each}}
 
 	</ul>
-	{{#link-to 'hidden-questions' class="footer-button button expanded" }}
+	{{#link-to 'me.ask.hidden' class="footer-button button expanded" }}
 		Load More
 	{{/link-to}}
 </div>

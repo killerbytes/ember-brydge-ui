@@ -15,10 +15,15 @@ Router.map(function() {
 
   this.route('me', function() {
     this.route('edit',{path:'/edit/:profile_id'});
-    this.route('connections');
-    this.route('compliments');
   });
   this.route('me.ask', {path: 'me/ask'});
+  this.route('me.ask.pending', {path: 'me/ask/pending'});
+  this.route('me.ask.hidden', {path: 'me/ask/hidden'});
+
+  this.route('me.compliments', {path: 'me/compliments'});
+  this.route('me.compliments.pending', {path: 'me/compliments/pending'});
+
+  this.route('me.connections', {path: 'me/connections'});
 
 
 
@@ -40,11 +45,9 @@ Router.map(function() {
   this.route('ask', {path: ':username/ask'});
   this.route('connections', {path: ':username/connections'});
   this.route('compliments', {path: ':username/compliments'});
-  this.route('pending-compliments');
-  this.route('pending-questions');
   this.route('requests');
   this.route('notifications');
-  this.route('hidden-questions');
+
   this.route('profile-views');
   this.route('rating');
   this.route('search');
