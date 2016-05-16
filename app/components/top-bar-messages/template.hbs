@@ -1,7 +1,7 @@
 <a data-toggle="dd-messages">
 	{{#zf-tooltip title="Messages" vOffset=0}}
 	{{#if notification.messages}}
-		<span class="alert badge">5</span>
+		<span class="alert badge">{{notification.messages.length}}</span>
 	{{/if}}
 	<i class="icons messages"></i>
 	{{/zf-tooltip}}
@@ -16,13 +16,13 @@
 			<div class="media-object">
 				<div class="media-object-section">
 					<div class="thumbnail">
-						<img src= "assets/avatar-1.jpg">
+						<img src= {{item.target.profile.avatarUrl}}>
 					</div>
 				</div>
 				<div class="media-object-section main-section">
-					<a class="name">Mark JUDGE</a>
-					<span class="float-right dim-text">2:30pm</span>
-					<p class="position">Hey Jon, I thought you should take a look a this.</p>
+					<a class="name">{{item.target.profile.firstName}} {{item.target.profile.lastName}}</a>
+					<span class="float-right dim-text">{{ postDateFormat item.createdAt }}</span>
+					<p class="position">{{ getNotificationContent item.content }}</p>
 				</div>
 			</div>
 		</li>

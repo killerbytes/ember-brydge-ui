@@ -19,8 +19,22 @@ export default Ember.Service.extend({
     this.set('connectionStore', this.get('store').findAll('connection'))
   },
   checkForNotifications(cb){
-    this.get('store').findAll('notification').then((res)=>{
+    this.get('store').query('notification',{group:'general'}).then((res)=>{
       console.log('Received notifications...');
+      this.set('notifications', res);
+
+
+      this.get('store').query('notification',{group:'message'}).then((res)=>{
+        console.log('Received messages...');
+        this.set('messages', res);
+        if(cb) cb.call();
+      })
+
+    })
+  },
+  checkForMessages(cb){
+     this.get('store').query('notification',{group:'message'}).then((res)=>{
+      console.log('Received messages...');
       this.set('notifications', res);
       if(cb) cb.call();
     })
