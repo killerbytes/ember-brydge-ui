@@ -12,7 +12,7 @@
 {{#zf-dropdown id="dd-messages" class="dropdown-topbar" closeOnClick=true }}
 	<ul class="media-list no-bullet list-lined">
 		{{#each notification.messages as |item|}}
-		<li>
+		<li {{action "selectMessage" item preventDefault=false }}>
 			<div class="media-object">
 				<div class="media-object-section">
 					<div class="thumbnail">
