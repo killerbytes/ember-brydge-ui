@@ -5,20 +5,18 @@ export default Ember.Service.extend({
   store: Ember.inject.service(),
   ajax: Ember.inject.service(),
   sessionAccount: Ember.inject.service('session-account'),
-	requests: Ember.computed('connectionStore.@each', function() {
-    var ownerid = this.get('sessionAccount.account.id');
+	// requests: Ember.computed('connectionStore.@each', function() {
+ //    var ownerid = this.get('sessionAccount.account.id');
 
-    return this.get('connectionStore') && this.get('connectionStore').filter(function(i){
-    	return i.get('from.id') != ownerid && i.get('status') == 'pending';
-    })
-  }),
-  mm: Ember.computed('notifications.@each', function(){
-    console.log('++++++++')
-  }),
-  requestConnections(){
-    this.set('connectionStore', this.get('store').findAll('connection'))
-  },
+ //    return this.get('connectionStore') && this.get('connectionStore').filter(function(i){
+ //    	return i.get('from.id') != ownerid && i.get('status') == 'pending';
+ //    })
+ //  }),
+ //  requestConnections(){
+ //    this.set('connectionStore', this.get('store').findAll('connection'))
+ //  },
   checkForNotifications(cb){
+    console.log('cb',cb)
     this.get('store').query('notification',{group:'general'}).then((res)=>{
       console.log('Received notifications...');
       this.set('notifications', res);
@@ -27,16 +25,16 @@ export default Ember.Service.extend({
       this.get('store').query('notification',{group:'message'}).then((res)=>{
         console.log('Received messages...');
         this.set('messages', res);
-        if(cb) cb.call();
+
+
+        this.get('store').query('notification',{group:'connection'}).then((res)=>{
+          console.log('Received connections...');
+          this.set('requests', res);
+          if(cb) cb.call();
+        })
+        
       })
 
-    })
-  },
-  checkForMessages(cb){
-     this.get('store').query('notification',{group:'message'}).then((res)=>{
-      console.log('Received messages...');
-      this.set('notifications', res);
-      if(cb) cb.call();
     })
   },
   readNotification(id) {

@@ -2,6 +2,7 @@ import Ember from 'ember';
 
 export default Ember.Mixin.create({
 	store: Ember.inject.service(),
+	connection: Ember.inject.service(),
 	routing: Ember.inject.service(),
 	actions: {
 		select: function(item) {
@@ -72,6 +73,26 @@ export default Ember.Mixin.create({
 					this.get('notification').checkForNotifications();
 				})
 			}
+		},
+
+		acceptConnection: function(item) {
+			console.log('accept connection', item.get('targetid'))
+			this.get('connection').accept(item.get('targetid'))
+				.then((res)=>{
+
+					this.get('notification').readNotification(item.get('id'))
+						.then((res)=>{
+							// unload
+							this.get('store').unloadAll('notification');
+
+							// reload
+							this.get('notification').checkForNotifications();
+						})
+				})
+		},
+
+		rejectConnection: function(item) {
+			console.log('reject connection', item.get('id'))
 		}
 	}
 });

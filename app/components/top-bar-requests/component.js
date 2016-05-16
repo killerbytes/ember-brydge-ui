@@ -1,23 +1,8 @@
 import Ember from 'ember';
+import NotificationActionsMixin from 'web/mixins/notification-actions';
 
-export default Ember.Component.extend({
-	connection: Ember.inject.service(),
+
+export default Ember.Component.extend(NotificationActionsMixin,{
 	notification: Ember.inject.service(),
-	store: Ember.inject.service(),
-	tagName: 'li',
-	actions: {
-		accept: function(item){
-			this.get('connection').accept(item)
-			.then((res)=>{
-				this.get('store').push(res);
-			})
-		},
-		reject: function(item) {
-			this.get('connection').reject(item)
-			.then((res)=>{
-				this.get('store').push(res)
-			})
-		}
-	}
-
+	tagName: 'li'
 });
