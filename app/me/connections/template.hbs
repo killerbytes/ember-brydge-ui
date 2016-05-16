@@ -15,8 +15,34 @@
   				<input type="text" placeholder="Search by Name">
   			</form>
   		</div>
-			{{partial 'me/connections/list'}}
-  		
+
+      <ul class="no-bullet connections-list">
+        {{#each model.acceptedList as |connection|}}
+        <li class="{{if (eq connection.from.id targetid) "highlight"}}">
+            <div class="media-object">
+              <div class="media-object-section">
+                <div class="thumbnail">
+                  {{#link-to "profile" connection.from.username class="name"}}  
+                  <img src= {{connection.from.profile.avatarUrl}}>
+                  {{/link-to}}
+                </div>
+              </div>
+              <div class="media-object-section media-object-content">
+                {{#link-to "profile" connection.from.username class="name"}}  
+                  {{connection.from.name }}
+                {{/link-to}}
+                
+                <div class="position">
+                  {{connection.from.profile.currentTitle}} <br>
+                  {{connection.from.profile.currentCompany}}
+                </div>
+                <p class="location">{{connection.from.profile.location}}</p>
+              </div>
+            </div>
+        </li>
+        {{/each}}
+      </ul>
+
   	</div>
 
   </div>    

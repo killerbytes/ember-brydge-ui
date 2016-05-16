@@ -80,21 +80,27 @@
     {{model.firstName}} hasn't received any Compliments
   </div>
   {{/if}}
+
+  {{#if latestCompliment}}
   <div class="box-footer">
-    {{#if latestCompliment}}
-      {{#if isOwner }}
-        {{link-to 'See all' 'me.compliments'}}
-      {{else}}
-        {{link-to 'See all' 'compliments' latestCompliment.to.username}}
-      {{/if}}
+    {{#if isOwner }}
+      {{link-to 'See all' 'me.compliments'}}
+    {{else}}
+      {{link-to 'See all' 'compliments' latestCompliment.to.username}}
     {{/if}}
 
-    {{#unless isOwner }}
-      {{#if isConnected}}
-        <a class="float-right" data-open="complimentModal">Post a compliment</a>
-      {{/if}}
-    {{/unless}}
-  </div>      
+    {{#if isConnected}}
+      <a class="float-right" data-open="complimentModal">Post a compliment</a>
+    {{/if}}
+  </div>   
+  {{else}}
+    {{#if isConnected}}
+    <div class="box-footer">
+      <a class="float-right" data-open="complimentModal">Post a compliment</a>
+    </div>
+    {{/if}}  
+  {{/if}}   
+
 </div>
 
 <div class="box rounded work-history">

@@ -14,6 +14,7 @@ export default Ember.Controller.extend({
     return this.get('acceptedCompliments.firstObject');
   }),
   location: Ember.computed('model.location', function(){
+    if(!this.get('model.location')) return false;
     var location = this.get('model.location').split(',');
     return {
       city: location.splice(0, 1),

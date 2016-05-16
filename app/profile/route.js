@@ -96,6 +96,7 @@ export default Ember.Route.extend({
       this.get('compliment').post(userid,title,content)
       .then((res)=>{
         console.log('compliment saved');
+        this.controller.set('complimentContent', null);
       })
     }
   }

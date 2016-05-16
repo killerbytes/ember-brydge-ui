@@ -20,8 +20,10 @@ Router.map(function() {
   this.route('me.ask.pending', {path: 'me/ask/pending'});
   this.route('me.ask.hidden', {path: 'me/ask/hidden'});
 
-  this.route('me.compliments', {path: 'me/compliments'});
-  this.route('me.compliments.pending', {path: 'me/compliments/pending'});
+  this.route('me.compliments', {path: 'me/compliments'}, function(){
+    this.route('pending');
+    this.route('posted');
+  });
 
   this.route('me.connections', {path: 'me/connections'});
 
@@ -44,7 +46,9 @@ Router.map(function() {
   this.route('profile', {path: ':username'});
   this.route('ask', {path: ':username/ask'});
   this.route('connections', {path: ':username/connections'});
-  this.route('compliments', {path: ':username/compliments'});
+  this.route('compliments', {path: ':userid/compliments'}, function(){
+    this.route('posted')
+  });
   this.route('requests');
   this.route('notifications');
 

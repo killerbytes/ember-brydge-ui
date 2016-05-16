@@ -1,7 +1,7 @@
 import Ember from 'ember';
 
 export default Ember.Route.extend({
-	session: Ember.inject.service('session'),
+	session: Ember.inject.service(),
 	compliment: Ember.inject.service(),
 
 	model: function() {
@@ -19,7 +19,7 @@ export default Ember.Route.extend({
   },
 
 	actions: {
-		acceptCompliment: function (id) {
+		accept: function (id) {
 			var ctx = this;
 			console.log('acceptCompliment =>', id);
 			this.get('compliment').accept(id)
@@ -30,7 +30,7 @@ export default Ember.Route.extend({
 	        compliment.set('status','accept');
 	      })
 		},
-		rejectCompliment: function (id) {
+		reject: function (id) {
 			console.log('rejectCompliment =>', id);
 			var ctx = this;
 			this.get('compliment').delete(id)

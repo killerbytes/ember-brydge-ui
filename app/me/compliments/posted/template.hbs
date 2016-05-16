@@ -1,7 +1,7 @@
 <div class="row">
 	<div class="columns">
 		<div class="top-banner bg-gray box">
-			<h1>PENDING COMPLIMENT REQUESTS</h1>
+			<h1 class="text-upper">Compliments you have posted</h1>
 		</div>		
 	</div>
 </div>
@@ -11,10 +11,7 @@
   <div class="medium-7 columns">
   	<div class="box rounded compliments">
       <div class="padding">
-        <strong class="text-upper">PENDING COMPLIMENT REQUESTS FOR {{ sessionAccount.account.profile.firstName }}</strong>
-      </div>
-      <div class="padding">
-        {{#each toPending as |item|}}
+        {{#each fromAccept as |item|}}
           <div class="media-object {{if (eq item.id qid) "highlight"}}">
             <div class="media-object-section">
               <div class="thumbnail">
@@ -22,7 +19,7 @@
               </div>
             </div>
             <div class="media-object-section main-section">
-              {{link-to item.from.name "profile" item.from.username class="user"}} <span class="text-light">complimented</span> {{link-to item.to.name "profile" 'me' class="user"}}
+              {{link-to item.from.name "profile" item.from.username class="user"}} <span class="text-light">complimented</span> {{link-to item.to.name "profile" 'me' class="user"}} {{log item.to.name}}
               <p class="timestamp text-light">{{postDateFormat item.createdAt}}</p>              
               <strong class="title text-upper">{{item.title}}</strong>
               <p class="content">{{item.content}}</p>               

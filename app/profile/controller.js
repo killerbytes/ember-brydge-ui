@@ -1,7 +1,10 @@
 import Ember from 'ember';
 import CheckCurrentUserMixin from 'web/mixins/check-current-user';
+import ComplimentTitlesMixin from 'web/mixins/compliment-titles';
 
-export default Ember.Controller.extend(CheckCurrentUserMixin,{
+export default Ember.Controller.extend(
+  CheckCurrentUserMixin, 
+  ComplimentTitlesMixin, {
   isConnected: Ember.computed('model.connection.status', function(){
     return this.get('model.connection.status') == 'accept' ? true : false;
   }),
@@ -25,7 +28,7 @@ export default Ember.Controller.extend(CheckCurrentUserMixin,{
 
   complimentContent: '',
 
-  titles: ['Thank you for','Good job on','Congratulations on','Kudos on'],
+  // titles: ['Thank you for','Good job on','Congratulations on','Kudos on'],
 
   complimentTitle: 'Thank you for'
 });
