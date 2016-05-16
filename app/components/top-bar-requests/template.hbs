@@ -1,6 +1,6 @@
 <a data-toggle="dd-requests">
 	{{#zf-tooltip title="Connection Requests" vOffset=0}}
-	{{#if notification.request}}
+	{{#if notification.requests}}
 		<span class="alert badge">{{notification.requests.length}}</span>
 	{{/if}}
 	<i class="icons user"></i>
@@ -17,25 +17,25 @@
 			<div class="media-object">
 				<div class="media-object-section">
 					<div class="thumbnail">
-						<img src= "assets/avatar-1.jpg">
+						<img src= {{item.target.profile.avatarUrl}}>
 					</div>
 				</div>
 				<div class="media-object-section main-section">
-					<a class="name">{{item.from.name}}</a>
+					<a class="name">{{item.target.profile.firstName}} {{item.target.profile.lastName}}</a>
 					<p class="position">
-						{{item.from.profile.currentTitle}}<br>
-						{{item.from.profile.currentCompany}}
+						{{item.target.profile.currentTitle}}<br>
+						{{item.target.profile.currentCompany}}
 					</p>
 				</div>
 				<div class="media-object-section actions-section">
-          <a class="button expanded success" {{action "accept" item.from.userid }}>ACCEPT</a>
-          <a class="button expanded default" {{action "reject" item.from.userid }}>DELETE</a>
+          <a class="button expanded success" {{action "acceptConnection" item preventDefault=false }}>ACCEPT</a>
+          <a class="button expanded default" {{action "rejectConnection" item preventDefault=false }}>DELETE</a>
 
 				</div>
 			</div>
 		</li>
 		{{/each}}
-		{{#unless notification.request }}
+		{{#unless notification.requests }}
 		<li>
 			<div class="empty-message">No pending connection requests</div>
 		</li>
