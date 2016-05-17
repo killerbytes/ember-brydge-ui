@@ -9,5 +9,6 @@ export default DS.Model.extend({
   createdAt: DS.attr('date'),
   newsfeeds: DS.hasMany('newsfeed'),
   connected: DS.attr('boolean'),
-  profile: DS.belongsTo('profile')
+  profile: DS.belongsTo('profile'),
+  avatarUrl: DS.attr()
 });

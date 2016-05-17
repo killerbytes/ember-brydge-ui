@@ -4,6 +4,10 @@ import ViewCommentsActionMixin from 'web/mixins/view-comments-action';
 
 export default Ember.Component.extend(ViewCommentsActionMixin,{
 	store: Ember.inject.service(),
+	sessionAccount: Ember.inject.service('session-account'),
+	avatarUrl: Ember.computed(function(){
+		return this.get('sessionAccount.account.avatarUrl');
+	}),
 	isExpend: false,
 	actions:{
 		comment: function() {
