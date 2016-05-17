@@ -3,6 +3,7 @@ import Ember from 'ember';
 export default Ember.Controller.extend({
 	contacts: Ember.computed('model','key', function(){		
 		let query = this.get('key');
+		if(!query) return this.get('model');
 		return this.get('model').filter(function(item, index, list){
 			var found = false;
 			var fields = ["name"];

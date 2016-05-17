@@ -2,39 +2,54 @@ import Ember from 'ember';
 
 export default Ember.Component.extend({
   store: Ember.inject.service(),
+  ajax: Ember.inject.service(),
   classNames: ['message-box'],
 	actions: {
-  	compose: function(to, msg) {
+  	submit: function(to, msg) {
   		var store = this.get('store');
-  		var ctx = this;
+      var url = '/v1/messages';
+      this.get('ajax').request(url, {
+        method: 'POST',
+        data: {
+          content: msg,
+          to_id: to,
+          to_type: "User"
+        }
+      }).then((res)=>{
+        this.get('store').findRecord('conversation', to);
+        // this.get('store').findRecord('conversation');
+        // this.set('to', null);
+        this.set('msg', null);
+        this.sendAction('resp', { to: to});
+        store.findAll('conversation');
 
-      var message = store.createRecord('message', {
-        content: msg
+
       });
 
-      store.findRecord('user', to).then(function(user) {
-        console.log('findRecord to')
-        // set 'to' for message
-        message.set('to', user);
+  		// var ctx = this;
 
-        // save message
-        message.save().then(function(res){
-          
-          // success compose message
-          // return resp to route
-          ctx.sendAction('resp', { to: to});
+      // var message = store.createRecord('message', {
+      //   content: msg
+      // });
 
-          //store.set('message',store.createRecord('message'));
+      // store.findRecord('user', to).then((user)=>{
+      //   message.set('to', user);
+      //   message.save().then((res)=>{
+      //     this.sendAction('resp', { to: to});
 
-          // Reset the text message field
-          //ctx.set( 'to', '' );
-          ctx.set('msg', '');
-          // console.log(res);
-          // store.push(res);
-          console.log(store.findAll('conversation'))
+      //     //store.set('message',store.createRecord('message'));
+
+      //     // Reset the text message field
+      //     //ctx.set( 'to', '' );
+      //     this.set('msg', '');
+      //     // console.log(res);
+      //     // store.push(res);
+      //     store.findAll('conversation');
+      //     // console.log(res)
     
-        });
-      });
+      //   });
+
+      // });
   	}
   }
 });

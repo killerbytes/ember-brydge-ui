@@ -7,7 +7,8 @@
 		</form>	
 	{{/if}}
 </div>
-		<ul class="contact-list no-bullet">
+		{{#unless selected}}
+		<ul class="contact-list no-bullet" >
 		{{#each contacts as |item|}}
 			<li>
 				<a {{action "select" item }}>
@@ -30,6 +31,7 @@
 			</li>
 		{{/each}}
 		</ul>
+		{{/unless}}
 
 
 <div class="message-content">

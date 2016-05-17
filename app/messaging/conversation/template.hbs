@@ -6,7 +6,7 @@
 </div>
 <div class="message-content">
   <ul class="messages-list no-bullet">
-    {{#each messages as |item| }}
+    {{#each model.messages as |item| }}
       <li>
         <div class="media-object">
           <div class="media-object-section">
@@ -35,5 +35,6 @@
       </li>
     {{/each}} 
   </ul>
+
   {{ message-box resp='getResponse' buttonLabel='Reply' showToInput=false to=model.id}}
 </div>
