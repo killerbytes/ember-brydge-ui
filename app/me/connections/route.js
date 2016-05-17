@@ -16,7 +16,7 @@ export default Ember.Route.extend({
 				return connections.filterBy('status','pending');
 			}),
 			acceptedList: this.store.findAll('connection').then((connections)=>{
-				return connections.filterBy('status','accept');
+				return connections.filterBy('status','accepted');
 			})
 		});
 	},
