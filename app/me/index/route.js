@@ -11,7 +11,7 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
     this._super(...arguments);
     Ember.RSVP.hash({
       me: model,
-      posts: this.store.query('newsfeed',{filter: userid, tab: 'curated'}),
+      posts: this.store.query('newsfeed',{filter: userid, tab: 'profile'}),
       languages: this.store.findAll('language'),
       interests: this.store.findAll('interest'),
       experiences: this.store.query('experience',{userid: userid}),
