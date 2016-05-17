@@ -9,7 +9,7 @@ export default Ember.Controller.extend({
   latestQuestion: Ember.computed('questions', function(){
     return this.get('questions.firstObject');
   }),
-  acceptedCompliments: Ember.computed.filterBy('compliments', 'status', 'accept'),
+  acceptedCompliments: Ember.computed.filterBy('compliments', 'status', 'accepted'),
   latestCompliment: Ember.computed('acceptedCompliments', function(){
     return this.get('acceptedCompliments.firstObject');
   }),

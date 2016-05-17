@@ -21,7 +21,7 @@ export default Ember.Component.extend({
 
 				var connection = ctx.store.peekRecord('connection', res.data.id);
 				console.log('connection =>', connection);
-				connection.set('status','accept');
+				connection.set('status','accepted');
 				//connection.reload();
 				//ctx.get('target.router').refresh();
 				ctx.sendAction('resp');

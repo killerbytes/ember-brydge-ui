@@ -23,7 +23,7 @@ export default Ember.Route.extend({
 			this.get('compliment').accept(id)
 	      .then((res)=>{
 	        var compliment = this.store.peekRecord('compliment',res.data.id);
-	        compliment.set('status','accept');
+	        compliment.set('status','accepted');
 	      })
 		},
 		reject: function (id) {
@@ -31,14 +31,14 @@ export default Ember.Route.extend({
 			this.get('compliment').reject(id)
 	      .then((res)=>{
 	        var compliment = this.store.peekRecord('compliment',res.data.id);
-	        compliment.set('status','reject');
+	        compliment.set('status','rejected');
 	      })
 		},
 		delete: function (id) {
 			this.get('compliment').delete(id)
 	      .then((res)=>{
 	        var compliment = this.store.peekRecord('compliment',res.data.id);
-	        compliment.set('status','reject');
+	        // compliment.set('delete','reject');
 	      })
 		}
 	}

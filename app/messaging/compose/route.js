@@ -2,7 +2,7 @@ import Ember from 'ember';
 
 export default Ember.Route.extend({
 	model: function() {
-		return this.store.findAll('contact');//this.store.query('connection', {status: 'accept'});
+		return this.store.findAll('contact');
 	},
 	actions: {
     getResponse: function(obj) {

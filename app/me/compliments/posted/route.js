@@ -19,7 +19,7 @@ export default Ember.Route.extend({
 			.then((res)=>{
 				console.log('accept res=>', res);
 				var compliment = this.store.peekRecord('compliment',res.data.id);
-	      compliment.set('status','accept');
+	      compliment.set('status','accepted');
 			});
 		},
 		reject: function(item) {
@@ -28,7 +28,7 @@ export default Ember.Route.extend({
 			this.get('compliment').delete(item)
 			.then((res)=>{
 				var compliment = this.store.peekRecord('compliment',res.data.id);
-	      compliment.set('status','reject');
+	      compliment.set('status','rejected');
 			})
 		}
 	}
