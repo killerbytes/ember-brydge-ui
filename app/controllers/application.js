@@ -17,7 +17,7 @@ export default Ember.Controller.extend({
     notificationChecker.apply(this);
   },
   updateCurrentPath: function(){
-  	if(this.get('currentPath') == 'index'){
+  	if(this.get('currentPath') == 'index' || this.get('currentPath') == 'login'){
   		this.set('landingPage', true);
   	}else{
   		this.set('landingPage', false);

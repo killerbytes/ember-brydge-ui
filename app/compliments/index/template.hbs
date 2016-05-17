@@ -44,7 +44,7 @@
             </div>
           </div>
           <div class="media-object-section main-section">
-            {{link-to item.from.name "profile" item.from.username class="user"}} <span class="text-light">complimented</span> {{link-to item.to.name "profile" 'me' class="user"}}
+            {{link-to item.from.name "profile" "me" class="user"}} <span class="text-light">complimented</span> {{link-to item.to.name "profile" item.to.username class="user"}}
             <p class="timestamp text-light">{{postDateFormat item.createdAt}}</p>              
             <strong class="title text-upper">{{item.title}}</strong>
             <p class="content">{{item.content}}</p>               
@@ -59,8 +59,8 @@
   <div class="medium-5 columns sidebar">
     <a class="button large expanded mb box" data-open="complimentModal">Post Compliment</a>
 
-    <div class="box rounded question-box compliments">
-      <h5 class="box-header">Compliments Jon has posted</h5>
+    <div class="box rounded question-box compliments public-compliments">
+      <h5 class="box-header">Compliments {{model.profile.firstName}} has posted</h5>
         <ul class="no-bullet pending-list">
         {{#each fromAcceptSidebar as |item| }}
           <li>
@@ -70,12 +70,6 @@
               <div class="text-light">{{link-to item.from.name "profile" item.from.username class="user"}} complimented {{link-to item.to.name "profile" item.to.username class="user"}}</div>
               <p class="timestamp text-light mb5">{{postDateFormat item.createdAt}}</p>
             </div>
-            <div class="question-box-footer">
-              <ul class="menu menu-dotted">
-                <li><a class="float-right" {{action 'acceptCompliment' item.id}}>Add to profile</a></li>
-                <li><a class="float-right" {{action 'rejectCompliment' item.id}}>Delete</a></li>
-              </ul>                       
-            </div>      
           </li>
         {{/each}}
 
@@ -99,7 +93,7 @@
   <form {{action 'postCompliment' on='submit'}}>
     <div class="content clearfix">
       
-      {{select-native content=titles action=(action (mut complimentTitle))}}
+      {{select-native content=titles action=(action (mut formComplimentTitle))}}
 
       {{form-text-counter limit=250 value=complimentContent rows=5 }}
       {{link-to "See Tips" "user-guide"}}

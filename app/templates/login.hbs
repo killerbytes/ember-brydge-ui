@@ -1,29 +1,44 @@
-<div class='row'>
-    <div class='medium-6 medium-centered large-4 large-centered columns'>
 
-        <form {{action 'authenticate' on='submit'}}>
-            <div class="row column log-in-form">
-                <h4 class="text-center">Log in with you email account</h4>
-
-                {{#if errorMessage}}
-                  <div class="warning callout small" data-closable>
-                    <h7>Login failed, {{errorMessage}}</h7>
-                    <p>Please register an account or reset password.</p>
-                    <button class="close-button" aria-label="Dismiss alert" type="button" data-close><span aria-hidden="true">&times;</span></button>
-                  </div>
-                {{/if}}
-
-                <label for='email'>Email
-                    {{input id='email' placeholder="your@email.com" value=email}}
-                </label>
-                <label for='password'>Password
-                    {{input type='password' placeholder="Password" value=password}}
-                </label>
-                <!-- <input id="show&#45;password" type="checkbox"><label for="show&#45;password">Show password</label> -->
-                <p> <button class="button expanded" type="submit">Login</button> </p>
-                <p class="text-center"><a href="#">Forgot your password?</a></p>
-            </div>
-        </form>
-
+<div class='row bg-light-blue index'>
+  <div class='medium-6 large-7 columns'>
+    <div class="jumbotron text-center">
+      <h1 class="large">Connect. Interact. Grow.</h1>
+      <h3>Simplifying professional interaction and facilitating self-development</h3>
     </div>
+  </div>
+
+  <div class='medium-6 large-5 columns bg-white signup-section'>
+    <form {{action 'authenticate' on='submit'}} class="form-signin">
+      <div class="row column log-in-form">
+        <div class="text-center">
+          <a href="/"><img class="logo" src="assets/brydge-blue.svg"></a>
+        </div>
+        {{#if errorMessage}}
+        <div class="warning callout small" data-closable>
+          <h7>Login failed, {{errorMessage}}</h7>
+          <p>Please register an account or reset password.</p>
+          <button class="close-button" aria-label="Dismiss alert" type="button" data-close><span aria-hidden="true">&times;</span></button>
+        </div>
+        {{/if}}
+
+        {{input id='email' placeholder="your@email.com" value=email}}
+        {{input type='password' placeholder="Password" value=password}}
+        <button class="button secondary" type="submit">LOG IN</button>
+        <a href="#" class="float-right">Forgot your password?</a>
+      </div>
+    </form>
+
+
+  </div>
+
+
+</div>
+
+<div class="row bg-white index">
+  <ul class="footer-menu">
+    <li>Discover</li>
+    <li>About</li>
+    <li>BIC</li>
+    <li>Careers</li>
+  </ul>
 </div>

@@ -20,24 +20,24 @@ export default Ember.Route.extend({
 
 	actions: {
 		accept: function (id) {
-			var ctx = this;
-			console.log('acceptCompliment =>', id);
 			this.get('compliment').accept(id)
 	      .then((res)=>{
-	        console.log('compliment accepted',res);
-
-	        var compliment = ctx.store.peekRecord('compliment',res.data.id);
+	        var compliment = this.store.peekRecord('compliment',res.data.id);
 	        compliment.set('status','accept');
 	      })
 		},
 		reject: function (id) {
 			console.log('rejectCompliment =>', id);
-			var ctx = this;
+			this.get('compliment').reject(id)
+	      .then((res)=>{
+	        var compliment = this.store.peekRecord('compliment',res.data.id);
+	        compliment.set('status','reject');
+	      })
+		},
+		delete: function (id) {
 			this.get('compliment').delete(id)
 	      .then((res)=>{
-	        console.log('compliment rejected');
-
-	        var compliment = ctx.store.peekRecord('compliment',res.data.id);
+	        var compliment = this.store.peekRecord('compliment',res.data.id);
 	        compliment.set('status','reject');
 	      })
 		}

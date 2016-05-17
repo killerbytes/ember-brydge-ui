@@ -11,7 +11,7 @@
   <div class="medium-7 columns">
   	<div class="box rounded compliments">
       <div class="padding">
-        {{#each fromAccept as |item|}}
+        {{#each fromAcceptSidebar as |item|}}
           <div class="media-object {{if (eq item.id qid) "highlight"}}">
             <div class="media-object-section">
               <div class="thumbnail">
@@ -19,14 +19,13 @@
               </div>
             </div>
             <div class="media-object-section main-section">
-              {{link-to item.from.name "profile" item.from.username class="user"}} <span class="text-light">complimented</span> {{link-to item.to.name "profile" 'me' class="user"}} {{log item.to.name}}
+              {{link-to item.from.name "profile" "me" class="user"}} <span class="text-light">complimented</span> {{link-to item.to.name "profile" item.to.username class="user"}} {{log item.to.name}}
               <p class="timestamp text-light">{{postDateFormat item.createdAt}}</p>              
               <strong class="title text-upper">{{item.title}}</strong>
-              <p class="content">{{item.content}}</p>               
+              <p class="content">{{item.content}}</p>
               <div class="question-box-footer mb5">
                 <ul class="menu menu-dotted">
-                  <li><a {{action "accept" item.id }}>Add to profile</a></li>
-                  <li><a {{action "reject" item.id }}>Delete</a></li>
+                  <li><a {{action "delete" item.id }}>Delete this compliment</a></li>
                 </ul>                       
               </div>
             </div>

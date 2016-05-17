@@ -1,10 +1,11 @@
 import Ember from 'ember';
+import FilteredComplimentsMixin from 'web/mixins/filtered-compliments';
 
-export default Ember.Controller.extend({
+export default Ember.Controller.extend(FilteredComplimentsMixin, {
 	sessionAccount: Ember.inject.service('session-account'),
 	queryParams: ['qid'],
   qid: null,
-	toPending: Ember.computed.filterBy('model.toCompliments', 'status', 'pending'),
+	// toPending: Ember.computed.filterBy('model.toCompliments', 'status', 'pending'),
 	// toPending: Ember.computed('model.toCompliments', function(){
 	// 	console.log(this.get('model.toCompliments'));
 	// 	return this.get('model.toCompliments');

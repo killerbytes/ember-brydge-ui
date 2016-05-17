@@ -648,6 +648,15 @@ span.bullet{
 		border-bottom: 1px solid $border-color;
 	}
 }
+.public-compliments{
+	ul>li{
+		overflow: hidden;
+	}
+	ul>li:not(:last-child){
+		border-bottom: 1px solid $border-color;
+	}
+
+}
 .message-box{
 	form{
 		background-color: $panel-color;

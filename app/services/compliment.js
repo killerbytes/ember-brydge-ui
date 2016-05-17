@@ -20,6 +20,12 @@ export default Ember.Service.extend({
       method: 'POST'
     });
   },
+  reject(id){
+    var url = '/v1/compliments/'+id+'/reject';
+    return this.get('ajax').request(url,{
+      method: 'POST'
+    });
+  },
   delete(id){
     var url = '/v1/compliments/'+id+'/delete';
     return this.get('ajax').request(url,{
