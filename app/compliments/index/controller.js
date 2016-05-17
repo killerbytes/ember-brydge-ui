@@ -4,8 +4,8 @@ import ComplimentTitlesMixin from 'web/mixins/compliment-titles';
 export default Ember.Controller.extend(ComplimentTitlesMixin, {
   compliment: Ember.inject.service(),
 	limit: 3,
-	toAccept: Ember.computed.filterBy('model.toCompliments', 'status', 'accept'),
-	fromAccept: Ember.computed.filterBy('model.fromCompliments', 'status', 'accept'),
+	toAccept: Ember.computed.filterBy('model.toCompliments', 'status', 'accepted'),
+	fromAccept: Ember.computed.filterBy('model.fromCompliments', 'status', 'accepted'),
 	fromAcceptSidebar: Ember.computed('fromAccept', function(){
 		return this.get('fromAccept').slice(0, this.get('limit'));
 	}),

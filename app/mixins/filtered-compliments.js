@@ -3,9 +3,9 @@ import Ember from 'ember';
 export default Ember.Mixin.create({
 	limit: 3,
 	toPending: Ember.computed.filterBy('model.toCompliments', 'status', 'pending'),
-	toAccept: Ember.computed.filterBy('model.toCompliments', 'status', 'accept'),
+	toAccept: Ember.computed.filterBy('model.toCompliments', 'status', 'accepted'),
 	fromPending: Ember.computed.filterBy('model.fromCompliments', 'status', 'pending'),
-	fromCompliments: Ember.computed.filterBy('model.fromCompliments', 'status', 'accept'),
+	fromCompliments: Ember.computed.filterBy('model.fromCompliments', 'status', 'accepted'),
 	fromAccept: Ember.computed.filterBy('fromCompliments', 'delete', false),
 	toPendingSidebar: Ember.computed('toPending', function(){
 		return this.get('toPending').slice(0, this.get('limit'));
