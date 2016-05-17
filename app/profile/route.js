@@ -64,7 +64,7 @@ export default Ember.Route.extend({
       questions: this.store.query('ask',{userid: userid}).then(function(asks){
          return asks.filterBy('answer');
       }),
-      trendingPosts: this.store.query('newsfeed',{filter: userid, tab: 'curated'}),
+      trendingPosts: this.store.query('newsfeed',{filter: userid, tab: 'profile'}),
       compliments: this.store.query('compliment',{to: userid})
     }).then((result)=>{
       controller.setProperties(result);
