@@ -44,7 +44,10 @@
 						<label class="text-right middle">Start Date</label>
 					</div>
 					<div class="columns medium-9">
-						{{form-input-date model=item valuePath="from"}}						
+						<div class="row">
+							<div class="columns medium-6">{{form-input-month-year value=item.from}}</div>
+							<div class="columns medium-6">{{form-input-month-year value=item.from type="year"}}</div>
+						</div>
 					</div>
 				</div>
 				<div class="row">
@@ -54,7 +57,10 @@
 						</label>
 					</div>
 					<div class="columns medium-9">
-						{{form-input-date model=item valuePath="to" disabled=item.currentCompany}}
+						<div class="row">
+							<div class="columns medium-6">{{form-input-month-year value=item.to disabled=item.currentCompany}}</div>
+							<div class="columns medium-6">{{form-input-month-year value=item.to type="year" disabled=item.currentCompany}}</div>
+						</div>
 					</div>
 				</div>
 				<div class="row">
@@ -126,7 +132,11 @@
 						<label class="text-right middle">Start Date</label>
 					</div>
 					<div class="columns medium-9">
-						{{form-input-date model=this valuePath="from"}}
+						<div class="row">
+							<div class="columns medium-6">{{form-input-month-year value=this.from}}</div>
+							<div class="columns medium-6">{{form-input-month-year value=this.from type="year"}}</div>
+						</div>
+
 					</div>
 				</div>
 				<div class="row">
@@ -136,7 +146,10 @@
 						</label>
 					</div>
 					<div class="columns medium-9">
-						{{form-input-date model=this valuePath="to" disabled=this.currentCompany}}
+						<div class="row">
+							<div class="columns medium-6">{{form-input-month-year value=this.to disabled=this.currentCompany}}</div>
+							<div class="columns medium-6">{{form-input-month-year value=this.to type="year" disabled=this.currentCompany}}</div>
+						</div>
 					</div>
 				</div>
 

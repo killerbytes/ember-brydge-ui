@@ -4,8 +4,10 @@ import Validations from '../../models/validations/education';
 export default Ember.Component.extend(Validations, {
 	flashMessages: Ember.inject.service(),
 	classNames: ['profile-accordion', 'no-bullet'],
+	maxYear: moment().year() + 6,
 	actions: {
 		update: function (item) {
+			console.log(item, this.get('items'))
 			this.$('ul.accordion').foundation('toggle', $('.accordion-content'))		
 			item.save(()=>{
 				Ember.get(this, 'flashMessages').success('Success!');
@@ -17,7 +19,6 @@ export default Ember.Component.extend(Validations, {
 
       let data = this.getProperties("degree", "school", "location", "content", "from", "to");
 			let work = this.store.createRecord('education', data);
-
 			work.save().then(() => {
 				Ember.get(this, 'flashMessages').success('Success!');
 				Foundation.reInit($('ul.accordion'))

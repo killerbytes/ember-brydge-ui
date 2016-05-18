@@ -7,6 +7,6 @@ export default DS.Model.extend(Validations, {
   studyField: DS.attr('string'),
   content: DS.attr('string'),
   location: DS.attr('string'),
-  from: DS.attr('date'),
-  to: DS.attr('date')
+  from: DS.attr(),
+  to: DS.attr()
 });

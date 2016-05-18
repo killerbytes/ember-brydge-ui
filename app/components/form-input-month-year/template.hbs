@@ -1,8 +1,13 @@
-<select onchange={{action (mut month) value="target.value"}}>
+{{#unless typeYear }}
+<select onchange={{action "onChangeMonth" value="target.value"}} disabled={{disabled}}>
   {{#each months as |item index|}}
     <option value={{index}} selected={{eq month index}}>{{item}}</option>
   {{/each}}
 </select>
-
-
-{{month}}
+{{else}}
+<select onchange={{action "onChangeYear" value="target.value"}} disabled={{disabled}}>
+  {{#each years as |item|}}
+    <option value={{item}} selected={{eq year item}}>{{item}}</option>
+  {{/each}}
+</select>
+{{/unless}}

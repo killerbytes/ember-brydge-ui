@@ -2,7 +2,14 @@
   <li>
     <div class="name">{{item.title}}</div>
     <div>{{item.company}}</div>
-    <span class="dim-text">May 2013 - Present (2 Years and 6 Months)</span>
+    <span class="dim-text">
+      {{term-date-format item.from}} - 
+      {{#if item.currentCompany}}
+        Present
+      {{else}}
+        {{term-date-format item.to}} ({{time-diff item.from item.to}})
+      {{/if}}
+    </span>
 
     {{#zf-accordion-menu class="mt"}}
       <li>

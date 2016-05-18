@@ -3,6 +3,13 @@ import Validations from '../../models/validations/experience';
 
 export default Ember.Component.extend(Validations, {
 	classNames: ['profile-accordion', 'no-bullet'],
+	today: moment(),
+	from: Ember.computed('today', function(){
+		return this.get('today');
+	}),
+	to: Ember.computed('today', function(){
+		return this.get('today');
+	}),
 	actions: {
 		update: function (item) {
 			this.sendAction('update', item, ()=>{

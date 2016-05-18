@@ -27,7 +27,6 @@
 {{#if latestQuestion}}
   <div class="box rounded question-box">
     <div class="padding wrapper">
-{{latestQuestion.delete}}
       <div class="mb5">{{link-to latestQuestion.from.content.name "profile" latestQuestion.from.content.username class="user" }} asked {{link-to latestQuestion.to.content.name "profile" latestQuestion.to.content.username class="user"}}</div>
       <p class="timestamp">{{postDateFormat latestQuestion.createdAt}}</p>          
 
