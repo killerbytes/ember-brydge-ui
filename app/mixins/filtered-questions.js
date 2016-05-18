@@ -30,10 +30,10 @@ export default Ember.Mixin.create({
 		var ownerid = this.get('session.data.authenticated.user_id');
 		return {
 			pendingSidebar: _.filter(t, function(i){
-				if(!i.get('answer') && i.get('status') != "delete") return true;
+				if(!i.get('answer') && (i.get('status') != "delete" || i.get('status') != "hide")) return true;
 			}).slice(0, this.get('limit')),
 			pending: _.filter(t, function(i){
-				if(!i.get('answer') && i.get('status') != "delete")  return true;
+				if(!i.get('answer') && (i.get('status') != "delete" || i.get('status') != "hide")) return true;
 			}),
 			answered: _.filter(t, function(i){
 				console.log(i.get('to.userid'))

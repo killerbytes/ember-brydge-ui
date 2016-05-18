@@ -16,9 +16,7 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
       interests: this.store.findAll('interest'),
       experiences: this.store.query('experience',{userid: userid}),
       educations: this.store.query('education',{userid: userid}),
-      questions: this.store.query('ask',{userid: userid}).then((asks)=>{
-        return asks.filterBy('answer');
-      }),
+      questions: this.store.query('ask',{userid: userid}),
       compliments: this.store.query('compliment',{to: userid})    	
     }).then((res)=>{
 	    controller.setProperties(res);

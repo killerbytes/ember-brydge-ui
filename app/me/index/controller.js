@@ -6,8 +6,9 @@ export default Ember.Controller.extend({
   sharePost: Ember.inject.service(),	
 	sortProps: ['createdAt:desc'],
   newsfeed: Ember.computed.sort('posts', 'sortProps'),
-  latestQuestion: Ember.computed('questions', function(){
-    return this.get('questions.firstObject');
+  acceptedQuestion: Ember.computed.filterBy('questions', 'status', 'accepted'),
+  latestQuestion: Ember.computed('acceptedQuestion', function(){
+    return this.get('acceptedQuestion.firstObject');
   }),
   acceptedCompliments: Ember.computed.filterBy('compliments', 'status', 'accepted'),
   latestCompliment: Ember.computed('acceptedCompliments', function(){
