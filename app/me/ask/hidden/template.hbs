@@ -19,7 +19,7 @@
                 </div>
                 {{#zf-dropdown id=(concat 'dd-card-menu-' item.id) closeOnClick=true class="card-menu-dropdown"}}
                   <ul class="menu">
-                    <li><a {{action "toggleItem" item }}>Unhide</a></li>
+                    <li><a {{action "toggleHide" item }}>Unhide</a></li>
                   </ul>
                 {{/zf-dropdown}}
               {{/if}}
@@ -48,7 +48,7 @@
                 </div>
                 {{#zf-dropdown id=(concat 'dd-card-menu-' item.id) closeOnClick=true class="card-menu-dropdown"}}
                   <ul class="menu">
-                    <li><a {{action "toggleItem" item }}>Unhide</a></li>
+                    <li><a {{action "toggleHide" item }}>Unhide</a></li>
                   </ul>
                 {{/zf-dropdown}}
               {{/if}}

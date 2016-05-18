@@ -12,7 +12,7 @@ export default Ember.Service.extend({
     });
   },
   delete(id){
-    var url = '/v1/asks/'+id+'/reject';
+    var url = '/v1/asks/'+id+'/delete';
     this.get('ajax').request(url, {
       method: 'POST'
     }).then((res)=>{

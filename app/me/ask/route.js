@@ -2,6 +2,7 @@ import Ember from 'ember';
 
 export default Ember.Route.extend({
 	sessionAccount: Ember.inject.service(),
+  ask: Ember.inject.service(),
   beforeModel() {
     this._super(...arguments);
     return this.get('sessionAccount.account'); // needed to make sure sessionAccount is full realized
@@ -15,9 +16,22 @@ export default Ember.Route.extend({
 
     })
 	},
-	setupController(controller, model){
-		this._super(...arguments);
-		controller.setProperties(model);
-	}
+	// setupController(controller, model){
+	// 	this._super(...arguments);
+	// 	controller.setProperties(model);
+	// },
+  actions: {
+  	selectItem(item) {
+  		this.set('ask.selectedQuestion', item);
+  	},
+    delete(item){
+      this.get('ask').delete(item.id);
+    },
+    toggleHide(item){
+      this.get('ask').hide(item.id);
+    },
+
+  }
+
 
 });

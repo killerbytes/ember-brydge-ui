@@ -16,6 +16,7 @@ export default Ember.Component.extend({
 			ask.set('from', this.get('from.user'));
 			store.findRecord('user', this.get('model.id')).then((user)=>{
 				ask.set('to', user);
+				this.set('question', null)
 				ask.save().then(savedCallback);					
 			})
 		}

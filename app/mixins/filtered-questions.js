@@ -3,48 +3,33 @@ import Ember from 'ember';
 export default Ember.Mixin.create({
 	session: Ember.inject.service(),
 	limit: 3,
-	asked: Ember.computed('fromQuestions.@each.status', function(){
-		var t = this.get('fromQuestions').toArray();
+	toPending: Ember.computed.filterBy('model.toQuestions', 'status', 'pending'),
+	toAccept: Ember.computed.filterBy('model.toQuestions', 'status', 'accepted'),
+	toHidden: Ember.computed.filterBy('model.toQuestions', 'status', 'hide'),
+	toPendingQuestions: Ember.computed.filterBy('toPending', 'delete', false),
+
+	fromPending: Ember.computed.filterBy('model.fromQuestions', 'status', 'pending'),
+	fromAccept: Ember.computed.filterBy('model.fromQuestions', 'status', 'accepted'),
+	fromHidden: Ember.computed.filterBy('model.fromQuestions', 'status', 'hide'),
+	fromPendingQuestions: Ember.computed.filterBy('fromPending', 'delete', false),
+
+	asked: Ember.computed('model.fromQuestions.@each.status', 'model.fromQuestions.@each.delete', function(){
 		return {
-			pendingSidebar: _.filter(t, function(i){
-				if(!i.get('answer')) return true;
-			}).slice(0, this.get('limit')),
-			pending: _.filter(t, function(i){
-				if(!i.get('answer')) return true;
-			}),
-			answered: _.filter(t, function(i){
-				if(i.get('answer') && i.get('status') != "hide") return true;
-			}),
-			hiddenSidebar: _.filter(t, function(i){
-				if(i.get('status') == "hide") return true;				
-			}).slice(0, 2),
-			hidden: _.filter(t, function(i){
-				if(i.get('status') == "hide") return true;				
-			})
-			
+			pendingSidebar: this.get('fromPendingQuestions').slice(0, this.get('limit')),
+			pending: this.get('fromPendingQuestions'),
+			answered: this.get('fromAccept'),
+			hiddenSidebar: this.get('fromHidden').slice(0, 2),
+			hidden: this.get('fromHidden')
 		}
 	}),
 
-	questions: Ember.computed('toQuestions.@each.status','toQuestions.@each.answer', function(){
-		var t = this.get('toQuestions').toArray();
-		var ownerid = this.get('session.data.authenticated.user_id');
+	questions: Ember.computed('model.toQuestions.@each.status', 'model.toQuestions.@each.delete', function(){
 		return {
-			pendingSidebar: _.filter(t, function(i){
-				if(!i.get('answer') && (i.get('status') != "delete" || i.get('status') != "hide")) return true;
-			}).slice(0, this.get('limit')),
-			pending: _.filter(t, function(i){
-				if(!i.get('answer') && (i.get('status') != "delete" || i.get('status') != "hide")) return true;
-			}),
-			answered: _.filter(t, function(i){
-				console.log(i.get('to.userid'))
-				if(i.get('answer') && i.get('status') != "hide") return true;
-			}),
-			hiddenSidebar: _.filter(t, function(i){
-				if(i.get('status') == "hide") return true;				
-			}).slice(0, 2),
-			hidden: _.filter(t, function(i){
-				if(i.get('status') == "hide") return true;				
-			})
+			pendingSidebar: this.get('toPendingQuestions').slice(0, this.get('limit')),
+			pending: this.get('toPendingQuestions'),
+			answered: this.get('toAccept'),
+			hiddenSidebar: this.get('toHidden').slice(0, 2),
+			hidden: this.get('toHidden')
 		}
 	}),
 });

@@ -1,0 +1,8 @@
+<select onchange={{action (mut month) value="target.value"}}>
+  {{#each months as |item index|}}
+    <option value={{index}} selected={{eq month index}}>{{item}}</option>
+  {{/each}}
+</select>
+
+
+{{month}}

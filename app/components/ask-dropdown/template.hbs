@@ -10,7 +10,7 @@
     <section class="padding ask-form">
       {{#if model.settings.ask }}
         {{#if from.settings.ask }}
-          {{textarea value=question rows="3"}}
+          {{form-text-counter limit=250 value=question rows=5 }}
           <div class="row">
             <div class="columns text-right">
               <button class="button success" type="submit">ASK</button>            

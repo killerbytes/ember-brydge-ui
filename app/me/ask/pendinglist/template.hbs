@@ -11,7 +11,7 @@
 			<div class="question-box-footer">
 				<ul class="menu menu-dotted">
 					<li><a {{action "selectItem" item }} class="float-left" data-open="answerFormModal">Write Answer</a></li>
-					<li><a {{action "rejectItem" item }} class="float-right">Delete</a></li>
+					<li><a {{action "delete" item }} class="float-right">Delete</a></li>
 					<li><a class="float-right">Flag</a></li>
 				</ul>												
 			</div>			
@@ -69,7 +69,7 @@
 			</div>
 			<div class="question-box-footer">
 				<ul class="menu menu-dotted">
-					<li><a {{action "toggleItem" item }}>Unhide</a></li>
+					<li><a {{action "toggleHide" item }}>Unhide</a></li>
 				</ul>												
 			</div>			
 		</li>
@@ -83,7 +83,7 @@
 			</div>
 			<div class="question-box-footer">
 				<ul class="menu menu-dotted">
-					<li><a {{action "toggleItem" item }}>Unhide</a></li>
+					<li><a {{action "toggleHide" item }}>Unhide</a></li>
 				</ul>												
 			</div>			
 		</li>
@@ -94,3 +94,5 @@
 		Load More
 	{{/link-to}}
 </div>
+
+{{log questions.answered}}
