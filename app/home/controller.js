@@ -52,7 +52,7 @@ export default Ember.Controller.extend(QueryLocationMixin,{
         Ember.get(this, 'flashMessages').success('Post Shared!');    
         this.store.findRecord('vote', res.get('sharedPostid'), {reload: true})
 
-        cb();
+        cb.apply();
       });
     }
 
