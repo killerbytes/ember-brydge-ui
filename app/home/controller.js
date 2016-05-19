@@ -26,7 +26,6 @@ export default Ember.Controller.extend(QueryLocationMixin,{
   isSearch: false,
 
   actions: {
-
     postFeed: function (content, categories, site, cb) {
       this.store.createRecord('post', {
         content: content,
@@ -50,7 +49,9 @@ export default Ember.Controller.extend(QueryLocationMixin,{
       this.get('sharePost').submit().then((res)=>{
         var newsfeed = this.get('model.newsfeed');
         newsfeed.pushObject(res._internalModel);
-        Ember.get(this, 'flashMessages').success('Post Shared!');     
+        Ember.get(this, 'flashMessages').success('Post Shared!');    
+        this.store.findRecord('vote', res.get('sharedPostid'), {reload: true})
+
         cb();
       });
     }

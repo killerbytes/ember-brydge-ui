@@ -4,17 +4,24 @@
     <div class="content">
       {{content-editable class="content-editable" value=value placeholder='Would you like to say something about this?'}}
       <p>{{{model.content}}}</p>
-      {{#if model.screenshot}}
-        <div class="post-image">
-          <img src="{{model.previewImage}}">
-        </div>
-        <div class="post-caption">
-          {{#if model.siteName}}
-            <div class="subheader">{{model.siteName}}</div>
+      {{#if model.title}}
+        <div class="media-main">
+          {{#if model.image}}
+          <div class="post-image">
+            <a href="{{model.url}}">
+              <img src="{{model.image}}">
+            </a>
+          </div>
           {{/if}}
-          <h3>{{model.title}}</h3>
+          <div class="post-caption">
+            <h3><a href="{{model.url}}">{{title}}</a></h3>
+            {{#if model.siteName}}
+              <div class="subheader"><a href="{{model.url}}">{{model.siteName}}</a></div>
+            {{/if}}
+          </div>
         </div>
-      {{/if}}      
+      {{/if}}
+
     </div>
     <div class="reveal-footer">
       {{#if sharePost.categories }}

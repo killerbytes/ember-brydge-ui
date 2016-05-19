@@ -17,7 +17,6 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, FilterDropdownListMix
 
   model: function (params) {
     let ownerid = this.get('session.data.authenticated.user_id');
-    
     if(params.q && params.q=='null') {
       delete params.q;
     }
@@ -36,9 +35,6 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, FilterDropdownListMix
       newsfeed: this.store.query('newsfeed',params, {reload: true}),
       profile: this.store.findRecord('profile', ownerid)
     });
-  },
-  afterModel(model){
-    console.log(model)
   },
 
   actions: {

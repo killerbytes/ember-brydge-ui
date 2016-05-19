@@ -11,6 +11,7 @@ export default Ember.Component.extend(ViewCommentsActionMixin,{
 	isExpend: false,
 	actions:{
 		comment: function() {
+			if(!this.get('commentContent').trim().length > 0) return false;
 			console.log('Key pressed =>', this.get('commentContent'), this.get('post.id'))
 			this.sendAction('postComment', this.get('commentContent'), this.get('post.id'));
 
@@ -21,7 +22,7 @@ export default Ember.Component.extend(ViewCommentsActionMixin,{
       var self = this;
 
       var comment = store.createRecord('comment',{ 
-				content: this.get('commentContent'), 
+				content: this.get('commentContent').trim(), 
 				threadId: this.get('post.id')
 			});
 			

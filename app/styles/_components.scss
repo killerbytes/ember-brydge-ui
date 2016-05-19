@@ -511,27 +511,30 @@ ul.list-lined{
 	.post-comment-form{
 		padding-top: 8px;
 		padding-bottom: 8px;
-
-	}
-	.media-object{
-		margin-bottom: 0;
-		.thumbnail{
-			float: left;
-			width: 30px;
-			height: 30px;
-			img{
-				width: 100%;
+		.media-object{
+			margin-bottom: 0;
+			.thumbnail{
+				float: left;
+				width: 30px;
+				height: 30px;
+				img{
+					width: 100%;
+				}
 			}
-		}
-		.comment-form{
-			padding-left: 40px;
-			input{
-				font-size: 12px;					
-				height: auto;
-				margin: 0;
+			.comment-form{
+				padding-left: 40px;
+				.content-editable-input{
+					font-size: 12px;					
+					height: auto;
+					margin: 0;
+			    padding: 5px 8px;
+			    background: #FFF;
+			    border: 1px solid $border-color;
+			    border-radius: 3px;
+				}
 			}
-		}
 
+		}
 	}
 
 	.post-comments{

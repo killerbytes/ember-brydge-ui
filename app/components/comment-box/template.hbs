@@ -5,7 +5,14 @@
         <img src= {{ avatarUrl }}>
       </div>
       <div class="comment-form" id="comment-form-{{post.id}}">
-        {{input type="text" placeholder="Write your comment" enter="comment" value=commentContent}}
+        {{content-editable 
+          type="text"
+          allowNewlines="false"
+          class="content-editable content-editable-input" 
+          value=commentContent 
+          placeholder="Write your comment" 
+          enter="comment" }}
+
       </div>
     </div>
   </div>

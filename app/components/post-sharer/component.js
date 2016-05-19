@@ -2,6 +2,10 @@ import Ember from 'ember';
 
 export default Ember.Component.extend({
 	sharePost: Ember.inject.service(),
+	title: Ember.computed('model.title', function(){
+		let title = this.get('model.title');
+		return title.length > 100 ? title.substr(0, 100) + ' ...' : title;
+	}),
 	actions: {
 		checkboxChanged(value, checked, name){
 
@@ -16,6 +20,7 @@ export default Ember.Component.extend({
 		sharePost(){
 			this.sendAction('submit', ()=>{
 				this.$('#shareModal').foundation('close');
+				this.set('value', null);
 			});
 		}
 	}
