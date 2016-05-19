@@ -97,7 +97,17 @@ export default Ember.Mixin.create({
 
 		selectView: function(item) {
 			console.log('go to profile');
-			this.get('routing').transitionTo('profile',item.get('shortid'));
+			this.get('notification').readNotification(item.get('id'))
+			.then((res)=>{
+				this.get('routing').transitionTo('profile',item.get('shortid'));
+				// unload
+					this.get('store').unloadAll('notification');
+
+					// reload
+					this.get('notification').checkForNotifications();
+			})
+
+			
 		}
 	}
 });
