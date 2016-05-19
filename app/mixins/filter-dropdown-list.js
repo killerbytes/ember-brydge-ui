@@ -7,7 +7,7 @@ export default Ember.Mixin.create(GetIndustryFromCodeMixin,{
 	setupController: function(controller, model, transition) {
     let _this = this;
 
-    // console.log('<< queryParams', transition.queryParams);
+    console.log('<< queryParams', transition.queryParams);
 
     var isCurated = controller.get('isCurated');
     var selectedLoc = controller.get('selectedLoc');
@@ -17,7 +17,7 @@ export default Ember.Mixin.create(GetIndustryFromCodeMixin,{
     // console.log('isCurated =>', isCurated);
     // console.log('selectedLoc =>', selectedLoc);
     // console.log('filteredLoc =>', filteredLoc);
-    // console.log('filteredIndustry =>', filteredIndustry);
+    console.log('filteredIndustry =>', filteredIndustry);
 
    
 
@@ -25,6 +25,10 @@ export default Ember.Mixin.create(GetIndustryFromCodeMixin,{
       if(transition.queryParams.location) controller.set('filteredLoc',transition.queryParams.location);
       if(transition.queryParams.tab) controller.set('isCurated',(transition.queryParams.tab === 'curated'));
       if(transition.queryParams.channels) {
+        if(transition.queryParams.channels === 'myconnections') {
+          controller.set('filteredIndustry','My Connections');
+          return;
+        }
         var industry =  this.getIndustryName(model.profile, transition.queryParams.channels);
         controller.set('filteredIndustry',industry);
       }

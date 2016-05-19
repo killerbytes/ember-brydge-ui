@@ -8,7 +8,7 @@
 			<div class="columns medium-6">
 				<strong>Your Network</strong>
 				<ul class="no-bullet">
-					<li><label for="">{{myConnections.text}}</label></li>
+					<li {{action "select" myConnections preventDefault=false }}>{{myConnections.text}}</li>
 					<!-- <li {{action "select" myCompany preventDefault=false }}>{{myCompany.text}}</li> -->
 
 					<li><label for="">{{myCompany.text}}</label></li>
@@ -16,7 +16,7 @@
 				<p></p>
 				<strong>Your Business Industry</strong>
 				<ul class="no-bullet">
-					<li {{action "select" model.myIndustry preventDefault=false }}><label for="">{{model.myIndustry.text}}</label></li>
+					<li {{action "select" model.myIndustry preventDefault=false }}>{{model.myIndustry.text}}</li>
 				</ul>
 				<p>{{#link-to 'me.edit' sessionAccount.account.profile.id (query-params tab="industry")}}Edit Business Industry{{/link-to}}</p>				
 				<!-- <p><a href="">Add other Industry Channels to follow</a></p> -->
@@ -24,7 +24,7 @@
 				<strong>Your Occupational Industry</strong>
 				<ul class="no-bullet">
 				{{#each model.myOccupations as |industry|}}
-					<li {{action "select" industry preventDefault=false }}><label for="">{{industry.text}}</label></li>
+					<li {{action "select" industry preventDefault=false }}>{{industry.text}}</li>
 				{{/each}}
 				</ul>
 				<p>{{#link-to 'me.edit' sessionAccount.account.profile.id (query-params tab="occupindustry")}}Edit Occupational Industry{{/link-to}}</p>				

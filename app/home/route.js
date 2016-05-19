@@ -17,18 +17,19 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, FilterDropdownListMix
 
   model: function (params) {
     let ownerid = this.get('session.data.authenticated.user_id');
-    console.log('params =>', params);
+    
     if(params.q && params.q=='null') {
       delete params.q;
     }
 
+    if(params.channels && params.channels=='myconnections') {
+      delete params.channels;
+    }
+
     if(!params.tab) {
-      console.log('no tab');
       params.tab='curated';
     }
 
-    console.log('updated params =>', params)
-    
     return Ember.RSVP.hash({
       newsfeed: this.store.query('newsfeed',params),
       profile: this.store.findRecord('profile', ownerid)
@@ -46,7 +47,6 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, FilterDropdownListMix
     },
 
     setChannel: function(geo) {
-      console.log('<< geo', geo);
       this.transitionTo('home', { queryParams: { channels: geo }});
       this.refresh();
     },
