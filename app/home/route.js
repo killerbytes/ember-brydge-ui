@@ -29,6 +29,8 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, FilterDropdownListMix
     if(!params.tab) {
       params.tab='curated';
     }
+    
+    this.store.unloadAll('newsfeed');
 
     return Ember.RSVP.hash({
       newsfeed: this.store.query('newsfeed',params, {reload: true}),
