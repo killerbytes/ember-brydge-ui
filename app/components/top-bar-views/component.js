@@ -1,7 +1,9 @@
 import Ember from 'ember';
+import NotificationActionsMixin from 'web/mixins/notification-actions';
 
-export default Ember.Component.extend({
+export default Ember.Component.extend(NotificationActionsMixin,{
 	settings: Ember.inject.service(),
+  notification: Ember.inject.service(),
 	tagName: 'li',
   settingsChanged(e){
       this.set('setting.'+ e.currentTarget.name, e.currentTarget.checked);
@@ -17,6 +19,4 @@ export default Ember.Component.extend({
     //   this.get('settings').update(this.get('setting'));
     // }
   }
-
-
 });

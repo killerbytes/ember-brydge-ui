@@ -16,7 +16,7 @@ export default Ember.Service.extend({
  //    this.set('connectionStore', this.get('store').findAll('connection'))
  //  },
   checkForNotifications(cb){
-    console.log('cb',cb)
+    
     this.get('store').query('notification',{group:'general'}).then((res)=>{
       console.log('Received notifications...');
       this.set('notifications', res);
@@ -30,7 +30,13 @@ export default Ember.Service.extend({
         this.get('store').query('notification',{group:'connection'}).then((res)=>{
           console.log('Received connections...');
           this.set('requests', res);
-          if(cb) cb.call();
+
+          this.get('store').query('notification',{group:'views'}).then((res)=>{
+            console.log('Received profile view...');
+            this.set('views', res);
+            if(cb) cb.call();
+          })
+
         })
         
       })

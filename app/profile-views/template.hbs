@@ -7,7 +7,7 @@
           <div class="columns medium-centered">
             <form class="inline-block">
               <div class="switch">
-                {{input type="checkbox" change=(action settingsChanged 'profileView') checked=model.settings.profileView class="switch-iput" id="profileSwitch" name="profileSwitch" }}
+                {{input type="checkbox" change=(action settingsChanged 'profileView') checked=model.profile.settings.profileView class="switch-iput" id="profileSwitch" name="profileSwitch" }}
                 <label class="switch-paddle" for="profileSwitch">
                   <span class="show-for-sr">Turn Profile Views OFF</span>
                 </label>
@@ -32,32 +32,24 @@
         <strong>PROFILE VIEWS FROM THE LAST FEW DAYS</strong>
       </div>
       <ul class="media-list notifications-list no-bullet list-lined">
-        <li>
+      {{#each model.views as |item|}}
+        <li {{action "selectView" item preventDefault=false }}>
+        
           <div class="media-object">
             <div class="media-object-section">
               <div class="thumbnail">
-                <img src= "assets/avatar-1.jpg">
+                <img src= {{item.target.profile.avatarUrl}}>
               </div>
             </div>
             <div class="media-object-section main-section">
-              <p><a>Jon Wayne</a> viewed your profile</p>
-              <span>Today at 2:30pm</span>
+              <p><a>{{item.target.profile.firstName}} {{item.target.profile.lastName}}</a> viewed your profile</p>
+              <span>{{ postDateFormat item.createdAt }}</span>
             </div>
           </div>
+         
         </li>
-        <li>
-          <div class="media-object">
-            <div class="media-object-section">
-              <div class="thumbnail">
-                <img src= "assets/avatar-1.jpg">
-              </div>
-            </div>
-            <div class="media-object-section main-section">
-              <p><a>Jon Wayne</a> viewed your profile</p>
-              <span>Today at 2:30pm</span>
-            </div>
-          </div>
-        </li>
+        
+        {{/each}}
       </ul>
   		
   	</div>

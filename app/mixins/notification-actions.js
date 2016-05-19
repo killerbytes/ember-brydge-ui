@@ -93,6 +93,11 @@ export default Ember.Mixin.create({
 
 		rejectConnection: function(item) {
 			console.log('reject connection', item.get('id'))
+		},
+
+		selectView: function(item) {
+			console.log('go to profile');
+			this.get('routing').transitionTo('profile',item.get('shortid'));
 		}
 	}
 });

@@ -1,11 +1,18 @@
 import Ember from 'ember';
+import NotificationActionsMixin from 'web/mixins/notification-actions';
 
-export default Ember.Route.extend({
+
+export default Ember.Route.extend(NotificationActionsMixin,{
 	session: Ember.inject.service('session'),
 	settings: Ember.inject.service(),
 	model(){
 		let userid = this.get('session.data.authenticated.user_id');
-		return this.store.findRecord('profile', userid);
+		// return this.store.findRecord('profile', userid);
+
+    return Ember.RSVP.hash({
+      views: this.store.query('notification',{group:'views'}),
+      profile: this.store.findRecord('profile', userid)
+    });
 	},
 	setupController(controller, model){
 		this._super(...arguments);
