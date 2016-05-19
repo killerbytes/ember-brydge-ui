@@ -20,7 +20,7 @@
 			</div>
 			<div class="columns medium-3 text-right">
         <div class="switch">
-          {{input type="checkbox" change=(action settingsChanged 'profileView') checked=setting.profileView class="switch-iput" id="topBarProfileSwitch" name="topBarProfileSwitch" }}
+          {{input type="checkbox" change=(action settingsChanged) checked=setting.profileView class="switch-iput" id="topBarProfileSwitch" name="profileView" }}
           <label class="switch-paddle" for="topBarProfileSwitch">
             <span class="show-for-sr">Turn Profile Views OFF</span>
           </label>

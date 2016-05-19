@@ -1,5 +1,8 @@
 <h1>Testing</h1>
-{{form-input-month-year value=myDate }}
-{{form-input-month-year value=myDate type="year"}}
-
-{{myDate}}
+{{input value=txt}}
+<button class="button" {{action "add" }}>Add</button>
+<ul>
+	{{#each items as |item|}}
+	<li>{{term-date-format item.updatedAt 'MM/DD/YYYY'}}: {{item.content}}</li>
+	{{/each}}
+</ul>

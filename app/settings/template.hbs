@@ -53,24 +53,89 @@
                   </thead>
                   <tbody>
                     <tr>
-                      <td>This is longer content Donec id elit non mi porta gravida at eget metus.</td>
-                      <td class="text-center"><input type='checkbox'></td>
-                      <td class="text-center"><input type='checkbox'></td>
+                      <td>When someone upvotes my broadcast</td>
+                      <td class="text-center">
+                        {{input type="checkbox" change=(action 'notificationChanged') checked=model.settings.notifications.vote id="notifications.vote" name="notifications.vote" }}                        
+                      </td>
+                      <td class="text-center">
+                        {{input type="checkbox" change=(action 'emailNotificationChanged') checked=model.settings.emailNotifications.vote id="emailNotifications.vote" name="emailNotifications.vote" }}
+                      </td>
                     </tr>
                     <tr>
-                      <td>This is longer Donec id elit non mi porta gravida at eget metus.</td>
-                      <td class="text-center"><input type='checkbox'></td>
-                      <td class="text-center"><input type='checkbox'></td>
+                      <td>When someone comments on my broadcast</td>
+                      <td class="text-center">
+                        {{input type="checkbox" change=(action 'notificationChanged') checked=model.settings.notifications.comment id="notifications.comment" name="notifications.comment" }}
+                      </td>
+                      <td class="text-center">
+                        {{input type="checkbox" change=(action 'emailNotificationChanged') checked=model.settings.emailNotifications.comment id="emailNotifications.comment" name="emailNotifications.comment" }}
+                      </td>
                     </tr>
                     <tr>
-                      <td>This is longer Donec id elit non mi porta gravida at eget metus.</td>
-                      <td class="text-center"><input type='checkbox'></td>
-                      <td class="text-center"><input type='checkbox'></td>
+                      <td>When someone shares my broadcast</td>
+                      <td class="text-center">
+                        {{input type="checkbox" change=(action 'notificationChanged') checked=model.settings.notifications.share id="notifications.share" name="notifications.share" }}
+                      </td>
+                      <td class="text-center">
+                        {{input type="checkbox" change=(action 'emailNotificationChanged') checked=model.settings.emailNotifications.share id="emailNotifications.share" name="emailNotifications.share" }}
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>When someone asks me a question</td>
+                      <td class="text-center">
+                        {{input type="checkbox" change=(action 'notificationChanged') checked=model.settings.notifications.ask id="notifications.ask" name="notifications.ask" }}
+                      </td>
+                      <td class="text-center">
+                        {{input type="checkbox" change=(action 'emailNotificationChanged') checked=model.settings.emailNotifications.ask id="emailNotifications.ask" name="emailNotifications.ask" }}
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>When someone answers a question I asked</td>
+                      <td class="text-center">
+                        {{input type="checkbox" change=(action 'notificationChanged') checked=model.settings.notifications.answer id="notifications.answer" name="notifications.answer" }}                        
+                      </td>
+                      <td class="text-center">
+                        {{input type="checkbox" change=(action 'emailNotificationChanged') checked=model.settings.emailNotifications.answer id="emailNotifications.answer" name="emailNotifications.answer" }}
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>When someone compliments me</td>
+                      <td class="text-center">
+                        {{input type="checkbox" change=(action 'notificationChanged') checked=model.settings.notifications.compliment id="notifications.compliment" name="notifications.compliment" }}
+                      </td>
+                      <td class="text-center">
+                        {{input type="checkbox" change=(action 'emailNotificationChanged') checked=model.settings.emailNotifications.compliment id="emailNotifications.compliment" name="emailNotifications.compliment" }}
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>When someone requests to connect with me</td>
+                      <td class="text-center">
+                        {{input type="checkbox" change=(action 'notificationChanged') checked=model.settings.notifications.request id="notifications.request" name="notifications.request" }}
+                      </td>
+                      <td class="text-center">
+                        {{input type="checkbox" change=(action 'emailNotificationChanged') checked=model.settings.emailNotifications.request id="emailNotifications.request" name="emailNotifications.request" }}
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>When someone accepts my connection request</td>
+                      <td class="text-center">
+                        {{input type="checkbox" change=(action 'notificationChanged') checked=model.settings.notifications.accept id="notifications.accept" name="notifications.accept" }}
+                      </td>
+                      <td class="text-center">
+                        {{input type="checkbox" change=(action 'emailNotificationChanged') checked=model.settings.emailNotifications.accept id="emailNotifications.accept" name="emailNotifications.accept" }}
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>When someone sends me a message</td>
+                      <td class="text-center">
+                        {{input type="checkbox" change=(action 'notificationChanged') checked=model.settings.notifications.message id="notifications.message" name="notifications.message" }}
+                      </td>
+                      <td class="text-center">
+                        {{input type="checkbox" change=(action 'emailNotificationChanged') checked=model.settings.emailNotifications.message id="emailNotifications.message" name="emailNotifications.message" }}
+                      </td>
                     </tr>
                   </tbody>
                 </table>  
                 <div class="mt text-center">
-                  <button class="button success">SAVE</button>
                 </div>            
               </div>
               <div class="tabs-panel space-filler {{active-tab 'ask' tab}}" id="ask">
@@ -81,8 +146,8 @@
                     </div>
                     <div class="columns medium-6">
                       <div class="switch">
-                        {{input type="checkbox" change=(action settingsChanged 'ask') checked=model.settings.ask class="switch-iput" id="askSwitch" name="askSwitch" }}
-                        <label class="switch-paddle" for="askSwitch">
+                        {{input type="checkbox" change=(action settingsChanged) checked=model.settings.ask class="switch-iput" id="settings_ask" name="ask" }}
+                        <label class="switch-paddle" for="settings_ask">
                           <span class="show-for-sr">Turn ASK OFF</span>
                         </label>
                       </div>
@@ -103,8 +168,8 @@
                     </div>
                     <div class="columns medium-6">
                       <div class="switch">
-                        {{input type="checkbox" change=(action settingsChanged 'profileView') checked=model.settings.profileView class="switch-iput" id="profileSwitch" name="profileSwitch" }}
-                        <label class="switch-paddle" for="profileSwitch">
+                        {{input type="checkbox" change=(action settingsChanged) checked=model.settings.profileView class="switch-iput" id="settings_view" name="profileView" }}
+                        <label class="switch-paddle" for="settings_view">
                           <span class="show-for-sr">Turn Profile Views OFF</span>
                         </label>
                       </div>

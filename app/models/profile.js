@@ -6,7 +6,7 @@ export default DS.Model.extend({
 	lastName: DS.attr('string'),
 	location: DS.attr('string'),
 	jobTitle: DS.attr('string'),
-	settings: DS.attr(),
+	settings: DS.attr({defaultValue: {}}),
 	industry: DS.attr('string'),
 	occupationOne: DS.attr('string'),
 	occupationTwo: DS.attr('string'),
