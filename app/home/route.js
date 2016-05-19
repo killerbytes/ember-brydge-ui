@@ -31,7 +31,7 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, FilterDropdownListMix
     }
 
     return Ember.RSVP.hash({
-      newsfeed: this.store.query('newsfeed',params),
+      newsfeed: this.store.query('newsfeed',params, {reload: true}),
       profile: this.store.findRecord('profile', ownerid)
     });
   },
