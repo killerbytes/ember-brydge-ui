@@ -25,7 +25,7 @@
               {{/if}}
 
               <div class="mb5">{{link-to item.from.content.name "profile" item.from.content.username class="user"}} asked {{link-to item.to.content.name "profile" item.to.content.username class="user"}}</div>
-              <p class="timestamp">{{postDateFormat item.createdAt}}</p>      
+              <p class="timestamp">{{timestamp item.createdAt}}</p>      
               <h2>{{item.content}}</h2>
               {{#zf-accordion-menu class="accordion-menu" multiOpen=true}}
                 <li>
@@ -54,7 +54,7 @@
               {{/if}}
 
               <div class="mb5">{{link-to item.from.content.name "profile" item.from.content.username class="user" }} asked {{link-to item.to.content.name "profile" item.to.content.username class="user"}}</div>
-              <p class="timestamp">{{postDateFormat item.createdAt}}</p>      
+              <p class="timestamp">{{timestamp item.createdAt}}</p>      
               <h2>{{item.content}}</h2>
               {{#zf-accordion-menu class="accordion-menu"}}
                 <li>

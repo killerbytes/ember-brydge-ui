@@ -45,7 +45,7 @@
           </div>
           <div class="media-object-section main-section">
             {{link-to item.from.name "profile" "me" class="user"}} <span class="text-light">complimented</span> {{link-to item.to.name "profile" item.to.username class="user"}}
-            <p class="timestamp text-light">{{postDateFormat item.createdAt}}</p>              
+            <p class="timestamp text-light">{{timestamp item.createdAt}}</p>              
             <strong class="title text-upper">{{item.title}}</strong>
             <p class="content">{{item.content}}</p>               
           </div>
@@ -68,7 +68,7 @@
               <div class="title">{{item.title}}</div>
               <p class="content">{{item.content}}</p>               
               <div class="text-light">{{link-to item.from.name "profile" item.from.username class="user"}} complimented {{link-to item.to.name "profile" item.to.username class="user"}}</div>
-              <p class="timestamp text-light mb5">{{postDateFormat item.createdAt}}</p>
+              <p class="timestamp text-light mb5">{{timestamp item.createdAt}}</p>
             </div>
           </li>
         {{/each}}

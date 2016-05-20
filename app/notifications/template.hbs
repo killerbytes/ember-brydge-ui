@@ -27,38 +27,38 @@
               
               {{#if (notification-type 'answer' item.type)}}
                 <p><a>{{item.target.profile.firstName}} {{item.target.profile.lastName}}</a> answered your question</p>
-                <span>{{ postDateFormat item.createdAt }}</span>
+                <span>{{ timestamp item.createdAt }}</span>
               {{/if}}
 
 
               {{#if (notification-type 'ask' item.type)}}
                 <p><a>{{item.target.profile.firstName}} {{item.target.profile.lastName}}</a> asked you a question</p>
-                <span>{{ postDateFormat item.createdAt }}</span>
+                <span>{{ timestamp item.createdAt }}</span>
               {{/if}}
 
               {{#if (notification-type 'comment' item.type)}}
                 <p><a>{{item.target.profile.firstName}} {{item.target.profile.lastName}}</a> commented your broadcast <a>"{{ getNotificationContent item.content }}"</a></p>
-                <span>{{ postDateFormat item.createdAt }}</span>
+                <span>{{ timestamp item.createdAt }}</span>
               {{/if}}
 
               {{#if (notification-type 'vote' item.type)}}
                 <p><a>{{item.target.profile.firstName}} {{item.target.profile.lastName}}</a> upvoted your broadcast <a>"{{ getNotificationContent item.content }}"</a>  </p>
-                <span>{{ postDateFormat item.createdAt }}</span>
+                <span>{{ timestamp item.createdAt }}</span>
               {{/if}}
               {{#if (notification-type 'compliment' item.type)}}
                 <p><a>{{item.target.profile.firstName}} {{item.target.profile.lastName}}</a> posted a compliment to you </p>
-                <span>{{ postDateFormat item.createdAt }}</span>
+                <span>{{ timestamp item.createdAt }}</span>
               {{/if}}
 
               {{#if (notification-type 'accept' item.type)}}
                 <p><a>{{item.target.profile.firstName}} {{item.target.profile.lastName}}</a> accepted your request <a>{{ item.content}}</a></p>
-                <span>{{ postDateFormat item.createdAt }}</span>
+                <span>{{ timestamp item.createdAt }}</span>
               {{/if}}
 
 
               {{#if (notification-type 'share' item.type)}}
                 <p><a>{{item.target.profile.firstName}} {{item.target.profile.lastName}}</a> shared your broadcast <a>"{{ getNotificationContent item.content }}"</a></p>
-                <span>{{ postDateFormat item.createdAt }}</span>
+                <span>{{ timestamp item.createdAt }}</span>
               {{/if}}
 
 

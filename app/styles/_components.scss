@@ -477,16 +477,17 @@ ul.list-lined{
 	background-color: $panel-color;
 	position: relative;
 	padding-left: 25px;
-	font-size: 12px;
+	font-size: 11px;
 	margin-bottom: 5px;
 	margin-right: 5px;
+	border-bottom: 1px solid $border-color;
 	.fa-close{
 		background-color: $brydge-blue;
 		color: #FFF;
 		position: absolute;
 		left: 0;
 		top: 0;
-		font-size: 16px;
+		font-size: 15px;
 		padding: 2px 3px;
 	}
 }

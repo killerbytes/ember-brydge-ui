@@ -107,7 +107,6 @@
 
 {{#zf-reveal id="industryModal" overlay=true class="reveal-popup large"}}
   <h4>Industry</h4>
-  <form action="">
     <div class="content">        
       {{#zf-tabs class="hide"}}
         <li class="tabs-title is-active"><a href="#root">Root</a></li>
@@ -118,6 +117,7 @@
             {{/each}}
         {{/each}}  
       {{/zf-tabs}}
+
       <div class="tabs-contentx" data-tabs-content="example-tabs">
 
         <div class="tabs-panel is-active" id="root">
@@ -130,43 +130,51 @@
             {{/each}}
           </ul>
         </div>
-
-        {{#each model.categories as |item|}}
-          <div class="tabs-panel" id="{{item.code}}">
-            <a {{action "goto" "root" }}>Back</a>
-            <p>
-              <h3>{{item.name}}</h3>
-            </p>
-            <p>
-              <ul class="no-bullet">
-              {{#each item.categories as |item|}}
-                <li><a {{action "goto" item.code }}>{{item.name}}</a></li>
-              {{/each}}
-              </ul>
-            </p>
-          </div>
-
-          {{#each item.categories as |category|}}
-            <div class="tabs-panel" id="{{category.code}}">
-              <a {{action "goto" item.code }}>Back</a>
+        <form action="">
+          {{#each model.categories as |item|}}
+            <div class="tabs-panel" id="{{item.code}}">
+              <a {{action "goto" "root" }}>Back</a>
               <p>
-                <h3>{{category.name}}</h3>
+                <h3>{{item.name}}</h3>
               </p>
-              <p>          
+              <p>
+                {{#each category-splitter item.categories as |item|}}
+                  {{log item}}
+                {{/each}}
+
                 <ul class="no-bullet">
-                {{#each category.industries as |industry|}}
-                  <li>
-                    {{action-checkbox-bind value=industry.data.code text=industry.data.subIndustry action="onCheckIndustry" checked=industry.data.checked}}
-                  </li>
+
+                {{#each item.categories as |item|}}
+
+                  <li><a {{action "goto" item.code }}>{{item.name}}</a></li>
                 {{/each}}
                 </ul>
               </p>
             </div>
 
+            {{#each item.categories as |category|}}
+              <div class="tabs-panel" id="{{category.code}}">
+                <a {{action "goto" item.code }}>Back</a>
+                <p>
+                  <h3>{{category.name}}</h3>
+                </p>
+                <p>          
+                  <ul class="no-bullet">
+                  {{#each category.industries as |industry|}}
+                    <li>
+                      {{action-checkbox-bind value=industry.data.code text=industry.data.subIndustry action="onCheckIndustry" checked=industry.data.checked}}
+                    </li>
+                  {{/each}}
+                  </ul>
+                </p>
+              </div>
+
+            {{/each}}
           {{/each}}
-        {{/each}}
+        </form>
       </div>
-      <ul class="menu">
+
+      <ul class="list-inline">
         {{#each selectedIndustries as |item|}}
           <li><span class="label label-item"><a {{action "removeSelectedIndustry" item}}>{{fa-icon "close"}}</a> {{item.name}}</span></li>
         {{/each}}
@@ -178,5 +186,4 @@
         <a class="button success" data-close>Cancel</a>
       </div>
     </div>
-  </form>
 {{/zf-reveal}}

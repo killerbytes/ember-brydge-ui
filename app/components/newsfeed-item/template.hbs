@@ -17,7 +17,7 @@
         {{/if}}
       </div>
       <div class="position">{{post.user.profile.currentTitle}} <span class="bullet">&bull;</span> {{post.user.profile.currentCompany}}</div>
-      <p class="timestamp">{{#link-to 'post' post.user.id post.id }}{{postDateFormat post.updatedAt}}{{/link-to}}</p>
+      <p class="timestamp">{{#link-to 'post' post.user.id post.id }}{{timestamp post.updatedAt}}{{/link-to}}</p>
     </div>
   </div>
 
