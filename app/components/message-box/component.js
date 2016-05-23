@@ -3,6 +3,7 @@ import Ember from 'ember';
 export default Ember.Component.extend({
   store: Ember.inject.service(),
   ajax: Ember.inject.service(),
+  utils: Ember.inject.service(),
   classNames: ['message-box'],
 	actions: {
   	submit: function(to, msg) {
@@ -11,7 +12,7 @@ export default Ember.Component.extend({
       this.get('ajax').request(url, {
         method: 'POST',
         data: {
-          content: msg,
+          content: this.get('utils').insertParagraph(msg),
           to_id: to,
           to_type: "User"
         }

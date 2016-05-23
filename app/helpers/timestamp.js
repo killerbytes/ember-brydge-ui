@@ -9,10 +9,12 @@ export default Ember.Helper.helper(([date])=>{
       return 'Just now';
       break;
     case dd < 3600: // < 60 minutes
-      return  Math.floor(dd/60) + ' minutes ago';
+      var i = Math.floor(dd/60);
+      return  i > 1 ? i + ' minutes ago' : ' minute ago';
       break;
     case dd < 86400: // < 24 hours
-      return  Math.floor(dd/60/60) + ' hours ago';
+      var i = Math.floor(dd/60/60);
+      return  i > 1 ? i + ' hours ago' : ' hour ago';
       break;
     case dd < 172800: // < 48 hours
       return  'Yesterday at ' + date.format("h:mma");
