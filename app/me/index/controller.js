@@ -2,6 +2,7 @@ import Ember from 'ember';
 
 export default Ember.Controller.extend({
 	session: Ember.inject.service(),
+  ajax: Ember.inject.service(),
   flashMessages: Ember.inject.service(),
   sharePost: Ember.inject.service(),	
 	sortProps: ['createdAt:desc'],
@@ -42,6 +43,20 @@ export default Ember.Controller.extend({
         cb();
         Ember.get(this, 'flashMessages').success('Post Shared!');     
       });
-    }  	
+    },
+    fileLoaded: function(formData){
+      console.log('particular info Component=>');
+
+      return this.get('ajax').request('/v1/profile/avatar', {
+        method: 'POST',
+        data: formData,
+        contentType: false,
+        processData: false,
+      }).then((res)=>{
+        console.log(res);
+        this.get('model').set('avatarUrl',res.data.attributes.avatarUrl);
+      })
+    }
+
   }
 });

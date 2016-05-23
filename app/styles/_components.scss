@@ -139,12 +139,6 @@ ul.menu-dotted{
 }
 
 
-ul.list-lined{
-	>li:not(:last-child){
-		border-bottom: 1px solid $border-color;		
-	}
-
-}
 
 
 
@@ -696,3 +690,30 @@ span.bullet{
 		float: right;
 	}
 }
+
+
+.hover-edit{
+	position: relative;
+	.icons.pencil{
+		cursor: pointer;
+		display: inline-block;
+		margin-left: 10px;
+		display: none;
+	}
+}
+.hover-edit-absolute{
+	li{
+		position: relative;
+	}
+	.icons.pencil{
+	  position: absolute;
+	  top: 15px;
+	  right: 15px;
+	}
+}
+.hover-edit:hover{
+	.icons.pencil{
+		display: inline-block;
+	}
+}
+

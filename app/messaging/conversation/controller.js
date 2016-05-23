@@ -1,8 +1,11 @@
 import Ember from 'ember';
 
 export default Ember.Controller.extend({
-	ajax: Ember.inject.service(),
-  sortProps: ['createdAt:asc'],
+	sortProps: ['createdAt:desc'],
   messages: Ember.computed.sort('model.messages', 'sortProps'),
+  groupMessages: Ember.computed('messages', function(){
+  	
+  	return this.get('messages');
+  })
 
 });

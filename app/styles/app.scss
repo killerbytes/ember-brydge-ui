@@ -186,10 +186,9 @@ input.flat{
 	border: 0;
 	box-shadow: none;
 }
-img.circle{
+.circle{
 	border-radius: 200px;	
-	width: 100%;
-	height: 100%;
+	overflow: hidden;
 }
 .inline-block{
 	display: inline-block;

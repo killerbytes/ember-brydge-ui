@@ -18,6 +18,11 @@
 	&.user{
 		background-image: url(icons/user.png);
 	}
+	&.pencil{
+		background-image: url(icons/pencil.png);
+		width: 15px;
+		height: 15px;
+	}
 	&.bino{
 		background-image: url(icons/bino.png);
 	}
@@ -56,4 +61,13 @@
 	margin-right: 1rem;
 	background-color: #F1F1F1;
 	border-right: 1px solid #D9D9D9;
+}
+
+
+.icons.icon-left{
+	margin-right: 10px;
+}
+.icons.icon-inline{
+	display: inline-block;
+	margin-left: 10px;
 }

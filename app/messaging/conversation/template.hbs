@@ -6,7 +6,7 @@
 </div>
 <div class="message-content">
   <ul class="messages-list no-bullet">
-    {{#each model.messages as |item| }}
+    {{#each groupMessages as |item| }}
       <li>
         <div class="media-object">
           <div class="media-object-section">
@@ -24,7 +24,7 @@
                 </strong>
               </div>
               <div class="columns medium-3 text-right">
-                <span class="timestamp">{{ moment-format item.createdAt "h:ma" }}</span>
+                <span class="timestamp">{{ moment-format item.createdAt "DD/dd h:mma" }}</span>
 
               </div>
             </div>

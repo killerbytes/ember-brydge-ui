@@ -36,6 +36,13 @@ ul.media-list{
   }  
 }
 
+ul.list-lined{
+  >li:not(:last-child){
+    border-bottom: 1px solid $border-color;   
+  }
+
+}
+
 ul.notifications-list{
   padding-bottom: 1rem;
   .thumbnail{
@@ -160,3 +167,4 @@ ul.messages-list{
   }
 
 }
+

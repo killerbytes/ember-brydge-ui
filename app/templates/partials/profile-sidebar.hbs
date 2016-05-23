@@ -1,6 +1,6 @@
 <div class="box rounded profile overflow">
   <ul class="no-bullet list-lined no-margin">
-    <li>
+    <li class="hover-edit hover-edit-absolute">
       <div class="profile-industry">
           <div class="icon-wrapper">
             <i class="icons building"></i>
@@ -8,9 +8,12 @@
           <div class="content">
             <a href="">{{model.industry}}</a>
           </div>        
-      </div>          
+      </div>   
+      {{#link-to "me.edit" model.id (query-params tab="industry")}}
+        <i class="icons pencil"></i>       
+      {{/link-to}}
     </li>
-    <li>
+    <li class="hover-edit hover-edit-absolute">
       <div class="profile-industry">
           <div class="icon-wrapper">
             <i class="icons briefcase"></i>
@@ -19,7 +22,10 @@
             <a href="">{{model.occupationOne}}</a>
             <a href="">{{model.occupationTwo}}</a>
           </div>
-      </div>          
+      </div>
+      {{#link-to "me.edit" model.id (query-params tab="occupindustry") }}       
+        <i class="icons pencil"></i>
+      {{/link-to}}
     </li>
   </ul>
 </div>
@@ -50,8 +56,12 @@
   </div>
 {{/if}}
 
-<div class="box rounded snapshot">
-  <h5 class="box-header">Snapshot</h5>
+<div class="box rounded snapshot hover-edit">
+  <h5 class="box-header">Snapshot 
+    {{#link-to "me.edit" model.id (query-params tab="snapshot")}}       
+      <i class="icons pencil pull-right"></i>
+    {{/link-to}}
+  </h5>
   <div class="columns">
     {{model.snapshot}}
   </div>

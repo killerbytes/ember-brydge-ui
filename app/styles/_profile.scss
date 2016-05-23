@@ -1,10 +1,21 @@
+.profile-photo{
+	cursor: pointer;
+	width: 250px;
+	height: 250px;
+	background-size: cover;	
+	background-position: center center;	
+	margin: auto;
+	margin-bottom: 20px;
+}
+
 .profile-cover-wrapper{
-	/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#000000+0,000000+100&0+0,0.65+100 */
-	background: -moz-linear-gradient(top,  rgba(0,0,0,0) 0%, rgba(0,0,0,0.65) 100%); /* FF3.6-15 */
-	background: -webkit-linear-gradient(top,  rgba(0,0,0,0) 0%,rgba(0,0,0,0.65) 100%); /* Chrome10-25,Safari5.1-6 */
-	background: linear-gradient(to bottom,  rgba(0,0,0,0) 0%,rgba(0,0,0,0.65) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#000000+0,000000+100&0+0,0.50+100 */
+	background: -moz-linear-gradient(top,  rgba(0,0,0,0) 0%, rgba(0,0,0,0.50) 100%); /* FF3.6-15 */
+	background: -webkit-linear-gradient(top,  rgba(0,0,0,0) 0%,rgba(0,0,0,0.50) 100%); /* Chrome10-25,Safari5.1-6 */
+	background: linear-gradient(to bottom,  rgba(0,0,0,0) 0%,rgba(0,0,0,0.50) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#a6000000',GradientType=0 ); /* IE6-9 */
 
+	padding: 25px;
 	margin-bottom: 5px;
 }
 .profile-form-wrapper{
@@ -19,30 +30,6 @@
 		font-size: 15px;
 		line-height: 1.4em;
 	}	
-}
-.profile-actionsxxx{
-	position: relative;
-	.button{
-	// 	@extend .box;
-		// display: inline-block;
-		// width: calc(33.33333% - 2px);
-	// 	&.connect{
-	// 		background-color: $brydge-blue;
-	// 		border-color: #cfefff #96dcfe #96dcfe;
-	// 		color: #FFF;
-	// 		&:hover{
-	// 			background-color: $dark-blue;
-	// 			color: #FFF;
-	// 		}
-	// 	}				
-	}
-	// .button-group > .button, .button-groupx > div{
-	// 	@extend .rounded;
-	// 	margin-left: 2px;
-	// 	&:hover{
-	// 		color: $brydge-blue;			
-	// 	}
-	// }
 }
 
 .profile-industry{
@@ -66,51 +53,37 @@
 }
 
 .profile-cover{
-	margin-top: 50px;
-	padding-bottom: 65px;
-	padding-top: 30px;
-	position: relative;
-	min-height: 176px;
 	h1{
 		color: #FFF;
 		line-height: 1.4em;
-		span{
-			font-size: 21px;
-			font-weight: normal;
-			display: block;
-			line-height: 1em;
-			// color: #999;
-		}
-		strong{
-			text-transform: uppercase;		
-			font-size: 26px;
-		}
 	}
-	.profile-center{
-		position: absolute;
-		width: 100%;
-		top: -15%;
+	.profile-photo{		// position: absolute;
+		width: 180px;
+		height: 180px;
 	}
 	.name{
-		padding-right: 110px;
-		width: 50%;
+		display: inline-block;
+		color: #FFF;
+		font-size: 21px;
+		font-weight: normal;
+		line-height: 1.2em;
+		position: relative;
+		top: 3em;
+		span{
+			text-transform: uppercase;		
+			font-size: 26px;
+			display: block;
+			font-weight: bold;
+		}
+
 	}
 	.location{
 		font-size: 13px;
-		padding-left: 110px;
-		width: 50%;
-		float: right;
+		position: relative;
+		top: 9em;
 		color: #FFF;
+		display: inline-block;
 	}
 
 }
 
-.profile-photo{
-
-	width: 180px;
-	height: 180px;
-	margin: auto;
-	img{
-		border: 2px solid #FFF;			
-	}
-}
