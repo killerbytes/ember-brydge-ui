@@ -11,13 +11,11 @@ export default Ember.Route.extend({
     return this.store.find('newsfeed', newsfeedid);
   },
    afterModel: function(model) {
-  	console.log('afterModel', model.get('id'));
   	var postid = model.get('id');
 
     var post = this.store.peekRecord('newsfeed', postid);
 
-    this.store.query('comment',postid).then((comments)=>{
-      console.log('<<<<<<', comments)
+    this.store.query('comment',{id: postid}).then((comments)=>{
       post.set('comments', comments);
     })
 

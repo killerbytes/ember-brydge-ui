@@ -9,7 +9,7 @@ export default Ember.Mixin.create({
  		var store = this.get('store');
 		// var post = 
 		store.findRecord('newsfeed', postid).then((res)=>{
-			store.query('comment',postid).then((comments)=>{
+			store.query('comment', {id: postid}).then((comments)=>{
 				console.log('<<<<<<', comments)
 				res.set('comments', comments);
 			})

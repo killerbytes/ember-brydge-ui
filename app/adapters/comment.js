@@ -7,8 +7,9 @@ export default ApplicationAdapter.extend(UrlTemplates, {
 
 	urlSegments: {
 		threadid: function(type, id, snapshot, query) {
-			console.log(type, id, snapshot, query);
-			return query;
+      var id = query.id;
+			delete query.id;
+			return id;
 		}
 	}
 });
