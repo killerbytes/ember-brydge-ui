@@ -2,14 +2,13 @@
   <div class="post-comment-form">
     <div class="media-object">
       <div class="thumbnail rounded">
-        <img src= {{ avatarUrl }}>
+        <img src="{{ avatarUrl }}">
       </div>
       <div class="comment-form" id="comment-form-{{post.id}}">
         {{content-editable 
-          type="text"
           class="content-editable" 
+          allowNewlines=false
           value=commentContent 
-          tagName='input'
           placeholder="Write your comment" 
           enter="comment" }}
 
@@ -17,7 +16,7 @@
     </div>
   </div>
 </div>
-<div class="post-comments" style="display: {{checkCount post.commentCount}}">
+<div class="post-comments" sxtyle="display: {{checkCount post.commentCount}}">
 
   {{#zf-accordion-menu class="accordion-menu" multiOpen=true}}
     <li>      

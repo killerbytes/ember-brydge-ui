@@ -4,33 +4,31 @@ import ViewCommentsActionMixin from 'web/mixins/view-comments-action';
 
 export default Ember.Component.extend(ViewCommentsActionMixin,{
 	store: Ember.inject.service(),
-	sessionAccount: Ember.inject.service('session-account'),
+	sessionAccount: Ember.inject.service(),
 	avatarUrl: Ember.computed(function(){
 		return this.get('sessionAccount.account.avatarUrl');
 	}),
 	isExpend: false,
 	actions:{
-		comment: function() {
-			if(!this.get('commentContent').trim().length > 0) return false;
-			console.log('Key pressed =>', this.get('commentContent'), this.get('post.id'))
-			this.sendAction('postComment', this.get('commentContent'), this.get('post.id'));
+		comment(item, e) {
+			if(!item.get('value').trim().length > 0) return false;
+			this.sendAction('postComment', item.get('value'), this.get('post.id'));
 
 			// Fetch reference to store as a
       // property on this component 
       var store = this.get('store');
       var post = store.peekRecord('newsfeed', this.get('post.id'));
-      var self = this;
 
       var comment = store.createRecord('comment',{ 
-				content: this.get('commentContent').trim(), 
+				content: item.get('value').trim(), 
 				threadId: this.get('post.id')
 			});
+    	item.set('value',null);
 			
       comment.save().then(()=>{
       	console.log('save comment')
 
-      	$("#"+this.get('post.id')).trigger('click');
-      	self.set('commentContent','');
+      	// $("#"+this.get('post.id')).trigger('click');
       	post.set('commentCount',post.get('commentCount')+1);
       })
 

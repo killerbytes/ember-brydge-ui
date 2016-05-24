@@ -18,9 +18,6 @@ export default Ember.Component.extend(
 	}),
 	disabled: false,
 	actions: {
-		focusInput(){
-			this.$('input').focus()
-		},
 		vote(type){
 			let post = this.get('post');
 			let upvotes = post.get('upvotes');
@@ -81,15 +78,16 @@ export default Ember.Component.extend(
 			this.get('sharePost').selectPost(post)
 		},
 		viewComments: function() {
-			console.log('newsfeed-item => viewComments')
+			// console.log('newsfeed-item => viewComments')
 			//this.viewComments(this.get('post.id'))
 			//$("#"+this.get('post.id')).trigger('click');
-			var postid = this.get('post.id');
-			console.log(this.$('#comment-form-'+postid))
+			// var postid = this.get('post.id');
+			// console.log(this.$('#comment-form-'+postid))
 
-			var $commentform = this.$('#comment-form-'+postid+' input');
+			// var $commentform = this.$('#comment-form-'+postid+' input');
 
-			$commentform.focus();
+			// $commentform.focus();
+			this.$('.content-editable').focus();
 		}
 	}
 });

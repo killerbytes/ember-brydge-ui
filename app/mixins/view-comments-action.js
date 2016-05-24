@@ -7,11 +7,15 @@ export default Ember.Mixin.create({
 	 	console.log('<< viewComments Mixin =>', postid);
 
  		var store = this.get('store');
-		var post = store.peekRecord('newsfeed', postid);
+		// var post = 
+		store.findRecord('newsfeed', postid).then((res)=>{
+			store.query('comment',postid).then((comments)=>{
+				console.log('<<<<<<', comments)
+				res.set('comments', comments);
+			})
 
-		store.query('comment',postid).then((comments)=>{
-			console.log('<<<<<<', comments)
-			post.set('comments', comments);
 		})
+		// console.log(post.get('comments'))
+
 	 }
 });
