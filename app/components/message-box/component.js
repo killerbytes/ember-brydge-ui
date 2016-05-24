@@ -16,13 +16,12 @@ export default Ember.Component.extend({
           to_id: to,
           to_type: "User"
         }
-      }).then((res)=>{
-        this.get('store').findRecord('conversation', to);
+      }).then(res =>{
+        // this.get('store').findRecord('conversation', '311brdcu6o0r');
         // this.get('store').findRecord('conversation');
-        // this.set('to', null);
         this.set('msg', null);
-        this.sendAction('resp', { to: to});
-        store.findAll('conversation');
+        this.sendAction('resp', res.data.attributes.conversationId);
+        // store.findAll('conversation');
 
 
       });

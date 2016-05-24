@@ -46,7 +46,10 @@ export default Ember.Controller.extend(QueryLocationMixin,{
       console.log('setSelected', a,b)
     },
     sharePost(cb){
-      this.get('sharePost').submit().then((res)=>{
+      this.get('sharePost').submit().then(res =>{
+        var sharedPost = this.store.findRecord('newsfeed', res.get('sharedPostid'));
+        console.log(sharedPost, res)
+        res._internalModel.sharedPost = sharedPost;
         var newsfeed = this.get('model.newsfeed');
         newsfeed.pushObject(res._internalModel);
         Ember.get(this, 'flashMessages').success('Post Shared!');    
