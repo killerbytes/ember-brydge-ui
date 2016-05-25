@@ -6,7 +6,8 @@ export default Ember.Route.extend({
 	},
 	actions: {
     getResponse: function(id) {
-      this.transitionTo('/messaging/'+id);
+        this.store.findAll('conversation');
+        this.transitionTo('/messaging/'+id);
     },
     select(item){
     	this.controller.setProperties({

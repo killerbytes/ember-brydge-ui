@@ -3,6 +3,11 @@
 <button class="button" {{action "add" }}>Add</button>
 <ul>
 	{{#each items as |item|}}
-	<li>{{term-date-format item.updatedAt 'MM/DD/YYYY'}}: {{item.content}}</li>
+	<li>
+	{{item.content}} - {{item.sharedPost.title }}
+		{{#if item.sharedPost }}
+			{{newsfeed-item post=item.sharedPost shared=true class="shared-post"}}
+		{{/if}}
+	</li>
 	{{/each}}
 </ul>

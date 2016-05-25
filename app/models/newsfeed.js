@@ -9,6 +9,7 @@ export default DS.Model.extend({
   shortid: DS.attr(),
   url: DS.attr(),
   image: DS.attr(),
+  sharedPostid: DS.attr(),
   siteName: DS.attr(),
   screenshot: DS.attr(),
   score: DS.attr('number'),

@@ -2,8 +2,13 @@ import Ember from 'ember';
 
 export default Ember.Component.extend({
 	sharePost: Ember.inject.service(),
-	title: Ember.computed('model.title', function(){
-		let title = this.get('model.title');
+	title: Ember.computed('post.title', function(){
+		let title = this.get('post.title');
+		if(!title) return false;
+		return title.length > 100 ? title.substr(0, 100) + ' ...' : title;
+	}),
+	sharedTitle: Ember.computed('post.sharedPost.title', function(){
+		let title = this.get('post.sharedPost.title');
 		if(!title) return false;
 		return title.length > 100 ? title.substr(0, 100) + ' ...' : title;
 	}),
@@ -21,7 +26,8 @@ export default Ember.Component.extend({
 		sharePost(){
 			this.sendAction('submit', ()=>{
 				this.$('#shareModal').foundation('close');
-				this.set('value', null);
+				this.set('value', '');
+				this.set('sharePost.categories', [])
 			});
 		}
 	}

@@ -128,7 +128,8 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, FilterDropdownListMix
        };
        this.controller.set('selectedLoc', filtered);
        //this.set('selectedLoc', filtered);
-    }
+    },
+
 
   }
 });

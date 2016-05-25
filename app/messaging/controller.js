@@ -2,6 +2,7 @@ import Ember from 'ember';
 
 export default Ember.Controller.extend({
 	conversations: Ember.computed('model.@each','key', function(){		
+		console.log('conversations', this.get('model'))
 		let query = this.get('key');
 		if(!query) return this.get('model');
 
