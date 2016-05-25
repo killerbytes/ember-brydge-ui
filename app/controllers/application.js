@@ -16,10 +16,10 @@ export default Ember.Controller.extend({
         notification.checkNotificationCounts(()=>{
           notificationChecker();
         });
-      },6000)    
+      },60000)    
     }
 
-    //notification.checkNotificationCounts();
+    notification.checkNotificationCounts();
     //notification.checkForNotifications();
     notificationChecker.apply(this);
   },
