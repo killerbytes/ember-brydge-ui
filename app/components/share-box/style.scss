@@ -1,5 +1,9 @@
 .share-box{
 	.content-editable{
+		-moz-user-select: text;
+		-khtml-user-select: text;
+		-webkit-user-select: text;
+		-o-user-select: text;		
 		color:  $text-color1;
 		padding-left: 0;
 		border: none;

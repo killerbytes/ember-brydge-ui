@@ -14,17 +14,13 @@
 
 	<div class="padding profile-view-settings">
 		<div class="row collapse">
-			<div class="columns medium-9">
+			<div class="columns">
 				<strong>SEE WHO'S VIEWED YOUR PROFILE</strong>
-				<p>Turning this ON will also let others know you've seen their profile</p>
-			</div>
-			<div class="columns medium-3 text-right">
-        <div class="switch">
-          {{input type="checkbox" change=(action settingsChanged) checked=setting.profileView class="switch-iput" id="topBarProfileSwitch" name="profileView" }}
-          <label class="switch-paddle" for="topBarProfileSwitch">
-            <span class="show-for-sr">Turn Profile Views OFF</span>
-          </label>
-        </div>
+				{{#if setting.profileView}}
+					<p>Turning this ON will also let other users know you've seen their profile. You can turn it OFF in {{link-to "Settings" "settings" (query-params tab="views") }}.</p>
+				{{else}}
+					<p>Turning this ON will also let other users know you've seen their profile. You can turn it ON in {{link-to "Settings" "settings" (query-params tab="views") }}.</p>
+				{{/if}}
 			</div>
 		</div>
 	</div>
