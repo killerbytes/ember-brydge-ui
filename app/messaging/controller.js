@@ -1,6 +1,7 @@
 import Ember from 'ember';
 
 export default Ember.Controller.extend({
+	store: Ember.inject.service(),
 	conversations: Ember.computed('model.@each','key', function(){		
 		console.log('conversations', this.get('model'))
 		let query = this.get('key');
@@ -17,7 +18,6 @@ export default Ember.Controller.extend({
 				if(found) return false;
 			})
 			return found;
-			// return !item.get('other.profile.firstName').toLowerCase().indexOf(query);
 		})
 	})
 });

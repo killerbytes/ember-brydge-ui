@@ -3,9 +3,18 @@ import Ember from 'ember';
 export default Ember.Route.extend({
 	store: Ember.inject.service(),
 	model: function () {
-		return this.store.findAll('conversation', {reload: true});
+			return this.store.findAll('conversation');
+	},
+	setupController(){
+		this._super(...arguments);
+		console.log('setupController')
 	},
 	actions: {
+		test(item){
+			this.store.peekRecord('conversation', item.id).then(res=>{
+				console.log(res)
+			})
+		},
 		didTransition(){
 			var height = 0;
 			Ember.run.scheduleOnce('afterRender', this, ()=>{

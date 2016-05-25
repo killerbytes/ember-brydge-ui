@@ -5,9 +5,12 @@ export default Ember.Route.extend({
 		return this.store.findAll('contact');
 	},
 	actions: {
-    getResponse: function(id) {
-        this.store.findAll('conversation');
-        this.transitionTo('/messaging/'+id);
+    submit: function(id) {
+      this.transitionTo('/messaging/'+id);
+      this.controller.setProperties({
+        selected: null,
+        key: null
+      });
     },
     select(item){
     	this.controller.setProperties({
@@ -21,8 +24,8 @@ export default Ember.Route.extend({
     		key: null
     	});
     	Ember.run.later(this, function(){
-				Ember.$('#contact-input').focus()    		
-    	}) ;
+       Ember.$('#contact-input').focus()    		
+     }) ;
     }
-	}
+  }
 });

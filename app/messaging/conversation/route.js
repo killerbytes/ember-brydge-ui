@@ -8,10 +8,11 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
   },
   setupController(controller, model){
     this._super(...arguments);
+    this.store.findAll('conversation');
   },
 
   actions: {
-  	getResponse: function() {
+  	submit: function() {
       this.store.findAll('conversation')
       this.controller.model.reload()
     },
@@ -20,7 +21,9 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
       this.get('ajax').request('/v1/conversations/'+id+'/delete', {
         method: 'PATCH'
       }).then(res =>{
-        this.store.findAll('conversation', {reload: true});
+        var conversation = this.store.peekRecord('conversation', id);
+        this.store.unloadRecord(conversation);
+        this.store.findAll('conversation');
         this.transitionTo('/messaging');
       });
 
