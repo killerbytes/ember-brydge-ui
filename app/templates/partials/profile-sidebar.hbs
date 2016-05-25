@@ -110,8 +110,12 @@
 
 </div>
 
-<div class="box rounded work-history">
-  <h5 class="box-header">Work History</h5>
+<div class="box rounded work-history hover-edit">
+  <h5 class="box-header">Work History
+    {{#link-to "me.edit" model.id (query-params tab="work")}}       
+      <i class="icons pencil pull-right"></i>
+    {{/link-to}}
+  </h5>
   {{#if experiences}}
   {{ list-experience model=experiences class="sidebox box-list" }}
   {{else}}
@@ -121,8 +125,12 @@
   {{/if}}
 </div>
 
-<div class="box rounded academia">
-  <h5 class="box-header">Academia</h5>
+<div class="box rounded academia hover-edit">
+  <h5 class="box-header">Academia
+    {{#link-to "me.edit" model.id (query-params tab="academia")}}       
+      <i class="icons pencil pull-right"></i>
+    {{/link-to}}
+  </h5>
   {{#if educations}}
   {{ list-academia model=educations class="sidebox box-list" }}
   {{else}}
@@ -132,8 +140,12 @@
   {{/if}}
 </div>
 
-<div class="box rounded languages">
-  <h5 class="box-header">Languages</h5>
+<div class="box rounded languages hover-edit">
+  <h5 class="box-header">Languages
+    {{#link-to "me.edit" model.id (query-params tab="language")}}       
+      <i class="icons pencil pull-right"></i>
+    {{/link-to}}
+  </h5>
     {{#if languages}}
     {{list-languages model=languages class="sidebox box-list"}}      
     {{else}}
@@ -143,8 +155,12 @@
     {{/if}}
 </div>
 
-<div class="box rounded">
-  <h5 class="box-header">Interests</h5>
+<div class="box rounded hover-edit">
+  <h5 class="box-header">Interests
+    {{#link-to "me.edit" model.id (query-params tab="interest")}}       
+      <i class="icons pencil pull-right"></i>
+    {{/link-to}}
+  </h5>
   {{#if interests}}
   <div class="columns">
     <p>
