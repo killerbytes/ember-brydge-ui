@@ -9,9 +9,11 @@
             <a href="">{{model.industry}}</a>
           </div>        
       </div>   
-      {{#link-to "me.edit" model.id (query-params tab="industry")}}
-        <i class="icons pencil"></i>       
-      {{/link-to}}
+      {{#if isOwner}}
+        {{#link-to "me.edit" model.id (query-params tab="industry")}}
+          <i class="icons pencil"></i>       
+        {{/link-to}}
+      {{/if}}
     </li>
     <li class="hover-edit hover-edit-absolute">
       <div class="profile-industry">
@@ -23,9 +25,11 @@
             <a href="">{{model.occupationTwo}}</a>
           </div>
       </div>
-      {{#link-to "me.edit" model.id (query-params tab="occupindustry") }}       
-        <i class="icons pencil"></i>
-      {{/link-to}}
+      {{#if isOwner}}
+        {{#link-to "me.edit" model.id (query-params tab="occupindustry") }}       
+          <i class="icons pencil"></i>
+        {{/link-to}}
+      {{/if}}
     </li>
   </ul>
 </div>
@@ -58,9 +62,11 @@
 
 <div class="box rounded snapshot hover-edit">
   <h5 class="box-header">Snapshot 
-    {{#link-to "me.edit" model.id (query-params tab="snapshot")}}       
-      <i class="icons pencil pull-right"></i>
-    {{/link-to}}
+    {{#if isOwner}}    
+      {{#link-to "me.edit" model.id (query-params tab="snapshot")}}       
+        <i class="icons pencil pull-right"></i>
+      {{/link-to}}
+    {{/if}}
   </h5>
   <div class="columns">
     {{model.snapshot}}
@@ -112,9 +118,11 @@
 
 <div class="box rounded work-history hover-edit">
   <h5 class="box-header">Work History
-    {{#link-to "me.edit" model.id (query-params tab="work")}}       
-      <i class="icons pencil pull-right"></i>
-    {{/link-to}}
+    {{#if isOwner}}
+      {{#link-to "me.edit" model.id (query-params tab="work")}}       
+        <i class="icons pencil pull-right"></i>
+      {{/link-to}}
+    {{/if}}
   </h5>
   {{#if experiences}}
   {{ list-experience model=experiences class="sidebox box-list" }}
@@ -127,9 +135,11 @@
 
 <div class="box rounded academia hover-edit">
   <h5 class="box-header">Academia
-    {{#link-to "me.edit" model.id (query-params tab="academia")}}       
-      <i class="icons pencil pull-right"></i>
-    {{/link-to}}
+    {{#if isOwner}}    
+      {{#link-to "me.edit" model.id (query-params tab="academia")}}       
+        <i class="icons pencil pull-right"></i>
+      {{/link-to}}
+    {{/if}}
   </h5>
   {{#if educations}}
   {{ list-academia model=educations class="sidebox box-list" }}
@@ -142,9 +152,11 @@
 
 <div class="box rounded languages hover-edit">
   <h5 class="box-header">Languages
-    {{#link-to "me.edit" model.id (query-params tab="language")}}       
-      <i class="icons pencil pull-right"></i>
-    {{/link-to}}
+    {{#if isOwner}}
+      {{#link-to "me.edit" model.id (query-params tab="language")}}       
+        <i class="icons pencil pull-right"></i>
+      {{/link-to}}
+    {{/if}}
   </h5>
     {{#if languages}}
     {{list-languages model=languages class="sidebox box-list"}}      
@@ -157,9 +169,11 @@
 
 <div class="box rounded hover-edit">
   <h5 class="box-header">Interests
-    {{#link-to "me.edit" model.id (query-params tab="interest")}}       
-      <i class="icons pencil pull-right"></i>
-    {{/link-to}}
+    {{#if isOwner}}
+      {{#link-to "me.edit" model.id (query-params tab="interest")}}       
+        <i class="icons pencil pull-right"></i>
+      {{/link-to}}
+    {{/if}}
   </h5>
   {{#if interests}}
   <div class="columns">

@@ -35,13 +35,12 @@
 </div>
 
 <div class="media media-top">
-  <p>
     {{#unless shared }}
-      {{{ post.content }}}
+      <p>{{{ post.content }}}</p>
     {{else}}
-      {{{post.content.content }}}
+      <p>{{{post.content.content }}}</p>
     {{/unless}}
-  </p>
+  
 </div>
 <div class="media">
   {{#if post.title}}
