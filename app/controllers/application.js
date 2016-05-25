@@ -5,6 +5,7 @@ export default Ember.Controller.extend({
   sessionAccount: Ember.inject.service('session-account'),
   notification: Ember.inject.service(),
   init(){
+    console.log('init')
     var notification = this.get('notification');
     
     function notificationChecker(){

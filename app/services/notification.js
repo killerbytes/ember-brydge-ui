@@ -16,10 +16,14 @@ export default Ember.Service.extend({
  //    this.set('connectionStore', this.get('store').findAll('connection'))
  //  },
   checkNotificationCounts(cb) {
+    console.log('checking notifications');
+
     var url = '/v1/notifications/count';
     this.get('ajax').request(url)
     .then((resp)=>{
+      
       var data = resp.data.attributes;
+      if(!data) return;
       
       console.log('notification count =>',data.notification)
       console.log('connection count =>',data.connection)
@@ -31,6 +35,9 @@ export default Ember.Service.extend({
       this.set('messageCount',data.message);
       this.set('profileCount',data.profile);
       if(cb) cb.call();
+    })
+    .catch((err)=>{
+      console.log(err)
     })
   },
  
