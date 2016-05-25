@@ -44,11 +44,14 @@ export default Ember.Component.extend({
       }
     },
     edit(text, e){
-      if(this.get('site')) return false;
+      console.log(text, e)
+      // if(this.get('site')) return false;
       switch(e.keyCode){
         case 91:
         case 32:
+        case 224:
           var urls = findUrls(text);
+          console.log(urls)
           if(urls.length){
             this.crawl(urls[0]);
           }
