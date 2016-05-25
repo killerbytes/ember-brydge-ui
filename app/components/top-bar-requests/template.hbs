@@ -1,7 +1,7 @@
-<a data-toggle="dd-requests">
+<a data-toggle="dd-requests" {{action 'clickConnection' notification.connectionCount}}>
 	{{#zf-tooltip title="Connection Requests" vOffset=0}}
-	{{#if notification.requests}}
-		<span class="alert badge">{{notification.requests.length}}</span>
+	{{#if notification.connectionCount}}
+		<span class="alert badge">{{notification.connectionCount}}</span>
 	{{/if}}
 	<i class="icons user"></i>
 	{{/zf-tooltip}}
@@ -13,7 +13,7 @@
 
 	<ul class="media-list no-bullet list-lined">
 		{{#each notification.requests as |item|}}
-		<li>
+		<li class="{{if item.read false 'new-notification'}}">
 			<div class="media-object">
 				<div class="media-object-section">
 					<div class="thumbnail">
