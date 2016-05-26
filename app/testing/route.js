@@ -3,7 +3,7 @@ import Ember from 'ember';
 export default Ember.Route.extend({
 	model(){
 		// return this.store.findAll('newsfeed', {q: null, tab: 'live'})
-		return this.store.query('newsfeed', {q:null,tab:'live'})
+		// return this.store.query('newsfeed', {q:null,tab:'live'})
 	},
 	actions: {
 		add(){

@@ -9,6 +9,8 @@ export default Ember.Controller.extend(QueryLocationMixin, {
   industries: [],
   selectedIndustries: [],
   init(){
+    // console.log('init')
+    // this.set('search.key', null)
     Ember.run.later(()=>{
       if (this.get('key')) this.set('keywords', this.get('key').split(','))
       if (this.get('city')) this.set('cities', this.get('city').split('_'))
@@ -62,6 +64,9 @@ export default Ember.Controller.extend(QueryLocationMixin, {
   },
 
   actions: {
+    clear(){
+      console.log('clear', this.set('search.key', null))
+    },
   	citySelected(item){
       // var location = [];
       // if(item.city) location.push(item.city);       

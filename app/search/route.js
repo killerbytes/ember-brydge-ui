@@ -9,26 +9,10 @@ export default Ember.Route.extend(QueryLocationMixin, {
       categories: this.get('ajaxApi').request('categories/menu')
     })
   },
- //  afterModel(model){
-	// 	var x = _.chain(_.map(model.categories, 'categories'))
-	// 							.flatten()
-	// 							.map((i)=>{
-	// 								return i.industries;
-	// 							})
-	// 							.flatten()
-	// 							.filter((d)=>{
-	// 								return d.data.code == "30501";
-	// 							})
-	// 							.first()
-	// 							.value()
-	// 	Ember.set(x, 'data.checked', true)
-	// 	console.log(model.categories)
-
-
-	// },
 	actions: {
-		openLocationModal: function(){	
-			console.log('openModal');
+		didTransition(){
+			this.set('controller.search.key', null);
+			this.set('controller.search.results', null);
 		}
 	}
 });
