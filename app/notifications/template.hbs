@@ -16,7 +16,8 @@
       <ul class="media-list notifications-list no-bullet list-lined">
       {{#each model as |item|}}
        
-        <li {{action "select" item preventDefault=false }}>
+        <li {{action "select" item preventDefault=false }}
+        class="{{if item.read false 'new-notification'}}">
           <div class="media-object">
             <div class="media-object-section">
               <div class="thumbnail">

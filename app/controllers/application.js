@@ -5,15 +5,23 @@ export default Ember.Controller.extend({
   sessionAccount: Ember.inject.service('session-account'),
   notification: Ember.inject.service(),
   init(){
-    var notification = this.get('notification')
+    console.log('init')
+    var notification = this.get('notification');
+    
     function notificationChecker(){
       Ember.run.later(()=>{
-        notification.checkForNotifications(()=>{
+        // notification.checkForNotifications(()=>{
+        //   notificationChecker();
+        // });
+
+        notification.checkNotificationCounts(()=>{
           notificationChecker();
         });
       },60000)    
     }
-    notification.checkForNotifications();
+
+    notification.checkNotificationCounts();
+    //notification.checkForNotifications();
     notificationChecker.apply(this);
   },
   updateCurrentPath: function(){

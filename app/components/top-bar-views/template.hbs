@@ -1,7 +1,7 @@
-<a data-toggle="dd-views">
+<a data-toggle="dd-views" {{action 'clickProfile' notification.profileCount}}>
 	{{#zf-tooltip title="Profile Views" vOffset=0}}
-	{{#if notification.views}}
-		<span class="alert badge">{{notification.views.length}}</span>
+	{{#if notification.profileCount}}
+		<span class="alert badge">{{notification.profileCount}}</span>
 	{{/if}}
 	<i class="icons bino"></i>
 	{{/zf-tooltip}}
@@ -26,7 +26,8 @@
 	</div>
 	<ul class="media-list no-bullet list-lined">
 		{{#each notification.views as |item|}}
-		<li {{action "selectView" item preventDefault=false }}>
+		<li {{action "selectView" item preventDefault=false }}
+		class="{{if item.read false 'new-notification'}}">
 		 
 			<div class="media-object">
 				<div class="media-object-section">
@@ -36,9 +37,11 @@
 				</div>
 				<div class="media-object-section main-section">
 					<a class="name">{{item.target.profile.firstName}} {{item.target.profile.lastName}}</a>
+
 					<p class="position">
-						{{item.target.profile.currentTitle}}<br>
-						{{item.target.profile.currentCompany}}
+						
+						viewd your profile<br>
+						{{ timestamp item.createdAt }}
 					</p>
 				</div>
 			</div>

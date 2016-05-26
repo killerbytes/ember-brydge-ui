@@ -7,6 +7,7 @@ ul.media-list{
   padding: 0 1rem;
   li{
     padding: .5rem 0;
+    cursor: pointer;
   }
   .thumbnail{
     width: 50px;
@@ -58,6 +59,10 @@ ul.notifications-list{
   a{
     font-weight: bold;
   }
+}
+
+.new-notification{
+  background: #CFEFFF;
 }
 
 ul.question-pending-list{

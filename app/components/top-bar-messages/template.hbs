@@ -1,7 +1,7 @@
-<a data-toggle="dd-messages">
+<a data-toggle="dd-messages" {{action 'clickMessage' notification.messageCount}}>
 	{{#zf-tooltip title="Messages" vOffset=0}}
-	{{#if notification.messages}}
-		<span class="alert badge">{{notification.messages.length}}</span>
+	{{#if notification.messageCount}}
+		<span class="alert badge">{{notification.messageCount}}</span>
 	{{/if}}
 	<i class="icons messages"></i>
 	{{/zf-tooltip}}
@@ -12,7 +12,8 @@
 {{#zf-dropdown id="dd-messages" class="dropdown-topbar" closeOnClick=true }}
 	<ul class="media-list no-bullet list-lined">
 		{{#each notification.messages as |item|}}
-		<li {{action "selectMessage" item preventDefault=false }}>
+		<li {{action "selectMessage" item preventDefault=false }}
+		class="{{if item.read false 'new-notification'}}">
 			{{#link-to "messaging.conversation" item.id }}
 			<div class="media-object">
 				<div class="media-object-section">

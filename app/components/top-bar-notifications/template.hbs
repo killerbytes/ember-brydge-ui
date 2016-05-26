@@ -1,7 +1,7 @@
-<a data-toggle="dd-notification">
+<a data-toggle="dd-notification" {{action 'clickNotification' notification.notificationCount}}>
 	{{#zf-tooltip title="Notifications" vOffset=0}}
-		{{#if notification.notifications }}
-      <span class="alert badge">{{notification.notifications.length}}</span>    
+		{{#if notification.notificationCount }}
+      <span class="alert badge">{{notification.notificationCount}}</span>    
     {{/if}}
 		<i class="icons stack"></i>
 	{{/zf-tooltip}}
@@ -13,7 +13,8 @@
 
   <ul class="media-list notifications-list no-bullet list-lined">
   {{#each notification.notifications as |item|}}
-    <li {{action "select" item preventDefault=false }}>
+    <li {{action "select" item preventDefault=false }} 
+    class="{{if item.read false 'new-notification'}}">
       <div class="media-object">
         <div class="media-object-section">
           <div class="thumbnail">
