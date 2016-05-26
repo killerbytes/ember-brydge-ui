@@ -9,7 +9,7 @@
 		<div class="triangle"></div>
 	</div>
 </a>
-{{#zf-dropdown id="dd-messages" class="dropdown-topbar" closeOnClick=true }}
+{{#zf-dropdown id="dd-messages" class="dropdown-menu-bar" closeOnClick=true }}
 	<ul class="media-list no-bullet list-lined">
 		{{#each notification.messages as |item|}}
 		<li {{action "selectMessage" item preventDefault=false }}
