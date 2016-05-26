@@ -2,15 +2,13 @@
 	<strong>{{filtered}}</strong>
 	<i class="icons caret"></i>
 </a>
-{{#zf-dropdown id="industry-dropdown"}}
+{{#zf-dropdown id="industry-dropdown" class="filter-dropdowns"}}
 	<section class="custom-select-list">
 		<div class="title-bar dim-text text-center">Select a Channel</div>
 			<div class="columns medium-6">
 				<strong>Your Network</strong>
 				<ul class="no-bullet">
 					<li {{action "select" myConnections preventDefault=false }}>{{myConnections.text}}</li>
-					<!-- <li {{action "select" myCompany preventDefault=false }}>{{myCompany.text}}</li> -->
-
 					<li><label for="">{{myCompany.text}}</label></li>
 				</ul>
 				<p></p>
@@ -19,7 +17,6 @@
 					<li {{action "select" model.myIndustry preventDefault=false }}>{{model.myIndustry.text}}</li>
 				</ul>
 				<p>{{#link-to 'me.edit' sessionAccount.account.profile.id (query-params tab="industry")}}Edit Business Industry{{/link-to}}</p>				
-				<!-- <p><a href="">Add other Industry Channels to follow</a></p> -->
 
 				<strong>Your Occupational Industry</strong>
 				<ul class="no-bullet">

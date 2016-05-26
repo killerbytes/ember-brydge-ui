@@ -2,7 +2,7 @@
   <div class="large-7 medium-7 columns">
     {{ share-box 
     	postToNewsfeed='postToNewsfeed' 
-    	profile=model.profile 
+    	profile=profile 
      	isCheckedIndustry=isCheckedIndustry 
      	isCheckedOccupationOne=isCheckedOccupationOne
      	isCheckedOccupationTwo=isCheckedOccupationTwo
@@ -34,7 +34,7 @@
 				</div>
 			</div>
 		</div>
-
+<!-- 
 		<div class="curated-box clearfix">
 			<label for="toggle_live">
 				<input type="radio" id="toggle_live" name="toggle" value="live"  {{action 'showMoreFields' 'live' preventDefault=false }} checked={{isLive}} >
@@ -50,13 +50,57 @@
 				<div class="input-group-button">
 					{{fa-icon "search"}}
 				</div>
-				{{input class="input-group-field flat" type="search" placeholder="Search this channel" 
-				focus-in='focusedInSearch' focus-out ='focusedOutSearch' enter='pressedSearch'
-				value=searchContent}}
+				{{input 
+					class="input-group-field flat" 
+					type="search" 
+					placeholder="Search this channel" 
+					enter='search' 
+					value=searchContent }}
+			</div>
+		</div>
+ -->
+		<div class="newsfeed-tabs">
+
+
+			{{#zf-tabs class="tabs-table mb"}}
+				<li data-tab='live' class="tabs-title {{active-tab 'live' tab}}" style="width:20%">
+					<a href="#live">Live</a>
+				</li>
+				<li data-tab='curated' class="tabs-title {{active-tab 'curated' tab}}" style="width:20%">
+					<a href="#curated">Curated</a>
+				</li>
+				<li class="search-box {{if isSearch 'active'}}">
+						<div class="input-group-button">
+							{{fa-icon "search"}}
+						</div>
+						{{input 
+							class="input-group-field flat" 
+							type="search" 
+							placeholder="Search this channel" 
+							enter='search'
+							focus-in="clear"
+							value=searchContent }}
+					
+				</li>
+				<li data-tab='search' class="hide medium-6 tabs-title {{active-tab 'search' tab}}">
+					<a href="#search">Search</a>
+				</li>
+			{{/zf-tabs}}
+
+			<div data-tabs-content="example-tabs">
+				<div class="tabs-panel {{active-tab 'live' tab}}" id="live">
+			    {{newsfeed-list newsfeed=feed_live profile=profile avatar=profile.avatarUrl isLoading=isLoading}}
+				</div>
+				<div class="tabs-panel {{active-tab 'curated' tab}}" id="curated">
+			    {{newsfeed-list newsfeed=feed_curated profile=profile avatar=profile.avatarUrl isLoading=isLoading}}
+				</div>
+				<div class="tabs-panel {{active-tab 'search' tab}}" id="search">
+			    {{newsfeed-list newsfeed=feed_search profile=profile avatar=profile.avatarUrl isLoading=isLoading}}
+				</div>
 			</div>
 		</div>
 
-    {{newsfeed-list newsfeed=newsfeed profile=model.profile avatar=model.profile.avatarUrl}}
+
     
   </div>
   <div class="large-5 medium-5 columns sidebar">
@@ -66,4 +110,4 @@
   </div>
 </div>
 
-{{ post-sharer post=sharePost.selected profile=model.profile value=sharePost.valueText submit="sharePost" }}
+{{ post-sharer post=sharePost.selected profile=profile value=sharePost.valueText submit="sharePost" }}

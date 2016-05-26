@@ -17,38 +17,101 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, FilterDropdownListMix
 
   model: function (params) {
     let ownerid = this.get('session.data.authenticated.user_id');
-    if(params.q && params.q=='null') {
-      delete params.q;
-    }
+    // if(params.q && params.q=='null') {
+    //   delete params.q;
+    // }
 
-    if(params.channels && params.channels=='myconnections') {
-      delete params.channels;
-    }
+    // if(params.channels && params.channels=='myconnections') {
+    //   delete params.channels;
+    // }
 
-    if(!params.tab) {
-      params.tab='curated';
-    }
+    // if(!params.tab) {
+    //   params.tab='curated';
+    // }
     
-    this.store.unloadAll('newsfeed');
+    // this.store.unloadAll('newsfeed');
 
     return Ember.RSVP.hash({
-      newsfeed: this.store.query('newsfeed',params, {reload: true}),
+      // newsfeed: this.store.query('newsfeed',params),
       profile: this.store.findRecord('profile', ownerid)
     });
   },
-
+  setupController(){
+    this._super(...arguments);
+    this.controller.set('newsfeed', {});
+  },
+  loadNewsfeed(tab){
+    var tab = tab ||  this.controller.tab;
+    this.controller.set('isLoading', true);
+    if(this.controller.tab != 'search'){
+      this.controller.setProperties({
+        q: null,
+        searchContent: null
+      });
+    }else{
+      if(!this.controller.get('q')){
+        this.controller.set('tab', 'curated');
+        tab = 'curated';
+      }
+    }
+    var params = {};
+    if(this.controller.tab) params.tab = tab;
+    if(this.controller.channels) params.channels = this.controller.channels;
+    if(this.controller.location) params.location = this.controller.location;
+    if(this.controller.q) params.q = this.controller.q;
+    console.log(params)
+    this.store.query('newsfeed', params).then(res=>{
+      this.controller.set('newsfeed', {live: [], curated: [], search: []});
+      this.controller.set('newsfeed.'+ tab, res);
+      this.controller.set('isLoading', false)
+    })
+  },
   actions: {
-    setLocation: function(location) {
-      console.log('location =>', location);
-      this.transitionTo('home', { queryParams: { location: location }});
-      this.refresh();
+    didTransition: function(){
+      this.loadNewsfeed()
+
+      Ember.run.later(()=>{
+        Ember.$('.newsfeed-tabs .tabs:first').on('change.zf.tabs', (e, elem)=>{
+          if(!elem) return false;
+          this.set('controller.tab', elem.data('tab'));
+          this.loadNewsfeed(elem.data('tab'))
+        })
+      })
     },
 
-    setChannel: function(geo) {
-      this.transitionTo('home', { queryParams: { channels: geo }});
-      this.refresh();
+    setLocation: function(location, cb) {
+      if(location == 0) location = null;
+      this.controller.set('location', location);
+      cb.apply();
+      this.loadNewsfeed();
     },
 
+    setChannel: function(geo, cb) {
+      if(geo == 0) geo = null;
+      this.controller.set('channels', geo);
+      cb.apply();
+      this.loadNewsfeed()
+    },
+    search: function () {
+      // console.log('pressed search', this.controller.get('searchContent'))
+      // this.transitionTo('home', { queryParams: { q: this.controller.get('searchContent') }});
+      // this.refresh();
+      this.controller.set('tab', 'search');
+      this.controller.set('q', this.controller.get('searchContent'))
+      this.loadNewsfeed();
+    },
+    citySelected: function (item, cb) {
+       var filtered ={
+        id : item.text,
+        text: item.text
+       };
+       cb.apply(this, [filtered]);
+    },
+    clear(){
+      this.controller.set('q', null)
+      this.controller.set('searchContent', null)
+    }
+/*
     showMoreFields: function(tab) {
       console.log('<<< tab', tab);
       if(tab === 'curated') {
@@ -63,11 +126,15 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, FilterDropdownListMix
 
       this.controller.set('isSearch', false);
       this.controller.set('searchContent',null);
-      this.transitionTo('home', { queryParams: { tab: tab, q:null }});
+      this.store.query('newsfeed',{ tab: tab, q:null }, {reload: true}).then(res=>{
+        this.set('currentModel.newsfeed', res)
+        this.transitionTo('home', { queryParams: { tab: tab, q:null }});
+      })
 
-      this.refresh();
+      // this.refresh();
     },
-
+  */
+/*
     focusedInSearch: function () {
       console.log('focus search')
       
@@ -90,13 +157,8 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, FilterDropdownListMix
       
       this.transitionTo('home', { queryParams: { tab: 'curated',q:null }});
     },
-
-    pressedSearch: function () {
-      console.log('pressed search', this.controller.get('searchContent'))
-      this.transitionTo('home', { queryParams: { q: this.controller.get('searchContent') }});
-      this.refresh();
-    },
-
+*/
+/*
     logout: function(){
       console.log('home/logout>>>')
 
@@ -106,29 +168,14 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, FilterDropdownListMix
         console.log("Expired session", accessToken);
       });
     },
-
     error: function(err, transition) {
       console.log(">>>home:route:error:", err);
       console.log(">>>home:route:error -->", err.status);
       console.log(err, transition);
       return true;
     },
-    add: function(){
-      this.store.push('post', {
-        data: {"test": 1},
-      })
-    },
 
-    citySelected: function (item) {
-      console.log('select home(route) =>', item.city, item.state, item.country);
-
-       var filtered ={
-        id : item.city + ',' + item.state + ',' + item.country,
-        text: item.city + ', ' + item.state + ', ' + item.country
-       };
-       this.controller.set('selectedLoc', filtered);
-       //this.set('selectedLoc', filtered);
-    },
+*/
 
 
   }

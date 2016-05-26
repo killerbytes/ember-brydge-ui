@@ -112,7 +112,6 @@ export default Ember.Component.extend({
 	},
 	actions: {
 		onchange: function(e){
-			//if(e.length < 3) return;
 			this.sendAction('query', e);
 		},
 		open: function(){
@@ -120,10 +119,10 @@ export default Ember.Component.extend({
 			this.set('isOpen', true)
 		},
 		select: function(selected) {
-			console.log('selected (Component) =>')
-			//this.set('selected', _.clone(selected));
 			this.set('isOpen', false);
-			this.sendAction('itemSelected', selected);
+			this.sendAction('itemSelected', selected, (res)=>{
+				this.set('selected', res);
+			});
 		},
 		openMe: function(){
 			this.sendAction("onclick")

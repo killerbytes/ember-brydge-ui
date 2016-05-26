@@ -111,3 +111,34 @@
 	}
 
 }
+
+.newsfeed-tabs{
+	.tabs{
+		background-color: transparent;
+		border: none;
+	}
+	.tabs-title > a:focus, .tabs-title > a[aria-selected='true']{
+		background: inherit;
+	}
+	.tabs-table .tabs-title{
+		border: none;
+		border-left: 1px solid $border-color;
+		border-right: 1px solid $border-color;
+		border-bottom: 4px solid $border-color;
+
+		a{
+			color: $text-color2;
+			padding: 8px 10px;
+			text-align: center;
+		}
+	}
+	.tabs-table .is-active{
+		border-bottom-color: $brydge-blue;
+		a{
+			background-color: #FFF;
+		}		
+	}
+	.tabs-panel{
+		padding: 0;
+	}
+}

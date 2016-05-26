@@ -154,7 +154,7 @@ ul.menu-dotted{
 	}
 }
 
-.curated-box{
+.newsfeed-tabs > ul.tabs-table{
 	margin-bottom: 10px;
 	position: relative;
 	label{
@@ -183,8 +183,10 @@ ul.menu-dotted{
 		border-bottom-color: $brydge-blue;
 	}
 	.search-box{
-		width: 60%;
+		width: 100%;
 		float: left;
+		border-left: 1px solid $border-color;
+		border-right: 1px solid $border-color;
 		.input-group-button{
 			position: absolute;
 			width: 30px;
@@ -204,7 +206,7 @@ ul.menu-dotted{
 			border-color: $border-color;
 			border-style: solid;
 			border-bottom-width: 4px;
-			border-right-width: 1px;
+			// border-right-width: 1px;
 		}
 		input:focus{
 			border: none;

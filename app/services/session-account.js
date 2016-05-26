@@ -16,13 +16,13 @@ export default Ember.Service.extend({
   account: Ember.computed('session.data.authenticated.user_id', function() {
     const accountId = this.get('session.data.authenticated.user_id');
 
-    console.log(" * session-account: 0", accountId);
+    // console.log(" * session-account: 0", accountId);
 
     const username = this.get('session.data.authenticated.username');
-   console.log('+++++++', username);
+   // console.log('+++++++', username);
 
     if (!Ember.isEmpty(accountId)) {
-      console.log(" * session-account: 1", accountId);
+      // console.log(" * session-account: 1", accountId);
       return DS.PromiseObject.create({
         promise: this.get('store').findRecord('user', accountId)
       });

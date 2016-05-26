@@ -1,9 +1,11 @@
-{{#each newsfeed as |post|}}
-    
-    {{newsfeed-item post=post isExpend=false}}
-
+{{#if isLoading}}
+  <div class="loader"></div>
+{{else}}
+  {{#each newsfeed as |post|}}    
+    {{newsfeed-item post=post isExpend=false }}
   {{else}}
-  <div class="small-12 column">
-    <p>(No records found)</p>
-  </div>
-{{/each}}
+    <div class="small-12 column">
+    	<p>(No records found)</p>  	
+    </div>
+  {{/each}}
+{{/if}}

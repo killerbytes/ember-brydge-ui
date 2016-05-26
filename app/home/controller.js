@@ -1,29 +1,53 @@
 import Ember from 'ember';
 import QueryLocationMixin from 'web/mixins/query-locations';
+import GetIndustryFromCodeMixin from 'web/mixins/get-industry-from-code';
 
-export default Ember.Controller.extend(QueryLocationMixin,{
+export default Ember.Controller.extend(
+  QueryLocationMixin, 
+  GetIndustryFromCodeMixin, {
   flashMessages: Ember.inject.service(),
   ajax: Ember.inject.service(),
   sharePost: Ember.inject.service(),
   sortProps: ['createdAt:desc'],
-  newsfeed: Ember.computed.sort('model.newsfeed', 'sortProps'),
-  
-  queryParams: {
-    tab: {
-      refreshModel: true
-    },
-    q: {
-      refreshModel: true
-    },
-    channels: {
-      refreshModel: true
-    },
-    location: {
-      refreshModel: true
-    }
-  },
+  isSearch: Ember.computed('tab', function(){
+    return this.get('tab') == 'search' ? true: false;
+  }),
+  profile: Ember.computed.alias('model.profile'),
+  filteredLoc: Ember.computed('location', function(){
+    return this.get('location') || 'Everywhere' ;
+  }),
+  filteredIndustry: Ember.computed('channels', function(){
+    return this.getIndustryName(this.get('model.profile'), this.get('channels') || 0);
+  }),
+  feed_live: Ember.computed.sort('newsfeed.live', 'sortProps'),
+  feed_curated: Ember.computed.sort('newsfeed.curated', 'sortProps'),
+  feed_search: Ember.computed.sort('newsfeed.search', 'sortProps'),
+  searchContent: Ember.computed('q', function(){
+    return this.get('q') || null;
+  }),
+  queryParams: ['tab', 'channels', 'q', 'location'],
+  tab: 'curated',
+  channels: null,
+  location: null,
+  q: null,
 
-  isSearch: false,
+  
+  // queryParams: {
+  //   tab: {
+  //     refreshModel: true
+  //   },
+  //   q: {
+  //     refreshModel: true
+  //   },
+  //   channels: {
+  //     refreshModel: true
+  //   },
+  //   location: {
+  //     refreshModel: true
+  //   }
+  // },
+
+  // isSearch: false,
 
   actions: {
     postFeed: function (content, categories, site, cb) {
@@ -31,33 +55,19 @@ export default Ember.Controller.extend(QueryLocationMixin,{
         content: content,
         categories: categories
       }).save().then((res) => {
-        var newsfeed = this.get('model.newsfeed');
+        var newsfeed = this.get('newsfeed.live');
         newsfeed.pushObject(res._internalModel);
         cb.apply();
       }).catch((err) => {
         console.log("Error posting to newsfeed:", err);
       });
     },
-
-    postComment: function (content, postId) {
-      console.log('post comment =>', comment, postId);
-    },
-    setSelected: function (a,b){
-      console.log('setSelected', a,b)
-    },
     sharePost(cb){
       this.get('sharePost').submit().then(res =>{
-        // var sharedPost = this.store.findRecord('newsfeed', res.get('sharedPostid'));
-        // console.log(res.get('id'))
-        // this.store.findRecord('newsfeed', res.get('id'))
-        // res._internalModel.sharedPost = sharedPost;
-        var newsfeed = this.get('model.newsfeed');
+        var newsfeed = this.get('newsfeed.live');
         newsfeed.pushObject(res._internalModel);
-
-
         Ember.get(this, 'flashMessages').success('Post Shared!');    
         this.store.findRecord('vote', res.get('sharedPostid'), {reload: true})
-
         cb.apply();
       });
     }
