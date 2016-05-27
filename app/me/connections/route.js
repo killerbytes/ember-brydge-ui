@@ -11,11 +11,12 @@ export default Ember.Route.extend({
 
 		this.set('userid', userid);
 
+		this.store.unloadAll('connection');
 		return Ember.RSVP.hash({
-			pendingList: this.store.query('connection',{to: userid}).then((connections)=>{
+			pendingList: this.store.query('connection',{to: userid},{reload: true}).then((connections)=>{
 				return connections.filterBy('status','pending');
 			}),
-			acceptedList: this.store.findAll('connection').then((connections)=>{
+			acceptedList: this.store.findAll('connection',{reload: true}).then((connections)=>{
 				return connections.filterBy('status','accepted');
 			})
 		});

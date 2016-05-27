@@ -6,12 +6,13 @@ export default Ember.Route.extend(QueryLocationMixin, {
 	model: function (params) {
 		this.profileid = params.profile_id;
 
+    this.store.unloadAll();
 		return Ember.RSVP.hash({
-	    educations: this.store.findAll('education'),
-	    experiences: this.store.findAll('experience'),
+	    educations: this.store.findAll('education',{reload: true}),
+	    experiences: this.store.findAll('experience',{reload: true}),
 	    profile: this.store.findRecord('profile', params.profile_id, {reload: true}),
-      languages: this.store.findAll('language'),
-      interests: this.store.findAll('interest')
+      languages: this.store.findAll('language',{reload: true}),
+      interests: this.store.findAll('interest',{reload: true})
 	  });
 	},
 
