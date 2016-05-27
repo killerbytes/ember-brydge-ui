@@ -11,6 +11,10 @@ export default Ember.Route.extend({
   	this.store.query('connection',{to: userid}).then((res)=>{
 			this.controller.set('list', res)
 		})
+    this.store.query('contact',{targetid: userid}).then((res)=>{
+      console.log('<<<< mutual')
+      this.controller.set('mutual', res)
+    })
   },
   setupController(controller, model){
 		this._super(controller, model);
