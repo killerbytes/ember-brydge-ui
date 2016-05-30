@@ -1,4 +1,6 @@
 {{#unless counter}}
 	{{textarea value=value maxlength=limit rows=rows}}
 {{/unless}}
-<label class="middle text-right">{{count}} characters left</label>
+{{#unless showCount}}
+	<label class="middle text-right">{{count}} characters left</label>
+{{/unless}}

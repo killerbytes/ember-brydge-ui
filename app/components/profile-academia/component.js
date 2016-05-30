@@ -7,7 +7,6 @@ export default Ember.Component.extend(Validations, {
 	maxYear: moment().year() + 6,
 	actions: {
 		update: function (item) {
-			console.log(item, this.get('items'))
 			this.$('ul.accordion').foundation('toggle', $('.accordion-content'))		
 			item.save(()=>{
 				Ember.get(this, 'flashMessages').success('Success!');

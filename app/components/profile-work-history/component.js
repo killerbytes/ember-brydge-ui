@@ -15,7 +15,6 @@ export default Ember.Component.extend(Validations, {
 			this.sendAction('update', item, ()=>{
 				this.$('ul.accordion').foundation('toggle', $('.accordion-content'))		
 			});
-
 		},
 		create: function () {
 			this.sendAction('create', this, ()=>{
