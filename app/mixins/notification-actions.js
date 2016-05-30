@@ -114,7 +114,7 @@ export default Ember.Mixin.create({
 
 		clickNotification: function(count) {
 			console.log('clicked notification', count);
-			if(_.isUndefined(count)) return;
+			//if(_.isUndefined(count)) return;
 
 			// 
 			// load notifications
@@ -135,7 +135,7 @@ export default Ember.Mixin.create({
 
 		clickMessage: function(count) {
 			console.log('clicked message', count);
-			if(_.isUndefined(count)) return;
+			//if(_.isUndefined(count)) return;
 
 			// 
 			// load notifications
@@ -156,7 +156,7 @@ export default Ember.Mixin.create({
 
 		clickConnection: function(count) {
 			console.log('clicked connection', count);
-			if(_.isUndefined(count)) return;
+			//if(_.isUndefined(count)) return;
 
 			// 
 			// load notifications
@@ -177,7 +177,7 @@ export default Ember.Mixin.create({
 
 		clickProfile: function(count) {
 			console.log('clicked profile', count);
-			if(_.isUndefined(count)) return;
+			//if(_.isUndefined(count)) return;
 
 			// 
 			// load notifications
