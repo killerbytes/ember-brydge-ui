@@ -74,6 +74,9 @@
 	
 }
 .tabs{
+	.tabs-title:not(:first-child){
+		width: 100%;
+	}
 	.tabs-title .button{
 		padding: 10px;
 		font-size: 11px;
@@ -88,11 +91,13 @@
 	}
 }
 .tabs-table{
+	border: 1px solid $brydge-blue;		
 	display: table;
 	width: 100%;
 	.tabs-title{
+		transition: background-color 0.25s ease-out, color 0.25s ease-out;
 		float: none;
-		border: 1px solid $brydge-blue;		
+		// border: 1px solid $brydge-blue;		
 		display: table-cell;
 		vertical-align: middle;
 		a:focus{

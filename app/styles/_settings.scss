@@ -46,11 +46,11 @@
 // ---------
 
 $global-font-size: 12px;
-$global-width: rem-calc(1200);
+$global-width: rem-calc(850);
 $global-lineheight: 1.5;
 $foundation-palette: (
-  primary: #2199e8,
-  secondary: #777,
+  primary: $brydge-blue,
+  secondary: #DEDEDE,
   success: $brydge-blue,
   warning: #ffae00,
   alert: #ec5840,
@@ -116,19 +116,18 @@ $header-sizes: (
     'h6': 16,
   ),
   medium: (
-    'h1': 48,
-    'h2': 40,
-    'h3': 31,
-    'h4': 25,
-    'h5': 20,
-    'h6': 16,
+    'h1': 24,
+    'h2': 20,
+    'h3': 16,
+    'h4': 14,
+    'h5': 10,
   ),
 );
 $header-color: inherit;
 $header-lineheight: 1.4;
 $header-margin-bottom: 0.5rem;
 $header-text-rendering: optimizeLegibility;
-$small-font-size: 80%;
+$small-font-size: 90%;
 $header-small-font-color: $medium-gray;
 $paragraph-lineheight: 1.6;
 $paragraph-margin-bottom: 1rem;
@@ -234,11 +233,11 @@ $breadcrumbs-item-slash: true;
 // ----------
 
 $button-padding: 0.85em 1em;
-$button-margin: 0 0 $global-margin 0;
+$button-margin: 0; //0 0 $global-margin 0;
 $button-fill: solid;
 $button-background: $primary-color;
 $button-background-hover: scale-color($button-background, $lightness: -15%);
-$button-color: $white;
+$button-color: $brydge-blue; //$white;
 $button-color-alt: $black;
 $button-radius: $global-radius;
 $button-sizes: (
@@ -295,7 +294,7 @@ $drilldown-background: $white;
 $dropdown-padding: 1rem;
 $dropdown-border: 1px solid $medium-gray;
 $dropdown-font-size: 1rem;
-$dropdown-width: 300px;
+$dropdown-width: 100%;
 $dropdown-radius: $global-radius;
 $dropdown-sizes: (
   tiny: 100px,
@@ -360,7 +359,7 @@ $input-radius: $global-radius;
 // 20. Label
 // ---------
 
-$label-background: $primary-color;
+$label-background: transparent; //$primary-color;
 $label-color: foreground($label-background);
 $label-font-size: 0.8rem;
 $label-padding: 0.33333rem 0.5rem;
@@ -494,14 +493,14 @@ $switch-paddle-transition: all 0.25s ease-out;
 
 $table-background: $white;
 $table-color-scale: 5%;
-$table-border: 1px solid smart-scale($table-background, $table-color-scale);
+$table-border: none; //1px solid smart-scale($table-background, $table-color-scale);
 $table-padding: rem-calc(8 10 10);
 $table-hover-scale: 2%;
 $table-row-hover: darken($table-background, $table-hover-scale);
 $table-row-stripe-hover: darken($table-background, $table-color-scale + $table-hover-scale);
 $table-striped-background: smart-scale($table-background, $table-color-scale);
 $table-stripe: even;
-$table-head-background: smart-scale($table-background, $table-color-scale / 2);
+$table-head-background: none;//smart-scale($table-background, $table-color-scale / 2);
 $table-foot-background: smart-scale($table-background, $table-color-scale);
 $table-head-font-color: $body-font-color;
 $show-header-for-stacked: false;
@@ -524,7 +523,7 @@ $tab-content-padding: 1rem;
 // 33. Thumbnail
 // -------------
 
-$thumbnail-border: solid 4px $white;
+$thumbnail-border: none;//solid 4px $white;
 $thumbnail-margin-bottom: $global-margin;
 $thumbnail-shadow: 0 0 0 1px rgba($black, 0.2);
 $thumbnail-shadow-hover: 0 0 6px 1px rgba($primary-color, 0.5);
@@ -559,7 +558,7 @@ $tooltip-radius: $global-radius;
 // -----------
 
 $topbar-padding: 0.5rem;
-$topbar-background: $light-gray;
+$topbar-background: $brydge-blue;
 $topbar-submenu-background: $topbar-background;
 $topbar-title-spacing: 1rem;
 $topbar-input-width: 200px;
