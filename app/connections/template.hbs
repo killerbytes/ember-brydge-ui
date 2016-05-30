@@ -31,19 +31,19 @@
                 <div class="media-object">
                   <div class="media-object-section">
                     <div class="thumbnail">
-                      <img src= {{connection.from.profile.avatarUrl}}>
+                      <img src= {{connection.avatarUrl}}>
                     </div>
                   </div>
                   <div class="media-object-section media-object-content">
-                    {{#link-to "profile" connection.from.username class="name"}}  
-                      {{connection.from.name }}
+                    {{#link-to "profile" connection.username class="name"}}  
+                      {{connection.name }}
                     {{/link-to}}
                     
                     <div class="position">
-                      {{connection.from.profile.currentTitle}} <br>
-                      {{connection.from.profile.currentCompany}}
+                      {{connection.title}} <br>
+                      {{connection.company}}
                     </div>
-                    <p class="location">{{connection.from.profile.location}}</p>
+                    <!-- <p class="location">{{connection.from.profile.location}}</p> -->
                   </div>
                 </div>
             </li>
@@ -62,7 +62,7 @@
                     </div>
                   </div>
                   <div class="media-object-section media-object-content">
-                    {{#link-to "profile" connection.from.username class="name"}}  
+                    {{#link-to "profile" connection.username class="name"}}  
                       {{connection.name }}
                     {{/link-to}}
                     
@@ -70,7 +70,7 @@
                       {{connection.title}} <br>
                       {{connection.company}}
                     </div>
-                    <p class="location">{{connection.from.profile.location}}</p>
+                   <!--  <p class="location">{{connection.from.profile.location}}</p> -->
                   </div>
                 </div>
             </li>

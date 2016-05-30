@@ -9,7 +9,7 @@ export default Ember.Route.extend({
     return Ember.RSVP.hash({
       me: this.store.findRecord('profile', this.get('session.data.authenticated.user_id')),
       profile: this.store.findRecord('profile', userid, {reload: true}),
-      list: this.store.query('connection',{to: userid},{reload: true}),
+      list: this.store.query('contact',{userid: userid},{reload: true}),
       mutual: this.store.query('contact',{targetid: userid},{reload: true})
     });
     

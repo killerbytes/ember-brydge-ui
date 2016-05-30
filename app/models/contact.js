@@ -4,5 +4,6 @@ export default DS.Model.extend({
 	name: DS.attr(),
 	title: DS.attr(),
 	company: DS.attr(),
-	avatarUrl: DS.attr()
+	avatarUrl: DS.attr(),
+	username: DS.attr()
 });
