@@ -23,6 +23,12 @@ export default Ember.Controller.extend({
       state: location.join(', ')
     }
   }),
+  isNotEmptyTitleCompany: Ember.computed('model.currentTitle', 'model.currentCompany', function(){
+    return this.get('model.currentTitle') ? true : false && this.get('model.currentCompany') ? true : false;
+  }),
+  isNotEmptyOccupation: Ember.computed('model.occupationOne', 'model.OccupationTwo', function(){
+    return this.get('model.occupationOne') ? true : false && this.get('model.OccupationTwo') ? true : false;
+  }),
   isOwner: true,
   actions: {
     postFeed(content, categories, site, cb) {

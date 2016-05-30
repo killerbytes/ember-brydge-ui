@@ -89,13 +89,38 @@
 
 			<div data-tabs-content="example-tabs">
 				<div class="tabs-panel {{active-tab 'live' tab}}" id="live">
-			    {{newsfeed-list newsfeed=feed_live profile=profile avatar=profile.avatarUrl isLoading=isLoading}}
+			    {{#if feed_live}}
+				    {{newsfeed-list newsfeed=feed_live profile=profile avatar=profile.avatarUrl isLoading=isLoading}}
+			    {{else}}
+			      <div class="column">
+			        <div class="empty-message">
+			          No Newsfeed found
+			        </div>      
+			      </div>
+			    {{/if}}
+
 				</div>
 				<div class="tabs-panel {{active-tab 'curated' tab}}" id="curated">
-			    {{newsfeed-list newsfeed=feed_curated profile=profile avatar=profile.avatarUrl isLoading=isLoading}}
+			    {{#if feed_curated}}
+				    {{newsfeed-list newsfeed=feed_curated profile=profile avatar=profile.avatarUrl isLoading=isLoading}}
+			    {{else}}
+			      <div class="column">
+			        <div class="empty-message">
+			          No broadcasts to see here as you haven't added any connections yet. Why not use the menu above to view broadcasts from Industry Channels?
+			        </div>      
+			      </div>
+			    {{/if}}
 				</div>
 				<div class="tabs-panel {{active-tab 'search' tab}}" id="search">
-			    {{newsfeed-list newsfeed=feed_search profile=profile avatar=profile.avatarUrl isLoading=isLoading}}
+			    {{#if feed_search}}
+				    {{newsfeed-list newsfeed=feed_search profile=profile avatar=profile.avatarUrl isLoading=isLoading}}
+			    {{else}}
+			      <div class="column">
+			        <div class="empty-message">
+			          No Results found
+			        </div>      
+			      </div>
+			    {{/if}}
 				</div>
 			</div>
 		</div>

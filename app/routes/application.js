@@ -52,7 +52,7 @@ export default TransitionToListenerRoute.extend(
               const name = self.get('session.data.authenticated.name');
               self.get('session').set('data.userid', userid);
               self.get('session').set('data.name', name);
-              self.transitionTo('home');
+              self.transitionTo('me');
             },
           (err) => {
           this.set('errorMessage', err.errors[0].details);

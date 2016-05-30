@@ -6,8 +6,21 @@
             <i class="icons building"></i>
           </div>
           <div class="content">
-            <a href="">{{model.industry}}</a>
+            {{#if model.industry}}
+              <a href="">{{model.industry}}</a>
+            {{else}}
+              {{#if isOwner}}
+                <div class="empty-message" style="margin:.5rem; ">
+                  Add Business Industry
+                </div>
+              {{else}}
+                <div class="empty-message" style="margin:.5rem; ">
+                  Business Industry
+                </div>
+              {{/if}}
+            {{/if}}
           </div>        
+
       </div>   
       {{#if isOwner}}
         {{#link-to "me.edit" model.id (query-params tab="industry")}}
@@ -21,8 +34,22 @@
             <i class="icons briefcase"></i>
           </div>
           <div class="content">
-            <a href="">{{model.occupationOne}}</a>
-            <a href="">{{model.occupationTwo}}</a>
+            {{#if isNotEmptyOccupation}}
+              <a href="">{{model.occupationOne}}</a>
+              <a href="">{{model.occupationTwo}}</a>
+            {{else}}
+              {{#if isOwner}}
+              <div class="empty-message" style="margin:.5rem; ">
+                Add Occupational Industry
+              </div>
+              {{else}}
+              <div class="empty-message" style="margin:.5rem; ">
+                Occupational Industry
+              </div>
+              {{/if}}
+
+            {{/if}}
+
           </div>
       </div>
       {{#if isOwner}}
