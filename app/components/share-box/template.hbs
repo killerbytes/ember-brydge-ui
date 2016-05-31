@@ -18,18 +18,19 @@
 	    {{#if site}}
 				<div class="newsfeed-item">
 					<div class="media">
-					  <div class="media-main">
+					  <div class="media-main wrapper">
 					    {{#if site.image}}
+					    {{#unless noPreview}}
 					    <div class="post-image">
-					      <a href="{{site.url}}">
-					        <img src="{{site.image}}">
-					      </a>
+				        <img src="{{site.image}}">
 					    </div>
+					    {{/unless}}
+					    <a {{action "removePreview"}}><i class="fa fa-times" aria-hidden="true"></i></a>
 					    {{/if}}
 					    <div class="post-caption">
-					      <h3><a href="{{site.url}}">{{site.title}}</a></h3>
+					      <h3>{{site.title}}</h3>
 					      {{#if site.siteName}}
-					        <div class="subheader"><a href="{{site.url}}">{{site.siteName}}</a></div>
+					        <div class="subheader">{{site.siteName}}</div>
 					      {{/if}}
 					    </div>
 					  </div>

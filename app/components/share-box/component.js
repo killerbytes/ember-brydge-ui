@@ -23,7 +23,19 @@ export default Ember.Component.extend({
 
   // postContent: "http://www.viralthread.com/mcdonalds-is-changing-the-recipe-of-nuggets/",
 	actions: {
+    removePreview(){
+      console.log('removePreview');
+      this.set('noPreview', true);
+    },
     post() {
+      var data = {
+        postContent: this.get('postContent'),
+        noPreview: this.get('noPreview') || false,
+        categories: _.map(this.get('categories'), 'id'),
+        site: this.get('site')
+      }
+      console.log(data)
+      return false;
       this.sendAction('submit', 
         this.get('postContent'), 
         _.map(this.get('categories'), 'id'), 
