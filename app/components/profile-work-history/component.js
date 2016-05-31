@@ -11,18 +11,18 @@ export default Ember.Component.extend(Validations, {
 		return this.get('today');
 	}),
 	actions: {
-		update: function (item) {
+		update (item) {
 			this.sendAction('update', item, ()=>{
 				this.$('ul.accordion').foundation('toggle', $('.accordion-content'))		
 			});
 		},
-		create: function () {
+		create () {
 			this.sendAction('create', this, ()=>{
 				this.$('ul.accordion').foundation('toggle', $('.accordion-content'))	
 				Foundation.reInit($('ul.accordion'))
 			});
 		},
-		delete: function(item){
+		delete(item){
 			item.destroyRecord();
 		}
 

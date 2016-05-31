@@ -3,24 +3,27 @@ import Validations from '../../models/validations/interest';
 
 export default Ember.Component.extend(Validations, {
 	flashMessages: Ember.inject.service(),
+	store: Ember.inject.service(),
 	classNames: ['profile-accordion', 'no-bullet'],
   selected: null,
 	actions: {
-		select: function(item){
+		select(item){
 			this.set('selected', item);
 		},
-		update: function(item){
+		update(item){
 			this.$('ul.accordion').foundation('toggle', $('.accordion-content'))		
 			item.save(()=>{
 				Ember.get(this, 'flashMessages').success('Success!');
 			});
 		},
-		delete: function(item){
+		delete(item){
 			item.destroyRecord();
 		},
-		create: function(){
+
+		create(){
+			console.log(this.store)
 			let form = this.getProperties("content");
-			let interest = this.store.createRecord('interest', form);
+			let interest = this.get('store').createRecord('interest', form);
 
 			interest.save().then((res) => {
 				Ember.get(this, 'flashMessages').success('Success!');

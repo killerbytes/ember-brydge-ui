@@ -34,17 +34,25 @@ export default Ember.Component.extend({
         categories: _.map(this.get('categories'), 'id'),
         site: this.get('site')
       }
-      console.log(data)
-      return false;
-      this.sendAction('submit', 
-        this.get('postContent'), 
-        _.map(this.get('categories'), 'id'), 
-        this.get('site'), ()=>{
-          this.setProperties({
-            postContent: null,
-            site: null
-          });        
-        });
+      // console.log(data)
+      // return false;
+      this.sendAction('submit', data, ()=>{
+        this.setProperties({
+          postContent: null,
+          noPreview: null,
+          categories: [],
+          site: null,
+        })
+      })
+      // this.sendAction('submit', 
+      //   this.get('postContent'), 
+      //   _.map(this.get('categories'), 'id'), 
+      //   this.get('site'), ()=>{
+      //     this.setProperties({
+      //       postContent: null,
+      //       site: null
+      //     });        
+      //   });
     },
     cancel() {
       this.set('postContent', '');

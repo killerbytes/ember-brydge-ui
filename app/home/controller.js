@@ -50,10 +50,14 @@ export default Ember.Controller.extend(
   // isSearch: false,
 
   actions: {
-    postFeed: function (content, categories, site, cb) {
+    postFeed: function (data, cb) {
+      console.log(data)
+      // return false;
       this.store.createRecord('post', {
-        content: content,
-        categories: categories
+        site: data.site,
+        noPreview: data.noPreview,
+        content: data.content,
+        categories: data.categories
       }).save().then((res) => {
         var newsfeed = this.get('newsfeed.live');
         newsfeed.pushObject(res._internalModel);
