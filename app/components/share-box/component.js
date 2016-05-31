@@ -5,6 +5,9 @@ export default Ember.Component.extend({
   utils: Ember.inject.service(),
 	classNames: ['share-box', 'mb'],
   categories: [],
+  isOccupational: Ember.computed('profile.occupationOneId', function(){
+    return this.get('profile.occupationOneId') ? true : false && this.get('profile.occupationTwoId') ? true : false;
+  }),
   didInsertElement: function(){
     this.set('categories', [])
   },

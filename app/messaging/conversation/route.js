@@ -17,7 +17,6 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
       this.controller.model.reload()
     },
     deleteConversation: function(id) {
-      console.log('delete conversation',id);
       this.get('ajax').request('/v1/conversations/'+id+'/delete', {
         method: 'PATCH'
       }).then(res =>{

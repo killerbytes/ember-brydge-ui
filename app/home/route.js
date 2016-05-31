@@ -59,7 +59,6 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, FilterDropdownListMix
     if(this.controller.channels) params.channels = this.controller.channels;
     if(this.controller.location) params.location = this.controller.location;
     if(this.controller.q) params.q = this.controller.q;
-    console.log(params)
     this.store.query('newsfeed', params).then(res=>{
       this.controller.set('newsfeed', {live: [], curated: [], search: []});
       this.controller.set('newsfeed.'+ tab, res);

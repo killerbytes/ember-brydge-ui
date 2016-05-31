@@ -1,21 +1,31 @@
 <section>
 	<strong>Your Business Industry</strong>
-	<ul class="no-bullet">
-		<li>
-			{{action-checkbox-bind value=profile.industryId text=profile.industry action="checkboxChanged" reversed=true}}
-		</li>
-	</ul>
-	<p>{{#link-to 'me.edit' profile.id}}Edit Business Industry{{/link-to}}</p>
+	{{#if profile.industryId}}
+		<ul class="no-bullet">
+			<li>
+				{{action-checkbox-bind value=profile.industryId text=profile.industry action="checkboxChanged" reversed=true}}
+			</li>
+		</ul>
+		<p>{{#link-to 'me.edit' profile.id}}Edit Business Industry{{/link-to}}</p>
+	{{else}}
+		<p>{{#link-to 'me.edit' profile.id}}Add Business Industry{{/link-to}}</p>	
+	{{/if}}
+
 	<strong>Your Occupational Industry</strong>
-	<ul class="no-bullet">	
-		<li>
-			{{action-checkbox-bind value=profile.occupationOneId text=profile.occupationOne action="checkboxChanged" reversed=true}}
-		</li>
-		<li>
-			{{action-checkbox-bind value=profile.occupationTwoId text=profile.occupationTwo action="checkboxChanged" reversed=true}}
-		</li>
-	</ul>
-	<p>{{#link-to 'me.edit' profile.id}}Edit Occupational Industry{{/link-to}}</p>
+	{{isOccupational }}
+	{{#if isOccupational }}
+		<ul class="no-bullet">	
+			<li>
+				{{action-checkbox-bind value=profile.occupationOneId text=profile.occupationOne action="checkboxChanged" reversed=true}}
+			</li>
+			<li>
+				{{action-checkbox-bind value=profile.occupationTwoId text=profile.occupationTwo action="checkboxChanged" reversed=true}}
+			</li>
+		</ul>
+		<p>{{#link-to 'me.edit' profile.id}}Edit Occupational Industry{{/link-to}}</p>
+	{{else}}
+		<p>{{#link-to 'me.edit' profile.id}}Add Occupational Industry{{/link-to}}</p>
+	{{/if}}
 </section>
 	<hr>
 <section>

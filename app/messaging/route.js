@@ -5,16 +5,7 @@ export default Ember.Route.extend({
 	model: function () {
 			return this.store.findAll('conversation');
 	},
-	setupController(){
-		this._super(...arguments);
-		console.log('setupController')
-	},
 	actions: {
-		test(item){
-			this.store.peekRecord('conversation', item.id).then(res=>{
-				console.log(res)
-			})
-		},
 		didTransition(){
 			var height = 0;
 			Ember.run.scheduleOnce('afterRender', this, ()=>{
