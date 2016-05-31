@@ -42,7 +42,10 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, FilterDropdownListMix
   },
   loadNewsfeed(tab){
     var tab = tab ||  this.controller.tab;
+    this.controller.set('newsfeed', {});
+    // this.controller.set('newsfeed', {live: [], curated: [], search: []});
     this.controller.set('isLoading', true);
+    // return false;
     if(this.controller.tab != 'search'){
       this.controller.setProperties({
         q: null,
@@ -60,7 +63,7 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, FilterDropdownListMix
     if(this.controller.location) params.location = this.controller.location;
     if(this.controller.q) params.q = this.controller.q;
     this.store.query('newsfeed', params).then(res=>{
-      this.controller.set('newsfeed', {live: [], curated: [], search: []});
+      // this.controller.set('newsfeed', {live: [], curated: [], search: []});
       this.controller.set('newsfeed.'+ tab, res);
       this.controller.set('isLoading', false)
     })
