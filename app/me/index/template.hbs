@@ -59,11 +59,15 @@
     {{#if posts}}
       {{newsfeed-list newsfeed=posts me=me}}
     {{else}}
-      <div class="column">
-        <div class="empty-message">
-          {{me.firstName}} hasn't shared any broadcast yet
-        </div>      
-      </div>
+      {{#if isLoading }}
+        <div class="loader">Loading...</div>
+      {{else}}
+        <div class="column">
+          <div class="empty-message">
+            {{model.firstName}} hasn't shared any broadcast yet
+          </div>      
+        </div>
+      {{/if}}
     {{/if}}
 
   </div>

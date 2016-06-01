@@ -8,6 +8,7 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
   },
   setupController(controller, model){
   	let userid = model.id;
+    this.controller.set('isLoading', true);
     this._super(...arguments);
     Ember.RSVP.hash({
       me: model,
@@ -20,6 +21,8 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
       compliments: this.store.query('compliment',{to: userid})    	
     }).then((res)=>{
 	    controller.setProperties(res);
+      this.controller.set('isLoading', false);
+
     })
 
   },

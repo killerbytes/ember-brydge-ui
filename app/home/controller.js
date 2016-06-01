@@ -51,8 +51,6 @@ export default Ember.Controller.extend(
 
   actions: {
     postFeed: function (data, cb) {
-      console.log(data)
-      // return false;
       this.store.createRecord('post', {
         site: data.site,
         preview: data.preview,
@@ -62,6 +60,7 @@ export default Ember.Controller.extend(
         var newsfeed = this.get('newsfeed.live');
         newsfeed.pushObject(res._internalModel);
         cb.apply();
+        Ember.get(this, 'flashMessages').success('Post Successful!');     
       }).catch((err) => {
         console.log("Error posting to newsfeed:", err);
       });

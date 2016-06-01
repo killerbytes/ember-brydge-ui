@@ -7,9 +7,9 @@ export default DS.JSONAPISerializer.extend({
       attr = result.data.attributes || {},
       rel = result.data.relationships || {};
 
-      console.log('result:',result);
-      console.log('attr:',attr);
-      console.log('rel:',rel);
+      // console.log('result:',result);
+      // console.log('attr:',attr);
+      // console.log('rel:',rel);
 
 
     var payloadData= Object.keys(rel).reduce(function(acc, elem) {

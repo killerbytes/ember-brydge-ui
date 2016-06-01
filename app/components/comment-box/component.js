@@ -5,10 +5,20 @@ import ViewCommentsActionMixin from 'web/mixins/view-comments-action';
 export default Ember.Component.extend(ViewCommentsActionMixin,{
 	store: Ember.inject.service(),
 	sessionAccount: Ember.inject.service(),
+	limit: 5,
 	avatarUrl: Ember.computed(function(){
 		return this.get('sessionAccount.account.avatarUrl');
 	}),
-	isExpend: false,
+	shouldLoad: Ember.observer('load', function(){
+		this.loadComments();
+	}),
+	loadComments(){
+			var page = this.get('page') || 1;
+			this.get('store').query('comment', {id: this.get('post.id'), page: page++, limit: this.get('limit') }).then(res=>{
+				this.get('post.comments').pushObjects(res);
+				this.set('page', page);
+			})
+	},
 	actions:{
 		comment(item, e) {
 			if(!item.get('value').trim().length > 0) return false;
@@ -33,16 +43,10 @@ export default Ember.Component.extend(ViewCommentsActionMixin,{
 						this.$('.accordion-menu:first').foundation('down', $('.media-list'));
 					})
 	      })      	
-      });
-
-			
-
-      //$(".accordion li").removeClass("active").addClass("active");
-
+      });			
 		},
-
 		viewComments: function () {
-			this.viewComments(this.get('post.id'));
+			this.loadComments();
 		}
 	}
 });

@@ -17,8 +17,6 @@
   </div>
 </div>
 <div class="post-comments" style="display: {{checkCount post.commentCount}}">
-  {{#zf-accordion-menu class="accordion-menu" multiOpen=true}}
-    <li>      
       <ul class="media-list no-bullet {{if isExpend "is-active"}} ">
        {{#each post.comments as |comment|}}  
         <li>
@@ -39,7 +37,10 @@
         </li>
         {{/each}}
       </ul>     
-      <a class="more no-arrow"><span class="content-more" disabled=true {{action 'viewComments'}} id={{post.id}}>View Comments</span><span class="content-less">Hide Comments</span></a>
-    </li>
-  {{/zf-accordion-menu}}    
+      {{#if post.comments }}
+        <a class="more no-arrow">
+          <span {{action 'viewComments'}}>View more comments</span>
+        </a>
+      {{/if}}
+
 </div>

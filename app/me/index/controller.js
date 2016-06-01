@@ -31,19 +31,21 @@ export default Ember.Controller.extend({
   }),
   isOwner: true,
   actions: {
-    postFeed(content, categories, site, cb) {
+    postFeed: function (data, cb) {
       this.store.createRecord('post', {
-        content: content,
-        categories: categories
+        site: data.site,
+        preview: data.preview,
+        content: data.postContent,
+        categories: data.categories
       }).save().then((res) => {
         var newsfeed = this.get('posts');
         newsfeed.pushObject(res._internalModel);
         cb.apply();
+        Ember.get(this, 'flashMessages').success('Post Successful!');     
       }).catch((err) => {
         console.log("Error posting to newsfeed:", err);
       });
     },
-
     sharePost(cb){
       this.get('sharePost').submit().then((res)=>{
         cb();
@@ -51,8 +53,6 @@ export default Ember.Controller.extend({
       });
     },
     fileLoaded: function(formData){
-      console.log('particular info Component=>');
-
       return this.get('ajax').request('/v1/profile/avatar', {
         method: 'POST',
         data: formData,
