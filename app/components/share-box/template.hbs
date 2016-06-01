@@ -12,15 +12,14 @@
 	      	value=postContent 
 	      	placeholder='Get noticed! Broadcast opinions, industry news, trends.' 
 	      	key-up="edit" }}
-	      
-	      
+	      	      
 	    </div>
 	    {{#if site}}
 				<div class="newsfeed-item">
 					<div class="media">
 					  <div class="media-main wrapper">
 					    {{#if site.image}}
-					    {{#unless noPreview}}
+					    {{#unless preview}}
 					    <div class="post-image">
 				        <img src="{{site.image}}">
 					    </div>

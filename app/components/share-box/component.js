@@ -24,8 +24,7 @@ export default Ember.Component.extend({
   // postContent: "http://www.viralthread.com/mcdonalds-is-changing-the-recipe-of-nuggets/",
 	actions: {
     removePreview(){
-      console.log('removePreview');
-      this.set('noPreview', true);
+      this.set('preview', true);
     },
     post() {
       var data = {

@@ -55,8 +55,8 @@ export default Ember.Controller.extend(
       // return false;
       this.store.createRecord('post', {
         site: data.site,
-        noPreview: data.noPreview,
-        content: data.content,
+        preview: data.preview,
+        content: data.postContent,
         categories: data.categories
       }).save().then((res) => {
         var newsfeed = this.get('newsfeed.live');
