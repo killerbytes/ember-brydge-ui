@@ -5,6 +5,13 @@ export default Ember.Component.extend({
   utils: Ember.inject.service(),
 	classNames: ['share-box', 'mb'],
   categories: [],
+  title: Ember.computed('site.title', function(){
+    let title = this.get('site.title');
+    return title.length > 100 ? title.substr(0, 100) + ' ...' : title;
+  }),
+  preview: Ember.computed('site.image', function(){
+    return this.get('site.image') ? true : false;
+  }),
   isOccupational: Ember.computed('profile.occupationOneId', function(){
     return this.get('profile.occupationOneId') ? true : false && this.get('profile.occupationTwoId') ? true : false;
   }),
@@ -20,38 +27,29 @@ export default Ember.Component.extend({
       this.set('site', res);
     });
   },
-
-  // postContent: "http://www.viralthread.com/mcdonalds-is-changing-the-recipe-of-nuggets/",
 	actions: {
     removePreview(){
-      this.set('preview', true);
+      this.set('preview', false);
+    },
+    removeObject(){
+      this.set('site', null);
+      this.set('isNoPreview', true);
     },
     post() {
       var data = {
         postContent: this.get('postContent'),
-        noPreview: this.get('noPreview') || false,
+        preview: this.get('preview'),
         categories: _.map(this.get('categories'), 'id'),
         site: this.get('site')
       }
-      // console.log(data)
-      // return false;
       this.sendAction('submit', data, ()=>{
         this.setProperties({
           postContent: null,
-          noPreview: null,
+          preview: null,
           categories: [],
           site: null,
         })
       })
-      // this.sendAction('submit', 
-      //   this.get('postContent'), 
-      //   _.map(this.get('categories'), 'id'), 
-      //   this.get('site'), ()=>{
-      //     this.setProperties({
-      //       postContent: null,
-      //       site: null
-      //     });        
-      //   });
     },
     cancel() {
       this.set('postContent', '');
@@ -66,7 +64,7 @@ export default Ember.Component.extend({
       }
     },
     edit(text, e){
-      if(this.get('site')) return false;
+      if(this.get('site') || this.get('isNoPreview')) return false;
       switch(e.keyCode){
         case 91:
         case 32:

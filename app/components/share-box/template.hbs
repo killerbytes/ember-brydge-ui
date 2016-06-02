@@ -17,23 +17,24 @@
 	    {{#if site}}
 				<div class="newsfeed-item">
 					<div class="media">
-					  <div class="media-main wrapper">
-					    {{#if site.image}}
-					    {{#unless preview}}
-					    <div class="post-image">
-				        <img src="{{site.image}}">
-					    </div>
-					    {{/unless}}
-					    <a {{action "removePreview"}}><i class="fa fa-times" aria-hidden="true"></i></a>
-					    {{/if}}
-					    <div class="post-caption">
-					      <h3>{{site.title}}</h3>
-					      {{#if site.siteName}}
-					        <div class="subheader">{{site.siteName}}</div>
-					      {{/if}}
-					    </div>
-					  </div>
-					</div>
+				    <div class="media-main wrapper">
+				      {{#if site.image}}
+						    {{#if preview}}
+					        <div class="post-image" style="background-image: url({{site.image}})">
+					          <img src="{{site.image}}" class="hide">
+					        </div>
+						    {{/if}}
+						    <a {{action "removePreview"}} class="fa fa-times"></a>
+				      {{/if}}
+				      <div class="post-caption wrapper">
+				        <h3>{{title}}</h3>
+				        {{#if site.siteName}}
+				          <div class="subheader">{{site.siteName}}</div>
+				        {{/if}}
+						    <a {{action "removeObject"}} class="fa fa-times"></a>
+				      </div>
+				    </div>
+					</div>					
 				</div>
 			{{/if}}
 

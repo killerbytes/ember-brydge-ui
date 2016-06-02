@@ -16,6 +16,12 @@
 	.content-editable:before{
 		color: #DEDEDE;
 	}
+	.media-main .post-image+a.fa-times{
+		display: none;
+	}
+	.media-main:hover .post-image+a{
+		display: block;
+	}
 	.post-bar{
 		padding: 5px;
 		.thumbnail{

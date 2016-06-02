@@ -88,8 +88,10 @@
 		overflow: hidden;
 		.fa-times{
 			position: absolute;
-			top: 1rem;
-			right: 1rem;
+			top: 1px;
+			right: 1px;
+			color: #FFF;
+			text-shadow: 0px 0px 2px #999;
 		}
 	}
 	.post-image+.post-caption{

@@ -4,7 +4,7 @@ export default DS.Model.extend({
   title: DS.attr('string'),
   siteName: DS.attr(),
   site: DS.attr(),
-  noPreview: DS.attr(),
+  preview: DS.attr(),
   image: DS.attr(),
   content: DS.attr('string'),
   link: DS.attr(),
