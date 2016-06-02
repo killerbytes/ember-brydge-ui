@@ -54,6 +54,7 @@ export default Ember.Route.extend({
     this._super(...arguments);
     var userid = model.get('userid');
     var ownerid = this.get('loggedinUser').user_id;
+    controller.set('isLoading', true);
     Ember.RSVP.hash({
       me: this.store.findRecord('profile', ownerid),
       connections: this.store.query('connection',{userid: userid}),
@@ -64,10 +65,11 @@ export default Ember.Route.extend({
       questions: this.store.query('ask',{userid: userid}).then(function(asks){
          return asks.filterBy('answer');
       }),
-      trendingPosts: this.store.query('newsfeed',{filter: userid, tab: 'profile'}),
+      posts: this.store.query('newsfeed',{filter: userid, tab: 'profile'}),
       compliments: this.store.query('compliment',{to: userid})
     }).then((result)=>{
       controller.setProperties(result);
+      controller.set('isLoading', false);
     });
   },
   actions: {

@@ -1,6 +1,6 @@
 <div class="conversations-top-bar">
   <h4>
-    {{ model.other.profile.firstName }} <span class="text-upper">{{ model.other.profile.lastName }}</span>
+    {{ profile.firstName }} <span class="text-upper">{{ profile.lastName }} {{pp}}</span>
     <button class="button secondary float-right" {{action 'deleteConversation' model.id}}>Delete</button>
   </h4>  
 </div>

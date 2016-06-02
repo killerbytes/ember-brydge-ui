@@ -39,7 +39,23 @@
 
 <div class="row">
   <div class="columns medium-7">
-    {{newsfeed-list newsfeed=trendingPosts profile=model}}
+
+    {{#if posts}}
+      {{newsfeed-list newsfeed=posts profile=model}}
+    {{else}}
+      {{#if isLoading }}
+        <div class="loader">Loading...</div>
+      {{else}}
+        <div class="column">
+          <div class="empty-message">
+            {{model.firstName}} hasn't shared any broadcast yet
+          </div>      
+        </div>
+      {{/if}}
+    {{/if}}
+
+
+
   </div>
 
   <div class="columns medium-5 sidebar">

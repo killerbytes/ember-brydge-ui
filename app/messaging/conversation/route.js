@@ -9,6 +9,13 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
   setupController(controller, model){
     this._super(...arguments);
     this.store.findAll('conversation');
+    // console.log(controller, model)
+    // this.store.findRecord('profile', model.id).then(res=>{
+    //   cons
+    //   controller.set('profile', res);
+    //   console.log(controller)
+    // })
+
   },
 
   actions: {

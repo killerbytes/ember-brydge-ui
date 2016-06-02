@@ -45,13 +45,16 @@ ul.list-lined{
 }
 
 ul.notifications-list{
-  padding-bottom: 1rem;
+  padding: 0;
   .thumbnail{
     width: 35px;
     height: 35px;
   }
   .main-section{
     color: $text-gray;
+  }
+  li{
+    padding: .5rem 1rem;
   }
   p{
     margin-bottom: 0;
