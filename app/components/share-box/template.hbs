@@ -19,11 +19,9 @@
 					<div class="media">
 				    <div class="media-main wrapper">
 				      {{#if site.image}}
-						    {{#if preview}}
-					        <div class="post-image" style="background-image: url({{site.image}})">
-					          <img src="{{site.image}}" class="hide">
-					        </div>
-						    {{/if}}
+				        <div class="post-image" style="background-image: url({{site.image}})">
+				          <img src="{{site.image}}" class="hide">
+				        </div>
 						    <a {{action "removePreview"}} class="fa fa-times"></a>
 				      {{/if}}
 				      <div class="post-caption wrapper">

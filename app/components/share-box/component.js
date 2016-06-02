@@ -10,6 +10,7 @@ export default Ember.Component.extend({
     return title.length > 100 ? title.substr(0, 100) + ' ...' : title;
   }),
   preview: Ember.computed('site.image', function(){
+    console.log(this.get('site.image'))
     return this.get('site.image') ? true : false;
   }),
   isOccupational: Ember.computed('profile.occupationOneId', function(){
@@ -29,7 +30,7 @@ export default Ember.Component.extend({
   },
 	actions: {
     removePreview(){
-      this.set('preview', false);
+      this.set('site.image', null);
     },
     removeObject(){
       this.set('site', null);
@@ -38,14 +39,14 @@ export default Ember.Component.extend({
     post() {
       var data = {
         postContent: this.get('postContent'),
-        preview: this.get('preview'),
         categories: _.map(this.get('categories'), 'id'),
         site: this.get('site')
       }
+      console.log(data);
+      return false;
       this.sendAction('submit', data, ()=>{
         this.setProperties({
           postContent: null,
-          preview: null,
           categories: [],
           site: null,
         })
