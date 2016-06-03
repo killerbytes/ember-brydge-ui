@@ -6,12 +6,14 @@
 	    </div>
 	    
 	    <div class="post-form">
-	      {{content-editable 
-	      	type="text"
-	      	class="content-editable" 
-	      	value=postContent 
+
+        {{textarea 
+          value=postContent 
+          key-up="edit" 
+          enter="comment"
+          class="textarea content-editable" 
 	      	placeholder='Get noticed! Broadcast opinions, industry news, trends.' 
-	      	key-up="edit" }}
+          }}  
 	      	      
 	    </div>
 	    {{#if site}}

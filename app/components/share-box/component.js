@@ -47,8 +47,14 @@ export default Ember.Component.extend({
           postContent: null,
           categories: [],
           site: null,
+          isNoPreview: false
         })
       })
+
+      Ember.run.later(()=>{
+        this.$('textarea').get(0).style.height = '';
+      })
+      
     },
     cancel() {
       this.set('postContent', '');
@@ -63,6 +69,16 @@ export default Ember.Component.extend({
       }
     },
     edit(text, e){
+
+      if(text){
+        var el = e.currentTarget;
+        var offset = (el.offsetHeight - el.clientHeight)+2;
+        e.currentTarget.style.height = 'auto';
+        e.currentTarget.style.height = (e.currentTarget.scrollHeight+offset) + "px";        
+      }else{
+        e.currentTarget.style.height = '';        
+      }
+
       if(this.get('site') || this.get('isNoPreview')) return false;
       switch(e.keyCode){
         case 91:
