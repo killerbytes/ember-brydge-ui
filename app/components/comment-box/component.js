@@ -5,16 +5,18 @@ import ViewCommentsActionMixin from 'web/mixins/view-comments-action';
 export default Ember.Component.extend(ViewCommentsActionMixin,{
 	store: Ember.inject.service(),
 	sessionAccount: Ember.inject.service(),
-	limit: 5,
+	limit: 2,
 	avatarUrl: Ember.computed(function(){
 		return this.get('sessionAccount.account.avatarUrl');
 	}),
 	loadComments(){
+			this.set('isLoading', true);
 			var page = this.get('page') || 1;
 			this.get('store').query('comment', {id: this.get('post.id'), page: page++, limit: this.get('limit') }).then(res=>{
 				this.set('showComments', true);
 				this.get('post.comments').pushObjects(res);
 				this.set('page', page);
+				this.set('isLoading', false);
 			})
 	},
 	actions:{

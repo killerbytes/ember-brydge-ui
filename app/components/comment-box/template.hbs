@@ -39,6 +39,9 @@
       {{/each}}
     </ul>     
     {{/if}}
+    {{#if isLoading}}
+      <div class="loader small">Loading...</div>
+    {{/if}}
     {{#if count}}
     <a class="more no-arrow">
       <span {{action 'viewComments'}}>View more comments</span>

@@ -539,6 +539,9 @@ ul.menu-dotted{
 	}
 
 	.post-comments{
+		ul.media-list{
+			transition: transform 5s linear;
+		}
 		ul.media-list li{
 			padding: .5rem 0;
 			padding-bottom: 0;
