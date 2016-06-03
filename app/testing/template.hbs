@@ -1,10 +1,8 @@
 <h1>Testing</h1>
 <div class="row">
-	<div class="columns">
-        {{content-editable 
-          placeholder="Write your comment" 
-           }}
-	
+	<div class="columns medium-6">
+{{txtVal}}
+		{{textarea value=txtVal key-up="resize" class="textarea" rows="2" placeholder="Enter text.."}}	
 		
 	</div>
 </div>

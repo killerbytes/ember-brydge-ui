@@ -5,52 +5,63 @@
         <img src="{{ avatarUrl }}">
       </div>
       <div class="comment-form" id="comment-form-{{post.id}}">
-        {{content-editable 
-          class="content-editable" 
-          allowNewlines=false
+        {{textarea 
           value=commentContent 
-          placeholder="Write your comment" 
-          enter="comment" }}
+          key-up="resize" 
+          enter="comment"
+          class="textarea content-editable" 
+          placeholder="Write your comment"}}  
 
       </div>
     </div>
   </div>
 </div>
+{{isViewMore}}
 <div class="post-comments" style="display: {{checkCount post.commentCount}}">
     {{#if showComments}}
-    <ul class="media-list no-bullet">
-     {{#each post.comments as |comment|}}  
-      <li>
-        <div class="media-object">
-          <div class="media-object-section">
-            <div class="thumbnail rounded">
-              <img src= {{comment.user.profile.avatarUrl}}>
+      <ul class="media-list no-bullet">
+       {{#each comments as |comment|}}  
+        <li>
+          <div class="media-object">
+            <div class="media-object-section">
+              <div class="thumbnail rounded">
+                <img src= {{comment.user.profile.avatarUrl}}>
+              </div>
+            </div>
+            <div class="media-object-section main-section">
+              <a class="name">{{comment.user.name}}</a>
+              <div class="position">{{comment.user.profile.currentTitle }} <span class="bullet">&bull;</span> {{ comment.user.profile.currentCompany }}</div>
+              
+              <p class="comment-content">{{comment.content}}</p>
+              <div class="timestamp">{{timestamp comment.createdAt}}</div>
             </div>
           </div>
-          <div class="media-object-section main-section">
-            <a class="name">{{comment.user.name}}</a>
-            <div class="position">{{comment.user.profile.currentTitle }} <span class="bullet">&bull;</span> {{ comment.user.profile.currentCompany }}</div>
-            
-            <p class="comment-content">{{comment.content}}</p>
-            <div class="timestamp">{{timestamp comment.createdAt}}</div>
-          </div>
-        </div>
-      </li>
-      {{/each}}
-    </ul>     
+        </li>
+        {{/each}}
+      </ul>     
     {{/if}}
     {{#if isLoading}}
       <div class="loader small">Loading...</div>
     {{/if}}
-    {{#if count}}
-    <a class="more no-arrow">
-      <span {{action 'viewComments'}}>View more comments</span>
-    </a>
-    {{/if}}
+
+    {{#unless showComments}}
+    {{/unless}}
     {{#if showComments}}
-    <a class="more no-arrow">
-      <span {{action 'hideComments'}}>Hide comments</span>
-    </a>
+      {{#if isMore}}
+        <a class="more no-arrow">
+          <span {{action 'viewComments'}}>View more comments</span>
+        </a>
+      {{/if}}    
+      <a class="more no-arrow">
+        <span {{action 'hideComments'}}>Hide comments</span>
+      </a>
+    {{else}}
+      {{#if total}}
+        <a class="more no-arrow">
+          <span {{action 'viewComments'}}>View comments</span>
+        </a>
+      {{/if}}    
+
     {{/if}}
 
 </div>
