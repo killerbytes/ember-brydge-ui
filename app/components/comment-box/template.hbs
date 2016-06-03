@@ -17,30 +17,37 @@
   </div>
 </div>
 <div class="post-comments" style="display: {{checkCount post.commentCount}}">
-      <ul class="media-list no-bullet {{if isExpend "is-active"}} ">
-       {{#each post.comments as |comment|}}  
-        <li>
-          <div class="media-object">
-            <div class="media-object-section">
-              <div class="thumbnail rounded">
-                <img src= {{comment.user.profile.avatarUrl}}>
-              </div>
-            </div>
-            <div class="media-object-section main-section">
-              <a class="name">{{comment.user.name}}</a>
-              <div class="position">{{comment.user.profile.currentTitle }} <span class="bullet">&bull;</span> {{ comment.user.profile.currentCompany }}</div>
-              
-              <p class="comment-content">{{comment.content}}</p>
-              <div class="timestamp">{{timestamp comment.createdAt}}</div>
+    {{#if showComments}}
+    <ul class="media-list no-bullet">
+     {{#each post.comments as |comment|}}  
+      <li>
+        <div class="media-object">
+          <div class="media-object-section">
+            <div class="thumbnail rounded">
+              <img src= {{comment.user.profile.avatarUrl}}>
             </div>
           </div>
-        </li>
-        {{/each}}
-      </ul>     
-      {{#if post.comments }}
-        <a class="more no-arrow">
-          <span {{action 'viewComments'}}>View more comments</span>
-        </a>
-      {{/if}}
+          <div class="media-object-section main-section">
+            <a class="name">{{comment.user.name}}</a>
+            <div class="position">{{comment.user.profile.currentTitle }} <span class="bullet">&bull;</span> {{ comment.user.profile.currentCompany }}</div>
+            
+            <p class="comment-content">{{comment.content}}</p>
+            <div class="timestamp">{{timestamp comment.createdAt}}</div>
+          </div>
+        </div>
+      </li>
+      {{/each}}
+    </ul>     
+    {{/if}}
+    {{#if count}}
+    <a class="more no-arrow">
+      <span {{action 'viewComments'}}>View more comments</span>
+    </a>
+    {{/if}}
+    {{#if showComments}}
+    <a class="more no-arrow">
+      <span {{action 'hideComments'}}>Hide comments</span>
+    </a>
+    {{/if}}
 
 </div>

@@ -42,8 +42,6 @@ export default Ember.Component.extend({
         categories: _.map(this.get('categories'), 'id'),
         site: this.get('site')
       }
-      console.log(data);
-      return false;
       this.sendAction('submit', data, ()=>{
         this.setProperties({
           postContent: null,

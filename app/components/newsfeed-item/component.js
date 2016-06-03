@@ -77,7 +77,6 @@ export default Ember.Component.extend({
 		},
 		viewComments: function() {
 			this.$('.content-editable').focus();
-			this.set('commentLoaded', true)
 		}
 	}
 });

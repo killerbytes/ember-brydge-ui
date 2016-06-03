@@ -25,7 +25,7 @@ export default Ember.Component.extend({
 		},
 		sharePost(){
 			this.sendAction('submit', ()=>{
-				this.$('#shareModal').foundation('close');
+				$('#shareModal').foundation('close');
 				this.set('value', '');
 				this.set('sharePost.categories', [])
 			});
