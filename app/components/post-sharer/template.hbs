@@ -2,7 +2,13 @@
   <h4>Share this content</h4>
   <form action="">
     <div class="content">
-      {{content-editable class="content-editable" value=value placeholder='Would you like to say something about this?'}}
+      {{textarea 
+        value=value 
+        key-up="edit" 
+        enter="comment"
+        class="textarea content-editable" 
+        placeholder="Would you like to say something about this?" }}  
+
       {{#unless post.sharedPost}}
         <p>{{{post.content}}}</p>
         {{#if post.title}}

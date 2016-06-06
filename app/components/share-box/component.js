@@ -54,7 +54,7 @@ export default Ember.Component.extend({
       Ember.run.later(()=>{
         this.$('textarea').get(0).style.height = '';
       })
-      
+
     },
     cancel() {
       this.set('postContent', '');
@@ -72,7 +72,7 @@ export default Ember.Component.extend({
 
       if(text){
         var el = e.currentTarget;
-        var offset = (el.offsetHeight - el.clientHeight)+2;
+        var offset = (el.offsetHeight - el.clientHeight);
         e.currentTarget.style.height = 'auto';
         e.currentTarget.style.height = (e.currentTarget.scrollHeight+offset) + "px";        
       }else{

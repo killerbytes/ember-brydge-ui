@@ -29,6 +29,17 @@ export default Ember.Component.extend({
 				this.set('value', '');
 				this.set('sharePost.categories', [])
 			});
+		},
+		edit(text, e){
+      var el = e.currentTarget;
+      var offset = (el.offsetHeight - el.clientHeight);
+      if(text){
+        el.style.height = 'auto';
+        el.style.height = (el.scrollHeight+offset) + "px";        
+      }else{
+        el.style.height = '';        
+      }
+
 		}
 	}
 });

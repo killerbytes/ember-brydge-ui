@@ -87,7 +87,7 @@ export default Ember.Component.extend(ViewCommentsActionMixin,{
 		resize(value, e){
 			if(value){
 				var el = e.currentTarget;
-				var offset = (el.offsetHeight - el.clientHeight)+2;
+				var offset = (el.offsetHeight - el.clientHeight);
 				e.currentTarget.style.height = 'auto';
 				e.currentTarget.style.height = (e.currentTarget.scrollHeight+offset) + "px";				
 			}else{
