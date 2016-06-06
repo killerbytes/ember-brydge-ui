@@ -112,6 +112,8 @@ export default Ember.Controller.extend(
           this.store.findRecord('vote', res.get('id')).then(vote=>{
             res.set('vote', vote);
           })
+          var post = this.store.peekRecord('newsfeed', res.get('sharedPostid'));
+          post.set('vote.sharedCount', res.get('shareCount'))
           cb.apply();
         }else{
           this.set('tab', 'live');
