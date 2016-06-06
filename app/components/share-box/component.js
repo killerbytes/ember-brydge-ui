@@ -6,7 +6,7 @@ export default Ember.Component.extend({
 	classNames: ['share-box', 'mb'],
   categories: [],
   title: Ember.computed('site.title', function(){
-    let title = this.get('site.title');
+    let title = this.get('site.title') || this.get('site.url');
     return title.length > 100 ? title.substr(0, 100) + ' ...' : title;
   }),
   preview: Ember.computed('site.image', function(){
@@ -27,6 +27,21 @@ export default Ember.Component.extend({
       this.set('site', res);
     });
   },
+  findUrls( text ){
+    var source = (text || '').toString();
+    var urlArray = [];
+    var url;
+    var matchArray;
+    // Regular expression to find FTP, HTTP(S) and email URLs.
+    
+    var regexToken = /(?:https?:\/\/)?(?:[\w]+\.)([a-zA-Z\.]{2,6})([\/\w\.-]*)*\/?/g;
+    // Iterate through any URLs in the text.
+    while( (matchArray = regexToken.exec( source )) !== null ){
+        var token = matchArray[0];
+        urlArray.push( token );
+    }
+    return urlArray;
+  },
 	actions: {
     removePreview(){
       this.set('site.image', null);
@@ -36,11 +51,17 @@ export default Ember.Component.extend({
       this.set('isNoPreview', true);
     },
     post() {
+      var url = this.findUrls(this.get('postContent'))
+      if(this.get('site') && url){
+        this.set('postContent', (this.get('postContent').replace(url[0], "")).trim() ) ;
+      }
+
       var data = {
         postContent: this.get('postContent'),
         categories: _.map(this.get('categories'), 'id'),
         site: this.get('site')
       }
+
       this.sendAction('submit', data, ()=>{
         this.setProperties({
           postContent: null,
@@ -83,26 +104,11 @@ export default Ember.Component.extend({
         case 91:
         case 32:
         case 224:
-          var urls = findUrls(text);
+          var urls = this.findUrls(text);
           if(urls.length){
             this.crawl(urls[0]);
           }
           break;
-      }
-      function findUrls( text ){
-        var source = (text || '').toString();
-        var urlArray = [];
-        var url;
-        var matchArray;
-        // Regular expression to find FTP, HTTP(S) and email URLs.
-        
-        var regexToken = /(?:https?:\/\/)?(?:[\w]+\.)([a-zA-Z\.]{2,6})([\/\w\.-]*)*\/?/g;
-        // Iterate through any URLs in the text.
-        while( (matchArray = regexToken.exec( source )) !== null ){
-            var token = matchArray[0];
-            urlArray.push( token );
-        }
-        return urlArray;
       }
 
     },

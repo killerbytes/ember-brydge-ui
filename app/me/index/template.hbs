@@ -57,7 +57,7 @@
       submit='postFeed' }}
 
     {{#if posts}}
-      {{newsfeed-list newsfeed=posts me=me}}
+      {{newsfeed-list newsfeed=newsfeed me=me}}
     {{else}}
       {{#if isLoading }}
         <div class="loader">Loading...</div>
