@@ -48,17 +48,17 @@
     {{/unless}}
     {{#if showComments}}
       {{#if isMore}}
-        <a class="more no-arrow">
-          <span {{action 'viewComments'}}>View more comments</span>
+        <a class="more no-arrow" {{action 'viewComments'}}>
+          View more comments
         </a>
       {{/if}}    
-      <a class="more no-arrow">
-        <span {{action 'hideComments'}}>Hide comments</span>
+      <a class="more no-arrow" {{action 'hideComments'}}>
+        Hide comments
       </a>
     {{else}}
       {{#if total}}
-        <a class="more no-arrow">
-          <span {{action 'viewComments'}}>View comments</span>
+        <a class="more no-arrow" {{action 'viewComments'}}>
+          View comments
         </a>
       {{/if}}    
 
