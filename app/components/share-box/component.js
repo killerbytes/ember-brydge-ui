@@ -24,7 +24,6 @@ export default Ember.Component.extend({
     this.get('ajaxApi').request(url, {
       method: 'GET'
     }).then((res)=>{
-      console.log(res);
       this.set('site', res);
     });
   },

@@ -48,6 +48,11 @@ export default Ember.Controller.extend({
     },
     sharePost(cb){
       this.get('sharePost').submit().then((res)=>{
+        var newsfeed = this.get('posts');
+        newsfeed.pushObject(res._internalModel);
+        this.store.findRecord('vote', res.get('id')).then(vote=>{
+          res.set('vote', vote);
+        })
         cb();
         Ember.get(this, 'flashMessages').success('Post Shared!');     
       });

@@ -106,11 +106,23 @@ export default Ember.Controller.extend(
     },
     sharePost(cb){
       this.get('sharePost').submit().then(res =>{
-        var newsfeed = this.get('newsfeed.live');
-        newsfeed.pushObject(res._internalModel);
-        Ember.get(this, 'flashMessages').success('Post Shared!');    
-        this.store.findRecord('vote', res.get('sharedPostid'), {reload: true})
-        cb.apply();
+        if(this.get('tab') == 'live'){
+          var newsfeed = this.get('newsfeed.live');
+          newsfeed.pushObject(res._internalModel);
+          this.store.findRecord('vote', res.get('id')).then(vote=>{
+            res.set('vote', vote);
+          })
+          cb.apply();
+        }else{
+          this.set('tab', 'live');
+          cb.apply();
+          this.loadNewsfeed('live', ()=>{
+            Ember.get(this, 'flashMessages').success('Post Successful!');     
+          })          
+        }
+
+        // Ember.get(this, 'flashMessages').success('Post Shared!');    
+        // cb.apply();
       });
     }
 

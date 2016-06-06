@@ -7,9 +7,10 @@ export default Ember.Controller.extend({
   actions: {
     sharePost(cb){
       this.get('sharePost').submit().then((res)=>{
-        Ember.run.later(()=>{
-          this.store.findRecord('vote', res.get('sharedPostid'), {reload: true})
-        },10000)
+        // console.log(res.get(''))
+        // Ember.run.later(()=>{
+        //   this.store.findRecord('vote', res.get('sharedPostid'), {reload: true})
+        // },10000)
         Ember.get(this, 'flashMessages').success('Post Shared!');     
         cb.apply();
       });

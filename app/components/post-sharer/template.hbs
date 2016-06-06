@@ -14,11 +14,11 @@
         {{#if post.title}}
           <div class="media-main">
             {{#if post.image}}
-            <div class="post-image">
-              <a href="{{post.url}}">
-                <img src="{{post.image}}">
-              </a>
-            </div>
+            <a href="{{post.url}}">
+              <div class="post-image" style="background-image: url({{post.image}})">
+                <img src="{{post.image}}" class="hide">
+              </div>
+            </a>
             {{/if}}
             <div class="post-caption">
               <h3><a href="{{post.url}}">{{title}}</a></h3>
@@ -28,6 +28,7 @@
             </div>
           </div>
         {{/if}}
+
       {{else}}
         <p>{{{post.sharedPost.content.content}}}</p>
         {{#if post.sharedPost.title}}
