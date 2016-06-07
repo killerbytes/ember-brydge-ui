@@ -549,6 +549,7 @@ ul.menu-dotted{
 	.post-comments{
 		ul.media-list{
 			transition: transform 5s linear;
+			border-bottom: 1px solid $border-color;
 		}
 		ul.media-list li{
 			padding: .5rem 0;
