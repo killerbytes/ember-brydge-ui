@@ -6,6 +6,7 @@ export default DS.Model.extend({
 	title: DS.attr('string'),
 	from: DS.belongsTo('user'),
 	to: DS.belongsTo('user'),
+	createdAt: DS.attr(),
 	status: DS.attr(),
 	delete: DS.attr('boolean', { defaultValue: false })
 });

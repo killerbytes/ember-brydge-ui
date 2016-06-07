@@ -6,6 +6,19 @@ export default Ember.Controller.extend({
   flashMessages: Ember.inject.service(),
   sharePost: Ember.inject.service(),	
 	sortProps: ['createdAt:desc'],
+  sortOrder: ['from:desc'],
+  work: Ember.computed.sort('experiences', 'sortOrder'),
+  workHistory: Ember.computed('work', function(){
+    // var work = this.get('work').toArray()
+    // return _.sortBy(experiences, 'currentCompany', function(i){
+    //   return i.currentCompany;
+    // });
+    // var x = _.sortBy(work, 'currentCompany', function(o) {
+    //   return !o.currentCompany;
+    // });
+    // console.log(x)
+    return this.get('work');
+  }),
   newsfeed: Ember.computed.sort('posts', 'sortProps'),
   acceptedQuestion: Ember.computed.filterBy('questions', 'status', 'accepted'),
   latestQuestion: Ember.computed('acceptedQuestion', function(){
