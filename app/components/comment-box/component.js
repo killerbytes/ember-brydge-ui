@@ -11,8 +11,8 @@ export default Ember.Component.extend(ViewCommentsActionMixin,{
 		return this.get('sessionAccount.account.avatarUrl');
 	}),
 	isMore: Ember.computed('limit', 'page', function(){
-		console.log(this.get('total'), this.get('limit'), this.get('page'))
-		return this.get('total') >= (this.get('limit') * this.get('page')) ? true : false;
+		
+		return Math.ceil(this.get('total') / (this.get('limit') * (this.get('page')-1) )) > 1 ? true: false; 
 	}),
 	sortProps: ['createdAt:desc'],
   comments: Ember.computed.sort('post.comments', 'sortProps'),
@@ -73,16 +73,16 @@ export default Ember.Component.extend(ViewCommentsActionMixin,{
 			this.set('showComments', false)
 		},
 		viewComments: function () {
-			if(this.get('post.comments.content').length > 0){
-				if(!this.get('showComments')){
-					this.set('showComments', true);	
-					console.log(12)
-				}else{
-					this.loadComments();
-				}				
-			}else{
+			// if(this.get('post.comments.content').length > 0){
+			// 	if(!this.get('showComments')){
+			// 		this.set('showComments', true);	
+			// 		console.log(12)
+			// 	}else{
+			// 		this.loadComments();
+			// 	}				
+			// }else{
 				this.loadComments();
-			}
+			// }
 		},
 		resize(value, e){
 			if(value){

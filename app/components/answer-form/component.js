@@ -11,7 +11,7 @@ export default Ember.Component.extend({
 
 			question.save().then(()=>{
 				this.set('answer', null);
-				this.$('#answerFormModal').foundation('close');
+				$('#answerFormModal').foundation('close');
 			});
 		}
 	}

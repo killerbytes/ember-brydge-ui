@@ -10,46 +10,15 @@ export default Ember.Route.extend({
   beforeModel: function(transition) {
     const loggedinUser = this.get('session.data.authenticated');
     this.set('loggedinUser', loggedinUser);
-    
-    if (loggedinUser.username === transition.params['profile'].username) {
-      this.transitionTo('me');
-      return;
-    }
+    return this.get('sessionAccount.account')    
+    // if (loggedinUser.username === transition.params['profile'].username) {
+    //   this.transitionTo('me');
+    //   return;
+    // }
   },
   model: function(params) {
     return this.store.findRecord('public-profile', params.username)
   },
-/*
-  afterModelxx: function(model) {
-    var userid = model.userid;
-    var ownerid = this.get('loggedinUser').user_id;
-    console.log(this, arguments)
-    this.controller.set('public', model);
-    var self = this;
-    return Ember.RSVP.hash({
-      // connectionStatus: this.get('connection').status(userid),
-      accountProfile: this.store.findRecord('profile', ownerid),
-      languages: this.store.query('language',{userid: userid}),
-      experiences: this.store.query('experience',{userid: userid}),
-      educations: this.store.query('education',{userid: userid}),
-      questions: this.store.query('ask',{userid: userid}).then(function(asks){
-         return asks.filterBy('answer');
-      }),
-      //trendingPosts: this.store.query('post', {userid: userid})
-      trendingPosts: this.store.query('newsfeed',{filter: userid, tab: 'curated'}),
-      compliments: this.store.query('compliment',{to: userid})
-    }).then((result)=>{
-      // self.set('connectionStatus', result.connectionStatus);
-      self.set('accountProfile', result.accountProfile);
-      self.set('languages', result.languages);
-      self.set('experiences', result.experiences);
-      self.set('educations', result.educations);
-      self.set('trendingPosts', result.trendingPosts);
-      self.set('questions', result.questions);
-      self.set('compliments', result.compliments);
-    });
-  },
-*/
   setupController: function(controller, model) {
     this._super(...arguments);
     var userid = model.get('userid');

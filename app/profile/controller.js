@@ -9,7 +9,6 @@ export default Ember.Controller.extend(
     return this.get('model.connection.status') == 'accepted' ? true : false;
   }),
   isNotEmptyTitleCompany: Ember.computed('model.currentTitle', 'model.currentCompany', function(){
-    console.log(this.get('model'))
     return this.get('model.currentTitle') ? true : false && this.get('model.currentCompany') ? true : false;
   }),
   isNotEmptyOccupation: Ember.computed('model.occupationOne', 'model.OccupationTwo', function(){

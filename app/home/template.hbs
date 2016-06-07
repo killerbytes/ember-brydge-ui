@@ -63,7 +63,7 @@
 		<div class="newsfeed-tabs">
 
 
-			{{#zf-tabs class="tabs-table mb"}}
+			{{#zf-tabs class="tabs-table mb" id="newsfeed-tabs"}}
 				<li data-tab='live' class="tabs-title {{active-tab 'live' tab}}" style="width:20%">
 					<a href="#live">Live</a>
 				</li>
@@ -88,7 +88,7 @@
 				</li>
 			{{/zf-tabs}}
 
-			<div data-tabs-content="example-tabs">
+			<div data-tabs-content="newsfeed-tabs">
 				<div class="tabs-panel {{active-tab 'live' tab}}" id="live">
 				    {{#if feed_live}}
 					    {{newsfeed-list newsfeed=feed_live profile=profile avatar=profile.avatarUrl}}

@@ -15,7 +15,7 @@
                 <h2>Stay in control!</h2>
             </div>
 
-            {{#zf-tabs class="vertical bg-gray"}}
+            {{#zf-tabs class="vertical bg-gray" id="settings-tabs"}}
               <li data-tab='email' class="tabs-title {{active-tab 'email' tab}}"><a href="#email">Email address</a></li>
               <li data-tab='password' class="tabs-title {{active-tab 'password' tab}}"><a href="#password">Password</a></li>
               <li data-tab='notification' class="tabs-title {{active-tab 'notification' tab}}"><a href="#notification">Notification settings</a></li>
@@ -24,7 +24,7 @@
             {{/zf-tabs}}
           </div>
           <div class="medium-9 columns float-left">
-            <div class="tabs-content vertical" data-tabs-content="example-tabs">      
+            <div class="tabs-content vertical" data-tabs-content="settings-tabs">      
               <div class="tabs-panel space-filler {{active-tab 'email' tab}}" id="email">
                 <form>
                   <div class="row">

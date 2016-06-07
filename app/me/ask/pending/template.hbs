@@ -12,7 +12,7 @@
 
     <div class="question-tab">
       <div class="mb">
-        {{#zf-tabs class="tabs-table"}}
+        {{#zf-tabs class="tabs-table" id="pending-tabs"}}
           <li data-tab='questions' class="medium-6 tabs-title {{active-tab 'questions' tab}}">
             <a href="#questions" class="button expanded text-upper" aria-selected="true">Asked to You</a>
           </li>
@@ -21,7 +21,7 @@
           </li>
         {{/zf-tabs}}
       </div>
-      <div class="tabs-content questions" data-tabs-content="example-tabs">
+      <div class="tabs-content questions" data-tabs-content="pending-tabs">
         <div class="tabs-panel {{active-tab 'questions' tab}}" id="questions">
       
           <ul class="no-bullet question-pending-list">

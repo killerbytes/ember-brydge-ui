@@ -16,7 +16,7 @@ export default Ember.Service.extend({
  //    this.set('connectionStore', this.get('store').findAll('connection'))
  //  },
   checkNotificationCounts(cb) {
-    console.log('checking notifications');
+    // console.log('checking notifications');
 
     var url = '/v1/notifications/count';
     this.get('ajax').request(url)
@@ -25,10 +25,10 @@ export default Ember.Service.extend({
       var data = resp.data.attributes;
       if(!data) return;
       
-      console.log('notification count =>',data.notification)
-      console.log('connection count =>',data.connection)
-      console.log('message count =>',data.message)
-      console.log('profile count =>',data.profile)
+      // console.log('notification count =>',data.notification)
+      // console.log('connection count =>',data.connection)
+      // console.log('message count =>',data.message)
+      // console.log('profile count =>',data.profile)
       
       this.set('notificationCount',data.notification);
       this.set('connectionCount',data.connection);

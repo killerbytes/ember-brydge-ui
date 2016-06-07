@@ -108,7 +108,7 @@
 {{#zf-reveal id="industryModal" overlay=true class="reveal-popup large"}}
   <h4>Industry</h4>
     <div class="content">        
-      {{#zf-tabs class="hide"}}
+      {{#zf-tabs class="hide" id="search-tabs"}}
         <li class="tabs-title is-active"><a href="#root">Root</a></li>
         {{#each model.categories as |item|}}
             <li class="tabs-title"><a href="#{{item.code}}">{{item.name}}</a></li>
@@ -118,7 +118,7 @@
         {{/each}}  
       {{/zf-tabs}}
 
-      <div class="tabs-contentx" data-tabs-content="example-tabs">
+      <div class="tabs-contentx" data-tabs-content="search-tabs">
 
         <div class="tabs-panel is-active" id="root">
           <p>

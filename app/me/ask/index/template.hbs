@@ -29,7 +29,7 @@
 	{{/unless}}
   <div class="medium-7 columns">
 		<div class="mb">
-			{{#zf-tabs class="tabs-table"}}
+			{{#zf-tabs class="tabs-table" id="ask-tabs"}}
 				<li class="medium-6 tabs-title is-active">
 					<a href="#question_answered" class="button expanded text-upper" aria-selected="true">Questions {{model.profile.firstName}} has answered</a>
 				</li>
@@ -38,7 +38,7 @@
 				</li>
 			{{/zf-tabs}}
 		</div>
-		<div class="tabs-content questions" data-tabs-content="example-tabs">
+		<div class="tabs-content questions" data-tabs-content="ask-tabs">
 			<div class="tabs-panel {{active-tab 'questions' tab}}" id="question_answered">
 				{{ partial 'ask/to'}}
 			</div>

@@ -12,7 +12,7 @@
       {{spinning-button clicked="clickedConnect" value=connectionStatus class="button large rounded connect success"}}
       </div>
       <div class="table-cell">
-        {{link-to "Message" "messaging.conversation" model.id class="button large rounded expanded"}}
+        {{link-to "Message" "messaging.conversation" model.conversationid class="button large rounded expanded"}}
       </div>
       <div class="table-cell">
         {{ask-dropdown model=model from=me action='goToAsk' name="dd-ask-form1"}}

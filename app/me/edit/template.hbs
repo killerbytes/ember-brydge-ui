@@ -17,7 +17,7 @@
                 <p>A complete profile increases your chances of being noticed by industry peers.</p>
             </div>
 
-            {{#zf-tabs class="vertical bg-gray"}}
+            {{#zf-tabs class="vertical bg-gray" id="edit-tabs"}}
               <li data-tab='personal' class="tabs-title {{active-tab 'personal' tab}}"><a href="#personal" aria-selected="true">Personal Particulars</a></li>
               <li data-tab='type' class="tabs-title {{active-tab 'type' tab}}"><a href="#type">Profile Type</a></li>
               <li data-tab='industry' class="tabs-title {{active-tab 'industry' tab}}"><a href="#industry">Business Industry</a></li>
@@ -30,7 +30,7 @@
             {{/zf-tabs}}
           </div>
           <div class="medium-9 columns float-left">
-              <div class="tabs-content vertical" data-tabs-content="example-tabs">
+              <div class="tabs-content vertical" data-tabs-content="edit-tabs">
       
                   <div class="tabs-panel {{active-tab 'personal' tab}}" id="personal">
                     {{partial 'me/edit/info'}}
