@@ -19,14 +19,15 @@ export default Ember.Controller.extend(
 	// 	this.get('complimentFilter').push('All');
 	// 	return _.concat(this.get('complimentFilter'), this.get('titles'));
 	// }),
-	// compliments: Ember.computed('complimentTitle', function(){
-	// 	var selected = this.get('complimentTitle');
-	// 	if(!selected || selected == 'All'){
-	// 		return this.get('toAccept');			
-	// 	}else{
-	// 		return this.get('toAccept').filterBy('title', this.get('complimentTitle'));
-	// 	}
-	// }),
+	compliments: Ember.computed('complimentTitle', 'model.toCompliments', function(){
+		var selected = this.get('complimentTitle');
+		console.log('selected', selected);
+		if(!selected || selected == 'All'){
+			return this.get('toAccept');			
+		}else{
+			return this.get('toAccept').filterBy('title', this.get('complimentTitle'));
+		}
+	}),
 
 	complimentFilter: [],
   formComplimentTitle: Ember.computed('', function(){

@@ -13,6 +13,7 @@ export default Ember.Controller.extend({
   }),
   acceptedCompliments: Ember.computed.filterBy('compliments', 'status', 'accepted'),
   latestCompliment: Ember.computed('acceptedCompliments', function(){
+    console.log(this.get('acceptedCompliments.firstObject'))    
     return this.get('acceptedCompliments.firstObject');
   }),
   location: Ember.computed('model.location', function(){

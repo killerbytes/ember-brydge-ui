@@ -6,7 +6,7 @@ export default Ember.Component.extend(ViewCommentsActionMixin,{
 	store: Ember.inject.service(),
 	sessionAccount: Ember.inject.service(),
 	limit: 5, //set default 
-	page: 1, //set default 
+	page: 0, //set default 
 	avatarUrl: Ember.computed(function(){
 		return this.get('sessionAccount.account.avatarUrl');
 	}),
@@ -18,14 +18,14 @@ export default Ember.Component.extend(ViewCommentsActionMixin,{
   comments: Ember.computed.sort('post.comments', 'sortProps'),
 	loadComments(){
 			this.set('isLoading', true);
-			var page = this.get('page');
-			this.get('store').query('comment', {id: this.get('post.id'), page: page++, limit: this.get('limit') }).then(res=>{
+			var page = this.get('page') + 1 || 0;
+			this.get('store').query('comment', {id: this.get('post.id'), page: page, limit: this.get('limit') }).then(res=>{
 				var meta = res.get('meta');
 				this.set('total', meta.total);
+				this.set('page', parseInt(meta.currentPage));
 				this.set('post.commentCount', meta.total );
 				this.set('showComments', true);
 				this.get('post.comments').pushObjects(res);
-				this.set('page', page);
 				this.set('isLoading', false);
 			})
 	},

@@ -111,8 +111,12 @@
   <ul class="box-list no-bullet">
     <li>
       <div class="title">{{latestCompliment.title}}</div>
-      <p>{{latestCompliment.content}}</p>            
-      <span>Posted by</span> {{link-to latestQuestion.to.content.name "profile" latestQuestion.to.content.username class="user"}}
+      <p>{{latestCompliment.content}}</p>    
+      {{#if isOwner }}        
+        <span>Posted by</span> {{link-to latestCompliment.to.content.name "profile" latestCompliment.to.content.username class="user"}}
+      {{else}}
+        <span>Posted by</span> {{link-to latestCompliment.from.content.name "profile" latestCompliment.from.content.username class="user"}}
+      {{/if}}
     </li>
   </ul> 
   {{else}}
@@ -126,7 +130,7 @@
     {{#if isOwner }}
       {{link-to 'See all' 'me.compliments'}}
     {{else}}
-      {{link-to 'See all' 'compliments' latestCompliment.to.username}}
+      {{link-to 'See all' 'compliments' latestCompliment.to.id}}
     {{/if}}
 
     {{#if isConnected}}

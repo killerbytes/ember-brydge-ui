@@ -10,11 +10,11 @@ export default Ember.Route.extend({
   beforeModel: function(transition) {
     const loggedinUser = this.get('session.data.authenticated');
     this.set('loggedinUser', loggedinUser);
-    return this.get('sessionAccount.account')    
-    // if (loggedinUser.username === transition.params['profile'].username) {
-    //   this.transitionTo('me');
-    //   return;
-    // }
+    // return this.get('sessionAccount.account')    
+    if (loggedinUser.username === transition.params['profile'].username) {
+      this.transitionTo('me');
+      return;
+    }
   },
   model: function(params) {
     return this.store.findRecord('public-profile', params.username)
