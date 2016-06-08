@@ -6,8 +6,5 @@ export default Ember.Controller.extend({
   groupMessages: Ember.computed('messages', function(){
   	return this.get('messages');
   }),
-  pp: Ember.computed('model.other', function(){
-  	console.log(this.get('model.other.profile.lastName'));
-  })
 
 });
