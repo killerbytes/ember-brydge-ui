@@ -25,38 +25,37 @@
 		</div>
 	</div>
 	<ul class="media-list no-bullet list-lined">
-		{{#each notification.views as |item|}}
-		<li {{action "selectView" item preventDefault=false }}
-		class="{{if item.read false 'new-notification'}}">
-		 
-			<div class="media-object">
-				<div class="media-object-section">
-					<div class="thumbnail">
-						<img src= {{item.target.profile.avatarUrl}}>
+		{{#if setting.profileView}}
+			{{#each notification.views as |item|}}
+			<li {{action "selectView" item preventDefault=false }}
+			class="{{if item.read false 'new-notification'}}">		 
+				<div class="media-object">
+					<div class="media-object-section">
+						<div class="thumbnail" style="background-image: url({{item.target.profile.avatarUrl}})">
+							<img src= {{item.target.profile.avatarUrl}} class="hide">
+						</div>
 					</div>
+					<div class="media-object-section main-section">
+						<a class="name">{{item.target.profile.firstName}} {{item.target.profile.lastName}}</a>
+						<p class="position">						
+							viewed your profile<br>
+							{{ timestamp item.createdAt }}
+						</p>
+					</div>
+				</div>			
+			</li>
+			{{/each}}
+		{{else}}
+			<li>
+				<div class="empty-message">
+					You have turned Profile Views off
 				</div>
-				<div class="media-object-section main-section">
-					<a class="name">{{item.target.profile.firstName}} {{item.target.profile.lastName}}</a>
-
-					<p class="position">
-						
-						viewd your profile<br>
-						{{ timestamp item.createdAt }}
-					</p>
-				</div>
-			</div>
-			
-		</li>
-		{{/each}}
-		{{#unless notification.views }}
-		<li>
-			<div class="empty-message">
-				You have turned Profile Views off
-			</div>
-		</li>
-		{{/unless}}
+			</li>
+		{{/if}}
 	</ul>
-	{{#link-to 'profile-views' class="footer-button success button expanded"}}
-		SEE ALL PROFILE VIEWS
-	{{/link-to}}
+	{{#if setting.profileView}}
+		{{#link-to 'profile-views' class="footer-button success button expanded"}}
+			SEE ALL PROFILE VIEWS
+		{{/link-to}}
+	{{/if}}
 {{/zf-dropdown}}
