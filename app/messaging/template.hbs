@@ -19,8 +19,8 @@
                   {{#link-to "messaging.conversation" item.id class="no-color"}}
                     <div class="media-object">
                       <div class="media-object-section">
-                        <div class="thumbnail">
-                          <img src={{item.other.profile.avatarUrl}} class="avatar">
+                        <div class="thumbnail" style="background-image: url({{item.other.profile.avatarUrl}})">
+                          <img src={{item.other.profile.avatarUrl}} class="hide">
                         </div>
                       </div>
                       <div class="media-object-section main-section">
@@ -34,7 +34,7 @@
                             </span>
                           </div>
                         </div>
-                        <div class="truncate">{{item.content}}</div>
+                        <div class="truncate">{{{item.content}}}</div>
                       </div>
                     </div>
                   {{/link-to}}

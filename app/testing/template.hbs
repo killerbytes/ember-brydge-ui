@@ -1,7 +1,9 @@
 <h1>Testing</h1>
 <div class="row">
 	<div class="columns medium-6">
-		{{textarea value=txtVal key-up="resize" class="textarea" rows="2" placeholder="Enter text.."}}	
+		{{#each experiences as |item|}}
+			<div>{{timestamp item.from}} - {{item.company}} {{item.currentCompany}}</div>
+		{{/each}}
 		
 	</div>
 </div>

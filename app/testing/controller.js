@@ -2,7 +2,15 @@ import Ember from 'ember';
 
 export default Ember.Controller.extend({
   sortProps: ['updatedAt:desc'],
-	items: Ember.computed.sort('model', 'sortProps'),
+  sortFrom: ['from:desc'],
+	items: Ember.computed.sort('model', 'sortFrom'),
+	experiences: Ember.computed('model', function(){
+		var exp = this.get('items').toArray();
+		// console.log(exp)
+		return _.sortBy(exp, 'currentCompany', function(i){
+			return !i.get('currentCompany');
+		});
+	}),
 	actions: {
 		resize(value, e){
 			// console.log(value)
