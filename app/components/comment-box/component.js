@@ -71,18 +71,21 @@ export default Ember.Component.extend(ViewCommentsActionMixin,{
 		},
 		hideComments(){
 			this.set('showComments', false)
+			this.set('page', 0)
+			this.set('post.comments', []);
+
 		},
 		viewComments: function () {
-			if(this.get('post.comments.content').length > 0){
-				if(!this.get('showComments')){
-					this.set('showComments', true);	
-					console.log(12)
-				}else{
-					this.loadComments();
-				}				
-			}else{
+			// if(this.get('post.comments.content').length > 0){
+			// 	if(!this.get('showComments')){
+			// 		this.set('showComments', true);	
+			// 		console.log(12)
+			// 	}else{
+			// 		this.loadComments();
+			// 	}				
+			// }else{
 				this.loadComments();
-			}
+			// }
 		},
 		resize(value, e){
 			if(value){

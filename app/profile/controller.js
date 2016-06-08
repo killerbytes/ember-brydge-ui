@@ -26,6 +26,14 @@ export default Ember.Controller.extend(
   flagCompliment: Ember.computed('complimentContent', function(){
   	return Ember.isEmpty(this.get('complimentContent'));
   }),
+  sortFrom: ['from:desc'],
+  work: Ember.computed.sort('experiences', 'sortFrom'),
+  workHistory: Ember.computed('work', function(){
+    var work = this.get('work').toArray()
+    return _.sortBy(work, 'currentCompany', function(i){
+      return !i.get('currentCompany');
+    });
+  }),
 
   acceptedCompliments: Ember.computed.filterBy('compliments', 'status', 'accepted'),
   latestCompliment: Ember.computed('acceptedCompliments', function(){
