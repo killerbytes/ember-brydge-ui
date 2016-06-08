@@ -6,8 +6,8 @@
             <i class="icons building"></i>
           </div>
           <div class="content">
-            {{#if model.industry}}
-              <a href="">{{model.industry}}</a>
+            {{#if profile.industry}}
+              <a href="">{{profile.industry}}</a>
             {{else}}
               {{#if isOwner}}
                 <div class="empty-message" style="margin:.5rem; ">
@@ -23,7 +23,7 @@
 
       </div>   
       {{#if isOwner}}
-        {{#link-to "me.edit" model.id (query-params tab="industry")}}
+        {{#link-to "me.edit" profile.id (query-params tab="industry")}}
           <i class="icons pencil"></i>       
         {{/link-to}}
       {{/if}}
@@ -35,8 +35,8 @@
           </div>
           <div class="content">
             {{#if isNotEmptyOccupation}}
-              <a href="">{{model.occupationOne}}</a>
-              <a href="">{{model.occupationTwo}}</a>
+              <a href="">{{profile.occupationOne}}</a>
+              <a href="">{{profile.occupationTwo}}</a>
             {{else}}
               {{#if isOwner}}
               <div class="empty-message" style="margin:.5rem; ">
@@ -53,7 +53,7 @@
           </div>
       </div>
       {{#if isOwner}}
-        {{#link-to "me.edit" model.id (query-params tab="occupindustry") }}       
+        {{#link-to "me.edit" profile.id (query-params tab="occupindustry") }}       
           <i class="icons pencil"></i>
         {{/link-to}}
       {{/if}}
@@ -90,17 +90,17 @@
 <div class="box rounded snapshot hover-edit">
   <h5 class="box-header">Snapshot 
     {{#if isOwner}}    
-      {{#link-to "me.edit" model.id (query-params tab="snapshot")}}       
+      {{#link-to "me.edit" profile.id (query-params tab="snapshot")}}       
         <i class="icons pencil pull-right"></i>
       {{/link-to}}
     {{/if}}
   </h5>
   <div class="columns">
-    {{model.snapshot}}
+    {{profile.snapshot}}
   </div>
-  {{#unless model.snapshot}}
+  {{#unless profile.snapshot}}
     <div class="empty-message">
-      {{model.firstName}} hasn't added a Snapshot
+      {{profile.firstName}} hasn't added a Snapshot
     </div>
   {{/unless}}
 </div>
@@ -117,7 +117,7 @@
   </ul> 
   {{else}}
   <div class="empty-message">
-    {{model.firstName}} hasn't received any Compliments
+    {{profile.firstName}} hasn't received any Compliments
   </div>
   {{/if}}
 
@@ -146,7 +146,7 @@
 <div class="box rounded work-history hover-edit">
   <h5 class="box-header">Work History
     {{#if isOwner}}
-      {{#link-to "me.edit" model.id (query-params tab="work")}}       
+      {{#link-to "me.edit" profile.id (query-params tab="work")}}       
         <i class="icons pencil pull-right"></i>
       {{/link-to}}
     {{/if}}
@@ -155,7 +155,7 @@
   {{ list-experience model=workHistory class="sidebox box-list" }}
   {{else}}
     <div class="empty-message">
-      {{model.firstName}} hasn't added any Work History
+      {{profile.firstName}} hasn't added any Work History
     </div>
   {{/if}}
 </div>
@@ -163,16 +163,16 @@
 <div class="box rounded academia hover-edit">
   <h5 class="box-header">Academia
     {{#if isOwner}}    
-      {{#link-to "me.edit" model.id (query-params tab="academia")}}       
+      {{#link-to "me.edit" profile.id (query-params tab="academia")}}       
         <i class="icons pencil pull-right"></i>
       {{/link-to}}
     {{/if}}
   </h5>
   {{#if educations}}
-  {{ list-academia model=educations class="sidebox box-list" }}
+  {{ list-academia model=academia class="sidebox box-list" }}
   {{else}}
     <div class="empty-message">
-      {{model.firstName}} hasn't added any Academic Information
+      {{profile.firstName}} hasn't added any Academic Information
     </div>
   {{/if}}
 </div>
@@ -180,16 +180,16 @@
 <div class="box rounded languages hover-edit">
   <h5 class="box-header">Languages
     {{#if isOwner}}
-      {{#link-to "me.edit" model.id (query-params tab="language")}}       
+      {{#link-to "me.edit" profile.id (query-params tab="language")}}       
         <i class="icons pencil pull-right"></i>
       {{/link-to}}
     {{/if}}
   </h5>
     {{#if languages}}
-    {{list-languages model=languages class="sidebox box-list"}}      
+      {{list-languages model=languages class="sidebox box-list"}}      
     {{else}}
       <div class="empty-message">
-        {{model.firstName}} hasn't added any Languages
+        {{profile.firstName}} hasn't added any Languages
       </div>
     {{/if}}
 </div>
@@ -197,7 +197,7 @@
 <div class="box rounded hover-edit">
   <h5 class="box-header">Interests
     {{#if isOwner}}
-      {{#link-to "me.edit" model.id (query-params tab="interest")}}       
+      {{#link-to "me.edit" profile.id (query-params tab="interest")}}       
         <i class="icons pencil pull-right"></i>
       {{/link-to}}
     {{/if}}
@@ -216,7 +216,7 @@
   </div>
   {{else}}
     <div class="empty-message">
-      {{model.firstName}} hasn't added any Interests
+      {{profile.firstName}} hasn't added any Interests
     </div>
   {{/if}}
 </div>

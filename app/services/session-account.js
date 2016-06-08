@@ -27,8 +27,16 @@ export default Ember.Service.extend({
         promise: this.get('store').findRecord('user', accountId)
       });
     }
-  })
-  ,
+  }),
+  // profile: Ember.computed('session.data.authenticated.user_id', function() {
+  //   const accountId = this.get('session.data.authenticated.user_id');
+  //   if (!Ember.isEmpty(accountId)) {
+  //     return DS.PromiseObject.create({
+  //       promise: this.get('store').findRecord('profile', accountId)
+  //     });
+  //   }
+  // }),
+
   makeConnections(targetid) {
     //console.log("session-account:makeConnections:targetid", targetid);
     //console.log('Authorization:', 'Bearer ' + this.get('session.data.authenticated.access_token'));

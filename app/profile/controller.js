@@ -3,19 +3,31 @@ import CheckCurrentUserMixin from 'web/mixins/check-current-user';
 import ComplimentTitlesMixin from 'web/mixins/compliment-titles';
 
 export default Ember.Controller.extend(
-  CheckCurrentUserMixin, 
   ComplimentTitlesMixin, {
-  isConnected: Ember.computed('model.connection.status', function(){
-    return this.get('model.connection.status') == 'accepted' ? true : false;
+  sharePost: Ember.inject.service(),
+
+  me: Ember.computed.alias('model.me'), 
+  profile: Ember.computed.alias('model.profile'), 
+  connections: Ember.computed.alias('model.connections'), 
+  languages: Ember.computed.alias('model.languages'), 
+  experiences: Ember.computed.alias('model.experiences'), 
+  educations: Ember.computed.alias('model.educations'), 
+  interests: Ember.computed.alias('model.interests'), 
+  questions: Ember.computed.alias('model.questions'), 
+  posts: Ember.computed.alias('model.posts'), 
+  compliments: Ember.computed.alias('model.compliments'), 
+
+  isConnected: Ember.computed('profile.connection.status', function(){
+    return this.get('profile.connection.status') == 'accepted' ? true : false;
   }),
-  isNotEmptyTitleCompany: Ember.computed('model.currentTitle', 'model.currentCompany', function(){
-    return this.get('model.currentTitle') ? true : false && this.get('model.currentCompany') ? true : false;
+  isNotEmptyTitleCompany: Ember.computed('profile.currentTitle', 'profile.currentCompany', function(){
+    return this.get('profile.currentTitle') ? true : false && this.get('profile.currentCompany') ? true : false;
   }),
-  isNotEmptyOccupation: Ember.computed('model.occupationOne', 'model.OccupationTwo', function(){
-    return this.get('model.occupationOne') ? true : false && this.get('model.OccupationTwo') ? true : false;
+  isNotEmptyOccupation: Ember.computed('profile.occupationOne', 'profile.OccupationTwo', function(){
+    return this.get('profile.occupationOne') ? true : false && this.get('profile.OccupationTwo') ? true : false;
   }),
-  connectionStatus: Ember.computed('model.connection.status', function(){
-    return this.get('model.connection.status') == 'pending' ? 'Pending' : 'Connect';
+  connectionStatus: Ember.computed('profile.connection.status', function(){
+    return this.get('profile.connection.status') == 'pending' ? 'Pending' : 'Connect';
   }),
   activeConnections: Ember.computed.filterBy('connections', 'status', 'accepted'),
 
@@ -27,6 +39,7 @@ export default Ember.Controller.extend(
   	return Ember.isEmpty(this.get('complimentContent'));
   }),
   sortFrom: ['from:desc'],
+  academia: Ember.computed.sort('educations', 'sortFrom'),
   work: Ember.computed.sort('experiences', 'sortFrom'),
   workHistory: Ember.computed('work', function(){
     var work = this.get('work').toArray()
@@ -39,9 +52,9 @@ export default Ember.Controller.extend(
   latestCompliment: Ember.computed('acceptedCompliments', function(){
     return this.get('acceptedCompliments.firstObject');
   }),
-  location: Ember.computed('model.location', function(){
-    if(!this.get('model.location')) return false;
-    var location = this.get('model.location').split(',');
+  location: Ember.computed('profile.location', function(){
+    if(!this.get('profile.location')) return false;
+    var location = this.get('profile.location').split(',');
     return {
       city: location.splice(0, 1),
       state: location.join(', ')

@@ -12,6 +12,9 @@ export default Ember.Component.extend({
 		if(!title) return false;
 		return title.length > 100 ? title.substr(0, 100) + ' ...' : title;
 	}),
+  isOccupational: Ember.computed('profile.occupationOneId', function(){
+    return this.get('profile.occupationOneId') ? true : false && this.get('profile.occupationTwoId') ? true : false;
+  }),
 	actions: {
 		checkboxChanged(value, checked, name){
 

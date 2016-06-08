@@ -7,7 +7,7 @@ export default Ember.Component.extend(ViewCommentsActionMixin,{
 	sessionAccount: Ember.inject.service(),
 	limit: 5, //set default 
 	page: 0, //set default 
-	avatarUrl: Ember.computed(function(){
+	avatarUrl: Ember.computed('sessionAccount.account.avatarUrl', function(){
 		return this.get('sessionAccount.account.avatarUrl');
 	}),
 	isMore: Ember.computed('limit', 'page', function(){
@@ -77,7 +77,7 @@ export default Ember.Component.extend(ViewCommentsActionMixin,{
 		},
 		viewComments: function () {
 			// if(this.get('post.comments.content').length > 0){
-			// 	if(!this.get('showComments')){
+				if(!this.get('showComments')) this.set('post.comments', []);
 			// 		this.set('showComments', true);	
 			// 		console.log(12)
 			// 	}else{

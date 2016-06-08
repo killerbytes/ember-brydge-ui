@@ -2,14 +2,14 @@
   <div class="row column collapse">
       <div class="columns text-right" style="width:37%">
         <div class="name">          
-          {{model.firstName}}
+          {{profile.firstName}}
           <span>
-            {{model.lastName}}
+            {{profile.lastName}}
           </span>
         </div>
       </div>
       <div class="columns" style="width:26%">
-        <div class="profile-photo circle" style="background-image: url('{{{model.avatarUrl}}}')"></div>
+        <div class="profile-photo circle" style="background-image: url('{{{profile.avatarUrl}}}')"></div>
       </div>
 
       <div class="columns" style="width:37%">
@@ -24,8 +24,8 @@
 <div class="row column">
   <div class="medium-6 float-left box profile profile-bar">
     {{#if isNotEmptyTitleCompany}}
-      <div class="position">{{ model.currentTitle}}</div>
-      <strong class="text-upper">{{model.currentCompany}}</strong>
+      <div class="position">{{ profile.currentTitle}}</div>
+      <strong class="text-upper">{{profile.currentCompany}}</strong>
     {{else}}
       <div class="empty-message" style="margin:.5rem; ">
         Current Title and Company
@@ -48,7 +48,7 @@
       {{else}}
         <div class="column">
           <div class="empty-message">
-            {{model.firstName}} hasn't shared any broadcast yet
+            {{profile.firstName}} hasn't shared any broadcast yet
           </div>      
         </div>
       {{/if}}
@@ -65,7 +65,7 @@
 
 {{#zf-reveal id="complimentModal" overlay=true class="reveal-popup"}}
   <h4>Compliments</h4>
-  <p class="lead">Show your appreciation for {{model.firstName}} by complementing him</p>
+  <p class="lead">Show your appreciation for {{profile.firstName}} by complementing him</p>
   <form {{action 'postCompliment' on='submit'}}>
     <div class="content clearfix">
       
@@ -83,3 +83,4 @@
   </form>
 {{/zf-reveal}}
 
+{{ post-sharer post=sharePost.selected profile=profile value=sharePost.valueText submit="sharePost" }}

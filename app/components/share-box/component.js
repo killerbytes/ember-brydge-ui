@@ -1,6 +1,7 @@
 import Ember from 'ember';
 
 export default Ember.Component.extend({
+  sessionAccount: Ember.inject.service(),
   ajaxApi: Ember.inject.service(),
   utils: Ember.inject.service(),
 	classNames: ['share-box', 'mb'],
@@ -9,6 +10,12 @@ export default Ember.Component.extend({
     let title = this.get('site.title') || this.get('site.url');
     return title.length > 100 ? title.substr(0, 100) + ' ...' : title;
   }),
+  avatarUrl: Ember.computed('sessionAccount.account.avatarUrl', function(){
+    return this.get('sessionAccount.account.avatarUrl');
+  }),
+  // profile: Ember.computed('sessionAccount.profile', function(){
+  //   return this.get('sessionAccount.profile');
+  // }),
   preview: Ember.computed('site.image', function(){
     console.log(this.get('site.image'))
     return this.get('site.image') ? true : false;

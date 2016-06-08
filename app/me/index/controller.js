@@ -5,38 +5,47 @@ export default Ember.Controller.extend({
   ajax: Ember.inject.service(),
   flashMessages: Ember.inject.service(),
   sharePost: Ember.inject.service(),	
+  profile: Ember.computed.alias('model.profile'),
+  posts: Ember.computed.alias('model.posts'),
+  languages: Ember.computed.alias('model.languages'),
+  interests: Ember.computed.alias('model.interests'),
+  experiences: Ember.computed.alias('model.experiences'),
+  educations: Ember.computed.alias('model.educations'),
+  questions: Ember.computed.alias('model.questions'),
+  compliments: Ember.computed.alias('model.compliments'),
+
 	sortProps: ['createdAt:desc'],
   sortFrom: ['from:desc'],
   work: Ember.computed.sort('experiences', 'sortFrom'),
+  academia: Ember.computed.sort('educations', 'sortFrom'),
+  newsfeed: Ember.computed.sort('posts', 'sortProps'),
   workHistory: Ember.computed('work', function(){
     var work = this.get('work').toArray()
     return _.sortBy(work, 'currentCompany', function(i){
       return !i.get('currentCompany');
     });
   }),
-  newsfeed: Ember.computed.sort('posts', 'sortProps'),
   acceptedQuestion: Ember.computed.filterBy('questions', 'status', 'accepted'),
   latestQuestion: Ember.computed('acceptedQuestion', function(){
     return this.get('acceptedQuestion.firstObject');
   }),
   acceptedCompliments: Ember.computed.filterBy('compliments', 'status', 'accepted'),
   latestCompliment: Ember.computed('acceptedCompliments', function(){
-    console.log(this.get('acceptedCompliments.firstObject'))    
     return this.get('acceptedCompliments.firstObject');
   }),
-  location: Ember.computed('model.location', function(){
-    if(!this.get('model.location')) return false;
-    var location = this.get('model.location').split(',');
+  location: Ember.computed('profile.location', function(){
+    if(!this.get('profile.location')) return false;
+    var location = this.get('profile.location').split(',');
     return {
       city: location.splice(0, 1),
       state: location.join(', ')
     }
   }),
-  isNotEmptyTitleCompany: Ember.computed('model.currentTitle', 'model.currentCompany', function(){
-    return this.get('model.currentTitle') ? true : false && this.get('model.currentCompany') ? true : false;
+  isNotEmptyTitleCompany: Ember.computed('profile.currentTitle', 'profile.currentCompany', function(){
+    return this.get('profile.currentTitle') ? true : false && this.get('profile.currentCompany') ? true : false;
   }),
-  isNotEmptyOccupation: Ember.computed('model.occupationOne', 'model.OccupationTwo', function(){
-    return this.get('model.occupationOne') ? true : false && this.get('model.OccupationTwo') ? true : false;
+  isNotEmptyOccupation: Ember.computed('profile.occupationOne', 'profile.OccupationTwo', function(){
+    return this.get('profile.occupationOne') ? true : false && this.get('profile.OccupationTwo') ? true : false;
   }),
   isOwner: true,
   actions: {
