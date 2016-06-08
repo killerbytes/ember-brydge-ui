@@ -61,6 +61,12 @@
 			border-radius: 3px;
 		}
 	}
+	.post-comments{
+		.position{
+			margin-bottom: 3px;
+		}
+	}
+	
 	.post-actions{
 		@extend .clearfix;
 		padding: 3px 20px;
