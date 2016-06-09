@@ -10,14 +10,15 @@
         {{term-date-format item.to}} ({{time-diff item.from item.to}})
       {{/if}}
     </span>
-
-    {{#zf-accordion-menu class="mt"}}
-      <li>
-        <ul class="no-bullet vertical nested">
-          <li><p class="wrap">{{{item.content}}}</p></li>
-        </ul>
-        <a class="more no-arrow"><span class="content-more">Show More</span><span class="content-less">Show Less</span></a>
-      </li>
-    {{/zf-accordion-menu}}               
+    {{#if item.content}}
+      {{#zf-accordion-menu class="mt"}}
+        <li>
+          <ul class="no-bullet vertical nested">
+            <li><p class="wrap">{{{item.content}}}</p></li>
+          </ul>
+          <a class="more no-arrow"><span class="content-more">Show More</span><span class="content-less">Show Less</span></a>
+        </li>
+      {{/zf-accordion-menu}}               
+    {{/if}}
   </li>
 {{/each}}

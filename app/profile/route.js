@@ -4,6 +4,7 @@ export default Ember.Route.extend({
   session: Ember.inject.service('session'),
   connection: Ember.inject.service(),
   compliment: Ember.inject.service(),  
+  flashMessages: Ember.inject.service(),
   loggedinUser: null,
   paramsUserProfile: null,
 
@@ -78,7 +79,8 @@ export default Ember.Route.extend({
       });
     },
     goToAsk (username) {
-      this.transitionTo('ask', username); 
+      // this.transitionTo('ask', username); 
+      Ember.get(this, 'flashMessages').success('Your question has been sent. Thank you!');
     },
     postCompliment(){      
       var content = this.controller.get('complimentContent');

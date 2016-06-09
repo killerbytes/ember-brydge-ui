@@ -6,6 +6,7 @@ export default DS.Model.extend(Validations, {
   title: DS.attr('string'),
   location: DS.attr('string'),
   content: DS.attr('string'),
+	showHighlight: DS.attr(),
   from: DS.attr(),
   to: DS.attr(),
   updatedAt: DS.attr('date'),

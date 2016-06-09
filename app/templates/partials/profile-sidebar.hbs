@@ -82,7 +82,11 @@
     </div>
     
     <div>
-      {{link-to "see more questions" 'me.ask'  class="success button expanded"}}
+      {{#if isOwner }}
+        {{link-to "See more questions" 'me.ask'  class="success button expanded"}}
+      {{else}}
+        {{link-to "See more questions" 'ask' profile.id  class="success button expanded"}}
+      {{/if}}
     </div>
   </div>
 {{/if}}
