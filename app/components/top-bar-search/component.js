@@ -7,14 +7,21 @@ export default Ember.Component.extend({
 	classNames: ['top-bar-group', 'top-bar-search', 'rounded'],
 	timer: 123,
 	didUpdateAttrs(){
-		console.log('didRender')
+		console.log('didUpdateAttrs')
 		this._super(...arguments)
 	},
+		init(){
+		this._super(...arguments)
+			console.log('init')
+		},
+		didInsertElement(){
+		this._super(...arguments)
+			console.log('didInsertElement')
+		},
 	actions: {
-	didUpdateAttrs(){
-		console.log('didRender')
-		this._super(...arguments)
-	},
+		onSelect(){
+			console.log('onSelect')
+		},
 		clear(){
 			this.set('search.key', null);
 		},
