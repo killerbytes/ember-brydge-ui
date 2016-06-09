@@ -1,5 +1,5 @@
 {{#if reversed }}
-	{{text}} {{input type='checkbox' checked=checked if=for change=(action onChange) }} 
+	{{text}} {{input type='checkbox' name=name checked=checked if=for change=(action onChange ) }} 
 {{else}}
 	{{input type='checkbox' checked=checked if=for change=(action onChange) }} {{text}}
 {{/if}}

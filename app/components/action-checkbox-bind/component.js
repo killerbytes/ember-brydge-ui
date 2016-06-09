@@ -10,8 +10,7 @@ export default Ember.Component.extend({
     this.set('for', this.$('input').id);
   },
   onChange: function(e) {
-    // console.log('onChange', this)
     this.set('checked', !this.get('checked'))
-    this.sendAction('action', this.get('value'), this.get('checked'), this.get('text'));
+    this.sendAction('action', this.get('value'), this.get('checked'), this.get('text'), e);
   }
 });

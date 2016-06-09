@@ -13,11 +13,7 @@ export default Ember.Component.extend({
   avatarUrl: Ember.computed('sessionAccount.account.avatarUrl', function(){
     return this.get('sessionAccount.account.avatarUrl');
   }),
-  // profile: Ember.computed('sessionAccount.profile', function(){
-  //   return this.get('sessionAccount.profile');
-  // }),
   preview: Ember.computed('site.image', function(){
-    console.log(this.get('site.image'))
     return this.get('site.image') ? true : false;
   }),
   isOccupational: Ember.computed('profile.occupationOneId', function(){
@@ -74,7 +70,10 @@ export default Ember.Component.extend({
           postContent: null,
           categories: [],
           site: null,
-          isNoPreview: false
+          isNoPreview: false,
+          occupationOne: false,
+          occupationTwo: false,
+          industryId: false
         })
       })
 
@@ -86,13 +85,15 @@ export default Ember.Component.extend({
     cancel() {
       this.set('postContent', '');
     },
-    checkboxChanged(value, checked, text) {
+    checkboxChanged(value, checked, text, e) {
       if(checked) {
-        this.categories.pushObject({id: value, text: text});
+        this.categories.pushObject({id: value, text: text, checked: checked});
+        this.set(e.currentTarget.name, true)
       }else{
         var list = this.categories.toArray();
         _.remove(list, {id: value })
         this.set('categories', list);
+        this.set(e.currentTarget.name, false)
       }
     },
     edit(text, e){
