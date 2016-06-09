@@ -1,10 +1,10 @@
-{{#zf-reveal id="answerFormModal" overlay=true class="reveal-popup small"}}
+{{#zf-reveal id="answerFormModal" overlay=true class="reveal-popup large"}}
 	<h4>Write Answer</h4>
 	<form {{action 'save' on='submit'}}>
 		<div class="mt content clearfix question-box">
 			<div class="dim-text">asked by <a>{{ask.selectedQuestion.from.name}}</a></div>		
 			<h2>{{ask.selectedQuestion.content}}</h2>
-			{{textarea value=answer rows=5}}
+			{{textarea value=answer rows=10}}
 		</div>
 		<div class="reveal-footer text-right">
 			<div class="content">
