@@ -1,4 +1,8 @@
-.position, .timestamp{
+.position{
+	font-size: 11px;
+	color: $body-text-color;
+}
+.timestamp{
 	color: $text-gray;
 	font-size: 11px;
 }

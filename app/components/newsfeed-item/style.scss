@@ -1,3 +1,7 @@
+.newsfeed-item.rounded{
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+}
 .newsfeed-item{
 	color: $text-color1;
 	padding-top: 20px;
@@ -6,12 +10,10 @@
 	h3{
 		font-family: 'Din Alternate', helvetica;
 		display: table-cell;
-		// display: block;
 		vertical-align: middle;
 		font-size: 18px;
 		font-weight: bold;
 		color: #3b3e46;	
-		// margin-bottom: 0;
 	}
 	p{
 		line-height: 1.4em;
@@ -21,12 +23,21 @@
 	.media{
 		padding: 0 20px 30px;
 	}
+	.media-profile{
+		border-bottom: 1px solid $border-color;
+	}
 	.media-top{
 		padding-bottom: 0;
 	}
 	
-	.media-object{
-		margin-bottom: 10px;
+	.media-profile{
+		.avatar{
+			float: left;
+		}
+		.media-info{
+			padding-left: 60px;
+			display: block;
+		}
 		.name{
 			margin-bottom: 6px;
 			line-height: 1em;
@@ -34,7 +45,6 @@
 		}
 		.position, .timestamp{
 			line-height: 1em;
-			margin-bottom: 5px;
 			a{
 				color: $text-gray;
 			}

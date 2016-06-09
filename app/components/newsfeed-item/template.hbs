@@ -1,11 +1,9 @@
-<div class="padded">
+<div class="padded mb media-profile">
   <div class="media-object">
-    <div class="media-object-section">
-      <div class="avatar thumbnail">
+    <div class="avatar thumbnail">
       <img src= {{post.user.profile.avatarUrl}}>
-      </div>
     </div>
-    <div class="media-object-section">
+    <div class="media-info">
       <div class="name">
         {{#link-to "profile" post.user.username}} 
           <strong>{{post.user.name}}</strong>
@@ -16,8 +14,10 @@
           {{/unless}}
         {{/if}}
       </div>
-      <div class="position">{{post.user.profile.currentTitle}} <span class="bullet">&bull;</span> {{post.user.profile.currentCompany}}</div>
-      <p class="timestamp">{{#link-to 'post' post.user.id post.id }}{{timestamp post.updatedAt}}{{/link-to}}</p>
+      <div class="position hide">{{post.user.profile.currentTitle}} <span class="bullet">&bull;</span> {{post.user.profile.currentCompany}}</div>
+      <div class="position mb5">{{post.user.profile.currentTitle}}</div>
+      <div class="position">{{post.user.profile.currentCompany}}</div>
+      <p class="timestamp text-right">{{#link-to 'post' post.user.id post.id }}{{timestamp post.updatedAt}}{{/link-to}}</p>
     </div>
   </div>
 
