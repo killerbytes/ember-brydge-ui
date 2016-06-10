@@ -48,6 +48,13 @@ export default Ember.Controller.extend({
     return this.get('profile.occupationOne') ? true : false && this.get('profile.OccupationTwo') ? true : false;
   }),
   isOwner: true,
+  init(){
+    this._super();
+    Ember.run.later(()=>{
+      if(!this.get('profile.profileComplete.completeness')) $('#dd-info-callout').foundation('open');
+    })
+
+  },
   actions: {
     postFeed: function (data, cb) {
       this.store.createRecord('post', {

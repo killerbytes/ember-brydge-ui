@@ -1,3 +1,22 @@
+<a data-toggle="dd-info-callout" class="hide">
+</a>
+{{#zf-dropdown id="dd-info-callout" closeOnClick=false }}
+  <div class="wrapper"> 
+    <div class="callout info-callout rounded">
+      <div class="triangle"></div>
+      <h3>Hey {{profile.firstName}}!</h3>
+      <p>
+        Thanks for signing up. Have a look around.<br>
+        Your profile is not searchable because you haven't completed the following fields: Title, Business Industry, and Occupation Industry.
+      </p>
+      <p>You can do so {{#link-to "me.edit" profile.id (query-params tab="work")}}here{{/link-to}}</p>
+      <div class="text-right">
+        <button class="button" data-toggle="dd-info-callout">OK</button>    
+      </div>     
+    </div>
+  </div>
+{{/zf-dropdown}}
+
 <div class="full-width profile-cover-wrapper profile-cover">
   <div class="row column collapse">
       <div class="columns text-right" style="width:37%">

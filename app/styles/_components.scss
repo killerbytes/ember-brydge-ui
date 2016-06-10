@@ -764,3 +764,30 @@ label.forRadio{
 		margin: 0;
 	}
 }
+
+.info-callout{
+	$color: #43bffb;
+	background-color: $color;
+	border: none;
+	color: #FFF;
+	position: fixed;
+	width: 30%;
+	left: 10%;
+	margin-top: 55px;
+	z-index: 10;
+	a, a:hover, a:focus{
+		color: $body-text-color;
+	}
+	button{
+		@extend .rounded;
+		border: 1px solid darken( $color, 20% );
+		color: darken( $color, 20% );
+		font-weight: bold;
+	}
+	.triangle{
+	  border-color: transparent transparent #43bffb transparent;
+		position: absolute;
+		top: -7px;
+		left: 20%;
+	}
+}
