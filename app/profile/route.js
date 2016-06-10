@@ -33,7 +33,7 @@ export default Ember.Route.extend({
            return asks.filterBy('answer');
         }),
         posts: this.store.query('newsfeed',{filter: userid, tab: 'profile'}),
-        compliments: this.store.query('compliment',{to: userid})
+        compliments: this.store.query('compliment',{to: userid, userid: userid})
       });
     })
     // console.log(arguments);

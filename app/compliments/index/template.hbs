@@ -71,6 +71,12 @@
               <p class="timestamp text-light mb5">{{timestamp item.createdAt}}</p>
             </div>
           </li>
+        {{else}}
+          <li>
+            <div class="empty-message">
+              {{model.profile.firstName}} hasn't posted any Compliments
+            </div>
+          </li>
         {{/each}}
 
         </ul>
