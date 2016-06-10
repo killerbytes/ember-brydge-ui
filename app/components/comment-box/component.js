@@ -7,9 +7,9 @@ export default Ember.Component.extend(ViewCommentsActionMixin,{
 	sessionAccount: Ember.inject.service(),
 	limit: 5, //set default 
 	page: 0, //set default 
-	avatarUrl: Ember.computed('sessionAccount.account.avatarUrl', function(){
-		return this.get('sessionAccount.account.avatarUrl');
-	}),
+  avatarUrl: Ember.computed('sessionAccount.account.profile.avatarUrl', function(){
+    return this.get('sessionAccount.account.profile.avatarUrl');
+  }),
 	isMore: Ember.computed('limit', 'page', function(){
 		
 		return Math.ceil(this.get('total') / (this.get('limit') * (this.get('page')) )) > 1 ? true: false; 

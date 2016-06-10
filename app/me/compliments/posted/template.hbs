@@ -14,8 +14,8 @@
         {{#each fromAcceptSidebar as |item|}}
           <div class="media-object {{if (eq item.id qid) "highlight"}}">
             <div class="media-object-section">
-              <div class="thumbnail">
-                <img src="{{item.from.profile.avatarUrl}}">
+              <div class="thumbnail" style="background-image: url({{item.from.profile.avatarUrl}})">
+                <img src="{{item.from.profile.avatarUrl}}" class="hide">
               </div>
             </div>
             <div class="media-object-section main-section">

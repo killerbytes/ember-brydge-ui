@@ -17,14 +17,14 @@
 			{{#link-to "messaging.conversation" item.id }}
 			<div class="media-object">
 				<div class="media-object-section">
-					<div class="thumbnail">
-						<img src= {{item.target.profile.avatarUrl}}>
+					<div class="thumbnail" style="background-image: url({{item.target.profile.avatarUrl}})">
+						<img src= {{item.target.profile.avatarUrl}} class="hide">
 					</div>
 				</div>
 				<div class="media-object-section main-section">
 					<a class="name">{{item.target.profile.firstName}} {{item.target.profile.lastName}}</a>
 					<span class="float-right dim-text">{{ timestamp item.createdAt }}</span>
-					<p class="position">{{ getNotificationContent item.content }}</p>
+					<p class="position">{{{ getNotificationContent item.content }}}</p>
 				</div>
 			</div>
 			{{/link-to}}

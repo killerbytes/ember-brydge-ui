@@ -1,8 +1,8 @@
 <div class="padded border-b">
   <div class="post-comment-form">
     <div class="media-object">
-      <div class="thumbnail rounded">
-        <img src="{{ avatarUrl }}">
+      <div class="thumbnail rounded" style="background-image: url({{avatarUrl}})">
+        <img src="{{ avatarUrl }}" class="hide">
       </div>
       <div class="comment-form" id="comment-form-{{post.id}}">
         {{textarea 
@@ -24,8 +24,8 @@
         <li>
           <div class="media-object">
             <div class="media-object-section">
-              <div class="thumbnail rounded">
-                <img src= {{comment.user.profile.avatarUrl}}>
+              <div class="thumbnail rounded" style="background-image: url({{comment.user.profile.avatarUrl}})">
+                <img src= {{comment.user.profile.avatarUrl}} class="hide">
               </div>
             </div>
             <div class="media-object-section main-section">
