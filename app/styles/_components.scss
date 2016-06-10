@@ -751,3 +751,14 @@ span.bullet{
 	resize: none;
 	overflow: hidden;
 }
+
+label.forRadio{
+	color: $body-text-color;
+	font-size: 12px;
+}
+
+.no-margin{
+	select{
+		margin: 0;
+	}
+}

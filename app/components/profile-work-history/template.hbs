@@ -1,4 +1,17 @@
-<button class="button" {{action "setHighlight"}}>Highlight</button>
+<div class="row columns">
+	<div class="columns medium-5">
+		<label for="highlightStatus" class="forRadio middle">
+			{{action-radio id='highlightStatus' value="isHighlightStatus" name="highlight" action="onHighlight" class="no-margin"}}
+			Highlight this on the profile page
+		</label>		
+	</div>
+	<div class="columns medium-7">
+		<form>
+			{{select-native content=highlightStatuses action=(action (mut highlightStatus)) class="no-margin"}}		
+		</form>
+	</div>
+</div>
+
 
 {{#zf-accordion allowAllClosed="true" class="experiences-accordion"}}
 {{#each items as |item|}}
