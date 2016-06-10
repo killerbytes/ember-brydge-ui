@@ -3,8 +3,10 @@ import FilteredQuestionsMixin from 'web/mixins/filtered-questions';
 
 export default Ember.Controller.extend(
 	FilteredQuestionsMixin, {
+
   isOwner: true,
   queryParams: ['tab','qid'],
   tab: 'questions',
-  qid: null
+  qid: null,
+  profile: Ember.computed.alias('model.profile')
 });

@@ -8,6 +8,7 @@ export default Ember.Controller.extend(
   SaveProfileMixin,
   QueryIndustryMixin, {
   queryParams: ['tab'],
-  tab: 'personal'
+  tab: 'personal',
+  
 
 });

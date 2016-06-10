@@ -10,7 +10,7 @@
 <div class="row">
   <div class="medium-7 columns">
     <div class="tabs">
-      {{#zf-tabs}}
+      {{#zf-tabs class="tabs-table" id="connection-tabs"}}
         <li class="medium-6 tabs-title is-active">
           <a href="#question_answered" class="button expanded text-upper" aria-selected="true">All Connections</a>
         </li>
@@ -18,7 +18,8 @@
           <a href="#question_asked" class="button expanded text-upper">Mutual Connections</a>
         </li>
       {{/zf-tabs}}
-      <div class="tabs-content questions" data-tabs-content="example-tabs">
+
+      <div class="tabs-content questions" data-tabs-content="connection-tabs">
         <div class="tabs-panel is-active" id="question_answered">
           <div class="search-bar">
             <form action="">
@@ -83,7 +84,7 @@
 
   </div>    
   <div class="medium-5 columns sidebar">
-    {{render "progress-box"}}
+    {{progress-box}}
     {{render "footer"}}
   </div>
 </div>
