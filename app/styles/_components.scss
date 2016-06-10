@@ -1,6 +1,7 @@
 .position{
 	font-size: 11px;
 	color: $body-text-color;
+	line-height: 1em;
 }
 .timestamp{
 	color: $text-gray;
@@ -570,6 +571,7 @@ ul.menu-dotted{
 			.name{
 				font-size: 12px;
 				font-weight: bold;
+				line-height: 1em;
 			}
 			.comment-content{
 				margin-bottom: .5rem;
