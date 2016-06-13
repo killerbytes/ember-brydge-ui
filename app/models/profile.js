@@ -20,6 +20,7 @@ export default DS.Model.extend({
 	currentExperience: DS.attr(),
 	currentCompany: DS.attr('string'),
 	profileComplete: DS.attr(),
+	customTitle: DS.attr(),
 	search: DS.hasMany(),
 	user: DS.belongsTo('user')
 });
