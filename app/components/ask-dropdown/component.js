@@ -11,14 +11,21 @@ export default Ember.Component.extend({
 			});
 			var savedCallback = () => {
 				this.sendAction('action', this.get('model.id'));
-				this.$('#'+this.get('name')).foundation('close')
+				// this.$('#'+this.get('name')).foundation('close')
+				this.set('isSubmitted', true)
 			};
 			ask.set('from', this.get('from.user'));
 			store.findRecord('user', this.get('model.id')).then((user)=>{
 				ask.set('to', user);
 				this.set('question', null)
-				ask.save().then(savedCallback);					
+				ask.save().then(savedCallback);
 			})
 		}
+	},
+	didInsertElement(){
+		this.$('#'+this.get('name')).on('show.zf.dropdown', res =>{
+			// console.log('show.zf.dropdown')
+			this.set('isSubmitted', false)
+		})
 	}
 });

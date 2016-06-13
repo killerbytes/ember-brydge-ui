@@ -11,7 +11,6 @@ export default Ember.Component.extend({
     return title.length > 100 ? title.substr(0, 100) + ' ...' : title;
   }),
   avatarUrl: Ember.computed('sessionAccount.account.profile.avatarUrl', function(){
-    console.log(this.get('sessionAccount.account.profile'));
     return this.get('sessionAccount.account.profile.avatarUrl');
   }),
   preview: Ember.computed('site.image', function(){

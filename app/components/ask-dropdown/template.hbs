@@ -3,19 +3,29 @@
     <div class="triangle triangle-gray"></div>
   </div>
 </a>
-
 {{#zf-dropdown id=name class="dd-ask-form dropdown-gray" closeOnClick=true positionClass='bottom'}}
   <form {{action 'ask' on='submit'}}>
 
     <section class="padding ask-form">
       {{#if model.settings.ask }}
         {{#if from.settings.ask }}
-          {{form-text-counter limit=250 value=question rows=5 }}
+          {{#unless isSubmitted}}
+            {{form-text-counter limit=250 value=question rows=5 }}
+            <div class="row">
+              <div class="columns text-right">
+                <button class="button success" type="submit">ASK</button>            
+              </div>
+            </div>
+          {{else}}
           <div class="row">
-            <div class="columns text-right">
-              <button class="button success" type="submit">ASK</button>            
+            <div class="columns">
+              <br>
+              Your question has been sent. Thank you!
+              <br><br>
             </div>
           </div>
+          {{/unless}}
+
           <p class="dim-text">
             Ask anyone a professional question. <br>
             If answered, it will appear on both profiles.
