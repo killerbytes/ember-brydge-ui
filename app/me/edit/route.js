@@ -17,6 +17,7 @@ export default Ember.Route.extend(QueryLocationMixin, {
 	},
 
   setupController: function(controller, model) {
+    this._super(...arguments);
     var profile = model.profile;
     // controller.setProperties(model);
     
@@ -38,7 +39,6 @@ export default Ember.Route.extend(QueryLocationMixin, {
     controller.set('selectedLoc', {
       text: profile.get('location')
     });
-
   },
 
 	actions: {
