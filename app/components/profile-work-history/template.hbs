@@ -2,7 +2,7 @@
 	<div class="columns medium-5">
 		<label for="highlightStatus" class="forRadio middle">
 			{{action-radio id='highlightStatus' value="isHighlightStatus" name="highlight" action="onHighlight" class="no-margin"}}
-			Highlight this on the profile page
+			Use this as Title
 		</label>		
 	</div>
 	<div class="columns medium-7">
@@ -19,7 +19,13 @@
 	<li class="accordion-item" data-accordion-item >
 			<a class="accordion-header text-right">
 					{{ item.title }} <br>
-					<strong>{{ item.company }}</strong>				
+					<strong>{{ item.company }}</strong>		<br>
+		      {{term-date-format item.from}} - 
+		      {{#if item.currentCompany}}
+		        Present
+		      {{else}}
+		        {{term-date-format item.to}}
+		      {{/if}}
 			</a>
 			{{#if item.currentCompany}}
 				<label for="{{item.id}}" class="forRadio">

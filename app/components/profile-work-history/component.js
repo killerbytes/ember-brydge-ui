@@ -2,11 +2,18 @@ import Ember from 'ember';
 import Validations from '../../models/validations/experience';
 
 export default Ember.Component.extend(Validations, {
+	flashMessages: Ember.inject.service(),
 	store: Ember.inject.service(),
 	ajax: Ember.inject.service(),
 	session: Ember.inject.service(),
 	classNames: ['profile-accordion', 'no-bullet'],
-	highlightStatuses: ['Select a career status', 'On Sabbatical', 'Retired', 'Looking for Work', 'Self-employed', 'Freelance and Consulting'],
+	highlightStatuses: [
+		'Select a career status', 
+		'On a Sabbatical',
+		'Looking for Work',
+		'Self-employed Freelancer',
+		'Self-employed Consultant',
+		'Independent Contractor' ],
 	today: moment(),
 	from: Ember.computed('today', function(){
 		return this.get('today');
@@ -28,10 +35,8 @@ export default Ember.Component.extend(Validations, {
     this.get('ajax').request('/v1/profile/'+userid+'/highlight', {
       method: 'POST',
       data: data,
-      // contentType: false,
-      // processData: false,
     }).then((res)=>{
-      console.log(res);
+      Ember.get(this, 'flashMessages').success('Title: ' + data.status + ' has been set');
     })
 
 
@@ -62,7 +67,9 @@ export default Ember.Component.extend(Validations, {
 				default:
 					var experience = this.get('store').peekRecord('experience', item)
 					experience.set('showHighlight', true);
-					experience.save();
+					experience.save().then(res=>{
+			      Ember.get(this, 'flashMessages').success('Highlight Success!');
+					});
 					this.set('isHighlightStatus', false);
 					break; 
 			}
