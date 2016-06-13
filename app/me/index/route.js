@@ -14,7 +14,13 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
       educations: this.store.query('education', {userid: userid}),
       questions: this.store.query('ask', {userid: userid}),
       compliments: this.store.query('compliment', {to: userid})      
-    })
+    });
 
+  },
+  renderTemplate(){
+    this._super();
+    Ember.run.later(()=>{
+      if(!this.get('currentModel.profile.profileComplete.completeness')) $('#dd-info-callout').foundation('open');
+    })
   }
 });
