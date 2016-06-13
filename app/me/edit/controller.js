@@ -7,6 +7,11 @@ export default Ember.Controller.extend(
   AvatarMixin,
   SaveProfileMixin,
   QueryIndustryMixin, {
+  profile: Ember.computed.alias('model.profile'),
+  experiences: Ember.computed.alias('model.experiences'),
+  educations: Ember.computed.alias('model.educations'),
+  languages: Ember.computed.alias('model.languages'),
+  interests: Ember.computed.alias('model.interests'),
   queryParams: ['tab'],
   tab: 'personal',
   

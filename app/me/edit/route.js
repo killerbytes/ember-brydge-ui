@@ -6,7 +6,7 @@ export default Ember.Route.extend(QueryLocationMixin, {
 	model: function (params) {
 		this.profileid = params.profile_id;
 
-    this.store.unloadAll();
+    // this.store.unloadAll();
 		return Ember.RSVP.hash({
 	    educations: this.store.findAll('education',{reload: true}),
 	    experiences: this.store.findAll('experience',{reload: true}),
@@ -18,7 +18,7 @@ export default Ember.Route.extend(QueryLocationMixin, {
 
   setupController: function(controller, model) {
     var profile = model.profile;
-    controller.setProperties(model);
+    // controller.setProperties(model);
     
     controller.set('selectedIndustry',{
       id: profile.get('industryId'),

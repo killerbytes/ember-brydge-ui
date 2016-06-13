@@ -6,7 +6,7 @@ export default Ember.Route.extend(QueryLocationMixin, {
   ajaxApi: Ember.inject.service('ajax-api'),
   model: function (params) {    
     return Ember.RSVP.hash({
-      categories: this.get('ajaxApi').request('categories/menu')
+      categories: $.getJSON('data/categories.json')
     })
   },
 	actions: {
