@@ -39,29 +39,6 @@ export default Ember.Route.extend({
     // console.log(arguments);
 
   },
-  xxxsetupController: function(controller, model) {
-    this._super(...arguments);
-    console.log(model)
-    // var userid = model.get('userid');
-    // var ownerid = this.get('loggedinUser').user_id;
-    // controller.set('isLoading', true);
-    // Ember.RSVP.hash({
-    //   me: this.store.findRecord('profile', ownerid),
-    //   connections: this.store.query('connection',{userid: userid}),
-    //   languages: this.store.query('language',{userid: userid}, {reload: true}), 
-    //   experiences: this.store.query('experience',{userid: userid}),
-    //   educations: this.store.query('education',{userid: userid}),
-    //   interests: this.store.query('interest',{userid: userid}),
-    //   questions: this.store.query('ask',{userid: userid}).then(function(asks){
-    //      return asks.filterBy('answer');
-    //   }),
-    //   posts: this.store.query('newsfeed',{filter: userid, tab: 'profile'}),
-    //   compliments: this.store.query('compliment',{to: userid})
-    // }).then((result)=>{
-    //   controller.setProperties(result);
-    //   controller.set('isLoading', false);
-    // });
-  },
   actions: {
     clickedConnect (cb) {
       var userid = this.get('currentModel.userid');
@@ -79,7 +56,6 @@ export default Ember.Route.extend({
       });
     },
     goToAsk (username) {
-      // this.transitionTo('ask', username); 
       Ember.get(this, 'flashMessages').success('Your question has been sent. Thank you!');
     },
     postCompliment(){      
@@ -88,7 +64,7 @@ export default Ember.Route.extend({
       var title = this.controller.get('complimentTitle');
       this.get('compliment').post(userid,title,content)
       .then((res)=>{
-        console.log('compliment saved');
+        Ember.get(this, 'flashMessages').success('Compliment has been sent. Thank you!');
         this.controller.set('complimentContent', null);
       })
     }
