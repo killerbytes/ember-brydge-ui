@@ -8,6 +8,7 @@ export default Ember.Route.extend(QueryLocationMixin, {
 
     // this.store.unloadAll();
 		return Ember.RSVP.hash({
+      categories: $.getJSON('data/categories.json'),
 	    educations: this.store.findAll('education',{reload: true}),
 	    experiences: this.store.findAll('experience',{reload: true}),
 	    profile: this.store.findRecord('profile', params.profile_id, {reload: true}),
@@ -16,29 +17,39 @@ export default Ember.Route.extend(QueryLocationMixin, {
 	  });
 	},
 
-  setupController: function(controller, model) {
+  xxxsetupController: function(controller, model) {
     this._super(...arguments);
     var profile = model.profile;
     // controller.setProperties(model);
     
-    controller.set('selectedIndustry',{
-      id: profile.get('industryId'),
-      text: profile.get('industry')
-    }); 
+    // controller.set('selectedIndustry',{
+    //   id: profile.get('industryId'),
+    //   text: profile.get('industry')
+    // }); 
 
-    controller.set('selectedOccupOne',{
-      id: profile.get('occupationOneId'),
-      text: profile.get('occupationOne')
-    });
+    // controller.set('selectedOccupOne',{
+    //   id: profile.get('occupationOneId'),
+    //   text: profile.get('occupationOne')
+    // });
 
-    controller.set('selectedOccupTwo',{
-      id: profile.get('occupationTwoId'),
-      text: profile.get('occupationTwo')
-    });
+    // controller.set('selectedOccupTwo',{
+    //   id: profile.get('occupationTwoId'),
+    //   text: profile.get('occupationTwo')
+    // });
     
-    controller.set('selectedLoc', {
-      text: profile.get('location')
-    });
+    // controller.set('selectedLoc', {
+    //   text: profile.get('location')
+    // });
+  },
+  getCategory(value){
+    var categories = this.get('currentModel.categories');
+    return _.chain(_.map(categories, 'categories'))
+               .flatten()
+               .map((i)=>{ return i.industries; })
+               .flatten()
+               .filter((d)=>{ return d.data.code == value; })
+               .first()
+               .value().data.subIndustry;
   },
 
 	actions: {
@@ -119,5 +130,23 @@ export default Ember.Route.extend(QueryLocationMixin, {
         cb.apply();
       });
     },
+    setSelected(item){
+      this.controller.set('current', item);
+    },
+    goto(link){
+      $('#industry-tab').foundation('selectTab', $('#'+link))
+    },
+    onIndustrySelected(code){
+      this.controller.set('_selected', {
+        id: code,
+        text: this.getCategory(code)
+      })
+    },
+    onSelectDone(){
+      var x = this.controller.get('current');
+      this.controller.set('profile.'+x, this.controller.get('_selected.text'))
+      this.controller.set('profile.'+x+'Id', this.controller.get('_selected.id'))
+    }
+
   }
 });

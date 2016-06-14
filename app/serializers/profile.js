@@ -18,7 +18,6 @@ export default DS.JSONAPISerializer.extend(DS.EmbeddedRecordsMixin, {
       return acc;
 
     }, attr);
-    console.log(payloadData)
     return payloadData;
     
  },

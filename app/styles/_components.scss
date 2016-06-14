@@ -388,16 +388,19 @@ ul.menu-dotted{
 	ul{
 		border-bottom: 1px solid $border-color;
 		position: absolute;
+		z-index: 10;
 		width: 100%;
 		background-color: #FFF;
 	}
 	li{
 		padding: 5px;
 		border: 1px solid $border-color;
+		color: $body-text-color;
 		border-bottom: none;
 	}
 	li:hover{
 		background-color: #CCC;
+		color: #FFF;
 	}
 }
 
