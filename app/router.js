@@ -14,7 +14,7 @@ Router.map(function() {
   this.route('home');
 
   this.route('me', function() {
-    this.route('edit',{path:'/edit/:profile_id'});
+    this.route('edit',{path:'/edit'});
   });
   this.route('me.ask', {path: 'me/ask'}, function(){
     this.route('pending');

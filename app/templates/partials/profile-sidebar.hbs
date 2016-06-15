@@ -23,7 +23,7 @@
 
       </div>   
       {{#if isOwner}}
-        {{#link-to "me.edit" profile.id (query-params tab="industry")}}
+        {{#link-to "me.edit" (query-params tab="industry")}}
           <i class="icons pencil"></i>       
         {{/link-to}}
       {{/if}}
@@ -53,7 +53,7 @@
           </div>
       </div>
       {{#if isOwner}}
-        {{#link-to "me.edit" profile.id (query-params tab="occupindustry") }}       
+        {{#link-to "me.edit" (query-params tab="occupindustry") }}       
           <i class="icons pencil"></i>
         {{/link-to}}
       {{/if}}
@@ -94,7 +94,7 @@
 <div class="box rounded snapshot hover-edit">
   <h5 class="box-header">Snapshot 
     {{#if isOwner}}    
-      {{#link-to "me.edit" profile.id (query-params tab="snapshot")}}       
+      {{#link-to "me.edit" (query-params tab="snapshot")}}       
         <i class="icons pencil pull-right"></i>
       {{/link-to}}
     {{/if}}
@@ -150,7 +150,7 @@
 <div class="box rounded work-history hover-edit">
   <h5 class="box-header">Work History
     {{#if isOwner}}
-      {{#link-to "me.edit" profile.id (query-params tab="work")}}       
+      {{#link-to "me.edit" (query-params tab="work")}}       
         <i class="icons pencil pull-right"></i>
       {{/link-to}}
     {{/if}}
@@ -167,7 +167,7 @@
 <div class="box rounded academia hover-edit">
   <h5 class="box-header">Academia
     {{#if isOwner}}    
-      {{#link-to "me.edit" profile.id (query-params tab="academia")}}       
+      {{#link-to "me.edit" (query-params tab="academia")}}       
         <i class="icons pencil pull-right"></i>
       {{/link-to}}
     {{/if}}
@@ -184,7 +184,7 @@
 <div class="box rounded languages hover-edit">
   <h5 class="box-header">Languages
     {{#if isOwner}}
-      {{#link-to "me.edit" profile.id (query-params tab="language")}}       
+      {{#link-to "me.edit" (query-params tab="language")}}       
         <i class="icons pencil pull-right"></i>
       {{/link-to}}
     {{/if}}
@@ -201,7 +201,7 @@
 <div class="box rounded hover-edit">
   <h5 class="box-header">Interests
     {{#if isOwner}}
-      {{#link-to "me.edit" profile.id (query-params tab="interest")}}       
+      {{#link-to "me.edit" (query-params tab="interest")}}       
         <i class="icons pencil pull-right"></i>
       {{/link-to}}
     {{/if}}

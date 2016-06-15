@@ -16,7 +16,7 @@
 				<ul class="no-bullet">
 					<li {{action "select" model.myIndustry preventDefault=false }}>{{model.myIndustry.text}}</li>
 				</ul>
-				<p>{{#link-to 'me.edit' sessionAccount.account.profile.id (query-params tab="industry")}}Edit Business Industry{{/link-to}}</p>				
+				<p>{{#link-to 'me.edit' (query-params tab="industry")}}Edit Business Industry{{/link-to}}</p>				
 
 				<strong>Your Occupational Industry</strong>
 				<ul class="no-bullet">
@@ -24,7 +24,7 @@
 					<li {{action "select" industry preventDefault=false }}>{{industry.text}}</li>
 				{{/each}}
 				</ul>
-				<p>{{#link-to 'me.edit' sessionAccount.account.profile.id (query-params tab="occupindustry")}}Edit Occupational Industry{{/link-to}}</p>				
+				<p>{{#link-to 'me.edit' (query-params tab="occupindustry")}}Edit Occupational Industry{{/link-to}}</p>				
 				
 			</div>
 			<div class="columns medium-6">

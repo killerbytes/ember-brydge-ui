@@ -11,7 +11,7 @@
 					<ul class="no-bullet">
 						<li {{action "select" myLocation preventDefault=false }}>{{myLocation.text}}</li>
 					</ul>				
-					<p>{{#link-to 'me.edit' sessionAccount.account.profile.id (query-params tab="personal")}}Edit Your Location{{/link-to}}</p>				
+					<p>{{#link-to 'me.edit' (query-params tab="personal")}}Edit Your Location{{/link-to}}</p>				
 				</div>
 				<div class="columns medium-6">
 					<strong>Global</strong>

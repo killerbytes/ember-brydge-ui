@@ -6,9 +6,9 @@
 				{{action-checkbox-bind value=profile.industryId text=profile.industry action="checkboxChanged" name="industryId" checked=industryId reversed=true}}
 			</li>
 		</ul>
-		<p>{{#link-to 'me.edit' profile.id}}Edit Business Industry{{/link-to}}</p>
+		<p>{{#link-to 'me.edit'}}Edit Business Industry{{/link-to}}</p>
 	{{else}}
-		<p>{{#link-to 'me.edit' profile.id}}Add Business Industry{{/link-to}}</p>	
+		<p>{{#link-to 'me.edit'}}Add Business Industry{{/link-to}}</p>	
 	{{/if}}
 
 	<strong>Your Occupational Industry</strong>
@@ -21,9 +21,9 @@
 				{{action-checkbox-bind value=profile.occupationTwoId text=profile.occupationTwo action="checkboxChanged" name="occupationTwo" checked=occupationTwo reversed=true}}
 			</li>
 		</ul>
-		<p>{{#link-to 'me.edit' profile.id}}Edit Occupational Industry{{/link-to}}</p>
+		<p>{{#link-to 'me.edit'}}Edit Occupational Industry{{/link-to}}</p>
 	{{else}}
-		<p>{{#link-to 'me.edit' profile.id}}Add Occupational Industry{{/link-to}}</p>
+		<p>{{#link-to 'me.edit'}}Add Occupational Industry{{/link-to}}</p>
 	{{/if}}
 </section>
 	<hr>

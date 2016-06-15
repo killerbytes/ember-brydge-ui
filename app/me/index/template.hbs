@@ -9,7 +9,7 @@
         Thanks for signing up. Have a look around.<br>
         Your profile is not searchable because you haven't completed the following fields: Title, Business Industry, and Occupation Industry.
       </p>
-      <p>You can do so {{#link-to "me.edit" profile.id (query-params tab="work")}}here{{/link-to}}</p>
+      <p>You can do so {{#link-to "me.edit" (query-params tab="work")}}here{{/link-to}}</p>
       <div class="text-right">
         <button class="button" data-toggle="dd-info-callout">OK</button>    
       </div>     
@@ -23,7 +23,7 @@
         <div class="name hover-edit">          
           {{profile.firstName}}
           <span>
-            {{#link-to "me.edit" profile.id (query-params tab="personal")}}       
+            {{#link-to "me.edit" (query-params tab="personal")}}       
               <i class="icons pencil icon-left"></i>
             {{/link-to}}
             {{profile.lastName}}
@@ -40,7 +40,7 @@
         <div class="location hover-edit">
           {{location.city}}<br>
           <big>{{location.state}} 
-            {{#link-to "me.edit" profile.id (query-params tab="personal")}}                 
+            {{#link-to "me.edit" (query-params tab="personal")}}                 
               <i class="icons pencil"></i>
             {{/link-to}}
           </big>        
@@ -59,7 +59,7 @@
         Add Current Title and Company
       </div>
     {{/if}}
-    {{#link-to "me.edit" profile.id (query-params tab="work") }}       
+    {{#link-to "me.edit" (query-params tab="work") }}       
       <i class="icons pencil"></i>
     {{/link-to}}
   </div>
