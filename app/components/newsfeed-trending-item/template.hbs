@@ -1,0 +1,60 @@
+<div class="media media-top text-right">
+  <strong>TRENDING</strong>
+</div>
+<div class="media">
+  {{#if post.title}}
+    <div class="media-main">
+      {{#if post.image}}
+      <a href="{{post.url}}">
+        <div class="post-image" style="background-image: url({{post.image}})">
+          <img src="{{post.image}}" class="hide">
+        </div>
+      </a>
+      {{/if}}
+      <div class="post-caption">
+        {{#if post.siteName}}
+          <div class="subheader"><a href="{{post.url}}">{{post.siteName}}</a></div>
+        {{/if}}
+        <h3><a href="{{post.url}}">{{title}}</a></h3>
+      </div>
+    </div>
+  {{/if}}
+
+  {{#unless shared }}
+    {{#if post.sharedPost }}
+      {{newsfeed-item post=post.sharedPost shared=true class="shared-post"}}
+    {{/if}}
+  {{/unless}}
+</div>
+
+{{#unless shared }}
+  <div class="padded post-actions">
+    <div class="float-left"> 
+     
+      {{#if post.vote.upVoted}}
+      <a {{action "vote" "reset"}}><span class="acted">Upvoted</span></a> 
+      {{else}}
+      <a {{action "vote" "up"}}>Upvote</a> 
+      {{/if}}
+
+       <span> {{post.vote.upVotes}}</span>
+
+
+      {{#if post.vote.downVoted}}
+      <a {{action "vote" "reset"}}><span class="acted">Downvoted</span></a> 
+      {{else}}
+        {{#zf-tooltip title="Downvoting is anonymous" vOffset=0 class="top"}}
+          <a {{action "vote" "down"}}>Downvote</a> 
+        {{/zf-tooltip}}
+      {{/if}}
+     
+    </div>
+    <div class="float-right">
+      <a {{action "viewComments"}}>Comment</a><span>{{post.commentCount}}</span>
+      <a {{action "share" post }} data-open="shareModal">Share</a><span>{{post.vote.sharedCount}}</span>
+    </div>
+  </div>
+  <div class="post-footer">
+      {{comment-box post=post total=post.commentCount}}
+  </div>
+{{/unless}}

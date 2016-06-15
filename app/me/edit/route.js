@@ -8,7 +8,7 @@ export default Ember.Route.extend(QueryLocationMixin, {
     var userid = this.get('session.data.authenticated.user_id');
 		return Ember.RSVP.hash({
       categories: $.getJSON('data/categories.json'),
-      profile: this.store.findRecord('profile', userid),
+      profile: this.store.findRecord('profile', userid, {reload: true}),
       languages: this.store.query('language', {userid: userid}),
       interests: this.store.query('interest', {userid: userid}),
       experiences: this.store.query('experience', {userid: userid}),
