@@ -1,0 +1,19 @@
+<form {{action 'authenticate' on='submit'}} class="form-signin">
+  <div class="row column log-in-form">
+    <div class="text-center">
+      <a href="/"><img class="logo" src="assets/brydge-blue.svg"></a>
+    </div>
+    {{#if errorMessage}}
+      <div class="alert callout" data-closable>
+        <h6>Login failed, {{errorMessage}}</h6>
+        <p>Please register an account or reset password.</p>
+        <button class="close-button" aria-label="Dismiss alert" type="button" data-close><span aria-hidden="true">&times;</span></button>
+      </div>
+    {{/if}}
+
+    {{input id='email' placeholder="your@email.com" value=email}}
+    {{input type='password' placeholder="Password" value=password}}
+    <button class="button secondary" type="submit">LOG IN</button>
+    <a href="#" class="float-right">Forgot your password?</a>
+  </div>
+</form>

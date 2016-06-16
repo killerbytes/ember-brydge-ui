@@ -1,37 +1,15 @@
 
-<div class='row bg-light-blue index'>
-  <div class='medium-6 large-7 columns'>
+<div class='row bg-light-blue index equalizer' data-equalizer data-equalize-by-row="true">
+  <div class="medium-6 large-7 columns" data-equalizer-watch>
     <div class="jumbotron text-center">
       <h1 class="large">Connect. Interact. Grow.</h1>
       <h3>Simplifying professional interaction and facilitating self-development</h3>
     </div>
   </div>
 
-  <div class='medium-6 large-5 columns bg-white signup-section'>
-    <form {{action 'authenticate' on='submit'}} class="form-signin">
-      <div class="row column log-in-form">
-        <div class="text-center">
-          <a href="/"><img class="logo" src="assets/brydge-blue.svg"></a>
-        </div>
-        {{#if errorMessage}}
-        <div class="warning callout small" data-closable>
-          <h7>Login failed, {{errorMessage}}</h7>
-          <p>Please register an account or reset password.</p>
-          <button class="close-button" aria-label="Dismiss alert" type="button" data-close><span aria-hidden="true">&times;</span></button>
-        </div>
-        {{/if}}
-
-        {{input id='email' placeholder="your@email.com" value=email}}
-        {{input type='password' placeholder="Password" value=password}}
-        <button class="button secondary" type="submit">LOG IN</button>
-        <a href="#" class="float-right">Forgot your password?</a>
-      </div>
-    </form>
-
-
+  <div class="medium-6 large-5 columns bg-white signup-section" data-equalizer-watch>
+      {{partial "partials/form-login"}}
   </div>
-
-
 </div>
 
 <div class="row bg-white index">

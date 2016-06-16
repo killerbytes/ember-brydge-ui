@@ -8,33 +8,9 @@
   </div>
 
   <div class='medium-6 large-5 columns bg-white signup-section'>
-        <form {{action 'authenticate' on='submit'}} class="form-signin">
-            <div class="row column log-in-form">
-				<div class="text-center">
-					<a href="/"><img class="logo" src="assets/brydge-blue.svg"></a>
-				</div>
-                {{#if errorMessage}}
-                  <div class="warning callout small" data-closable>
-                    <h7>Login failed, {{errorMessage}}</h7>
-                    <p>Please register an account or reset password.</p>
-                    <button class="close-button" aria-label="Dismiss alert" type="button" data-close><span aria-hidden="true">&times;</span></button>
-                  </div>
-                {{/if}}
-
-                    {{input id='email' placeholder="your@email.com" value=email}}
-
-                    {{input type='password' placeholder="Password" value=password}}
-                <!-- <input id="show&#45;password" type="checkbox"><label for="show&#45;password">Show password</label> -->
-                <button class="button secondary" type="submit">LOG IN</button>
-                <a href="#" class="float-right">Forgot your password?</a>
-            </div>
-        </form>
-
-
-    	<!-- {{signup-form signupUser='registerUser' }} -->
-
-      <div class="bg-sky-blue clearfix">
-        <form {{action 'signup' on='submit'}} class="form-signup" autocomplete="off">
+    {{partial "partials/form-login"}}
+    <div class="bg-sky-blue clearfix">
+      <form {{action 'signup' on='submit'}} class="form-signup" autocomplete="off">
         <div class='row'>
           <div class='columns'>
             {{#if signupError}}
@@ -49,37 +25,12 @@
             {{input value=registerEmail placeholder='Email'}}
             {{input value=registerPassword placeholder='Password' type='password'}}
             <p>By signing up to the service you are agreeing to our {{link-to "Terms of Use" "home"}} and our {{link-to "Privacy Policy" "home"}}.</p>
-            <!-- <button type='submit' class='button'>CREATE ACCOUNT</button>
- -->
             {{spinning-button clicked="createAccount" value="CREATE ACCOUNT" class="button"}}
           </div>
         </div>
       </form>
-      </div>
-
-      <!-- <form {{action 'signup' on='submit'}} class="form-signup" autocomplete="off">
-        <div class='row'>
-          <div class='columns'>
-            {{#if signupError}}
-              <div class="warning callout small" data-closable>
-                <h7>Signup failed</h7>
-                <p>{{signupError}}</p>
-                <button class="close-button" aria-label="Dismiss alert" type="button" data-close><span aria-hidden="true">&times;</span></button>
-              </div>
-            {{/if}}
-            {{input value=registerFirstName placeholder='firstName'}}
-            {{input value=registerLastName placeholder='lastName'}}
-            {{input value=registerEmail placeholder='Email'}}
-            {{input value=registerPassword placeholder='New password' type='password'}}
-            <p>By signing up to the service you are agreeing to our {{link-to "Terms of Use" "home"}} and our {{link-to "Privacy Policy" "home"}}.</p>
-            <button type='submit' class='button'>CREATE ACCOUNT</button>
-          </div>
-        </div>
-      </form> -->
-
+    </div>
   </div>
-
-
 </div>
 
 <div class="row bg-white index">
