@@ -11,7 +11,6 @@ export default Ember.Route.extend({
   beforeModel: function(transition) {
     const loggedinUser = this.get('session.data.authenticated');
     this.set('loggedinUser', loggedinUser);
-    // return this.get('sessionAccount.account')    
     if (loggedinUser.username === transition.params['profile'].username) {
       this.transitionTo('me');
       return;
@@ -36,20 +35,17 @@ export default Ember.Route.extend({
         compliments: this.store.query('compliment',{to: userid, userid: userid})
       });
     })
-    // console.log(arguments);
-
   },
   actions: {
-    clickedConnect (cb) {
-      var userid = this.get('currentModel.userid');
+    onClickedConnect (cb) {
+      var userid = this.get('currentModel.profile.id');
       this.get('connection').request(userid)
-      .then((res)=>{
-        console.log('res=>', res)
-        cb();
+      .then(res=>{
+        cb.apply();
       });
     },
-    clickedDisconnect() {
-      var userid = this.get('currentModel.userid');
+    onClickedDisconnect() {
+      var userid = this.get('currentModel.profile.id');
       this.get('connection').disconnect(userid)
       .then((res)=>{
         this.refresh();
@@ -60,7 +56,7 @@ export default Ember.Route.extend({
     },
     postCompliment(){      
       var content = this.controller.get('complimentContent');
-      var userid = this.get('currentModel.userid')
+      var userid = this.get('currentModel.profile.id')
       var title = this.controller.get('complimentTitle');
       this.get('compliment').post(userid,title,content)
       .then((res)=>{

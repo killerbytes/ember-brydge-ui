@@ -35,7 +35,7 @@ export default Ember.Component.extend(Validations, {
     this.get('ajax').request('/v1/profile/'+userid+'/highlight', {
       method: 'POST',
       data: data,
-    }).then((res)=>{
+    }).then(res=>{
       Ember.get(this, 'flashMessages').success('Title: ' + data.status + ' has been set');
     })
 
@@ -68,6 +68,9 @@ export default Ember.Component.extend(Validations, {
 					var experience = this.get('store').peekRecord('experience', item)
 					experience.set('showHighlight', true);
 					experience.save().then(res=>{
+						var profile = this.get('store').peekRecord('profile', this.get('profile.id'))
+						profile.set('currentTitle', res.get('title'));
+						profile.set('currentCompany', res.get('company'));
 			      Ember.get(this, 'flashMessages').success('Highlight Success!');
 					});
 					this.set('isHighlightStatus', false);
