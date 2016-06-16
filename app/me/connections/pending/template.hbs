@@ -1,11 +1,8 @@
 <ul class="no-bullet pending-list clearfix">
-{{#each model.pendingListTop as |connection|}}
+{{#each pendingListTop as |item|}}
 
 	<li>
-    {{connection-pending-item 
-    connection=connection 
-    selectAcceptItem='selectAcceptItem' 
-    selectRejectItem='selectRejectItem'}}		
+    {{ connection-pending-item model=item selected="selected" }}		
 	</li>
 	
 {{/each}}

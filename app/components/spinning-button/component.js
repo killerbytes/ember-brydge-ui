@@ -78,9 +78,10 @@ export default Ember.Component.extend({
       //     }), _this.get('timeOut'));
       //   });
       // }
-      this.sendAction('clicked', ()=>{
+      this.sendAction('clicked', (value)=>{
         this.set('isSpinning', false);
         this.set('disabled', false);
+        console.log(value)
       })
 
       // if (typeof this.get('onclick') === 'function') {

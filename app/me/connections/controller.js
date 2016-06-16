@@ -5,16 +5,23 @@ export default Ember.Controller.extend({
 	selectedReject: null,
   queryParams: ['targetid'],
   targetid: null,
-  actions: {
-  	selectAcceptItem: function(item) {
-  		console.log('selectedAccept');
-      console.log(item.get('from').get('userid'),item.get('from').get('name'))
-  		this.set('selectedAccept', item);
-  	},
-  	selectRejectItem: function(item) {
-  		console.log('selectedReject');
-      console.log(item.get('from').get('userid'),item.get('from').get('name'))
-  		this.set('selectedReject', item);
-  	}
-  }
+  acceptedList: Ember.computed('model.@each.status', 'key', function(){
+    let query = this.get('key');
+    if(!query) return this.get('model').filterBy('status','accepted');
+    var fields = ["name"];
+    return this.get('model').filterBy('status','accepted').filter(function(item){
+      var found = false;
+      _.forEach(fields, function(key) {
+        found = item.get('from').get(key).toLowerCase().indexOf(query.toLowerCase()) >= 0 ? true : false;
+        if(found) return false;
+      })
+      return found;
+    })
+  }),
+  pendingList: Ember.computed('model.@each.status', function(){
+    return this.get('model').filterBy('status','pending');;
+  }),
+  pendingListTop: Ember.computed('model.@each.status', function(){
+    return this.get('pendingList').splice(0,1);
+  })
 });

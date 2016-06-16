@@ -9,7 +9,7 @@
       </div>
     {{else}}
       <div class="table-cell cell-connected">
-      {{spinning-button clicked="clickedConnect" value=connectionStatus class="button large rounded connect success"}}
+        {{spinning-button clicked="onClickedConnect" value=connectionStatus class="button large rounded connect success"}}
       </div>
       <div class="table-cell">
         {{link-to "Message" "messaging.conversation" profile.conversationid class="button large rounded expanded"}}
@@ -35,7 +35,7 @@
             <li>{{#link-to "connections" profile.id }} {{profile.firstName}}'s connection ({{ activeConnections.length }}){{/link-to}}</li>
             <li>{{#link-to "ask" profile.id }} {{profile.firstName}}'s ASK Page{{/link-to}}</li>
             <li>{{#link-to "compliments" profile.id }} Compliment {{profile.firstName}}{{/link-to}}</li>
-            <li><a href="" class="warning" {{action 'clickedDisconnect'}}>Disconnect from {{profile.firstName}}</a></li>
+            <li><a href="" class="warning" {{action 'onClickedDisconnect'}}>Disconnect from {{profile.firstName}}</a></li>
           {{/if}}
         </ul>
       {{/zf-dropdown}}

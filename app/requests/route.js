@@ -15,7 +15,6 @@ export default Ember.Route.extend({
 		reject: function(item) {
 			this.get('connection').reject(item)
 			.then((res)=>{
-				console.log(res)
 				this.store.push(res)
 			})
 		}
