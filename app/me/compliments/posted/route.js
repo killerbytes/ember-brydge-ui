@@ -3,14 +3,6 @@ import Ember from 'ember';
 export default Ember.Route.extend({
 	session: Ember.inject.service(),
 	compliment: Ember.inject.service(),
-	// model: function () {
-	// 	let ownerid = this.get('session.data.authenticated.user_id');
-	// 	return  this.store.query('compliment',{from: ownerid});
-	// },
-	// setupController(){
-	// 	console.log(arguments)
-	// 	this.
-	// },
 	actions: {
 		accept: function(item) {
 			console.log('accept =>', item);

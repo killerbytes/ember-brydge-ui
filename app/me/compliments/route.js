@@ -13,10 +13,10 @@ export default Ember.Route.extend({
     })
 	},
 
-	setupController: function(controller, model){
-    this._super(controller, model);
-    controller.setProperties(model);
-  },
+	// setupController: function(controller, model){
+ //    this._super(controller, model);
+ //    controller.setProperties(model);
+ //  },
 
 	actions: {
 		accept: function (id) {
