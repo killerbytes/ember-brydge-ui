@@ -2,19 +2,7 @@ import Ember from 'ember';
 
 export default Ember.Route.extend({
 	model: function() {
-		// var userid = this.get('session.data.authenticated.user_id');
-
-		// this.set('userid', userid);
-
-		// this.store.unloadAll('connection');
-		// return Ember.RSVP.hash({
-		// 	pendingList: this.store.query('connection',{to: userid},{reload: true}).then((connections)=>{
-		// 		return connections.filterBy('status','pending');
-		// 	}),
-		// 	acceptedList: this.store.findAll('connection',{reload: true}).then((connections)=>{
-		// 		return connections.filterBy('status','accepted');
-		// 	})
-		// });
+		this.store.unloadAll('connection');
 		return this.store.findAll('connection');
 	},
 

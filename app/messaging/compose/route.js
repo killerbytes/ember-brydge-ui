@@ -2,6 +2,7 @@ import Ember from 'ember';
 
 export default Ember.Route.extend({
 	model: function() {
+    this.store.unloadAll('contact');
 		return this.store.findAll('contact');
 	},
 	actions: {

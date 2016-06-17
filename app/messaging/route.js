@@ -3,7 +3,8 @@ import Ember from 'ember';
 export default Ember.Route.extend({
 	store: Ember.inject.service(),
 	model: function () {
-			return this.store.findAll('conversation');
+		this.store.unloadAll('conversation');
+		return this.store.findAll('conversation');
 	},
 	actions: {
 		didTransition(){

@@ -23,11 +23,11 @@
         <div class="tabs-panel is-active" id="question_answered">
           <div class="search-bar">
             <form action="">
-              <input type="text" placeholder="Search by Name">
+              {{input value=key type="search" placeholder="Search by Name"}}
             </form>
           </div>
           <ul class="no-bullet connections-list">
-            {{#each list as |connection|}}
+            {{#each connections as |connection|}}
             <li>
                 <div class="media-object">
                   <div class="media-object-section">
@@ -88,11 +88,3 @@
     {{render "footer"}}
   </div>
 </div>
-
-{{#zf-reveal id="acceptFormModal" overlay=true class="reveal-popup tiny"}}
-  {{accept-form selectedAccept=selectedAccept resp='refreshModel' store=store}}
-{{/zf-reveal}}
-
-{{#zf-reveal id="rejectFormModal" overlay=true class="reveal-popup tiny"}}
-  {{reject-form selectedReject=selectedReject resp='refreshModel' store=store}}
-{{/zf-reveal}}
