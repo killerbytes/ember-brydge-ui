@@ -16,10 +16,6 @@ export default Ember.Route.extend({
 
     })
 	},
-	// setupController(controller, model){
-	// 	this._super(...arguments);
-	// 	controller.setProperties(model);
-	// },
   actions: {
   	selectItem(item) {
   		this.set('ask.selectedQuestion', item);

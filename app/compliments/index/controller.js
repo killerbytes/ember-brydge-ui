@@ -6,22 +6,8 @@ export default Ember.Controller.extend(
 	ComplimentTitlesMixin, 
 	FilteredComplimentsMixin, {
   compliment: Ember.inject.service(),
-	// limit: 3,
-	// toAccept: Ember.computed.filterBy('model.toCompliments', 'status', 'accepted'),
-	// fromCompliments: Ember.computed.filterBy('model.fromCompliments', 'status', 'accepted'),
-	// fromAccept: Ember.computed.filterBy('fromCompliments', 'delete', false),
-	// fromAcceptSidebar: Ember.computed('fromCompliments', function(){
-	// 	return this.get('fromCompliments')
-	// 		.filterBy('delete', false)
-	// 		.slice(0, this.get('limit'));
-	// }),
-	// complimentTitles: Ember.computed('titles', function(){
-	// 	this.get('complimentFilter').push('All');
-	// 	return _.concat(this.get('complimentFilter'), this.get('titles'));
-	// }),
 	compliments: Ember.computed('complimentTitle', 'model.toCompliments', function(){
 		var selected = this.get('complimentTitle');
-		console.log('selected', selected);
 		if(!selected || selected == 'All'){
 			return this.get('toAccept');			
 		}else{
