@@ -19,7 +19,6 @@ export default Ember.Route.extend(NotificationActionsMixin,{
     controller.set('settingsChanged', function(value) {
       this.send('settingsChanged', value);
     });    
-
 	},
   actions: {
     settingsChanged(value){

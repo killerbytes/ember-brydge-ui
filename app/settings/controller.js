@@ -22,17 +22,6 @@ export default Ember.Controller.extend({
     settingsChanged(e){
       this.set('model.settings.'+ e.currentTarget.name, e.currentTarget.checked);
       this.get('settings').update(this.get('model.settings'));
-      // if(this.get('model.settings')){
-      //   this.set('model.settings.'+value, !this.get('model.settings.'+value))
-      //   this.set('model.settings.notifications')
-      //   this.get('settings').update(this.get('model.settings'));
-      // }else{
-      //   var settings = {};
-      //   settings[value] = !this.get('model.settings.'+value);
-      //   this.set('model.settings', settings);
-      //   this.get('settings').update(this.get('model.settings'));
-      // }
-
     },
     updateEmail(value, cb){
       this.get('settings').updateEmail(value).then((res)=>{
@@ -44,10 +33,6 @@ export default Ember.Controller.extend({
         cb.apply();
       })
     }
-    // notificationChanged(){
-    //   this.set('model.settings.notifications', !this.get('model.settings.notifications'))
-    //   this.get('settings').updateSetting('notifications', this.get('model.settings.notifications'));
-    // }
   }
 
 });

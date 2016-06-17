@@ -17,22 +17,7 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, FilterDropdownListMix
 
   model: function (params) {
     let ownerid = this.get('session.data.authenticated.user_id');
-    // if(params.q && params.q=='null') {
-    //   delete params.q;
-    // }
-
-    // if(params.channels && params.channels=='myconnections') {
-    //   delete params.channels;
-    // }
-
-    // if(!params.tab) {
-    //   params.tab='curated';
-    // }
-    
-    // this.store.unloadAll('newsfeed');
-
     return Ember.RSVP.hash({
-      // newsfeed: this.store.query('newsfeed',params),
       profile: this.store.findRecord('profile', ownerid)
     });
   },
@@ -43,9 +28,7 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, FilterDropdownListMix
   loadNewsfeed(tab){
     var tab = tab ||  this.controller.tab;
     this.controller.set('newsfeed', {});
-    // this.controller.set('newsfeed', {live: [], curated: [], search: []});
     this.controller.set('isLoading', true);
-    // return false;
     if(this.controller.tab != 'search'){
       this.controller.setProperties({
         q: null,
@@ -63,7 +46,6 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, FilterDropdownListMix
     if(this.controller.location) params.location = this.controller.location;
     if(this.controller.q) params.q = this.controller.q;
     this.store.query('newsfeed', params).then(res=>{
-      // this.controller.set('newsfeed', {live: [], curated: [], search: []});
       this.controller.set('newsfeed.'+ tab, res);
       this.controller.set('isLoading', false)
     })
@@ -95,9 +77,6 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, FilterDropdownListMix
       this.loadNewsfeed()
     },
     search: function () {
-      // console.log('pressed search', this.controller.get('searchContent'))
-      // this.transitionTo('home', { queryParams: { q: this.controller.get('searchContent') }});
-      // this.refresh();
       this.controller.set('tab', 'search');
       this.controller.set('q', this.controller.get('searchContent'))
       this.loadNewsfeed();
@@ -113,72 +92,5 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, FilterDropdownListMix
       this.controller.set('q', null)
       this.controller.set('searchContent', null)
     }
-/*
-    showMoreFields: function(tab) {
-      console.log('<<< tab', tab);
-      if(tab === 'curated') {
-        console.log('<<< curated');
-        this.controller.set('isCurated',true);
-        this.controller.set('isLive', false);
-      }else{
-        console.log('<<< live');
-        this.controller.set('isCurated',false);
-        this.controller.set('isLive',true);
-      }
-
-      this.controller.set('isSearch', false);
-      this.controller.set('searchContent',null);
-      this.store.query('newsfeed',{ tab: tab, q:null }, {reload: true}).then(res=>{
-        this.set('currentModel.newsfeed', res)
-        this.transitionTo('home', { queryParams: { tab: tab, q:null }});
-      })
-
-      // this.refresh();
-    },
-  */
-/*
-    focusedInSearch: function () {
-      console.log('focus search')
-      
-      this.set('isCurated',this.controller.get('isCurated'));
-      this.set('isLive',this.controller.get('isLive'));
-
-      this.controller.set('isCurated',false);
-      this.controller.set('isLive',false);
-      this.controller.set('isSearch', true);
-
-      this.transitionTo('home', { queryParams: { tab: 'search' }});
-    },
-
-    focusedOutSearch: function () {
-      console.log('focus out')
-      
-      this.controller.set('isCurated',this.get('isCurated'));
-      this.controller.set('isLive',this.get('isLive'));
-      this.controller.set('isSearch', false);
-      
-      this.transitionTo('home', { queryParams: { tab: 'curated',q:null }});
-    },
-*/
-/*
-    logout: function(){
-      console.log('home/logout>>>')
-
-      var accessToken = this.get('session.data.authenticated.access_token');
-      Ember.$.getJSON(ENV['ember-simple-auth'].authorizerHost + "/expire?token=" + accessToken).done(()=> {
-        this.get('session').invalidate();
-        console.log("Expired session", accessToken);
-      });
-    },
-    error: function(err, transition) {
-      console.log(">>>home:route:error:", err);
-      console.log(">>>home:route:error -->", err.status);
-      console.log(err, transition);
-      return true;
-    },
-
-*/
-
-
   }
 });
