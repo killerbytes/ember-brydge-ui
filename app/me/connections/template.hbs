@@ -33,7 +33,7 @@
                 {{/link-to}}
                 
                 <div class="position">
-                  {{connection.from.profile.currentTitle}} <br>
+                  {{#if connection.from.profile.currentTitle}}{{connection.from.profile.currentTitle}} <br>{{/if}}
                   {{connection.from.profile.currentCompany}}
                 </div>
                 <p class="location">{{connection.from.profile.location}}</p>

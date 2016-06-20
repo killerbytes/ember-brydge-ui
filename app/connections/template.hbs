@@ -41,7 +41,7 @@
                     {{/link-to}}
                     
                     <div class="position">
-                      {{connection.title}} <br>
+                      {{#if connection.title}}{{connection.title}} <br> {{/if}}
                       {{connection.company}}
                     </div>
                     <!-- <p class="location">{{connection.from.profile.location}}</p> -->
@@ -68,7 +68,7 @@
                     {{/link-to}}
                     
                     <div class="position">
-                      {{connection.title}} <br>
+                      {{#if connection.title}}{{connection.title}} <br> {{/if}}
                       {{connection.company}}
                     </div>
                    <!--  <p class="location">{{connection.from.profile.location}}</p> -->
