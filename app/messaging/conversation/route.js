@@ -6,6 +6,9 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
   model: function(params) {
     return this.store.findRecord('conversation', params.conversation_id);
   },
+  afterModel(){
+    this.store.findAll('conversation');
+  },
   actions: {
   	submit: function() {
       this.store.findAll('conversation')

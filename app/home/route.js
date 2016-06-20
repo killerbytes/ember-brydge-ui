@@ -61,7 +61,6 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, FilterDropdownListMix
           this.set('controller.tab', elem.data('tab'));
           this.loadNewsfeed(elem.data('tab'))
         });
-        console.log('scoll init')
         Ember.$(window).on('scroll', function(){
           var $win = $(window);
           var $doc = $(document);
