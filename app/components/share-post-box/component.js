@@ -4,23 +4,27 @@ export default Ember.Component.extend({
   sessionAccount: Ember.inject.service(),
   ajaxApi: Ember.inject.service(),
   utils: Ember.inject.service(),
-	classNames: ['share-box', 'mb'],
+	classNames: ['share-post-box', 'mb'],
   categories: [],
   title: Ember.computed('site.title', function(){
     let title = this.get('site.title') || this.get('site.url');
     return title.length > 100 ? title.substr(0, 100) + ' ...' : title;
   }),
-  avatarUrl: Ember.computed('sessionAccount.account.profile.avatarUrl', function(){
-    return this.get('sessionAccount.account.profile.avatarUrl');
+  avatar: Ember.computed('sessionAccount.account.profile.avatarUrl', function(){
+    return Ember.String.htmlSafe("background-image: url(" + this.get('sessionAccount.account.profile.avatarUrl') + ')' );
   }),
-  preview: Ember.computed('site.image', function(){
-    return this.get('site.image') ? true : false;
+  siteImage: Ember.computed('site.image', function(){
+    return Ember.String.htmlSafe("background-image: url(" + this.get('site.image') + ')' );
   }),
+  // preview: Ember.computed('site.image', function(){
+  //   return this.get('site.image') ? true : false;
+  // }),
   isOccupational: Ember.computed('profile.occupationOneId', function(){
     return this.get('profile.occupationOneId') ? true : false && this.get('profile.occupationTwoId') ? true : false;
   }),
-  didInsertElement: function(){
-    this.set('categories', [])
+  didUpdateAttrs: function(){
+    this._super(...arguments);
+    this.set('categories', []);
   },
   crawl(uri){
     var url = "v1/crawl?url=" + uri;

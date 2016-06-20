@@ -1,7 +1,7 @@
 <form {{action 'post' on='submit'}}>
 	<div class="box rounded post-form">
 	  <div class="post-bar border-b">
-	    <div class="thumbnail" style="background-image: url({{avatarUrl}})">
+	    <div class="thumbnail" style={{avatar}}>
 	      <img src= {{avatarUrl}} class="hide">
 	    </div>
 	    
@@ -21,7 +21,7 @@
 					<div class="media">
 				    <div class="media-main wrapper">
 				      {{#if site.image}}
-				        <div class="post-image" style="background-image: url({{site.image}})">
+				        <div class="post-image" style={{siteImage}}>
 				          <img src="{{site.image}}" class="hide">
 				        </div>
 						    <a {{action "removePreview"}} class="fa fa-times"></a>

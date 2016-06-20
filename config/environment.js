@@ -22,7 +22,7 @@ module.exports = function(environment) {
       'img-src': "'self' * www.google-analytics.com placeholdit.imgix.net placehold.it s3.amazonaws.com",
       'style-src': "'self' 'unsafe-inline' fonts.gstatic.com fonts.googleapis.com",
       'connect-src': "'self' localhost:8080 * api.brydge.com",
-      'script-src':  "'self' 'unsafe-inline' 'unsafe-eval' www.google-analytics.com/analytics.js www.reddit.com"
+      'script-src':  "'self' 'unsafe-inline' 'unsafe-eval' www.google-analytics.com/analytics.js www.reddit.com https://maps.googleapis.com"
     },
     'ember-simple-auth':{
       serverTokenRevocationEndpoint: 'revoke',

@@ -1,5 +1,4 @@
 import Ember from 'ember';
-import GeoChannelFilterMixin from 'web/mixins/geo-channel-filter';
 
 export default Ember.Route.extend({
   session: Ember.inject.service('session'),

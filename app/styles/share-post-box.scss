@@ -1,4 +1,4 @@
-.share-box{
+.share-post-box{
 	.content-editable{
 		-moz-user-select: text;
 		-khtml-user-select: text;
@@ -50,7 +50,7 @@
 	}
 
 }
-.share-box, #shareModal{
+.share-post-box, #shareModal{
 	.dropdown-button{
 		color :$body-text-color;
 		text-transform: capitalize;

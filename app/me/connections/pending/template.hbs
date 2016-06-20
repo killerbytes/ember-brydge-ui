@@ -1,12 +1,28 @@
 <ul class="no-bullet pending-list clearfix">
 {{#each pendingListTop as |item|}}
-
 	<li>
-    {{ connection-pending-item model=item selected="selected" }}		
+		<div class="media-object">
+		  <div class="media-object-section">
+		    <div class="thumbnail flat" style={{htmlSafeImage item.from.profile.avatarUrl}}>
+		      <img src= {{item.from.profile.avatarUrl}} class="hide">
+		    </div>
+		  </div>
+		  <div class="media-object-section media-object-content">
+		    <div class="title">{{link-to item.from.name 'profile' item.from.username}}</div>        
+		    <div class="position">
+		     {{item.from.profile.currentTitle}} <br>
+		     {{item.from.profile.currentCompany}}
+		    </div>
+		  </div>
+		</div>
+		<div class="question-box-footer">
+			<a {{action "select" item}} class="float-left" data-open="acceptFormModal">Accept</a>
+			<a {{action "select" item}} class="float-right" data-open="rejectFormModal">Reject Request</a>
+		</div>
+
 	</li>
-	
+
 {{/each}}
 
-
 </ul>
-{{link-to 'Load More' 'requests' class="footer-button button expanded" }}
+{{link-to 'Show More' 'requests' class="footer-button button expanded" }}

@@ -21,7 +21,7 @@
         <li class="{{if (eq connection.from.id targetid) "highlight"}}">
             <div class="media-object">
               <div class="media-object-section">
-                <div class="thumbnail" style="background-image: url({{connection.from.profile.avatarUrl}})">
+                <div class="thumbnail" style={{htmlSafeImage connection.from.profile.avatarUrl }}>
                   {{#link-to "profile" connection.from.username class="name"}}  
                   <img src= {{connection.from.profile.avatarUrl}} class="hide">
                   {{/link-to}}

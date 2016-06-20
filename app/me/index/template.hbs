@@ -70,7 +70,7 @@
 
 <div class="row">
   <div class="columns medium-7">
-    {{ share-box 
+    {{ share-post-box 
       postToNewsfeed='postToNewsfeed'
       profile=profile
       submit='postFeed' }}
@@ -97,30 +97,4 @@
 </div>
 
 
-	<!-- {{#zf-reveal id="complimentModal" overlay=true class="reveal-popup"}}
-		  <h4>Compliments</h4>
-		  <p class="lead">Show your appreciation for Jon WAYNE by complementing him</p>
-      <form action="">
-  		  <div class="content clearfix">
-  		  	
-          <select name="" id="">
-            <option value="">Thank you for</option>
-            <option value="">Good job on</option>
-            <option value="">Congratulations on</option>
-            <option value="">Kudos on</option>
-          </select>
-  		  	<textarea name="" id="" cols="30" rows="5" class="rounded"></textarea>
-          <a href="">See Tips</a>
-  		  	<span class="float-right dim-text">250 characters</span>
-  		  </div>
-  		  <div class="reveal-footer text-right">
-  		  	<div class="content">
-            <button class="button success">Post</button>
-            <a class="button success" data-close>Cancel</a>
-          </div>
-  		  </div>
-      </form>
-	{{/zf-reveal}} -->
-
-
-{{ post-sharer post=sharePost.selected profile=profile value=sharePost.valueText submit="sharePost" }}
+	{{ post-sharer post=sharePost.selected profile=profile value=sharePost.valueText submit="sharePost" }}

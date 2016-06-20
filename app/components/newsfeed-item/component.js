@@ -4,10 +4,6 @@ export default Ember.Component.extend({
   sessionAccount: Ember.inject.service('session-account'),
   sharePost: Ember.inject.service(),
 	ajax: Ember.inject.service(),
-	// content: Ember.computed('post.content', function(){
-	// 	console.log(this.get('post.content').htmlSafe());
-	// 	return this.get('post.content').htmlSafe();
-	// }),
 	classNames: ['newsfeed-item', 'box', 'rounded'],
 	title: Ember.computed('post.title', function(){
 		let title = this.get('post.title');
@@ -19,10 +15,7 @@ export default Ember.Component.extend({
 		vote(type){
 			let post = this.get('post');
 			let upvotes = post.get('upvotes');
-			let postId = post.get('id');
-
-			console.log('vote =>', upvotes, postId);
-			
+			let postId = post.get('id');			
 			//let postId = this.get('post.id');
 
 			if(this.get('disabled')) return false;
