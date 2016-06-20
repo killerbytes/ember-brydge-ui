@@ -31,11 +31,6 @@ export default Ember.Controller.extend(
       text: this.get('profile.occupationTwo')
     }
   }),
-  selectedLoc: Ember.computed('profile.location', function(){
-    return {
-      text: this.get('profile.location')
-    }
-  }),
   queryParams: ['tab'],
   tab: 'personal',
 

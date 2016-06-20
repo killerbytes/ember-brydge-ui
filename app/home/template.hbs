@@ -20,13 +20,12 @@
 				<div class="columns">
 					 {{select-custom
 					 	 items=locations
-					 	 selected=selectedLoc
+					 	 selected=selectedCity
 					 	 filtered=filteredLoc
 					 	 query='query'
 					 	 select='setLocation'
 					 	 target=this
-					 	 myLocation=model.myLocation
-					 	 global=model.global
+					 	 profile=profile
 					 	 template="partials/select-location-menu"}}
 				</div>
 			</div>

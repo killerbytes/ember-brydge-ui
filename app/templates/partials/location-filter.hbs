@@ -1,10 +1,8 @@
-{{input value=selected.text key-up="onchange" focus-in="open" placeholder=placeholder autocomplete="off"}}
-
+{{input value=selected key-up="onchange" focus-in="open" placeholder=placeholder autocomplete="off"}}
 <div class="wrapper {{if isOpen 'is-open'}}">
 	<ul class="no-bullet shadowed">
 	{{#each locations as |item|}}
-
-		<li {{action "select" item preventDefault=false}}>{{item.text}}</li>
+		<li {{action "select" item preventDefault=false}}>{{location-join item}}</li>
 	{{/each}}
 	</ul>
 	<a class="button success expanded" data-open="locationModal">Can't find your city?</a>

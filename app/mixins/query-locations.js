@@ -1,7 +1,7 @@
 import Ember from 'ember';
 
 export default Ember.Mixin.create({
-  ajax: Ember.inject.service(),
+  ajaxApi: Ember.inject.service(),
 	
   locations: [],
   selectedLoc: null,
@@ -11,13 +11,13 @@ export default Ember.Mixin.create({
 
   actions: {
     query: function (q) {
-      this.get('ajax').request('cities?q='+q, {
+      this.get('ajaxApi').request('cities/'+q, {
           method: 'GET'
         }).then((res)=>{
           if(this.get('controller')){
-            this.set('controller.locations', res.data)
+            this.set('controller.locations', res)
           }else{
-            this.set('locations', res.data)
+            this.set('locations', res)
           }
           
       });

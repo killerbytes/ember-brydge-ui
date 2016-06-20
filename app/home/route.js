@@ -56,12 +56,15 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, FilterDropdownListMix
       this.loadNewsfeed()
 
       Ember.run.later(()=>{
+        console.log(this)
         Ember.$('.newsfeed-tabs .tabs:first').on('change.zf.tabs', (e, elem)=>{
           if(!elem) return false;
           this.set('controller.tab', elem.data('tab'));
           this.loadNewsfeed(elem.data('tab'))
         });
+
         Ember.$(window).on('scroll', function(){
+          console.log($('.newsfeed-tabs'))
           var $win = $(window);
           var $doc = $(document);
           var winHeight = $win.height();
@@ -76,7 +79,6 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, FilterDropdownListMix
     },
 
     setLocation: function(location, cb) {
-      if(location == 0) location = null;
       this.controller.set('location', location);
       cb.apply();
       this.loadNewsfeed();
@@ -94,11 +96,7 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, FilterDropdownListMix
       this.loadNewsfeed();
     },
     citySelected: function (item, cb) {
-       var filtered ={
-        id : item.text,
-        text: item.text
-       };
-       cb.apply(this, [filtered]);
+      this.set('controller.selectedCity', item.terms.join(', '));
     },
     clear(){
       this.controller.set('q', null)

@@ -30,10 +30,10 @@
       </div>
 		  <div class='columns medium-9'>
        {{dropdown-filter
-          items=locations 
-          selected=selectedLoc 
+          items=locations
+          selected=profile.location 
           query='query'
-          itemSelected='citySelected'
+          onItemSelected='citySelected'
           template="partials/location-filter"}}
 
 		  </div>

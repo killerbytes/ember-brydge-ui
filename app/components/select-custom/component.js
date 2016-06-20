@@ -5,7 +5,7 @@ export default Ember.Component.extend({
 	classNames: ['wrapper'],
   actions: {
     select: function (item) {
-      this.sendAction('select', item.id, ()=>{
+      this.sendAction('select', item, ()=>{
         this.$('.filter-dropdowns').foundation('close');
       });
       this.set('selected', null);

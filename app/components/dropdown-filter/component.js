@@ -78,17 +78,17 @@ export default Ember.Component.extend({
 	tabindex: 0,
 	items: [],
 	locations: Ember.computed('items', function(){
-		if(!this.get('items')) return false;
-		let locations = this.get('items').toArray();		
-		return _.map(locations, (item)=>{
-			var l = [];
-			if(item.city) l.push(item.city);
-			if(item.state) l.push(item.state);
-			if(item.country) l.push(item.country);
-			return {
-				text: l.join(', ')
-			}
-		})
+		// if(!this.get('items')) return false;
+		// let locations = this.get('items').toArray();		
+		// return _.map(locations, (item)=>{
+		// 	var l = [];
+		// 	if(item.city) l.push(item.city);
+		// 	if(item.state) l.push(item.state);
+		// 	if(item.country) l.push(item.country);
+		// 	return {
+		// 		text: l.join(', ')
+		// 	}
+		return this.get('items');
 	}),
 
 	init: function(){
@@ -120,8 +120,8 @@ export default Ember.Component.extend({
 		},
 		select: function(selected) {
 			this.set('isOpen', false);
-			this.sendAction('itemSelected', selected, (res)=>{
-				this.set('selected', res);
+			this.sendAction('onItemSelected', selected, (res)=>{
+				// this.set('selected', res);
 			});
 		},
 		openMe: function(){
