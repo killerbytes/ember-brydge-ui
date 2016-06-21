@@ -41,7 +41,9 @@ export default Ember.Route.extend({
       var userid = this.get('currentModel.profile.id');
       this.get('connection').request(userid)
       .then(res=>{
-        cb.apply();
+        var connection = this.store.createRecord('connection', res.data.attributes);
+        var status = connection.get('status');
+        cb.apply(null, [status]);
       });
     },
     onClickedDisconnect() {

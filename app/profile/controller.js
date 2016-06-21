@@ -26,8 +26,8 @@ export default Ember.Controller.extend(
   isNotEmptyOccupation: Ember.computed('profile.occupationOne', 'profile.OccupationTwo', function(){
     return this.get('profile.occupationOne') ? true : false && this.get('profile.OccupationTwo') ? true : false;
   }),
-  connectionStatus: Ember.computed('profile.connection.status', function(){
-    return this.get('profile.connection.status') != 'pending' ? 'Pending' : 'Connect';
+  connectionStatus: Ember.computed('isConnected', function(){
+    return this.get('isConnected') ? true : this.get('profile.connection.status') == 'pending' ? 'Pending' : 'Connect';
   }),
   activeConnections: Ember.computed.filterBy('connections', 'status', 'accepted'),
 

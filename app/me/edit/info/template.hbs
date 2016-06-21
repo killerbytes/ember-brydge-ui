@@ -29,13 +29,7 @@
         <label class="text-right middle">City</label>
       </div>
 		  <div class='columns medium-9'>
-       {{dropdown-filter
-          items=locations
-          selected=profile.location 
-          query='query'
-          onItemSelected='citySelected'
-          template="partials/location-filter"}}
-
+        {{autocomplete-location selected=profile.location onItemSelected="onLocationSelect" }}
 		  </div>
     </div>
     <div class="row">

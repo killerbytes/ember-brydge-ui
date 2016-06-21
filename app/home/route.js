@@ -95,8 +95,8 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, FilterDropdownListMix
       this.controller.set('q', this.controller.get('searchContent'))
       this.loadNewsfeed();
     },
-    citySelected: function (item, cb) {
-      this.set('controller.selectedCity', item.terms.join(', '));
+    onLocationSelect: function (item, cb) {
+      this.set('controller.selectedCity', item);
     },
     clear(){
       this.controller.set('q', null)

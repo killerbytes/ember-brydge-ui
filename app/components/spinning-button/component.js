@@ -58,35 +58,15 @@ export default Ember.Component.extend({
   })),
   
   click: function() {
+    if (this.get('isSpinning')) return false;
 
-    let _this = this;
+    this.set('isSpinning', true);
+    this.set('disabled', true);
 
-    if (!this.get('isSpinning')) {
-      this.set('isSpinning', true);
-      this.set('disabled', true);
-
-      // if(this.get('action')) {
-      //   this.sendAction( 'action', function(){
-      //     console.log('callback');
-
-      //     //
-      //     // add delay after callback
-      //     //
-      //     Ember.run.later((function() {
-      //       _this.set('isSpinning', false);
-      //       _this.set('disabled', false);
-      //     }), _this.get('timeOut'));
-      //   });
-      // }
-      this.sendAction('clicked', (value)=>{
-        this.set('isSpinning', false);
-        this.set('disabled', false);
-        console.log(value)
-      })
-
-      // if (typeof this.get('onclick') === 'function') {
-      //   this.get('onclick')();
-      // }
-    }
+    this.sendAction('clicked', value =>{
+      this.set('isSpinning', false);
+      this.set('disabled', false);
+      if(value) this.set('value', value);
+    })
   }
 });

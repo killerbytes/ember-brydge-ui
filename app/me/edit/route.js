@@ -35,11 +35,12 @@ export default Ember.Route.extend(QueryLocationMixin, {
         })
       })
     },
-    citySelected(item){
-      let location = item.terms.join(', ');
+    onLocationSelect(item){
+      console.log(item)
+      // let location = item.terms.join(', ');
       // this.controller.set('selectedLoc', location);
-      let profile = this.controller.get('profile');
-      profile.set('location', location);      
+      // let profile = this.controller.get('profile');
+      this.set('controller.profile.location', item);
     },
     industrySelected: function (item) {
       console.log('industrySelected (route) =>', item);

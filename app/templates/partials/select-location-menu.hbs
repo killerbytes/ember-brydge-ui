@@ -24,12 +24,7 @@
 				<div class="columns">
 					<form>
 						<strong>Search</strong>
-						{{dropdown-filter
-							items=items 
-							selected=selected
-							query='query'
-							onItemSelected = 'citySelected'
-							template="partials/location-filter"}}		
+						{{autocomplete-location selected=selected onItemSelected="onLocationSelect" }}						
 					</form>						
 				</div>
 				<div class="columns">

@@ -11,6 +11,9 @@ export default Ember.Controller.extend({
 			return !i.get('currentCompany');
 		});
 	}),
+	myLocation: Ember.computed('myLocation', function(){
+		return "azidburn";
+	}),
 	actions: {
 		resize(value, e){
 			// console.log(value)
@@ -23,6 +26,9 @@ export default Ember.Controller.extend({
 				e.currentTarget.style.height = 'auto';
 				console.log(e.currentTarget.style.height)
 			}
+		},
+		onLocationSelect(item, cb){
+			this.set('myLocation', item);
 		}
 
 	}

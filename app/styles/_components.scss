@@ -384,12 +384,10 @@ ul.menu-dotted{
 	}
 	.wrapper.is-open{
 		display: block;
-	}
-	ul{
-		border-bottom: 1px solid $border-color;
 		position: absolute;
 		z-index: 10;
 		width: 100%;
+		border-bottom: 1px solid $border-color;
 		background-color: #FFF;
 	}
 	li{
