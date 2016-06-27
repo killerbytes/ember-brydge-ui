@@ -18,10 +18,12 @@ export default Ember.Route.extend({
   },
   model: function(params) {
     var ownerid = this.get('session.data.authenticated.user_id');
-    return this.store.findRecord('public-profile', params.username).then(res=>{
+    
+    return this.store.findRecord('profile', params.username).then(res=>{
       var userid = res.get('id');
       return Ember.RSVP.hash({
         profile: res,
+        username:  params.username,
         me: this.store.findRecord('profile', ownerid),
         connections: this.store.query('connection',{userid: userid}),
         languages: this.store.query('language',{userid: userid}, {reload: true}), 

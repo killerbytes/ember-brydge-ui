@@ -1,18 +1,15 @@
 import Ember from 'ember';
+import AuthenticatedRouteMixin from 'ember-simple-auth/mixins/authenticated-route-mixin';
 
-export default Ember.Route.extend({
+export default Ember.Route.extend(AuthenticatedRouteMixin, {
 	sessionAccount: Ember.inject.service(),
   ask: Ember.inject.service(),
-  beforeModel() {
-    this._super(...arguments);
-    return this.get('sessionAccount.account'); // needed to make sure sessionAccount is full realized
-  },
 	model: function() {
-		let ownerid = this.get('sessionAccount.account.id');
+    let userid = this.get('session.data.authenticated.user_id');
 		return Ember.RSVP.hash({
-      profile: this.store.findRecord('profile', ownerid),
-      fromQuestions: this.store.query('ask',{from: ownerid}),
-      toQuestions: this.store.query('ask',{to: ownerid}),
+      profile: this.store.findRecord('profile', userid),
+      fromQuestions: this.store.query('ask',{from: userid}),
+      toQuestions: this.store.query('ask',{to: userid}),
 
     })
 	},

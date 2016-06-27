@@ -1,14 +1,15 @@
 import Ember from 'ember';
 import CheckCurrentUserMixin from 'web/mixins/check-current-user';
 import ComplimentTitlesMixin from 'web/mixins/compliment-titles';
+import ProfileSidebarMixin from 'web/mixins/profile-sidebar';
 
 export default Ember.Controller.extend(
+  ProfileSidebarMixin,
   ComplimentTitlesMixin, {
   sharePost: Ember.inject.service(),
 
   me: Ember.computed.alias('model.me'), 
   profile: Ember.computed.alias('model.profile'), 
-  connections: Ember.computed.alias('model.connections'), 
   languages: Ember.computed.alias('model.languages'), 
   experiences: Ember.computed.alias('model.experiences'), 
   educations: Ember.computed.alias('model.educations'), 
@@ -29,7 +30,6 @@ export default Ember.Controller.extend(
   connectionStatus: Ember.computed('isConnected', function(){
     return this.get('isConnected') ? true : this.get('profile.connection.status') == 'pending' ? 'Pending' : 'Connect';
   }),
-  activeConnections: Ember.computed.filterBy('connections', 'status', 'accepted'),
 
   latestQuestion: Ember.computed('questions', function(){
   	return this.get('questions.firstObject');

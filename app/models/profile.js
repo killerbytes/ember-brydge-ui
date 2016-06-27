@@ -6,6 +6,7 @@ export default DS.Model.extend({
 	lastName: DS.attr('string'),
 	location: DS.attr('string'),
 	jobTitle: DS.attr('string'),
+	connection: DS.attr(),
 	settings: DS.attr({defaultValue: {}}),
 	industry: DS.attr('string'),
 	occupationOne: DS.attr('string'),
@@ -22,5 +23,6 @@ export default DS.Model.extend({
 	profileComplete: DS.attr(),
 	customTitle: DS.attr(),
 	search: DS.hasMany(),
+	conversationid: DS.attr(),
 	user: DS.belongsTo('user')
 });

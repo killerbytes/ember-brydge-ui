@@ -3,11 +3,9 @@ import Ember from 'ember';
 export default Ember.Component.extend({
 	tagName: 'a',
 
-	//attributeBindings: [ 'disabled', 'title'],
+	attributeBindings: [ 'disabled'],
 
 	isSpinning: false,
-
-	disabled: false,
 
 	lines: 8,
 

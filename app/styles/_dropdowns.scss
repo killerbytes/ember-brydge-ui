@@ -1,10 +1,10 @@
+.dropdown-right{
+  right: auto !important;
+}
 .menu-wrapper{
   position: absolute;
   right: 1rem;
   top: 15px;
-  .icons{
-    opacity: .2;
-  }
 }
 
 .dropdown-pane{
@@ -40,6 +40,9 @@
   border-color: transparent transparent #ffffff transparent;
   margin: auto;
 }
+.accordion-arrow{
+}
+
 .dropdown-gray{
   background-color: #EEE;      
 }
@@ -71,6 +74,7 @@
 }
 
 #dd-menu, .dd-menu{
+  text-align: left;
   width: 150px;
   ul.menu{
     padding: 0;
@@ -109,7 +113,7 @@
       font-size: 10px;
     }
     p{
-      color: $text-gray;
+      // color: $text-gray;
     }
   }
 }
@@ -177,7 +181,6 @@
   margin-right: 5px; 
   border-top: 1px solid $border-color;
 }
-
 #dd-select-channel, #dd-select-channel-post-sharer, #industry-dropdown, #location-dropdown{
   strong{
     font-size: 11px;
@@ -186,14 +189,37 @@
   label{
     font-size: inherit;
     line-height: 1.5em;
-    color: $text-gray;
   }
   a{
     font-size: 11px;
   }
 
 }
+#dd-select-channel{
+  left: auto;
+  right: 0;
+  width: 300px;
+  padding: 0;
+  section{
+    padding: .5rem;
+    p:last-child{
+      margin-bottom: 0;
+    }
+  }
+  input[type="checkbox"]{
+    float: right;
+    margin: 3px 0;
+  }
 
+  hr{
+    margin: 0;
+    margin-bottom: .5rem;
+  }
+  section:last-child ul{
+    margin: 0;
+  }
+
+}
 #dd-incomplete-callout{
   
 }

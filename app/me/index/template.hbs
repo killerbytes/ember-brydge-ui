@@ -1,3 +1,4 @@
+<!--
 <a data-toggle="dd-info-callout" class="hide">
 </a>
 {{#zf-dropdown id="dd-info-callout" closeOnClick=false }}
@@ -31,9 +32,6 @@
         </div>
       </div>
       <div class="columns" style="width:26%">
-        <div class="profile-photo circle">
-          {{image-upload fileLoaded="fileLoaded" logoUrl=profile.avatarUrl}}
-        </div>
       </div>
 
       <div class="columns" style="width:37%">
@@ -51,14 +49,6 @@
 
 <div class="row column">
   <div class="medium-6 float-left box profile profile-bar rounded hover-edit hover-edit-absolute">
-    {{#if isNotEmptyTitleCompany}}
-      <div class="position">{{ profile.currentTitle}}</div>
-      <strong class="text-upper">{{profile.currentCompany}}</strong>
-    {{else}}
-      <div class="empty-message" style="margin:.5rem; ">
-        Add Current Title and Company
-      </div>
-    {{/if}}
     {{#link-to "me.edit" (query-params tab="work") }}       
       <i class="icons pencil"></i>
     {{/link-to}}
@@ -67,9 +57,18 @@
     {{partial "partials/profile-actions" }}
   </div>
 </div>
+-->
 
 <div class="row">
+  <div class="columns medium-5 sidebar">
+    {{profile-box profile=profile class="mb20" isOwner=true}}
+
+    {{partial 'partials/profile-sidebar'}}
+  </div>
+
   <div class="columns medium-7">
+    {{profile-menu isOwner=true}}
+  
     {{ share-post-box 
       postToNewsfeed='postToNewsfeed'
       profile=profile
@@ -88,12 +87,8 @@
         </div>
       {{/if}}
     {{/if}}
-
   </div>
 
-  <div class="columns medium-5 sidebar">
-    {{partial 'partials/profile-sidebar'}}
-  </div>
 </div>
 
 

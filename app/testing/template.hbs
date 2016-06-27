@@ -1,6 +1,11 @@
-<h1>Testing</h1>
 <div class="row">
-	<div class="columns medium-6">
-		{{log model}}
+	<div class="columns medium-5">
 	</div>
+  <div class="columns medium-7">
+
+    {{picker-channel profile=model.profile select="setChannel" selected=channels}}
+    
+    {{picker-location profile=model.profile select="setLocation" selected=location}}
+
+  </div>
 </div>

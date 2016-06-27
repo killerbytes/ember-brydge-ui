@@ -2,7 +2,11 @@ import Ember from 'ember';
 
 export default Ember.Component.extend({
 	ajax: Ember.inject.service(),
-
+	tagName: 'form',
+  attributeBindings: ['role', 'method', 'enctype'],
+ 	role: "form",
+ 	method: "POST",
+ 	enctype: "multipart/form-data", 	
 	_fileChanged: function(evt) {
 		console.log('file change', evt.target.files[0]);
 		var _this = this;

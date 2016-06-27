@@ -3,7 +3,7 @@ import Ember from 'ember';
 export default Ember.Component.extend({
 	search: Ember.inject.service(),
 	ajax: Ember.inject.service(),
-	classNames: ['top-bar-group', 'top-bar-search', 'rounded'],
+	classNames: ['top-bar-search'],
 	actions: {
 		clear(){
 			this.set('search.key', null);

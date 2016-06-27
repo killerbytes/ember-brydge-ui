@@ -1,53 +1,81 @@
-<div class="row">
-	<div class="columns">
-		<div class="top-banner bg-gray box">
-			<div class="columns">
-				<h1>ASK <span class="text-upper">{{profile.firstName}}</span></h1>
-				<p><span class="text-title">{{profile.firstName}}</span> is currently taking your questions. Below are the questions professionals have asked {{profile.firstName}}, which he's replied to. Use ASK to interact with {{profile.firstName}} one-on-one. If he responds, the question and answer will be displayed on both your profiles. </p>				
-				<p>If you're not sure how to use this, see our tips {{link-to "here" "user-guide"}}.</p>
-			</div>
-		</div>		
-	</div>	
-</div>
-
 <div class="row ask wrapper">
-<!-- 	{{#unless profile.settings.ask}}	
+	{{#unless profile.settings.ask}}	
 	<div class="overlay-wrapper">
-		<div class="overlay">
-			<div class="jumbotron">
-				<strong>User has turned ASK off</strong>
-			</div>
+		<div class="overlay">		
 		</div>
 	</div>
 	{{/unless}}
- -->
+
+  <div class="medium-5 columns sidebar">
+    {{profile-box profile=profile class="mb20"}}
+    {{partial 'partials/profile-sidebar'}}
+  </div>
   <div class="medium-7 columns">
-		<div class="mb">
+  	{{profile-menu profile=profile}}
+  	{{#if isOwner}}
+    <div class="page-heading">    	
+			<h1>YOUR ASK PAGE</h1>
+			<p class="text-center">
+				{{#if profile.settings.ask}}
+					You are currently accepting questions. To disable the ASK feature go to {{link-to "Settings" "settings" (query-params tab="ask") }}.
+				{{else}}
+					You are currently not accepting questions. To enable the ASK feature go to {{link-to "Settings" "settings" (query-params tab="ask") }}.
+				{{/if}}
+			</p>										
+			<p class="text-center">
+				Note: <i>Hidden Questions</i> and questions <i>Pending Answers</i> are only visible to you
+			</p>    	
+		</div>
+		{{else}}
+			<div class="form-input-wrapper">
+	      <section>
+	      	<form {{action 'submit' on='submit'}} class="form-input">
+						<div class="avatar circle" style={{htmlSafeImage profile.avatarUrl}}>
+						  <img src= {{avatarUrl}} class="hide">
+						</div>
+						<div class="input-wrapper">
+							{{textarea placeholder=placeholder value=answer rows=3 class="mb"}}
+						</div>	      	
+	      	</form>
+	      </section>
+        <section class="section-footer">
+					<div class="row">
+						<div class="columns medium-8 small">
+							Ask anyone a professional question. <br>
+							If answered, it will appear on both profiles.							
+						</div>
+						<div class="columns medium-4">
+							<button class="button btn expanded success">Post</button>
+						</div>
+					</div>
+        </section>
+
+	    </div>
+
+		{{/if}}
+
+    <div class="mb">
 			{{#zf-tabs class="tabs-table" id="ask-tabs"}}
 				<li class="medium-6 tabs-title is-active">
-					<a href="#question_answered" class="button expanded text-upper" aria-selected="true">Questions {{profile.firstName}} has answered</a>
+					<a href="#question_answered" aria-selected="true" class="button">Questions answered</a>
 				</li>
 				<li class="medium-6 tabs-title">
-					<a href="#question_asked" class="button expanded text-upper">Questions {{profile.firstName}} has asked&nbsp;&nbsp;&nbsp;&nbsp;</a>
+					<a href="#question_asked" class="button">Questions asked</a>
 				</li>
 			{{/zf-tabs}}
 		</div>
 		<div class="tabs-content questions" data-tabs-content="ask-tabs">
-			<div class="tabs-panel is-active" id="question_answered">
-				  {{ partial 'ask/to'}}
+			<div class="tabs-panel {{active-tab 'questions' tab}}" id="question_answered">
+				{{ partial 'ask/to'}}
 			</div>
-			<div class="tabs-panel" id="question_asked">
-					{{ partial 'ask/from'}}
+			<div class="tabs-panel {{active-tab 'asked' tab}}" id="question_asked">
+			    {{ partial 'ask/from'}}
 			</div>
 		</div>
-  </div>
-  <div class="medium-5 columns sidebar">
-  	<div class="wrapper">
-			{{ ask-dropdown name="dd-ask-form" model=profile from=me class="mb"}}
-		</div>
-
-    {{progress-box}}
-    {{render "footer"}}
   </div>
 </div>
+
+{{answer-form}}
+
+
 

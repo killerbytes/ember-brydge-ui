@@ -1,25 +1,25 @@
-.ask-box{
-	@extend .padding;
-	background: #F3F3F3;
-	textarea{
-		margin-bottom: 10px;
-	}
-	.button{
-		color: $body-text-color;
-	}
-	.user{
-		line-height: 2em;
-		font-size: 14px;
-	}
-}
-.questions{
-	.box{
-		@extend .padding;
-		h1{
-			font-style: italic;
-		}
-	}
-}
+// .ask-box{
+// 	@extend .padding;
+// 	background: #F3F3F3;
+// 	textarea{
+// 		margin-bottom: 10px;
+// 	}
+// 	.button{
+// 		color: $body-text-color;
+// 	}
+// 	.user{
+// 		line-height: 2em;
+// 		font-size: 14px;
+// 	}
+// }
+// .questions{
+// 	.box{
+// 		@extend .padding;
+// 		h1{
+// 			font-style: italic;
+// 		}
+// 	}
+// }
 // .progress-box{
 // 	padding: 10px;
 // 	background: white;

@@ -11,11 +11,13 @@
 
 .button{
 	background-color: #FFF;
+
 	&.success{
+		font-weight: bold;
 		color: #FFF;
 		&:hover, &:focus{
 			color: #FFF;
-			background-color: $dark-blue;
+			// background-color: $dark-blue;
 		}
 	}
 	&.secondary{
@@ -25,19 +27,29 @@
 		}
 	}
 	&.large{
-		font-size: 21px;		
+		@extend .shadowed;
+		@extend .rounded;
 		padding: 13px;
-	}
-	&.clear{
-		background: transparent;
-		color: #000;
 	}
 	&.text-blue:hover{
 		color: $brydge-blue;
 	}
-	&:hover{
+	&:hover, &:focus{
 		background-color: #FFF;
 	}
+}
+.btn{
+	@extend .shadowed;
+	@extend .rounded;	
+}
+
+
+.button-clear{
+	background: transparent;
+	// color: #000;
+}
+.button-clear:hover{
+	background-color: transparent;
 }
 
 // .button-group .button{
@@ -52,8 +64,10 @@
 	position: relative;
 	padding: 8px;
 	padding-right: 30px;
-	font-family: 'Arial';
 	font-size: 12px;
+	&.middle{
+		margin-top: .25rem;
+	}
 	.icons{
 		opacity: .5;
 	}

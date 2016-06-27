@@ -1,6 +1,7 @@
 <a data-toggle="dd-views" {{action 'clickProfile' notification.profileCount}}>
 	{{#zf-tooltip title="Profile Views" vOffset=0}}
-	{{#if notification.profileCount}}
+		<span class="alert badge">99</span>
+			{{#if notification.profileCount}}
 		<span class="alert badge">{{notification.profileCount}}</span>
 	{{/if}}
 	<i class="icons bino"></i>

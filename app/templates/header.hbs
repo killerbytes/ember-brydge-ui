@@ -1,66 +1,73 @@
-<header class="top-bar"  data-options="marginTop:0;" style="width:100%">
-	<div class="row columns">
-		<div class="top-bar-title">
-			{{#link-to 'home'}}<img src="assets/logo.svg">{{/link-to}}
-		</div>
-		<div>
-			<div class="top-bar-left">
-				<ul class="menu menu-links hide">
-					<li>{{#link-to 'me'}}Profile{{/link-to}}</li>
-					<li>{{#link-to 'home'}}Home{{/link-to}}</li>
-				</ul>
-				<ul class="top-bar-group menu menu-actions" {{ action "closeTooltip" preventDefault=false }}>
-
+<header>
+  <div class="title-bar">
+    <div class="row columns">
+      <div class="title-bar-left">
+        <ul class="dropdown menu" data-dropdown-menu>
+          <li class="logo">
+						{{#link-to 'home'}}<img src="assets/logo.svg">{{/link-to}}          	
+          </li>
+          <li>
+						{{top-bar-search}}
+          </li>
+        </ul>        
+      </div>
+      <div class="title-bar-right">
+				<ul class="top-bar-group menu menu-actions wrapper" {{ action "closeTooltip" preventDefault=false }}>
 					{{top-bar-views setting=sessionAccount.account.profile.settings}}
 					{{top-bar-requests}}
 					{{top-bar-messages}}
 					{{top-bar-notifications}}
-				</ul>
-			</div>
-			<div class="top-bar-right">
-				{{top-bar-search}}
-				<ul class="top-bar-group menu menu-actions" {{ action "closeTooltip" }}>	
 					<li>
-						<a data-toggle="dd-menu">
-							{{#zf-tooltip title="Menu" vOffset=0}}
-								<i class="divider"></i>
-								<i class="icons caret"></i>
-							{{/zf-tooltip}}
-							<div class="wrapper">
-								<div class="triangle"></div>
-							</div>
-						</a>
+						<ul class="menu user-info">
+							<li>
+								{{#link-to "me"}}
+									<div class="avatar" style={{htmlSafeImage sessionAccount.account.profile.avatarUrl}}>
+										<img src= {{sessionAccount.account.profile.avatarUrl}} class="hide">
+									</div>								
+								{{/link-to}}
+							</li>
+							<li>
+								<a data-toggle="dd-menu">
+									{{#zf-tooltip title="Menu" vOffset=0}}
+										<i class="icons caret"></i>
+									{{/zf-tooltip}}
+									<div class="wrapper">
+										<div class="triangle"></div>
+									</div>
+								</a>
 
-							{{#zf-dropdown id="dd-menu" class="dropdown-menu-bar" closeOnClick=true}}
-								<ul class="menu">
-									<li>{{link-to "Home" "home"}}</li>
-								</ul>
-								<ul class="menu">
-									<li>{{link-to "Profile" "me"}}</li>
-									<li>{{link-to "Edit Profile" "me.edit"}}</li>
-									
-								</ul>
-								<ul class="menu">
-									<li>{{link-to "Connections" "me.connections"}}</li>
-									<li>{{link-to "Your ASK Page" "me.ask"}}</li>
-									<li>{{link-to "Compliments" "me.compliments"}}</li>
-								</ul>
-								<ul class="menu">
-									<li>{{link-to "People Search" "search"}}</li>
-								</ul>
-								<ul class="menu">
-									<li>{{link-to "Settings" "settings" }}</li>
-									<li>{{link-to "User Guide" "user-guide" }}</li>
-									<li><a href="" {{action 'logout'}}>Log out</a></li>
-									
-								</ul>
+								{{#zurb-dropdown id="dd-menu" class="dropdown-menu-bar" closeOnClick=true}}
+									<ul class="menu">
+										<li>{{link-to "Home" "home"}}</li>
+									</ul>
+									<ul class="menu">
+										<li>{{link-to "Profile" "me"}}</li>
+										<li>{{link-to "Edit Profile" "me.edit"}}</li>
+										
+									</ul>
+									<ul class="menu">
+										<li>{{link-to "Connections" "me.connections"}}</li>
+										<li>{{link-to "Your ASK Page" "me.ask"}}</li>
+										<li>{{link-to "Compliments" "me.compliments"}}</li>
+									</ul>
+									<ul class="menu">
+										<li>{{link-to "People Search" "search"}}</li>
+									</ul>
+									<ul class="menu">
+										<li>{{link-to "Settings" "settings" }}</li>
+										<li>{{link-to "User Guide" "user-guide" }}</li>
+										<li><a href="" {{action 'logout'}}>Log out</a></li>									
+									</ul>
+								{{/zurb-dropdown}}						
+								
+							</li>
+						</ul>
 
-							{{/zf-dropdown}}
-						
 					</li>
 				</ul>
+      </div>
 
-			</div>
-		</div>
-	</div>
+    </div>
+  </div>
 </header>
+

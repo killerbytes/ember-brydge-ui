@@ -22,13 +22,13 @@
             <div class="media-object">
               <div class="media-object-section">
                 <div class="thumbnail" style={{htmlSafeImage connection.from.profile.avatarUrl }}>
-                  {{#link-to "profile" connection.from.username class="name"}}  
+                  {{#link-to "profile" connection.from.id class="name"}}  
                   <img src= {{connection.from.profile.avatarUrl}} class="hide">
                   {{/link-to}}
                 </div>
               </div>
               <div class="media-object-section media-object-content">
-                {{#link-to "profile" connection.from.username class="name"}}  
+                {{#link-to "profile" connection.from.id class="name"}}  
                   {{connection.from.name }}
                 {{/link-to}}
                 

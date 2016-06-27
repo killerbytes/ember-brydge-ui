@@ -1,13 +1,9 @@
 $topbar-background: $brydge-blue !default;
 
-header{
-	position: fixed;
-	z-index: 100;
-}
 textarea{
 	box-shadow: none;
 	resize: none;
-	margin-bottom: 5px;
+	margin-bottom: 0;
 }
 
 select{
@@ -29,24 +25,27 @@ p{
 ul.accordion-menu>li>a{
 	padding: 0;
 }
+.accordion-content{
+	padding: 0;
+	border: none;
+	background: none;
+	color: inherit;
+}
 
-.thumbnail{
-	background-position: center center;
-	background-size: cover;
-	width: 50px;
-	height: 50px;
-	overflow: hidden;
-	display: block;
-	margin-bottom: 0;
-}
-.thumbnail img{
-	width: 100%;
-}
 .tabs{
+
 	.tabs-title a{
 		color: #000;
 	}
 }
+.tabs-panel{
+	padding: 0;
+}
+.tabs-content {
+  background: none;
+  border: none;
+}
+
 label.middle, .label.middle{
 	padding-top: 0.3rem;
 	padding-bottom: 0.3rem;
@@ -60,4 +59,17 @@ ul > li.is-dropdown-submenu-parent.is-down-arrow > ul {
 .loader.small{
 	margin: .5rem auto;
 	font-size: 6px;
+}
+
+
+/* Foundation Overrides */
+.has-tip{
+	border-bottom: none;
+	cursor: pointer;
+	font-weight: inherit;
+}
+
+.button.disabled, 
+.button[disabled] {
+	opacity: .8;
 }

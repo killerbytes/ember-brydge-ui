@@ -1,228 +1,148 @@
-<div class="box rounded profile overflow">
-  <ul class="no-bullet list-lined no-margin">
-    <li class="hover-edit hover-edit-absolute">
-      <div class="profile-industry">
-          <div class="icon-wrapper">
-            <i class="icons building"></i>
-          </div>
-          <div class="content">
-            {{#if profile.industry}}
-              <a href="">{{profile.industry}}</a>
-            {{else}}
-              {{#if isOwner}}
-                <div class="empty-message" style="margin:.5rem; ">
-                  Add Business Industry
-                </div>
-              {{else}}
-                <div class="empty-message" style="margin:.5rem; ">
-                  Business Industry
-                </div>
-              {{/if}}
-            {{/if}}
-          </div>        
-
-      </div>   
+<div class="box">
+  <section>
+    <h4>Business Industry</h4>
+    {{#if profile.industry}}
+      <a href="">{{profile.industry}}</a>
+    {{else}}
       {{#if isOwner}}
-        {{#link-to "me.edit" (query-params tab="industry")}}
-          <i class="icons pencil"></i>       
-        {{/link-to}}
+        <div class="empty-message" style="margin:.5rem; ">
+          Add Business Industry
+        </div>
+      {{else}}
+        <div class="empty-message" style="margin:.5rem; ">
+          Business Industry
+        </div>
       {{/if}}
-    </li>
-    <li class="hover-edit hover-edit-absolute">
-      <div class="profile-industry">
-          <div class="icon-wrapper">
-            <i class="icons briefcase"></i>
-          </div>
-          <div class="content">
-            {{#if isNotEmptyOccupation}}
-              <a href="">{{profile.occupationOne}}</a>
-              <a href="">{{profile.occupationTwo}}</a>
-            {{else}}
-              {{#if isOwner}}
-              <div class="empty-message" style="margin:.5rem; ">
-                Add Occupational Industry
-              </div>
-              {{else}}
-              <div class="empty-message" style="margin:.5rem; ">
-                Occupational Industry
-              </div>
-              {{/if}}
-
-            {{/if}}
-
-          </div>
+    {{/if}}
+    {{#if isOwnerx}}
+      {{#link-to "me.edit" (query-params tab="industry")}}
+        <i class="icons pencil"></i>       
+      {{/link-to}}
+    {{/if}}
+  </section>        
+  
+  <section>
+    <h4>Occupational Industry</h4>
+    {{#if isNotEmptyOccupation}}
+      <div>
+        <a href="">{{profile.occupationOne}}</a>
       </div>
+      <div>
+        <a href="">{{profile.occupationTwo}}</a>
+      </div>
+    {{else}}
       {{#if isOwner}}
-        {{#link-to "me.edit" (query-params tab="occupindustry") }}       
-          <i class="icons pencil"></i>
+      <div class="empty-message" style="margin:.5rem; ">
+        Add Occupational Industry
+      </div>
+      {{else}}
+      <div class="empty-message" style="margin:.5rem; ">
+        Occupational Industry
+      </div>
+      {{/if}}
+    {{/if}}
+    {{#if isOwnerx}}
+      {{#link-to "me.edit" (query-params tab="occupindustry") }}       
+        <i class="icons pencil"></i>
+      {{/link-to}}
+    {{/if}}
+  </section>
+
+  <section>
+    <h4>Snapshot 
+      {{#if isOwnerx}}    
+        {{#link-to "me.edit" (query-params tab="snapshot")}}       
+          <i class="icons pencil pull-right"></i>
         {{/link-to}}
       {{/if}}
-    </li>
-  </ul>
+    </h4>
+    {{#if profile.snapshot}}
+      {{profile.snapshot}}
+    {{else}}
+      <div class="empty-message">
+        {{profile.firstName}} hasn't added a Snapshot
+      </div>
+    {{/if}}
+  </section>
 </div>
 
 {{#if latestQuestion}}
-  <div class="box rounded question-box">
-    <div class="padding wrapper">
-      <div class="mb5">{{link-to latestQuestion.from.content.name "profile" latestQuestion.from.content.username class="user" }} asked {{link-to latestQuestion.to.content.name "profile" latestQuestion.to.content.username class="user"}}</div>
-      <p class="timestamp">{{timestamp latestQuestion.createdAt}}</p>          
+<div class="box rounded question-box">
+  <div class="section-group section-accordion-group">
+    <section>
+      <div class="section-main">
+        <h4>Ask</h4>
+        <div class="user mb">
+          {{link-to latestQuestion.from.content.name "profile" latestQuestion.from.content.id }} asked {{link-to latestQuestion.to.content.name "profile" latestQuestion.to.content.id}}
+          <div class="text-gray">{{timestamp latestQuestion.createdAt}}</div>
+        </div>
 
-      <h2>{{latestQuestion.content}}</h2>
-      {{#zf-accordion-menu class="accordion-menu"}}
+        <div class="title">{{latestQuestion.content}}</div>
+      </div>
+      {{#zf-accordion-menu class="section-accordion" multiOpen=true}}
         <li>
-          <ul class="no-bullet vertical nested">
-            <li>
-              <p>{{{latestQuestion.answer}}}</p>
-            </li>
+          <ul class="section-accordion-content no-bullet">
+            <li>{{{latestQuestion.answer}}}</li>
           </ul>
-          <a class="more no-arrow"><span class="content-more" disabled=true>See Answer</span><span class="content-less">Hide Answer</span></a>
+          <a class="more no-arrow"><span class="content-more">See Answer</span><span class="content-less">Hide Answer</span></a>
         </li>
-      {{/zf-accordion-menu}}           
+      {{/zf-accordion-menu}}    
+    </section>
 
-    </div>
-    
-    <div>
+    <section class="section-footer-links">
       {{#if isOwner }}
-        {{link-to "See more questions" 'me.ask'  class="success button expanded"}}
+        {{link-to "See more questions" 'me.ask'  class="button expanded"}}
       {{else}}
-        {{link-to "See more questions" 'ask' profile.id  class="success button expanded"}}
+        {{link-to "See more questions" 'ask' profile.id  class="button expanded"}}
       {{/if}}
-    </div>
-  </div>
+    </section>
+  </div>  
+</div>
 {{/if}}
 
-<div class="box rounded snapshot hover-edit">
-  <h5 class="box-header">Snapshot 
-    {{#if isOwner}}    
-      {{#link-to "me.edit" (query-params tab="snapshot")}}       
-        <i class="icons pencil pull-right"></i>
-      {{/link-to}}
-    {{/if}}
-  </h5>
-  <div class="columns">
-    {{profile.snapshot}}
-  </div>
-  {{#unless profile.snapshot}}
-    <div class="empty-message">
-      {{profile.firstName}} hasn't added a Snapshot
-    </div>
-  {{/unless}}
-</div>
+<div class="box">
+  <section>
+    <h4>Compliments</h4>
+    {{#if latestCompliment}}  
+      <div class="mb">
+        <span class="text-upper">{{latestCompliment.title}}</span> <span class="font-light">{{latestCompliment.content}}</span>
+      </div>    
+      <div class="user">
+        <div class="avatar" style={{htmlSafeImage latestCompliment.from.content.profile.avatarUrl }}>
+          <img src= {{post.user.profile.avatarUrl}} class="hide">
+        </div>
+        <div class="user-info">
+          Posted by
+          <span class="name">
+            {{#link-to "profile" latestCompliment.from.content.id}} 
+              {{latestCompliment.from.content.profile.firstName}}
+            {{/link-to}}
+          </span>
+          <div class="timestamp">{{timestamp latestCompliment.createdAt}}</div>
+        </div>
+      </div>
 
-<div class="box rounded compliments">
-  <h5 class="box-header">Compliments</h5>
-  {{#if latestCompliment}}
-  <ul class="box-list no-bullet">
-    <li>
-      <div class="title">{{latestCompliment.title}}</div>
-      <p>{{latestCompliment.content}}</p>
-        <span>Posted by</span> {{link-to latestCompliment.from.content.name "profile" latestCompliment.from.content.username class="user"}}
-    </li>
-  </ul> 
-  {{else}}
-  <div class="empty-message">
-    {{profile.firstName}} hasn't received any Compliments
-  </div>
-  {{/if}}
-
-  {{#if latestCompliment}}
-  <div class="box-footer">
-    {{#if isOwner }}
-      {{link-to 'See all' 'me.compliments'}}
     {{else}}
-      {{link-to 'See all' 'compliments' latestCompliment.to.id}}
-    {{/if}}
-
-    {{#if isConnected}}
-      <a class="float-right" data-open="complimentModal">Post a compliment</a>
-    {{/if}}
-  </div>   
-  {{else}}
-    {{#if isConnected}}
-    <div class="box-footer">
-      <a class="float-right" data-open="complimentModal">Post a compliment</a>
+    <div class="empty-message">
+      {{profile.firstName}} hasn't received any Compliments
     </div>
     {{/if}}  
-  {{/if}}   
-
-</div>
-
-<div class="box rounded work-history hover-edit">
-  <h5 class="box-header">Work History
-    {{#if isOwner}}
-      {{#link-to "me.edit" (query-params tab="work")}}       
-        <i class="icons pencil pull-right"></i>
-      {{/link-to}}
-    {{/if}}
-  </h5>
-  {{#if experiences}}
-  {{ list-experience model=workHistory class="sidebox box-list" }}
-  {{else}}
-    <div class="empty-message">
-      {{profile.firstName}} hasn't added any Work History
-    </div>
-  {{/if}}
-</div>
-
-<div class="box rounded academia hover-edit">
-  <h5 class="box-header">Academia
-    {{#if isOwner}}    
-      {{#link-to "me.edit" (query-params tab="academia")}}       
-        <i class="icons pencil pull-right"></i>
-      {{/link-to}}
-    {{/if}}
-  </h5>
-  {{#if educations}}
-  {{ list-academia model=academia class="sidebox box-list" }}
-  {{else}}
-    <div class="empty-message">
-      {{profile.firstName}} hasn't added any Academic Information
-    </div>
-  {{/if}}
-</div>
-
-<div class="box rounded languages hover-edit">
-  <h5 class="box-header">Languages
-    {{#if isOwner}}
-      {{#link-to "me.edit" (query-params tab="language")}}       
-        <i class="icons pencil pull-right"></i>
-      {{/link-to}}
-    {{/if}}
-  </h5>
-    {{#if languages}}
-      {{list-languages model=languages class="sidebox box-list"}}      
+  </section>
+  <section class="section-footer-links">
+    {{#if latestCompliment}}
+      {{#if isOwner }}
+        {{link-to 'See all' 'me.compliments' class="button"}}
+      {{else}}
+        {{link-to 'See all' 'compliments' latestCompliment.to.id class="button"}}
+      {{/if}}
+    
+        <a class="float-right button" data-open="complimentModal">Post a compliment</a>
+      {{#if isConnected}}
+      {{/if}}
     {{else}}
-      <div class="empty-message">
-        {{profile.firstName}} hasn't added any Languages
-      </div>
+      {{#if isConnected}}
+        <a class="float-right button" data-open="complimentModal">Post a compliment</a>
+      {{/if}}  
     {{/if}}
+  </section>    
 </div>
-
-<div class="box rounded hover-edit">
-  <h5 class="box-header">Interests
-    {{#if isOwner}}
-      {{#link-to "me.edit" (query-params tab="interest")}}       
-        <i class="icons pencil pull-right"></i>
-      {{/link-to}}
-    {{/if}}
-  </h5>
-  {{#if interests}}
-  <div class="columns">
-    <p>
-      {{#each interests as |item index|}}
-        {{#if index~}}
-          , {{item.content~}}
-        {{else}}
-          {{item.content~}}
-        {{/if}}
-      {{/each}}          
-    </p>
-  </div>
-  {{else}}
-    <div class="empty-message">
-      {{profile.firstName}} hasn't added any Interests
-    </div>
-  {{/if}}
-</div>
-{{progress-box}}
-{{render "footer"}}

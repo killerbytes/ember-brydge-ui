@@ -36,8 +36,9 @@ export default Ember.Component.extend({
 		},
 		onSelect: function(selected) {			
 			this.set('isOpen', false);
+			this.set('items', []);
 			this.set('selected', selected.terms.join(', '));
-			this.set('value', selected.terms.join(', '));
+			// this.set('value', selected.terms.join(', '));
 			this.sendAction('onItemSelected', selected.terms.join(', '), (res)=>{
 			});
 		}

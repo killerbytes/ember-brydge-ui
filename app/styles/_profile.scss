@@ -1,89 +1,145 @@
-.profile-photo{
-	cursor: pointer;
-	width: 250px;
-	height: 250px;
-	background-size: cover;	
-	background-position: center center;	
-	margin: auto;
-	margin-bottom: 20px;
-}
-
-.profile-cover-wrapper{
-	/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#000000+0,000000+100&0+0,0.50+100 */
-	background: -moz-linear-gradient(top,  rgba(0,0,0,0) 0%, rgba(0,0,0,0.50) 100%); /* FF3.6-15 */
-	background: -webkit-linear-gradient(top,  rgba(0,0,0,0) 0%,rgba(0,0,0,0.50) 100%); /* Chrome10-25,Safari5.1-6 */
-	background: linear-gradient(to bottom,  rgba(0,0,0,0) 0%,rgba(0,0,0,0.50) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#a6000000',GradientType=0 ); /* IE6-9 */
-
-	padding: 25px;
-	margin-bottom: 5px;
-}
-.profile-form-wrapper{
-	width: 80%;
-	margin: 10% auto;
-}
-.profile-bar{
-	padding: 4px 1rem;
-	// border-right: none;
-	min-height: 49px;
-	.position{
-		font-size: 15px;
-		line-height: 1.4em;
-	}	
-}
-
-.profile-industry{
-	display: table;
-	.content{
-		display: table-cell;
-		vertical-align: middle;
+.profile-menu-buttons{
+	@extend .box;
+	margin-bottom: 2rem;
+	.button{
+		padding: 1rem;
+		color: inherit;
 	}
-	.fa{
-		padding: 10px;
-		font-size: 42px;
-		background-color: #F1F1F1;
-		color: #717171;	
-		border-right: 1px solid $border-color;
-		margin-right: 1rem;
-		display: inline-block;
+	.button:hover{
+		background-color: $brydge-gray;
 	}
-	a{
-		display: block;
+	.button-group{
+		margin-bottom: 0;
+		.button{
+			border-right: 1px solid $border-color;
+			margin-bottom: 0;
+		}
+	}
+	.menu{
+		background-image: url(icons/ellipsis.png);
+		background-size: 50%;
+		background-position: center center;
+		background-repeat: no-repeat;
+		width: 100%;
+		height: 38px;
 	}
 }
-
-.profile-cover{
-	h1{
-		color: #FFF;
-		line-height: 1.4em;
-	}
-	.profile-photo{		// position: absolute;
-		width: 180px;
-		height: 180px;
+.profile-box{	
+	font-size: 14px;
+	text-align: center;
+	.profile-photo{
+		margin-bottom: 1rem;
+		.avatar{
+			box-shadow: 0 0 0 1px rgba(10, 10, 10, 0.2);
+			width: 150px;
+			height: 150px;
+			margin: auto;
+			border: 2px solid #FFF;			
+		}
 	}
 	.name{
-		display: inline-block;
-		color: #FFF;
-		font-size: 21px;
-		font-weight: normal;
-		line-height: 1.2em;
-		position: relative;
-		top: 3em;
-		span{
-			text-transform: uppercase;		
-			font-size: 26px;
-			display: block;
-			font-weight: bold;
-		}
-
+		font-size: 20px;
+	}
+	.position, .company{
+		line-height: 1.4em;
 	}
 	.location{
-		font-size: 13px;
-		position: relative;
-		top: 9em;
-		color: #FFF;
-		display: inline-block;
+		margin-top: 1rem;
+		color: $text-light;
+		font-size: 11px;
 	}
-
+	.button.large{
+		padding-left: 2rem;
+		padding-right: 2rem;
+	}
 }
+
+// .profile-photo{
+// 	cursor: pointer;
+// 	width: 250px;
+// 	height: 250px;
+// 	background-size: cover;	
+// 	background-position: center center;	
+// 	margin: auto;
+// 	margin-bottom: 20px;
+// }
+
+// .profile-cover-wrapper{
+// 	/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#000000+0,000000+100&0+0,0.50+100 */
+// 	background: -moz-linear-gradient(top,  rgba(0,0,0,0) 0%, rgba(0,0,0,0.50) 100%); /* FF3.6-15 */
+// 	background: -webkit-linear-gradient(top,  rgba(0,0,0,0) 0%,rgba(0,0,0,0.50) 100%); /* Chrome10-25,Safari5.1-6 */
+// 	background: linear-gradient(to bottom,  rgba(0,0,0,0) 0%,rgba(0,0,0,0.50) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+// 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#a6000000',GradientType=0 ); /* IE6-9 */
+
+// 	padding: 25px;
+// 	margin-bottom: 5px;
+// }
+// .profile-form-wrapper{
+// 	width: 80%;
+// 	margin: 10% auto;
+// }
+// .profile-bar{
+// 	padding: 4px 1rem;
+// 	// border-right: none;
+// 	min-height: 49px;
+// 	.position{
+// 		font-size: 15px;
+// 		line-height: 1.4em;
+// 	}	
+// }
+
+// .profile-industry{
+// 	display: table;
+// 	.content{
+// 		display: table-cell;
+// 		vertical-align: middle;
+// 	}
+// 	.fa{
+// 		padding: 10px;
+// 		font-size: 42px;
+// 		background-color: #F1F1F1;
+// 		color: #717171;	
+// 		border-right: 1px solid $border-color;
+// 		margin-right: 1rem;
+// 		display: inline-block;
+// 	}
+// 	a{
+// 		display: block;
+// 	}
+// }
+
+// .profile-cover{
+// 	h1{
+// 		color: #FFF;
+// 		line-height: 1.4em;
+// 	}
+// 	.profile-photo{		// position: absolute;
+// 		width: 180px;
+// 		height: 180px;
+// 	}
+// 	.name{
+// 		display: inline-block;
+// 		color: #FFF;
+// 		font-size: 21px;
+// 		font-weight: normal;
+// 		line-height: 1.2em;
+// 		position: relative;
+// 		top: 3em;
+// 		span{
+// 			text-transform: uppercase;		
+// 			font-size: 26px;
+// 			display: block;
+// 			font-weight: bold;
+// 		}
+
+// 	}
+// 	.location{
+// 		font-size: 13px;
+// 		position: relative;
+// 		top: 9em;
+// 		color: #FFF;
+// 		display: inline-block;
+// 	}
+
+// }
 

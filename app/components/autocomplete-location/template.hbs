@@ -5,5 +5,7 @@
 		<li {{action "onSelect" item}}>{{location-join item}}</li>
 	{{/each}}
 	</ul>
+	{{#if isOpen}}
 	<a class="button success expanded" data-open="locationModal">Can't find your city?</a>
+	{{/if}}
 </div>

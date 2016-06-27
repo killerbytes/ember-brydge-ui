@@ -1,0 +1,40 @@
+<div class="profile-menu-buttons row collapse">
+  <div class="column medium-11">
+    <div class="expanded button-group">
+      {{#if isOwner}}
+        {{link-to "Broadcast" "me" class="button"}}          
+        {{link-to "Background" "me.about" class="button"}}          
+        {{link-to "Ask" "me.ask" class="button"}}          
+        {{link-to "Compliments" "me.compliments" class="button"}}
+      {{else}}
+        {{link-to "Broadcast" "profile" profile.id class="button"}}          
+        {{link-to "Background" "about" profile.id class="button"}}          
+        {{link-to "Ask" "ask" profile.id class="button"}}          
+        {{link-to "Compliments" "compliments" profile.id class="button"}}
+      {{/if}}
+    </div>
+  </div>
+    <div class="column medium-1 wrapper">
+      <a class="button menu" data-toggle="dd-public-options">
+        <div class="wrapper">
+          <div class="triangle triangle-gray"></div>
+        </div>
+        
+      </a>
+      {{#zf-dropdown id="dd-public-options" class="dropdown-gray" closeOnClick=true}}
+        <ul class="no-bullet menu-list menu-list-menu">
+          {{#if isOwner}}
+            <li>{{link-to "Connections" "me.connections"}}</li>
+            <li>{{link-to "Your ASK Page" "me.ask"}}</li>
+          {{else}}
+            <li>{{#link-to "connections" profile.id }} {{profile.firstName}}'s connection ({{ activeConnections.length }}){{/link-to}}</li>
+            <li><a href="" class="warning" {{action 'onClickedDisconnect'}}>Disconnect from {{profile.firstName}}</a></li>
+          {{/if}}
+        </ul>
+      {{/zf-dropdown}}
+
+    </div>
+</div>
+
+
+

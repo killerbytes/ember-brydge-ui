@@ -1,4 +1,19 @@
 .share-post-box{
+	@extend .form-input-wrapper;
+	// @extend .bordered;
+	// @extend .rounded;
+	// background-color: $brydge-gray;
+	.section-footer{
+		background-color: #FFF;
+		border-top: 1px solid $border-color;
+		padding-top: 1rem;
+	}
+	.broadcast-list{
+		font-size: 11px;
+	}
+}
+/*
+.share-post-box{
 	.content-editable{
 		-moz-user-select: text;
 		-khtml-user-select: text;
@@ -56,28 +71,6 @@
 		text-transform: capitalize;
 	}
 	.dropdown-pane{
-		left: auto;
-		right: 0;
-		width: 300px;
-		padding: 0;
-		ul>li>input[type="checkbox"]{
-			float: right;
-			margin: 3px 0;
-		}
-		section{
-			padding: .5rem;
-			p:last-child{
-				margin-bottom: 0;
-			}
-		}
-
-		hr{
-			margin: 0;
-			margin-bottom: .5rem;
-		}
-		section:last-child ul{
-			margin: 0;
-		}
 	}
 	.dropdown-pane:not(.top){
 		border-top: 0;		
@@ -96,3 +89,4 @@
  		font-size: 11px;
  	}
 }
+*/

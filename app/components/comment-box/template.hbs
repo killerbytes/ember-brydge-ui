@@ -1,66 +1,60 @@
-<div class="padded border-b">
-  <div class="post-comment-form">
-    <div class="media-object">
-      <div class="thumbnail rounded" style={{htmlSafeImage sessionAccount.account.profile.avatarUrl}}>
-        <img src="{{ avatarUrl }}" class="hide">
-      </div>
-      <div class="comment-form" id="comment-form-{{post.id}}">
-        {{textarea 
-          value=commentContent 
-          key-up="resize" 
-          enter="comment"
-          class="textarea content-editable" 
-          placeholder="Write your comment"}}  
+<form>
+  {{textarea 
+    value=commentContent 
+    key-up="resize" 
+    enter="comment"
+    class="textarea content-editable" 
+    placeholder="Write your comment"}}  
+</form>
 
-      </div>
-    </div>
-  </div>
-</div>
 {{#if post.commentCount}}
-  <div class="post-comments">
+  <div class="comment-group">
       {{#if showComments}}
-        <ul class="media-list no-bullet">
-         {{#each comments as |comment|}}  
-          <li>
-            <div class="media-object">
-              <div class="media-object-section">
-                <div class="thumbnail rounded" style={{htmlSafeImage comment.user.profile.avatarUrl}}>
-                  <img src= {{comment.user.profile.avatarUrl}} class="hide">
+          {{#each comments as |comment|}}  
+            <div class="comment-item">
+              <div class="row user">
+                <div class="columns medium-8">
+                  <div class="avatar" style={{htmlSafeImage comment.user.profile.avatarUrl}}>
+                    <img src= {{comment.user.profile.avatarUrl}} class="hide">
+                  </div>
+                  <div class="user-info">
+                    {{#link-to "profile" comment.user.id class="name"}} {{comment.user.name}} {{/link-to}}
+                    <div class="position">{{ comment.user.profile.currentTitle }} at {{ comment.user.profile.currentCompany }}</div>
+                  </div>
+                </div>
+                <div class="column medium-4 text-right">
+                  <div>
+                    <div class="timestamp">{{timestamp comment.createdAt}}</div>
+                  </div>
                 </div>
               </div>
-              <div class="media-object-section main-section">
-                <a class="name">{{comment.user.name}}</a>
-                <div class="position">{{ comment.user.profile.currentTitle }}</div>
-                <div class="position mb5">{{ comment.user.profile.currentCompany }}</div>
-                
-                <p class="comment-content">{{comment.content}}</p>
-                <div class="timestamp">{{timestamp comment.createdAt}}</div>
+              <div class="comment">
+                {{comment.content}}             
               </div>
             </div>
-          </li>
           {{/each}}
-        </ul>     
       {{/if}}
       {{#if isLoading}}
         <div class="loader small">Loading...</div>
       {{/if}}
 
-      {{#if showComments}}
-        {{#if isMore}}
-          <a class="more no-arrow" {{action 'viewComments'}}>
-            View more comments
+      <div class="comment-footer">
+        {{#if showComments}}
+          {{#if isMore}}
+            <a class="more no-arrow" {{action 'viewComments'}}>
+              View more comments
+            </a>
+          {{/if}}    
+          <a class="more no-arrow" {{action 'hideComments'}}>
+            Hide comments
           </a>
-        {{/if}}    
-        <a class="more no-arrow" {{action 'hideComments'}}>
-          Hide comments
-        </a>
-      {{else}}
-        {{#if total}}
-          <a class="more no-arrow" {{action 'viewComments'}}>
-            View comments
-          </a>
-        {{/if}}    
-
-      {{/if}}
+        {{else}}
+          {{#if total}}
+            <a class="more no-arrow" {{action 'viewComments'}}>
+              View comments
+            </a>
+          {{/if}}    
+        {{/if}}
+      </div>
   </div>
 {{/if}}

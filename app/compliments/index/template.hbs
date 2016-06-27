@@ -1,115 +1,67 @@
 <div class="row">
-  <div class="columns">
-    <div class="top-banner bg-gray box">
-      
-    </div>
+  <div class="medium-5 columns sidebar">
+    {{profile-box profile=model.profile class="mb20"}}
+    {{partial 'partials/profile-sidebar'}}
+
   </div>
-</div>
-<div class="row">
-  <div class="columns">
-    <div class="top-banner bg-gray box">
-      <div class="columns">
-        <h1 class="text-upper">Compliment {{model.profile.firstName}}</h1>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Non quisquam pariatur, minima adipisci explicabo? Reiciendis tenetur laborum omnis veniam tempora molestias atque, illo dolores nobis placeat. Molestias assumenda, autem similique.</p>        
-        <p>If you're not sure how to use this, see our tips {{link-to "here" "user-guide"}}.</p>
-      </div>
-    </div>    
-  </div>  
-</div>
 
-
-
-<div class="row ask">
   <div class="medium-7 columns">
+    {{profile-menu profile=profile}}
 
-  <div class="tabs-content compliments box">
-    <div class="filter-bar columns text-right">
-      <form>
-        <div class="row collapse">
-          <div class="small-8 columns">
-            <label for="right-label" class="text-right middle">Filter compliments by&nbsp;&nbsp;</label>
+    {{#if isOwner }}
+      <div class="page-heading">      
+        <h1>Your Compliments Page</h1>
+      </div>
+    {{else}}
+      <form {{action 'submit' on='submit'}} class="box user-top-form">
+        <section>
+          {{select-native content=titles action=(action (mut formComplimentTitle))}}
+
+          {{form-text-counter limit=250 value=complimentContent rows=5 class="mb"}}
+
+          <div class="row">
+            <div class="columns medium-8">{{link-to "See Tips" "user-guide"}}</div>
+            <div class="columns medium-4">
+              <button class="button btn success expanded {{if flagCompliment 'disabled'}}" type="submit">Compliment</button>
+            </div>
           </div>
-          <div class="small-4 columns">
-          {{select-native content=complimentTitles action=(action (mut complimentTitle)) }}
-          </div>
+        </section>
+      </form>      
+    {{/if}}
+
+    <form>
+      <div class="row collapse">
+        <div class="small-8 columns">
+          <label for="right-label" class="text-right middle">Filter compliments by&nbsp;&nbsp;</label>
         </div>
-      </form>
-    </div>    
-    <div class="padding clear">
-        {{#each compliments as |item|}}
-        <div class="media-object">
-          <div class="media-object-section">
-            <div class="thumbnail" style={{htmlSafeImage item.from.profile.avatarUrl}}>
+        <div class="small-4 columns">
+        {{select-native content=complimentTitles action=(action (mut complimentTitle)) }}
+        </div>
+      </div>
+    </form>
+
+    {{#each list as |item|}}
+    <div class="box">
+      <section class="compliment-card">
+        <div class="row user">
+          <div class="columns medium-8">
+            <div class="avatar" style={{htmlSafeImage item.from.profile.avatarUrl}}>
               <img src="{{item.from.profile.avatarUrl}}" class="hide">
             </div>
+            <div class="user-info">
+              {{link-to item.from.name "profile" item.from.id}} complimented {{link-to item.to.name "profile" item.to.id}}              
+            </div>            
           </div>
-          <div class="media-object-section main-section">
-            {{link-to item.from.name "profile" item.from.username class="user"}} <span class="text-light">complimented</span> {{link-to item.to.name "profile" item.to.username class="user"}}
-            <p class="timestamp text-light">{{timestamp item.createdAt}}</p>              
-            <strong class="title text-upper">{{item.title}}</strong>
-            <p class="content">{{item.content}}</p>               
+          <div class="columns medium-4 text-right">
+            <div class="timestamp">{{timestamp item.createdAt}}</div>                          
           </div>
         </div>
-        {{/each}}
+        <div class="content-pad">
+          <div class="title">{{item.title}}</div>
+          <p class="content">{{item.content}}</p>
+        </div>
+      </section>
     </div>
-  </div>
-
-
-  </div>
-  <div class="medium-5 columns sidebar">
-    <a class="button large expanded mb rounded box" data-open="complimentModal">Post Compliment</a>
-
-    <div class="box rounded question-box compliments public-compliments">
-      <h5 class="box-header">Compliments {{model.profile.firstName}} has posted</h5>
-        <ul class="no-bullet pending-list">
-        {{#each fromAcceptSidebar as |item| }}
-          <li>
-            <div class="columns wrapper clearfix">
-              <div class="title">{{item.title}}</div>
-              <p class="content">{{item.content}}</p>               
-              <div class="text-light">{{link-to item.from.name "profile" item.from.username class="user"}} complimented {{link-to item.to.name "profile" item.to.username class="user"}}</div>
-              <p class="timestamp text-light mb5">{{timestamp item.createdAt}}</p>
-            </div>
-          </li>
-        {{else}}
-          <li>
-            <div class="empty-message">
-              {{model.profile.firstName}} hasn't posted any Compliments
-            </div>
-          </li>
-        {{/each}}
-
-        </ul>
-        {{#if fromAcceptSidebar}}
-        {{#link-to 'compliments.posted' class="footer-button button expanded" }}
-          See More
-        {{/link-to}}
-        {{/if}}
-
-    </div>
-
-    {{progress-box}}
-    {{render "footer"}}
+    {{/each}}
   </div>
 </div>
-
-{{#zf-reveal id="complimentModal" overlay=true class="reveal-popup"}}
-  <h4>Compliments</h4>
-  <p class="lead">Show your appreciation for {{model.firstName}} by complementing him</p>
-  <form {{action 'postCompliment' on='submit'}}>
-    <div class="content clearfix">
-      
-      {{select-native content=titles action=(action (mut formComplimentTitle))}}
-
-      {{form-text-counter limit=250 value=complimentContent rows=5 }}
-      {{link-to "See Tips" "user-guide"}}
-    </div>
-    <div class="reveal-footer text-right">
-      <div class="content">
-        <button class="button success {{if flagCompliment 'disabled'}}" type="submit" data-close>Post</button>
-        <a class="button success" data-close>Cancel</a>
-      </div>
-    </div>
-  </form>
-{{/zf-reveal}}
-

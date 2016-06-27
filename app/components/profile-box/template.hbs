@@ -1,0 +1,35 @@
+<div class="profile-photo">
+  {{image-upload fileLoaded="fileLoaded" logoUrl=profile.avatarUrl}}
+  {{log profile}}
+</div>
+<div class="text-center">
+  <div class="name">{{profile.firstName}} {{profile.lastName}}</div>
+  {{#if isNotEmptyTitleCompany}}
+    <div class="position font-light">{{profile.currentTitle}}</div>
+    <div class="company">{{profile.currentCompany}}</div>
+  {{else}}
+    <div class="empty-message" style="margin:.5rem; ">
+      Add Current Title and Company
+    </div>
+  {{/if}}
+  <div class="location mb">
+    {{profile.location}}
+  </div>
+
+  <div class="padding text-title">
+    {{#if isOwner}}
+      {{#link-to "me.edit" class="button large"}}
+        Edit
+      {{/link-to}}    
+
+    {{else}}
+      {{#if isConnected }}
+        {{#link-to "messaging.conversation" profile.conversationid class="button large"}}
+          Message {{profile.firstName}}
+        {{/link-to}}    
+      {{else}}
+        {{spinning-button clicked="connect" value=connectionStatus disabled=isPending class=isDisconnected }}
+      {{/if}}
+    {{/if}}
+  </div>
+</div>

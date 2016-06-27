@@ -30,7 +30,7 @@
             <li>
               <div class="{{if (eq item.id qid) "highlight"}}">
               <p class="title">{{item.content}}</p>
-              <div class="mb5 text-light">asked by {{link-to item.from.content.name "profile" item.from.content.username class="user" }}</div>
+              <div class="mb5 text-light">asked by {{link-to item.from.content.name "profile" item.from.content.id class="user" }}</div>
               <p class="timestamp text-light">{{timestamp item.createdAt}}</p>     
               <div class="question-box-footer">
                 <ul class="menu menu-dotted">
@@ -54,7 +54,7 @@
           {{#each asked.pending as |item|}}
             <li>
               <p class="title">{{item.content}}</p>
-              <div class="mb5 text-light">asked to {{link-to item.to.content.name "profile" item.to.content.username class="user" }}</div>
+              <div class="mb5 text-light">asked to {{link-to item.to.content.name "profile" item.to.content.id class="user" }}</div>
               <p class="timestamp text-light">{{timestamp item.createdAt}}</p>     
       
               <div class="question-box-footer">

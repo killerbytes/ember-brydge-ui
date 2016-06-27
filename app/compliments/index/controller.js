@@ -1,12 +1,15 @@
 import Ember from 'ember';
 import ComplimentTitlesMixin from 'web/mixins/compliment-titles';
 import FilteredComplimentsMixin from 'web/mixins/filtered-compliments';
+import ProfileSidebarMixin from 'web/mixins/profile-sidebar';
 
 export default Ember.Controller.extend(
+  ProfileSidebarMixin,
 	ComplimentTitlesMixin, 
 	FilteredComplimentsMixin, {
   compliment: Ember.inject.service(),
-	compliments: Ember.computed('complimentTitle', 'model.toCompliments', function(){
+  profile: Ember.computed.alias('model.profile'),
+	list: Ember.computed('complimentTitle', 'model.toCompliments', function(){
 		var selected = this.get('complimentTitle');
 		if(!selected || selected == 'All'){
 			return this.get('toAccept');			
@@ -21,7 +24,7 @@ export default Ember.Controller.extend(
   }),
 
   actions: {
-    postCompliment(){      
+    submit(){      
       var userid = this.get('model.profile.id')
       var title = this.get('formComplimentTitle');
       var content = this.get('complimentContent');

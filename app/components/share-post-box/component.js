@@ -4,21 +4,12 @@ export default Ember.Component.extend({
   sessionAccount: Ember.inject.service(),
   ajaxApi: Ember.inject.service(),
   utils: Ember.inject.service(),
-	classNames: ['share-post-box', 'mb'],
+	classNames: ['share-post-box'],
   categories: [],
   title: Ember.computed('site.title', function(){
     let title = this.get('site.title') || this.get('site.url');
     return title.length > 100 ? title.substr(0, 100) + ' ...' : title;
   }),
-  avatar: Ember.computed('sessionAccount.account.profile.avatarUrl', function(){
-    return Ember.String.htmlSafe("background-image: url(" + this.get('sessionAccount.account.profile.avatarUrl') + ')' );
-  }),
-  siteImage: Ember.computed('site.image', function(){
-    return Ember.String.htmlSafe("background-image: url(" + this.get('site.image') + ')' );
-  }),
-  // preview: Ember.computed('site.image', function(){
-  //   return this.get('site.image') ? true : false;
-  // }),
   isOccupational: Ember.computed('profile.occupationOneId', function(){
     return this.get('profile.occupationOneId') ? true : false && this.get('profile.occupationTwoId') ? true : false;
   }),
@@ -50,6 +41,9 @@ export default Ember.Component.extend({
     return urlArray;
   },
 	actions: {
+    toggle(){
+      this.$('#channelPicker').foundation('toggle', this.$('.accordion-content'))
+    },
     removePreview(){
       this.set('site.image', null);
     },

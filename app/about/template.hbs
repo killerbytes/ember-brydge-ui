@@ -1,0 +1,92 @@
+<div class="row">
+  <aside class="columns medium-5 sidebar">
+    {{profile-box profile=profile class="mb20"}}
+
+    {{partial 'partials/profile-sidebar'}}
+  </aside>
+
+  <div class="columns medium-7">
+    {{profile-menu profile=profile}}
+    <div class="box">
+      <section> 
+        <h3>Summary</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa ullam, perferendis, nesciunt fugit debitis eos veritatis dolorem tenetur, libero quae quam sunt impedit. Non quam officiis hic placeat nulla facere.</p>          
+      </section>
+    </div>
+
+    <div class="box">
+      <section class="title">
+        <h3>Work History</h3>        
+      </section>
+        <div class="section-group section-accordion-group">
+          {{#each experiences as |item|}}
+            <section> 
+              <div class="section-main">
+                <div class="title">{{item.title}}</div>
+                <a>{{item.company}}</a>
+                <div class="text-gray">
+                  {{term-date-format item.from}} - 
+                  {{#if item.currentCompany}}
+                    Present ({{time-diff item.from item.to}})
+                  {{else}}
+                    {{term-date-format item.to}} ({{time-diff item.from item.to}})
+                  {{/if}}
+                </div>
+              </div>
+            {{#if item.content}}
+              {{#zf-accordion-menu class="section-accordion"}}
+                <li>
+                  <ul class="section-accordion-content no-bullet">
+                    <li>{{{item.content}}}</li>
+                  </ul>
+                  <a class="more no-arrow"><span class="content-more">Show More</span><span class="content-less">Show Less</span></a>
+                </li>
+              {{/zf-accordion-menu}}               
+            {{/if}}
+            </section>          
+          {{/each}}
+        </div>
+    </div>
+
+    <div class="box">
+      <section>
+        <h3>Academia</h3>        
+      </section>
+      <div class="section-group">
+      {{#each educations as |item|}}
+        <section> 
+          <div class="section-main">
+            <div class="title">{{item.school}}</div>
+            <div class="sub-title">{{item.degree}}, {{item.studyField}}</div>
+            <div class="sub-title">
+              {{term-date-format item.to 'YYYY'}}
+            </div>
+          </div>
+        </section>          
+      {{/each}}
+      </div>
+    </div>  
+
+    <div class="box">
+      <section>
+        <h3>Languages</h3>        
+      </section>
+      <div class="section-group">
+      <div class="row medium-up-2">
+      {{#each languages as |item|}}
+        <div class="columns">
+          <section> 
+            <div class="section-main">
+              <div class="title">{{item.name}}</div>
+              <div class="sub-title">{{item.proficiency}}</div>
+            </div>
+          </section>          
+          
+        </div>
+      {{/each}}
+      </div>
+      </div>
+    </div>  
+  </div>
+</div>
+

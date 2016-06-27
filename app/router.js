@@ -15,6 +15,7 @@ Router.map(function() {
 
   this.route('me', function() {
     this.route('edit',{path:'/edit'});
+    this.route('about',{path:'/about'});
   });
   this.route('me.ask', {path: 'me/ask'}, function(){
     this.route('pending');
@@ -47,6 +48,7 @@ Router.map(function() {
 
   this.route('profile', {path: ':username'});
   this.route('ask', {path: ':username/ask'});
+  this.route('about', {path: ':username/about'});
   this.route('connections', {path: ':username/connections'});
   this.route('compliments', {path: ':userid/compliments'}, function(){
     this.route('posted')

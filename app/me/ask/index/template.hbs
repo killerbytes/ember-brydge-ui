@@ -1,44 +1,46 @@
-<div class="row">
-	<div class="columns">
-		<div class="top-banner bg-gray box">
-			<h1>YOUR ASK PAGE</h1>
-			<div class="columns">
-				<p class="text-center">
-					{{#if model.profile.settings.ask}}
-						You are currently accepting questions. To disable the ASK feature go to {{link-to "Settings" "settings" (query-params tab="ask") }}.
-					{{else}}
-						You are currently not accepting questions. To enable the ASK feature go to {{link-to "Settings" "settings" (query-params tab="ask") }}.
-					{{/if}}
-				</p>										
-				<p class="text-center">
-					Note: <i>Hidden Questions</i> and questions <i>Pending Answers</i> are only visible to you
-				</p>
-				
-			</div>
-		</div>		
-	</div>
-</div>
-
-
 <div class="row ask wrapper">
-	{{#unless model.profile.settings.ask}}	
+	{{#unless profile.settings.ask}}	
 	<div class="overlay-wrapper">
 		<div class="overlay">		
 		</div>
 	</div>
 	{{/unless}}
+
+  <div class="medium-5 columns sidebar">		
+		{{profile-box profile=profile class="mb20" isOwner=true}}
+
+  	{{ partial 'me/ask/pendinglist'}}
+
+
+    {{progress-box}}
+    {{render "footer"}}
+  </div>
   <div class="medium-7 columns">
-		<div class="mb">
+		{{profile-menu isOwner=true}}    
+    <div class="page-heading">    	
+			<h1>YOUR ASK PAGE</h1>
+			<p class="text-center">
+				{{#if profile.settings.ask}}
+					You are currently accepting questions. To disable the ASK feature go to {{link-to "Settings" "settings" (query-params tab="ask") }}.
+				{{else}}
+					You are currently not accepting questions. To enable the ASK feature go to {{link-to "Settings" "settings" (query-params tab="ask") }}.
+				{{/if}}
+			</p>										
+			<p class="text-center">
+				Note: <i>Hidden Questions</i> and questions <i>Pending Answers</i> are only visible to you
+			</p>    	
+		</div>
+    <div class="mb">
 			{{#zf-tabs class="tabs-table" id="ask-tabs"}}
-				<li class="medium-6 tabs-title is-active">
-					<a href="#question_answered" class="button expanded text-upper" aria-selected="true">Questions {{model.profile.firstName}} has answered</a>
+				<li class="tabs-title is-active">
+					<a href="#question_answered" aria-selected="true" class="button">Questions answered</a>
 				</li>
-				<li class="medium-6 tabs-title">
-					<a href="#question_asked" class="button expanded text-upper">Questions {{model.profile.firstName}} has asked</a>
+				<li class="tabs-title">
+					<a href="#question_asked" class="button">Questions asked</a>
 				</li>
 			{{/zf-tabs}}
 		</div>
-		<div class="tabs-content questions" data-tabs-content="ask-tabs">
+		<div class="tabs-content ask-card" data-tabs-content="ask-tabs">
 			<div class="tabs-panel {{active-tab 'questions' tab}}" id="question_answered">
 				{{ partial 'ask/to'}}
 			</div>
@@ -47,16 +49,4 @@
 			</div>
 		</div>
   </div>
-  <div class="medium-5 columns sidebar">
-  	{{ partial 'me/ask/pendinglist'}}
-
-
-    {{progress-box}}
-    {{render "footer"}}
-  </div>
 </div>
-
-{{answer-form}}
-
-
-

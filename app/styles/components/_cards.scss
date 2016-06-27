@@ -1,0 +1,27 @@
+.cards{
+	.user-info, .timestamp{
+		padding-top: 10px;
+	}	
+}
+.ask-card{
+	@extend .cards;
+	div+.timestamp{
+		padding-top: 0;
+	}
+	.ask-answer{
+		border: 1px solid $border-color;
+		background-color: $brydge-gray;
+		padding-bottom: 2rem;
+		margin-bottom: 1rem;
+	}
+}
+
+.compliment-card{
+	@extend .cards;
+	.title{
+		margin-bottom: 1rem;
+	}
+	.content{
+		// font-size: 10px;
+	}
+}

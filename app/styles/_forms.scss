@@ -1,3 +1,37 @@
+.form-input-wrapper{
+	@extend .bordered;
+	@extend .rounded;
+	@extend .shadowed;
+	background-color: $brydge-gray;	
+	// padding: 1rem;
+	margin-bottom: 1rem;
+	section{
+		padding: 1rem;
+	}
+	.section-footer{
+		padding-top: 0;
+	}
+}
+.form-input{
+	@extend .bordered;
+	@extend .rounded;
+	padding: 1rem;
+	background-color: #FFF;
+	.input-wrapper{
+		padding-left: 40px;
+		textarea{
+			border: none;
+		}
+		textarea:focus{
+			box-shadow: none;
+		}
+	}
+	.avatar{
+		float: left;
+	}
+}
+
+
 .log-in-form{
 	.logo{
 		height: 40px;
@@ -43,8 +77,8 @@ form{
 
 	}
 	label, .label{
-		font-size: $form-label-font-size;
-		color: $text-light;
+		// font-size: $form-label-font-size;
+		// color: $text-light;
 	}
 	label.reversed, .label.reversed{
 		input{

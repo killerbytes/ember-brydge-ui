@@ -28,7 +28,7 @@ export default Ember.Mixin.create({
 		}
 	}),
 
-	questions: Ember.computed('toQuestions.@each.status', 'toQuestions.@each.delete', function(){
+	list: Ember.computed('toQuestions.@each.status', 'toQuestions.@each.delete', function(){
 		return {
 			pendingSidebar: this.get('toPendingQuestions').slice(0, this.get('limit')),
 			pending: this.get('toPendingQuestions'),

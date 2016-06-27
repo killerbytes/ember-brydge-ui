@@ -64,7 +64,6 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, FilterDropdownListMix
         });
 
         Ember.$(window).on('scroll', function(){
-          console.log($('.newsfeed-tabs'))
           var $win = $(window);
           var $doc = $(document);
           var winHeight = $win.height();
@@ -77,19 +76,38 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, FilterDropdownListMix
 
       })
     },
-
-    setLocation: function(location, cb) {
-      this.controller.set('location', location);
-      cb.apply();
+    setChannel(id){
+      if(id == 0){
+        this.controller.set('channels', null)
+      }else{
+        this.controller.set('channels', id)
+      }
+      this.loadNewsfeed();
+    },
+    setLocation(location){
+      if(location == "Everywhere"){
+        this.controller.set('location', null)
+      }else{        
+        this.controller.set('location', location);
+      }
       this.loadNewsfeed();
     },
 
-    setChannel: function(geo, cb) {
-      if(geo == 0) geo = null;
-      this.controller.set('channels', geo);
-      cb.apply();
-      this.loadNewsfeed()
-    },
+
+    // setLocation: function(location, cb) {
+    //   this.controller.set('location', location);
+    //   cb.apply();
+    //   this.loadNewsfeed();
+    // },
+
+    // setChannel: function(geo, cb) {
+    //   if(geo == 0) geo = null;
+    //   console.log(geo);
+    //   return false;
+    //   this.controller.set('channels', geo);
+    //   cb.apply();
+    //   this.loadNewsfeed()
+    // },
     search: function () {
       this.controller.set('tab', 'search');
       this.controller.set('q', this.controller.get('searchContent'))

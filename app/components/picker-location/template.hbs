@@ -1,0 +1,37 @@
+{{#zf-accordion id="locationPicker" allowAllClosed=true}}
+  <li class="accordion-item" data-accordion-item>
+    <a class="accordion-title">{{selectedText}}</a>
+    <div class="accordion-content" data-tab-content>
+			<div class="box">
+				<section class="accordion-sub-title">Select a Location</section>
+				<div class="row collapse">
+					<div class="columns medium-6">
+						<section>
+							<div class="sub-title">Your Location</div>
+							<ul class="no-bullet content-pad">
+								<li {{action "select" profile.location preventDefault=false }}>{{profile.location}}</li>
+							</ul>				
+							<p>{{#link-to 'me.edit' (query-params tab="personal")}}Edit Your Location{{/link-to}}</p>				
+						</section>
+						<section>
+							<div class="sub-title">Global</div>
+							<ul class="no-bullet content-pad">
+								<li {{action "select" "Everywhere" preventDefault=false }}>Everywhere</li>
+							</ul>
+						</section>												
+					</div>
+					<div class="columns medium-6">
+						<section>
+							<div class="sub-title">Search</div>
+							<form class="content-pad">
+								{{autocomplete-location closeOnClick=true selected=selectedLocation}}		
+								<button class="success button" {{action 'select' selectedLocation}}>Select</button>
+							</form>						
+
+						</section>
+					</div>
+				</div>
+			</div>
+    </div>
+  </li>
+{{/zf-accordion}}

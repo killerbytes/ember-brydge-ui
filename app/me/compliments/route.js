@@ -1,15 +1,15 @@
 import Ember from 'ember';
+import AuthenticatedRouteMixin from 'ember-simple-auth/mixins/authenticated-route-mixin';
 
-export default Ember.Route.extend({
-	session: Ember.inject.service(),
+export default Ember.Route.extend(AuthenticatedRouteMixin, {
+	sessionAccount: Ember.inject.service(),
 	compliment: Ember.inject.service(),
-
 	model: function() {
-		let ownerid = this.get('session.data.authenticated.user_id');
-		
+		let userid = this.get('session.data.authenticated.user_id');
 		return Ember.RSVP.hash({
-      fromCompliments: this.store.query('compliment',{from: ownerid}),
-      toCompliments: this.store.query('compliment',{to: ownerid})
+      profile: this.store.findRecord('profile', userid),
+      fromCompliments: this.store.query('compliment',{from: userid}),
+      toCompliments: this.store.query('compliment',{to: userid})
     })
 	},
 

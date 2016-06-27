@@ -39,3 +39,63 @@
 		}
 	}
 }
+
+.accordion-picker{
+	.box{
+		margin-bottom: 0;
+	}
+	.accordion-title{
+		background-color: $brydge-gray;
+		padding: 1rem;
+		font-weight: bold;
+		border: none;
+		// border-bottom: none !important;
+	}
+	.accordion-sub-title{
+		border-bottom: 1px solid $border-color;
+	}
+	.accordion-title:before{
+		background-image: url(icons/caret.png);
+		content: '';
+    background-size: contain;
+    background-position: center center;
+    background-repeat: no-repeat;
+    width: 10px;
+    height: 10px;
+    opacity: .5;
+	}
+	font-size: 12px;
+	// ul{
+	// 	margin-bottom: 1rem;
+	// }
+	section{
+		padding: 1rem 2rem;
+	}
+	label{
+		font-size: 11px;
+		input[type="checkbox"]{
+			// margin-bottom: 1rem;
+		}
+	}
+	form:not(:last-child){
+		border-bottom: 1px solid $border-color;
+	}
+	.content-pad{
+		padding-top: .75rem;
+		padding-bottom: .75rem;
+	}
+	.columns:first-child{
+		border-right: 1px solid $border-color;
+	}
+	.sub-title{
+		text-transform: uppercase;
+		font-size: 10px;
+		font-weight: bold;
+	}
+	.accordion-content{
+		border-bottom: none !important;
+	}
+	.accordion-footer{
+		background-color: $brydge-gray;
+	}
+}

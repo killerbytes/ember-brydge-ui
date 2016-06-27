@@ -8,7 +8,7 @@
 			<div class="columns medium-6">
 				<strong>Your Network</strong>
 				<ul class="no-bullet">
-					<li {{action "select" myConnections preventDefault=false }}>{{myConnections.text}}</li>
+					<li {{action "select" myConnections.text preventDefault=false }}>{{myConnections.text}}</li>
 					<li><label for="">{{myCompany.text}}</label></li>
 				</ul>
 				<p></p>
@@ -21,7 +21,7 @@
 				<strong>Your Occupational Industry</strong>
 				<ul class="no-bullet">
 				{{#each model.myOccupations as |industry|}}
-					<li {{action "select" industry preventDefault=false }}>{{industry.text}}</li>
+					<li {{action "select" industry.id preventDefault=false }}>{{industry.text}}</li>
 				{{/each}}
 				</ul>
 				<p>{{#link-to 'me.edit' (query-params tab="occupindustry")}}Edit Occupational Industry{{/link-to}}</p>				

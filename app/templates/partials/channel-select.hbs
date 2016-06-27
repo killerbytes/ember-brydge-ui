@@ -1,0 +1,40 @@
+	<form>
+		<div class="row collapse">
+			<div class="columns medium-6">
+				<section>
+					<div class="sub-title">Your Business Industry</div>
+					{{#if profile.industryId}}
+						<ul class="no-bullet content-pad">
+							<li>
+								{{action-checkbox-bind value=profile.industryId text=profile.industry action="checkboxChanged" name="industryId" checked=industryId reversed=true}}
+							</li>
+						</ul>
+						<p>{{#link-to 'me.edit'}}Edit Business Industry{{/link-to}}</p>
+					{{else}}
+						<p>{{#link-to 'me.edit'}}Add Business Industry{{/link-to}}</p>	
+					{{/if}}
+				</section>
+			</div>
+			<div class="columns medium-6">
+				<section>
+					<div class="sub-title">Your Occupational Industry</div>
+					{{#if isOccupational }}
+						<ul class="no-bullet content-pad">	
+							<li>
+								{{action-checkbox-bind value=profile.occupationOneId text=profile.occupationOne action="checkboxChanged" name="occupationOne" checked=occupationOne reversed=true}}
+							</li>
+							<li>
+								{{action-checkbox-bind value=profile.occupationTwoId text=profile.occupationTwo action="checkboxChanged" name="occupationTwo" checked=occupationTwo reversed=true}}
+							</li>
+						</ul>
+						<p>{{#link-to 'me.edit'}}Edit Occupational Industry{{/link-to}}</p>
+					{{else}}
+						<p>{{#link-to 'me.edit'}}Add Occupational Industry{{/link-to}}</p>
+					{{/if}}
+				</section>				
+			</div>
+		</div>
+	</form>
+<section class="accordion-footer">
+	Broadcast will also be shared with Connections by default
+</section>

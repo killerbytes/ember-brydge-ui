@@ -1,105 +1,104 @@
-<div class="padded mb media-profile">
-  <div class="media-object">
-    <div class="avatar thumbnail" style={{htmlSafeImage post.user.profile.avatarUrl }}>
-      <img src= {{post.user.profile.avatarUrl}} class="hide">
-    </div>
-    <div class="media-info">
-      <div class="name">
-        {{#link-to "profile" post.user.username}} 
-          <strong>{{post.user.name}}</strong>
-        {{/link-to}}
-        {{#if post.sharedPost}}
-          {{#unless shared}}
-            <span class="dim-text">shared a post</span>
-          {{/unless}}
-        {{/if}}
+<section class="user">
+  <div class="row">
+    <div class="columns medium-8">
+      <div class="avatar" style={{htmlSafeImage post.user.profile.avatarUrl }}>
+        <img src= {{post.user.profile.avatarUrl}} class="hide">
       </div>
-<!--       <div class="position hide">{{post.user.profile.currentTitle}} <span class="bullet">&bull;</span> {{post.user.profile.currentCompany}}</div> -->
-      <div class="position mb5">{{post.user.profile.currentTitle}}&nbsp;</div>
-      <div class="position">{{post.user.profile.currentCompany}}&nbsp;</div>
-      <p class="timestamp text-right">{{#link-to 'post' post.user.id post.id }}{{timestamp post.updatedAt}}{{/link-to}}</p>
+      <div class="user-info">
+        <div class="name">
+          {{#link-to "profile" post.user.id class="plain"}} 
+            {{post.user.name}}
+          {{/link-to}}
+          {{#if post.sharedPost}}
+            {{#unless shared}}
+              <span class="dim-text">shared a post</span>
+            {{/unless}}
+          {{/if}}
+        </div>
+        <div class="position">{{post.user.profile.currentTitle}} at {{post.user.profile.currentCompany}}</div>
+      </div>
+    </div>
+    <div class="columns medium-4 text-right">
+      {{#unless shared }}
+        <a data-toggle="dd-post-menu-{{post.id}}" class="action-button"><i class="icons ellipsis"></i></a>      
+        {{#zf-dropdown id=(concat "dd-post-menu-" post.id) closeOnClick=true class="card-menu-dropdown"}}
+          <ul class="menu">
+            <li><a href="">Delete Post</a></li>
+            <li><a href="">{{post.id}}</a></li>
+          </ul>
+        {{/zf-dropdown}}
+      {{/unless}}
+      {{#link-to 'post' post.user.id post.id class="timestamp"}}{{timestamp post.updatedAt}}{{/link-to}}
+      
     </div>
   </div>
+</section>
 
-  {{#unless shared }}
-    <div class="menu-wrapper">
-      <a data-toggle="dd-post-menu-{{post.id}}"><i class="icons ellipsis"></i></a>      
-    </div>
-    {{#zf-dropdown id=(concat "dd-post-menu-" post.id) closeOnClick=true class="card-menu-dropdown"}}
-      <ul class="menu">
-        <li><a href="">Delete Post</a></li>
-        <li><a href="">{{post.id}}</a></li>
-      </ul>
-    {{/zf-dropdown}}
-  {{/unless}}
-</div>
-
-<div class="media media-top">
+<section>
+  <div class="content">
     {{#unless shared }}
       <p>{{{ post.content }}}</p>
     {{else}}
       <p>{{{post.content.content }}}</p>
     {{/unless}}
-  
-</div>
-<div class="media">
+  </div>
+
   {{#if post.title}}
-    <div class="media-main">
+    <div class="box no-shadow">
       {{#if post.image}}
-      <a href="{{post.url}}">
-        <div class="post-image" style={{htmlSafeImage post.image }}>
-          <img src="{{post.image}}" class="hide">
-        </div>
-      </a>
+        <a href="{{post.url}}">
+          <div class="post-image" style={{htmlSafeImage post.image }}>
+            <img src="{{post.image}}" class="hide">
+          </div>
+        </a>
       {{/if}}
-      <div class="post-caption">
-        <h3><a href="{{post.url}}">{{title}}</a></h3>
+      <div class="post-content">
+        <div class="title"><a href="{{post.url}}">{{title}}</a></div>
         {{#if post.siteName}}
-          <div class="subheader"><a href="{{post.url}}">{{post.siteName}}</a></div>
+          <a href="{{post.url}}">{{post.siteName}}</a>
         {{/if}}
       </div>
     </div>
   {{/if}}
 
   {{#unless shared }}
-
     {{#if post.sharedPost }}
       {{newsfeed-item post=post.sharedPost shared=true class="shared-post"}}
     {{/if}}
   {{/unless}}
-</div>
 
-{{#unless shared }}
-  <div class="padded post-actions">
-    <div class="float-left"> 
-     
-      {{#if post.vote.upVoted}}
-      <a {{action "vote" "reset"}}><span class="acted">Upvoted</span></a> 
-      {{else}}
-      <a {{action "vote" "up"}}>Upvote</a> 
-      {{/if}}
+  {{#unless shared }}
+    <div class="row post-actions">
+      <div class="columns medium-6"> 
+       
+        {{#if post.vote.upVoted}}
+        <a {{action "vote" "reset"}}><span class="acted">Upvoted</span></a> 
+        {{else}}
+        <a {{action "vote" "up"}}>Upvote</a> 
+        {{/if}}
 
-       <span> {{post.vote.upVotes}}</span>
+         <span>{{post.vote.upVotes}}</span>
 
 
-      {{#if post.vote.downVoted}}
-      <a {{action "vote" "reset"}}><span class="acted">Downvoted</span></a> 
-      {{else}}
-        {{#zf-tooltip title="Downvoting is anonymous" vOffset=0 class="top"}}
-          <a {{action "vote" "down"}}>Downvote</a> 
-        {{/zf-tooltip}}
-      {{/if}}
+        {{#if post.vote.downVoted}}
+        <a {{action "vote" "reset"}}><span class="acted">Downvoted</span></a> 
+        {{else}}
+          {{#zf-tooltip title="Downvoting is anonymous" vOffset=0 class="top"}}
+            <a {{action "vote" "down"}}>Downvote</a> 
+          {{/zf-tooltip}}
+        {{/if}}
 
-     <!--  <span> {{post.vote.downVotes}}
-       {{post.vote.downVoted}} {{post.vote.downVoters}}</span> -->
-     
+      </div>
+      <div class="columns medium-6 text-right">
+        <a {{action "viewComments"}}>Comment</a><span>{{post.commentCount}}</span>
+        <a {{action "share" post }} data-open="shareModal">Share</a><span>{{post.vote.sharedCount}}</span>
+      </div>
     </div>
-    <div class="float-right">
-      <a {{action "viewComments"}}>Comment</a><span>{{post.commentCount}}</span>
-      <a {{action "share" post }} data-open="shareModal">Share</a><span>{{post.vote.sharedCount}}</span>
-    </div>
-  </div>
-  <div class="post-footer">
-      {{comment-box post=post total=post.commentCount}}
-  </div>
+  {{/unless}}  
+</section>
+
+{{#unless shared}}
+  <section class="comments">
+    {{comment-box post=post total=post.commentCount}}  
+  </section>
 {{/unless}}

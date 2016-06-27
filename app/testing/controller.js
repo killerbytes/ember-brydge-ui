@@ -3,6 +3,9 @@ import Ember from 'ember';
 export default Ember.Controller.extend({
   sortProps: ['updatedAt:desc'],
   sortFrom: ['from:desc'],
+  queryParams: ['tab', 'channels', 'q', 'location'],
+  channels: null,
+  location: null,
 	items: Ember.computed.sort('model', 'sortFrom'),
 	experiences: Ember.computed('model', function(){
 		var exp = this.get('items').toArray();
@@ -27,9 +30,6 @@ export default Ember.Controller.extend({
 				console.log(e.currentTarget.style.height)
 			}
 		},
-		onLocationSelect(item, cb){
-			this.set('myLocation', item);
-		}
 
 	}
 });

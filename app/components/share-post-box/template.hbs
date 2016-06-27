@@ -1,68 +1,75 @@
-<form {{action 'post' on='submit'}}>
-	<div class="box rounded post-form">
-	  <div class="post-bar border-b">
-	    <div class="thumbnail" style={{avatar}}>
-	      <img src= {{avatarUrl}} class="hide">
-	    </div>
-	    
-	    <div class="post-form">
-
-        {{textarea 
-          value=postContent 
-          key-up="edit" 
-          enter="comment"
-          class="textarea content-editable" 
-	      	placeholder='Get noticed! Broadcast opinions, industry news, trends.' 
-          }}  
-	      	      
-	    </div>
-	    {{#if site}}
-				<div class="newsfeed-item">
-					<div class="media">
-				    <div class="media-main wrapper">
-				      {{#if site.image}}
-				        <div class="post-image" style={{siteImage}}>
-				          <img src="{{site.image}}" class="hide">
-				        </div>
-						    <a {{action "removePreview"}} class="fa fa-times"></a>
-				      {{/if}}
-				      <div class="post-caption wrapper">
-				        <h3>{{title}}</h3>
-				        {{#if site.siteName}}
-				          <div class="subheader">{{site.siteName}}</div>
-				        {{/if}}
-						    <a {{action "removeObject"}} class="fa fa-times"></a>
-				      </div>
-				    </div>
-					</div>					
-				</div>
-			{{/if}}
-
-	    {{#if categories}}
-	    	<div class="broadcast-list"><span class="broadcast-title text-upper">Broadcasting to: </span> 
-	    	<span>My Connections{{#each categories as |item|}}
-				    	{{~ concat '; ' item.text ~}}
-				    {{/each}}
-	    	</span>
-	    	</div>
-	    {{else}}
-	    	<div class="broadcast-list"><span class="broadcast-title">Broadcasting to: </span><span>My Connections Only</span></div>
-	    {{/if}}
-	  </div>
-	  
-	  <div class="actions">
-	    <div class="float-right wrapper">
-				<span class="wrapper">
-					<a class="button dropdown-button" data-toggle="dd-select-channel">
-						Add Industry Channel
-						<i class="icons caret"></i>
-					</a>
-					{{#zf-dropdown id="dd-select-channel" closeOnClick=true}}
-						{{partial 'partials/select-channel-menu'}}
-					{{/zf-dropdown}}
-				</span>
-	      <button class="success button" type="submit">BROADCAST</button>
-	    </div>
+<section>
+	<form {{action 'post' on='submit'}} class="form-input mb">
+		  <div class="avatar circle" style={{htmlSafeImage sessionAccount.account.profile.avatarUrl}}>
+		    <img src= {{avatarUrl}} class="hide">
+		  </div>
+		  <div class="input-wrapper">
+		    {{textarea 
+		      value=postContent 
+		      key-up="edit" 
+		      enter="comment"
+		      class="textarea content-editable" 
+		    	placeholder='Get noticed! Broadcast opinions, industry news, trends.' 
+		      }}  	      	      
+		  </div>
+	  {{#if site}}
+			<div class="newsfeed-item">
+				<div class="media">
+			    <div class="media-main wrapper">
+			      {{#if site.image}}
+			        <div class="post-image" style={{htmlSafeImage site.image}}>
+			          <img src="{{site.image}}" class="hide">
+			        </div>
+					    <a {{action "removePreview"}} class="fa fa-times"></a>
+			      {{/if}}
+			      <div class="post-caption wrapper">
+			        <h3>{{title}}</h3>
+			        {{#if site.siteName}}
+			          <div class="subheader">{{site.siteName}}</div>
+			        {{/if}}
+					    <a {{action "removeObject"}} class="fa fa-times"></a>
+			      </div>
+			    </div>
+				</div>					
+			</div>
+		{{/if}}
+	
+	</form>
+	
+	<div class="row">
+		<div class="columns medium-8">
+			<div class="wrapper">
+				<a class="dropdown-button middle button button-clear" {{action "toggle"}}>
+					Add Industry Channel
+					<i class="icons caret"></i>
+				</a>
+			</div>
+		</div>
+	  <div class="columns medium-4">
+	  	<button class="success button rounded float-right" type="submit">Broadcast</button>
 	  </div>
 	</div>
-</form>
+</section>
+
+{{#zf-accordion id="channelPicker" class="accordion-picker" allowAllClosed=true}}
+  <li class="accordion-item" data-accordion-item>
+    <div class="accordion-content" data-tab-content>
+      {{partial "partials/channel-select"}}
+    </div>
+  </li>
+{{/zf-accordion}}
+
+<section class="section-footer">
+  {{#if categories}}
+		<div class="broadcast-list">
+		  	<span class="broadcast-title text-upper">Broadcasting to: </span> 
+		  	<span>My Connections{{#each categories as |item|}}
+				    	{{~ concat '; ' item.text ~}}
+				    {{/each}}
+		  	</span>
+		</div>
+	{{else}}
+		<div class="broadcast-list"><span class="broadcast-title">Broadcasting to: </span><span>My Connections Only</span></div>
+	{{/if}}
+</section>
+	

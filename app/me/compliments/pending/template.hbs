@@ -22,7 +22,7 @@
               </div>
             </div>
             <div class="media-object-section main-section">
-              {{link-to item.from.name "profile" item.from.username class="user"}} <span class="text-light">complimented</span> {{link-to item.to.name "profile" 'me' class="user"}}
+              {{link-to item.from.name "profile" item.from.id class="user"}} <span class="text-light">complimented</span> {{link-to item.to.name "profile" 'me' class="user"}}
               <p class="timestamp text-light">{{timestamp item.createdAt}}</p>              
               <strong class="title text-upper">{{item.title}}</strong>
               <p class="content">{{item.content}}</p>               

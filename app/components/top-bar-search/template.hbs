@@ -1,14 +1,10 @@
-<div class="search-form">
+<form>
 	{{input value=search.key key-up="search" focus-in="clear" focus-out="clear" class="input-group-field" type="search" placeholder="Search"}}
-	<div class="input-group-button" data-toggle="dd-search">
-		{{fa-icon "search"}}
-	</div>
-
-</div>
+	{{fa-icon "search"}}
+</form>
 
 <a data-toggle="dd-search" class="hide">
 </a>
-
 
 {{#zf-dropdown id="dd-search" closeOnClick=true autoFocus=false}}
 	<div class="wrapper">
@@ -18,10 +14,10 @@
 	<ul class="menu-media-list no-bullet">
 		{{#each search.results as |item|}}
 			<li {{action "clear"}}>
-				{{#link-to "profile" item.username}}
+				{{#link-to "profile" item.id}}
 					<div class="media-object">
 						<div class="media-object-section">
-							<div class="thumbnail" style="background-image: url({{item.avatarUrl}})">
+							<div class="thumbnail" style={{htmlSafeImage item.avatarUrl}}>
 								<img src="{{ item.avatarUrl }}" class="hide">
 							</div>
 						</div>
