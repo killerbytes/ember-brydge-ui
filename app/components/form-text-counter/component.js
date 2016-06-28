@@ -1,6 +1,7 @@
 import Ember from 'ember';
 export default Ember.Component.extend({
   attributeBindings: ['rows'],
+  classNames: ['form-text-counter'],
 	limit: 300,
 	value: "",
 	showCount: Ember.computed('showCounter', function(){

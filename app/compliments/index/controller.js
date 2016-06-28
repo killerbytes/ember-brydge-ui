@@ -17,6 +17,9 @@ export default Ember.Controller.extend(
 			return this.get('toAccept').filterBy('title', this.get('complimentTitle'));
 		}
 	}),
+  isEmpty: Ember.computed('complimentContent', function(){
+    return this.get('complimentContent') ? false : true;
+  }),
 
 	complimentFilter: [],
   formComplimentTitle: Ember.computed('', function(){

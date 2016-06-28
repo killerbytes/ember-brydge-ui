@@ -1,4 +1,4 @@
-	<form>
+	<form class="channel-select">
 		<div class="row collapse">
 			<div class="columns medium-6">
 				<section>
@@ -6,7 +6,7 @@
 					{{#if profile.industryId}}
 						<ul class="no-bullet content-pad">
 							<li>
-								{{action-checkbox-bind value=profile.industryId text=profile.industry action="checkboxChanged" name="industryId" checked=industryId reversed=true}}
+								{{action-checkbox-bind value=profile.industryId text=profile.industry action="checkboxChanged" name="industryId" checked=industryId }}
 							</li>
 						</ul>
 						<p>{{#link-to 'me.edit'}}Edit Business Industry{{/link-to}}</p>
@@ -21,10 +21,10 @@
 					{{#if isOccupational }}
 						<ul class="no-bullet content-pad">	
 							<li>
-								{{action-checkbox-bind value=profile.occupationOneId text=profile.occupationOne action="checkboxChanged" name="occupationOne" checked=occupationOne reversed=true}}
+								{{action-checkbox-bind value=profile.occupationOneId text=profile.occupationOne action="checkboxChanged" name="occupationOne" checked=occupationOne }}
 							</li>
 							<li>
-								{{action-checkbox-bind value=profile.occupationTwoId text=profile.occupationTwo action="checkboxChanged" name="occupationTwo" checked=occupationTwo reversed=true}}
+								{{action-checkbox-bind value=profile.occupationTwoId text=profile.occupationTwo action="checkboxChanged" name="occupationTwo" checked=occupationTwo }}
 							</li>
 						</ul>
 						<p>{{#link-to 'me.edit'}}Edit Occupational Industry{{/link-to}}</p>
@@ -35,6 +35,6 @@
 			</div>
 		</div>
 	</form>
-<section class="accordion-footer">
-	Broadcast will also be shared with Connections by default
+<section class="accordion-footer text-center text-gray">
+	Note: Broadcasts will also be shared with Connections by default
 </section>

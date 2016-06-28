@@ -5,11 +5,31 @@
 	// background-color: $brydge-gray;
 	.section-footer{
 		background-color: #FFF;
-		border-top: 1px solid $border-color;
+		// border-top: 1px solid $border-color;
 		padding-top: 1rem;
 	}
 	.broadcast-list{
 		font-size: 11px;
+	}
+	.accordion-picker{
+		>li{
+			border-top: 1px solid $border-color;
+			
+		}
+		>li.is-active{
+			border-bottom: 1px solid $border-color;
+		}
+	}
+	.channel-select{
+		label{
+			position: relative;
+			input{
+				position: absolute;
+				left: 0;
+				top: 5px;
+			}
+			padding-left: 25px;
+		}
 	}
 }
 /*

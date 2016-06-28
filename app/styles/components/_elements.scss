@@ -1,4 +1,5 @@
 .title{
+	font-weight: bold;
 	font-size: 14px;
 }
 .sub-title{
@@ -21,8 +22,11 @@
 	.user-info{
 		padding-left: 40px;
 		.position{
-			font-weight: 300;
 			font-size: 10px;
+			color: $text-gray;
+		}
+		a{
+			font-weight: bold;
 		}
 	}
 	.action-button{
@@ -90,6 +94,15 @@
 .top-bar-search {
 	@extend .search-box;
 	width: 350px;
+	.user{
+		border-bottom: 1px solid $border-color;
+		font-size: 10px;
+	}
+	.user a{
+	}
+	.position{
+		color: $text-gray;
+	}
 }
 
 
@@ -132,5 +145,26 @@
 	}
 	textarea{
 		border-color: $border-color;
+	}
+}
+
+.tab-background{
+	.title+strong{
+		padding: .25rem 0;
+		display: block;
+	}
+	.section-accordion-content+a.more{
+		padding-top: 1rem;
+	}
+}
+.form-text-counter{
+	.text-count{
+		color: $text-gray;
+		position: absolute;
+		bottom: .25rem;
+		right: 1rem;
+	}
+	textarea:focus{
+		box-shadow: none;
 	}
 }

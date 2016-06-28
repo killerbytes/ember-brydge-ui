@@ -1,5 +1,6 @@
 .profile-menu-buttons{
 	@extend .box;
+	font-weight: bold;
 	margin-bottom: 2rem;
 	.button{
 		padding: 1rem;
@@ -30,28 +31,40 @@
 	.profile-photo{
 		margin-bottom: 1rem;
 		.avatar{
-			box-shadow: 0 0 0 1px rgba(10, 10, 10, 0.2);
-			width: 150px;
-			height: 150px;
+			box-shadow: 0 0 0 1px $border-color;
+			width: 170px;
+			height: 170px;
 			margin: auto;
-			border: 2px solid #FFF;			
+			border: 3px solid #FFF;			
 		}
 	}
 	.name{
 		font-size: 20px;
+		margin-bottom: 1rem;
 	}
 	.position, .company{
 		line-height: 1.4em;
 	}
+	.position{
+		font-size: 15px;
+	}
 	.location{
 		margin-top: 1rem;
 		color: $text-light;
-		font-size: 11px;
 	}
 	.button.large{
 		padding-left: 2rem;
 		padding-right: 2rem;
 	}
+}
+.name{
+	font-weight: bold;
+}
+.position{
+	@extend .font-light;
+}
+.company{
+	font-weight: bold;
 }
 
 // .profile-photo{

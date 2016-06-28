@@ -29,23 +29,23 @@
 		{{else}}
 			<div class="form-input-wrapper">
 	      <section>
-	      	<form {{action 'submit' on='submit'}} class="form-input">
-						<div class="avatar circle" style={{htmlSafeImage profile.avatarUrl}}>
+	      	<form {{action 'submit' on='submit'}} class="form-input wrapper">
+						<div class="avatar circle" style={{htmlSafeImage sessionAccount.account.profile.avatarUrl}}>
 						  <img src= {{avatarUrl}} class="hide">
 						</div>
 						<div class="input-wrapper">
-							{{textarea placeholder=placeholder value=answer rows=3 class="mb"}}
+						{{form-text-counter placeholder=placeholder limit=140 value=answer rows=5 showCount=true}}
 						</div>	      	
 	      	</form>
 	      </section>
         <section class="section-footer">
 					<div class="row">
-						<div class="columns medium-8 small">
+						<div class="columns medium-8">
 							Ask anyone a professional question. <br>
 							If answered, it will appear on both profiles.							
 						</div>
-						<div class="columns medium-4">
-							<button class="button btn expanded success">Post</button>
+						<div class="columns medium-4 text-right">
+							<button class="button btn success">Ask</button>
 						</div>
 					</div>
         </section>

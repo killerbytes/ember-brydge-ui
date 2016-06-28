@@ -4,11 +4,13 @@
     {{ share-post-box 
     	postToNewsfeed='postToNewsfeed' 
      	profile=profile
+     	class="mb20"
      	submit='postFeed' }}
 
 
 
 		<div class="newsfeed-tabs">
+			<h4 class="padded">Channel Filters</h4>
 			<div class="box">
 		    {{picker-channel profile=profile select="setChannel" selected=channels}}
 		    

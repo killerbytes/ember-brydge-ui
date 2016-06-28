@@ -2,15 +2,15 @@
   <section>
     <h4>Business Industry</h4>
     {{#if profile.industry}}
-      <a href="">{{profile.industry}}</a>
+      <strong><a href="">{{profile.industry}}</a></strong>
     {{else}}
       {{#if isOwner}}
-        <div class="empty-message" style="margin:.5rem; ">
+        <div class="empty-message">
           Add Business Industry
         </div>
       {{else}}
-        <div class="empty-message" style="margin:.5rem; ">
-          Business Industry
+        <div class="empty-message">
+          {{profile.firstName}} hasn't added a Business Industry
         </div>
       {{/if}}
     {{/if}}
@@ -25,19 +25,19 @@
     <h4>Occupational Industry</h4>
     {{#if isNotEmptyOccupation}}
       <div>
-        <a href="">{{profile.occupationOne}}</a>
+        <strong><a href="">{{profile.occupationOne}}</a></strong>
       </div>
       <div>
-        <a href="">{{profile.occupationTwo}}</a>
+        <strong><a href="">{{profile.occupationTwo}}</a></strong>
       </div>
     {{else}}
       {{#if isOwner}}
-      <div class="empty-message" style="margin:.5rem; ">
+      <div class="empty-message">
         Add Occupational Industry
       </div>
       {{else}}
-      <div class="empty-message" style="margin:.5rem; ">
-        Occupational Industry
+      <div class="empty-message">
+        {{profile.firstName}} hasn't added an Occupational Industry
       </div>
       {{/if}}
     {{/if}}
@@ -105,14 +105,15 @@
     <h4>Compliments</h4>
     {{#if latestCompliment}}  
       <div class="mb">
-        <span class="text-upper">{{latestCompliment.title}}</span> <span class="font-light">{{latestCompliment.content}}</span>
+        <strong>{{latestCompliment.title}}:</strong> 
+        <div class="content-pad">{{latestCompliment.content}}</div>
       </div>    
       <div class="user">
         <div class="avatar" style={{htmlSafeImage latestCompliment.from.content.profile.avatarUrl }}>
           <img src= {{post.user.profile.avatarUrl}} class="hide">
         </div>
         <div class="user-info">
-          Posted by
+          Complimented by
           <span class="name">
             {{#link-to "profile" latestCompliment.from.content.id}} 
               {{latestCompliment.from.content.profile.firstName}}
@@ -131,18 +132,10 @@
   <section class="section-footer-links">
     {{#if latestCompliment}}
       {{#if isOwner }}
-        {{link-to 'See all' 'me.compliments' class="button"}}
+        {{link-to 'See more compliments' 'me.compliments' class="button expanded"}}
       {{else}}
-        {{link-to 'See all' 'compliments' latestCompliment.to.id class="button"}}
-      {{/if}}
-    
-        <a class="float-right button" data-open="complimentModal">Post a compliment</a>
-      {{#if isConnected}}
-      {{/if}}
-    {{else}}
-      {{#if isConnected}}
-        <a class="float-right button" data-open="complimentModal">Post a compliment</a>
-      {{/if}}  
+        {{link-to 'See more compliments' 'compliments' latestCompliment.to.id class="button expanded"}}
+      {{/if}}    
     {{/if}}
   </section>    
 </div>
