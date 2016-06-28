@@ -5,7 +5,7 @@ export default Ember.Controller.extend(ProfileSidebarMixin, {
 	session: Ember.inject.service(),
   ajax: Ember.inject.service(),
   flashMessages: Ember.inject.service(),
-  sharePost: Ember.inject.service(),	
+  sharePost: Ember.inject.service(),
   profile: Ember.computed.alias('model.profile'),
   // posts: Ember.computed.alias('model.posts'),
   languages: Ember.computed.alias('model.languages'),
@@ -45,7 +45,7 @@ export default Ember.Controller.extend(ProfileSidebarMixin, {
         var newsfeed = this.get('posts');
         newsfeed.pushObject(res._internalModel);
         cb.apply();
-        Ember.get(this, 'flashMessages').success('Post Successful!');     
+        Ember.get(this, 'flashMessages').success('Post Successful!');
       }).catch((err) => {
         console.log("Error posting to newsfeed:", err);
       });
@@ -62,11 +62,11 @@ export default Ember.Controller.extend(ProfileSidebarMixin, {
         post.set('vote.sharedCount', res.get('shareCount'))
 
         cb();
-        Ember.get(this, 'flashMessages').success('Post Shared!');     
+        Ember.get(this, 'flashMessages').success('Post Shared!');
       });
     },
     fileLoaded: function(formData){
-      return this.get('ajax').request('/v1/profile/avatar', {
+      return this.get('ajax').request('/v2/profile/avatar', {
         method: 'POST',
         data: formData,
         contentType: false,

@@ -5,15 +5,15 @@ import UrlTemplates from "ember-data-url-templates";
 export default ApplicationAdapter.extend(UrlTemplates, {
 	session: Ember.inject.service('session'),
 
-	urlTemplate: '{+host}/v1/profile/{userid}/education/{id}',
+	urlTemplate: '{+host}/v2/profile/{userid}/education/{id}',
 
-	findAllUrlTemplate: '{+host}/v1/profile/{userid}/education',
-	
-	createRecordUrlTemplate: '{+host}/v1/profile/{userid}/education',
-	
-	findRecordUrlTemplate: '{+host}/v1/profile/{userid}/education/{id}',
+	findAllUrlTemplate: '{+host}/v2/profile/{userid}/education',
 
-	queryUrlTemplate: '{+host}/v1/profile/{queryid}/education',
+	createRecordUrlTemplate: '{+host}/v2/profile/{userid}/education',
+
+	findRecordUrlTemplate: '{+host}/v2/profile/{userid}/education/{id}',
+
+	queryUrlTemplate: '{+host}/v2/profile/{queryid}/education',
 
 	urlSegments: {
     userid() {

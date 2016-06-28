@@ -77,7 +77,7 @@ export default Ember.Controller.extend({
       });
     },
     fileLoaded: function(formData){
-      return this.get('ajax').request('/v1/profile/avatar', {
+      return this.get('ajax').request('/v2/profile/avatar', {
         method: 'POST',
         data: formData,
         contentType: false,

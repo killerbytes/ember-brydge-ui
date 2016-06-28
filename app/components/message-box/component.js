@@ -8,7 +8,7 @@ export default Ember.Component.extend({
 	actions: {
   	submit: function(to, msg) {
   		var store = this.get('store');
-      var url = '/v1/messages';
+      var url = '/v2/messages';
       this.get('ajax').request(url, {
         method: 'POST',
         data: {
@@ -46,7 +46,7 @@ export default Ember.Component.extend({
       //     // store.push(res);
       //     store.findAll('conversation');
       //     // console.log(res)
-    
+
       //   });
 
       // });

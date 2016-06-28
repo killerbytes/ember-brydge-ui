@@ -32,7 +32,7 @@ export default Ember.Component.extend(Validations, {
 			status: this.get('highlightStatus')
     };
 
-    this.get('ajax').request('/v1/profile/'+userid+'/highlight', {
+    this.get('ajax').request('/v2/profile/'+userid+'/highlight', {
       method: 'POST',
       data: data,
     }).then(res=>{

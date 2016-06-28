@@ -18,7 +18,7 @@ export default Ember.Component.extend({
     this.set('categories', []);
   },
   crawl(uri){
-    var url = "v1/crawl?url=" + uri;
+    var url = "v2/crawl?url=" + uri;
     this.get('ajaxApi').request(url, {
       method: 'GET'
     }).then((res)=>{
@@ -31,7 +31,7 @@ export default Ember.Component.extend({
     var url;
     var matchArray;
     // Regular expression to find FTP, HTTP(S) and email URLs.
-    
+
     var regexToken = /(?:https?:\/\/)?(?:[\w]+\.)([a-zA-Z\.]{2,6})([\/\w\.-]*)*\/?/g;
     // Iterate through any URLs in the text.
     while( (matchArray = regexToken.exec( source )) !== null ){
@@ -100,9 +100,9 @@ export default Ember.Component.extend({
         var el = e.currentTarget;
         var offset = (el.offsetHeight - el.clientHeight);
         e.currentTarget.style.height = 'auto';
-        e.currentTarget.style.height = (e.currentTarget.scrollHeight+offset) + "px";        
+        e.currentTarget.style.height = (e.currentTarget.scrollHeight+offset) + "px";
       }else{
-        e.currentTarget.style.height = '';        
+        e.currentTarget.style.height = '';
       }
 
       if(this.get('site') || this.get('isNoPreview')) return false;
