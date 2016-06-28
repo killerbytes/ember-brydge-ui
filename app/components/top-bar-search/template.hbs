@@ -11,24 +11,17 @@
 		<div class="triangle"></div>
 	</div>
 	
-	<ul class="menu-media-list no-bullet">
+	<ul class="media-list no-bullet user">
 		{{#each search.results as |item|}}
 			<li {{action "clear"}}>
 				{{#link-to "profile" item.id}}
-					<div class="media-object">
-						<div class="media-object-section">
-							<div class="thumbnail" style={{htmlSafeImage item.avatarUrl}}>
-								<img src="{{ item.avatarUrl }}" class="hide">
-							</div>
-						</div>
-						<div class="media-object-section main-section">
-								<span class="name">{{item.name}}</span>
-								<div class="position">
-									{{item.title}} <br>
-									{{item.company}}
-								</div>
-						</div>
-					</div>
+		      <div class="avatar" style={{htmlSafeImage item.avatarUrl }}>
+		        <img src= {{item.avatarUrl}} class="hide">
+		      </div>
+		      <div class="user-info">
+            <div class="name">{{item.name}}</div>
+		        <div class="position">{{item.title}} at {{item.company}}</div>
+		      </div>
 				{{/link-to}}
 			</li>
 		{{else}}

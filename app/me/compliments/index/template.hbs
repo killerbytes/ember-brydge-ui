@@ -9,12 +9,12 @@
         {{#if toPendingSidebar}}
           {{#each toPendingSidebar as |item| }}
             <section>
-              <div class="user">
-                complimented by {{link-to item.from.name "profile" item.from.id}}
+              <div class="user mb">
+                Complimented by {{link-to item.from.name "profile" item.from.id class="name"}}
                 <div class="timestamp">{{timestamp item.createdAt}}</div>                
               </div>
+              <strong>{{item.title}}:</strong>
               <div class="content-pad">
-                <span>{{item.title}}</span>
                 {{item.content}}
               </div>
               <div class="section-footer-links">
@@ -43,12 +43,12 @@
         {{#if fromAcceptSidebar }}
           {{#each fromAcceptSidebar as |item| }}
             <section>
-              <div class="user">
-                You complimented {{link-to item.to.name "profile" item.to.id}}
+              <div class="user mb">
+                You complimented {{link-to item.to.name "profile" item.to.id class="name"}}
                 <div class="timestamp">{{timestamp item.createdAt}}</div>                
               </div>
+              <strong>{{item.title}}:</strong>
               <div class="content-pad">
-                <span>{{item.title}}</span>
                 {{item.content}}
               </div>
               <div class="section-footer-links">
@@ -106,10 +106,8 @@
           </div>        
         </section>
         <section>
-          <div class="content-pad">
-            <div class="title">{{item.title}}</div>
-            <p class="content">{{item.content}}</p>
-          </div>
+            <div class="title">{{item.title}}:</div>
+            <div class="content-pad">{{item.content}}</div>
         </section>
       </div>
       {{/each}}

@@ -29,7 +29,7 @@
 	&.large{
 		@extend .shadowed;
 		@extend .rounded;
-		padding: 13px;
+		padding: 10px;
 	}
 	&.text-blue:hover{
 		color: $brydge-blue;

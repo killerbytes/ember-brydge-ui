@@ -5,16 +5,17 @@
         <img src= {{post.user.profile.avatarUrl}} class="hide">
       </div>
       <div class="user-info">
-        <div class="name">
+        <span class="name">
           {{#link-to "profile" post.user.id class="plain"}} 
             {{post.user.name}}
           {{/link-to}}
-          {{#if post.sharedPost}}
-            {{#unless shared}}
-              <span class="dim-text">shared a post</span>
-            {{/unless}}
-          {{/if}}
-        </div>
+        </span>
+        {{#if post.sharedPost}}
+          {{#unless shared}}
+            <span class="text-gray">shared a broadcast</span>
+          {{/unless}}
+        {{/if}}
+
         <div class="position">{{post.user.profile.currentTitle}} at {{post.user.profile.currentCompany}}</div>
       </div>
     </div>
@@ -35,7 +36,7 @@
 </section>
 
 <section>
-  <div class="content">
+  <div class="content-pad">
     {{#unless shared }}
       <p>{{{ post.content }}}</p>
     {{else}}

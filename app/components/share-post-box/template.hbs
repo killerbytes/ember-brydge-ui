@@ -62,14 +62,14 @@
 <section class="section-footer">
   {{#if categories}}
 		<div class="broadcast-list">
-		  	<span class="broadcast-title text-upper">Broadcasting to: </span> 
-		  	<span>My Connections{{#each categories as |item|}}
+		  	<span class="broadcast-title">Broadcasting to: </span> 
+		  	<strong class="text-gray">My Connections{{#each categories as |item|}}
 				    	{{~ concat '; ' item.text ~}}
 				    {{/each}}
-		  	</span>
+		  	</strong>
 		</div>
 	{{else}}
-		<div class="broadcast-list"><span class="broadcast-title">Broadcasting to: </span><span>My Connections Only</span></div>
+		<div class="broadcast-list"><span class="broadcast-title">Broadcasting to: </span><strong class="text-gray">My Connections Only</strong></div>
 	{{/if}}
 </section>
 	

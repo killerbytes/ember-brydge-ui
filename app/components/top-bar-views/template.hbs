@@ -29,21 +29,22 @@
 		{{#if setting.profileView}}
 			{{#each notification.views as |item|}}
 			<li {{action "selectView" item preventDefault=false }}
-			class="{{if item.read false 'new-notification'}}">		 
-				<div class="media-object">
-					<div class="media-object-section">
-						<div class="thumbnail" style={{htmlSafeImage item.target.profile.avatarUrl}}>
-							<img src= {{item.target.profile.avatarUrl}} class="hide">
-						</div>
+			class="{{if item.read false 'new-notification'}}">
+				<div class="row">
+					<div class="columns medium-8">
+			      <div class="avatar" style={{htmlSafeImage item.target.profile.avatarUrl }}>
+			        <img src= {{item.target.profile.avatarUrl}} class="hide">
+			      </div>
+			      <div class="user-info">
+		          {{item.target.profile.firstName}} {{item.target.profile.lastName}}
+			        <div class="position">{{item.title}} at {{item.company}}</div>
+			      </div>
+						
 					</div>
-					<div class="media-object-section main-section">
-						<a class="name">{{item.target.profile.firstName}} {{item.target.profile.lastName}}</a>
-						<p class="position">						
-							viewed your profile<br>
-							{{ timestamp item.createdAt }}
-						</p>
+					<div class="columns medium-4">
+						{{ timestamp item.createdAt }}
 					</div>
-				</div>			
+				</div>
 			</li>
 			{{/each}}
 		{{else}}
@@ -55,7 +56,7 @@
 		{{/if}}
 	</ul>
 	{{#if setting.profileView}}
-		{{#link-to 'profile-views' class="footer-button success button expanded"}}
+		{{#link-to 'profile-views' class="footer-button button expanded"}}
 			SEE ALL PROFILE VIEWS
 		{{/link-to}}
 	{{/if}}

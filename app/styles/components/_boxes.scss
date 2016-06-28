@@ -1,16 +1,16 @@
 .box{
 	@extend .rounded;
-	@extend .shadowed;
 	background-color: #FFF;
 	border-style: solid;
 	border-width: 1px;
 	// border-color: #e5e6e9 #dfe0e4 #d0d1d5;
-	border-color: $border-color;
+	border-color: #e9f2f7 #e3f1f9 #d5dfe4;
+	// border-color: $border-color;
 	margin-bottom: 10px;
 	section{
-		padding: 1rem;
+		padding: 1rem 2rem;
 		h3{
-			font-size: 15px;
+			font-size: 22px;
 			font-weight: bold;
 			color: $text-light;
 			margin-bottom: 1rem;
@@ -20,6 +20,7 @@
 		}
 		h4{
 			color: $text-light;
+			font-weight: bold;
 			text-transform: uppercase;
 			margin-bottom: 1rem;
 		}
@@ -49,7 +50,7 @@
 			padding: 0 !important; 
 		}
 		.section-main{
-			padding: 1rem;
+			padding: 1rem 2rem;
 		}
 		.section-accordion{
 			position: relative;
@@ -63,9 +64,10 @@
 		}
 		.section-accordion-content{
 			background-color: $brydge-gray;
-			padding: 1rem;
+			padding: 1rem 2rem;
 		}
 		.section-accordion-content+a{
+			padding: 2rem;
 			padding-top: 0;
 			padding-bottom: 1.25rem;
 		}

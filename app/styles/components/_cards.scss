@@ -1,12 +1,15 @@
 .cards{
 	.user-info, .timestamp{
-		padding-top: 10px;
+		padding-top: 6px;
 	}	
 }
 .ask-card{
 	@extend .cards;
 	div+.timestamp{
 		padding-top: 0;
+	}
+	.title{
+		font-size: 16px;
 	}
 	.ask-answer{
 		border: 1px solid $border-color;
@@ -19,7 +22,7 @@
 .compliment-card{
 	@extend .cards;
 	.title{
-		margin-bottom: 1rem;
+		// margin-bottom: 1rem;
 	}
 	.content{
 		// font-size: 10px;

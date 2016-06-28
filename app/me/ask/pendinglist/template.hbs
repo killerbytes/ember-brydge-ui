@@ -6,7 +6,7 @@
 			<section>
 				<div class="section-main">
 					<div class="user">
-						asked by {{link-to item.from.content.name "profile" item.from.content.id}}
+						Asked by {{link-to item.from.content.name "profile" item.from.content.id class="name"}}
 						<div class="timestamp">{{timestamp item.createdAt}}</div>
 					</div>
 					<div class="content-pad">{{item.content}}</div>
@@ -38,7 +38,7 @@
 	<section>
 		{{#each asked.pendingSidebar as |item| }}
 			<div>
-				you asked {{link-to item.to.content.name "profile" item.to.content.id}}
+				You asked {{link-to item.to.content.name "profile" item.to.content.id class="name"}}
 				<div class="timestamp">{{timestamp item.createdAt}}</div>
 				<div class="content-pad">{{item.content}}</div>
 				<div class="section-footer-links">
@@ -63,6 +63,7 @@
 	{{/if}}
 </div>
 
+
 <div class="box">
 	<section class="title">
 		<h4>Hidden Questions</h4>		
@@ -70,7 +71,7 @@
 	<section>
 		{{#each questions.hiddenSidebar as |item| }}
 			<div>
-				{{link-to item.from.content.name "profile" item.from.content.id}} asked {{link-to item.to.content.name "profile" item.to.content.id }}
+				{{link-to item.from.content.name "profile" item.from.content.id class="name"}} asked {{link-to item.to.content.name "profile" item.to.content.id class="name"}}
 				<div class="timestamp">{{timestamp item.createdAt}}</div>
 				<div class="content-pad">{{item.content}}</div>
 				<div class="section-footer-links">
@@ -82,7 +83,7 @@
 		{{/each}}
 		{{#each asked.hiddenSidebar as |item| }}
 			<div>
-				You asked {{link-to item.to.content.name "profile" item.to.content.id class="user"}}
+				You asked {{link-to item.to.content.name "profile" item.to.content.id class="name"}}
 				<div class="timestamp">{{timestamp item.createdAt}}</div>
 				<div class="content-pad">{{item.content}}</div>
 				<div class="section-footer-links">

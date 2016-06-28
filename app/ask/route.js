@@ -1,7 +1,6 @@
 import Ember from 'ember';
 
 export default Ember.Route.extend({
-	sessionAccount: Ember.inject.service(),
 	model: function(params) {  
     let userid = params.username;
     return Ember.RSVP.hash({
