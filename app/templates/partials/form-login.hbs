@@ -1,5 +1,5 @@
-<form {{action 'authenticate' on='submit'}} class="form-signin">
-  <div class="row column log-in-form">
+<form {{action 'authenticate' on='submit'}} class="micro-forms mb20">
+  <div class="row column">
     <div class="text-center">
       <a href="/"><img class="logo" src="assets/brydge-blue.svg"></a>
     </div>
@@ -13,7 +13,7 @@
 
     {{input id='email' placeholder="your@email.com" value=email}}
     {{input type='password' placeholder="Password" value=password}}
-    <button class="button secondary" type="submit">LOG IN</button>
-    <a href="#" class="float-right">Forgot your password?</a>
+    <button class="button success" type="submit">LOG IN</button>
+    <a class="float-right button">Forgot your password?</a>
   </div>
 </form>

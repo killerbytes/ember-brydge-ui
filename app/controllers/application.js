@@ -1,9 +1,14 @@
 import Ember from 'ember';
 
 export default Ember.Controller.extend({
-  session: Ember.inject.service('session'),
-  sessionAccount: Ember.inject.service('session-account'),
+  session: Ember.inject.service(),
   notification: Ember.inject.service(),
+  header: Ember.computed('page', function(){
+    return this.get('page') == 'header';
+  }),
+  simple_header: Ember.computed('page', function(){
+    return this.get('page') == 'simple_header';
+  }),
   init(){
     var notification = this.get('notification');
     
@@ -24,20 +29,22 @@ export default Ember.Controller.extend({
     notificationChecker.apply(this);
   },
   updateCurrentPath: function(){
-  	if(this.get('currentPath') == 'index' || this.get('currentPath') == 'login'){
-  		this.set('landingPage', true);
-  	}else{
-  		this.set('landingPage', false);
-  	}
-  }.observes('currentPath'),
-
-  actions: {
-    // closeTooltip(){
-    //   $('body').find('.tooltip').hide();
-    // },
-    registerUser() {
-      // console.log(" >>>> application:controller:registeruser:data", this.session.account.name );
-      return true;
+    switch(this.get('currentPath')){
+      case 'login':
+      case 'index':
+        this.set('page', null);
+        break;
+      case 'register':
+        this.set('page', 'simple_header');
+        break;
+      default:
+        this.set('page', 'header');
+        break;
     }
-  }
+  	// if( == 'index' || this.get('currentPath') == 'login' || this.get('currentPath') == 'register'){
+  	// 	this.set('page', 'no_header');
+  	// }else{
+  	// 	this.set('landingPage', false);
+  	// }
+  }.observes('currentPath'),
 });

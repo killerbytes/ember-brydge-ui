@@ -8,7 +8,7 @@
 	// border-color: $border-color;
 	margin-bottom: 10px;
 	section{
-		padding: 1rem 2rem;
+		padding: 1rem;
 		h3{
 			font-size: 22px;
 			font-weight: bold;
@@ -27,9 +27,6 @@
 	}
 	section.title{
 		padding-bottom: 0;
-		h4{
-			margin-bottom: 0;
-		}
 	}
 	.content .title{
 		font-size: 13px;
@@ -50,7 +47,7 @@
 			padding: 0 !important; 
 		}
 		.section-main{
-			padding: 1rem 2rem;
+			padding: 1rem;
 		}
 		.section-accordion{
 			position: relative;
@@ -67,7 +64,7 @@
 			padding: 1rem 2rem;
 		}
 		.section-accordion-content+a{
-			padding: 2rem;
+			padding: 1rem;
 			padding-top: 0;
 			padding-bottom: 1.25rem;
 		}

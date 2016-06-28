@@ -1,43 +1,27 @@
-
-<div class='row bg-light-blue index'>
-  <div class='medium-6 large-7 columns'>
-  	<div class="jumbotron text-center">
-    	<h1 class="large">Connect. Interact. Grow.</h1>
-	    <h3>Simplifying professional interaction and facilitating self-development</h3>
-    </div>
-  </div>
-
-  <div class='medium-6 large-5 columns bg-white signup-section'>
-    {{partial "partials/form-login"}}
-    <div class="bg-sky-blue clearfix">
-      <form {{action 'signup' on='submit'}} class="form-signup" autocomplete="off">
-        <div class='row'>
-          <div class='columns'>
-            {{#if signupError}}
-              <div class="warning callout small" data-closable>
-                <h7>Signup failed</h7>
-                <p>{{signupError}}</p>
-                <button class="close-button" aria-label="Dismiss alert" type="button" data-close><span aria-hidden="true">&times;</span></button>
-              </div>
-            {{/if}}
-            {{input value=registerFirstName placeholder='FirstName'}}
-            {{input value=registerLastName placeholder='LastName'}}
-            {{input value=registerEmail placeholder='Email'}}
-            {{input value=registerPassword placeholder='Password' type='password'}}
-            <p>By signing up to the service you are agreeing to our {{link-to "Terms of Use" "home"}} and our {{link-to "Privacy Policy" "home"}}.</p>
-            {{spinning-button clicked="createAccount" value="CREATE ACCOUNT" class="button"}}
-          </div>
-        </div>
-      </form>
-    </div>
+<div class="row">
+  <div class="medium-6 small-centered columns">
+    {{partial "partials/form-login"}} 
   </div>
 </div>
-
-<div class="row bg-white index">
-	<ul class="footer-menu">
-		<li>Discover</li>
-		<li>About</li>
-		<li>BIC</li>
-		<li>Careers</li>
-	</ul>
+<div class="row">
+  <div class="content-pad text-center">
+    BRYDGE is currently in closed beta. If you have an invitation code, paste it below.
+  </div>
+</div>
+<div class="row mb50">
+  <div class="medium-6 small-centered columns">
+    <form>
+      <div class="input-group">
+        <input class="input-group-field" type="text">
+        <div class="input-group-button">
+          <button type="submit" class="button expanded success">Proceed</button>
+        </div>
+      </div>
+    </form>
+  </div>  
+</div>
+<div class="row">
+  <div class="columns text-center">
+    Don't have a code? Leave us your email <a>here</a>, we'll sort it out.
+  </div>
 </div>

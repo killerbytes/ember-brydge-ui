@@ -84,8 +84,9 @@
 		padding-top: .75rem;
 		padding-bottom: .75rem;
 	}
-	.columns:first-child{
-		border-right: 1px solid $border-color;
+	.columns:last-child{
+		border-left: 1px solid $border-color;
+		min-height: 122px;
 	}
 	.sub-title{
 		text-transform: uppercase;

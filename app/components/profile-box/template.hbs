@@ -1,6 +1,5 @@
 <div class="profile-photo">
   {{image-upload fileLoaded="fileLoaded" logoUrl=profile.avatarUrl}}
-  {{log profile}}
 </div>
 <div class="text-center">
   <div class="name">{{profile.firstName}} {{profile.lastName}}</div>
@@ -17,7 +16,7 @@
   </div>
 
   {{#unless isOwner }}
-    <div class="padding text-title">
+    <div class="text-title">
         {{#if isConnected }}
           {{#link-to "messaging.conversation" profile.conversationid class="button large"}}
             Message {{profile.firstName}}

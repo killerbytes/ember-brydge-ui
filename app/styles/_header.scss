@@ -5,6 +5,7 @@ header{
 	.title-bar{
 		background-color: $brydge-blue;
 		color: #FFF;
+		padding: 0;
 		.thumbnail{
 			width: 40px;
 			height: 40px;
@@ -22,18 +23,45 @@ header{
 		}
 	}
 	.badge{
-		font-size: 10px;
+		min-width: 2em;
+		font-size: 9px;
 		font-weight: bold;
 		text-align: center;
-		line-height: 1.4em;
+		line-height: 1.3em;
 		position: absolute;
-		top: -10px;
-		right: -10px;
+		top: 0;
+		right: 0;
+	}
+	.menu-actions{
+		span{
+			vertical-align: bottom;
+		}
+		span a{
+			padding: 0.7rem 1rem;
+			display: block;
+		}
+		[data-toggle]+.wrapper{
+			position: absolute;
+			display: none;
+			bottom: -4px;
+			width: 100%;
+		}
+		[data-toggle].hover + .wrapper{
+			display: block;
+		}
 	}
 
 
 }
 
+header.simple-header{
+	.title-bar-left{
+		float: none;
+	}
+	.logo{
+		margin: auto;
+	}
+}
 
 /*
 header.top-bar {

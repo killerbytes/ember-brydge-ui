@@ -5,6 +5,7 @@ export default Ember.Mixin.create({
 	ajax: Ember.inject.service(),
 	connection: Ember.inject.service(),
 	routing: Ember.inject.service(),
+	notification: Ember.inject.service(),
 	actions: {
 		select: function(item) {
 			console.log(item.get('type'), item);

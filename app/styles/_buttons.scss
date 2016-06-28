@@ -11,7 +11,10 @@
 
 .button{
 	background-color: #FFF;
-
+	padding: 6px 12px;
+	&.rounded{
+		border-radius: 2px;
+	}
 	&.success{
 		font-weight: bold;
 		color: #FFF;
@@ -46,6 +49,7 @@
 
 .button-clear{
 	background: transparent;
+	padding-left: 0;
 	// color: #000;
 }
 .button-clear:hover{
@@ -62,7 +66,7 @@
 
 .dropdown-button{
 	position: relative;
-	padding: 8px;
+	// padding: 8px;
 	padding-right: 30px;
 	font-size: 12px;
 	&.middle{
@@ -78,7 +82,7 @@
 	.icons, .fa-caret-down{
 		position: absolute;
 		right: 10px;
-		top: 2px;
+		top: 0;
 		width: 10px;
 	}
 

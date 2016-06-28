@@ -1,10 +1,8 @@
 import Ember from 'ember';
+import UnauthenticatedRouteMixin from 'ember-simple-auth/mixins/unauthenticated-route-mixin';
 
 export default Ember.Controller.extend({
   sessionAccount: Ember.inject.service(),
   actions: {
-    closeTooltip(e){
-      $('body').find('.tooltip').hide();
-    }
   }
 });

@@ -168,3 +168,36 @@
 		box-shadow: none;
 	}
 }
+
+.getting-started{
+	section{
+		position: relative;
+	}
+	.badge{
+		background-color: $text-gray;
+		color: #FFF;
+		font-size: 9px;
+		position: absolute;
+		top: 1rem;
+		left: 1rem;
+	}
+	p{
+		margin-bottom: 0;
+		padding-left: 25px;
+	}
+	p:not(:last-child){
+		margin-bottom: 2rem;
+	}
+}
+
+.page-about{
+	.box{
+		section, .section-accordion-group .section-main{
+			padding: 1rem 2rem;
+		}
+		.section-accordion-group .section-accordion-content + a{
+			padding-left: 2rem;
+			padding-right: 2rem;
+		}
+	}
+}
