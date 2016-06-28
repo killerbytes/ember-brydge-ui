@@ -1,5 +1,6 @@
 // @import url(https://fonts.googleapis.com/css?family=Montserrat:400,700);
 // @import 'https://fonts.googleapis.com/css?family=Hind%7CHind+Guntur%7CHind+Madurai%7CLato%7CMontserrat%7COpen+Sans%7CPrompt%7CRoboto';
+@import 'https://fonts.googleapis.com/css?family=Droid+Serif%7CMerriweather%7CRoboto+Slab';
 @import url(https://fonts.googleapis.com/css?family=Lato:400,300,700);
 
 $brydge-blue:#6BCDFD;
@@ -91,15 +92,10 @@ a.hover{
 	.wrapper{
 		width: 100%;
 		position: absolute;
-		bottom: -1px;
+		bottom: -3px;
 		left: 0;
 		z-index: 11;
 	}	
-}
-[data-toggle]:not(.hover){
-	.triangle{
-		display: none;
-	}
 }
 a.more.no-arrow:after{
 	display: none;

@@ -43,6 +43,35 @@
 	      {{/zf-tabs}}
       </div>
 
+			<div class="box getting-started">
+				<section>
+					<h4>Get Started, {{profile.firstName}}!</h4>
+					We'll keep this notice here for the next 7 days.
+				</section>
+				<section>
+					<span class="badge">1</span>
+
+					<p>Explore your {{link-to "Profile" "me"}}</p>
+					<p>This is where all the post you share (what we call <strong>Broadcasts</strong>), work and academic history(<strong>Background</strong>), questions you ask and answer (<strong>Ask</strong>) and <strong>Compliments</strong> you receive live.</p>
+
+				</section>
+				<section>
+					<span class="badge">2</span>
+					<p>To really get started - do this as soon as you can!</p>
+					<p>One of the first things you really want to do is go to your {{link-to "Edit Profile" "me.edit"}} page, and pick these two options:</p>
+					<p><strong class="text-upper">Business Industry</strong>: the industry your business operates in <br>
+						<strong class="text-upper">Occupational Industries</strong>: one (or two) other industries you deal with as part of your job
+					</p>
+				</section>
+				<section>
+					<span class="badge">3</span>
+					<p>Explore industry Channels on the {{link-to "Home" "home"}} page</p>
+					<p>Once you've picked your relevant industries, you can use the channel filters below the broadcast box to see what:</p>
+					<p>(a) your connections are talking about <br> (b) your industry peers are talking about</p>
+					<p>And you can further filter them by location!</p>
+				</section>
+			</div>
+
 			<div data-tabs-content="newsfeed-tabs">
 				<div class="tabs-panel {{active-tab 'live' tab}}" id="live">
 				    {{#if feed_live}}

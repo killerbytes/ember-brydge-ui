@@ -1,0 +1,17 @@
+<form {{action 'submit' on='submit'}} class="micro-forms mb20">
+  <div class="row column">
+    <div class="text-center">
+      <a href="/"><img class="logo" src="assets/brydge-blue.svg"></a>
+    </div>
+    <div class="row">
+      <div class="columns">
+        <p>We're in Closed Beta at the moment</p>    
+        <p>If you'd like to get access and be one of the first few to check out the service, leave us your email and we will get back to you shortly.</p>
+        <p>&nbsp;</p>
+      </div>
+    </div>
+    {{input name="email" placeholder="Email" value=profile.email}}
+    <button class="button success" type="submit">Create Account</button>
+
+  </div>
+</form>

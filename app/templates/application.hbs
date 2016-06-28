@@ -1,6 +1,9 @@
-{{#unless landingPage}}
-  {{render "header"}}
-{{/unless}}
+{{#if header}}
+  {{app-header}}
+{{/if}}
+{{#if simple_header}}
+  {{partial "partials/simple_header"}}
+{{/if}}
 <section class="main">
 {{outlet}}
 </section>

@@ -1,0 +1,22 @@
+<form {{action 'authenticate' on='submit'}} class="micro-forms mb20">
+  <div class="row column">
+    <div class="text-center">
+      <a href="/"><img class="logo" src="assets/brydge-blue.svg"></a>
+    </div>
+    <div class="row">
+      <div class="columns medium-6">{{input name="firstName" placeholder="First Name" value=profile.firstName}}</div>
+      <div class="columns medium-6">{{input name="lastName" placeholder="Last Name" value=profile.lastName}}</div>
+      <div class="columns">{{input name="location" placeholder="City, Country" value=profile.location}}</div>
+      <fieldset class="large-6 columns">
+        <input type="radio" name="gender" value="female" id="female" required><label for="female">Female</label>
+        <input type="radio" name="gender" value="male" id="male"><label for="male">Male</label>
+      </fieldset>
+      <div class="columns">{{input name="email" placeholder="Email" value=profile.email}}</div>
+      <div class="columns">{{input name="confirm_email" placeholder="Re-enter email" value=confirm_email}}</div>
+      <div class="columns">{{input type='password' placeholder="Password" value=password}}</div>
+    </div>
+    <p>By signing up to the service you are agreeing to our <a>Terms of User</a> and our <a>Privacy Policy</a></p>
+    <button class="button success" type="submit">Create Account</button>
+    
+  </div>
+</form>

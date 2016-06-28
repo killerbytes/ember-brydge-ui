@@ -40,6 +40,7 @@
   border-color: transparent transparent #ffffff transparent;
   margin: auto;
 }
+
 .accordion-arrow{
 }
 
@@ -106,6 +107,7 @@
 
 }
 #dd-views{
+  width: 322px !important;  
   .profile-view-settings{
     border-bottom: 1px solid $border-color;
     strong{

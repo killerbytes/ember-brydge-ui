@@ -1,7 +1,15 @@
 aside, .sidebar{
-	.box section{
+	.box section, 
+	.section-accordion-group .section-main{
 		padding: 1.25rem 2rem;
+	
 	}
+	.section-accordion-group .section-accordion-content + a{
+    padding: 2rem;
+    padding-top: 0;
+    padding-bottom: 1.25rem;
+	}
+
 	.user{
 		font-size: 11px;
 	}

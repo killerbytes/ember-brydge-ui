@@ -1,3 +1,62 @@
+form{
+	[type='text'], 
+	[type='password'], 
+	[type='date'], 
+	[type='datetime'], 
+	[type='datetime-local'], 
+	[type='month'], 
+	[type='week'], 
+	[type='email'], 
+	[type='number'], 
+	[type='search'], 
+	[type='tel'], 
+	[type='time'], 
+	[type='url'], 
+	[type='color'], 
+	textarea,
+	select{
+		box-shadow: none;
+		// padding: 5px 10px;
+		font-size: 12px;
+		height: auto;
+	}
+	.input-group{
+		border: 1px solid $border-color;
+		input.input-group-field{
+			border: none;
+		}
+		button{
+			padding: 9px 1rem;
+		}
+	}
+
+	.validated-input{
+		margin-bottom: 10px;
+		&.has-error{
+			input{
+				border: 1px solid red;
+			}
+		}
+		input{
+			margin-bottom: 0;
+		}
+		.input-error{
+			color: red;
+		}
+
+	}
+	label.reversed, .label.reversed{
+		input{
+			float: right;
+			margin: 0;
+			margin-top: 4px;
+		}
+	}
+	p, p.help-text{
+		color: $text-gray;
+	}
+}
+
 .form-input-wrapper{
 	@extend .bordered;
 	@extend .rounded;
@@ -6,7 +65,7 @@
 	// padding: 1rem;
 	margin-bottom: 1rem;
 	section{
-		padding: 1rem 2rem;
+		padding: 1rem;
 	}
 	.section-footer{
 		padding-top: 0;
@@ -32,70 +91,23 @@
 }
 
 
-.log-in-form{
+
+
+.micro-forms{
+	@extend .rounded;
+	background-color: #FFF;
+	padding: 1rem 2rem 2rem;
 	.logo{
 		height: 40px;
-		margin: 35px 0;
+		margin: 1rem 1rem 2.5rem;
 	}
-}
-
-form{
-	[type='text'], 
-	[type='password'], 
-	[type='date'], 
-	[type='datetime'], 
-	[type='datetime-local'], 
-	[type='month'], 
-	[type='week'], 
-	[type='email'], 
-	[type='number'], 
-	[type='search'], 
-	[type='tel'], 
-	[type='time'], 
-	[type='url'], 
-	[type='color'], 
-	textarea,
-	select{
-		box-shadow: none;
-		// padding: 5px 10px;
+	button[type="submit"]{
+		text-transform: uppercase;
+	}
+	label{
 		font-size: 12px;
-		height: auto;
 	}
-	.validated-input{
-		margin-bottom: 10px;
-		&.has-error{
-			input{
-				border: 1px solid red;
-			}
-		}
-		input{
-			margin-bottom: 0;
-		}
-		.input-error{
-			color: red;
-		}
 
-	}
-	label, .label{
-		// font-size: $form-label-font-size;
-		// color: $text-light;
-	}
-	label.reversed, .label.reversed{
-		input{
-			float: right;
-			margin: 0;
-			margin-top: 4px;
-		}
-	}
-	p, p.help-text{
-		color: $text-light;
-	}
-}
-
-
-.form-signin, .form-signup{
-	width: 65%;
-	margin: auto;
 	// a{
 	// 	font-size: 14px;
 	// 	font-weight: bold;
@@ -103,32 +115,30 @@ form{
 	// 	padding-bottom: 10px;
 	// }
 }
-.form-signin{
-	margin-bottom: 40px;
-}
-.form-signup{
-	margin-top: 60px;
-	margin-bottom: 60px;
-	input{
-		margin-bottom: 5px;
-	}
-	p{
-		color: #999;
-		font-size: 11px;
-	}
-}
 
-.form-profile{
+// .form-signup{
+// 	margin-top: 60px;
+// 	margin-bottom: 60px;
+// 	input{
+// 		margin-bottom: 5px;
+// 	}
+// 	p{
+// 		color: #999;
+// 		font-size: 11px;
+// 	}
+// }
 
-	.inline-input-two input{
-		width: calc(50% - 7px);
-		display: inline-block;
-	}
-	.inline-input-two input:not(:last-child){
-		margin: 0;
-		margin-right: 10px;
-	}
-}
+// .form-profile{
+
+// 	.inline-input-two input{
+// 		width: calc(50% - 7px);
+// 		display: inline-block;
+// 	}
+// 	.inline-input-two input:not(:last-child){
+// 		margin: 0;
+// 		margin-right: 10px;
+// 	}
+// }
 
 .form-accordion{
 	border: none;

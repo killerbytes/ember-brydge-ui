@@ -20,16 +20,55 @@
 									<span class="alert badge">{{notification.profileCount}}</span>
 								{{/if}}
 								<i class="icons bino"></i>
-								<div class="wrapper">
-									<div class="triangle"></div>
-								</div>
 							</a>
+							<div class="wrapper">
+								<div class="triangle"></div>
+							</div>
 						{{/zf-tooltip}}
 					</li>
 
-					{{top-bar-requests}}
-					{{top-bar-messages}}
-					{{top-bar-notifications}}
+					<li>
+						{{#zf-tooltip title="Connection Requests"}}
+							<a data-toggle="dd-requests" {{action 'clickConnection' notification.connectionCount}}>
+								{{#if notification.connectionCount}}
+									<span class="alert badge">{{notification.connectionCount}}</span>
+								{{/if}}
+								<i class="icons user"></i>
+							</a>
+							<div class="wrapper">
+								<div class="triangle"></div>
+							</div>
+						{{/zf-tooltip}}
+						
+					</li>
+					<li>
+						{{#zf-tooltip title="Messages"}}
+							<a data-toggle="dd-messages" {{action 'clickMessage' notification.messageCount}}>
+								{{#if notification.messageCount}}
+									<span class="alert badge">{{notification.messageCount}}</span>
+								{{/if}}
+								<i class="icons messages"></i>
+							</a>
+							<div class="wrapper">
+								<div class="triangle"></div>
+							</div>
+						{{/zf-tooltip}}
+						
+					</li>
+					<li>
+						{{#zf-tooltip title="Notifications"}}
+							<a data-toggle="dd-notification" {{action 'clickNotification' notification.notificationCount}}>
+									{{#if notification.notificationCount }}
+							      <span class="alert badge">{{notification.notificationCount}}</span>    
+							    {{/if}}
+									<i class="icons stack"></i>
+							</a>
+							<div class="wrapper">
+								<div class="triangle"></div>
+							</div>							
+						{{/zf-tooltip}}
+						
+					</li>
 					<li>
 						<ul class="menu user-info">
 							<li>
@@ -40,38 +79,16 @@
 								{{/link-to}}
 							</li>
 							<li>
-								<a data-toggle="dd-menu">
-									{{#zf-tooltip title="Menu" vOffset=0}}
-										<i class="icons caret"></i>
-									{{/zf-tooltip}}
+								{{#zf-tooltip title="Menu"}}
+									<a data-toggle="dd-menu">
+											<i class="icons caret"></i>
+									</a>
 									<div class="wrapper">
 										<div class="triangle"></div>
 									</div>
-								</a>
 
-								{{#zurb-dropdown id="dd-menu" class="dropdown-menu-bar" closeOnClick=true}}
-									<ul class="menu">
-										<li>{{link-to "Home" "home"}}</li>
-									</ul>
-									<ul class="menu">
-										<li>{{link-to "Profile" "me"}}</li>
-										<li>{{link-to "Edit Profile" "me.edit"}}</li>
-										
-									</ul>
-									<ul class="menu">
-										<li>{{link-to "Connections" "me.connections"}}</li>
-										<li>{{link-to "Your ASK Page" "me.ask"}}</li>
-										<li>{{link-to "Compliments" "me.compliments"}}</li>
-									</ul>
-									<ul class="menu">
-										<li>{{link-to "People Search" "search"}}</li>
-									</ul>
-									<ul class="menu">
-										<li>{{link-to "Settings" "settings" }}</li>
-										<li>{{link-to "User Guide" "user-guide" }}</li>
-										<li><a href="" {{action 'logout'}}>Log out</a></li>									
-									</ul>
-								{{/zurb-dropdown}}						
+								{{/zf-tooltip}}
+
 								
 							</li>
 						</ul>
@@ -276,5 +293,29 @@
 			See All Messages
 		{{/link-to}}
 	{{/zf-dropdown}}
+
+	{{#zf-dropdown id="dd-menu" class="dropdown-menu-bar" closeOnClick=true}}
+		<ul class="menu">
+			<li>{{link-to "Home" "home"}}</li>
+		</ul>
+		<ul class="menu">
+			<li>{{link-to "Profile" "me"}}</li>
+			<li>{{link-to "Edit Profile" "me.edit"}}</li>
+			
+		</ul>
+		<ul class="menu">
+			<li>{{link-to "Connections" "me.connections"}}</li>
+			<li>{{link-to "Your ASK Page" "me.ask"}}</li>
+			<li>{{link-to "Compliments" "me.compliments"}}</li>
+		</ul>
+		<ul class="menu">
+			<li>{{link-to "People Search" "search"}}</li>
+		</ul>
+		<ul class="menu">
+			<li>{{link-to "Settings" "settings" }}</li>
+			<li>{{link-to "User Guide" "user-guide" }}</li>
+			<li><a href="" {{action 'logout'}}>Log out</a></li>									
+		</ul>
+	{{/zf-dropdown}}						
 
 </div>

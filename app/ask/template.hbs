@@ -27,20 +27,14 @@
 			</p>    	
 		</div>
 		{{else}}
-			<div class="form-input-wrapper">
-	      <section>
-	      	<form {{action 'submit' on='submit'}} class="form-input wrapper">
-						<div class="avatar circle" style={{htmlSafeImage sessionAccount.account.profile.avatarUrl}}>
-						  <img src= {{avatarUrl}} class="hide">
-						</div>
-						<div class="input-wrapper">
-						{{form-text-counter placeholder=placeholder limit=140 value=answer rows=5 showCount=true}}
-						</div>	      	
-	      	</form>
-	      </section>
-        <section class="section-footer">
+
+      <form {{action 'submit' on='submit'}} class="box user-top-form mb20">
+        <section>
+
+        	{{form-text-counter placeholder=placeholder limit=140 value=answer rows=3 showCount=true class="mb"}}
+
 					<div class="row">
-						<div class="columns medium-8">
+						<div class="columns medium-8 text-gray">
 							Ask anyone a professional question. <br>
 							If answered, it will appear on both profiles.							
 						</div>
@@ -49,8 +43,8 @@
 						</div>
 					</div>
         </section>
+      </form>      
 
-	    </div>
 
 		{{/if}}
 
