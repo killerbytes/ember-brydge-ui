@@ -47,15 +47,40 @@
 	.tab-controls{
 		border: none;
 	}
+	.tabs-title.is-active{
+		position: relative;
+		color: $button-blue;
+		&:before{
+			@extend .arrow;
+		  bottom: -2px;
+		  left: 42%;
+		  border-color: transparent transparent $border-color transparent;
+		  border-width: 9px;
+		}
+		&:after{
+			@extend .arrow;
+		  bottom: -2px;
+		  left: 43%;
+		  border-color: transparent transparent $body-bg-color transparent;
+		  border-width: 8px;
+		}
+	}
 }
 
 #ask-tabs{
+	@extend .newsfeed-tabs;
 	.tabs-title{
 		width: 50%;
 	}
-	.tabs-title.is-active a{
-		background-color: $button-blue;
-		color: #FFF;
+	.tabs-title.is-active{
+		&:before{
+			left: 46%;
+			border-width: 8px;
+			bottom: -1px;
+		}
+		&:after{
+			left: 46%;
+		}
 	}
 }
 

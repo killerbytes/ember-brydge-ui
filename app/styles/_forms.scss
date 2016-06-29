@@ -55,6 +55,10 @@ form{
 	p, p.help-text{
 		color: $text-gray;
 	}
+	.select-label{
+		margin-top: 10px;
+		margin-right: 1rem;
+	}
 }
 
 .form-input-wrapper{

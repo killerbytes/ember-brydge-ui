@@ -45,14 +45,14 @@
 
 			<div class="box getting-started">
 				<section>
-					<h4>Get Started, {{profile.firstName}}!</h4>
-					We'll keep this notice here for the next 7 days.
+					<h3>Get Started, {{profile.firstName}}!</h3>
+					We'll keep this notice here for 7 days after you sign-up.
 				</section>
 				<section>
 					<span class="badge">1</span>
 
 					<p>Explore your {{link-to "Profile" "me"}}</p>
-					<p>This is where all the post you share (what we call <strong>Broadcasts</strong>), work and academic history(<strong>Background</strong>), questions you ask and answer (<strong>Ask</strong>) and <strong>Compliments</strong> you receive live.</p>
+					<p>This is where all the posts you share (what we call <strong>Broadcasts</strong>), work and academic history(<strong>Background</strong>), questions you ask and answer (<strong>Ask</strong>) and <strong>Compliments</strong> you receive will reside.</p>
 
 				</section>
 				<section>
@@ -65,9 +65,9 @@
 				</section>
 				<section>
 					<span class="badge">3</span>
-					<p>Explore industry Channels on the {{link-to "Home" "home"}} page</p>
-					<p>Once you've picked your relevant industries, you can use the channel filters below the broadcast box to see what:</p>
-					<p>(a) your connections are talking about <br> (b) your industry peers are talking about</p>
+					<p>Explore Industry Channels on the {{link-to "Home" "home"}} page</p>
+					<p>Once you've picked your relevant industries, you can use the channel filters on the Home page to see:</p>
+					<p>(a) what your connections are talking about and sharing, and <br> (b) what your industry peers are talking about and sharing</p>
 					<p>And you can further filter them by location!</p>
 				</section>
 			</div>
@@ -123,7 +123,8 @@
     
   </div>
   <div class="large-5 medium-5 columns sidebar">
-    {{render "footer"}}
+		{{ partial 'partials/user-guide' }}
+    {{ partial "footer"}}
 
   </div>
 </div>

@@ -8,7 +8,7 @@ export default Ember.Component.extend({
     return this.get('profile.connection.status') == 'accepted' ? true : false;
   }),
   connectionStatus: Ember.computed('isConnected', function(){
-    return this.get('isConnected') ? true : this.get('profile.connection.status') == 'pending' ? 'Connection Request Sent' : 'Connect';
+    return this.get('isConnected') ? true : this.get('profile.connection.status') == 'pending' ? 'Connection Request Sent' : 'Add Connection';
   }),
   isPending: Ember.computed('isConnected', function(){
   	return this.get('profile.connection.status') == 'pending' ? true : null;

@@ -1,0 +1,65 @@
+<div class="box">
+  <section class="title">
+    <h4>Compliments Requiring Approval</h4>
+  </section>
+    {{#if toPendingSidebar}}
+      {{#each toPendingSidebar as |item| }}
+        <section>
+          <div class="user mb">
+            Complimented by {{link-to item.from.name "profile" item.from.id class="name"}}
+            <div class="timestamp">{{timestamp item.createdAt}}</div>                
+          </div>
+          <strong>{{item.title}}:</strong>
+          <div class="content-pad">
+            {{item.content}}
+          </div>
+          <div class="section-footer-buttons">
+            <a {{action 'accept' item.id}} class="button success rounded">Add to profile</a>
+            <a {{action 'reject' item.id}} class="button button-border rounded">Delete</a>
+          </div>      
+        </section>
+      {{/each}}
+    {{else}}
+      <p class="columns">Nothing to show here</p>  
+    {{/if}}
+    {{#if toPendingSidebar}}
+			<section class="section-footer-links">
+  		{{#link-to 'me.compliments.pending' class="footer-button button expanded" }}
+    		See All
+  		{{/link-to}}
+  		</section>
+  	{{/if}}
+
+</div>
+
+<div class="box">
+  <section class="title">
+    <h4>Compliments you have posted</h4>
+  </section>
+  {{#if fromAcceptSidebar }}
+  {{#each fromAcceptSidebar as |item| }}
+    <section>
+      <div class="user mb">
+        You complimented {{link-to item.to.name "profile" item.to.id class="name"}}
+        <div class="timestamp">{{timestamp item.createdAt}}</div>                
+      </div>
+      <strong>{{item.title}}:</strong>
+      <div class="content-pad">
+        {{item.content}}
+      </div>
+      <div class="section-footer-buttons">
+      	<a {{action 'delete' item.id}} class="button success rounded">Delete</a>
+      </div>      
+    </section>
+  {{/each}}
+  {{else}}
+    <p class="columns">Nothing to show here</p>  
+  {{/if}}
+	{{#if fromAcceptSidebar }}
+		<section class="section-footer-links">
+	  {{#link-to 'me.compliments.posted' class="footer-button button expanded" }}
+	    See All
+	  {{/link-to}}
+	  </section>
+  {{/if}}
+</div>

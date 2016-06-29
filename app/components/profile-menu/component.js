@@ -8,7 +8,6 @@ const {
 export default Ember.Component.extend({
   activeConnections: Ember.computed.filterBy('connections', 'status', 'accepted'),
   index: Ember.computed(function(){
-  	console.log(getOwner(this).lookup('controller:application').currentPath);
   	var index;
   	switch( getOwner(this).lookup('controller:application').currentPath ){
   		case 'profile':

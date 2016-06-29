@@ -157,6 +157,10 @@
 
 .getting-started{
 	section{
+		h3{
+			color: $body-text-color;
+			margin-bottom: 1rem !important;
+		}
 		position: relative;
 	}
 	.badge{
@@ -184,6 +188,17 @@
 		.section-accordion-group .section-accordion-content + a{
 			padding-left: 2rem;
 			padding-right: 2rem;
+		}
+	}
+}
+.user-guide-box{
+	padding: 1px;	
+}
+
+footer{
+	.menu{
+		>li:first-child a{
+			padding-left: 0;
 		}
 	}
 }
