@@ -17,6 +17,7 @@ export default Ember.Component.extend({
 			let upvotes = post.get('upvotes');
 			let postId = post.get('id');			
 			//let postId = this.get('post.id');
+      $('body').find('.tooltip').hide();
 
 			if(this.get('disabled')) return false;
 			this.set('disabled', true);

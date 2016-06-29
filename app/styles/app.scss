@@ -3,13 +3,14 @@
 @import 'https://fonts.googleapis.com/css?family=Droid+Serif%7CMerriweather%7CRoboto+Slab';
 @import url(https://fonts.googleapis.com/css?family=Lato:400,300,700);
 
-$brydge-blue:#6BCDFD;
-$brydge-gray:#F7FAFE;
-$border-color: #DFDFDF;
+$brydge-blue: #6BCDFD;
+$button-blue: #51AFE5;
+$brydge-gray: #F7FAFE;
+$border-color: #E6E6E6;
 $box-border-color: #e5e6e9 #dfe0e4 #d0d1d5;
 $body-text-color: #3A3A3A;
 $body-bg-color: #EEF9FF;
-// $panel-color: #EFEFEF;
+$box-border: #EFF3F5 #EFF3F5 #D5DFE4;
 
 $text-gray: #94999d;
 $text-light: #B6C3CA;
@@ -82,7 +83,7 @@ h4{
 }
 
 a, a:hover, a:focus{
-	color: #51AFE5;
+	color: $button-blue;
 }
 a.plain{
 	color: inherit;
@@ -126,7 +127,7 @@ p.wrap{
 	color: $text-light;
 }
 .text-blue{
-	color: $brydge-blue;
+	color: $button-blue;
 }
 .text-upper{
 	text-transform: uppercase;
@@ -141,14 +142,13 @@ p.wrap{
 // 	background-color: #FFF !important;
 // }
 // .bg-blue{
-// 	background-color: $brydge-blue;
+// 	background-color: $button-blue;
 // }
 // .bg-gray{
 // 	background-color: $panel-color !important;
 // }
 .rounded{
 	border-radius: 3px;
-	overflow: hidden;
 }
 .overflow{
 	overflow: hidden;
@@ -164,7 +164,8 @@ p.wrap{
 .bordered{
 	border-style: solid;
 	border-width: 1px;
-	border-color: #e9f2f7 #e3f1f9 #d5dfe4;
+	// border-color: #e9f2f7 #e3f1f9 #d5dfe4;
+	border-color: $box-border;
 }
 .signup-section{
 	padding-left: 3px;

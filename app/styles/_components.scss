@@ -39,7 +39,7 @@
 // 		padding-top: 10px;
 // 		padding-bottom: 10px;
 // 		// background: #F1F1F1;
-// 		background: $brydge-blue;
+// 		background: $button-blue;
 // 		color: #FFF;
 // 		border-bottom: 1px solid $border-color;
 // 		border-top-left-radius: 3px;
@@ -147,7 +147,7 @@
 // 	}
 // 	input:checked+span{
 // 		background-color: #FFF;
-// 		border-bottom-color: $brydge-blue;
+// 		border-bottom-color: $button-blue;
 // 	}
 // 	.is-active{
 // 		background: inherit;
@@ -185,7 +185,7 @@
 // 	}
 // 	.search-box.active{
 // 		input{
-// 			border-bottom-color: $brydge-blue;
+// 			border-bottom-color: $button-blue;
 // 		}
 // 	}
 // }
@@ -250,13 +250,13 @@
 // 		width: 85%;
 // 		font-size: 14px;
 // 		height: auto;
-// 		border: 1px solid $brydge-blue;
+// 		border: 1px solid $button-blue;
 // 		margin-bottom: 0;
 // 		padding: 6px 10px;
 // 		display: inline-block;
 // 	}
 // 	.fa-plus-circle{
-// 		color: $brydge-blue;
+// 		color: $button-blue;
 // 		font-size: 30px;
 // 		float: right;
 // 	}
@@ -265,19 +265,6 @@
 
 
 
-// .footer-button{
-// 	border-top: 1px solid $border-color;
-// 	background-color: #FFF;
-// 	color: $brydge-blue;
-// 	text-transform: uppercase;
-// 	padding: 5px;
-// 	font-weight: bold;
-// 	font-size: 11px;
-// 	&:hover, &:focus{
-// 		background-color: #FFF;
-// 		color: $brydge-blue;
-// 	}
-// }
 
 
 
@@ -305,14 +292,14 @@
 // 		display: table-cell;
 // 		border: 1px solid;
 // 		border-color: $box-border-color;
-// 		color: $brydge-blue;
+// 		color: $button-blue;
 // 		text-transform: uppercase;
 // 	}
 // 	.button{
 // 		width: 33%;
 // 	}
 // 	.button.connect{
-// 		// background-color: $brydge-blue;
+// 		// background-color: $button-blue;
 // 		border-color: #cfefff #96dcfe #96dcfe;
 // 		// color: #FFF;
 // 		&:hover{
@@ -366,7 +353,7 @@
 // 	margin-right: 5px;
 // 	border-bottom: 1px solid $border-color;
 // 	.fa-close{
-// 		background-color: $brydge-blue;
+// 		background-color: $button-blue;
 // 		color: #FFF;
 // 		position: absolute;
 // 		left: 0;
@@ -466,7 +453,7 @@
 // 			padding: 5px;
 // 		}
 // 		a:hover, a:focus{
-// 			color: $brydge-blue;
+// 			color: $button-blue;
 // 		}
 // 	}
 

@@ -3,10 +3,10 @@ import Ember from 'ember';
 export default Ember.Controller.extend({
   session: Ember.inject.service(),
   notification: Ember.inject.service(),
-  header: Ember.computed('page', function(){
+  isHeader: Ember.computed('page', function(){
     return this.get('page') == 'header';
   }),
-  simple_header: Ember.computed('page', function(){
+  isSimpleHeader: Ember.computed('page', function(){
     return this.get('page') == 'simple_header';
   }),
   init(){

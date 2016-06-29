@@ -16,6 +16,25 @@
 			margin-bottom: 0;
 		}
 	}
+	.button.is-active{
+		position: relative;
+		color: $button-blue;
+		&:before{
+			@extend .arrow;
+		  bottom: -2px;
+		  left: 42%;
+		  border-color: transparent transparent $border-color transparent;
+		  border-width: 9px;
+		}
+		&:after{
+			@extend .arrow;
+		  bottom: -2px;
+		  left: 43%;
+		  border-color: transparent transparent $body-bg-color transparent;
+		  border-width: 8px;
+		}
+
+	}
 	.menu{
 		background-image: url(icons/ellipsis.png);
 		background-size: 50%;

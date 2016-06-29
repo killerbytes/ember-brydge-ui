@@ -2,39 +2,35 @@
   <div class="column medium-11">
     <div class="expanded button-group">
       {{#if isOwner}}
-        {{link-to "Broadcasts" "me" class="button"}}          
-        {{link-to "Background" "me.about" class="button"}}          
-        {{link-to "Ask" "me.ask" class="button"}}          
-        {{link-to "Compliments" "me.compliments" class="button"}}
+        {{link-to "Broadcasts" "me" class=(active-tab '0' index "button")}}
+        {{link-to "Background" "me.about" class=(active-tab '1' index "button")}}
+        {{link-to "Ask" "me.ask" class=(active-tab '2' index "button")}} 
+        {{link-to "Compliments" "me.compliments" class=(active-tab '3' index "button")}}
       {{else}}
-        {{link-to "Broadcasts" "profile" profile.id class="button"}}          
-        {{link-to "Background" "about" profile.id class="button"}}          
-        {{link-to "Ask" "ask" profile.id class="button"}}          
-        {{link-to "Compliments" "compliments" profile.id class="button"}}
+        {{link-to "Broadcasts" "profile" profile.id class=(active-tab '0' index "button")}}
+        {{link-to "Background" "about" profile.id class=(active-tab '1' index "button")}}
+        {{link-to "Ask" "ask" profile.id class=(active-tab '2' index "button")}}
+        {{link-to "Compliments" "compliments" profile.id class=(active-tab '3' index "button")}}
       {{/if}}
     </div>
   </div>
-    <div class="column medium-1 wrapper">
-      <a class="button menu" data-toggle="dd-public-options">
-        <div class="wrapper">
-          <div class="triangle triangle-gray"></div>
-        </div>
-        
-      </a>
-      {{#zf-dropdown id="dd-public-options" class="dropdown-gray" closeOnClick=true}}
-        <ul class="no-bullet menu-list menu-list-menu">
-          {{#if isOwner}}
-            <li>{{link-to "Connections" "me.connections"}}</li>
-            <li>{{link-to "Your ASK Page" "me.ask"}}</li>
-          {{else}}
-            <li>{{#link-to "connections" profile.id }} {{profile.firstName}}'s connection ({{ activeConnections.length }}){{/link-to}}</li>
-            <li><a href="" class="warning" {{action 'onClickedDisconnect'}}>Disconnect from {{profile.firstName}}</a></li>
-          {{/if}}
-        </ul>
-      {{/zf-dropdown}}
+  <div class="column medium-1 wrapper">
+    <a class="button menu dropdown-button-arrow" data-toggle="dd-public-options">
+      
+    </a>
 
-    </div>
+  </div>
 </div>
-
-
-
+<div class="row columns wrapper">    
+  {{#zf-dropdown id="dd-public-options" class="dropdown-menu" closeOnClick=true}}
+    <ul class="menu">
+      {{#if isOwner}}
+        <li>{{link-to "Connections" "me.connections"}}</li>
+        <li>{{link-to "Your ASK Page" "me.ask"}}</li>
+      {{else}}
+        <li>{{#link-to "connections" profile.id }} {{profile.firstName}}'s connection ({{ activeConnections.length }}){{/link-to}}</li>
+        <li><a href="" class="warning" {{action 'onClickedDisconnect'}}>Disconnect from {{profile.firstName}}</a></li>
+      {{/if}}
+    </ul>
+  {{/zf-dropdown}}
+</div>

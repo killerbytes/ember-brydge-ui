@@ -9,7 +9,11 @@ aside, .sidebar{
     padding-top: 0;
     padding-bottom: 1.25rem;
 	}
-
+	section.title{
+		h4{
+			margin-bottom: 0;
+		}
+	}
 	.user{
 		font-size: 11px;
 	}

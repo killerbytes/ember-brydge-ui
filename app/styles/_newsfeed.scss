@@ -5,6 +5,18 @@
 	section{
 		position: relative;
 	}
+	.dropdown-button-arrow.hover{
+  	@extend .dropdown-arrow;
+  	&:before{
+  		left: 14% !important;
+  		border-width: 6px !important;
+  	}
+  	&:after{
+			left: 18% !important;
+  		border-width: 6px !important;
+  	}
+	}
+
 	.user{
 		.timestamp{
 			position: absolute;
@@ -15,14 +27,16 @@
 	.content{
 		padding: 1rem;
 	}
-	div + .media{
+	div + .media, div + .shared-post{
 		margin-top: 10px;
 	}
 	.post-actions{
 		padding: .3rem 1rem;
 		a{
-			color: $text-gray;
 			font-weight: bold;
+		}
+		a:not(.acted){
+			color: $text-gray;
 		}
 		a:not(:first-child), .has-tip{
 			margin-left: 20px
@@ -105,7 +119,7 @@
 // .newsfeed-filter{
 // 	.dropdown-button{
 // 		background: #FFF;
-// 		color: $brydge-blue;
+// 		color: $button-blue;
 // 		font-weight: bold;
 // 		padding-right: 0;
 // 	}

@@ -51,7 +51,7 @@ $global-lineheight: 1.5;
 $foundation-palette: (
   primary: $brydge-blue,
   secondary: #DEDEDE,
-  success: $brydge-blue,
+  success: $button-blue,
   warning: #ffae00,
   alert: #ec5840,
 );
@@ -239,7 +239,7 @@ $button-margin: 0; //0 0 $global-margin 0;
 $button-fill: solid;
 $button-background: $primary-color;
 $button-background-hover: scale-color($button-background, $lightness: -15%);
-$button-color: $brydge-blue; //$white;
+$button-color: $button-blue; //$white;
 $button-color-alt: $black;
 $button-radius: $global-radius;
 $button-sizes: (
@@ -560,7 +560,7 @@ $tooltip-radius: $global-radius;
 // -----------
 
 $topbar-padding: 0.5rem;
-$topbar-background: $brydge-blue;
+$topbar-background: $button-blue;
 $topbar-submenu-background: $topbar-background;
 $topbar-title-spacing: 1rem;
 $topbar-input-width: 200px;

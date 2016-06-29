@@ -4,7 +4,6 @@ import Ember from 'ember';
 export default Ember.Service.extend({
   store: Ember.inject.service(),
   ajax: Ember.inject.service(),
-  sessionAccount: Ember.inject.service('session-account'),
 	// requests: Ember.computed('connectionStore.@each', function() {
  //    var ownerid = this.get('sessionAccount.account.id');
 
@@ -82,6 +81,8 @@ export default Ember.Service.extend({
       if(group === 'connection') this.set('requests', res);
       if(group === 'views') this.set('views', res);
       if(cb) cb.call();
+      console.log(this.get('views'))
+
     });
   },
 
