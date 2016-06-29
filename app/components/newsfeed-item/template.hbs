@@ -21,7 +21,7 @@
     </div>
     <div class="columns medium-4 text-right">
       {{#unless shared }}
-        <a data-toggle="dd-post-menu-{{post.id}}" class="action-button"><i class="icons ellipsis"></i></a>
+        <a data-toggle="dd-post-menu-{{post.id}}" class="action-button dropdown-button-arrow"><i class="icons ellipsis"></i></a>
         {{#zf-dropdown id=(concat "dd-post-menu-" post.id) closeOnClick=true class="card-menu-dropdown"}}
           <ul class="menu">
             <li><a href="">Delete Post</a></li>
@@ -29,7 +29,7 @@
           </ul>
         {{/zf-dropdown}}
       {{/unless}}
-      {{#link-to 'post' post.user.id post.id class="timestamp"}}{{timestamp post.updated_at}}{{/link-to}}
+      {{#link-to 'post' post.user.id post.id class="timestamp"}}{{timestamp post.updatedAt}}{{/link-to}}
 
     </div>
   </div>
@@ -67,39 +67,39 @@
     {{/if}}
   {{/unless}}
 
-  {{#unless shared }}
-  {{/unless}}
 </section>
-<section class="post-actions">
-  <div class="row">
-    <div class="columns medium-6">
+{{#unless shared }}
+  <section class="post-actions">
+    <div class="row">
+      <div class="columns medium-6">
 
-      {{#if post.vote.upVoted}}
-      <a {{action "vote" "reset"}}><span class="acted">Upvoted</span></a>
-      {{else}}
-      <a {{action "vote" "up"}}>Upvote</a>
-      {{/if}}
+        {{#if post.vote.upVoted}}
+        <a {{action "vote" "reset"}} class="acted">Upvoted</a>
+        {{else}}
+        <a {{action "vote" "up"}}>Upvote</a>
+        {{/if}}
 
-      {{#if post.vote.upVoted}}<span>{{post.vote.upVotes}}</span>{{/if}}
+        {{#if post.vote.upVoted}}<span>{{post.vote.upVotes}}</span>{{/if}}
 
 
-      {{#if post.vote.downVoted}}
-      <a {{action "vote" "reset"}}><span class="acted">Downvoted</span></a>
-      {{else}}
-        {{#zf-tooltip title="Downvoting is anonymous" vOffset=0 class="top"}}
-          <a {{action "vote" "down"}}>Downvote</a>
-        {{/zf-tooltip}}
-      {{/if}}
+        {{#if post.vote.downVoted}}
+        <a {{action "vote" "reset"}} class="acted">Downvoted</a>
+        {{else}}
+          {{#zf-tooltip title="Downvoting is anonymous" class="top"}}
+            <a {{action "vote" "down"}}>Downvote</a>
+          {{/zf-tooltip}}
+        {{/if}}
 
+      </div>
+      <div class="columns medium-6 text-right">
+        <a {{action "viewComments"}}>Comment</a>
+        {{#if post.commentCount}}<span>{{post.commentCount}}</span>{{/if}}
+        <a {{action "share" post }} data-open="shareModal">Share</a>
+        {{#if post.vote.sharedCount}}<span>{{post.vote.sharedCount}}</span>{{/if}}
+      </div>
     </div>
-    <div class="columns medium-6 text-right">
-      <a {{action "viewComments"}}>Comment</a>
-      {{#if post.commentCount}}<span>{{post.commentCount}}</span>{{/if}}
-      <a {{action "share" post }} data-open="shareModal">Share</a>
-      {{#if post.vote.sharedCount}}<span>{{post.vote.sharedCount}}</span>{{/if}}
-    </div>
-  </div>
-</section>
+  </section>
+{{/unless}}
 
 {{#unless shared}}
   <section class="comments">

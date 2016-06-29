@@ -1,4 +1,5 @@
 header{
+	box-shadow: 0 0 2px 0 #404040;
 	width: 100%;
 	position: fixed;
 	z-index: 100;
@@ -11,9 +12,14 @@ header{
 			height: 40px;
 
 		}
+		.menu > li > a{
+			padding-top: 6px;
+			padding-bottom: 6px;
+		}
 	}
 	.logo{
-		width: 140px;
+		width: 127px;
+		margin-right: 2rem !important;
 	}
 	.user-info{
 		a.name{
@@ -40,10 +46,13 @@ header{
 			padding: 0.7rem 1rem;
 			display: block;
 		}
+		[data-toggle].hover{
+			background-color: darken($button-blue, 10%);
+		}
 		[data-toggle]+.wrapper{
 			position: absolute;
 			display: none;
-			bottom: -4px;
+			bottom: -3px;
 			width: 100%;
 		}
 		[data-toggle].hover + .wrapper{
@@ -60,6 +69,20 @@ header.simple-header{
 	}
 	.logo{
 		margin: auto;
+	}
+}
+
+.top-bar-search {
+	@extend .search-box;
+	width: 350px;
+	.user{
+		border-bottom: 1px solid $border-color;
+		font-size: 10px;
+	}
+	.user a{
+	}
+	.position{
+		color: $text-gray;
 	}
 }
 
@@ -123,7 +146,7 @@ header.top-bar {
 
 }
 .top-bar-title{
-  font-family: 'Raleway:500', helvetica, arial, sans-serif;	
+  font-family: 'Raleway:500', helvetica, arial, sans-serif;
   font-size: 26px;
   line-height: 1.4em;
   font-weight: bold;
@@ -149,4 +172,3 @@ header.top-bar {
 // 	position: absolute;
 // 	top: 13px;
 // }
-

@@ -3,15 +3,15 @@ import Ember from 'ember';
 export default Ember.Controller.extend({
   session: Ember.inject.service(),
   notification: Ember.inject.service(),
-  header: Ember.computed('page', function(){
+  isHeader: Ember.computed('page', function(){
     return this.get('page') == 'header';
   }),
-  simple_header: Ember.computed('page', function(){
+  isSimpleHeader: Ember.computed('page', function(){
     return this.get('page') == 'simple_header';
   }),
   init(){
     var notification = this.get('notification');
-    
+
     function notificationChecker(){
       Ember.run.later(()=>{
         // notification.checkForNotifications(()=>{
@@ -21,7 +21,7 @@ export default Ember.Controller.extend({
         notification.checkNotificationCounts(()=>{
           notificationChecker();
         });
-      },60000)    
+      },60000)
     }
 
     notification.checkNotificationCounts();

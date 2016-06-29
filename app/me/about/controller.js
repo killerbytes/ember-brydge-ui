@@ -5,6 +5,7 @@ export default Ember.Controller.extend({
   ajax: Ember.inject.service(),
   flashMessages: Ember.inject.service(),
   sharePost: Ember.inject.service(),	
+
   profile: Ember.computed.alias('model.profile'),
   posts: Ember.computed.alias('model.posts'),
   languages: Ember.computed.alias('model.languages'),

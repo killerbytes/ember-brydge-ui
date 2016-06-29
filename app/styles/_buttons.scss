@@ -1,3 +1,4 @@
+
 .wrapper, .button-wrapper{
 	position: relative;
 	&.button.large{
@@ -6,7 +7,7 @@
 			display: block;
 			padding: 13px;
 		}
-	}	
+	}
 }
 
 .button{
@@ -34,16 +35,13 @@
 		@extend .rounded;
 		padding: 10px;
 	}
-	&.text-blue:hover{
-		color: $brydge-blue;
-	}
 	&:hover, &:focus{
 		background-color: #FFF;
 	}
 }
 .btn{
 	@extend .shadowed;
-	@extend .rounded;	
+	@extend .rounded;
 }
 
 
@@ -65,8 +63,9 @@
 
 
 .dropdown-button{
+	color: $button-blue;
 	position: relative;
-	// padding: 8px;
+	font-weight: bold;
 	padding-right: 30px;
 	font-size: 12px;
 	&.middle{
@@ -102,4 +101,18 @@
 	font-size: 15px;
 	text-transform: uppercase;
 
+}
+
+.footer-button{
+	// border-top: 1px solid $border-color;
+	background-color: $brydge-gray;
+	// color: $button-blue;
+	// text-transform: uppercase;
+	// padding: 5px;
+	// font-weight: bold;
+	// font-size: 11px;
+	// &:hover, &:focus{
+	// 	background-color: #FFF;
+	// 	color: $button-blue;
+	// }
 }

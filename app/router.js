@@ -17,17 +17,19 @@ Router.map(function() {
   this.route('me', function() {
     this.route('edit',{path:'/edit'});
     this.route('about',{path:'/about'});
-  });
-  this.route('me.ask', {path: 'me/ask'}, function(){
-    this.route('pending');
-    this.route('hidden');
+    this.route('ask', {path: '/ask'}, function(){
+      this.route('pending');
+      this.route('hidden');
+
+    });
+    this.route('compliments', {path: '/compliments'}, function(){
+      this.route('pending');
+      this.route('posted');
+    });
 
   });
 
-  this.route('me.compliments', {path: 'me/compliments'}, function(){
-    this.route('pending');
-    this.route('posted');
-  });
+
 
   this.route('me.connections', {path: 'me/connections'});
 

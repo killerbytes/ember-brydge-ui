@@ -43,8 +43,7 @@
 
 .arrow{
   content: '';
-  // display: none;
-  // visibility: hidden;
+  z-index: 11;
   position: absolute;
   width: 0;
   height: 0;
@@ -76,7 +75,7 @@
 	.fa-search{
 		position: absolute;
 		right: 1rem;
-		top: 1rem;
+		top: .6rem;
 		color: $body-text-color;
 	}
 	form{
@@ -85,25 +84,12 @@
 			font-size: 11px;
 			@extend .rounded;
 			border: 1px solid $border-color;
-			padding: .75rem;
+			padding: .6rem;
 			padding-right: 3rem;
 		}
 	}
 }
 
-.top-bar-search {
-	@extend .search-box;
-	width: 350px;
-	.user{
-		border-bottom: 1px solid $border-color;
-		font-size: 10px;
-	}
-	.user a{
-	}
-	.position{
-		color: $text-gray;
-	}
-}
 
 
 .dropdown-select{

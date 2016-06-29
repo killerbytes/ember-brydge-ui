@@ -5,5 +5,5 @@ import FilteredComplimentsMixin from 'web/mixins/filtered-compliments';
 export default Ember.Controller.extend(
 	ComplimentTitlesMixin,
 	FilteredComplimentsMixin, {
-	profile: Ember.computed.alias('model.profile')
+	profile: Ember.computed.alias('model.profile')  
 });

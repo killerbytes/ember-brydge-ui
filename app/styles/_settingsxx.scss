@@ -49,7 +49,7 @@ $global-width: rem-calc(850);
 $global-lineheight: 1.5;
 $primary-color: #FFF;
 $secondary-color: #DEDEDE;
-$success-color: $brydge-blue;
+$success-color: $button-blue;
 $warning-color: #ffae00;
 $alert-color: #ec5840;
 $light-gray: #e6e6e6;
@@ -424,7 +424,7 @@ $pagination-arrows: true;
 $progress-height: 1rem;
 $progress-background: $medium-gray;
 $progress-margin-bottom: $global-margin;
-$progress-meter-background: $brydge-blue;
+$progress-meter-background: $button-blue;
 $progress-radius: $global-radius;
 
 // 27. Reveal
@@ -458,7 +458,7 @@ $slider-transition: all 0.2s ease-in-out;
 // ----------
 
 $switch-background: $medium-gray;
-$switch-background-active: $brydge-blue;
+$switch-background-active: $button-blue;
 $switch-height: 2rem;
 $switch-height-tiny: 1.5rem;
 $switch-height-small: 1.75rem;
@@ -542,7 +542,7 @@ $tooltip-radius: $global-radius;
 // -----------
 
 $topbar-padding: 0.2rem;
-$topbar-background: $brydge-blue;
+$topbar-background: $button-blue;
 $topbar-title-spacing: 1rem;
 $topbar-input-width: 400px;
 
