@@ -14,7 +14,7 @@
               <a data-toggle="dd-card-menu-{{item.id}}" class="action-button dropdown-button-arrow"><i class="icons ellipsis"></i></a>      
               {{#zf-dropdown id=(concat 'dd-card-menu-' item.id) closeOnClick=true class="card-menu-dropdown"}}
                 <ul class="menu">
-                  <li><a {{action "toggleHide" item }}>Hide</a></li>
+                  <li><a {{action "toggleHide" item }}>Archive</a></li>
                 </ul>
               {{/zf-dropdown}}
             {{/if}}              

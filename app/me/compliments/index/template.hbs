@@ -1,73 +1,7 @@
 <div class="row">
   <div class="medium-5 columns sidebar">
     {{profile-box profile=profile class="mb20" isOwner=true}}
-    <div class="box">
-      <section class="title">
-        <h4>Compliments Requiring Approval</h4>
-      </section>
-      <div class="section-group">
-        {{#if toPendingSidebar}}
-          {{#each toPendingSidebar as |item| }}
-            <section>
-              <div class="user mb">
-                Complimented by {{link-to item.from.name "profile" item.from.id class="name"}}
-                <div class="timestamp">{{timestamp item.createdAt}}</div>                
-              </div>
-              <strong>{{item.title}}:</strong>
-              <div class="content-pad">
-                {{item.content}}
-              </div>
-              <div class="section-footer-links">
-                <ul class="menu">
-                  <li><a {{action 'accept' item.id}}>Add to profile</a></li>
-                  <li><a {{action 'reject' item.id}}>Delete</a></li>
-                </ul>                       
-              </div>      
-            </section>
-          {{/each}}
-        {{else}}
-          <p class="columns">No pending</p>  
-        {{/if}}
-      </div>
-      {{#link-to 'me.compliments.pending' class="footer-button button expanded" }}
-        Load More
-      {{/link-to}}
-
-    </div>
-
-    <div class="box">
-      <section class="title">
-        <h4>Compliments you have posted</h4>
-      </section>
-      <div class="section-group">
-        {{#if fromAcceptSidebar }}
-          {{#each fromAcceptSidebar as |item| }}
-            <section>
-              <div class="user mb">
-                You complimented {{link-to item.to.name "profile" item.to.id class="name"}}
-                <div class="timestamp">{{timestamp item.createdAt}}</div>                
-              </div>
-              <strong>{{item.title}}:</strong>
-              <div class="content-pad">
-                {{item.content}}
-              </div>
-              <div class="section-footer-links">
-                <ul class="menu">
-                  <li><a {{action 'delete' item.id}}>Delete this compliment</a></li>
-                </ul>                       
-              </div>      
-            </section>
-          {{/each}}
-          {{else}}
-            <p>You haven't posted a compliment yet</p>  
-          {{/if}}
-
-      </div>
-      {{#link-to 'me.compliments.posted' class="footer-button button expanded" }}
-        See More
-      {{/link-to}}
-    </div>
-
+    {{partial 'me/compliments/sidebar'}}
   </div>
 
   <div class="medium-7 columns">
@@ -79,7 +13,7 @@
     <form>
       <div class="row collapse">
         <div class="small-8 columns">
-          <label for="right-label" class="text-right middle">Filter compliments by&nbsp;&nbsp;</label>
+          <h4 class="text-right middle select-label">Filter compliments by</h4>          
         </div>
         <div class="small-4 columns">
         {{select-native content=complimentTitles action=(action (mut complimentTitle)) }}

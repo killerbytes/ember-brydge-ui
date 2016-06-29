@@ -28,7 +28,7 @@ export default Ember.Component.extend({
 	actions: {
 		select(id){
 			this.sendAction('select', id);
-			this.$('.accordion-picker').foundation('toggle', this.$('.accordion-content'));
+			this.$('.accordion').foundation('toggle', this.$('.accordion-content'));
 		}
 	}
 });

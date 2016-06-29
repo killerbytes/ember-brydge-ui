@@ -12,7 +12,7 @@ export default Ember.Component.extend({
 		select(text){
 			this.set('selectedText', text)
 			this.sendAction('select', text);
-			this.$('.accordion-picker').foundation('toggle', this.$('.accordion-content'));
+			this.$('.accordion').foundation('toggle', this.$('.accordion-content'));
 		}
 	}
 });

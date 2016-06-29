@@ -13,7 +13,7 @@ export default Ember.Component.extend({
   isOccupational: Ember.computed('profile.occupationOneId', function(){
     return this.get('profile.occupationOneId') ? true : false && this.get('profile.occupationTwoId') ? true : false;
   }),
-  didUpdateAttrs: function(){
+  init: function(){
     this._super(...arguments);
     this.set('categories', []);
   },
@@ -64,6 +64,7 @@ export default Ember.Component.extend({
       }
 
       this.sendAction('submit', data, ()=>{
+        this.$('#channelPicker').foundation('toggle', this.$('.accordion-content'))
         this.setProperties({
           postContent: null,
           categories: [],

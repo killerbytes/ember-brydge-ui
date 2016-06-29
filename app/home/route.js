@@ -56,7 +56,6 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, FilterDropdownListMix
       this.loadNewsfeed()
 
       Ember.run.later(()=>{
-        console.log(this)
         Ember.$('.newsfeed-tabs .tabs:first').on('change.zf.tabs', (e, elem)=>{
           if(!elem) return false;
           this.set('controller.tab', elem.data('tab'));

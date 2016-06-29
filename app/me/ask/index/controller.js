@@ -6,5 +6,8 @@ export default Ember.Controller.extend(
   isOwner: true,
   queryParams: ['tab','qid'],
   tab: 'questions',
-  qid: null
+  qid: null,
+  showHidden: Ember.computed(function(){
+  	return this.get('questions.hiddenSidebar') ? true : false;
+  })
 });

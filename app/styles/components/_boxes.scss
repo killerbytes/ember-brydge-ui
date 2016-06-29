@@ -70,7 +70,11 @@
 			padding-bottom: 1.25rem;
 		}
 	}
-
+	.section-footer-buttons{
+		.button:not(:first-child){
+			margin-left: 1rem;
+		}
+	}
 	.section-footer-links{
 		padding: 0 !important;
 		.button{
@@ -112,6 +116,10 @@
 	// }
 }
 
+.boxz{
+	@extend .box;
+	border-radius: 0;
+}
 .question-box{
 	position: relative;
 	h2{

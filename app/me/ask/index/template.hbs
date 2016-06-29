@@ -1,4 +1,4 @@
-<div class="row ask wrapper">
+	<div class="row ask wrapper">
 	{{#unless profile.settings.ask}}	
 	<div class="overlay-wrapper">
 		<div class="overlay">		
@@ -12,7 +12,8 @@
   	{{ partial 'me/ask/sidebar'}}
 
 
-    {{progress-box}}
+    {{ partial 'partials/user-guide' }}
+
     {{render "footer"}}
   </div>
   <div class="medium-7 columns">
@@ -26,17 +27,14 @@
 					You are currently not accepting questions. To enable the ASK feature go to {{link-to "Settings" "settings" (query-params tab="ask") }}.
 				{{/if}}
 			</p>										
-			<p class="text-center">
-				Note: <i>Hidden Questions</i> and questions <i>Pending Answers</i> are only visible to you
-			</p>    	
 		</div>
     <div class="mb">
 			{{#zf-tabs class="tabs-table" id="ask-tabs"}}
 				<li class="tabs-title is-active">
-					<a href="#question_answered" aria-selected="true" class="button">Questions answered</a>
+					<a href="#question_answered" aria-selected="true" class="button">Questions: Answered</a>
 				</li>
 				<li class="tabs-title">
-					<a href="#question_asked" class="button">Questions asked</a>
+					<a href="#question_asked" class="button">Questions: Asked</a>
 				</li>
 			{{/zf-tabs}}
 		</div>
