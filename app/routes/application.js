@@ -10,17 +10,20 @@ export default TransitionToListenerRoute.extend(
 
   actions: {
     error(error, transition) {
-      if (error) console.log("Error:", error);
+      if (error) {
+        console.log("Error:", error, " transition=", transition);
+      }
       this.get('tmp').set('retryTransition', transition);
       return true;
       // XXX: TODO Display error notification on page template
     },
     retry() {
       var transition = this.get('tmp').getAndRemove('retryTransition');
-      if (transition) transition.retry();
+      if (transition) { transition.retry(); }
     },
     logout() {
       var accessToken = this.get('session.data.authenticated.access_token');
+      console.log("Expired session", accessToken);
       Ember.$.getJSON(ENV['ember-simple-auth'].authorizerHost + "/expire?token=" + accessToken).done(() => {
         this.get('session').invalidate();
         console.log("Expired session", accessToken);
@@ -36,7 +39,7 @@ export default TransitionToListenerRoute.extend(
       }
     },
     registerUser(data) {
-      console.log(" >>>> application:route:registeruser:data", data);
+      // console.log(" >>>> application:route:registeruser:data", data);
       const self = this;
       this.controller.set('errorMessage', 'mmm');
       return;
