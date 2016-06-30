@@ -73,9 +73,9 @@
       <div class="section-main">
         <h4>Ask</h4>
 
-        <div class="title mb">{{latestQuestion.content}}</div>
+        <div class="title mb">{{latestQuestion.question}}</div>
         <div class="user">
-          {{link-to latestQuestion.from.content.name "profile" latestQuestion.from.content.id class="name" }} asked {{link-to latestQuestion.to.content.name "profile" latestQuestion.to.content.id class="name"}}
+          {{link-to latestQuestion.from.content.profile.firstName "profile" latestQuestion.from.content.id class="name" }} asked {{link-to latestQuestion.to.content.profile.firstName "profile" latestQuestion.to.content.id class="name"}}
           <div class="text-gray">{{timestamp latestQuestion.createdAt}}</div>
         </div>
       </div>

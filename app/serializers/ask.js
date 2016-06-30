@@ -24,7 +24,7 @@ export default DS.JSONAPISerializer.extend({
     
   },
   keyForAttribute: function(attr) {
-    return attr;
+    return Ember.String.underscore(attr);
   }
 
   // keyForAttribute: function(attr) {
