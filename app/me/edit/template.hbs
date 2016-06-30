@@ -11,7 +11,7 @@
 </div>
 <div class="row">
   <div class="columns">
-    <div class="row collapse box profile-tab">
+    <div class="row collapse profile-tab">
 
       <div class="medium-3 columns">
 
@@ -28,7 +28,8 @@
         {{/zf-tabs}}
       </div>
       <div class="medium-9 columns float-left">
-        <div class="tabs-content vertical" data-tabs-content="edit-tabs">
+        <div class="tabs-content vertical box" data-tabs-content="edit-tabs">
+          <a data-toggle="dd-industry-picker" class="action-button dropdown-button-arrow invisible"><i class="icons ellipsis"></i></a>      
 
           <div class="tabs-panel {{active-tab 'personal' tab}}" id="personal">
             {{partial 'me/edit/info'}}
@@ -37,21 +38,31 @@
             <h1>Profile Type</h1>
           </div>
           <div class="tabs-panel {{active-tab 'industry' tab}}" id="industry">
+            {{#zf-dropdown id=(concat 'dd-industry-picker' item.id) class="card-menu-dropdown"}}
+              {{partial 'partials/industry-picker'}}    
+            {{/zf-dropdown}}
+
+
             <form class="form-occupational-industry">
-              <div class="row collapse">
+              <div class="row">
                 <div class="columns medium-8">
-                  <label for="">
-                    Business Industry
-                   {{dropdown-filter
-                    items=industries 
-                    selected=selectedIndustry
-                    query='queryIndustries'
-                    itemSelected='industrySelected'
-                    template="partials/industry-filter"}}
-                  </label>
+                  <form class="form-profile">
+                    <label for="">
+                      Business Industry
+                     {{dropdown-filter
+                      items=industries 
+                      selected=selectedIndustry
+                      query='queryIndustries'
+                      itemSelected='industrySelected'
+                      template="partials/industry-filter"}}
+                    </label>
+                  </form>
                 </div>
                 <div class="columns medium-4">
-                  <a class="picker" data-open="industryModal" {{action "setSelected" 'industry' }}>Use the Industry Picker</a>
+                  <label for="">&nbsp;
+                    <a data-toggle="dd-industry-picker" class="picker" {{action "setSelected" 'industry' }} class="button button-border expanded">Use the Industry Picker</a>
+                  </label>
+
                 </div>
               </div>
               <div>
@@ -128,83 +139,3 @@
   </div>
 </div>
 
-{{#zf-reveal id="industryModal" overlay=true class="reveal-popup large"}}
-  <h4>Industry</h4>
-    <div class="content">        
-      {{#zf-tabs class="hide" id="industry-tab"}}
-        <li class="tabs-title is-active"><a href="#root">Root</a></li>
-        {{#each categories as |item|}}
-            <li class="tabs-title"><a href="#{{item.code}}">{{item.name}}</a></li>
-            {{#each item.categories as |category|}}
-              <li class="tabs-title"><a href="#{{category.code}}">{{category.name}}</a></li>
-            {{/each}}
-        {{/each}}  
-      {{/zf-tabs}}
-  
-      <div data-tabs-content="industry-tab">
-        <div class="tabs-panel is-active" id="root">
-          <p>
-            <h3>Sectors</h3>
-          </p>
-          <ul class="no-bullet">
-            {{#each categories as |item|}}
-              <li><a {{action "goto" item.code }}>{{item.name}}</a></li>
-            {{/each}}
-          </ul>
-        </div>
-        <form action="">
-          {{#each categories as |item|}}
-            <div class="tabs-panel" id="{{item.code}}">
-              <a {{action "goto" "root" }}>Back</a>
-              <p>
-                <h3>{{item.name}}</h3>
-              </p>
-              <p>
-
-                <ul class="no-bullet">
-
-                {{#each item.categories as |item|}}
-
-                  <li><a {{action "goto" item.code }}>{{item.name}}</a></li>
-                {{/each}}
-                </ul>
-              </p>
-            </div>
-
-            {{#each item.categories as |category|}}
-              <div class="tabs-panel" id="{{category.code}}">
-                <a {{action "goto" item.code }}>Back</a>
-                <p>
-                  <h3>{{category.name}}</h3>
-                </p>
-                <p>          
-                  <ul class="no-bullet">
-                  {{#each category.industries as |industry|}}
-                    <li>
-                      <label for="{{industry.data.code}}">
-                      {{action-radio name="picker" id=industry.data.code value=industry.data.code checked=selected.id action="onIndustrySelected" }} {{industry.data.subIndustry}}                          
-                      </label>
-                    </li>
-                  {{/each}}
-                  </ul>
-                </p>
-              </div>
-
-            {{/each}}
-          {{/each}}
-        </form>
-      </div>
-
-      <ul class="list-inline">
-        {{#each selectedIndustries as |item|}}
-          <li><span class="label label-item"><a {{action "removeSelectedIndustry" item}}>{{fa-icon "close"}}</a> {{item.name}}</span></li>
-        {{/each}}
-      </ul>  
-    </div>
-    <div class="reveal-footer text-right">
-      <div class="content">
-        <button class="button success" {{action "onSelectDone"}} data-close>Done</button>
-        <a class="button success" data-close>Cancel</a>
-      </div>
-    </div>
-{{/zf-reveal}}

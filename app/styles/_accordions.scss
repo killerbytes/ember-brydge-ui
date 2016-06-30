@@ -53,6 +53,9 @@
 	}
 	.accordion-sub-title{
 		border-bottom: 1px solid $border-color;
+		text-transform: uppercase;
+		font-weight: bold;
+		text-align: center;
 	}
 	.accordion-title:before{
 		background-image: url(icons/caret.png);
@@ -88,6 +91,7 @@
 		text-transform: uppercase;
 		font-size: 10px;
 		font-weight: bold;
+		color: $body-text-color;
 	}
 	.accordion-content{
 		border-bottom: none !important;

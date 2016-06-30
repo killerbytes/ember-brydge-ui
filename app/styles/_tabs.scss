@@ -90,10 +90,6 @@
 }
 
 .profile-tab{
-	background-color: $brydge-gray;
-	.tabs, .tabs-content.vertical{
-		border: none;
-	}
 	.tabs-title{
 		padding: 0;
 		&.is-active a{
@@ -111,10 +107,16 @@
 		border-bottom: 1px solid $border-color;
 	}
 	.tabs.vertical{
-		border-right: 1px solid $border-color;
+		border-right: 0;
 	}
 	.tabs-content{
-		padding: 3rem 2rem;
+		&.vertical{
+			@extend .bordered;
+			position: relative;
+		}
+		.tabs-panel{
+			padding: 3rem 2rem;
+		}
 	}
 }
 
