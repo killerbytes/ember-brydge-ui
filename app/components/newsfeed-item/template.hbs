@@ -7,7 +7,7 @@
       <div class="user-info">
         <span class="name">
           {{#link-to "profile" post.user.id class="plain"}}
-            {{post.user.name}}
+            {{post.user.profile.firstName}}
           {{/link-to}}
         </span>
         {{#if post.sharedPost}}
