@@ -30,7 +30,7 @@ export default Ember.Route.extend(QueryLocationMixin, {
 	actions: {
     didTransition: function(){
       Ember.run.later(()=>{
-        Ember.$('.profile .tabs:first').on('change.zf.tabs', (e, elem)=>{
+        Ember.$('.profile-tab .tabs:first').on('change.zf.tabs', (e, elem)=>{
           this.set('controller.tab', elem.data('tab'))
         })
       })

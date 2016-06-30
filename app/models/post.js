@@ -3,7 +3,7 @@ import DS from 'ember-data';
 export default DS.Model.extend({
   title: DS.attr('string'),
   site_name: DS.attr(),
-  // site: DS.attr(),
+  site: DS.attr(),
   image: DS.attr(),
   content: DS.attr('string'),
   link: DS.attr(),
