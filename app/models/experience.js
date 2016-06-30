@@ -6,9 +6,9 @@ export default DS.Model.extend(Validations, {
   title: DS.attr('string'),
   location: DS.attr('string'),
   content: DS.attr('string'),
-	showHighlight: DS.attr(),
-  from: DS.attr(),
-  to: DS.attr(),
+  showHighlight: DS.attr(),
+  startFrom: DS.attr(),
+  endAt: DS.attr(),
   updatedAt: DS.attr('date'),
   currentCompany: DS.attr('boolean', { defaultValue: false })
 });

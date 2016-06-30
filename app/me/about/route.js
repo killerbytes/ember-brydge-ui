@@ -9,7 +9,7 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
     return Ember.RSVP.hash({
       profile: this.store.findRecord('profile', userid, {reload: true}),
       posts: this.store.query('newsfeed', {filter: userid, tab: 'profile'}),
-      languages: this.store.query('language', {userid: userid}),
+      //languages: this.store.query('language', {userid: userid}),
       interests: [], //this.store.query('interest', {userid: userid}),
       experiences: this.store.query('experience', {userid: userid}),
       educations: this.store.query('education', {userid: userid}),
