@@ -140,10 +140,14 @@
     text-align: left;
     background: none;
     padding: 1rem;
+    margin-bottom: 0;
     h4{
       color: $body-text-color;
       margin: 0;
     }
+  }
+  .tabs-panel{
+    padding: 0;
   }
 
 }

@@ -80,7 +80,7 @@ export default Ember.Controller.extend(
 
   actions: {
     postFeed: function (data, cb) {
-
+      console.log(data)
       this.store.createRecord('post', {
         site: data.site,
         preview: data.preview,
