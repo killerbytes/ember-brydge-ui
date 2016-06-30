@@ -5,11 +5,6 @@ export default Ember.Component.extend({
   sharePost: Ember.inject.service(),
 	ajax: Ember.inject.service(),
 	classNames: ['newsfeed-item'],
-	title: Ember.computed('post.title', function(){
-		let title = this.get('post.title') || '';
-		return title.length > 100 ? title.substr(0, 100) + ' ...' : title;
-		// return "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non";
-	}),
 	disabled: false,
 	actions: {
 		vote(type){

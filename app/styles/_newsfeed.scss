@@ -1,7 +1,11 @@
 .newsfeed-item{
 	@extend .box;
-	@extend .rounded;
+	// @extend .rounded;
 	position: relative;
+	.x-button{
+		color: #FFF;
+		text-shadow: 0 0 10px #999;
+	}
 	section{
 		position: relative;
 	}
@@ -29,6 +33,13 @@
 	}
 	div + .media, div + .shared-post{
 		margin-top: 10px;
+	}
+	.media{
+		.fa-times{
+			position: absolute;
+			top: 1rem;
+			right: 1rem;
+		}
 	}
 	.post-actions{
 		padding: .3rem 1rem;
@@ -69,6 +80,7 @@
 		height: 230px;
 	}
 	.post-content{
+		position: relative;
 		// text-align: center;
 		padding: .5rem 1rem;
 		background-color: $brydge-gray;

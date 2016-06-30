@@ -1,11 +1,9 @@
 import Ember from 'ember';
 import FilteredQuestionsMixin from 'web/mixins/filtered-questions';
-import CheckCurrentUserMixin from 'web/mixins/check-current-user';
 import ProfileSidebarMixin from 'web/mixins/profile-sidebar';
 
 export default Ember.Controller.extend(
   ProfileSidebarMixin,
-	CheckCurrentUserMixin,
 	FilteredQuestionsMixin, {
   sessionAccount: Ember.inject.service(),
   queryParams: ['tab','qid'],
@@ -15,5 +13,9 @@ export default Ember.Controller.extend(
   }),
   placeholder: Ember.computed('profile', function(){
   	return 'Ask ' + this.get('profile.firstName') + ' a professional question or opinion';
-  })
+  }),
+  isConnected: Ember.computed('profile.connection.status', function(){
+    return this.get('profile.connection.status') == 'accepted' ? true : false;
+  }),
+  
 });

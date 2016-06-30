@@ -60,6 +60,27 @@ form{
 		margin-right: 1rem;
 	}
 }
+.form-profile{
+	label{
+		font-size: 12px;
+		font-weight: bold;
+		color: $text-gray;
+		line-height: 2rem;
+	}	
+	input{
+		@extend .rounded;
+		border: 1px solid $border-color;
+		font-weight: normal;
+		color: $body-text-color;
+	}
+	input:focus{
+		border: 1px solid $button-blue;
+		box-shadow: none;
+	}
+	.button{
+		padding: 8px 15px;
+	}
+}
 
 .form-input-wrapper{
 	@extend .bordered;

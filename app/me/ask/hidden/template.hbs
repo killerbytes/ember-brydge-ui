@@ -11,7 +11,7 @@
     <div class="question-tab">
       <div class="tabs-content questions">    
         <div class="padding">
-          {{#each questions.hidden as |item|}}
+          {{#each from.hidden as |item|}}
             <div class="box rounded question-box">
               {{#if isOwner}}
                 <div class="menu-wrapper">
@@ -40,7 +40,7 @@
 
             </div>
           {{/each}}
-          {{#each asked.hidden as |item|}}
+          {{#each to.hidden as |item|}}
             <div class="box rounded question-box">
               {{#if isOwner}}
                 <div class="menu-wrapper">
@@ -73,7 +73,7 @@
     </div>
   </div>    
   <div class="medium-5 columns sidebar">
-    {{progress-box}}
+    {{partial 'partials/user-guide-box'}}
     {{render "footer"}}
   </div>
 </div>

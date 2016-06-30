@@ -2,7 +2,7 @@
 	<section class="title">
 		<h4>Questions: Inbox</h4>
 	</section>
-		{{#each list.pendingSidebar as |item| }}
+		{{#each from.pendingSidebar as |item| }}
 			<section>
 				<div class="section-main">
 					<div class="user">
@@ -20,7 +20,7 @@
 		{{else}}
 			<section>Nothing to show here</section>
 		{{/each}}
-		{{#if list.pendingSidebar }}
+		{{#if from.pendingSidebar }}
 			<section class="section-footer-links">
 				{{#link-to 'me.ask.pending' (query-params tab="questions")  class="footer-button button expanded" }}
 					See All
@@ -33,7 +33,7 @@
 	<section class="title">
 			<h4>Question: Outbox</h4>
 	</section>
-		{{#each asked.pendingSidebar as |item| }}
+		{{#each to.pendingSidebar as |item| }}
 	<section>
 				You asked {{link-to item.to.content.name "profile" item.to.content.id class="name"}}
 				<div class="timestamp mb">{{timestamp item.createdAt}}</div>
@@ -43,7 +43,7 @@
 			<div class="padding">Nothing to show here</div>
 		{{/each}}
 
-	{{#if asked.pendingSidebar}}
+	{{#if to.pendingSidebar}}
 		<section class="section-footer-links">
 			{{#link-to 'me.ask.pending' (query-params tab="asked") class="footer-button button expanded" }}
 				See All
@@ -56,7 +56,7 @@
 	<section class="title">
 		<h4>Archived Questions</h4>		
 	</section>
-		{{#each questions.hiddenSidebar as |item| }}
+		{{#each from.hiddenSidebar as |item| }}
 			<section>
 				{{link-to item.from.content.name "profile" item.from.content.id class="name"}} asked {{link-to item.to.content.name "profile" item.to.content.id class="name"}}
 				<div class="timestamp">{{timestamp item.createdAt}}</div>
@@ -66,7 +66,7 @@
 				</div>			
 			</section>
 		{{/each}}
-		{{#each asked.hiddenSidebar as |item| }}
+		{{#each to.hiddenSidebar as |item| }}
 			<section>
 				You asked {{link-to item.to.content.name "profile" item.to.content.id class="name"}}
 				<div class="timestamp">{{timestamp item.createdAt}}</div>

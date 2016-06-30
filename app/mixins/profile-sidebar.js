@@ -10,7 +10,6 @@ export default Ember.Mixin.create({
   }),
   acceptedCompliments: Ember.computed.filterBy('compliments', 'status', 'accepted'),
   latestCompliment: Ember.computed('acceptedCompliments', function(){
-    console.log(this.get('compliments'))
     return this.get('acceptedCompliments.firstObject');
   }),
   isNotEmptyOccupation: Ember.computed('profile.occupationOne', 'profile.OccupationTwo', function(){

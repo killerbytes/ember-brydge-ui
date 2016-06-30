@@ -1,3 +1,7 @@
 <input type="file" name="file" style="display: none" />
+{{#unless text}}
 <div class="avatar" {{action "clicked"}} style={{htmlSafeImage logoUrl}}>
 </div>
+{{else}}
+ <a>{{placeholder}}</a>
+{{/unless}}
