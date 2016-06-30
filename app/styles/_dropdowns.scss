@@ -1,12 +1,3 @@
-.triangle{
-  width: 0;
-  height: 0;
-  border-style: solid;
-  border-width: 0 8px 8px 8px;
-  border-color: transparent transparent #ffffff transparent;
-  margin: auto;
-}
-
 // .dropdown-right{
 //   right: auto !important;
 // }
@@ -32,7 +23,7 @@
     left: 30%;
     border-color: transparent transparent #FFF transparent;
     border-width: 8px;
-  }
+  }    
 }
 .dropdown-button-arrow.hover{
   @extend .dropdown-arrow;
@@ -54,10 +45,10 @@
       color: $body-text-color;
       padding: .9rem 1rem;
     }
-  }
+  } 
   ul.menu:not(:last-child){
     border-bottom: 1px solid $border-color;
-
+    
   }
 }
 
@@ -71,7 +62,6 @@
   border-top: none;
   right: 0 !important;
   left: auto !important;
-  z-index: 12;
   .title-bar{
     background-color: #F3F3F3;
     margin-bottom: 10px;
@@ -94,7 +84,7 @@
 }
 
 .dropdown-notification{
-  width: 322px !important;
+  width: 322px !important;  
   .empty-message{
     padding: 1rem;
   }
@@ -120,7 +110,7 @@
   }
 }
 #dd-search{
-  top: 36px !important;
+  top: 36px !important;  
   margin-right: 0;
   padding: 0;
 }
@@ -129,37 +119,27 @@
 //   border: none;
 //   box-shadow: none;
 // }
-#dd-industry-picker{
-  @extend .bordered;
-  top: 0 !important;
-  left: 0 !important;
-  width: 100%;
-  padding: 0;
-  box-shadow: none;
-  .title-bar{
-    text-align: left;
-    background: none;
-    padding: 1rem;
-    h4{
-      color: $body-text-color;
-      margin: 0;
-    }
-  }
-
+.triangle{
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0 8px 8px 8px;
+  border-color: transparent transparent #ffffff transparent;
+  margin: auto;
 }
 
 // .accordion-arrow{
 // }
 
 // .dropdown-gray{
-//   background-color: #EEE;
+//   background-color: #EEE;      
 // }
 
 // #dd-ask{
 //   top: 49px !important;
 //   width: 90%;
 //   background-color: #EEE;
-
+  
 // }
 // .dd-ask-form{
 //   top: 50px !important;
@@ -171,7 +151,7 @@
 //   }
 // }
 
-// // a[data-toggle="dd-ask"],
+// // a[data-toggle="dd-ask"], 
 // // a[data-toggle="dd-ask-form"]{
 // //   .triangle{
 // //     border-color: rgba(0, 0, 0, 0) rgba(0, 0, 0, 0) #EEE rgba(0, 0, 0, 0);
@@ -212,7 +192,7 @@
 //   // top: auto !important;
 //   ul>li{
 //     padding: 1rem;
-//   }
+//   }  
 //   ul{
 //     padding: 0 1rem;
 //     padding-bottom: 0;
@@ -277,5 +257,5 @@
 
 // }
 // #dd-incomplete-callout{
-
+  
 // }
