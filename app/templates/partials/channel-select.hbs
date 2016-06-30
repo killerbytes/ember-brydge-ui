@@ -3,10 +3,10 @@
 			<div class="columns medium-6">
 				<section>
 					<div class="sub-title">Your Business Industry</div>
-					{{#if profile.industryId}}
+					{{#if profile.industryOneId}}
 						<ul class="no-bullet content-pad">
 							<li>
-								{{action-checkbox-bind value=profile.industryId text=profile.industry action="checkboxChanged" name="industryId" checked=industryId }}
+								{{action-checkbox-bind value=profile.industryOneId text=profile.industryOneName action="checkboxChanged" name="industryOneId" checked=industryOneId }}
 							</li>
 						</ul>
 						<p>{{#link-to 'me.edit'}}Edit Business Industry{{/link-to}}</p>
@@ -21,10 +21,10 @@
 					{{#if isOccupational }}
 						<ul class="no-bullet content-pad">	
 							<li>
-								{{action-checkbox-bind value=profile.occupationOneId text=profile.occupationOne action="checkboxChanged" name="occupationOne" checked=occupationOne }}
+								{{action-checkbox-bind value=profile.industryTwoId text=profile.industryTwoName action="checkboxChanged" name="industryTwoName" checked=industryTwoName }}
 							</li>
 							<li>
-								{{action-checkbox-bind value=profile.occupationTwoId text=profile.occupationTwo action="checkboxChanged" name="occupationTwo" checked=occupationTwo }}
+								{{action-checkbox-bind value=profile.industryThreeId text=profile.industryThreeName action="checkboxChanged" name="industryThreeName" checked=industryThreeName }}
 							</li>
 						</ul>
 						<p>{{#link-to 'me.edit'}}Edit Occupational Industry{{/link-to}}</p>
