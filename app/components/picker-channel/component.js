@@ -10,19 +10,19 @@ export default Ember.Component.extend({
 	}), 
 	industries: Ember.computed('profile', function(){
 		return [{
-      id: this.get('profile.occupationOneId'),
-      text: this.get('profile.occupationOne')
+      id: this.get('profile.industryTwoId'),
+      text: this.get('profile.industryTwoName')
     },{
-      id: this.get('profile.occupationTwoId'),
-      text: this.get('profile.occupationTwo')
+      id: this.get('profile.industryThreeId'),
+      text: this.get('profile.industryThreeName')
     }];			
 	}),
 	getIndustryName: function (id) {    
     var col = {};
     col[0] = "My Connections";
-    col[this.get('profile.industryId')] = this.get('profile.industry');
-    col[this.get('profile.occupationOneId')] = this.get('profile.occupationOne');
-    col[this.get('profile.occupationTwoId')] = this.get('profile.occupationTwo');
+    col[this.get('profile.industryOneId')] = this.get('profile.industryOneName');
+    col[this.get('profile.industryTwoId')] = this.get('profile.industryTwoName');
+    col[this.get('profile.industryThreeId')] = this.get('profile.industryThreeName');
     return col[id];
   },
 	actions: {
