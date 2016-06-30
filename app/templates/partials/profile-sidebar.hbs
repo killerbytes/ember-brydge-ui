@@ -1,8 +1,8 @@
 <div class="box">
   <section>
     <h4>Business Industry</h4>
-    {{#if profile.industry}}
-      <strong><a href="">{{profile.industry}}</a></strong>
+    {{#if profile.industryOneName}}
+      <strong><a href="">{{profile.industryOneName}}</a></strong>
     {{else}}
       {{#if isOwner}}
         <div class="empty-message">
@@ -25,10 +25,10 @@
     <h4>Occupational Industry</h4>
     {{#if isNotEmptyOccupation}}
       <div>
-        <strong><a href="">{{profile.occupationOne}}</a></strong>
+        <strong><a href="">{{profile.industryTwoName}}</a></strong>
       </div>
       <div>
-        <strong><a href="">{{profile.occupationTwo}}</a></strong>
+        <strong><a href="">{{profile.industryThreeName}}</a></strong>
       </div>
     {{else}}
       {{#if isOwner}}

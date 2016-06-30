@@ -24,8 +24,8 @@ export default Ember.Controller.extend(
   isNotEmptyTitleCompany: Ember.computed('profile.currentTitle', 'profile.currentCompany', function(){
     return this.get('profile.currentTitle') ? true : false && this.get('profile.currentCompany') ? true : false;
   }),
-  isNotEmptyOccupation: Ember.computed('profile.occupationOne', 'profile.OccupationTwo', function(){
-    return this.get('profile.occupationOne') ? true : false && this.get('profile.OccupationTwo') ? true : false;
+  isNotEmptyOccupation: Ember.computed('profile.industryTwoName', 'profile.industryThreeName', function(){
+    return this.get('profile.industryTwoName') ? true : false && this.get('profile.industryThreeName') ? true : false;
   }),
   connectionStatus: Ember.computed('isConnected', function(){
     return this.get('isConnected') ? true : this.get('profile.connection.status') == 'pending' ? 'Pending' : 'Connect';
