@@ -1,0 +1,76 @@
+<div class="title-bar">
+  <h4>Industry Picker</h4>
+</div>
+  
+<section>
+  What sector is you industry in?
+
+<div class="content">        
+  {{#zf-tabs class="hide" id="industry-tab"}}
+    <li class="tabs-title is-active"><a href="#root">Root</a></li>
+    {{#each categories as |item|}}
+        <li class="tabs-title"><a href="#{{item.code}}">{{item.name}}</a></li>
+        {{#each item.categories as |category|}}
+          <li class="tabs-title"><a href="#{{category.code}}">{{category.name}}</a></li>
+        {{/each}}
+    {{/each}}  
+  {{/zf-tabs}}
+
+  <div data-tabs-content="industry-tab">
+    <div class="tabs-panel is-active" id="root">
+      <ul class="no-bullet">
+        {{#each categories as |item|}}
+          <li><a {{action "goto" item.code }}>{{item.name}}</a></li>
+        {{/each}}
+      </ul>
+    </div>
+    <form action="">
+      {{#each categories as |item|}}
+        <div class="tabs-panel" id="{{item.code}}">
+            Sector: {{item.name}} <a {{action "goto" "root" }}>Change</a>
+            <ul class="no-bullet">
+
+            {{#each item.categories as |item|}}
+
+              <li><a {{action "goto" item.code }}>{{item.name}}</a></li>
+            {{/each}}
+            </ul>
+        </div>
+
+        {{#each item.categories as |category|}}
+          <div class="tabs-panel" id="{{category.code}}">
+            <a {{action "goto" item.code }}>Back</a>
+            <p>
+              <h3>{{category.name}}</h3>
+            </p>
+            <p>          
+              <ul class="no-bullet">
+              {{#each category.industries as |industry|}}
+                <li>
+                  <label for="{{industry.data.code}}">
+                  {{action-radio name="picker" id=industry.data.code value=industry.data.code checked=selected.id action="onIndustrySelected" }} {{industry.data.subIndustry}}                          
+                  </label>
+                </li>
+              {{/each}}
+              </ul>
+            </p>
+          </div>
+
+        {{/each}}
+      {{/each}}
+    </form>
+  </div>
+
+  <ul class="list-inline">
+    {{#each selectedIndustries as |item|}}
+      <li><span class="label label-item"><a {{action "removeSelectedIndustry" item}}>{{fa-icon "close"}}</a> {{item.name}}</span></li>
+    {{/each}}
+  </ul>  
+</div>
+<div class="reveal-footer text-right">
+  <div class="content">
+    <button class="button success" {{action "onSelectDone"}} data-close>Done</button>
+    <a class="button success" data-close>Cancel</a>
+  </div>
+</div>
+</section>
