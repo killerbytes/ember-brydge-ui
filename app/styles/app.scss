@@ -32,11 +32,9 @@ $text-orange: #FF5333;
 @import "tables";
 @import "forms";
 @import "newsfeed";
-@import "tabs";
 @import "modal";
 @import "dropdowns";
 @import "accordions";
-@import "lists";
 @import "media";
 @import "components/boxes";
 @import "components/elements";
@@ -44,6 +42,8 @@ $text-orange: #FF5333;
 @import "components/cards";
 @import "components/share-post-box";
 @import "profile";
+@import "lists";
+@import "tabs";
 
 
 

@@ -20,6 +20,9 @@ export default Ember.Controller.extend(
   isEmpty: Ember.computed('complimentContent', function(){
     return this.get('complimentContent') ? false : true;
   }),
+  isConnected: Ember.computed('profile.connection.status', function(){
+    return this.get('profile.connection.status') == 'accepted' ? true : false;
+  }),
 
 	complimentFilter: [],
   formComplimentTitle: Ember.computed('', function(){

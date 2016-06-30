@@ -47,16 +47,6 @@
 .profile-box{	
 	font-size: 14px;
 	text-align: center;
-	.profile-photo{
-		margin-bottom: 1rem;
-		.avatar{
-			box-shadow: 0 0 0 1px $border-color;
-			width: 130px;
-			height: 130px;
-			margin: auto;
-			border: 3px solid #FFF;			
-		}
-	}
 	.name{
 		font-size: 20px;
 		margin-bottom: .5rem;
@@ -76,6 +66,20 @@
 		padding-right: 2rem;
 	}
 }
+.profile-photo{
+	form{
+		cursor: pointer;
+	}
+	margin-bottom: 1rem;
+	.avatar{
+		box-shadow: 0 0 0 1px $border-color;
+		width: 130px;
+		height: 130px;
+		margin: auto;
+		border: 3px solid #FFF;			
+	}
+}
+
 .name{
 	font-weight: bold;
 }
@@ -85,6 +89,7 @@
 .company{
 	font-weight: bold;
 }
+
 
 // .profile-photo{
 // 	cursor: pointer;

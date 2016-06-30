@@ -13,21 +13,21 @@
   <div class="medium-7 columns">
   	{{profile-menu profile=profile}}
   	{{#if isOwner}}
-    <div class="page-heading">    	
-			<h1>YOUR ASK PAGE</h1>
-			<p class="text-center">
-				{{#if profile.settings.ask}}
-					You are currently accepting questions. To disable the ASK feature go to {{link-to "Settings" "settings" (query-params tab="ask") }}.
-				{{else}}
-					You are currently not accepting questions. To enable the ASK feature go to {{link-to "Settings" "settings" (query-params tab="ask") }}.
-				{{/if}}
-			</p>										
-			<p class="text-center">
-				Note: <i>Hidden Questions</i> and questions <i>Pending Answers</i> are only visible to you
-			</p>    	
-		</div>
+	    <div class="page-heading">
+				<h1>YOUR ASK PAGE</h1>
+				<p class="text-center">
+					{{#if profile.settings.ask}}
+						You are currently accepting questions. To disable the ASK feature go to {{link-to "Settings" "settings" (query-params tab="ask") }}.
+					{{else}}
+						You are currently not accepting questions. To enable the ASK feature go to {{link-to "Settings" "settings" (query-params tab="ask") }}.
+					{{/if}}
+				</p>										
+				<p class="text-center">
+					Note: <i>Hidden Questions</i> and questions <i>Pending Answers</i> are only visible to you
+				</p>    	
+			</div>
 		{{else}}
-
+			{{#if isConnected}}
       <form {{action 'submit' on='submit'}} class="box user-top-form mb20">
         <section>
 
@@ -44,7 +44,7 @@
 					</div>
         </section>
       </form>      
-
+      {{/if}}
 
 		{{/if}}
 
@@ -52,10 +52,10 @@
 
       {{#zf-tabs id="ask-tabs" class="tab-controls"}}
         <li data-tab='live' class="tabs-title is-active">
-          <a href="#question_answered" aria-selected="true" >Questions answered</a>
+          <a href="#question_answered" aria-selected="true" >Questions: Answered</a>
         </li>
         <li data-tab='curated' class="tabs-title">
-          <a href="#question_asked">Questions asked</a>
+          <a href="#question_asked">Questions: Asked</a>
         </li>
       {{/zf-tabs}}
 

@@ -17,10 +17,6 @@ export default DS.Model.extend({
   createdAt: DS.attr('date'),
   updatedAt: DS.attr('date'),
   user: DS.belongsTo('user'),
-  // previewImage: Ember.computed('image', function(){
-  //   // if (this.get('image') === undefined) return `${this.get('screenshot') || 'assets/undefined.png'}`;
-  //   return `${this.get('image') || 'assets/undefined.png'}`;
-  // }),
   vote: DS.belongsTo('vote',{async: true}),
   commentCount: DS.attr(),
   sharedPost: DS.belongsTo('newsfeed', {inverse: null}),

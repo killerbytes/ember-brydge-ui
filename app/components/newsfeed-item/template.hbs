@@ -44,7 +44,8 @@
     {{/unless}}
 
   {{#if post.title}}
-    <div class="media box no-shadow">
+    {{newsfeed-media model=post}}
+    <div class="media box no-shadow hide">
       {{#if post.image}}
         <a href="{{post.url}}" target="_blank">
           <div class="post-image" style={{htmlSafeImage post.image }}>

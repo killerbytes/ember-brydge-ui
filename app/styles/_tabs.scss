@@ -73,6 +73,11 @@
 		width: 50%;
 	}
 	.tabs-title.is-active{
+		background-color: $button-blue;
+		a{
+			color: #FFF;
+			font-weight: bold;
+		}		
 		&:before{
 			left: 46%;
 			border-width: 8px;
@@ -83,6 +88,36 @@
 		}
 	}
 }
+
+.profile-tab{
+	background-color: $brydge-gray;
+	.tabs, .tabs-content.vertical{
+		border: none;
+	}
+	.tabs-title{
+		padding: 0;
+		&.is-active a{
+			background-color: $brydge-gray;
+			color: $button-blue;
+		}
+		a{
+			color: $text-gray;
+			font-size: 12px;
+			font-weight: bold;
+			text-transform: uppercase;
+		}
+	}
+	.tabs-title:not(:last-child){
+		border-bottom: 1px solid $border-color;
+	}
+	.tabs.vertical{
+		border-right: 1px solid $border-color;
+	}
+	.tabs-content{
+		padding: 3rem 2rem;
+	}
+}
+
 
 // .profile, .settings{
 // 	.tab-wrapper{	

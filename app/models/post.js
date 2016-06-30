@@ -11,6 +11,7 @@ export default DS.Model.extend({
   score: DS.attr('number'),
   createdAt: DS.attr('date'),
   updatedAt: DS.attr('date'),
+  url: DS.attr(),
   user: DS.belongsTo('user'),
   username: DS.attr(),
   profile: DS.belongsTo('profile'),

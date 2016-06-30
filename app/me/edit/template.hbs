@@ -1,21 +1,21 @@
 <div class="row">
-  <div class="columns">
-    <div class="top-banner bg-gray box">
-      <h2 class="page-title">EDIT PROFILE</h2>
+  <div class="medium-6 small-centered columns">
+    <div class="page-heading">      
+      <h1>Edit Profile</h1>
+      <p class="text-center">
+        Invest some time here. It'll do you good! A complete profile increases your chances of being noticed by industry peers.
+      </p>                    
     </div>
   </div>
+
 </div>
 <div class="row">
-  <div class="columns profile">
-    <div class="row collapse tab-wrapper bordered" data-equalizer data-equalize-by-row="true">
+  <div class="columns">
+    <div class="row collapse box profile-tab">
 
-      <div class="medium-3 columns bg-gray">
-        <div class="tab-header padding">
-          <h2>Invest some time here. It'll do you good!</h2>
-          <p>A complete profile increases your chances of being noticed by industry peers.</p>
-        </div>
+      <div class="medium-3 columns">
 
-        {{#zf-tabs class="vertical bg-gray" id="edit-tabs"}}
+        {{#zf-tabs class="vertical" id="edit-tabs"}}
         <li data-tab='personal' class="tabs-title {{active-tab 'personal' tab}}"><a href="#personal" aria-selected="true">Personal Particulars</a></li>
         <li data-tab='type' class="tabs-title {{active-tab 'type' tab}}"><a href="#type">Profile Type</a></li>
         <li data-tab='industry' class="tabs-title {{active-tab 'industry' tab}}"><a href="#industry">Business Industry</a></li>

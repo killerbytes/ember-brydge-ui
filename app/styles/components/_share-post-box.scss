@@ -3,6 +3,9 @@
 	// @extend .bordered;
 	// @extend .rounded;
 	// background-color: $brydge-gray;
+	.newsfeed-item{
+		border: none;
+	}
 	.section-footer{
 		background-color: #FFF;
 		// border-top: 1px solid $border-color;

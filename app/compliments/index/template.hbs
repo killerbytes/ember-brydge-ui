@@ -13,20 +13,22 @@
         <h1>Your Compliments Page</h1>
       </div>
     {{else}}
-      <form {{action 'submit' on='submit'}} class="box user-top-form mb20">
-        <section>
-          {{select-native content=titles action=(action (mut formComplimentTitle))}}
+      {{#if isConnected}}
+        <form {{action 'submit' on='submit'}} class="box user-top-form mb20">
+          <section>
+            {{select-native content=titles action=(action (mut formComplimentTitle))}}
 
-          {{form-text-counter limit=140 value=complimentContent rows=3 class="mb wrapper" showCount=true}}
+            {{form-text-counter limit=140 value=complimentContent rows=3 class="mb wrapper" showCount=true}}
 
-          <div class="row">
-            <div class="columns medium-8 text-gray">Compliment someone on an achievement, a job well done, or expertise provided</div>
-            <div class="columns medium-4 text-right">
-              <button class="button btn success" disabled={{isEmpty}} type="submit">Compliment</button>
+            <div class="row">
+              <div class="columns medium-8 text-gray">Compliment someone on an achievement, a job well done, or expertise provided</div>
+              <div class="columns medium-4 text-right">
+                <button class="button btn success" disabled={{isEmpty}} type="submit">Compliment</button>
+              </div>
             </div>
-          </div>
-        </section>
-      </form>      
+          </section>
+        </form>  
+      {{/if}}    
     {{/if}}
 
     <form>
