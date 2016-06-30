@@ -23,6 +23,9 @@ export default DS.JSONAPISerializer.extend(DS.EmbeddedRecordsMixin, {
  },
 
   keyForAttribute: function(attr) {
-    return attr;
+    // return attr;
+
+    return Ember.String.underscore(attr)
+    //return Ember.String.underscore(attr).toUpperCase();
   }
 });
