@@ -77,8 +77,8 @@ module.exports = function(environment) {
 
   if (environment === 'production') {
     ENV['ember-simple-auth'] = {
-      serverTokenEndpoint: '//api.brydge.me/2/token',
-      authorizerHost: '//api.brydge.me'
+      serverTokenEndpoint: '//api.brydge.com/v2/token',
+      authorizerHost: '//api.brydge.com'
     }
   }
 
