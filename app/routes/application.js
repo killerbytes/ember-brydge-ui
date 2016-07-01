@@ -21,7 +21,7 @@ export default TransitionToListenerRoute.extend(
     },
     logout() {
       var accessToken = this.get('session.data.authenticated.access_token');
-      Ember.$.getJSON(ENV['ember-simple-auth'].authorizerHost + "/expire?token=" + accessToken).done(() => {
+      Ember.$.getJSON(ENV['ember-simple-auth'].authorizerHost + "/v2/expire?token=" + accessToken).done(() => {
         this.get('session').invalidate();
         console.log("Expired session", accessToken);
       });
