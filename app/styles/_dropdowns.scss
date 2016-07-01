@@ -129,25 +129,41 @@
 //   border: none;
 //   box-shadow: none;
 // }
-#dd-industry-picker{
+.industry-picker.dropdown-pane{
   @extend .bordered;
   top: 0 !important;
   left: 0 !important;
   width: 100%;
   padding: 0;
   box-shadow: none;
-  .title-bar{
-    text-align: left;
-    background: none;
-    padding: 1rem;
-    margin-bottom: 0;
+  .content{
+    background-color: $brydge-gray;
+  }
+  ul.text-title{
+    li{
+      padding: 3px 0;
+    }
+  }
+  .content-title{
+    border-bottom: 1px solid $border-color;
     h4{
       color: $body-text-color;
       margin: 0;
     }
+    a{
+      margin-left: 10px;
+      text-decoration: underline;
+    }
   }
   .tabs-panel{
     padding: 0;
+  }
+  form{
+    label{
+      display: inline-block;
+      font-size: inherit;
+      color: $text-gray;
+    }
   }
 
 }

@@ -29,7 +29,7 @@
       </div>
       <div class="medium-9 columns float-left">
         <div class="tabs-content vertical box" data-tabs-content="edit-tabs">
-          <a data-toggle="dd-industry-picker" class="action-button dropdown-button-arrow invisible"><i class="icons ellipsis"></i></a>      
+          <a data-toggle="dd-industry-picker-business" class="action-button dropdown-button-arrow invisible"><i class="icons ellipsis"></i></a>      
 
           <div class="tabs-panel {{active-tab 'personal' tab}}" id="personal">
             {{partial 'me/edit/info'}}
@@ -38,14 +38,10 @@
             <h1>Profile Type</h1>
           </div>
           <div class="tabs-panel {{active-tab 'industry' tab}}" id="industry">
-            {{#zf-dropdown id=(concat 'dd-industry-picker' item.id) class="card-menu-dropdown"}}
-              {{partial 'partials/industry-picker'}}    
-            {{/zf-dropdown}}
-
-
+            {{picker-industry name="business" categories=categories onSelect='setBusinessIndustry' }} 
             <form class="form-occupational-industry">
               <div class="row">
-                <div class="columns medium-8">
+                <div class="columns medium-7">
                   <form class="form-profile">
                     <label for="">
                       Business Industry
@@ -58,54 +54,64 @@
                     </label>
                   </form>
                 </div>
-                <div class="columns medium-4">
+                <div class="columns medium-5">
                   <label for="">&nbsp;
-                    <a data-toggle="dd-industry-picker" class="picker" {{action "setSelected" 'industry' }} class="button button-border expanded">Use the Industry Picker</a>
+                    <a data-toggle="dd-industry-picker-business" class="picker" class="button button-border expanded rounded">Use the Industry Picker</a>
                   </label>
 
                 </div>
               </div>
               <div>
-                <button class='button success' {{ action 'save' }}>Save Changes</button>
+                <button class="button success rounded" {{ action 'save' }}>Save Changes</button>
               </div>
             </form>
           </div>
           <div class="tabs-panel {{active-tab 'occupindustry' tab}}" id="occupindustry">
+            {{picker-industry name="occupationalOne" categories=categories onSelect='setOccupationalOne' }} 
+            {{picker-industry name="occupationalTwo" categories=categories onSelect='setOccupationalTwo' }} 
+
             <p>Occupational Industries are industries that you deal with as part of your job. We allow you to pick up 2 Occupational Industries on Brydge. See example below.</p>
             <p>If you think this isn't applicable to you, check the Not Applicable box.</p>
             <form class="form-occupational-industry">
-              <div class="row collapse">
-                <div class="columns medium-8">
-                  <label for="">
-                    Occupation Industry 1
-                    {{dropdown-filter
-                    items=industries 
-                    selected=selectedOccupOne
-                    query='queryIndustries'
-                    itemSelected='occupOneSelected'
-                    template="partials/industry-filter"}}
-                  </label>
+              <div class="row">
+                <div class="columns medium-7">
+                  <form class="form-profile">
+                    <label for="">
+                      Occupation Industry 1
+                      {{dropdown-filter
+                      items=industries 
+                      selected=selectedOccupOne
+                      query='queryIndustries'
+                      itemSelected='occupOneSelected'
+                      template="partials/industry-filter"}}
+                    </label>
+                  </form>
                 </div>
-                <div class="columns medium-4">
-                <a class="picker" data-open="industryModal" {{action "setSelected" 'occupationOne' }}>Use the Industry Picker</a>
-
+                <div class="columns medium-5">
+                  <label for="">&nbsp;
+                    <a data-toggle="dd-industry-picker-occupationalOne" class="picker" class="button button-border expanded rounded">Use the Industry Picker</a>
+                  </label>
                 </div>
               </div>
 
-              <div class="row collapse">
-                <div class="columns medium-8">
-                  <label for="">
-                    Occupation Industry 2 (optional)
-                    {{dropdown-filter
-                    items=industries 
-                    selected=selectedOccupTwo
-                    query='queryIndustries'
-                    itemSelected='occupTwoSelected'
-                    template="partials/industry-filter"}}
-                  </label>
+              <div class="row">
+                <div class="columns medium-7">
+                  <form class="form-profile">
+                    <label for="">
+                      Occupation Industry 2 (optional)
+                      {{dropdown-filter
+                      items=industries 
+                      selected=selectedOccupTwo
+                      query='queryIndustries'
+                      itemSelected='occupTwoSelected'
+                      template="partials/industry-filter"}}
+                    </label>
+                  </form>
                 </div>
-                <div class="columns medium-4">
-                  <a class="picker" data-open="industryModal" {{action "setSelected" 'occupationTwo' }}>Use the Industry Picker</a>   
+                <div class="columns medium-5">
+                  <label for="">&nbsp;
+                    <a data-toggle="dd-industry-picker-occupationalTwo" class="picker" class="button button-border expanded rounded">Use the Industry Picker</a>
+                  </label>
 
                 </div>
               </div>

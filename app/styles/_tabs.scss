@@ -92,7 +92,7 @@
 .profile-tab{
 	.tabs-title{
 		padding: 0;
-		&.is-active a{
+		&.is-active a, a:hover{
 			background-color: $brydge-gray;
 			color: $button-blue;
 		}
@@ -114,9 +114,12 @@
 			@extend .bordered;
 			position: relative;
 		}
-		.tabs-panel{
-			padding: 3rem 2rem;
-		}
+	}
+	.tabs-panel{
+		padding: 3rem 6rem;
+	}
+	.bg-gray{
+		color: $text-gray;
 	}
 }
 
