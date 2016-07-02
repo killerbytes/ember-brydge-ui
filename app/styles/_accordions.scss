@@ -1,44 +1,44 @@
-.profile-accordion{
-	font-size: 14px;
-	.accordion{
-		border: none;
-	}
-	a.more{
-		font-size: 20px;
-		color: #FFF;
-	}
+// .profile-accordion{
+// 	font-size: 14px;
+// 	.accordion{
+// 		border: none;
+// 	}
+// 	a.more{
+// 		font-size: 20px;
+// 		color: #FFF;
+// 	}
 	
-	>ul>li{
-		background-color: $button-blue;
-		margin-bottom: 2px;
-		.accordion-header{
-			padding: 10px 20px;
-			display: block;
-		}
-		.accordion-content{
-			padding: 0;
-			border: none;
-		}
-		a{
-			color: $body-text-color;
-		}
-	}
-}
-.experiences-accordion{
-	li{
-		position: relative;
-		label.forRadio{
-			position: absolute;
-			bottom: 0;
-			left: 1.25rem;
-		}
-	}
-	li.is-active{
-		label.forRadio{
-			display: none;
-		}
-	}
-}
+// 	>ul>li{
+// 		background-color: $button-blue;
+// 		margin-bottom: 2px;
+// 		.accordion-header{
+// 			padding: 10px 20px;
+// 			display: block;
+// 		}
+// 		.accordion-content{
+// 			padding: 0;
+// 			border: none;
+// 		}
+// 		a{
+// 			color: $body-text-color;
+// 		}
+// 	}
+// }
+// .experiences-accordion{
+// 	li{
+// 		position: relative;
+// 		label.forRadio{
+// 			position: absolute;
+// 			bottom: 0;
+// 			left: 1.25rem;
+// 		}
+// 	}
+// 	li.is-active{
+// 		label.forRadio{
+// 			display: none;
+// 		}
+// 	}
+// }
 
 .accordion-picker{
 	.box{

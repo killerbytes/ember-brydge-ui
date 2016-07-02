@@ -140,6 +140,7 @@ p.wrap{
 }
 .invisible{
 	visibility: hidden;
+	position: absolute;
 }
 // .bg-white{
 // 	background-color: #FFF !important;
@@ -157,9 +158,8 @@ p.wrap{
 	overflow: hidden;
 }
 .shadowed{
-	// box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.5) inset, 0 0px 1px rgba(0, 0, 0, 0.5)
-	// box-shadow: 0px 1px 4.95px 0.05px rgba(214, 224, 229, 0.8); 
-	box-shadow: none;
+	// box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.5) inset, 0 0px 1px rgba(0, 0, 0, 0.5);
+	box-shadow: 0px 1px 5px 0.05px rgba(214, 224, 229, 0.8); 
 }
 .no-shadow{
 	box-shadow: none;
@@ -268,4 +268,5 @@ li[aria-expanded=false]{
 	background-size: cover;
 	width: 30px;
 	height: 30px;
+	margin: auto;
 }

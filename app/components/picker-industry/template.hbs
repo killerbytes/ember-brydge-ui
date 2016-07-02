@@ -33,7 +33,7 @@
 	      {{#each categories as |item|}}
 	        <div class="tabs-panel" id="{{name}}-{{item.code}}">
 	          <section class="content-title text-title">
-	        		<label>Sector:</label> {{item.name}} <a {{action "goto" "0" "root" }}>Change</a>
+	        		<label>Sector:</label> <strong>{{item.name}}</strong> <a {{action "goto" "0" "root" }}>Change</a>
 	          </section>
 	          <section class="content">
 	          	Choose an Industry Group
@@ -48,10 +48,10 @@
 	        {{#each item.categories as |category|}}
 	          <div class="tabs-panel" id="{{name}}-{{category.code}}">
 	          	<section class="content-title text-title">
-	            	<label>Sector:</label> {{item.name}} <a {{action "goto" "0" "root" }}>Change</a>
+	            	<label>Sector:</label> <strong>{{item.name}}</strong> <a {{action "goto" "0" "root" }}>Change</a>
 	            </section>
 	            <section class="content-title text-title">
-	          		<label>Industry Group:</label> {{category.name}} <a {{action "goto" "1" item }}>Change</a>
+	          		<label>Industry Group:</label> <strong>{{category.name}}</strong> <a {{action "goto" "1" item }}>Change</a>
 	            </section>
 	            <section class="content">
 	            	Choose an Industry
@@ -72,27 +72,19 @@
 	    <div class="tabs-panel" id="{{name}}-done">
 	    	<form>
 	      	<section class="content-title text-title">
-	        	<label>Sector:</label> {{sector.name}} <a {{action "goto" "0" "root" }}>Change</a>
+	        	<label>Sector:</label> <strong>{{sector.name}}</strong> <a {{action "goto" "0" "root" }}>Change</a>
 	        </section>
 	        <section class="content-title text-title">
-	      		<label>Industry Group:</label> {{group.name}} <a {{action "goto" "1" sector }}>Change</a>
+	      		<label>Industry Group:</label> <strong>{{group.name}}</strong> <a {{action "goto" "1" sector }}>Change</a>
 	        </section>
 	        <section class="content-title text-title">
-	      		<label>Industry:</label> {{industry.data.subIndustry}} <a {{action "goto" "2" group }}>Change</a>
+	      		<label>Industry:</label> <strong>{{industry.data.subIndustry}}</strong> <a {{action "goto" "2" group }}>Change</a>
 	        </section>
 		    	<section>
-				    <button class="button success" {{action "select" industry }}>Save Changes</button>
+				    <button class="button success rounded" {{action "select" industry }}>Save Changes</button>
 		      </section>
 	      </form>
 	    </div>
-
-
 	  </div>
-
-	  <ul class="list-inline">
-	    {{#each selectedIndustries as |item|}}
-	      <li><span class="label label-item"><a {{action "removeSelectedIndustry" item}}>{{fa-icon "close"}}</a> {{item.name}}</span></li>
-	    {{/each}}
-	  </ul>  
 
 {{/zf-dropdown}}

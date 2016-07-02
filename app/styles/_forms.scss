@@ -45,6 +45,7 @@ form{
 		}
 
 	}
+
 	label.reversed, .label.reversed{
 		input{
 			float: right;
@@ -66,6 +67,9 @@ form{
 		font-weight: bold;
 		color: $text-gray;
 		line-height: 2rem;
+		.button{
+			margin-top: 23px;
+		}
 	}	
 	input{
 		@extend .rounded;
@@ -77,24 +81,9 @@ form{
 		border: 1px solid $button-blue;
 		box-shadow: none;
 	}
-	.button{
-		padding: 8px 15px;
-	}
 }
 
 .form-input-wrapper{
-	@extend .bordered;
-	@extend .rounded;
-	@extend .shadowed;
-	background-color: $brydge-gray;	
-	// padding: 1rem;
-	margin-bottom: 1rem;
-	section{
-		padding: 1rem;
-	}
-	.section-footer{
-		padding-top: 0;
-	}
 }
 .form-input{
 	@extend .bordered;

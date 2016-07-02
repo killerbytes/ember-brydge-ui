@@ -21,19 +21,22 @@
 	}
 	.user-info{
 		padding-left: 40px;
-		.position{
-			font-size: 10px;
-			color: $text-gray;
-		}
 		a{
 			font-weight: bold;
 		}
 	}
 	.action-button{
 		display: inline-block;
-	}
-	
+	}	
 }
+.user-info{
+	.position{
+		font-size: 10px;
+		color: $text-gray;
+	}
+
+}
+
 .menu.user-info{
 	li:last-child a{
 		padding-left: 0;
@@ -107,6 +110,9 @@
 		width: 100%;
 		border-bottom: 1px solid $border-color;
 		background-color: #FFF;
+	}
+	ul{
+		@extend .shadowed;
 	}
 	li{
 		padding: 5px;
@@ -199,6 +205,33 @@ footer{
 	.menu{
 		>li:first-child a{
 			padding-left: 0;
+		}
+	}
+}
+
+.industry-examples{
+	.avatar{
+		margin-top: 1rem;
+	}
+	.title{
+		color: $button-blue;
+	}
+	.callout{
+		background-color: $brydge-gray;
+		border: none;
+		color: $text-gray;
+		.title{
+			color: inherit;
+		}
+		p{
+			margin-bottom: 1rem;
+		}
+		&:after{
+			@extend .arrow;
+		  top: 15px;
+		  left: -20px;
+		  border-color: transparent $brydge-gray transparent transparent ;
+		  border-width: 10px;
 		}
 	}
 }

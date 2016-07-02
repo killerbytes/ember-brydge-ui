@@ -12,7 +12,8 @@
 
 .button{
 	background-color: #FFF;
-	padding: 6px 12px;
+	min-width: 6rem;
+	// padding: 8px 12px;
 	&.button-border{				
 		border: 1px solid $button-blue;
 	}
@@ -34,7 +35,6 @@
 		}
 	}
 	&.large{
-		@extend .shadowed;
 		@extend .rounded;
 		padding: 10px;
 	}
@@ -43,7 +43,6 @@
 	}
 }
 .btn{
-	@extend .shadowed;
 	@extend .rounded;	
 }
 
