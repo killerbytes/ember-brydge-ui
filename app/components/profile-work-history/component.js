@@ -15,6 +15,10 @@ export default Ember.Component.extend(Validations, {
 		'Self-employed Consultant',
 		'Independent Contractor' ],
 	today: moment(),
+	init(){
+		this._super();
+		this.model = {};
+	},
 	from: Ember.computed('today', function(){
 		return this.get('today');
 	}),
@@ -50,6 +54,8 @@ export default Ember.Component.extend(Validations, {
 			});
 		},
 		create () {
+			console.log(this)
+			return false;
 			this.sendAction('create', this, ()=>{
 				this.$('ul.accordion').foundation('toggle', $('.accordion-content'))	
 				Foundation.reInit($('ul.accordion'))

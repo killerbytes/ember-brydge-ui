@@ -1,212 +1,70 @@
-<form>
+<form class="accordion-form">
 	<section class="header">
 	  <p>Your current job (title and employer) will be highlighted at the top of your profile. If you are currently self-employed, unemployed, on a sabbatical, or on a break, click here to pick one of the standard titles.</p>
 		
 			<label for="">Select a Career Status <span>(If you are currently not employed full-time)</span></label> 
-			<div class="row">
-				<div class="columns medium-7">
-						{{select-native content=highlightStatuses action=(action (mut highlightStatus)) selectedValue=profile.currentTitle}}		
+				<div class="row">
+					<div class="columns medium-7">
+							{{select-native content=highlightStatuses action=(action (mut highlightStatus)) selectedValue=profile.currentTitle}}		
+					</div>
+					<div class="columns medium-5">
+						<label for="highlightStatus" class="forRadio middle">
+							{{action-radio id='highlightStatus' value="isHighlightStatus" htmlChecked=profile.customTitle name="highlight" action="onHighlight"}}
+							Use this as Title
+						</label>		
+					</div>
 				</div>
-				<div class="columns medium-5">
-					<label for="highlightStatus" class="forRadio middle">
-						{{action-radio id='highlightStatus' value="isHighlightStatus" htmlChecked=profile.customTitle name="highlight" action="onHighlight"}}
-						Use this as Title
-					</label>		
-				</div>
-			</div>
 	</section>
-	{{#zf-accordion allowAllClosed="true" class="experiences-accordion"}}
+	<section>
+	{{#zf-accordion allowAllClosed="true"}}
 	{{#each items as |item|}}
-		<li class="accordion-item" data-accordion-item >
-				<a class="accordion-header text-right">
-						{{ item.title }} <br>
-						<strong>{{ item.company }}</strong>		<br>
+		<li class="accordion-item box	" data-accordion-item >
+
+			<a class="col">
+					<div class="name">{{ item.title }}</div>
+					<div class="company">{{ item.company }}</div>
+					<div class="timestamp">
 			      {{term-date-format item.from}} - 
 			      {{#if item.currentCompany}}
 			        Present
 			      {{else}}
 			        {{term-date-format item.to}}
 			      {{/if}}
-				</a>
-				{{#if item.currentCompany}}
-					<label for="{{item.id}}" class="forRadio">
-						{{action-radio id=item.id name="highlight" xvalue=item.id xhtmlChecked=item.showHighlight action="onHighlight" param=item}}
-						Use this as profile title
-					</label>
-				{{/if}}
+		      </div>
+			</a>
+			<div class="col">
+				<label for="{{item.id}}" class="forRadio">
+					{{action-radio id=item.id name="highlight" value=item.id htmlChecked=item.showHighlight action="onHighlight" param=item}}
+					Use this as Title
+				</label>
+			</div>
 			<div class="accordion-content" data-tab-content>
-		  	<form action="" class="form-accordion	">
+		  	<div class="content">
+		  		{{form-work-history model=item}}
 					<div class="row">
-						<div class="columns medium-3">
-							<label class="text-right middle">					
-								Title
-							</label>						
-						</div>
-						<div class="columns medium-9">
-							{{form-input model=item valuePath="title"}}
+						<div class="columns">
+					    <button class="button success rounded" disabled={{v-get item 'isInvalid'}} {{ action 'update' item }}>Save</button>
+					    <a class="float-right button clear" {{ action 'delete' item }}>Delete this Position</a>						
 						</div>
 					</div>
-		  		<div class="row">
-		  			<div class="columns medium-3">
-							<label class="text-right middle">
-								Company
-							</label>
-		  			</div>
-						<div class="columns medium-9">
-							{{form-input model=item valuePath='company'}}
-						</div>
-					</div>
-					<div class="row">
-						<div class="column medium-3">
-							<label class="text-right middle">
-								Location
-							</label>						
-						</div>
-						<div class="columns medium-9">
-							{{form-input model=item valuePath="location"}}
-						</div>
-					</div>
-					<div class="row">
-						<div class="columns medium-3">
-							<label class="text-right middle">Start Date</label>
-						</div>
-						<div class="columns medium-9">
-							<div class="row">
-								<div class="columns medium-6">{{form-input-month-year value=item.from}}</div>
-								<div class="columns medium-6">{{form-input-month-year value=item.from type="year"}}</div>
-							</div>
-						</div>
-					</div>
-					<div class="row">
-						<div class="columns medium-3">
-							<label class="text-right middle">
-								End Date							
-							</label>
-						</div>
-						<div class="columns medium-9">
-							<div class="row">
-								<div class="columns medium-6">{{form-input-month-year value=item.to disabled=item.currentCompany}}</div>
-								<div class="columns medium-6">{{form-input-month-year value=item.to type="year" disabled=item.currentCompany}}</div>
-							</div>
-						</div>
-					</div>
-					<div class="row">
-						<div class="columns medium-9 medium-offset-3">
-							<div class="checkbox">
-								<label class="middle">
-									{{input type="checkbox" name="currentCompany" checked=item.currentCompany}} I currently work here
-								</label>
-							</div>
-						</div>
-					</div>
-					<div class="row">
-						<div class="columns medium-3">
-							<label class="text-right middle">
-								Description
-							</label>						
-						</div>
-						<div class="columns medium-9">
-							{{form-text-counter limit=2100 value=item.content rows=10 showCounter=false }}				
-						</div>
-					</div>
-					<div class="row">
-						<div class="columns medium-9 medium-offset-3">
-					    <button class='button success' disabled={{v-get item 'isInvalid'}} {{ action 'update' item }}>SAVE</button>
-					    <button class='button success float-right' {{ action 'delete' item }}>DELETE</button>						
-						</div>
-					</div>
-
-				</form>								
+				</div>								
 			</div>
 		</li>
 	{{/each}}
 		<li class="accordion-item" data-accordion-item>
+  		<a class="button success expanded rounded">Add Job Position</a>
 			<div class="accordion-content" data-tab-content>
-		  	<form action="" class="form-accordion">
+	  		<div class="content form-new">
+		  		{{form-work-history model=model}}
 					<div class="row">
-						<div class="columns medium-3">
-							<label class="text-right middle">					
-								Title
-							</label>						
-						</div>
-						<div class="columns medium-9">
-							{{form-input model=this valuePath="title"}}
+						<div class="columns">
+				    	<button class="button success rounded" disabled={{v-get model 'isInvalid'}} {{ action 'create' }}>Save</button>
+					    <a class="float-right button clear">Reset</a>
 						</div>
 					</div>
-		  		<div class="row">
-		  			<div class="columns medium-3">
-							<label class="text-right middle">
-								Company
-							</label>
-		  			</div>
-						<div class="columns medium-9">
-							{{form-input model=this valuePath="company"}}
-						</div>
-					</div>
-					<div class="row">
-						<div class="column medium-3">
-							<label class="text-right middle">
-								Location
-							</label>						
-						</div>
-						<div class="columns medium-9">
-							{{form-input model=this valuePath="location"}}
-						</div>
-					</div>
-					<div class="row">
-						<div class="columns medium-3">
-							<label class="text-right middle">Start Date</label>
-						</div>
-						<div class="columns medium-9">
-							<div class="row">
-								<div class="columns medium-6">{{form-input-month-year value=this.from}}</div>
-								<div class="columns medium-6">{{form-input-month-year value=this.from type="year"}}</div>
-							</div>
-
-						</div>
-					</div>
-					<div class="row">
-						<div class="columns medium-3">
-							<label class="text-right middle">
-								End Date							
-							</label>
-						</div>
-						<div class="columns medium-9">
-							<div class="row">
-								<div class="columns medium-6">{{form-input-month-year value=this.to disabled=this.currentCompany}}</div>
-								<div class="columns medium-6">{{form-input-month-year value=this.to type="year" disabled=this.currentCompany}}</div>
-							</div>
-						</div>
-					</div>
-
-					<div class="row">
-						<div class="columns medium-9 medium-offset-3">
-							<div class="checkbox">
-								<label class="middle">
-									{{input type="checkbox" name="currentCompany" checked=this.currentCompany}} I currently work here
-								</label>
-							</div>
-						</div>
-					</div>
-					<div class="row">
-						<div class="columns medium-3">
-							<label class="text-right middle">
-								Description
-							</label>						
-						</div>
-						<div class="columns medium-9">
-							{{form-text-counter limit=2100 value=this.content rows=10 showCounter=false }}				
-						</div>
-					</div>
-					<div class="row">
-						<div class="columns medium-9 medium-offset-3">
-				    	<button class='button success' disabled={{v-get this 'isInvalid'}} {{ action 'create' }}>SAVE</button>
-					    <button class='button success'>RESET</button>						
-						</div>
-					</div>
-				</form>								
+				</div>
 			</div>
-	  		<a class="more no-arrow button success expanded">{{fa-icon "plus"}}</a>
 		</li>  
 	{{/zf-accordion}}
+	</section>
 </form>
