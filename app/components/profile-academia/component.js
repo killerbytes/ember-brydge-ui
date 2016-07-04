@@ -6,6 +6,10 @@ export default Ember.Component.extend(Validations, {
 	flashMessages: Ember.inject.service(),
 	classNames: ['profile-accordion', 'no-bullet'],
 	maxYear: moment().year() + 6,
+	list: Ember.computed.filterBy('items', 'isNew', false),
+	model: Ember.computed(function(){
+		return this.get('store').createRecord('education');
+	}),
 	actions: {
 		update: function (item) {
 			this.$('ul.accordion').foundation('toggle', $('.accordion-content'))		
@@ -14,22 +18,11 @@ export default Ember.Component.extend(Validations, {
 			});
 
 		},
-		create: function () {
-			this.$('ul.accordion').foundation('toggle', $('.accordion-content'))	
-
-      let data = this.getProperties("degree", "school", "location", "content", "from", "to");
-			let work = this.get('store').createRecord('education', data);
-			work.save().then(() => {
+		create: function () {			
+			this.get('model').save().then(() => {
 				Ember.get(this, 'flashMessages').success('Success!');
+				this.$('ul.accordion').foundation('toggle', $('.accordion-content'))	
 				Foundation.reInit($('ul.accordion'))
-				this.setProperties({
-					degree: null,
-					school: null,
-					location: null,
-					content: null,
-					from: null,
-					to: null
-				})
 			})
 		},
 		delete: function(item){

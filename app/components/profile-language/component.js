@@ -1,14 +1,13 @@
 import Ember from 'ember';
-import Validations from '../../models/validations/language';
 
-export default Ember.Component.extend(Validations, {
+export default Ember.Component.extend({
 	classNames: ['profile-accordion', 'no-bullet'],
 	store: Ember.inject.service(),
   languageProficiency: ["Beginner", "Intermediate", "Upper Intermediate", "Advanced", "Native or Bilingual"],
-  isValid: Ember.computed('validations.isValid', function(){
-  	console.log('isValid')
-  }),
-
+	model: Ember.computed(function(){
+		return this.get('store').createRecord('language');
+	}),
+	list: Ember.computed.filterBy('items', 'isNew', false),
 	actions: {
 		update: function(item){
 			this.$('ul.accordion').foundation('toggle', $('.accordion-content'))		
@@ -18,18 +17,12 @@ export default Ember.Component.extend(Validations, {
 		},
 		delete: function(item){
 			item.destroyRecord();
-
 		},
 		create: function(){
-			let form = this.getProperties("name", "proficiency");
-			let language = this.get('store').createRecord('language', form);
+			let language = this.get('store').createRecord('language', this.get('model'));
 			language.save().then((res) => {
 				Ember.get(this, 'flashMessages').success('Success!');
-				Foundation.reInit($('ul.accordion'))
-				this.setProperties({
-					name: null,
-					proficiency: null
-				})
+				Foundation.reInit($('ul.accordion'));
 			})
 		}
 	}

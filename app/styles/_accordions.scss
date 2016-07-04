@@ -1,4 +1,7 @@
 .accordion-form{
+	label.title{
+		margin-bottom: 10px;
+	}
 	label{
 		input{
 			margin-bottom: 0;
@@ -9,10 +12,18 @@
 			margin-bottom: 0;
 		}
 	}
+	.button.clear{
+		text-decoration: underline;
+		color: $text-gray;
+	}
 	.name{
 		color: $body-text-color;
 	}
 	.accordion-item{
+		.accordion-header{
+			display: block;
+			padding: 1rem;
+		}
 		.col{
 			display: table-cell;
 			vertical-align: middle;
