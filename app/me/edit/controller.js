@@ -13,22 +13,22 @@ export default Ember.Controller.extend(
   educations: Ember.computed.alias('model.educations'),
   languages: Ember.computed.alias('model.languages'),
   interests: Ember.computed.alias('model.interests'),
-  selectedIndustry: Ember.computed('profile.industryId', 'profile.industry', function(){
+  selectedIndustry: Ember.computed('profile.industryOneId', 'profile.industryOneName', function(){
     return {
-      id: this.get('profile.industryId'),
-      text: this.get('profile.industry')
+      id: this.get('profile.industryOneId'),
+      text: this.get('profile.industryOneName')
     }
   }),
-  selectedOccupOne: Ember.computed('profile.occupationOneId', 'profile.occupationOne', function(){
+  selectedOccupOne: Ember.computed('profile.industryTwoId', 'profile.industryTwoName', function(){
     return {
-      id: this.get('profile.occupationOneId'),
-      text: this.get('profile.occupationOne')
+      id: this.get('profile.industryTwoId'),
+      text: this.get('profile.industryTwoName')
     }
   }),
-  selectedOccupTwo: Ember.computed('profile.occupationTwoId', 'profile.occupationTwo', function(){
+  selectedOccupTwo: Ember.computed('profile.industryThreeId', 'profile.industryThreeName', function(){
     return {
-      id: this.get('profile.occupationTwoId'),
-      text: this.get('profile.occupationTwo')
+      id: this.get('profile.industryThreeId'),
+      text: this.get('profile.industryThreeName')
     }
   }),
   queryParams: ['tab'],

@@ -36,16 +36,16 @@ export default Ember.Route.extend(QueryLocationMixin, {
       })
     },
     setBusinessIndustry(item){
-      this.set('controller.profile.industryId', item.data.code);
-      this.set('controller.profile.industry', item.data.subIndustry);
+      this.set('controller.profile.industryOneId', item.data.code);
+      this.set('controller.profile.industryOneName', item.data.subIndustry);
     },
     setOccupationalOne(item){
-      this.set('controller.profile.occupationOneId', item.data.code);
-      this.set('controller.profile.occupationOne', item.data.subIndustry);
+      this.set('controller.profile.industryTwoId', item.data.code);
+      this.set('controller.profile.industryTwoName', item.data.subIndustry);
     },
     setOccupationalTwo(item){
-      this.set('controller.profile.occupationTwoId', item.data.code);
-      this.set('controller.profile.occupationTwo', item.data.subIndustry);
+      this.set('controller.profile.industryThreeId', item.data.code);
+      this.set('controller.profile.industryThreeName', item.data.subIndustry);
     },
 
     onLocationSelect(item){
@@ -65,8 +65,8 @@ export default Ember.Route.extend(QueryLocationMixin, {
 
       this.controller.set('selectedIndustry', filtered);
       let profile = this.controller.get('profile');
-      profile.set('industryId',filtered.id);
-      profile.set('industry',filtered.text);
+      profile.set('industryOneId',filtered.id);
+      profile.set('industryOneName',filtered.text);
     },
 
     occupOneSelected: function (item) {
