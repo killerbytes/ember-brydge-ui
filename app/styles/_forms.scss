@@ -61,6 +61,7 @@ form{
 		margin-right: 1rem;
 	}
 }
+
 .form-profile{
 	label{
 		font-size: 12px;
@@ -71,7 +72,7 @@ form{
 			margin-top: 23px;
 		}
 	}	
-	input{
+	input, select{
 		@extend .rounded;
 		border: 1px solid $border-color;
 		font-weight: normal;

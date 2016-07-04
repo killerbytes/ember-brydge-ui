@@ -6,13 +6,18 @@ export default Ember.Route.extend(QueryLocationMixin, {
   session: Ember.inject.service(),
 	model: function (params) {
     var userid = this.get('session.data.authenticated.user_id');
+    this.store.unloadAll('language');
+    this.store.unloadAll('interest');
+    this.store.unloadAll('experience');
+    this.store.unloadAll('education');
+
 		return Ember.RSVP.hash({
       categories: $.getJSON('data/categories.json'),
       profile: this.store.findRecord('profile', userid, {reload: true}),
-      languages: this.store.query('language', {userid: userid}),
-      interests: this.store.query('interest', {userid: userid}),
-      experiences: this.store.query('experience', {userid: userid}),
-      educations: this.store.query('education', {userid: userid}),
+      languages: this.store.findAll('language', {userid: userid}),
+      interests: this.store.findAll('interest', {userid: userid}),
+      experiences: this.store.findAll('experience', {userid: userid}),
+      educations: this.store.findAll('education', {userid: userid}),
 
 	  });
 	},
@@ -95,24 +100,6 @@ export default Ember.Route.extend(QueryLocationMixin, {
       let profile = this.controller.get('profile');
       profile.set('occupationTwoId',filtered.id);
       profile.set('occupationTwo',filtered.text);
-    },
-    createWork(component, cb){
-      let data = component.getProperties("company", "title", "location", "content", "from", "to", "currentCompany");
-      let work = this.store.createRecord('experience', data);
-
-      work.save().then(() => {
-        Ember.get(this, 'flashMessages').success('Success!');
-        component.setProperties({
-          company: null,
-          title: null,
-          location: null,
-          content: null,
-          from: null,
-          to: null,
-          currentCompany: null
-        });
-        cb.apply();
-      })
     },
     updateWork(item, cb){
       item.save().then(()=>{

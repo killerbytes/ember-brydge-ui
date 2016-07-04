@@ -1,0 +1,16 @@
+<div class="row">
+	<div class="columns">
+		<label >
+			Name
+			{{form-input model=model valuePath='name'}}
+		</label>
+	</div>
+</div>
+<div class="row">
+	<div class="columns">
+		<label >
+			Proficiency
+    	{{dropdown-proficiency-filter items=items model=model.proficiency template="partials/proficiency-filter"}}
+		</label>
+	</div>
+</div>

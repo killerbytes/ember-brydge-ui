@@ -2,6 +2,11 @@
 	<div class="columns medium-5">
 	</div>
   <div class="columns medium-7">
+  	<button class="button" {{action "add"}}>Add</button>
+		{{#each model.educations as |item|}}
+			<div>{{item.school}} - {{item.location}}</div>
+		{{/each}}
+
 
   </div>
 </div>

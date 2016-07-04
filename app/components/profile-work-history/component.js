@@ -1,7 +1,6 @@
 import Ember from 'ember';
-import Validations from '../../models/validations/experience';
 
-export default Ember.Component.extend(Validations, {
+export default Ember.Component.extend( {
 	flashMessages: Ember.inject.service(),
 	store: Ember.inject.service(),
 	ajax: Ember.inject.service(),
@@ -15,10 +14,10 @@ export default Ember.Component.extend(Validations, {
 		'Self-employed Consultant',
 		'Independent Contractor' ],
 	today: moment(),
-	init(){
-		this._super();
-		this.model = {};
-	},
+	model: Ember.computed(function(){
+		return this.get('store').createRecord('experience');
+	}),
+	list: Ember.computed.filterBy('items', 'isNew', false),
 	from: Ember.computed('today', function(){
 		return this.get('today');
 	}),
@@ -53,14 +52,13 @@ export default Ember.Component.extend(Validations, {
 				this.$('ul.accordion').foundation('toggle', $('.accordion-content'))		
 			});
 		},
-		create () {
-			console.log(this)
-			return false;
-			this.sendAction('create', this, ()=>{
-				this.$('ul.accordion').foundation('toggle', $('.accordion-content'))	
-				Foundation.reInit($('ul.accordion'))
-			});
-		},
+    create(data, cb){
+      this.get('model').save().then(()=>{
+        Ember.get(this, 'flashMessages').success('Success!');
+				this.$('ul.accordion').foundation('toggle', $('.accordion-content'));
+				Foundation.reInit($('ul.accordion'));
+      })
+    },
 		delete(item){
 			item.destroyRecord();
 		},

@@ -1,117 +1,43 @@
-{{#zf-accordion allowAllClosed="true"}}
+<form class="accordion-form">
+	<section>
+		<label class="title">Academia</label>
+		{{#zf-accordion allowAllClosed="true"}}
 
-{{#each items as |item|}}
+		{{#each list as |item|}}
+			<li class="accordion-item box" data-accordion-item >
+					<a class="accordion-header">
+						<div class="name">{{ item.degree }}</div>
+						<div class="company">{{ item.school }}</div>
+						<div class="timestamp">{{term-date-format item.to 'YYYY' }}</div>
+					</a>
+				<div class="accordion-content" data-tab-content>
+					<div class="content">
+						{{partial-component model=item template="components/form-academia"}}
+							<div class="row">
+								<div class="columns">
+							    <button class="button success rounded" {{ action 'update' item }}>Save</button>
+							    <button class="button clear float-right" {{ action 'delete' item }}>Delete this Graduation</button>						
+								</div>
+							</div>
+					</div>	
 
-	<li class="accordion-item" data-accordion-item >
-			<a class="accordion-header">
-				{{ item.degree }} <br>
-				<strong>{{ item.school }}</strong>
-			</a>
-		<div class="accordion-content" data-tab-content>
-	  	<form action="" class="form-accordion	">
-	  		<div class="row">
-	  			<div class="columns medium-4">
-						<label class="text-right middle">
-							School
-						</label>
-	  			</div>
-					<div class="columns medium-8">
-						{{form-input model=item valuePath='school'}}
+				</div>
+			</li>
+		{{/each}}
+			<li class="accordion-item" data-accordion-item>
+	  		<a class="button success expanded rounded">Add Academia</a>
+				<div class="accordion-content" data-tab-content>
+					<div class="content form-new">
+			  		{{partial-component model=model template="components/form-academia"}}
+						<div class="row">
+							<div class="columns">
+					    	<button class="button success rounded" {{ action 'create' }}>Save</button>
+						    <button class="button clear float-right">Delete this Graduation</button>						
+							</div>
+						</div>
 					</div>
 				</div>
-	  		<div class="row">
-	  			<div class="columns medium-4">
-						<label class="text-right middle">
-							Location
-						</label>
-	  			</div>
-					<div class="columns medium-8">
-						{{form-input model=item valuePath='location'}}
-					</div>
-				</div>
-	  		<div class="row">
-	  			<div class="columns medium-4">
-						<label class="text-right middle">
-							Degree / Diploma
-						</label>
-	  			</div>
-					<div class="columns medium-8">
-						{{form-input model=item valuePath='degree'}}
-					</div>
-				</div>
-	  		<div class="row">
-	  			<div class="columns medium-4">
-						<label class="text-right middle">
-							Year of Graduation
-						</label>
-	  			</div>
-					<div class="columns medium-8">
-						{{form-input-month-year value=item.to type="year" maxYear=maxYear}}
-					</div>
-				</div>
-				<div class="row">
-					<div class="columns medium-8 medium-offset-4">
-				    <button class='button success' {{ action 'update' item }}>SAVE</button>
-				    <button class='button success float-right' {{ action 'delete' item }}>DELETE</button>						
-					</div>
-				</div>
-			</form>								
-
-		</div>
-	</li>
-{{/each}}
-	<li class="accordion-item" data-accordion-item>
-		<div class="accordion-content" data-tab-content>
-	  	<form action="" class="form-accordion">
-	  		<div class="row">
-	  			<div class="columns medium-4">
-						<label class="text-right middle">
-							School
-						</label>
-	  			</div>
-					<div class="columns medium-8">
-						{{form-input model=this valuePath='school'}}
-					</div>
-				</div>
-	  		<div class="row">
-	  			<div class="columns medium-4">
-						<label class="text-right middle">
-							Location
-						</label>
-	  			</div>
-					<div class="columns medium-8">
-						{{form-input model=item valuePath='location'}}
-					</div>
-				</div>
-	  		<div class="row">
-	  			<div class="columns medium-4">
-						<label class="text-right middle">
-							Degree / Diploma
-						</label>
-	  			</div>
-					<div class="columns medium-8">
-						{{form-input model=this valuePath='degree'}}
-					</div>
-				</div>
-	  		<div class="row">
-	  			<div class="columns medium-4">
-						<label class="text-right middle">
-							Graduation Year
-						</label>
-	  			</div>
-					<div class="columns medium-8">
-						{{form-input model=this valuePath='to'}}
-					</div>
-				</div>
-				<div class="row">
-					<div class="columns medium-8 medium-offset-4">
-			    	<button class='button success' {{ action 'create' }}>SAVE</button>
-				    <button class='button success'>RESET</button>						
-					</div>
-				</div>
-
-			</form>								
-		</div>
-  		<a class="more no-arrow button success expanded">{{fa-icon "plus"}}</a>
-	</li>  
-{{/zf-accordion}}
+			</li>  
+		{{/zf-accordion}}
+	</section>
+</form>
