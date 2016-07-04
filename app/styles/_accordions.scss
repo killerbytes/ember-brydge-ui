@@ -1,43 +1,61 @@
-.profile-accordion{
-	font-size: 14px;
-	.accordion{
-		border: none;
-	}
-	a.more{
-		font-size: 20px;
-		color: #FFF;
-	}
-	
-	>ul>li{
-		background-color: $button-blue;
-		margin-bottom: 2px;
-		.accordion-header{
-			padding: 10px 20px;
-			display: block;
-		}
-		.accordion-content{
-			padding: 0;
-			border: none;
-		}
-		a{
-			color: $body-text-color;
+.accordion-form{
+	label{
+		input{
+			margin-bottom: 0;
 		}
 	}
-}
-.experiences-accordion{
-	li{
-		position: relative;
-		label.forRadio{
-			position: absolute;
-			bottom: 0;
-			left: 1.25rem;
+	section.header{
+		select, label{
+			margin-bottom: 0;
 		}
 	}
-	li.is-active{
-		label.forRadio{
-			display: none;
+	.name{
+		color: $body-text-color;
+	}
+	.accordion-item{
+		.col{
+			display: table-cell;
+			vertical-align: middle;
+			padding: 1rem;
+		}
+		.col:first-child{
+			width: 73%;
 		}
 	}
+	.accordion-item.is-active{
+		.content:not(.form-new){
+			&:after{
+				@extend .arrow;
+			  top: -19px;
+			  left: 48%;
+			  border-color: transparent transparent $brydge-gray transparent;
+			  border-width: 11px;
+			}
+			&:before{
+				@extend .arrow;
+			  top: -21px;
+			  left: 48%;
+			  border-color: transparent transparent $border-color transparent;
+			  border-width: 11px;
+			}
+
+		}
+
+	}
+	.accordion-content{
+		position: relative;		
+	}
+	.content{
+		background-color: $brydge-gray;
+		border-top: 1px solid $border-color;
+		padding: 1rem 3rem;
+		textarea{
+			font-size: 12px;
+			margin-bottom: 1rem;
+		}		
+
+	}
+
 }
 
 .accordion-picker{

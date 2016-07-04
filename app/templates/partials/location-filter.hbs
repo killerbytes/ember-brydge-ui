@@ -1,10 +1,8 @@
 {{input value=selected key-up="onchange" focus-in="open" placeholder=placeholder autocomplete="off"}}
 <div class="wrapper {{if isOpen 'is-open'}}">
-	<ul class="no-bullet shadowed">
+	<ul class="no-bullet">
 	{{#each locations as |item|}}
 		<li {{action "select" item preventDefault=false}}>{{location-join item}}</li>
 	{{/each}}
 	</ul>
-	<a class="button success expanded" data-open="locationModal">Can't find your city?</a>
-	
 </div>

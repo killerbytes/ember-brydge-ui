@@ -92,7 +92,7 @@
 .profile-tab{
 	.tabs-title{
 		padding: 0;
-		&.is-active a{
+		&.is-active a, a:hover{
 			background-color: $brydge-gray;
 			color: $button-blue;
 		}
@@ -114,9 +114,25 @@
 			@extend .bordered;
 			position: relative;
 		}
-		.tabs-panel{
-			padding: 3rem 2rem;
+	}
+	.tabs-panel{
+		section{
+			padding: 1rem 6rem;
 		}
+		section.header{
+			background-color: $brydge-gray;
+			padding: 3rem 6rem;
+			color: $text-gray;
+			p:last-of-type{
+				margin-bottom: 2rem;
+			}
+		}
+		section.industry-examples{
+			padding: 2rem 4rem;
+		}
+	}
+	.bg-gray{
+		color: $text-gray;
 	}
 }
 
