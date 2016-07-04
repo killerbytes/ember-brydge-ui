@@ -2,7 +2,7 @@ import Ember from 'ember';
 
 export default Ember.Mixin.create({
   ajaxApi: Ember.inject.service(),
-	
+
   locations: [],
   selectedLoc: null,
   filteredLoc: 'Everywhere',
@@ -11,7 +11,7 @@ export default Ember.Mixin.create({
 
   actions: {
     query: function (q) {
-      this.get('ajaxApi').request('cities/'+q, {
+      this.get('ajaxApi').request('/v2/cities/'+q, {
           method: 'GET'
         }).then((res)=>{
           if(this.get('controller')){
@@ -19,7 +19,7 @@ export default Ember.Mixin.create({
           }else{
             this.set('locations', res)
           }
-          
+
       });
     }
 
