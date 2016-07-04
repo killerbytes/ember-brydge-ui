@@ -1,15 +1,20 @@
 .share-post-box{
-	@extend .form-input-wrapper;
-	// @extend .bordered;
-	// @extend .rounded;
-	// background-color: $brydge-gray;
+	@extend .bordered;
+	@extend .rounded;
+	background-color: $brydge-gray;	
+	margin-bottom: 1rem;
+	section{
+		padding: 1rem;
+	}
+	.section-footer{
+	}
+
 	.newsfeed-item{
 		border: none;
 	}
 	.section-footer{
+		// padding-top: 0;
 		background-color: #FFF;
-		// border-top: 1px solid $border-color;
-		padding-top: 1rem;
 	}
 	.dropdown-button{
 		padding-left: 0;

@@ -35,6 +35,19 @@ export default Ember.Route.extend(QueryLocationMixin, {
         })
       })
     },
+    setBusinessIndustry(item){
+      this.set('controller.profile.industryId', item.data.code);
+      this.set('controller.profile.industry', item.data.subIndustry);
+    },
+    setOccupationalOne(item){
+      this.set('controller.profile.occupationOneId', item.data.code);
+      this.set('controller.profile.occupationOne', item.data.subIndustry);
+    },
+    setOccupationalTwo(item){
+      this.set('controller.profile.occupationTwoId', item.data.code);
+      this.set('controller.profile.occupationTwo', item.data.subIndustry);
+    },
+
     onLocationSelect(item){
       console.log(item)
       // let location = item.terms.join(', ');
@@ -109,9 +122,6 @@ export default Ember.Route.extend(QueryLocationMixin, {
     },
     setSelected(item){
       this.controller.set('current', item);
-    },
-    goto(link){
-      $('#industry-tab').foundation('selectTab', $('#'+link))
     },
     onIndustrySelected(code){
       this.controller.set('_selected', {

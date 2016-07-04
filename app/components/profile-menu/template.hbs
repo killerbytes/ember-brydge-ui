@@ -26,7 +26,7 @@
     <ul class="menu">
       {{#if isOwner}}
         <li>{{link-to "Connections" "me.connections"}}</li>
-        <li>{{link-to "Your ASK Page" "me.ask"}}</li>
+        <li>{{link-to "Edit Profile" "me.edit"}}</li>
       {{else}}
         <li>{{#link-to "connections" profile.id }} {{profile.firstName}}'s connection ({{ activeConnections.length }}){{/link-to}}</li>
         <li><a href="" class="warning" {{action 'onClickedDisconnect'}}>Disconnect from {{profile.firstName}}</a></li>
