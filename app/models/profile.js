@@ -15,7 +15,7 @@ export default DS.Model.extend({
 	industryTwoId: DS.attr('string'),
 	industryThreeId: DS.attr('string'),
 	snapshot: DS.attr('string'),
-	birthDay: DS.attr('date'),
+	dob: DS.attr('date'),
 	avatarUrl: DS.attr('string', { defaultValue: 'assets/blank-user.jpg' }),
 	currentTitle: DS.attr('string'),
 	currentExperience: DS.attr(),
