@@ -12,8 +12,8 @@ export default Ember.Route.extend(QueryLocationMixin, {
     this.store.unloadAll('education');
 
 		return Ember.RSVP.hash({
-      categories: $.getJSON('data/categories.json'),
       profile: this.store.findRecord('profile', userid, {reload: true}),
+      categories: $.getJSON('data/categories.json'),
       languages: this.store.findAll('language', {userid: userid}),
       interests: this.store.findAll('interest', {userid: userid}),
       experiences: this.store.findAll('experience', {userid: userid}),

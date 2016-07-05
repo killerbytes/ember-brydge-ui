@@ -1,11 +1,14 @@
 import Ember from 'ember';
+import SharePostIndustryPicker from 'web/mixins/share-post-industry-picker';
 
-export default Ember.Component.extend({
+export default Ember.Component.extend(SharePostIndustryPicker, {
   sessionAccount: Ember.inject.service(),
   ajaxApi: Ember.inject.service(),
   utils: Ember.inject.service(),
 	classNames: ['share-post-box'],
-  categories: [],
+  elem: Ember.computed(function(){
+    return this.$();
+  }),
   title: Ember.computed('site.title', function(){
     let title = this.get('site.title') || this.get('site.url');
     return title.length > 100 ? title.substr(0, 100) + ' ...' : title;
@@ -13,15 +16,6 @@ export default Ember.Component.extend({
   isOccupational: Ember.computed('profile.occupationOneId', function(){
     return this.get('profile.occupationOneId') ? true : false && this.get('profile.occupationTwoId') ? true : false;
   }),
-  init: function(){
-    this._super(...arguments);
-    this.set('categories', []);
-  },
-  willDestroyElement(){
-    console.log('willDestroyElement')
-    this.$('#channelPicker').foundation('destroy');
-    this.$('#channelPicker').remove();
-  },
   crawl(uri){
     var url = "v1/crawl?url=" + uri;
     this.get('ajaxApi').request(url, {
@@ -46,9 +40,6 @@ export default Ember.Component.extend({
     return urlArray;
   },
 	actions: {
-    toggle(){
-      this.$('#channelSelect').foundation('toggle', this.$('.accordion-content'))
-    },
     removePreview(){
       this.set('site.image', null);
     },
@@ -69,12 +60,12 @@ export default Ember.Component.extend({
       }
 
       this.sendAction('submit', data, ()=>{
-        this.$('#channelPicker').foundation('toggle', this.$('.accordion-content'))
+        this.toggle('up')
         this.setProperties({
-          postContent: null,
+          postContent: null, //textarea
           categories: [],
           site: null,
-          isNoPreview: false,
+          // isNoPreview: false,
           occupationOne: false,
           occupationTwo: false,
           industryId: false
@@ -88,17 +79,6 @@ export default Ember.Component.extend({
     },
     cancel() {
       this.set('postContent', '');
-    },
-    checkboxChanged(value, checked, text, e) {
-      if(checked) {
-        this.categories.pushObject({id: value, text: text, checked: checked});
-        this.set(e.currentTarget.name, true)
-      }else{
-        var list = this.categories.toArray();
-        _.remove(list, {id: value })
-        this.set('categories', list);
-        this.set(e.currentTarget.name, false)
-      }
     },
     edit(text, e){
 

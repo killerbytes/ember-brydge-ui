@@ -1,11 +1,19 @@
 import Ember from 'ember';
+import SharePostIndustryPicker from 'web/mixins/share-post-industry-picker';
 
-export default Ember.Component.extend({
+export default Ember.Component.extend(SharePostIndustryPicker, {
+	sessionAccount: Ember.inject.service(),
 	sharePost: Ember.inject.service(),
 	title: Ember.computed('post.title', function(){
 		let title = this.get('post.title');
 		if(!title) return false;
 		return title.length > 100 ? title.substr(0, 100) + ' ...' : title;
+	}),
+  elem: Ember.computed(function(){
+    return $('#sharePostModal');
+  }),
+	profile: Ember.computed('sessionAccount.account.profile', function(){
+		return this.get('sessionAccount.account.profile');
 	}),
 	sharedTitle: Ember.computed('post.sharedPost.title', function(){
 		let title = this.get('post.sharedPost.title');
@@ -16,23 +24,23 @@ export default Ember.Component.extend({
     return this.get('profile.occupationOneId') ? true : false && this.get('profile.occupationTwoId') ? true : false;
   }),
 	actions: {
-		checkboxChanged(value, checked, name){
+		// checkboxChanged(value, checked, name){
 
-			if(checked){
-				this.get('sharePost.categories').pushObject({id: value, text: name });
-			}else{
-				var categories = this.get('sharePost.categories').toArray();
-				_.remove(categories, {id: value})
-				this.set('sharePost.categories', categories)
-			}
-		},
-		sharePost(){
-			this.sendAction('submit', ()=>{
-				$('#shareModal').foundation('close');
-				this.set('value', '');
-				this.set('sharePost.categories', [])
-			});
-		},
+		// 	if(checked){
+		// 		this.get('sharePost.categories').pushObject({id: value, text: name });
+		// 	}else{
+		// 		var categories = this.get('sharePost.categories').toArray();
+		// 		_.remove(categories, {id: value})
+		// 		this.set('sharePost.categories', categories)
+		// 	}
+		// },
+		// sharePost(){
+		// 	this.sendAction('submit', ()=>{
+		// 		$('#shareModal').foundation('close');
+		// 		this.set('value', '');
+		// 		this.set('sharePost.categories', [])
+		// 	});
+		// },
 		edit(text, e){
       var el = e.currentTarget;
       var offset = (el.offsetHeight - el.clientHeight);
