@@ -38,8 +38,9 @@ export default Ember.Component.extend(ViewCommentsActionMixin,{
 
       var comment = store.createRecord('comment',{ 
 				content: value.trim(), 
-				threadId: this.get('post.id')
+				newsfeedid: this.get('post.id')
 			});
+			
     	this.set('commentContent', null);
     	Ember.run.later(()=>{
 				this.$('textarea').get(0).style.height = '';
