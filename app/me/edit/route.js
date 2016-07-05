@@ -12,11 +12,16 @@ export default Ember.Route.extend(QueryLocationMixin, {
     this.store.unloadAll('education');
 
 		return Ember.RSVP.hash({
-      categories: $.getJSON('data/categories.json'),
       profile: this.store.findRecord('profile', userid, {reload: true}),
+<<<<<<< HEAD
 
       //languages: this.store.findAll('language', {userid: userid}),
       //interests: this.store.findAll('interest', {userid: userid}),
+=======
+      categories: $.getJSON('data/categories.json'),
+      languages: this.store.findAll('language', {userid: userid}),
+      interests: this.store.findAll('interest', {userid: userid}),
+>>>>>>> redesign
       experiences: this.store.findAll('experience', {userid: userid}),
       educations: this.store.findAll('education', {userid: userid}),
 

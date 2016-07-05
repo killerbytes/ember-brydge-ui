@@ -1,57 +1,73 @@
-{{#zf-reveal id="shareModal" overlay=true class="reveal-popup newsfeed-item"}}
-  <h4>Share this content</h4>
-  <form action="">
-    <div class="content">
-      {{textarea 
-        value=value 
-        key-up="edit" 
-        enter="comment"
-        class="textarea content-editable" 
-        placeholder="Would you like to say something about this?" }}  
-
-      {{#unless post.sharedPost}}
-        <p>{{{post.content}}}</p>
-        {{#if post.title}}
-          <div class="media-main">
-            {{#if post.image}}
-            <a href="{{post.url}}">
-              <div class="post-image" style="background-image: url({{post.image}})">
-                <img src="{{post.image}}" class="hide">
-              </div>
-            </a>
-            {{/if}}
-            <div class="post-caption">
-              <h3><a href="{{post.url}}">{{title}}</a></h3>
-              {{#if post.siteName}}
-                <div class="subheader"><a href="{{post.url}}">{{post.siteName}}</a></div>
-              {{/if}}
-            </div>
-          </div>
-        {{/if}}
-
+{{#zf-reveal id="sharePostModal" overlay=true class="small post-sharer box"}}
+  <section class="title">
+    <h4>Share this content</h4>
+  </section>
+  <section class="header">
+    <form class="form-input">
+      <div class="avatar circle" style={{htmlSafeImage sessionAccount.account.profile.avatarUrl}}>
+        <img src= {{avatarUrl}} class="hide">
+      </div>
+      <div class="input-wrapper">
+        {{textarea 
+          value=sharePost.valueText 
+          key-up="edit" 
+          enter="comment"
+          class="textarea content-editable" 
+          placeholder="Would you like to say something about this?" 
+          }}                  
+      </div>
+    </form>    
+  </section>
+  <section>
+    <div class="newsfeed-item">
+      {{#unless sharePost.selected.sharedPost}}
+        <p>{{{sharePost.selected.content}}}</p>
+        {{newsfeed-media model=sharePost.selected }}
       {{else}}
-        <p>{{{post.sharedPost.content.content}}}</p>
-        {{#if post.sharedPost.title}}
-          <div class="media-main">
-            {{#if post.sharedPost.image}}
-            <div class="post-image">
-              <a href="{{post.sharedPost.url}}">
-                <img src="{{post.sharedPost.image}}">
-              </a>
-            </div>
-            {{/if}}
-            <div class="post-caption">
-              <h3><a href="{{post.sharedPost.url}}">{{sharedTitle}}</a></h3>
-              {{#if post.sharedPost.siteName}}
-                <div class="subheader"><a href="{{post.sharedPost.url}}">{{post.sharedPost.siteName}}</a></div>
-              {{/if}}
-            </div>
-          </div>
-        {{/if}}
-
-      {{/unless}}
-
+        <p>{{{sharePost.selected.sharedPost.content.content}}}</p>
+        {{newsfeed-media model=sharePost.selected }}
+      {{/unless}}          
     </div>
+    <div class="row">
+      <div class="columns medium-8">
+        <div class="wrapper">
+          <a class="dropdown-button button clear" {{action "toggle"}}>
+            Add Industry Channel
+            <i class="icons caret"></i>
+          </a>
+        </div>
+      </div>
+      <div class="columns medium-4">
+        <button class="success button rounded float-right" type="submit" {{action "submit"}}>Broadcast</button>
+      </div>
+    </div>
+  </section>
+  <section>
+  {{#zf-accordion id="postSharerChannelSelect" class="accordion-picker" allowAllClosed=true}}
+    <li class="accordion-item" data-accordion-item>
+      <div class="accordion-content" data-tab-content>
+        {{partial "partials/channel-select"}}
+      </div>
+    </li>
+  {{/zf-accordion}}
+  </section>
+  <section class="section-footer">
+    {{#if categories}}
+      <div class="broadcast-list">
+          <span class="broadcast-title">Broadcasting to: </span> 
+          <strong class="text-gray">My Connections{{#each categories as |item|}}
+                {{~ concat '; ' item.text ~}}
+              {{/each}}
+          </strong>
+      </div>
+    {{else}}
+      <div class="broadcast-list"><span class="broadcast-title">Broadcasting to: </span><strong class="text-gray">My Connections Only</strong></div>
+    {{/if}}
+  </section>
+    
+
+<!-- 
+  <form action="">
     <div class="reveal-footer">
       {{#if sharePost.categories }}
         <div class="broadcast-list">Broadcasting to: My Connections{{#each sharePost.categories as |item|}}
@@ -78,6 +94,7 @@
       </div>
     </div>
   </form>
+ -->
 {{/zf-reveal}}
 
 
