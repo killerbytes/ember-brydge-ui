@@ -113,13 +113,14 @@
 		&.vertical{
 			@extend .bordered;
 			position: relative;
+			min-height: 302px;
 		}
 	}
 	.tabs-panel{
 		section{
 			padding: 1rem 6rem;
 		}
-		section.header{
+		section.header, section.personal-info{
 			background-color: $brydge-gray;
 			padding: 3rem 6rem;
 			color: $text-gray;
@@ -129,6 +130,10 @@
 		}
 		section.industry-examples{
 			padding: 2rem 4rem;
+		}
+		section.personal-info{
+			padding-left: 1rem;
+			padding-right: 1rem;
 		}
 	}
 	.bg-gray{

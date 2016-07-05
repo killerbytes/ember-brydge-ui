@@ -69,9 +69,14 @@ form{
 		color: $text-gray;
 		line-height: 2rem;
 		.button{
-			margin-top: 23px;
+			margin-top: 25px;
 		}
 	}	
+	label.for-radio{
+		a{
+			color: $text-gray;
+		}
+	}
 	input, select{
 		@extend .rounded;
 		border: 1px solid $border-color;

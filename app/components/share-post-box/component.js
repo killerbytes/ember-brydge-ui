@@ -17,6 +17,11 @@ export default Ember.Component.extend({
     this._super(...arguments);
     this.set('categories', []);
   },
+  willDestroyElement(){
+    console.log('willDestroyElement')
+    this.$('#channelPicker').foundation('destroy');
+    this.$('#channelPicker').remove();
+  },
   crawl(uri){
     var url = "v2/crawl?url=" + uri;
     this.get('ajaxApi').request(url, {
@@ -42,7 +47,7 @@ export default Ember.Component.extend({
   },
 	actions: {
     toggle(){
-      this.$('#channelPicker').foundation('toggle', this.$('.accordion-content'))
+      this.$('#channelSelect').foundation('toggle', this.$('.accordion-content'))
     },
     removePreview(){
       this.set('site.image', null);

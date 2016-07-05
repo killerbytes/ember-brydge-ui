@@ -1,7 +1,8 @@
 import Ember from 'ember';
 
 export default Ember.Component.extend({
-	classNames: ['profile-accordion', 'no-bullet'],
+	classNames: ['accordion-form'],
+	tagName: 'form',
 	store: Ember.inject.service(),
   languageProficiency: ["Beginner", "Intermediate", "Upper Intermediate", "Advanced", "Native or Bilingual"],
 	model: Ember.computed(function(){

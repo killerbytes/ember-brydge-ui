@@ -103,12 +103,6 @@ export default Ember.Route.extend(QueryLocationMixin, {
       profile.set('occupationTwoId',filtered.id);
       profile.set('occupationTwo',filtered.text);
     },
-    updateWork(item, cb){
-      item.save().then(()=>{
-        Ember.get(this, 'flashMessages').success('Success!');
-        cb.apply();
-      });
-    },
     setSelected(item){
       this.controller.set('current', item);
     },
