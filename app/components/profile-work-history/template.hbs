@@ -1,71 +1,79 @@
-<form class="accordion-form">
-	<section class="header">
-	  <p>Your current job (title and employer) will be highlighted at the top of your profile. If you are currently self-employed, unemployed, on a sabbatical, or on a break, click here to pick one of the standard titles.</p>
-		
-			<label for="">Select a Career Status <span>(If you are currently not employed full-time)</span></label> 
-				<div class="row">
-					<div class="columns medium-7">
-							{{select-native content=highlightStatuses action=(action (mut highlightStatus)) selectedValue=profile.currentTitle}}		
-					</div>
-					<div class="columns medium-5">
-						<label for="highlightStatus" class="forRadio middle">
-							{{action-radio id='highlightStatus' value="isHighlightStatus" htmlChecked=profile.customTitle name="highlight" action="onHighlight"}}
-							Use this as Title
+<section class="header">
+  <p>Your current job (title and employer) will be highlighted at the top of your profile. If you are currently self-employed, unemployed, on a sabbatical, or on a break, click here to pick one of the standard titles.</p>
+	
+		<label for="">Select a Career Status <span>(If you are currently not employed full-time)</span></label> 
+			<div class="row">
+				<div class="columns medium-9">
+						{{select-native content=highlightStatuses action=(action (mut highlightStatus)) selectedValue=profile.currentTitle}}		
+				</div>
+				<div class="columns medium-3">				
+					{{#if isHighlightStatus}}
+						<label class="middle">
+							<a>Current Title</a>							
+						</label>
+					{{else}}
+						<label for="highlightStatus" class="for-radio middle">
+							{{action-radio id='highlightStatus' value="isHighlightStatus" htmlChecked=profile.customTitle name="highlight" action="onHighlightCustom"}}
+							<a>Use this as Title</a>
 						</label>		
-					</div>
+					{{/if}}
 				</div>
-	</section>
-	<section>
-		<label class="title">Work History</label>
-	{{#zf-accordion allowAllClosed="true"}}
-	{{#each list as |item|}}
-		<li class="accordion-item box	" data-accordion-item >
+			</div>
+</section>
+<section>
+	<label class="title">Work History</label>
+{{#zf-accordion allowAllClosed="true"}}
+{{#each list as |item|}}
+	<li class="accordion-item box	" data-accordion-item >
 
-			<a class="col">
-					<div class="name">{{ item.title }}</div>
-					<div class="company">{{ item.company }}</div>
-					<div class="timestamp">
-			      {{term-date-format item.from}} - 
-			      {{#if item.currentCompany}}
-			        Present
-			      {{else}}
-			        {{term-date-format item.to}}
-			      {{/if}}
-		      </div>
-			</a>
-			<div class="col">
-				<label for="{{item.id}}" class="forRadio">
-					{{action-radio id=item.id name="highlight" value=item.id htmlChecked=item.showHighlight action="onHighlight" param=item}}
-					Use this as Title 
-				</label>
-			</div>
-			<div class="accordion-content" data-tab-content>
-		  	<div class="content">
-					{{partial-component model=item template="components/form-work-history"}}		  		
-					<div class="row">
-						<div class="columns">
-					    <button class="button success rounded" disabled={{v-get item 'isInvalid'}} {{ action 'update' item }}>Save</button>
-					    <a class="float-right button clear" {{ action 'delete' item }}>Delete this Position</a>						
-						</div>
+		<a class="col">
+				<div class="name">{{ item.title }}</div>
+				<div class="company">{{ item.company }}</div>
+				<div class="timestamp">
+		      {{term-date-format item.from}} - 
+		      {{#if item.currentCompany}}
+		        Present
+		      {{else}}
+		        {{term-date-format item.to}}
+		      {{/if}}
+	      </div>
+		</a>
+		<div class="col text-right">
+			{{#if item.showHighlight}}
+				<label><a>Current Title</a></label>
+			{{else}}
+			<label for="{{item.id}}" class="for-radio">
+				{{action-radio id=item.id name="highlight" value=item htmlChecked=item.showHighlight action="onHighlight" param=item}}
+				<a>Use this as Title</a> 
+			</label>
+			{{/if}}
+		</div>
+		<div class="accordion-content" data-tab-content>
+	  	<div class="content">
+				{{partial-component model=item template="components/form-work-history"}}		  		
+				<div class="row">
+					<div class="columns">
+				    <button class="button success rounded" disabled={{v-get item 'isInvalid'}} {{ action 'update' item }}>Save</button>
+				    <a class="float-right button clear" {{ action 'delete' item }}>Delete this Position</a>						
 					</div>
-				</div>								
-			</div>
-		</li>
-	{{/each}}
-		<li class="accordion-item" data-accordion-item>
-  		<a class="button success expanded rounded">Add Job Position</a>
-			<div class="accordion-content" data-tab-content>
-	  		<div class="content form-new">
-		  		{{partial-component model=model template="components/form-work-history"}}
-					<div class="row">
-						<div class="columns">
-				    	<button class="button success rounded" disabled={{v-get model 'isInvalid'}} {{ action 'create' }}>Save</button>
-					    <a class="float-right button clear">Reset</a>
-						</div>
+				</div>
+			</div>								
+		</div>
+	</li>
+{{/each}}
+	<li class="accordion-item" data-accordion-item>
+		<a class="button success expanded rounded">Add Job Position</a>
+		<div class="accordion-content" data-tab-content>
+  		<div class="content form-new">
+	  		{{partial-component model=model template="components/form-work-history"}}
+				<div class="row">
+					<div class="columns">
+			    	<button class="button success rounded" disabled={{v-get model 'isInvalid'}} {{ action 'create' }}>Save</button>
+				    <a class="float-right button clear">Reset</a>
 					</div>
 				</div>
 			</div>
-		</li>  
-	{{/zf-accordion}}
-	</section>
-</form>
+		</div>
+	</li>  
+{{/zf-accordion}}
+</section>

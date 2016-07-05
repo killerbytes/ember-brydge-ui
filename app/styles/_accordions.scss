@@ -6,6 +6,9 @@
 		input{
 			margin-bottom: 0;
 		}
+		input[type="radio"]{
+			display: none;
+		}
 	}
 	section.header{
 		select, label{
@@ -25,12 +28,13 @@
 			padding: 1rem;
 		}
 		.col{
-			display: table-cell;
+			display: inline-block;
 			vertical-align: middle;
 			padding: 1rem;
+			width: 29%;
 		}
 		.col:first-child{
-			width: 73%;
+			width: 70%;
 		}
 	}
 	.accordion-item.is-active{
@@ -102,8 +106,6 @@
 	}
 	label{
 		font-size: 11px;
-		input[type="checkbox"]{
-		}
 	}
 	form:not(:last-child){
 		border-bottom: 1px solid $border-color;
@@ -129,6 +131,7 @@
 		background-color: $brydge-gray;
 	}
 }
+
 #channelPicker, #locationPicker{
 	.columns:first-child{
 		border-right: 1px solid $border-color;

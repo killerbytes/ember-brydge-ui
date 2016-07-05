@@ -4,7 +4,8 @@ import Validations from '../../models/validations/education';
 export default Ember.Component.extend(Validations, {
 	store: Ember.inject.service(),
 	flashMessages: Ember.inject.service(),
-	classNames: ['profile-accordion', 'no-bullet'],
+	classNames: ['accordion-form'],
+	tagName: 'form',
 	maxYear: moment().year() + 6,
 	list: Ember.computed.filterBy('items', 'isNew', false),
 	model: Ember.computed(function(){

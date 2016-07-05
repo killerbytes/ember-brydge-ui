@@ -1,40 +1,38 @@
-<form class="accordion-form">
-	<section>
-		<label class="title">Languages</label>
-		{{#zf-accordion allowAllClosed="true"}}
+<section>
+	<label class="title">Languages</label>
+	{{#zf-accordion allowAllClosed="true"}}
 
-		{{#each list as |item|}}
-			<li class="accordion-item box" data-accordion-item >
-					<a class="accordion-header">
-						<div class="name">{{ item.name }}</div>
-						<div class="company">{{ item.proficiency }}</div>
-					</a>
-				<div class="accordion-content" data-tab-content>
-			  	<div class="content">
-			  		{{partial-component model=item template="components/form-language"}}
-						<div class="row">
-							<div class="columns">
-						    <button class="button success rounded" disabled={{v-get item 'isInvalid'}} {{ action 'update' item }}>Save</button>
-						    <button class="button clear float-right" {{ action 'delete' item }}>Delete</button>
-							</div>
-						</div>	  	
-					</div>								
-				</div>
-			</li>
-		{{/each}}
-			<li class="accordion-item" data-accordion-item>
-	  		<a class="button success expanded rounded">Add Language</a>
-				<div class="accordion-content" data-tab-content>
-			  	<div class="content	">
-						{{partial-component model=model items=languageProficiency template="components/form-language"}}
-						<div class="row">
-							<div class="columns text-center">
-						    <button class="button success rounded" disabled={{v-get this 'isInvalid'}} {{ action 'create' }}>Save</button>
-							</div>
-						</div>	  	
-					</div>								
-				</div>
-			</li>	  
-		{{/zf-accordion}}
-	</section>
-</form>
+	{{#each list as |item|}}
+		<li class="accordion-item box" data-accordion-item >
+				<a class="accordion-header">
+					<div class="name">{{ item.name }}</div>
+					<div class="company">{{ item.proficiency }}</div>
+				</a>
+			<div class="accordion-content" data-tab-content>
+		  	<div class="content">
+		  		{{partial-component model=item template="components/form-language"}}
+					<div class="row">
+						<div class="columns">
+					    <button class="button success rounded" disabled={{v-get item 'isInvalid'}} {{ action 'update' item }}>Save</button>
+					    <button class="button clear float-right" {{ action 'delete' item }}>Delete</button>
+						</div>
+					</div>	  	
+				</div>								
+			</div>
+		</li>
+	{{/each}}
+		<li class="accordion-item" data-accordion-item>
+  		<a class="button success expanded rounded">Add Language</a>
+			<div class="accordion-content" data-tab-content>
+		  	<div class="content	">
+					{{partial-component model=model items=languageProficiency template="components/form-language"}}
+					<div class="row">
+						<div class="columns text-center">
+					    <button class="button success rounded" disabled={{v-get this 'isInvalid'}} {{ action 'create' }}>Save</button>
+						</div>
+					</div>	  	
+				</div>								
+			</div>
+		</li>	  
+	{{/zf-accordion}}
+</section>

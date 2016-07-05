@@ -26,11 +26,11 @@
         {{/zf-tabs}}
       </div>
       <div class="medium-9 columns float-left">
-        <div class="tabs-content vertical box" data-tabs-content="edit-tabs">
+        <div class="tabs-content vertical boxz" data-tabs-content="edit-tabs">
           <a data-toggle="dd-industry-picker-business" class="action-button dropdown-button-arrow invisible"><i class="icons ellipsis"></i></a>      
 
           <div class="tabs-panel {{active-tab 'personal' tab}}" id="personal">
-            <section>
+            <section class="personal-info">
               {{partial 'me/edit/info'}}
             </section>
           </div>
@@ -135,7 +135,7 @@
             </section>
           </div>
           <div class="tabs-panel {{active-tab 'work' tab}}" id="work">
-            {{ profile-work-history items=experiences update="updateWork" delete="deleteWork" profile=profile }}
+            {{ profile-work-history items=experiences }}
           </div>
           <div class="tabs-panel {{active-tab 'academia' tab}}" id="academia">
             {{ profile-academia items=educations}}
