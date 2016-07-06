@@ -1,8 +1,4 @@
-<div class="columns">
-  <label>Replace with new email
-    {{form-input model=this valuePath="email"}}        
-  </label>                        
-</div>
-<div class="text-center">
-  <button class="button success" {{action "update"}} disabled={{v-get this 'isInvalid'}}>SAVE & VERIFY</button>    
-</div>
+<label>Replace with new email
+  {{form-input model=this valuePath="email"}}        
+</label>                        
+<button class="button success rounded" {{action "update"}} disabled={{v-get this 'isInvalid'}}>Save &amp; Verify</button>    

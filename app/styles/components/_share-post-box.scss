@@ -31,17 +31,6 @@
 			border-bottom: 1px solid $border-color;
 		}
 	}
-	.channel-select{
-		label{
-			position: relative;
-			input{
-				position: absolute;
-				left: 0;
-				top: 5px;
-			}
-			padding-left: 25px;
-		}
-	}
 	textarea{
 		padding-top: 6px;
 	}

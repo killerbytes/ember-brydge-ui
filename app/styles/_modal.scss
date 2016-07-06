@@ -6,20 +6,25 @@
 }
 
 .post-sharer{
-	section.title{
-		h4{
-			margin-bottom: 0;
-		}
-	}
 	section.header{
 		background-color: $brydge-gray;
 	}
-	section{
+	section.title{
+		h4{
+			text-transform: none;
+			color: $body-text-color;
+		}
 		padding: 1rem;
 	}
 	.newsfeed-item{
 		border: none;
 	}
+	.accordion-picker{
+		>li.is-active{
+			border-bottom: 1px solid $border-color;
+		}
+	}
+
 }
 // #complimentModal, #answerFormModal, #shareModal{
 // 	select{

@@ -46,13 +46,24 @@ form{
 
 	}
 
-	label.reversed, .label.reversed{
-		input{
-			float: right;
-			margin: 0;
-			margin-top: 4px;
+	// label.reversed, .label.reversed{
+	// 	input{
+	// 		float: right;
+	// 		margin: 0;
+	// 		margin-top: 4px;
+	// 	}
+	// }
+
+	label.checkbox{
+		position: relative;
+		input[type="checkbox"]{
+			position: absolute;
+			left: 0;
+			top: 5px;
 		}
+		padding-left: 25px;
 	}
+
 	p, p.help-text{
 		color: $text-gray;
 	}
@@ -62,7 +73,7 @@ form{
 	}
 }
 
-.form-profile{
+.brydge-form{
 	label{
 		font-size: 12px;
 		font-weight: bold;
@@ -148,7 +159,7 @@ form{
 // 	}
 // }
 
-// .form-profile{
+// .brydge-form{
 
 // 	.inline-input-two input{
 // 		width: calc(50% - 7px);

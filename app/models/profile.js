@@ -24,5 +24,8 @@ export default DS.Model.extend({
 	customTitle: DS.attr(),
 	search: DS.hasMany(),
 	conversationid: DS.attr(),
-	user: DS.belongsTo('user')
+	user: DS.belongsTo('user'),
+	fullName: Ember.computed('firstName', 'lastName', function(){
+		return this.get('firstName') + ' ' + this.get('lastName');
+	})
 });

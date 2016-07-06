@@ -36,30 +36,16 @@
 </section>
 
 <section>
-
+  <div>
     {{#unless shared }}
-      {{#if post.content}}<div>{{{ post.content }}}</div>{{/if}}
+      {{#if post.content}}{{{ post.content }}}{{/if}}
     {{else}}
-      {{#if post.content.content}}<div>{{{post.content.content }}}</div>{{/if}}
+      {{#if post.content.content}}{{{post.content.content }}}{{/if}}
     {{/unless}}
-
+  </div>
+  
   {{#if post.title}}
     {{newsfeed-media model=post}}
-    <div class="media box no-shadow hide">
-      {{#if post.image}}
-        <a href="{{post.url}}" target="_blank">
-          <div class="post-image" style={{htmlSafeImage post.image }}>
-            <img src="{{post.image}}" class="hide">
-          </div>
-        </a>
-      {{/if}}
-      <div class="post-content">
-        <div class="title"><a href="{{post.url}}" target="_blank">{{title}}</a></div>
-        {{#if post.siteName}}
-          <a href="{{post.url}}" target="_blank">{{post.siteName}}</a>
-        {{/if}}
-      </div>
-    </div>
   {{/if}}
 
   {{#unless shared }}
@@ -95,7 +81,7 @@
       <div class="columns medium-6 text-right">
         <a {{action "viewComments"}}>Comment</a>
         {{#if post.commentCount}}<span>{{post.commentCount}}</span>{{/if}}
-        <a {{action "share" post }} data-open="sharePostModal">Share</a>
+        <a {{action "share"}} data-open="sharePostModal">Share</a>
         {{#if post.vote.sharedCount}}<span>{{post.vote.sharedCount}}</span>{{/if}}
       </div>
     </div>  

@@ -3,9 +3,10 @@ import Ember from 'ember';
 export default Ember.Service.extend({
   store: Ember.inject.service(),
   categories: [],
-  selectPost(post){
-    this.set('selected', post);
-  },
+  // selectPost(post){
+  //   console.log(post)
+  //   this.set('selected', post);
+  // },
   submit: function(cb){
     var sharedPostid = this.get('selected.sharedPostid') || this.get('selected.id');
     return this.get('store').createRecord('post', {
