@@ -15,7 +15,7 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
 	},
   actions: {
   	selectItem(item) {
-  		this.set('ask.selectedQuestion', item);
+  		this.set('ask.question', item);
   	},
     delete(item){
       this.get('ask').delete(item.id);

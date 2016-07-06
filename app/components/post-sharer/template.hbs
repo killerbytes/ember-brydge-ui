@@ -1,4 +1,7 @@
 {{#zf-reveal id="sharePostModal" overlay=true class="small post-sharer box"}}
+  <button class="close-button" aria-label="Dismiss alert" type="button" data-close>
+    <span aria-hidden="true">&times;</span>
+  </button>
   <section class="title">
     <h4>Share {{#link-to "profile" sharePost.post.user.id }}{{sharePost.post.user.profile.fullName}}'s{{/link-to}} post</h4>
   </section>
@@ -61,38 +64,7 @@
     {{else}}
       <div class="broadcast-list"><span class="broadcast-title">Broadcasting to: </span><strong class="text-gray">My Connections Only</strong></div>
     {{/if}}
-  </section>
-    
-
-<!-- 
-  <form action="">
-    <div class="reveal-footer">
-      {{#if sharePost.categories }}
-        <div class="broadcast-list">Broadcasting to: My Connections{{#each sharePost.categories as |item|}}
-            {{~ concat '; ' item.text ~}}
-          {{/each}}
-        </div>
-      {{else}}
-        <div class="broadcast-list">Broadcasting to: My Connections Only</div>
-      {{/if}}
-      <div class="content text-right">
-
-        <div class="button-wrapper text-left">
-          <a class="button dropdown-button" data-toggle="dd-select-channel-post-sharer">
-            Select Channel
-            <i class="icons caret"></i>
-          </a>
-          {{#zf-dropdown id="dd-select-channel-post-sharer" closeOnClick=true}}
-            {{partial "partials/channel-select"}}
-          {{/zf-dropdown}}
-        </div>
-
-        <button {{action "sharePost" }} class="button success">Share</button>
-        <a class="button success" data-close>Cancel</a>
-      </div>
-    </div>
-  </form>
- -->
+  </section>    
 {{/zf-reveal}}
 
 
