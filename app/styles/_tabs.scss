@@ -89,7 +89,7 @@
 	}
 }
 
-.profile-tab{
+.brydge-tab{
 	.tabs-title{
 		padding: 0;
 		&.is-active a, a:hover{
@@ -127,6 +127,9 @@
 			p:last-of-type{
 				margin-bottom: 2rem;
 			}
+		}
+		section.header:last-child{
+			min-height: 302px;
 		}
 		section.industry-examples{
 			padding: 2rem 4rem;

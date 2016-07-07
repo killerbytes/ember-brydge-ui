@@ -1,3 +1,8 @@
+table{
+	tr:last-child{
+		border-bottom: none;
+	}
+}
 .title{
 	font-weight: bold;
 	font-size: 14px;

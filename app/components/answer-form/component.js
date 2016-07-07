@@ -1,16 +1,27 @@
 import Ember from 'ember';
 
 export default Ember.Component.extend({
-	ask: Ember.inject.service(),
+	sessionAccount: Ember.inject.service(),
 	utils: Ember.inject.service(),
-	store: Ember.inject.service(),	
+	ask: Ember.inject.service(),
 	actions: {
-		save: function () {
-			let question = this.get('ask.selectedQuestion');			
+		edit(text, e){
+      var el = e.currentTarget;
+      var offset = (el.offsetHeight - el.clientHeight);
+      if(text){
+        el.style.height = 'auto';
+        el.style.height = (el.scrollHeight+offset) + "px";        
+      }else{
+        el.style.height = '';        
+      }
+		},
+		submit: function () {
+			let question = this.get('ask.question');			
 			question.set('answer', this.get('utils').insertParagraph(this.get('answer')));
 
 			question.save().then(()=>{
 				this.set('answer', null);
+				console.log(this.$())
 				$('#answerFormModal').foundation('close');
 			});
 		}

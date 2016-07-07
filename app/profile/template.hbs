@@ -14,10 +14,12 @@
       {{#if isLoading }}
         <div class="loader">Loading...</div>
       {{else}}
-        <div class="column">
-          <div class="empty-message">
-            {{profile.firstName}} hasn't shared any broadcast yet
-          </div>      
+        <div class="box">
+          <section>
+            <div class="empty-message">
+              {{profile.firstName}} hasn't shared any broadcast yet
+            </div>
+          </section>
         </div>
       {{/if}}
     {{/if}}
@@ -45,4 +47,4 @@
   </form>
 {{/zf-reveal}}
 
-{{ post-sharer post=sharePost.selected profile=profile value=sharePost.valueText submit="sharePost" }}
+{{ post-sharer submit='sharePost'}}

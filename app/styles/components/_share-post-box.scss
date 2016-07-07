@@ -13,7 +13,6 @@
 		border: none;
 	}
 	.section-footer{
-		// padding-top: 0;
 		background-color: #FFF;
 	}
 	.dropdown-button{
@@ -31,96 +30,7 @@
 			border-bottom: 1px solid $border-color;
 		}
 	}
-	.channel-select{
-		label{
-			position: relative;
-			input{
-				position: absolute;
-				left: 0;
-				top: 5px;
-			}
-			padding-left: 25px;
-		}
-	}
 	textarea{
 		padding-top: 6px;
 	}
 }
-/*
-.share-post-box{
-	.content-editable{
-		-moz-user-select: text;
-		-khtml-user-select: text;
-		-webkit-user-select: text;
-		-o-user-select: text;		
-		color:  $text-color1;
-		padding-left: 0;
-		border: none;
-		box-shadow: none;
-		resize: none;
-		font-size: 14px;
-		margin: 0;
-		min-height: 45px;
-	}
-	.content-editable:before{
-		color: #DEDEDE;
-	}
-	.media-main .post-image+a.fa-times{
-		display: none;
-	}
-	.media-main:hover .post-image+a{
-		display: block;
-	}
-	.post-bar{
-		padding: 5px;
-		.thumbnail{
-			position: absolute;
-			width: 35px;
-			height: 35px;
-			margin: 0;
-		}
-		.post-form{
-			padding: 5px;
-			padding-left: 45px;
-			line-height: 1.6em;
-		}
-	}
-	.is-down-arrow a{
-		padding-right: 35px;
-		color: #717171;	
-	}
-	.button{
-		float: left;
-		margin: 0;
-		border-left: 1px solid $border-color;
-	}
-	.button.success{
-		font-weight: bold;
-	}
-
-}
-.share-post-box, #shareModal{
-	.dropdown-button{
-		color :$body-text-color;
-		text-transform: capitalize;
-	}
-	.dropdown-pane{
-	}
-	.dropdown-pane:not(.top){
-		border-top: 0;		
-	}
-	.broadcast-list{
-		padding: 5px;
-		padding-bottom: 0;
-		border-top: 1px solid $border-color;
-		span{
-			color: $text-gray;
-		}
- 	}
- 	.broadcast-title{
- 		@extend h5;
- 		text-transform: uppercase;
- 		font-size: 11px;
- 	}
-}
-*/

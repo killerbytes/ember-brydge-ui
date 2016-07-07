@@ -1,16 +1,31 @@
-{{#zf-reveal id="answerFormModal" overlay=true class="reveal-popup large"}}
-	<h4>Write Answer</h4>
-	<form {{action 'save' on='submit'}}>
-		<div class="mt content clearfix question-box">
-			<div class="dim-text">asked by <a>{{ask.selectedQuestion.from.name}}</a></div>		
-			<h2>{{ask.selectedQuestion.content}}</h2>
-			{{textarea value=answer rows=10}}
-		</div>
-		<div class="reveal-footer text-right">
-			<div class="content">
-				<button class="button success">Post</button>
-				<a class="button success" data-close>Cancel</a>
-			</div>
-		</div>
-	</form>
+{{#zf-reveal id="answerFormModal" overlay=true class="small box"}}
+  <button class="close-button" aria-label="Dismiss alert" type="button" data-close>
+    <span aria-hidden="true">&times;</span>
+  </button>
+  <section class="title">
+    <h4>Write Answer</h4>
+  </section>
+  <section class="header">
+    <form class="form-input">
+      <div class="avatar circle" style={{htmlSafeImage sessionAccount.account.profile.avatarUrl}}>
+        <img src={{sessionAccount.account.profile.avatarUrl}} class="hide">
+      </div>
+      <div class="input-wrapper">
+        {{textarea 
+          value=answer 
+          key-up="edit" 
+          class="textarea content-editable" 
+          placeholder="Would you like to say something about this?" 
+          }}                  
+      </div>
+    </form>    
+  </section>
+  <section>
+  	<div class="title">{{ask.question.content}}</div>
+  </section>
+  <section>
+    <button class="success button rounded" type="submit" {{action "submit"}}>Submit</button>
+		<a class="button clear float-right" data-close>Cancel</a>
+  </section>
+  
 {{/zf-reveal}}

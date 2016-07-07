@@ -1,20 +1,20 @@
+<div class="row">
+  <div class="medium-6 small-centered columns">
+    <div class="page-heading">      
+      <h1>Settings</h1>
+      <p class="text-center">
+        Stay in control!
+      </p>                    
+    </div>
+  </div>
+
+</div>
 
 <div class="row">
     <div class="columns">
-        <div class="top-banner bg-gray box">
-            <h2 class="page-title">SETTINGS</h2>
-        </div>
-    </div>
-</div>
-<div class="row">
-    <div class="columns settings">
-        <div class="row collapse tab-wrapper bordered" data-equalizer data-equalize-by-row="true">
+        <div class="row collapse brydge-tab brydge-form">
         
-          <div class="medium-3 columns bg-gray">
-            <div class="tab-header padding">
-                <h2>Stay in control!</h2>
-            </div>
-
+          <div class="medium-3 columns">
             {{#zf-tabs class="vertical bg-gray" id="settings-tabs"}}
               <li data-tab='email' class="tabs-title {{active-tab 'email' tab}}"><a href="#email">Email address</a></li>
               <li data-tab='password' class="tabs-title {{active-tab 'password' tab}}"><a href="#password">Password</a></li>
@@ -24,122 +24,31 @@
             {{/zf-tabs}}
           </div>
           <div class="medium-9 columns float-left">
-            <div class="tabs-content vertical" data-tabs-content="settings-tabs">      
-              <div class="tabs-panel space-filler {{active-tab 'email' tab}}" id="email">
-                <form>
-                  <div class="row">
-                    <div class="medium-8 columns medium-centered">
-                      <div class="label columns mb50 text-center">
-                        <span>Current email: </span><a>{{model.user.email}}</a>
-                      </div>
+            <div class="tabs-content vertical boxz" data-tabs-content="settings-tabs">      
+              <div class="tabs-panel {{active-tab 'email' tab}}" id="email">
+                <section class="header">
+                  <form class="brydge-form">
+                    <div class="row columns">
+                      <label>Current email: <a>{{model.user.email}}</a></label>
                       {{update-email-form update="updateEmail"}}
                     </div>
-                  </div>
-                </form>
+                  </form>
+                </section>
 
                 
               </div>
               <div class="tabs-panel space-filler {{active-tab 'password' tab}}" id="password">
-                {{update-password-form update="updatePassword"}}
+                <section class="header">
+                  {{update-password-form update="updatePassword"}}
+                </section>
               </div>
               <div class="tabs-panel {{active-tab 'notification' tab}}" id="notification">
-                <table class="mb30">
-                  <thead>
-                    <tr>
-                      <th></th>
-                      <th width="50" class="text-center">ON BRYDGE</th>
-                      <th width="50" class="text-center">ON EMAIL</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td>When someone upvotes my broadcast</td>
-                      <td class="text-center">
-                        {{input type="checkbox" change=(action 'notificationChanged') checked=model.settings.notifications.vote id="notifications.vote" name="notifications.vote" }}                        
-                      </td>
-                      <td class="text-center">
-                        {{input type="checkbox" change=(action 'emailNotificationChanged') checked=model.settings.emailNotifications.vote id="emailNotifications.vote" name="emailNotifications.vote" }}
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>When someone comments on my broadcast</td>
-                      <td class="text-center">
-                        {{input type="checkbox" change=(action 'notificationChanged') checked=model.settings.notifications.comment id="notifications.comment" name="notifications.comment" }}
-                      </td>
-                      <td class="text-center">
-                        {{input type="checkbox" change=(action 'emailNotificationChanged') checked=model.settings.emailNotifications.comment id="emailNotifications.comment" name="emailNotifications.comment" }}
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>When someone shares my broadcast</td>
-                      <td class="text-center">
-                        {{input type="checkbox" change=(action 'notificationChanged') checked=model.settings.notifications.share id="notifications.share" name="notifications.share" }}
-                      </td>
-                      <td class="text-center">
-                        {{input type="checkbox" change=(action 'emailNotificationChanged') checked=model.settings.emailNotifications.share id="emailNotifications.share" name="emailNotifications.share" }}
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>When someone asks me a question</td>
-                      <td class="text-center">
-                        {{input type="checkbox" change=(action 'notificationChanged') checked=model.settings.notifications.ask id="notifications.ask" name="notifications.ask" }}
-                      </td>
-                      <td class="text-center">
-                        {{input type="checkbox" change=(action 'emailNotificationChanged') checked=model.settings.emailNotifications.ask id="emailNotifications.ask" name="emailNotifications.ask" }}
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>When someone answers a question I asked</td>
-                      <td class="text-center">
-                        {{input type="checkbox" change=(action 'notificationChanged') checked=model.settings.notifications.answer id="notifications.answer" name="notifications.answer" }}                        
-                      </td>
-                      <td class="text-center">
-                        {{input type="checkbox" change=(action 'emailNotificationChanged') checked=model.settings.emailNotifications.answer id="emailNotifications.answer" name="emailNotifications.answer" }}
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>When someone compliments me</td>
-                      <td class="text-center">
-                        {{input type="checkbox" change=(action 'notificationChanged') checked=model.settings.notifications.compliment id="notifications.compliment" name="notifications.compliment" }}
-                      </td>
-                      <td class="text-center">
-                        {{input type="checkbox" change=(action 'emailNotificationChanged') checked=model.settings.emailNotifications.compliment id="emailNotifications.compliment" name="emailNotifications.compliment" }}
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>When someone requests to connect with me</td>
-                      <td class="text-center">
-                        {{input type="checkbox" change=(action 'notificationChanged') checked=model.settings.notifications.request id="notifications.request" name="notifications.request" }}
-                      </td>
-                      <td class="text-center">
-                        {{input type="checkbox" change=(action 'emailNotificationChanged') checked=model.settings.emailNotifications.request id="emailNotifications.request" name="emailNotifications.request" }}
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>When someone accepts my connection request</td>
-                      <td class="text-center">
-                        {{input type="checkbox" change=(action 'notificationChanged') checked=model.settings.notifications.accept id="notifications.accept" name="notifications.accept" }}
-                      </td>
-                      <td class="text-center">
-                        {{input type="checkbox" change=(action 'emailNotificationChanged') checked=model.settings.emailNotifications.accept id="emailNotifications.accept" name="emailNotifications.accept" }}
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>When someone sends me a message</td>
-                      <td class="text-center">
-                        {{input type="checkbox" change=(action 'notificationChanged') checked=model.settings.notifications.message id="notifications.message" name="notifications.message" }}
-                      </td>
-                      <td class="text-center">
-                        {{input type="checkbox" change=(action 'emailNotificationChanged') checked=model.settings.emailNotifications.message id="emailNotifications.message" name="emailNotifications.message" }}
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>  
-                <div class="mt text-center">
-                </div>            
+                <section>
+                  {{partial "partials/table-notification-settings"}}
+                </section>
               </div>
               <div class="tabs-panel space-filler {{active-tab 'ask' tab}}" id="ask">
-                <form>
+                <section class="header">
                   <div class="row">
                     <div class="columns medium-6 text-right">
                       <label class="middle">Turn ASK OFF</label>
@@ -158,10 +67,10 @@
                     It will also disable you from asking questions.
 
                   </p>          
-                </form>
+                </section>
               </div>
               <div class="tabs-panel space-filler {{active-tab 'views' tab}}" id="views">
-                <form>
+                <section class="header">
                   <div class="row">
                     <div class="columns medium-6 text-right">
                       <label class="middle">Turn Profile Views OFF</label>
@@ -178,7 +87,7 @@
                   <p class="text-center">
                     Turning this ON will also let other users know you've seen their profile.
                   </p>          
-                </form>
+                </section>
               </div>            
             </div>            
           </div>

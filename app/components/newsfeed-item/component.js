@@ -61,8 +61,9 @@ export default Ember.Component.extend({
 			}
 
 		},
-		share(post){
-			this.get('sharePost').selectPost(post)
+		share(){
+				this.set('sharePost.post', this.get('post.sharedPost.content') ? this.get('post.sharedPost') : this.get('post'));
+				console.log(this.get('sharePost.post'))
 		},
 		viewComments: function() {
 			this.$('.content-editable').focus();

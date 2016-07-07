@@ -4,90 +4,23 @@
 .reveal-overlay{
 	background-color: rgba(65,65,65,.25);
 }
-
-.post-sharer{
-	section.title{
-		h4{
-			margin-bottom: 0;
-		}
-	}
+.reveal{
 	section.header{
 		background-color: $brydge-gray;
 	}
-	section{
+	section.title{
+		h4{
+			text-transform: none;
+			color: $body-text-color;
+		}
 		padding: 1rem;
 	}
 	.newsfeed-item{
 		border: none;
 	}
+	.accordion-picker{
+		>li.is-active{
+			border-bottom: 1px solid $border-color;
+		}
+	}
 }
-// #complimentModal, #answerFormModal, #shareModal{
-// 	select{
-// 		border-color: $button-blue;
-// 		width: 30%;
-// 	}
-// 	.content{
-// 		padding: 0 30px;
-// 		> p{
-// 			margin: 1em 0;
-// 		}
-// 	}
-// 	button{
-// 		padding: 5px 15px;
-// 		font-weight: bold;
-// 		text-transform: uppercase;
-// 	}
-// 	.content-editable{
-// 		margin: 1em 0;
-// 		padding: .5em 1em;
-// 		border: 1px solid $border-color;
-// 		min-height: 60px;
-// 	}
-
-// }
-// #shareModal{
-// 	width: 520px;
-// 	overflow: visible;
-
-// 	.button-wrapper{
-// 		display: inline-block;
-// 	}
-// 	.dropdown-pane{
-// 		right: 0 !important;
-// 		left: auto !important;
-// 	}
-// 	.dropdown-button{
-// 		padding-right: 30px;
-// 		.icons{
-// 			top: 0;
-// 		}
-// 	}
-// 	.broadcast-list{
-// 		border-top: none;
-// 		border-bottom: 1px solid $border-color;
-// 		padding: 0 30px 5px;
-// 		font-size: 12px;
-// 		margin-bottom: 5px;
-// 	}
-// 	.reveal-footer{
-// 		padding-right: 0;
-// 		padding-left: 0;
-// 	}
-// }
-
-// #locationModal{
-// 	select{
-// 		margin-bottom: 5px;
-// 	}
-// }
-
-
-// #industryModal{
-// 	h3, li {
-// 		text-transform: capitalize;
-// 	}
-// 	label{
-// 		line-height: 1em;
-// 		font-size: 12px;
-// 	}
-// }

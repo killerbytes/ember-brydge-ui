@@ -1,6 +1,9 @@
 {{#zf-reveal id="sharePostModal" overlay=true class="small post-sharer box"}}
+  <button class="close-button" aria-label="Dismiss alert" type="button" data-close>
+    <span aria-hidden="true">&times;</span>
+  </button>
   <section class="title">
-    <h4>Share this content</h4>
+    <h4>Share {{#link-to "profile" sharePost.post.user.id }}{{sharePost.post.user.profile.fullName}}'s{{/link-to}} post</h4>
   </section>
   <section class="header">
     <form class="form-input">
@@ -20,15 +23,15 @@
   </section>
   <section>
     <div class="newsfeed-item">
-      {{#unless sharePost.selected.sharedPost}}
-        <p>{{{sharePost.selected.content}}}</p>
-        {{newsfeed-media model=sharePost.selected }}
-      {{else}}
-        <p>{{{sharePost.selected.sharedPost.content.content}}}</p>
-        {{newsfeed-media model=sharePost.selected }}
-      {{/unless}}          
+      <div>
+        {{#if sharePost.post.content}}{{{ sharePost.post.content }}}{{/if}}
+      </div>
+
+      {{#if sharePost.post.title}}
+        {{newsfeed-media model=sharePost.post }}
+      {{/if}}          
     </div>
-    <div class="row">
+    <div class="row collapse">
       <div class="columns medium-8">
         <div class="wrapper">
           <a class="dropdown-button button clear" {{action "toggle"}}>
@@ -42,15 +45,13 @@
       </div>
     </div>
   </section>
-  <section>
-  {{#zf-accordion id="postSharerChannelSelect" class="accordion-picker" allowAllClosed=true}}
+    {{#zf-accordion id="postSharerChannelSelect" class="accordion-picker" allowAllClosed=true}}
     <li class="accordion-item" data-accordion-item>
       <div class="accordion-content" data-tab-content>
         {{partial "partials/channel-select"}}
       </div>
     </li>
   {{/zf-accordion}}
-  </section>
   <section class="section-footer">
     {{#if categories}}
       <div class="broadcast-list">
@@ -63,38 +64,7 @@
     {{else}}
       <div class="broadcast-list"><span class="broadcast-title">Broadcasting to: </span><strong class="text-gray">My Connections Only</strong></div>
     {{/if}}
-  </section>
-    
-
-<!-- 
-  <form action="">
-    <div class="reveal-footer">
-      {{#if sharePost.categories }}
-        <div class="broadcast-list">Broadcasting to: My Connections{{#each sharePost.categories as |item|}}
-            {{~ concat '; ' item.text ~}}
-          {{/each}}
-        </div>
-      {{else}}
-        <div class="broadcast-list">Broadcasting to: My Connections Only</div>
-      {{/if}}
-      <div class="content text-right">
-
-        <div class="button-wrapper text-left">
-          <a class="button dropdown-button" data-toggle="dd-select-channel-post-sharer">
-            Select Channel
-            <i class="icons caret"></i>
-          </a>
-          {{#zf-dropdown id="dd-select-channel-post-sharer" closeOnClick=true}}
-            {{partial "partials/channel-select"}}
-          {{/zf-dropdown}}
-        </div>
-
-        <button {{action "sharePost" }} class="button success">Share</button>
-        <a class="button success" data-close>Cancel</a>
-      </div>
-    </div>
-  </form>
- -->
+  </section>    
 {{/zf-reveal}}
 
 

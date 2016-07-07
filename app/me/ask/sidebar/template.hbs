@@ -2,7 +2,7 @@
 	<section class="title">
 		<h4>Questions: Inbox</h4>
 	</section>
-		{{#each from.pendingSidebar as |item| }}
+		{{#each to.pendingSidebar as |item| }}
 			<section>
 				<div class="section-main">
 					<div class="user">
@@ -33,7 +33,7 @@
 	<section class="title">
 			<h4>Question: Outbox</h4>
 	</section>
-		{{#each to.pendingSidebar as |item| }}
+		{{#each from.pendingSidebar as |item| }}
 	<section>
 				You asked {{link-to item.to.content.name "profile" item.to.content.id class="name"}}
 				<div class="timestamp mb">{{timestamp item.createdAt}}</div>
