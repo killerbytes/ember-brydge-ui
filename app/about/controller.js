@@ -66,6 +66,7 @@ export default Ember.Controller.extend(ProfileSidebarMixin, {
       });
     },
     fileLoaded: function(formData){
+      console.log(formData)
       return this.get('ajax').request('/v2/profile/avatar', {
         method: 'POST',
         data: formData,
