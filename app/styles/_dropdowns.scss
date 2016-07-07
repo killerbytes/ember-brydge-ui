@@ -109,6 +109,18 @@
   li:hover{
     background-color: $brydge-gray;
   }
+  .actions{
+    a{
+      margin-left: 5px;
+    }
+    .fa{
+      font-size: 22px;
+      color: $text-gray;
+    }
+    .fa-check-circle-o{
+      color: $brydge-blue;
+    }
+  }
 }
 
 #dd-notification{

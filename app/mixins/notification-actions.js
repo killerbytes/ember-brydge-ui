@@ -156,6 +156,7 @@ export default Ember.Mixin.create({
 		},
 
 		clickConnection: function(count) {
+			return false;
 			console.log('clicked connection', count);
 			//if(_.isUndefined(count)) return;
 

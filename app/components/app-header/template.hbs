@@ -144,11 +144,10 @@
 					Are they relevant to your career? Check their profile.
 				</div>
 		</div>
-
 		<ul class="media-list user">
 			{{#each notification.request as |item|}}
 			<li>
-				<a {{action "selectView" item}} class="{{if item.read false 'new-notification'}}">
+				<div {{action "selectView" item}} class="padding {{if item.read false 'new-notification'}}">
 					<div class="row collapse">
 						<div class="columns medium-8">
 				      <div class="avatar" style={{htmlSafeImage item.target.profile.avatarUrl }}>
@@ -160,13 +159,12 @@
 				      </div>
 							
 						</div>
-						<div class="columns medium-4 timestamp text-right">
-		          <a {{action "acceptConnection" item }}>A</a>
-		          <a {{action "rejectConnection" item }}>D</a>
-							
+						<div class="columns medium-4 actions text-right">
+		          <a {{action "acceptConnection" item }}><i class="fa fa-check-circle-o" aria-hidden="true"></i></a>
+		          <a {{action "rejectConnection" item }}><i class="fa fa-times-circle-o" aria-hidden="true"></i></a>							
 						</div>
 					</div>
-				</a>
+				</div>
 			</li>
 			{{else}}
 			<li>
