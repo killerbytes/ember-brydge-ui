@@ -120,10 +120,13 @@ table{
 		@extend .shadowed;
 	}
 	li{
-		padding: 5px;
 		border: 1px solid $border-color;
 		color: $body-text-color;
 		border-bottom: none;
+		a{
+			padding: 5px;
+			display: block;
+		}
 	}
 	li:hover{
 		background-color: #CCC;
@@ -239,5 +242,29 @@ footer{
 		  border-color: transparent $brydge-gray transparent transparent ;
 		  border-width: 10px;
 		}
+	}
+}
+
+.label-item{
+	@extend .shadowed;
+	border: 1px solid $border-color;
+	padding: .5rem;
+}
+.label-item:not(:last-of-type){
+	margin-right: 2px;
+	margin-bottom: 2px;
+}
+.search{
+	.avatar{
+		width: 63px;
+		height: 63px;
+	}
+	.user-info{
+		padding-left: 75px;
+	}
+	.section-main{
+		@extend .clearfix;
+		@extend .padding;
+		min-height: 87px;
 	}
 }

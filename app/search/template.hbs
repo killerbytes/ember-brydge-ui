@@ -1,182 +1,97 @@
-<div class="row">
-	<div class="columns">
-		<div class="top-banner box bg-white">
-			<h1>People Search</h1>
-
-		</div>
-	</div>
+<div class="page-heading">      
+  <h1>People Search</h1>
+  <p class="text-center">
+    Search for people, connections or through name, title, company, industries and locations.
+  </p>                    
 </div>
 
 <div class="row">
-  <div class="column">
+  <div class="columns medium-4">
     <div class="box rounded">
-      <div class="row column collapse border-b">
-        <div class="medium-4 columns">
-          <div class="people-search-filter-column">
-            <a class="button success expanded" data-open="industryModal">Choose Industries</a>
-          </div>    
-        </div>
-        <div class="medium-4 columns">
-          <div class="people-search-filter-column">
-            {{dropdown-filter
-              items=locations 
-              selected=valueText 
-              query='query'
-              itemSelected='citySelected'
-              placeholder="Enter Location"
-              template="partials/location-filter"}}
-      
-            <a {{ action "addCity" }}>{{fa-icon "plus-circle"}}</a>
-          </div>    
-        </div>
-        <div class="medium-4 columns">
-          <div class="people-search-filter-column">
-            {{input value=keyword enter="addKeyword" placeholder="Keywords"}}
-            <a {{ action "addKeyword" }}>{{fa-icon "plus-circle"}}</a>            
-          </div>    
-        </div>      
-      </div>
-      <div class="columns medium-10 filter-selections">
-        <ul class="menu">
-        {{#each industries as |item|}}
-          <li><span class="label label-item"><a {{action "removeIndustry" item}}>{{fa-icon "close"}}</a> {{item.name}}</span></li>
-        {{/each}}
-        </ul>      
-        <ul class="menu">
-        {{#each cities as |item|}}
-          <li><span class="label label-item"><a {{action "removeItem" item 'cities' 'city'}}>{{fa-icon "close"}}</a> {{item}}</span></li>
-        {{/each}}
-        </ul>
-        <ul class="menu">
-        {{#each keywords as |item|}}
-          <li><span class="label label-item"><a {{action "removeItem" item 'keywords' 'key'}}>{{fa-icon "close"}}</a> {{item}}</span></li>
-        {{/each}}
-        </ul>
-      </div>
-      <div class="columns medium-2">
-        <div>
-          <a {{ action "refresh" }} class="success button expanded">Refresh</a>
-        </div>
-      </div>        
-    </div>
-  </div>
-</div>
-
-
-<div class="row">
-  <div class="medium-8 columns">
-  	<div class="box rounded">
-  		<div class="padding">
-	  		We found <span>{{search.results.length}}</span> results based on your search terms:
-  		</div>
-			<ul class="no-bullet connections-list">
-				{{#each search.results as |item|}}
-			  <li>
-			      <div class="media-object">
-			        <div class="media-object-section">
-			          <div class="thumbnail" style={{htmlSafeImage item.avatarUrl}}>
-			            <img src="{{item.avatarUrl}}" class="hide">
-			          </div>
-			        </div>
-			        <div class="media-object-section media-object-content">
-                {{#link-to 'profile' item.id class="name"}}
-                  {{ item.name }}
-                {{/link-to}}
-			          <div class="position">
-			            <div>{{item.title}}</div>
-			            <div>{{item.company}}</div>
-			          </div>
-			          <p class="location">{{item.location}}</p>
-			        </div>
-			      </div>
-			  </li>
-			  {{/each}}
-			</ul>
-
-  	</div>
-  </div>
-
-  <div class="medium-4 columns sidebar">
-  </div>
-</div>
-
-
-{{#zf-reveal id="industryModal" overlay=true class="reveal-popup large"}}
-  <h4>Industry</h4>
-    <div class="content">        
-      {{#zf-tabs class="hide" id="search-tabs"}}
-        <li class="tabs-title is-active"><a href="#root">Root</a></li>
-        {{#each model.categories as |item|}}
-            <li class="tabs-title"><a href="#{{item.code}}">{{item.name}}</a></li>
-            {{#each item.categories as |category|}}
-              <li class="tabs-title"><a href="#{{category.code}}">{{category.name}}</a></li>
-            {{/each}}
-        {{/each}}  
-      {{/zf-tabs}}
-
-      <div class="tabs-contentx" data-tabs-content="search-tabs">
-
-        <div class="tabs-panel is-active" id="root">
-          <p>
-            <h3>Sectors</h3>
-          </p>
-          <ul class="no-bullet">
-            {{#each model.categories as |item|}}
-              <li><a {{action "goto" item.code }}>{{item.name}}</a></li>
-            {{/each}}
-          </ul>
-        </div>
-        <form action="">
-          {{#each model.categories as |item|}}
-            <div class="tabs-panel" id="{{item.code}}">
-              <a {{action "goto" "root" }}>Back</a>
-              <p>
-                <h3>{{item.name}}</h3>
-              </p>
-              <p>
-
-                <ul class="no-bullet">
-
-                {{#each item.categories as |item|}}
-
-                  <li><a {{action "goto" item.code }}>{{item.name}}</a></li>
-                {{/each}}
-                </ul>
-              </p>
-            </div>
-
-            {{#each item.categories as |category|}}
-              <div class="tabs-panel" id="{{category.code}}">
-                <a {{action "goto" item.code }}>Back</a>
-                <p>
-                  <h3>{{category.name}}</h3>
-                </p>
-                <p>          
-                  <ul class="no-bullet">
-                  {{#each category.industries as |industry|}}
-                    <li>
-                      {{action-checkbox-bind value=industry.data.code text=industry.data.subIndustry action="onCheckIndustry" checked=industry.data.checked}}
-                    </li>
-                  {{/each}}
-                  </ul>
-                </p>
-              </div>
-
-            {{/each}}
-          {{/each}}
+      <section class="title">
+        <h4>Keywords</h4>
+      </section>
+      <section class="bg-gray">
+        <form onsubmit="return false;">
+          {{input value=keyword enter="addKeyword" placeholder="Name, Title, Company"}}
+          <!-- <a {{ action "addKeyword" }}>{{fa-icon "plus-circle"}}</a>             -->
         </form>
-      </div>
-
-      <ul class="list-inline">
-        {{#each selectedIndustries as |item|}}
-          <li><span class="label label-item"><a {{action "removeSelectedIndustry" item}}>{{fa-icon "close"}}</a> {{item.name}}</span></li>
+        {{#each keywords as |item|}}
+          <span class="label label-item"><a {{action "removeItem" item 'keywords' 'key'}}>{{fa-icon "close"}}</a> {{item}}</span>
         {{/each}}
-      </ul>  
+        
+      </section>
     </div>
-    <div class="reveal-footer text-right">
-      <div class="content">
-        <button class="button success" {{action "onSelectDone"}} data-close>Done</button>
-        <a class="button success" data-close>Cancel</a>
-      </div>
+  </div>
+  <div class="columns medium-4">
+    <div class="box rounded">
+      <section class="title">
+        <h4>Industries</h4>
+      </section>
+      <section class="bg-gray">
+        <form class="brydge-form">
+          {{ autocomplete-industry onSelect="addIndustry"}}
+        </form>
+        {{#each industries as |item|}}
+          <span class="label label-item"><a {{action "removeIndustry" item}}>{{fa-icon "close"}}</a> {{item.name}}</span>
+        {{/each}}        
+      </section>
     </div>
+  </div>
+  <div class="columns medium-4">
+    <div class="box rounded">
+      <section class="title">
+        <h4>Location</h4>
+      </section>
+      <section class="bg-gray">
+        <form onsubmit="return false;">
+          {{dropdown-filter
+            items=locations 
+            selected=valueText 
+            query='query'
+            itemSelected='citySelected'
+            placeholder="Enter Location"
+            template="partials/location-filter"}}
+
+        </form>
+        {{#each cities as |item|}}
+          <span class="label label-item"><a {{action "removeItem" item 'cities' 'city'}}>{{fa-icon "close"}}</a> {{item}}</span>
+        {{/each}}
+        
+      </section>
+    </div>
+  </div>
+</div>
+
+{{#if search.results}}
+<div class="row columns">
+  <div class="box row columns search">
+    <section class="text-center">
+      {{search.results.length}} people found &nbsp;<a>Clear All</a>
+    </section>
+    <section class="row medium-up-2 columns bg-gray">
+      {{#each search.results as |item|}}
+        <div class="columns medium-6">
+          <div class="box">
+            <div class="user section-main">
+              <div class="avatar float-left" style={{htmlSafeImage item.avatarUrl}}>
+                <img src= {{item.from.content.profile.avatarUrl}} class="hide">
+              </div>
+              <div class="user-info">
+                {{link-to item.name "profile" item.id }}
+                <div class="position">{{item.title}}</div>
+                <div class="position"><strong>{{item.company}}</strong></div>
+                <div class="position">{{item.location}}</div>
+              </div>
+            </div>
+            <button class="button success expanded">Message</button>
+          </div>
+        </div>
+      {{/each}}
+    </section>    
+  </div>
+</div>
+{{/if}}
+{{#zf-reveal id="industryModal" overlay=true class="small industry-picker box"}}
+  {{picker-industry-multi name="search" categories=categories selected=industries onSelect="onIndustrySelect" }} 
 {{/zf-reveal}}
