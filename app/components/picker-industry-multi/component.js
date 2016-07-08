@@ -1,13 +1,8 @@
 import Ember from 'ember';
 
 export default Ember.Component.extend({
-	init(){
-		this._super();
-		// this.selected = [];
-	},
 	actions: {
 		remove(item){
-			// console.log(item, this.get('selected'))
 			this.get('selected').removeObject(item)
 		},
 		goto(index, item){
@@ -31,8 +26,8 @@ export default Ember.Component.extend({
 			}
 		},
 		select(item){
-			item.checked = true;
 			if(!this.get('selected')) this.set('selected', []);
+
 			this.get('selected').pushObject({
 				code: item.data.code,
 				name: item.data.subIndustry

@@ -89,14 +89,14 @@
 </div>
 
 {{#if selected}}
-<section class="row content-footer wrapper">
-  <div class="columns medium-8">
+<section class="row collapse content-footer wrapper">
+  <div class="columns medium-10">
     <h4>Industry Tags</h4>
     {{#each selected as |item|}}
       <span class="label label-item"><a {{action "remove" item 'keywords' 'key'}}>{{fa-icon "close"}}</a> {{item.name}}</span>
     {{/each}}
   </div>
-  <div class="column medium-4">
+  <div class="column medium-2">
     <button class="button success rounded" {{action "submit"}}>Done</button>
   </div>
 </section>

@@ -12,7 +12,7 @@
         <h4>Keywords</h4>
       </section>
       <section class="bg-gray">
-        <form onsubmit="return false;">
+        <form class="brydge-form" onsubmit="return false;">
           {{input value=keyword enter="addKeyword" placeholder="Name, Title, Company"}}
           <!-- <a {{ action "addKeyword" }}>{{fa-icon "plus-circle"}}</a>             -->
         </form>
@@ -44,15 +44,8 @@
         <h4>Location</h4>
       </section>
       <section class="bg-gray">
-        <form onsubmit="return false;">
-          {{dropdown-filter
-            items=locations 
-            selected=valueText 
-            query='query'
-            itemSelected='citySelected'
-            placeholder="Enter Location"
-            template="partials/location-filter"}}
-
+        <form class="brydge-form" onsubmit="return false;">
+          {{autocomplete-location selected=valueText onItemSelected="addLocation" }}
         </form>
         {{#each cities as |item|}}
           <span class="label label-item"><a {{action "removeItem" item 'cities' 'city'}}>{{fa-icon "close"}}</a> {{item}}</span>
@@ -93,5 +86,5 @@
 </div>
 {{/if}}
 {{#zf-reveal id="industryModal" overlay=true class="small industry-picker box"}}
-  {{picker-industry-multi name="search" categories=categories selected=industries onSelect="onIndustrySelect" }} 
+  {{picker-industry-multi name="search" categories=categories selected=(readonly industries) onSelect="onIndustrySelect" }} 
 {{/zf-reveal}}
