@@ -9,14 +9,14 @@
 	background-position: center center;
 	background-size: 100%;
 	display: table;
-	width: 24px;
+	width: 22px;
 	height: 24px;
 	&.caret{
 		background-image: url(icons/caret.png);
 		width: 15px;
 	}
 	&.user{
-		background-image: url(icons/user.png);
+		background-image: url(icons/BRYDGE_CONNECTIONS.png);
 	}
 	&.pencil{
 		background-image: url(icons/pencil.png);
@@ -24,13 +24,13 @@
 		height: 15px;
 	}
 	&.bino{
-		background-image: url(icons/bino.png);
+		background-image: url(icons/BRYDGE_PROFILE_VIEWS.png);
 	}
 	&.messages{
-		background-image: url(icons/messages.png);
+		background-image: url(icons/BRYDGE_MESSAGES.png);
 	}
 	&.stack{
-		background-image: url(icons/stack.png)
+		background-image: url(icons/BRYDGE_NOTIFICATIONS.png)
 	}
 	&.ellipsis{
 		background-image: url(icons/ellipsis.png);
