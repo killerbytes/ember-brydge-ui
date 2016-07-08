@@ -99,6 +99,18 @@
   li:hover{
     background-color: $brydge-gray;
   }
+  .actions{
+    a{
+      margin-left: 5px;
+    }
+    .fa{
+      font-size: 22px;
+      color: $text-gray;
+    }
+    .fa-check-circle-o{
+      color: $brydge-blue;
+    }
+  }
 }
 
 #dd-notification{
@@ -115,14 +127,7 @@
   padding: 0;
 }
 
-.industry-picker.dropdown-pane{
-  @extend .bordered;
-  @extend .shadowed;
-  top: 0 !important;
-  left: 0 !important;
-  width: 100%;
-  padding: 0;
-  box-shadow: none;
+.industry-picker{
   .content{
     background-color: $brydge-gray;
     min-height: 120px;
@@ -140,8 +145,15 @@
       margin: 0;
     }
     a{
-      margin-left: 5px;
       text-decoration: underline;
+    }
+  }
+  .content-footer{
+    border-top: 1px solid $border-color;
+    button{
+      position: absolute;
+      bottom: 1rem;
+      right: 1rem;
     }
   }
   .tabs-panel{
@@ -154,6 +166,16 @@
       color: $text-gray;
     }
   }
+}
+
+.industry-picker.dropdown-pane{
+  @extend .industry-picker;
+  @extend .bordered;
+  @extend .shadowed;
+  top: 0 !important;
+  left: 0 !important;
+  // width: 100%;
+  padding: 0;
 }
 
 // .accordion-arrow{

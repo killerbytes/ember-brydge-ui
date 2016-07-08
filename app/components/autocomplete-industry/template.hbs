@@ -1,0 +1,10 @@
+{{input value=value key-up="onchange" focus-in="open"}}
+<div class="wrapper {{if isOpen 'is-open'}}">
+	<ul class="no-bullet">
+	{{#each items as |item|}}
+		<li {{action "select" item }}><a>{{item.text}}</a></li>
+	{{/each}}
+		<li><a data-open="industryModal">Use the Industry Picker</a></li>
+	</ul>	
+
+</div>

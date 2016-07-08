@@ -22,7 +22,7 @@
     {{else}}
       <p class="columns">Nothing to show here</p>  
     {{/if}}
-    {{#if toPendingSidebar}}
+    {{#if toPendingSidebarShowLink}}
 			<section class="section-footer-links">
   		{{#link-to 'me.compliments.pending' class="footer-button button expanded" }}
     		See All
@@ -36,7 +36,6 @@
   <section class="title">
     <h4>Compliments you have posted</h4>
   </section>
-  {{#if fromAcceptSidebar }}
   {{#each fromAcceptSidebar as |item| }}
     <section>
       <div class="user mb">
@@ -51,11 +50,10 @@
       	<a {{action 'delete' item.id}} class="button success rounded">Delete</a>
       </div>      
     </section>
-  {{/each}}
   {{else}}
     <p class="columns">Nothing to show here</p>  
-  {{/if}}
-	{{#if fromAcceptSidebar }}
+  {{/each}}
+	{{#if fromAcceptSidebarShowLink }}
 		<section class="section-footer-links">
 	  {{#link-to 'me.compliments.posted' class="footer-button button expanded" }}
 	    See All

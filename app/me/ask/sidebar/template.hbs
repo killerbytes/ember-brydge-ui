@@ -20,7 +20,7 @@
 		{{else}}
 			<section>Nothing to show here</section>
 		{{/each}}
-		{{#if from.pendingSidebar }}
+		{{#if to.showLink }}
 			<section class="section-footer-links">
 				{{#link-to 'me.ask.pending' (query-params tab="questions")  class="footer-button button expanded" }}
 					See All
@@ -43,7 +43,7 @@
 			<div class="padding">Nothing to show here</div>
 		{{/each}}
 
-	{{#if to.pendingSidebar}}
+	{{#if from.showLink}}
 		<section class="section-footer-links">
 			{{#link-to 'me.ask.pending' (query-params tab="asked") class="footer-button button expanded" }}
 				See All

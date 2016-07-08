@@ -10,10 +10,14 @@ export default Ember.Mixin.create({
 	toPendingSidebar: Ember.computed('toPending', function(){
 		return this.get('toPending').slice(0, this.get('limit'));
 	}),
-	fromAcceptSidebar: Ember.computed('fromCompliments', function(){
-		return this.get('fromCompliments')
-			.filterBy('delete', false)
-			.slice(0, this.get('limit'));
+	toPendingSidebarShowLink: Ember.computed('toPending', function(){
+		return this.get('toPending').length > this.get('limit');
+	}),
+	fromAcceptSidebar: Ember.computed('fromAccept', function(){
+		return this.get('fromAccept').slice(0, this.get('limit'));
+	}),
+	fromAcceptSidebarShowLink: Ember.computed('fromAccept', function(){
+		return this.get('fromAccept').length > this.get('limit');
 	}),
 	complimentTitles: Ember.computed('titles', function(){
 		this.set('compliment_titles', this.get('titles'))
