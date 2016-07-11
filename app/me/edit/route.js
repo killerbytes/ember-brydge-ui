@@ -15,7 +15,7 @@ export default Ember.Route.extend(QueryLocationMixin, {
       profile: this.store.findRecord('profile', userid, {reload: true}),
       categories: $.getJSON('data/categories.json'),
       languages: this.store.findAll('language', {userid: userid}),
-      interests: this.store.findAll('interest', {userid: userid}),
+      //interests: this.store.findAll('interest', {userid: userid}),
       experiences: this.store.findAll('experience', {userid: userid}),
       educations: this.store.findAll('education', {userid: userid}),
 
