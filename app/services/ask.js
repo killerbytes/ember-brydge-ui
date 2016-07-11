@@ -7,7 +7,7 @@ export default Ember.Service.extend({
   hide(id){
     var userid = this.get('session.data.authenticated.user_id');
     var url = '/v2/asks/'+id;
-    var data = { ask: {status: "hide", userid: userid}};
+    var data = { ask: {status: "archive", userid: userid}};
     
     this.get('ajax').request(url, {
       method: 'PATCH',
