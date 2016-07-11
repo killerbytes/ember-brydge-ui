@@ -35,9 +35,9 @@
 	</section>
 		{{#each from.pendingSidebar as |item| }}
 	<section>
-				You asked {{link-to item.to.content.name "profile" item.to.content.id class="name"}}
-				<div class="timestamp mb">{{timestamp item.createdAt}}</div>
-				{{item.content}}
+				You asked {{link-to item.to.content.profile.firstName "profile" item.to.content.id class="name"}}
+				<div class="timestamp mb">{{timestamp item.updatedAt}}</div>
+				{{item.question}}
 	</section>
 		{{else}}
 			<div class="padding">Nothing to show here</div>
@@ -58,9 +58,9 @@
 	</section>
 		{{#each from.hiddenSidebar as |item| }}
 			<section>
-				{{link-to item.from.content.name "profile" item.from.content.id class="name"}} asked {{link-to item.to.content.name "profile" item.to.content.id class="name"}}
+				You asked {{link-to item.to.content.profile.firstName "profile" item.to.content.id class="name"}}
 				<div class="timestamp">{{timestamp item.createdAt}}</div>
-				<div class="content-pad">{{item.content}}</div>
+				<div class="content-pad">{{item.question}}</div>
 				<div class="section-footer-buttons">
 					<a {{action "toggleHide" item }} class="button success rounded">Unarchive</a>
 				</div>			
@@ -68,9 +68,9 @@
 		{{/each}}
 		{{#each to.hiddenSidebar as |item| }}
 			<section>
-				You asked {{link-to item.to.content.name "profile" item.to.content.id class="name"}}
+				You asked {{link-to item.to.content.profile.firstName "profile" item.to.content.id class="name"}}
 				<div class="timestamp">{{timestamp item.createdAt}}</div>
-				<div class="content-pad">{{item.content}}</div>
+				<div class="content-pad">{{item.question}}</div>
 				<div class="section-footer-buttons">
 					<a {{action "toggleHide" item }} class="button success rounded">Unarchive</a>
 				</div>			
