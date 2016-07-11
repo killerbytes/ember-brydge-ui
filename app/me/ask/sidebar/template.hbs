@@ -6,10 +6,10 @@
 			<section>
 				<div class="section-main">
 					<div class="user">
-						Asked by {{link-to item.from.content.name "profile" item.from.content.id class="name"}}
-						<div class="timestamp">{{timestamp item.createdAt}}</div>
+						Asked by {{link-to item.from.content.profile.firstName "profile" item.from.content.id class="name"}}
+						<div class="timestamp">{{timestamp item.updatedAt}}</div>
 					</div>
-					<div class="content-pad">{{item.content}}</div>
+					<div class="content-pad">{{item.question}}</div>
 					<div class="section-footer-buttons">
 						<a {{action "selectItem" item }} class="button success rounded" data-open="answerFormModal">Write Answer</a>
 						<a {{action "delete" item }} class="button button-border rounded">Delete</a>

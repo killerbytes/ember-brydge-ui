@@ -11,16 +11,15 @@ export default DS.JSONAPISerializer.extend({
     var payloadData= Object.keys(rel).reduce(function(acc, elem) {
       const data = rel[elem].data;
       if (data) {
-        acc[elem + "_id"] = data.id;
-      }
-      if (data && data.type) {
-        acc[elem + "_type"] = data.type[0].toUpperCase() + data.type.slice(1, -1);
+        acc[elem + "_user"] = data.id;
       }
       return acc;
 
     }, attr);
 
-    return payloadData;
+    return {
+      ask: payloadData
+    };
     
   },
   keyForAttribute: function(attr) {
