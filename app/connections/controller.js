@@ -1,6 +1,8 @@
 import Ember from 'ember';
 
 export default Ember.Controller.extend({
+  queryParams: ['tab'],
+  tab: 'tab_1',
   profile: Ember.computed.alias('model.profile'),
   list: Ember.computed.alias('model.list'),
   mutual: Ember.computed.alias('model.mutual'),
