@@ -83,6 +83,7 @@
   border-top: 1px solid $border-color;
 }
 
+
 .dropdown-notification{
   width: 322px !important;  
   .empty-message{
@@ -93,23 +94,16 @@
     padding: 1rem;
     border-bottom: 1px solid $border-color;
   }
+  ul.media-list{
+    li>a{
+      font-size: 10px;
+    }
+  }
   ul.media-list + .footer-button{
     border-top: 1px solid $border-color;
   }
   li:hover{
     background-color: $brydge-gray;
-  }
-  .actions{
-    a{
-      margin-left: 5px;
-    }
-    .fa{
-      font-size: 22px;
-      color: $text-gray;
-    }
-    .fa-check-circle-o{
-      color: $brydge-blue;
-    }
   }
 }
 

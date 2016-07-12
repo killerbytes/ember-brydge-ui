@@ -1,49 +1,45 @@
-<div class="row">
-	<div class="columns">
-		<div class="top-banner bg-gray box">
-			<h1>PENDING CONNECTION REQUESTS</h1>
-		</div>		
-	</div>
-</div>
-
-
-<div class="row">
-  <div class="medium-7 columns">
-  	<div class="box rounded">
-      <div class="padding">
-        <strong class="text-upper">PENDING CONNECTION REQUESTS FOR {{ sessionAccount.account.profile.firstName }}</strong>
-      </div>
-      <ul class="media-list no-bullet">
-        {{#each requests as |item|}}
+<div class="row"> 
+  <div class="large-7 medium-7 columns">
+    <div class="page-heading">      
+      <h1>Pending Connection Requests</h1>
+      <p class="text-center">
+      </p>                    
+    </div>
+    <div class="box">
+      <ul class="media-list user">
+        {{#each model as |item|}}
         <li>
-          <div class="media-object">
-            <div class="media-object-section">
-              <div class="thumbnail" style={{htmlSafeImage item.from.profile.avatarUrl}}>
-                <img src= "{{item.from.profile.avatarUrl}}" class="hide">
+          <div {{action "selectView" item}} class="padding {{if item.read false 'new-notification'}}">
+            <div class="row collapse">
+              <div class="columns medium-8">
+                {{#link-to "profile" item.fro.profile.id}}
+                <div class="avatar" style={{htmlSafeImage item.from.profile.avatarUrl }}>
+                  <img src= {{item.from.profile.avatarUrl}} class="hide">
+                </div>
+                {{/link-to}}
+                <div class="user-info">                  
+                  {{link-to item.from.profile.fullName "profile" item.from.profile.id }}
+                  <div class="position">{{item.from.profile.currentTitle}} at {{item.from.profile.currentCompany}}</div>
+                </div>
+                
               </div>
-            </div>
-            <div class="media-object-section main-section">
-              {{link-to item.from.name 'profile' item.from.id class="name"}}
-              <div class="position">
-                <div>{{item.from.profile.currentTitle}}</div>
-                <div>{{item.from.profile.currentCompany}}</div>
+              <div class="columns medium-4 actions text-right">
+                <a {{action "acceptConnection" item }} class="button clear"><i class="fa fa-check-circle-o" aria-hidden="true"></i></a>
+                <a {{action "rejectConnection" item }} class="button clear"><i class="fa fa-times-circle-o" aria-hidden="true"></i></a>              
               </div>
-            </div>
-            <div class="media-object-section actions-section">
-              <a class="button expanded success" {{action "accept" item.from.userid }}>ACCEPT</a>
-              <a class="button expanded default" {{action "reject" item.from.userid }}>REJECT</a>
             </div>
           </div>
         </li>
+        {{else}}
+        <li>
+          <div class="empty-message">No pending connection requests</div>
+        </li>
         {{/each}}
       </ul>
-
-  	</div>
-
-  </div>    
-  <div class="medium-5 columns sidebar">
-
-    {{progress-box}}
-    {{render "footer"}}
+    </div>
+  </div>
+  <div class="large-5 medium-5 columns sidebar">
+    {{ partial 'partials/user-guide-box' }}
+    {{ partial "footer"}}
   </div>
 </div>
