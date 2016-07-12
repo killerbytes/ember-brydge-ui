@@ -1,45 +1,31 @@
-<div class="row">
-	<div class="columns">
-		<div class="top-banner bg-gray box">
-			<h1>PENDING COMPLIMENT REQUESTS</h1>
-		</div>		
-	</div>
-</div>
-
-
-<div class="row">
-  <div class="medium-7 columns">
-  	<div class="box rounded compliments">
-      <div class="padding">
-        <strong class="text-upper">PENDING COMPLIMENT REQUESTS FOR {{ sessionAccount.account.profile.firstName }}</strong>
-      </div>
-      <div class="padding">
-        {{#each toPending as |item|}}
-          <div class="media-object {{if (eq item.id qid) "highlight"}}">
-            <div class="media-object-section">
-              <div class="thumbnail" style={{htmlSafeImage item.from.profile.avatarUrl}}>
-                <img src="{{item.from.profile.avatarUrl}}" class="hide">
-              </div>
-            </div>
-            <div class="media-object-section main-section">
-              {{link-to item.from.name "profile" item.from.id class="user"}} <span class="text-light">complimented</span> {{link-to item.to.name "profile" 'me' class="user"}}
-              <p class="timestamp text-light">{{timestamp item.createdAt}}</p>              
-              <strong class="title text-upper">{{item.title}}</strong>
-              <p class="content">{{item.content}}</p>               
-              <div class="question-box-footer mb5">
-                <ul class="menu menu-dotted">
-                  <li><a {{action "accept" item.id }}>Add to profile</a></li>
-                  <li><a {{action "reject" item.id }}>Delete</a></li>
-                </ul>                       
-              </div>
-            </div>
+<div class="row"> 
+  <div class="large-7 medium-7 columns">
+    <div class="page-heading">      
+      <h1>Pending Compliment Requests</h1>
+      <p class="text-center">
+      </p>                    
+    </div>
+    {{#each toPending as |item| }}
+      <div class="box {{if (eq item.id qid) 'highlight' }}">
+        <section>
+          <div class="user mb">
+            Complimented by {{link-to item.from.name "profile" item.from.id class="name"}}
+            <div class="timestamp">{{timestamp item.createdAt}}</div>                
           </div>
-        {{/each}}
-      </div>
-  	</div>
-  </div>    
-  <div class="medium-5 columns sidebar">
-    {{progress-box}}
-    {{render "footer"}}
+          <strong>{{item.title}}:</strong>
+          <div class="content-pad">
+            {{item.content}}
+          </div>
+          <div class="section-footer-buttons">
+            <a {{action 'accept' item.id}} class="button success rounded">Add to profile</a>
+            <a {{action 'reject' item.id}} class="button button-border rounded">Delete</a>
+          </div>      
+        </section>
+      </div>      
+    {{/each}}
+  </div>
+  <div class="large-5 medium-5 columns sidebar">
+    {{ partial 'partials/user-guide-box' }}
+    {{ partial "footer"}}
   </div>
 </div>

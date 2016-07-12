@@ -1,80 +1,84 @@
-<div class="row">
-	<div class="columns">
-		<div class="top-banner bg-gray box">
-			<h1>HIDDEN QUESTIONS</h1>
-		</div>		
-	</div>
-</div>
-
-<div class="row">
-  <div class="medium-7 columns">
-    <div class="question-tab">
-      <div class="tabs-content questions">    
-        <div class="padding">
-          {{#each from.hidden as |item|}}
-            <div class="box rounded question-box">
-              {{#if isOwner}}
-                <div class="menu-wrapper">
-                  <a data-toggle="dd-card-menu-{{item.id}}"><i class="icons ellipsis"></i></a>      
-                </div>
-                {{#zf-dropdown id=(concat 'dd-card-menu-' item.id) closeOnClick=true class="card-menu-dropdown"}}
-                  <ul class="menu">
-                    <li><a {{action "toggleHide" item }}>Unhide</a></li>
-                  </ul>
-                {{/zf-dropdown}}
-              {{/if}}
-
-              <div class="mb5">{{link-to item.from.content.name "profile" item.from.content.id class="user"}} asked {{link-to item.to.content.name "profile" item.to.content.id class="user"}}</div>
-              <p class="timestamp">{{timestamp item.createdAt}}</p>      
-              <h2>{{item.content}}</h2>
-              {{#zf-accordion-menu class="accordion-menu" multiOpen=true}}
-                <li>
-                  <ul class="no-bullet vertical nested">
-                    <li>
-                      <p>{{{item.answer}}}</p>
-                    </li>
-                  </ul>
-                  <a class="more no-arrow"><span class="content-more">See Answer</span><span class="content-less">Hide Answer</span></a>
-                </li>
-              {{/zf-accordion-menu}}           
-
-            </div>
-          {{/each}}
-          {{#each to.hidden as |item|}}
-            <div class="box rounded question-box">
-              {{#if isOwner}}
-                <div class="menu-wrapper">
-                  <a data-toggle="dd-card-menu-{{item.id}}"><i class="icons ellipsis"></i></a>      
-                </div>
-                {{#zf-dropdown id=(concat 'dd-card-menu-' item.id) closeOnClick=true class="card-menu-dropdown"}}
-                  <ul class="menu">
-                    <li><a {{action "toggleHide" item }}>Unhide</a></li>
-                  </ul>
-                {{/zf-dropdown}}
-              {{/if}}
-
-              <div class="mb5">{{link-to item.from.content.name "profile" item.from.content.id class="user" }} asked {{link-to item.to.content.name "profile" item.to.content.id class="user"}}</div>
-              <p class="timestamp">{{timestamp item.createdAt}}</p>      
-              <h2>{{item.content}}</h2>
-              {{#zf-accordion-menu class="accordion-menu"}}
-                <li>
-                  <ul class="no-bullet vertical nested">
-                    <li>
-                      <p>{{{item.answer}}}</p>
-                    </li>
-                  </ul>
-                  <a class="more no-arrow"><span class="content-more" disabled=true>See Answer</span><span class="content-less">Hide Answer</span></a>
-                </li>
-              {{/zf-accordion-menu}}           
-            </div>
-          {{/each}}
-        </div>  
-      </div>
+<div class="row"> 
+  <div class="large-7 medium-7 columns">
+    <div class="page-heading">      
+      <h1>Archived Questions</h1>
+      <p class="text-center">
+      </p>                    
     </div>
-  </div>    
-  <div class="medium-5 columns sidebar">
-    {{partial 'partials/user-guide-box'}}
-    {{render "footer"}}
+
+    {{#each from.hiddenx as |item| }}
+
+      <div class="box {{if (eq item.id qid) 'highlight'}}">
+        {{#if isOwner}}
+          <div class="menu-wrapper">
+            <a data-toggle="dd-card-menu-{{item.id}}"><i class="icons ellipsis"></i></a>      
+          </div>
+          {{#zf-dropdown id=(concat 'dd-card-menu-' item.id) closeOnClick=true class="card-menu-dropdown"}}
+            <ul class="menu">
+              <li><a {{action "toggleHide" item }}>Unhide</a></li>
+            </ul>
+          {{/zf-dropdown}}
+        {{/if}}
+        <section>
+          {{link-to item.from.content.name "profile" item.from.content.id class="name"}} asked {{link-to item.to.content.name "profile" item.to.content.id class="name"}}
+          <div class="timestamp">{{timestamp item.createdAt}}</div>
+          <div class="content-pad">{{item.content}}</div>
+          <div class="section-footer-buttons">
+            <a {{action "toggleHide" item }} class="button success rounded">Unarchive</a>
+          </div>      
+        </section>
+      </div>
+    {{/each}}
+
+    {{#each to.hidden as |item|}}
+      <div class="box ask-card">
+        <div class="section-group section-accordion-group">
+          <section>
+            <div class="row user section-main">
+              <div class="columns medium-8">
+                <div class="avatar float-left" style={{htmlSafeImage item.from.content.profile.avatarUrl}}>
+                  <img src= {{item.from.content.profile.avatarUrl}} class="hide">
+                </div>
+                <div class="user-info">{{link-to item.from.content.name "profile" item.from.content.id }} asked {{link-to item.to.content.name "profile" item.to.content.id }}</div>
+              </div>
+              <div class="column medium-4 text-right">
+                {{#if isOwner }}
+                  <a data-toggle="dd-card-menu-{{item.id}}" class="action-button dropdown-button-arrow"><i class="icons ellipsis"></i></a>      
+                  {{#zf-dropdown id=(concat 'dd-card-menu-' item.id) closeOnClick=true class="card-menu-dropdown"}}
+                    <ul class="menu">
+                      <li><a {{action "toggleHide" item }}>Unarchive</a></li>
+                    </ul>
+                  {{/zf-dropdown}}
+                {{/if}}              
+                <div class="timestamp">{{timestamp item.createdAt}}</div>              
+              </div>
+            </div>
+          </section>
+          <section>
+            <div class="section-main">
+              <div class="title">{{item.content}}</div>
+            </div>
+            {{#zf-accordion-menu class="section-accordion" multiOpen=true}}
+              <li>
+                <ul class="section-accordion-content no-bullet">
+                  <li>{{{item.answer}}}</li>
+                </ul>
+                <a class="more no-arrow"><span class="content-more">See Answer</span><span class="content-less">Hide Answer</span></a>
+              </li>
+            {{/zf-accordion-menu}}    
+          </section>
+        </div>
+      </div>
+    {{else}}
+      No questions to show  
+    {{/each}}
+
+
+  </div>
+  <div class="large-5 medium-5 columns sidebar">
+    {{ partial 'partials/user-guide-box' }}
+    {{ partial "footer"}}
   </div>
 </div>
-{{answer-form}}
+
+
