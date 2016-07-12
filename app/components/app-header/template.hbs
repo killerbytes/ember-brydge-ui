@@ -172,11 +172,9 @@
 			</li>
 			{{/each}}
 		</ul>
-		{{#if notification.request}}
-			{{#link-to 'requests' class="footer-button button expanded"}}
-				See All Connection Requests 
-			{{/link-to}}
-		{{/if}}
+		{{#link-to 'requests' class="footer-button button expanded"}}
+			See All Connection Requests 
+		{{/link-to}}
 	{{/zf-dropdown}}
 
 	{{#zf-dropdown id="dd-messages" class="dropdown-notification" closeOnClick=true }}
@@ -215,11 +213,9 @@
 			</li>
 			{{/each}}
 		</ul>
-		{{#if notification.messages}}		
-			{{#link-to 'messages' class="footer-button success button expanded"}}
-				See All Messages
-			{{/link-to}}
-		{{/if}}
+		{{#link-to 'messages' class="footer-button button expanded"}}
+			See All Messages
+		{{/link-to}}
 	{{/zf-dropdown}}
 
 	{{#zf-dropdown id="dd-notification" class="dropdown-notification" closeOnClick=true}}
@@ -240,9 +236,9 @@
 					        <img src= {{item.target.profile.avatarUrl}} class="hide">
 					      </div>
 					      <div class="user-info">
-		              <p>
-		              	<strong>{{item.target.profile.firstName }} {{item.target.profile.lastName }}</strong> {{{notification-text item}}} 
-		              </p>
+		              <div>
+		              	<strong>{{item.target.profile.firstName }} {{item.target.profile.lastName }}</strong> {{{notification-text item}}}
+		              </div>
 		              <span class="timestamp">{{ timestamp item.createdAt }}</span>
 					      </div>							
 							</div>
@@ -255,11 +251,9 @@
 			  </li>
 		  {{/each}}
 	  </ul>
-		{{#if notification.notifications}}
 			{{#link-to 'notifications' class="footer-button button expanded"}}
 				See All Notifications
 			{{/link-to}}
-		{{/if}}
 	{{/zf-dropdown}}
 
 

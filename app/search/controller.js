@@ -37,10 +37,10 @@ export default Ember.Controller.extend(QueryLocationMixin, {
   }),
   query: function(){
     this.get('search').query({
-      q: this.get('search.key'),
+      // q: this.get('search.key'),
       industry: this.get('industry'),
       city: this.get('city'),
-      key: this.get('key'),
+      q: this.get('search.key') || this.get('key'),
       type: 'profile'
     });
   }.observes('city', 'industry', 'key'),

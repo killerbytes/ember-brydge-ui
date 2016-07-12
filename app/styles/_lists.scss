@@ -6,9 +6,18 @@ ul.media-list{
   li>a{
     padding: 1rem;
     display: block;
-    font-size: 10px;
     margin: 0;
   }
+  .actions{
+    .fa{
+      font-size: 22px;
+      color: $text-gray;
+    }
+    .fa-check-circle-o{
+      color: $brydge-blue;
+    }
+  }
+
 }
 ul.user-link-list{
   li{

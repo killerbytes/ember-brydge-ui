@@ -1,81 +1,41 @@
-<div class="row">
-	<div class="columns">
-		<div class="top-banner bg-gray box">
-			<h1>NOTIFICATIONS</h1>
-		</div>		
-	</div>
-</div>
-
-
-<div class="row">
-  <div class="medium-7 columns">
-  	<div class="box rounded">
-      <div class="padding">
-        <strong>NOTIFICATIONS FROM THE LAST FEW  DAYS</strong>
-      </div>
-      <ul class="media-list notifications-list no-bullet list-lined">
-      {{#each model as |item|}}
-       
-        <li {{action "select" item preventDefault=false }}
-        class="{{if item.read false 'new-notification'}}">
-          <div class="media-object">
-            <div class="media-object-section">
-              <div class="thumbnail" style="background-image: url({{item.target.profile.avatarUrl}})">
-                <img src={{item.target.profile.avatarUrl}} class="hide">
+<div class="row"> 
+  <div class="large-7 medium-7 columns">
+    <div class="page-heading">      
+      <h1>Notifications</h1>
+      <p class="text-center">
+      </p>                    
+    </div>
+    <div class="box">
+      <ul class="media-list user">
+        {{#each model as |item|}}
+          <li>
+            <a {{action "select" item}} class="{{if item.read false 'new-notification'}}">
+              <div class="row columns collapse">
+                <div class="columns">
+                  <div class="avatar" style={{htmlSafeImage item.target.profile.avatarUrl }}>
+                    <img src= {{item.target.profile.avatarUrl}} class="hide">
+                  </div>
+                  <div class="user-info">
+                    <div>
+                      <strong>{{item.target.profile.firstName }} {{item.target.profile.lastName }}</strong> {{{notification-text item}}}
+                    </div>
+                    <span class="timestamp">{{ timestamp item.createdAt }}</span>
+                  </div>              
+                </div>
               </div>
-            </div>
-            <div class="media-object-section main-section">
-              
-              {{#if (notification-type 'answer' item.type)}}
-                <p><a>{{item.target.profile.firstName}} {{item.target.profile.lastName}}</a> answered your question</p>
-                <span>{{ timestamp item.createdAt }}</span>
-              {{/if}}
-
-
-              {{#if (notification-type 'ask' item.type)}}
-                <p><a>{{item.target.profile.firstName}} {{item.target.profile.lastName}}</a> asked you a question</p>
-                <span>{{ timestamp item.createdAt }}</span>
-              {{/if}}
-
-              {{#if (notification-type 'comment' item.type)}}
-                <p><a>{{item.target.profile.firstName}} {{item.target.profile.lastName}}</a> commented your broadcast <a>"{{ getNotificationContent item.content }}"</a></p>
-                <span>{{ timestamp item.createdAt }}</span>
-              {{/if}}
-
-              {{#if (notification-type 'vote' item.type)}}
-                <p><a>{{item.target.profile.firstName}} {{item.target.profile.lastName}}</a> upvoted your broadcast <a>"{{ getNotificationContent item.content }}"</a>  </p>
-                <span>{{ timestamp item.createdAt }}</span>
-              {{/if}}
-              {{#if (notification-type 'compliment' item.type)}}
-                <p><a>{{item.target.profile.firstName}} {{item.target.profile.lastName}}</a> posted a compliment to you </p>
-                <span>{{ timestamp item.createdAt }}</span>
-              {{/if}}
-
-              {{#if (notification-type 'accept' item.type)}}
-                <p><a>{{item.target.profile.firstName}} {{item.target.profile.lastName}}</a> accepted your request <a>{{ item.content}}</a></p>
-                <span>{{ timestamp item.createdAt }}</span>
-              {{/if}}
-
-
-              {{#if (notification-type 'share' item.type)}}
-                <p><a>{{item.target.profile.firstName}} {{item.target.profile.lastName}}</a> shared your broadcast <a>"{{ getNotificationContent item.content }}"</a></p>
-                <span>{{ timestamp item.createdAt }}</span>
-              {{/if}}
-
-
-            </div>
-          </div>
-        </li>
-        
-      {{/each}}
+            </a>
+          </li>
+        {{else}}
+          <li>
+            <div class="empty-message">No new notifications</div>
+          </li>
+        {{/each}}
       </ul>
-  		
-  	</div>
+    </div>
+  </div>
+  <div class="large-5 medium-5 columns sidebar">
+    {{ partial 'partials/user-guide-box' }}
+    {{ partial "footer"}}
 
-  </div>    
-  <div class="medium-5 columns sidebar">
-
-    {{progress-box}}
-    {{render "footer"}}
   </div>
 </div>
