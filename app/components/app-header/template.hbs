@@ -190,7 +190,7 @@
 		<ul class="media-list user">
 			{{#each notification.messages as |item|}}
 			<li {{action "selectMessage" item}} class="{{if item.read false 'new-notification'}}">
-				{{#link-to "messaging.conversation" item.id }}
+				{{#link-to "messages.conversation" item.id }}
 					<div class="row collapse">
 						<div class="columns medium-8">
 				      <div class="avatar" style={{htmlSafeImage item.target.profile.avatarUrl }}>
@@ -216,7 +216,7 @@
 			{{/each}}
 		</ul>
 		{{#if notification.messages}}		
-			{{#link-to 'messaging' class="footer-button success button expanded"}}
+			{{#link-to 'messages' class="footer-button success button expanded"}}
 				See All Messages
 			{{/link-to}}
 		{{/if}}

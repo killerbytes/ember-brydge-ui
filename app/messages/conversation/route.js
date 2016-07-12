@@ -21,7 +21,7 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
         var conversation = this.store.peekRecord('conversation', id);
         this.store.unloadRecord(conversation);
         this.store.findAll('conversation');
-        this.transitionTo('/messaging');
+        this.transitionTo('/messages');
       });
 
     }

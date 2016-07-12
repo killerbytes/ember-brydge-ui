@@ -1,11 +1,21 @@
-<form {{action 'submit' to msg on='submit'}}>
+<form {{action "submit" on="submit" }} class="form-input mb">
   {{#if showToInput}}
   	{{input value=to type="text" id="middle-label" placeholder="Type a person name.."}}
   {{/if}}
-  {{textarea value=msg placeholder="Message..." rows="4"}}
-  <div class="text-right">
-  	<button type="submit" class="button success">{{buttonLabel}}</button>
-  </div>
+
+	<div class="avatar circle" style={{htmlSafeImage sessionAccount.account.profile.avatarUrl}}>
+	  <img src="{{ sessionAccount.account.profile.avatarUrl }}" class="hide">
+	</div>
+	<div class="input-wrapper">
+	  {{textarea 
+	    value=message
+	    key-up="edit" 
+	    enter="submit"
+	    class="textarea content-editable" 
+	  	placeholder="Message..." 
+	    }}  	      	      
+	</div>
 </form>
-
-
+<div class="text-right">
+	<button type="submit" class="button success rounded">{{buttonLabel}}</button>
+</div>

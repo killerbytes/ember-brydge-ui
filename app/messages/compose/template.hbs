@@ -1,0 +1,40 @@
+<section class="container">
+	<section>
+		{{#if selected.name}}
+			<span class="label label-item"><a {{action "remove" }}>{{fa-icon "close"}}</a> {{selected.name}}</span>
+		{{else}}
+			<form>
+				{{input id="contact-input" value=key class="input-group-field" type="search" placeholder="Name"}}
+			</form>	
+		{{/if}}
+	</section>
+
+	{{#unless selected}}
+	<section class="container bg-white">
+		<ul class="user-link-list contact-list no-bullet" >
+		{{#each contacts as |item|}}
+			<li>
+				<a {{action "select" item }}>
+	        <div class="row user">
+	          <div class="columns">
+	            <div class="avatar" style={{htmlSafeImage item.avatarUrl }}>
+	              <img src= {{item.avatarUrl}} class="hide">
+	            </div>
+	            <div class="user-info">
+	              <a class="name">{{ item.name }}</a>
+	            </div>
+	          </div>
+	        </div>
+				</a>
+			</li>
+		{{/each}}
+		</ul>
+	</section>
+	{{/unless}}
+</section>
+
+{{#if selected.name}}
+<section class="message-box">
+	{{ message-box resp='submit' buttonLabel='Send' showToInput=false to=selected.id}}
+</section>
+{{/if}}

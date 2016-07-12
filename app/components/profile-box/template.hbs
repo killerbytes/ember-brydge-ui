@@ -18,7 +18,7 @@
   {{#unless isOwner }}
     <div class="text-title">
         {{#if isConnected }}
-          {{#link-to "messaging.conversation" profile.conversationid class="button large"}}
+          {{#link-to "messages.conversation" profile.conversationid class="button large"}}
             Message {{profile.firstName}}
           {{/link-to}}    
         {{else}}

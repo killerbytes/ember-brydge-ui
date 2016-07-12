@@ -10,6 +10,30 @@ ul.media-list{
     margin: 0;
   }
 }
+ul.user-link-list{
+  li{
+    border-bottom: 1px solid $border-color;
+  } 
+  li>a{
+    padding: 1rem;
+    display: block;
+  }
+}
+ul.contact-list{
+  .user-info{
+    padding-top: 5px;
+  }
+}
+
+ul.messages-list{
+  li:not(:last-child){
+    border-bottom: 1px solid $border-color;
+  }
+  li{
+    padding: 1rem;
+    display: block;
+  }
+}
 // .menu-list-menu{
 //   li:not(:last-child)>a{
 //     border-bottom: 1px solid $border-color;

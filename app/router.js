@@ -44,7 +44,7 @@ Router.map(function() {
   this.route('public-profile', {path:'/:username'});
   this.route('public-profile-error');
 
-  this.route('messaging', function() {
+  this.route('messages', function() {
     this.route('conversation', { path: ':conversation_id'});
     this.route('compose');
   });
