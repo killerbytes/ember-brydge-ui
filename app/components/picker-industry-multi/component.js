@@ -1,6 +1,10 @@
 import Ember from 'ember';
 
 export default Ember.Component.extend({
+	list: Ember.computed('categories.@each.categories.@each.industries.@each.data',function(){
+		console.log('computed')
+		return this.get('categories');
+	}),
 	actions: {
 		remove(item){
 			this.get('selected').removeObject(item)

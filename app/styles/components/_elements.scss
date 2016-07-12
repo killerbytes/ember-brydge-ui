@@ -19,6 +19,7 @@ table{
 		margin-bottom: 20px;
 	}
 }
+
 .user{
 	position: relative;
 	.avatar{
@@ -33,6 +34,11 @@ table{
 	.action-button{
 		display: inline-block;
 	}	
+	&.section-main{
+		@extend .clearfix;
+		@extend .padding;
+		min-height: 87px;
+	}
 }
 .user-info{
 	.position{
@@ -46,6 +52,16 @@ table{
 	li:last-child a{
 		padding-left: 0;
 		padding-right: 0;
+	}
+}
+
+.user-list{
+	.avatar{
+		width: 63px;
+		height: 63px;
+	}
+	.user-info{
+		padding-left: 75px;
 	}
 }
 
@@ -253,20 +269,6 @@ footer{
 .label-item:not(:last-of-type){
 	margin-right: 2px;
 	margin-bottom: 2px;
-}
-.search{
-	.avatar{
-		width: 63px;
-		height: 63px;
-	}
-	.user-info{
-		padding-left: 75px;
-	}
-	.section-main{
-		@extend .clearfix;
-		@extend .padding;
-		min-height: 87px;
-	}
 }
 
 .message-pane{

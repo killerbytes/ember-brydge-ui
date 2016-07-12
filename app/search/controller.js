@@ -5,8 +5,8 @@ export default Ember.Controller.extend(QueryLocationMixin, {
   queryParams: ['city', 'key', 'industry'],
   search: Ember.inject.service(),
   categories: Ember.computed.alias('model.categories'),
-  cities: [],
-  keywords: [],
+  // cities: [],
+  // keywords: [],
   industries: [],
   selectedIndustries: [],
   getCategory(value){
@@ -19,9 +19,16 @@ export default Ember.Controller.extend(QueryLocationMixin, {
                .first()
                .value();
   },
+  cities: Ember.computed('city', function(){
+    console.log(this.get('city'))
+    return this.get('city') ? this.get('city').split(';') : [];
+  }),
+  keywords: Ember.computed('key', function(){
+    return this.get('key') ? this.get('key').split(',') : [];
+  }),
   industries: Ember.computed('industry', function(){
     var industries = [];
-    if(!this.get('industry')) return false;
+    if(!this.get('industry')) return [];
     _.forEach(this.get('industry').split(','), (i)=>{
       var item = this.getCategory(i);
       if(item) industries.push({code: item.data.code, name: item.data.subIndustry})
@@ -39,9 +46,11 @@ export default Ember.Controller.extend(QueryLocationMixin, {
   }.observes('city', 'industry', 'key'),
   actions: {
   	addLocation(item){
+      // if(!this.get('city')) return false;
+      // console.log(this.get('cities'), item)
       this.get('cities').pushObject(item);
       this.set('valueText', null);
-      this.set('city', this.get('cities').join(','));
+      this.set('city', this.get('cities').join(';'));
   	},
     addKeyword(){
       if(!this.get('keyword')) return false;

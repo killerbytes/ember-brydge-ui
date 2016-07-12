@@ -59,7 +59,6 @@
             {{#each category.industries as |industry|}}
               <li>
 								<a {{action "select" industry }}>{{industry.data.subIndustry}}</a>
-                {{industry.checked}}
               </li>
             {{/each}}
             </ul>
