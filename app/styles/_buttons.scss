@@ -46,6 +46,15 @@
 	@extend .rounded;	
 }
 
+.button-ellipsis{
+	background-image: url(icons/ellipsis.png);
+	background-size: 50%;
+	background-position: center center;
+	background-repeat: no-repeat;
+	width: 38px;
+	height: 25px;
+	min-width: auto;	
+}
 
 .button.clear{
 	background: transparent;

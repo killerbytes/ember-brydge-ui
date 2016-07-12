@@ -151,6 +151,9 @@ p.wrap{
 .bg-gray{
 	background-color: $brydge-gray;
 }
+.highlight{
+	border:4px solid $brydge-blue !important;
+}
 .rounded{
 	border-radius: 3px;
 }

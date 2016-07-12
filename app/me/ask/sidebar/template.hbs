@@ -1,4 +1,18 @@
 <div class="box">
+	<ul class="ask-menu no-bullet">
+		<li>
+			{{#link-to "me.ask.inbox" }} Ask: Inbox <span>12</span>{{/link-to}}
+		</li>
+		<li>
+			{{#link-to "me.ask.inbox" }} Ask: Inbox {{/link-to}}
+		</li>
+		<li>
+			{{#link-to "me.ask.inbox" }} Ask: Inbox {{/link-to}}
+		</li>
+	</ul>
+</div>
+<!-- 
+<div class="box">
 	<section class="title">
 		<h4>Questions: Inbox</h4>
 	</section>
@@ -22,7 +36,7 @@
 		{{/each}}
 		{{#if to.showLink }}
 			<section class="section-footer-links">
-				{{#link-to 'me.ask.pending' (query-params tab="questions")  class="footer-button button expanded" }}
+				{{#link-to 'me.ask.inbox' class="footer-button button expanded" }}
 					See All
 				{{/link-to}}
 			</section>
@@ -45,7 +59,7 @@
 
 	{{#if from.showLink}}
 		<section class="section-footer-links">
-			{{#link-to 'me.ask.pending' (query-params tab="asked") class="footer-button button expanded" }}
+			{{#link-to 'me.ask.outbox' class="footer-button button expanded" }}
 				See All
 			{{/link-to}}
 		</section>
@@ -57,10 +71,50 @@
 		<h4>Archived Questions</h4>		
 	</section>
 		{{#each from.hiddenSidebar as |item| }}
+
+  <div class="section-group section-accordion-group">
+    <section>
+      <div class="section-main">
+        <h4>Ask</h4>
+
+        <div class="title mb">{{latestQuestion.content}}</div>
+        <div class="user">
+          {{link-to latestQuestion.from.content.name "profile" latestQuestion.from.content.id class="name" }} asked {{link-to latestQuestion.to.content.name "profile" latestQuestion.to.content.id class="name"}}
+          <div class="text-gray">{{timestamp latestQuestion.createdAt}}</div>
+        </div>
+      </div>
+      {{#zf-accordion-menu class="section-accordion" multiOpen=true}}
+        <li>
+          <ul class="section-accordion-content no-bullet">
+            <li>{{{latestQuestion.answer}}}</li>
+          </ul>
+          <a class="more no-arrow"><span class="content-more">See Answer</span><span class="content-less">Hide Answer</span></a>
+        </li>
+      {{/zf-accordion-menu}}    
+    </section>
+
+    <section class="section-footer-links">
+      {{#if isOwner }}
+        {{link-to "See more questions" 'me.ask'  class="button expanded"}}
+      {{else}}
+        {{link-to "See more questions" 'ask' profile.id  class="button expanded"}}
+      {{/if}}
+    </section>
+  </div>  
+
 			<section>
 				{{link-to item.from.content.name "profile" item.from.content.id class="name"}} asked {{link-to item.to.content.name "profile" item.to.content.id class="name"}}
 				<div class="timestamp">{{timestamp item.createdAt}}</div>
 				<div class="content-pad">{{item.content}}</div>
+        {{#zf-accordion-menu class="section-accordion" multiOpen=true}}
+          <li>
+            <ul class="section-accordion-content no-bullet">
+              <li>{{{item.answer}}}</li>
+            </ul>
+            <a class="more no-arrow"><span class="content-more">See Answer</span><span class="content-less">Hide Answer</span></a>
+          </li>
+        {{/zf-accordion-menu}}    
+
 				<div class="section-footer-buttons">
 					<a {{action "toggleHide" item }} class="button success rounded">Unarchive</a>
 				</div>			
@@ -82,3 +136,5 @@
 		{{/link-to}}
 	</section>
 </div>
+
+ -->

@@ -37,7 +37,7 @@ table{
 	&.section-main{
 		@extend .clearfix;
 		@extend .padding;
-		min-height: 87px;
+		// min-height: 87px;
 	}
 }
 .user-info{
@@ -65,14 +65,6 @@ table{
 	}
 }
 
-.arrow{
-  content: '';
-  z-index: 11;
-  position: absolute;
-  width: 0;
-  height: 0;
-  border-style: solid;	
-}
 .accordion-arrow{
 	&[aria-expanded="false"]:before,
 	&[aria-expanded="false"]:after{ 
@@ -284,4 +276,17 @@ section.message-content{
 	position: absolute;
 	bottom: 0;
 	width: 100%;
+}
+
+.ask-menu{
+	li:not(:last-child){
+		border-bottom: 1px solid $border-color;
+	}
+	a{
+		@extend h4;
+		padding: 1rem;
+		margin: 0;
+		font-size: 1rem;
+		display: block;
+	}
 }

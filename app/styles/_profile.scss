@@ -16,6 +16,9 @@
 			margin-bottom: 0;
 		}
 	}
+	.button-ellipsis{
+		height: 38px;
+	}
 	.button.is-active{
 		position: relative;
 		color: $button-blue;
@@ -34,15 +37,6 @@
 		  border-width: 8px;
 		}
 
-	}
-	.menu{
-		background-image: url(icons/ellipsis.png);
-		background-size: 50%;
-		background-position: center center;
-		background-repeat: no-repeat;
-		width: 100%;
-		height: 38px;
-		min-width: auto;
 	}
 }
 .profile-box{	

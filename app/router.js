@@ -18,7 +18,8 @@ Router.map(function() {
     this.route('edit',{path:'/edit'});
     this.route('about',{path:'/about'});
     this.route('ask', {path: '/ask'}, function(){
-      this.route('pending');
+      this.route('inbox');
+      this.route('outbox');
       this.route('hidden');
 
     });
