@@ -7,7 +7,7 @@ export default Ember.Route.extend({
 	},
 	actions: {
     submit: function(id) {
-      this.transitionTo('/messaging/'+id);
+      this.transitionTo('/messages/'+id);
       this.controller.setProperties({
         selected: null,
         key: null

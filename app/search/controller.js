@@ -36,7 +36,7 @@ export default Ember.Controller.extend(QueryLocationMixin, {
       key: this.get('key'),
       type: 'profile'
     });
-  }.observes('city'),
+  }.observes('city', 'industry', 'key'),
   actions: {
   	addLocation(item){
       this.get('cities').pushObject(item);

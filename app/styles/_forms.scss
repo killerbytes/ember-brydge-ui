@@ -20,6 +20,11 @@ form{
 		font-size: 12px;
 		height: auto;
 	}
+	input[type="search"]{
+		@extend .rounded;
+		border-color: $border-color;
+
+	}
 	.input-group{
 		border: 1px solid $border-color;
 		input.input-group-field{
@@ -108,7 +113,7 @@ form{
 	padding: 1rem;
 	background-color: #FFF;
 	.input-wrapper{
-		padding-left: 40px;
+		padding-left: 35px;
 		textarea{
 			border: none;
 		}

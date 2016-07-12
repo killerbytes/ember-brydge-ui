@@ -67,7 +67,7 @@ export default Ember.Mixin.create({
 				.then((res)=>{
 					var targetid = item.get('targetid');
 					console.log(targetid)
-					this.get('routing').transitionTo('messaging.conversation', targetid);
+					this.get('routing').transitionTo('messages.conversation', targetid);
 
 					// unload
 					this.get('store').unloadAll('notification');

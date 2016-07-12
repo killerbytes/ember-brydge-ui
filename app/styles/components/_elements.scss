@@ -268,3 +268,18 @@ footer{
 		min-height: 87px;
 	}
 }
+
+.message-pane{
+	min-height: 700px;
+	position: relative;	
+}
+section.message-content{
+	@extend .bg-white;
+	padding: 0;
+}
+.message-box{
+	border-top: 1px solid $border-color;
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+}

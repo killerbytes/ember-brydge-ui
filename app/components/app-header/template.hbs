@@ -190,7 +190,7 @@
 		<ul class="media-list user">
 			{{#each notification.messages as |item|}}
 			<li {{action "selectMessage" item}} class="{{if item.read false 'new-notification'}}">
-				{{#link-to "messaging.conversation" item.id }}
+				{{#link-to "messages.conversation" item.id }}
 					<div class="row collapse">
 						<div class="columns medium-8">
 				      <div class="avatar" style={{htmlSafeImage item.target.profile.avatarUrl }}>
@@ -216,7 +216,7 @@
 			{{/each}}
 		</ul>
 		{{#if notification.messages}}
-			{{#link-to 'messaging' class="footer-button success button expanded"}}
+			{{#link-to 'messages' class="footer-button success button expanded"}}
 				See All Messages
 			{{/link-to}}
 		{{/if}}
@@ -231,29 +231,29 @@
 		</div>
 
 	  <ul class="media-list user">
-	  {{#each notification.notifications as |item|}}
-	    <li>
-	    	<a {{action "select" item}} class="{{if item.read false 'new-notification'}}">
-					<div class="row columns collapse">
-						<div class="columns">
-				      <div class="avatar" style={{htmlSafeImage item.target.profile.avatarUrl }}>
-				        <img src= {{item.target.profile.avatarUrl}} class="hide">
-				      </div>
-				      <div class="user-info">
-	              <p>
-	              	<strong>{{item.target.profile.firstName }} {{item.target.profile.lastName }}</strong> {{{notification-text item}}}
-	              </p>
-	              <span class="timestamp">{{ timestamp item.createdAt }}</span>
-				      </div>
+		  {{#each notification.notifications as |item|}}
+		    <li>
+		    	<a {{action "select" item}} class="{{if item.read false 'new-notification'}}">
+						<div class="row columns collapse">
+							<div class="columns">
+					      <div class="avatar" style={{htmlSafeImage item.target.profile.avatarUrl }}>
+					        <img src= {{item.target.profile.avatarUrl}} class="hide">
+					      </div>
+					      <div class="user-info">
+		              <p>
+		              	<strong>{{item.target.profile.firstName }} {{item.target.profile.lastName }}</strong> {{{notification-text item}}}
+		              </p>
+		              <span class="timestamp">{{ timestamp item.createdAt }}</span>
+					      </div>
+							</div>
 						</div>
-					</div>
-				</a>
-	    </li>
-	  {{else}}
-		  <li>
-		    <div class="empty-message">No new notifications</div>
-		  </li>
-	  {{/each}}
+					</a>
+		    </li>
+		  {{else}}
+			  <li>
+			    <div class="empty-message">No new notifications</div>
+			  </li>
+		  {{/each}}
 	  </ul>
 		{{#if notification.notifications}}
 			{{#link-to 'notifications' class="footer-button button expanded"}}

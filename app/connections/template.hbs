@@ -1,90 +1,53 @@
-<div class="row">
-	<div class="columns">
-		<div class="top-banner bg-gray box">
-			<h1 class="text-upper">{{profile.firstName}}'s CONNECTIONS</h1>
-		</div>		
-	</div>
+<div class="page-heading">      
+  <h1>{{profile.firstName}}'s Connections</h1>
+  <p class="text-center">
+  </p>                    
 </div>
 
-
 <div class="row">
-  <div class="medium-7 columns">
-    <div class="tabs">
-      {{#zf-tabs class="tabs-table" id="connection-tabs"}}
-        <li class="medium-6 tabs-title is-active">
-          <a href="#question_answered" class="button expanded text-upper" aria-selected="true">All Connections</a>
-        </li>
-        <li class="medium-6 tabs-title">
-          <a href="#question_asked" class="button expanded text-upper">Mutual Connections</a>
-        </li>
-      {{/zf-tabs}}
-
-      <div class="tabs-content questions" data-tabs-content="connection-tabs">
-        <div class="tabs-panel is-active" id="question_answered">
-          <div class="search-bar">
-            <form action="">
-              {{input value=key type="search" placeholder="Search by Name"}}
-            </form>
-          </div>
-          <ul class="no-bullet connections-list">
-            {{#each connections as |connection|}}
-            <li>
-                <div class="media-object">
-                  <div class="media-object-section">
-                    <div class="thumbnail" style={{htmlSafeImage connection.avatarUrl}}>
-                      <img src= {{connection.avatarUrl}} class="hide">
-                    </div>
+  <div class="mb">
+    {{#zf-tabs id="ask-tabs" class="tab-controls"}}
+      <li data-tab='tab_1' class="tabs-title is-active">
+        <a href="#tab_1" aria-selected="true">All Connections</a>
+      </li>
+      <li data-tab='tab_2' class="tabs-title">
+        <a href="#tab_2">Mutual Connections</a>
+      </li>
+    {{/zf-tabs}}
+  </div>
+  <div class="tabs-content" data-tabs-content="ask-tabs">
+    <div class="tabs-panel {{active-tab 'tab_1' tab}}" id="tab_1">
+      <div class="box row columns">
+        <section class="text-center">
+          <form action="">
+            {{input value=key type="search" placeholder="Search by Name" class="no-margin"}}
+          </form>
+        </section>
+        <section class="row medium-up-2 columns bg-gray">
+          {{#each connections as |item|}}
+            <div class="columns medium-6">
+              <div class="box">
+                <div class="user section-main">
+                  <div class="avatar float-left" style={{htmlSafeImage item.avatarUrl}}>
+                    <img src= {{item.from.profile.avatarUrl}} class="hide">
                   </div>
-                  <div class="media-object-section media-object-content">
-                    {{#link-to "profile" connection.id class="name"}}  
-                      {{connection.name }}
-                    {{/link-to}}
-                    
-                    <div class="position">
-                      {{#if connection.title}}{{connection.title}} <br> {{/if}}
-                      {{connection.company}}
-                    </div>
-                    <!-- <p class="location">{{connection.from.profile.location}}</p> -->
+                  <div class="user-info">
+                    {{link-to item.name "profile" item.from.id }}
+                    <div class="position">{{item.title}}</div>
+                    <div class="position"><strong>{{item.company}}</strong></div>
                   </div>
                 </div>
-            </li>
-            {{/each}}
-          </ul>
-        </div>
-        <div class="tabs-panel" id="question_asked">
-          <ul class="no-bullet connections-list">
-            {{#each mutual
-             as |connection|}}
-            <li>
-                <div class="media-object">
-                  <div class="media-object-section">
-                    <div class="thumbnail" style={{htmlSafeImage connection.avatarUrl}}>
-                      <img src= {{connection.avatarUrl}} class="hide">
-                    </div>
-                  </div>
-                  <div class="media-object-section media-object-content">
-                    {{#link-to "profile" connection.id class="name"}}  
-                      {{connection.name }}
-                    {{/link-to}}
-                    
-                    <div class="position">
-                      {{#if connection.title}}{{connection.title}} <br> {{/if}}
-                      {{connection.company}}
-                    </div>
-                   <!--  <p class="location">{{connection.from.profile.location}}</p> -->
-                  </div>
-                </div>
-            </li>
-            {{/each}}
-          </ul>
-        </div>
+                {{#link-to "messages.conversation" item.from.profile.conversationid class="button success expanded"}}
+                  Message
+                {{/link-to}}    
+              </div>
+            </div>
+          {{/each}}
+        </section>    
       </div>
     </div>
-
-
-  </div>    
-  <div class="medium-5 columns sidebar">
-    {{progress-box}}
-    {{render "footer"}}
+    <div class="tabs-panel {{active-tab 'tab_2' tab}}" id="tab_2">
+      Mutual Connections
+    </div>
   </div>
 </div>

@@ -1,0 +1,41 @@
+<section>
+  <div class="row">
+    <div class="columns medium-8"><a class="name button clear">{{ model.other.profile.fullName }}</a></div>
+    <div class="columns medium-4 text-right">
+      <button class="button secondary clear" {{action 'deleteConversation' model.id}}>Delete Conversation</button>      
+    </div>
+  </div>
+  
+  
+</section>
+<section class="message-box container">
+  {{#if messages}}
+  <section class="container bg-white">
+    <ul class="messages-list no-bullet">
+      {{#each messages as |item| }}
+        <li>
+          <div class="row user">
+            <div class="columns medium-8">
+              <div class="avatar" style={{htmlSafeImage item.from.profile.avatarUrl }}>
+                <img src= {{item.from.profile.avatarUrl}} class="hide">
+              </div>
+              <div class="user-info">
+                <a class="name">{{ item.from.profile.fullName }}</a>
+                <div class="truncate">{{{item.content}}}</div>
+              </div>
+            </div>
+            <div class="column medium-4 text-right">
+              <div>
+                <div class="timestamp">{{ moment-format item.createdAt "DD/dd h:mma" }}</div>
+              </div>
+            </div>
+          </div>
+        </li>
+      {{/each}} 
+    </ul>
+  </section>
+  {{/if}}
+  <section>
+    {{ message-box resp="submit" buttonLabel='Reply' showToInput=false to=model.targetid}}
+  </section>
+</section>
