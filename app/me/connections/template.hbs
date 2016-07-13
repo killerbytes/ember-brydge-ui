@@ -3,7 +3,6 @@
   <p class="text-center">
   </p>                    
 </div>
-
 <div class="row columns">
   <div class="box row columns">
     <section class="text-center">
@@ -14,22 +13,7 @@
     <section class="row medium-up-2 columns bg-gray user-list">
       {{#each acceptedList as |item|}}
         <div class="columns medium-6">
-          <div class="box">
-            <div class="user section-main">
-              <div class="avatar float-left" style={{htmlSafeImage item.from.profile.avatarUrl}}>
-                <img src= {{item.from.profile.avatarUrl}} class="hide">
-              </div>
-              <div class="user-info">
-                {{link-to item.from.profile.fullName "profile" item.from.id }}
-                <div class="position">{{item.from.profile.currentTitle}}</div>
-                <div class="position"><strong>{{item.from.profile.currentCompany}}</strong></div>
-                <div class="position">{{item.from.profile.location}}</div>
-              </div>
-            </div>
-            {{#link-to "messages.conversation" item.from.profile.conversationid class="button success expanded"}}
-              Message
-            {{/link-to}}    
-          </div>
+          {{connection-box item=item}}
         </div>
       {{/each}}
     </section>    

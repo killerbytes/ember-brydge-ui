@@ -22,11 +22,10 @@ export default Ember.Component.extend({
   actions: {
     connect (cb) {
       var userid = this.get('profile.id');
-      this.get('connection').request(userid)
+      this.get('connection')
+      .request(userid)
       .then(res=>{
-        var connection = this.get('store').createRecord('connection', res.data.attributes);
-        var status = connection.get('status');
-        cb.apply(null, [status]);
+        cb.apply(null, [res.get('status')]);
       });
     },
 

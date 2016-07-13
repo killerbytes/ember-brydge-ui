@@ -2,16 +2,19 @@ import Ember from 'ember';
 
 
 export default Ember.Service.extend({
+  store: Ember.inject.service(),
   ajax: Ember.inject.service(),
   status(id){
     var url = '/v2/connections/'+id+'/status';
     return this.get('ajax').request(url);
   },
-  accept(id)  {
-    var url = '/v2/connections/'+id+'/accept';
-    return this.get('ajax').request(url, {
-      method: 'POST'
-    })
+  accept(item)  {
+    var res =this.get('store').findRecord('connection', item.get('id'));
+    console.log(res)
+    // var url = '/v2/connections/'+id+'/accept';
+    // return this.get('ajax').request(url, {
+    //   method: 'POST'
+    // })
   },
   reject(id){
 		var url = '/v2/connections/'+id+'/reject';
@@ -20,10 +23,13 @@ export default Ember.Service.extend({
 		})
   },
   request(id){
-    var url = '/v2/connections/'+id;
-    return this.get('ajax').request(url, {
-      method: 'POST'
-    })
+    return this.get('store').createRecord('connection', {
+        userid: id
+      }).save();
+    // var url = '/v2/connections/'+id;
+    // return this.get('ajax').request(url, {
+    //   method: 'POST'
+    // })
   },
   disconnect(id){
     var url = '/v2/connections/'+id+'/disconnect';

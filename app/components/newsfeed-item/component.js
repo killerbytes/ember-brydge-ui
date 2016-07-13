@@ -6,7 +6,18 @@ export default Ember.Component.extend({
 	ajax: Ember.inject.service(),
 	classNames: ['newsfeed-item'],
 	disabled: false,
+	isOwner: Ember.computed('post.userid', function(){
+		return this.get('post.userid') == this.get('sessionAccount.account.profile.id');
+	}),
 	actions: {
+		delete(){
+			var post = this.get('post');
+			post.deleteRecord();
+			post.save().then(res=>{
+				if(this.get('posts')) this.get('posts').removeObject(post);
+				this.sendAction('onDelete');
+			});
+		},
 		vote(type){
 			let post = this.get('post');
 			let upvotes = post.get('upvotes');

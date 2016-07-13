@@ -10,12 +10,12 @@ export default Ember.Controller.extend(QueryLocationMixin, {
   industries: [],
   selectedIndustries: [],
   getCategory(value){
-    var categories = this.get('model.categories');
+    var categories = this.get('categories');
     return _.chain(_.map(categories, 'categories'))
                .flatten()
                .map((i)=>{ return i.industries; })
                .flatten()
-               .filter((d)=>{ return d.data.code == value; })
+               .filter((d)=>{ console.log(d.data.code, d.data.code == value); return d.data.code == value; })
                .first()
                .value();
   },
@@ -31,6 +31,7 @@ export default Ember.Controller.extend(QueryLocationMixin, {
     if(!this.get('industry')) return [];
     _.forEach(this.get('industry').split(','), (i)=>{
       var item = this.getCategory(i);
+      console.log(i, item)
       if(item) industries.push({code: item.data.code, name: item.data.subIndustry})
     })        
     return industries;
@@ -43,7 +44,7 @@ export default Ember.Controller.extend(QueryLocationMixin, {
       q: this.get('search.key') || this.get('key'),
       type: 'profile'
     });
-  }.observes('city', 'industry', 'key'),
+  }.observes('city', 'key'),
   actions: {
   	addLocation(item){
       // if(!this.get('city')) return false;
@@ -59,6 +60,7 @@ export default Ember.Controller.extend(QueryLocationMixin, {
       this.set('key', this.get('keywords').join(','))
     },
     addIndustry(item){
+      console.log(item)
       var industry;
       if(this.get('industry')){
         industry = this.get('industry').split(',');

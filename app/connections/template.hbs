@@ -25,22 +25,8 @@
         </section>
         <section class="row medium-up-2 columns bg-gray user-list">
           {{#each connections as |item|}}
-            <div class="columns medium-6">
-              <div class="box">
-                <div class="user section-main">
-                  <div class="avatar float-left" style={{htmlSafeImage item.avatarUrl}}>
-                    <img src= {{item.from.profile.avatarUrl}} class="hide">
-                  </div>
-                  <div class="user-info">
-                    {{link-to item.name "profile" item.from.id }}
-                    <div class="position">{{item.title}}</div>
-                    <div class="position"><strong>{{item.company}}</strong></div>
-                  </div>
-                </div>
-                {{#link-to "messages.conversation" item.from.profile.conversationid class="button success expanded"}}
-                  Message
-                {{/link-to}}    
-              </div>
+            <div class="columns medium-6">            
+              {{connection-box item=item}}
             </div>
           {{/each}}
         </section>    
@@ -56,21 +42,7 @@
         <section class="row medium-up-2 columns bg-gray user-list">
           {{#each mutual as |item|}}
             <div class="columns medium-6">
-              <div class="box">
-                <div class="user section-main">
-                  <div class="avatar float-left" style={{htmlSafeImage item.avatarUrl}}>
-                    <img src= {{item.from.profile.avatarUrl}} class="hide">
-                  </div>
-                  <div class="user-info">
-                    {{link-to item.name "profile" item.from.id }}
-                    <div class="position">{{item.title}}</div>
-                    <div class="position"><strong>{{item.company}}</strong></div>
-                  </div>
-                </div>
-                {{#link-to "messages.conversation" item.from.profile.conversationid class="button success expanded"}}
-                  Message
-                {{/link-to}}    
-              </div>
+              {{connection-box item=item}}
             </div>
           {{else}}
             <div class="columns">

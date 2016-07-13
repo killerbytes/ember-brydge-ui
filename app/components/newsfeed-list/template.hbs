@@ -1,7 +1,7 @@
 {{#each newsfeed as |post|}}    
 	{{#unless post.trending }}
-  	{{newsfeed-item post=post }}
+  	{{newsfeed-item posts=newsfeed post=post }}
   {{else}}
-  	{{newsfeed-trending-item post=post }}
+  	{{newsfeed-trending-item posts=newsfeed post=post }}
   {{/unless}}
 {{/each}}

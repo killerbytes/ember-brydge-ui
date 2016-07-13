@@ -1,5 +1,6 @@
 <div class="media media-top text-right">
   <strong>TRENDING</strong>
+  {{#link-to 'post' post.user.id post.id class="timestamp"}}{{timestamp post.updatedAt}}{{/link-to}}
 </div>
 <div class="media">
   {{#if post.title}}

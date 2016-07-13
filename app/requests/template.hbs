@@ -12,20 +12,20 @@
           <div {{action "selectView" item}} class="padding {{if item.read false 'new-notification'}}">
             <div class="row collapse">
               <div class="columns medium-8">
-                {{#link-to "profile" item.fro.profile.id}}
-                <div class="avatar" style={{htmlSafeImage item.from.profile.avatarUrl }}>
-                  <img src= {{item.from.profile.avatarUrl}} class="hide">
+                {{#link-to "profile" item.id}}
+                <div class="avatar" style={{htmlSafeImage item.avatar }}>
+                  <img src= {{item.avatar}} class="hide">
                 </div>
                 {{/link-to}}
                 <div class="user-info">                  
-                  {{link-to item.from.profile.fullName "profile" item.from.profile.id }}
-                  <div class="position">{{item.from.profile.currentTitle}} at {{item.from.profile.currentCompany}}</div>
+                  {{link-to item.fullName "profile" item.id }}
+                  <div class="position">{{item.currentTitle}} at {{item.currentCompany}}</div>
                 </div>
                 
               </div>
               <div class="columns medium-4 actions text-right">
-                <a {{action "acceptConnection" item }} class="button clear"><i class="fa fa-check-circle-o" aria-hidden="true"></i></a>
-                <a {{action "rejectConnection" item }} class="button clear"><i class="fa fa-times-circle-o" aria-hidden="true"></i></a>              
+                <a {{action "accept" item }} class="button clear"><i class="fa fa-check-circle-o" aria-hidden="true"></i></a>
+                <a {{action "reject" item }} class="button clear"><i class="fa fa-times-circle-o" aria-hidden="true"></i></a>              
               </div>
             </div>
           </div>

@@ -1,4 +1,4 @@
-<section class="user">
+<section class="user"> {{log isOwner}}
   <div class="row">
     <div class="columns medium-8">
       <div class="avatar" style={{htmlSafeImage post.user.profile.avatarUrl }}>
@@ -24,8 +24,11 @@
         <a data-toggle="dd-post-menu-{{post.id}}" class="action-button dropdown-button-arrow"><i class="icons ellipsis"></i></a>
         {{#zf-dropdown id=(concat "dd-post-menu-" post.id) closeOnClick=true class="card-menu-dropdown"}}
           <ul class="menu">
-            <li><a href="">Delete Post</a></li>
-            <li><a href="">{{post.id}}</a></li>
+            {{#if isOwner}}
+            <li><a {{action "delete"}}>Delete Post</a></li>
+            {{else}}
+            <li><a {{action "flag"}}>Flag this Post</a></li>
+            {{/if}}
           </ul>
         {{/zf-dropdown}}
       {{/unless}}

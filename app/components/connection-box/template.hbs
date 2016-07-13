@@ -1,0 +1,15 @@
+<div class="user section-main">
+  <div class="avatar float-left" style={{htmlSafeImage item.avatar}}>
+    <img src= {{item.avatar}} class="hide">
+  </div>
+  <div class="user-info">
+    {{link-to item.fullName "profile" item.id }}
+    <div class="position">{{item.currentTitle}}</div>
+    <div class="position"><strong>{{item.currentCompany}}</strong></div>
+    <div class="position">{{item.location}}</div>
+  </div>
+</div>
+
+{{#link-to "messages.conversation" item.conversationid class="button success expanded"}}
+  Message
+{{/link-to}}    
