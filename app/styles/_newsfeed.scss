@@ -2,6 +2,11 @@
 	@extend .box;
 	// @extend .rounded;
 	position: relative;
+	.newsfeed-trending-title{
+		padding: 1rem;
+		padding-bottom: 0;
+		color: $text-gray;
+	}
 	.x-button{
 		color: #FFF;
 		text-shadow: 0 0 10px #999;

@@ -6,7 +6,8 @@ export default DS.JSONAPISerializer.extend({
     const json = this._super(...arguments);
     return {
       connection: {
-        friendid: json.data.attributes.userid
+        // userid: json.data.attributes.userid,
+        status: json.data.attributes.status
       }
     };
  },

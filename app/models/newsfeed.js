@@ -11,7 +11,7 @@ export default DS.Model.extend({
   image: DS.attr(),
   shareCount: DS.attr(),
   sharedPostid: DS.attr(),
-  site_name: DS.attr(),
+  siteName: DS.attr(),
   userid: DS.attr(),
   score: DS.attr('number'),
   insertedAt: DS.attr('date'),

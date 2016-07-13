@@ -4,11 +4,11 @@ import AuthenticatedRouteMixin from 'ember-simple-auth/mixins/authenticated-rout
 export default Ember.Route.extend(AuthenticatedRouteMixin, {
   ajax: Ember.inject.service(),
   model: function(params) {
-    return this.store.findRecord('conversation', params.conversation_id);
+    return this.store.query('conversation', {conversationid: params.conversation_id});
   },
-  afterModel(){
-    this.store.findAll('conversation');
-  },
+  // afterModel(){
+  //   this.store.findAll('conversation');
+  // },
   actions: {
   	submit: function() {
       this.store.findAll('conversation')

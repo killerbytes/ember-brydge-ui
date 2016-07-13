@@ -6,7 +6,7 @@ export default Ember.Controller.extend({
 		if(!query) return this.get('model');
 		return this.get('model').filter(function(item, index, list){
 			var found = false;
-			var fields = ["name"];
+			var fields = ['firstName', 'lastName'];
 			_.forEach(fields, function(key) {
 				let i = item.get(key);
 				if (i && i.toLowerCase().indexOf(query) >= 0 ? true : false) {

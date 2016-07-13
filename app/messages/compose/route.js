@@ -2,8 +2,8 @@ import Ember from 'ember';
 
 export default Ember.Route.extend({
 	model: function() {
-    this.store.unloadAll('contact');
-		return this.store.findAll('contact');
+    this.store.unloadAll('connection');
+		return this.store.findAll('connection');
 	},
 	actions: {
     submit: function(id) {

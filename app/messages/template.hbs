@@ -12,16 +12,15 @@
     <section class="container">
       <ul class="no-bullet user-link-list bg-white">
         {{#each conversations as |item| }}    
-        {{#if item.content }}                        
         <li>
           {{#link-to "messages.conversation" item.id class="no-color"}}
           <div class="row user">
             <div class="columns medium-8">
-              <div class="avatar" style={{htmlSafeImage item.other.profile.avatarUrl }}>
-                <img src= {{item.other.profile.avatarUrl}} class="hide">
+              <div class="avatar" style={{htmlSafeImage item.avatar }}>
+                <img src= {{item.avatar}} class="hide">
               </div>
               <div class="user-info">
-                <a class="name">{{ item.other.profile.fullName }}</a>
+                <a class="name">{{ item.fullName }}</a>
                 <div class="truncate">{{{item.content}}}</div>
               </div>
             </div>
@@ -33,7 +32,6 @@
           </div>
           {{/link-to}}
         </li>
-        {{/if}}
         {{/each}} 
       </ul>
     </section>

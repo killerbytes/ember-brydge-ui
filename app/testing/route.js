@@ -8,7 +8,7 @@ export default Ember.Route.extend(FilterDropdownListMixin, {
 		// return this.store.query('experience',{userid: '2zd33na16gv'})
 		// return this.get('ajax').request('v2/profiles/2zd33na16gv');
     return Ember.RSVP.hash({
-      // educations: this.store.query('education', {userid: userid}),
+      favoritesIndustries: this.store.findAll('favoritesIndustries'),
       profile: this.store.findRecord('profile', '3ze5n8glm6b')
     });
 	},
