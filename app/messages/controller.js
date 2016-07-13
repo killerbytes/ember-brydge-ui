@@ -13,7 +13,7 @@ export default Ember.Controller.extend({
 		return this.get('model').filter(function(item){
 			var found = false;
 			_.forEach(fields, function(key) {
-				found = item.get('other.profile').get(key).toLowerCase().indexOf(query.toLowerCase()) >= 0 ? true : false;
+				found = item.get(key).toLowerCase().indexOf(query.toLowerCase()) >= 0 ? true : false;
 				if(found) return false;
 			})
 			return found;

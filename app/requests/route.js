@@ -8,7 +8,8 @@ export default Ember.Route.extend({
 	},
 	actions: {
 		accept: function(item){
-			this.store.findRecord('connection', item.get('userid')).then(res=>{
+			console.log(item)
+			this.store.findRecord('connection', item.get('id')).then(res=>{
 				res.set('status', 'accepted');
 				res.save();				
 			})

@@ -6,14 +6,12 @@
     </div>
   </div>
   
-  {{log model.other}}
 </section>
 <section class="message-box container">
   {{#if model.messages}}
   <section class="container bg-white">
     <ul class="messages-list no-bullet">
       {{#each model.messages as |item| }}
-      {{log item}}
         <li>
           <div class="row user">
             <div class="columns medium-8">

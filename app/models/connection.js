@@ -3,6 +3,8 @@ import DS from 'ember-data';
 export default DS.Model.extend({
   avatar: DS.attr(),
   userid: DS.attr(),
+  requestid: DS.attr(),
+  friendid: DS.attr(),
   conversationid: DS.attr(),
   currentCompany: DS.attr(),
   currentTitle: DS.attr(),

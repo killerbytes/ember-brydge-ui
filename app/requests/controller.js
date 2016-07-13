@@ -7,7 +7,8 @@ export default Ember.Controller.extend({
 	requests: Ember.computed('model.@each.status', function(i) {
     var ownerid = this.get('session.data.authenticated.user_id');
     return this.get('model').filter(function(i){
-    	return i.get('userid') != ownerid && i.get('status') == 'pending';
+    	console.log(i.get('userid'), ownerid)
+    	return i.get('requestid') != ownerid && i.get('status') == 'pending';
     })
   })
 });
