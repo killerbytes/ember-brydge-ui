@@ -1,8 +1,34 @@
 <div class="box">
+	<ul class="ask-menu no-bullet">
+		<li>
+			{{#link-to "me.ask.inbox" }} 
+				Ask: Inbox 
+				<span>(12)</span>
+				<i class="fa fa-chevron-right float-right" aria-hidden="true"></i>
+			{{/link-to}}
+		</li>
+		<li>
+			{{#link-to "me.ask.outbox" }} 
+				Ask: Outbox 
+				<span>(12)</span>
+				<i class="fa fa-chevron-right float-right" aria-hidden="true"></i>
+			{{/link-to}}
+		</li>
+		<li>
+			{{#link-to "me.ask.hidden" }} 
+				Archived Questions 
+				<span>(12)</span>
+				<i class="fa fa-chevron-right float-right" aria-hidden="true"></i>
+			{{/link-to}}
+		</li>
+	</ul>
+</div>
+<!-- 
+<div class="box">
 	<section class="title">
-		<h4>Pending Answers: Asked to you</h4>
+		<h4>Questions: Inbox</h4>
 	</section>
-		{{#each questions.pendingSidebar as |item| }}
+		{{#each to.pendingSidebar as |item| }}
 			<section>
 				<div class="section-main">
 					<div class="user">
@@ -10,22 +36,20 @@
 						<div class="timestamp">{{timestamp item.createdAt}}</div>
 					</div>
 					<div class="content-pad">{{item.content}}</div>
-					<div class="section-footer-links">
-						<ul class="menu">
-							<li><a {{action "selectItem" item }} class="float-left" data-open="answerFormModal">Write Answer</a></li>
-							<li><a {{action "delete" item }} class="float-right">Delete</a></li>
-							<li><a class="float-right">Flag</a></li>
-						</ul>												
+					<div class="section-footer-buttons">
+						<a {{action "selectItem" item }} class="button success rounded" data-open="answerFormModal">Write Answer</a>
+						<a {{action "delete" item }} class="button button-border rounded">Delete</a>
+						<a class="button button-border rounded">Flag</a>
 					</div>
 				</div>
 			</section>
 		{{else}}
-			<section>No Pending Questions</section>
+			<section>Nothing to show here</section>
 		{{/each}}
-		{{#if questions.pendingSidebar }}
+		{{#if to.showLink }}
 			<section class="section-footer-links">
-				{{#link-to 'me.ask.pending' (query-params tab="questions")  class="footer-button button expanded" }}
-					Load More
+				{{#link-to 'me.ask.inbox' class="footer-button button expanded" }}
+					See All
 				{{/link-to}}
 			</section>
 		{{/if}}
@@ -33,70 +57,96 @@
 
 <div class="box">
 	<section class="title">
-			<h4>Pending Answers: Asked by you</h4>
+			<h4>Question: Outbox</h4>
 	</section>
+		{{#each from.pendingSidebar as |item| }}
 	<section>
-		{{#each asked.pendingSidebar as |item| }}
-			<div>
 				You asked {{link-to item.to.content.name "profile" item.to.content.id class="name"}}
-				<div class="timestamp">{{timestamp item.createdAt}}</div>
-				<div class="content-pad">{{item.content}}</div>
-				<div class="section-footer-links">
-					<ul class="menu hide">
-						<li><a {{action "selectItem" item }} class="float-left" data-open="answerFormModal">Write Answer</a></li>
-						<li><a class="float-right">Delete</a></li>
-						<li><a class="float-right">Flag</a></li>
-					</ul>												
-				</div>			
-			</div>
+				<div class="timestamp mb">{{timestamp item.createdAt}}</div>
+				{{item.content}}
+	</section>
 		{{else}}
-			<div class="padding">No Pending Questions</div>
+			<div class="padding">Nothing to show here</div>
 		{{/each}}
 
-	</section>
-	{{#if asked.pendingSidebar}}
+	{{#if from.showLink}}
 		<section class="section-footer-links">
-			{{#link-to 'me.ask.pending' (query-params tab="asked") class="footer-button button expanded" }}
-				Load More
+			{{#link-to 'me.ask.outbox' class="footer-button button expanded" }}
+				See All
 			{{/link-to}}
 		</section>
 	{{/if}}
 </div>
 
-
 <div class="box">
 	<section class="title">
-		<h4>Hidden Questions</h4>		
+		<h4>Archived Questions</h4>		
 	</section>
-	<section>
-		{{#each questions.hiddenSidebar as |item| }}
-			<div>
+		{{#each from.hiddenSidebar as |item| }}
+
+  <div class="section-group section-accordion-group">
+    <section>
+      <div class="section-main">
+        <h4>Ask</h4>
+
+        <div class="title mb">{{latestQuestion.content}}</div>
+        <div class="user">
+          {{link-to latestQuestion.from.content.name "profile" latestQuestion.from.content.id class="name" }} asked {{link-to latestQuestion.to.content.name "profile" latestQuestion.to.content.id class="name"}}
+          <div class="text-gray">{{timestamp latestQuestion.createdAt}}</div>
+        </div>
+      </div>
+      {{#zf-accordion-menu class="section-accordion" multiOpen=true}}
+        <li>
+          <ul class="section-accordion-content no-bullet">
+            <li>{{{latestQuestion.answer}}}</li>
+          </ul>
+          <a class="more no-arrow"><span class="content-more">See Answer</span><span class="content-less">Hide Answer</span></a>
+        </li>
+      {{/zf-accordion-menu}}    
+    </section>
+
+    <section class="section-footer-links">
+      {{#if isOwner }}
+        {{link-to "See more questions" 'me.ask'  class="button expanded"}}
+      {{else}}
+        {{link-to "See more questions" 'ask' profile.id  class="button expanded"}}
+      {{/if}}
+    </section>
+  </div>  
+
+			<section>
 				{{link-to item.from.content.name "profile" item.from.content.id class="name"}} asked {{link-to item.to.content.name "profile" item.to.content.id class="name"}}
 				<div class="timestamp">{{timestamp item.createdAt}}</div>
 				<div class="content-pad">{{item.content}}</div>
-				<div class="section-footer-links">
-					<ul class="menu">
-						<li><a {{action "toggleHide" item }}>Unhide</a></li>
-					</ul>												
+        {{#zf-accordion-menu class="section-accordion" multiOpen=true}}
+          <li>
+            <ul class="section-accordion-content no-bullet">
+              <li>{{{item.answer}}}</li>
+            </ul>
+            <a class="more no-arrow"><span class="content-more">See Answer</span><span class="content-less">Hide Answer</span></a>
+          </li>
+        {{/zf-accordion-menu}}    
+
+				<div class="section-footer-buttons">
+					<a {{action "toggleHide" item }} class="button success rounded">Unarchive</a>
 				</div>			
-			</div>
+			</section>
 		{{/each}}
-		{{#each asked.hiddenSidebar as |item| }}
-			<div>
+		{{#each to.hiddenSidebar as |item| }}
+			<section>
 				You asked {{link-to item.to.content.name "profile" item.to.content.id class="name"}}
 				<div class="timestamp">{{timestamp item.createdAt}}</div>
 				<div class="content-pad">{{item.content}}</div>
-				<div class="section-footer-links">
-					<ul class="menu">
-						<li><a {{action "toggleHide" item }}>Unhide</a></li>
-					</ul>												
+				<div class="section-footer-buttons">
+					<a {{action "toggleHide" item }} class="button success rounded">Unarchive</a>
 				</div>			
-			</div>
+			</section>
 		{{/each}}
-	</section>
 	<section class="section-footer-links">
 		{{#link-to 'me.ask.hidden' class="footer-button button expanded" }}
-			Load More
+			Go to archives
 		{{/link-to}}
 	</section>
 </div>
+
+ -->
