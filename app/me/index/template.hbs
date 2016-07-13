@@ -67,7 +67,8 @@
   </div>
 
   <div class="columns medium-7">
-    {{profile-menu isOwner=true}}
+  {{log connections}}
+    {{profile-menu isOwner=true connections=connections}}
   
     {{ share-post-box 
       postToNewsfeed='postToNewsfeed'

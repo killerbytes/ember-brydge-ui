@@ -26,7 +26,7 @@
         <li>{{link-to "Edit Profile" "me.edit"}}</li>
       {{else}}
         <li>{{#link-to "connections" profile.id }} {{profile.firstName}}'s connection ({{ activeConnections.length }}){{/link-to}}</li>
-        <li><a href="" class="warning" {{action 'onClickedDisconnect'}}>Disconnect from {{profile.firstName}}</a></li>
+        <li><a href="" class="warning" {{action "disconnect"}}>Disconnect from {{profile.firstName}}</a></li>
       {{/if}}
     </ul>
   {{/zf-dropdown}}

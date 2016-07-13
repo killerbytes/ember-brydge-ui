@@ -17,7 +17,6 @@ export default Ember.Controller.extend(
   questions: Ember.computed.alias('model.questions'), 
   posts: Ember.computed.alias('model.posts'), 
   compliments: Ember.computed.alias('model.compliments'), 
-
   isConnected: Ember.computed('profile.connection.status', function(){
     return this.get('profile.connection.status') == 'accepted' ? true : false;
   }),

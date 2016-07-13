@@ -25,7 +25,7 @@ export default Ember.Route.extend({
         profile: res,
         username:  params.username,
         me: this.store.findRecord('profile', ownerid),
-        //connections: this.store.query('connection',{userid: userid}),
+        connections: this.store.query('connection',{userid: userid}),
         //languages: this.store.query('language',{userid: userid}, {reload: true}), 
         experiences: this.store.query('experience',{userid: userid}),
         educations: this.store.query('education',{userid: userid}),

@@ -6,6 +6,7 @@ const {
 } = Ember;
 
 export default Ember.Component.extend({
+  store: Ember.inject.service(),
   activeConnections: Ember.computed.filterBy('connections', 'status', 'accepted'),
   index: Ember.computed(function(){
   	var index;
@@ -28,7 +29,17 @@ export default Ember.Component.extend({
   			break;
   	}
   	return index;
-  })
+  }),
+  actions: {
+    disconnect(){
+      var connection = this.get('store').peekRecord('connection', this.get('profile.connection.connectionid'));
+      // connection.desset('status', 'disconnect');
+      // console.log(connection)
+      // connection.destroyRecord();
+      this.transitionTo(this.get('profile.id'));
+
+    }
+  }
 });
 
 

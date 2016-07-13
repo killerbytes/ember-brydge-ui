@@ -13,6 +13,7 @@ export default Ember.Controller.extend({
   educations: Ember.computed.alias('model.educations'),
   questions: Ember.computed.alias('model.questions'),
   compliments: Ember.computed.alias('model.compliments'),
+  connections: Ember.computed.alias('model.connections'),
 
 	sortProps: ['createdAt:desc'],
   sortFrom: ['from:desc'],

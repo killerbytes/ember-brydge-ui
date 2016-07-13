@@ -14,7 +14,8 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
       experiences: [], //this.store.query('experience', {userid: userid}),
       educations: [], //this.store.query('education', {userid: userid}),
       questions: this.store.query('ask', {userid: userid}),
-      compliments: this.store.query('compliment', {to: userid})      
+      compliments: this.store.query('compliment', {to: userid}),
+      connections: this.store.query('connection',{userid: userid}),        
     });
 
   },

@@ -5,7 +5,7 @@ export default DS.Model.extend({
 	firstName: DS.attr('string'),
 	lastName: DS.attr('string'),
 	location: DS.attr('string'),
-	connection: DS.attr(),
+	connection: DS.attr({defaultValue: {status: 'disconnected'}}),
 	settings: DS.attr({defaultValue: {}}),
 	industryOneName: DS.attr('string'),
 	industryTwoName: DS.attr('string'),
