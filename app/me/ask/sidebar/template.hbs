@@ -1,13 +1,25 @@
 <div class="box">
 	<ul class="ask-menu no-bullet">
 		<li>
-			{{#link-to "me.ask.inbox" }} Ask: Inbox <span>12</span>{{/link-to}}
+			{{#link-to "me.ask.inbox" }} 
+				Ask: Inbox 
+				<span>(12)</span>
+				<i class="fa fa-chevron-right float-right" aria-hidden="true"></i>
+			{{/link-to}}
 		</li>
 		<li>
-			{{#link-to "me.ask.inbox" }} Ask: Inbox {{/link-to}}
+			{{#link-to "me.ask.outbox" }} 
+				Ask: Outbox 
+				<span>(12)</span>
+				<i class="fa fa-chevron-right float-right" aria-hidden="true"></i>
+			{{/link-to}}
 		</li>
 		<li>
-			{{#link-to "me.ask.inbox" }} Ask: Inbox {{/link-to}}
+			{{#link-to "me.ask.hidden" }} 
+				Archived Questions 
+				<span>(12)</span>
+				<i class="fa fa-chevron-right float-right" aria-hidden="true"></i>
+			{{/link-to}}
 		</li>
 	</ul>
 </div>

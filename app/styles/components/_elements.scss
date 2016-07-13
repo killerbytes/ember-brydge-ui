@@ -288,5 +288,11 @@ section.message-content{
 		margin: 0;
 		font-size: 1rem;
 		display: block;
+		span{
+			color: $brydge-blue;
+		}
+		i{
+			margin-top: 3px;
+		}
 	}
 }
