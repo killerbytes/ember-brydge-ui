@@ -14,7 +14,7 @@ export default Ember.Route.extend({
   actions: {
     submit: function() {
       var ask = this.store.createRecord('ask',{
-        content: this.get('controller.question')
+        question: this.get('controller.question')
       });
       var savedCallback = () => {
         // this.sendAction('action', this.get('controller.profile.id'));

@@ -7,7 +7,7 @@ export default Ember.Mixin.create({
     fileLoaded: function(formData){
       console.log('particular info Component=>');
 
-      return this.get('ajax').request('/v1/profile/avatar', {
+      return this.get('ajax').request('/v2/profile/avatar', {
         method: 'POST',
         data: formData,
         contentType: false,

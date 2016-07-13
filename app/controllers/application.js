@@ -11,7 +11,7 @@ export default Ember.Controller.extend({
   }),
   init(){
     var notification = this.get('notification');
-    
+
     function notificationChecker(){
       Ember.run.later(()=>{
         // notification.checkForNotifications(()=>{
@@ -21,7 +21,7 @@ export default Ember.Controller.extend({
         notification.checkNotificationCounts(()=>{
           notificationChecker();
         });
-      },60000)    
+      },60000)
     }
 
     notification.checkNotificationCounts();

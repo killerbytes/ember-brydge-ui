@@ -9,8 +9,7 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
 		return Ember.RSVP.hash({
       profile: this.store.findRecord('profile', userid),
       fromQuestions: this.store.query('ask',{from: userid}),
-      toQuestions: this.store.query('ask',{to: userid}),
-
+      toQuestions: this.store.query('ask',{to: userid})
     })
 	},
   actions: {
@@ -22,9 +21,6 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
     },
     toggleHide(item){
       this.get('ask').hide(item.id);
-    },
-
+    }
   }
-
-
 });

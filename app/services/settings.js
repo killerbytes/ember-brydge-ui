@@ -2,8 +2,9 @@ import Ember from 'ember';
 
 export default Ember.Service.extend({
 	ajax: Ember.inject.service(),
+  session: Ember.inject.service('session'),
   update(data){
-    var url = '/v1/settings';
+    var url = '/v2/settings';
     return this.get('ajax').request(url, {
       contentType: 'application/json',
       method: 'POST',
@@ -11,22 +12,26 @@ export default Ember.Service.extend({
     })
   },
   updateEmail(email){
-    var url = '/v1/users';
+    var userid = this.get('session.data.authenticated.user_id');
+    var url = '/v2/users/'+userid;
+    var data = { account: {email: email}}
+    
     return this.get('ajax').request(url, {
       contentType: 'application/json',
       method: 'PATCH',
-      data: JSON.stringify({email: email})
+      data: JSON.stringify(data)
     })
   },
   updatePassword(password){
-    var url = '/v1/users';
+    var userid = this.get('session.data.authenticated.user_id');
+    var url = '/v2/users/'+userid;
+    var data = { account: {password: password}}
+
     return this.get('ajax').request(url, {
       contentType: 'application/json',
       method: 'PATCH',
-      data: JSON.stringify({password: password})
+      data: JSON.stringify(data)
     })
-
   }
 
 });
-

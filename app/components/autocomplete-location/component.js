@@ -9,7 +9,7 @@ export default Ember.Component.extend({
 	didReceiveAttrs() {
     this._super(...arguments);
     this.set('value', this.get('selected'));
-  },	
+  },
 	focusOut: function(e){
 		Em.run.later(this, function() {
       var focussedElement = document.activeElement;
@@ -24,17 +24,17 @@ export default Ember.Component.extend({
 	},
 	actions: {
     query(q) {
-      this.get('ajaxApi').request('cities/'+ q, {
+      this.get('ajaxApi').request('/v2/cities/'+ q, {
           method: 'GET'
         }).then(res=>{
-          this.set('items', res);        
+          this.set('items', res);
       	});
     },
 		open: function(){
 			this.set('items', []);
 			this.set('isOpen', true)
 		},
-		onSelect: function(selected) {			
+		onSelect: function(selected) {
 			this.set('isOpen', false);
 			this.set('items', []);
 			this.set('selected', selected.terms.join(', '));
@@ -44,5 +44,3 @@ export default Ember.Component.extend({
 		}
 	}
 });
-
-

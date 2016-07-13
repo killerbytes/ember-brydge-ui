@@ -43,7 +43,7 @@ export default Ember.Component.extend( {
   },
   resetShowHighlight(){
 		_.each(this.get('list'), function(i){
-			i.set('showHighlight', false)
+			i.set('isProfileTitle', false)
 		})
 		this.set('profile.customTitle', false);
   },
@@ -55,9 +55,9 @@ export default Ember.Component.extend( {
 			status: this.get('highlightStatus')
     };
 
-    this.get('ajax').request('/v1/profile/'+userid+'/highlight', {
-      method: 'POST',
-      data: data,
+    this.get('ajax').request('/v2/profile-highlight/'+userid, {
+      method: 'PATCH',
+      data: {highlight: data},
     }).then(res=>{
       Ember.get(this, 'flashMessages').success('Title: ' + data.status + ' has been set');
     })
@@ -95,15 +95,33 @@ export default Ember.Component.extend( {
 			this.onHighlightStatus();
 		},
 		onHighlight(item){
+
+			// switch(item){
+			// 	case 'isHighlightStatus':
+			// 		this.set('isHighlightStatus', true);
+			// 		this.onHighlightStatus();
+			// 		break;
+			// 	default:
+			// 		var experience = this.get('store').peekRecord('experience', item)
+			// 		experience.set('isProfileTitle', true);
+			// 		experience.save().then(res=>{
+			// 			var profile = this.get('store').peekRecord('profile', this.get('profile.id'))
+			// 			profile.set('currentTitle', res.get('title'));
+			// 			profile.set('currentCompany', res.get('company'));
+			//       Ember.get(this, 'flashMessages').success('Highlight Success!');
+			// 		});
+			// 		this.set('isHighlightStatus', false);
+			// 		break; 
+			// }
+
 			this.resetShowHighlight();
 			// var model = this.get('store').peekRecord('experience', item.id)
-			item.set('showHighlight', true);
+			item.set('isProfileTitle', true);
 			item.save().then(res=>{
 	      Ember.get(this, 'flashMessages').success('Highlight Success!');
 	      this.setProfile(res);
 			});
 			// this.set('isHighlightStatus', false);
-
 		},
 
 

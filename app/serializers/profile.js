@@ -6,23 +6,31 @@ export default DS.JSONAPISerializer.extend(DS.EmbeddedRecordsMixin, {
       attr = result.data.attributes || {},
       rel = result.data.relationships || {};
 
-    var payloadData= Object.keys(rel).reduce(function(acc, elem) {
-     
-      const data = rel[elem].data;
-      if (data) {
-        acc[elem + "_id"] = data.id;
+    return {
+      profile: {
+        avatar: attr.avatar_url,
+        current_company: attr.current_company,
+        current_title: attr.current_title,
+        custom_title: attr.custom_title,
+        dob: attr.dob,
+        first_name: attr.first_name,
+        industry_one_id: attr.industry_one_id,
+        industry_one_name: attr.industry_one_name,
+        industry_three_id: attr.industry_three_id,
+        industry_three_name: attr.industry_three_name,
+        industry_two_id: attr.industry_two_id,
+        industry_two_name: attr.industry_two_name,
+        last_name: attr.last_name,
+        location: attr.location,
+        snapshot: attr.snapshot
       }
-      if (data && data.type) {
-        acc[elem + "_type"] = data.type[0].toUpperCase() + data.type.slice(1, -1);
-      }
-      return acc;
-
-    }, attr);
-    return payloadData;
-    
+    };
  },
 
   keyForAttribute: function(attr) {
-    return attr;
+    // return attr;
+
+    return Ember.String.underscore(attr)
+    //return Ember.String.underscore(attr).toUpperCase();
   }
 });

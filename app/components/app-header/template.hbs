@@ -4,12 +4,12 @@
       <div class="title-bar-left">
         <ul class="dropdown menu" data-dropdown-menu>
           <li>
-						{{#link-to 'home'}}<img src="assets/logo.svg" class="logo">{{/link-to}}          	
+						{{#link-to 'home'}}<img src="assets/logo.svg" class="logo">{{/link-to}}
           </li>
           <li>
 						{{top-bar-search}}
           </li>
-        </ul>        
+        </ul>
       </div>
       <div class="title-bar-right">
 				<ul class="top-bar-group menu menu-actions wrapper" {{ action "closeTooltip" preventDefault=false }}>
@@ -33,7 +33,7 @@
 								<i class="icons user"></i>
 							</a>
 						{{/zf-tooltip}}
-						
+
 					</li>
 					<li>
 						{{#zf-tooltip title="Messages"}}
@@ -44,18 +44,18 @@
 								<i class="icons messages"></i>
 							</a>
 						{{/zf-tooltip}}
-						
+
 					</li>
 					<li>
 						{{#zf-tooltip title="Notifications"}}
 							<a data-toggle="dd-notification" class="dropdown-button-arrow" {{action 'clickNotification' notification.notificationCount}}>
 									{{#if notification.notificationCount }}
-							      <span class="alert badge">{{notification.notificationCount}}</span>    
+							      <span class="alert badge">{{notification.notificationCount}}</span>
 							    {{/if}}
 									<i class="icons stack"></i>
 							</a>
 						{{/zf-tooltip}}
-						
+
 					</li>
 					<li>
 						<ul class="user-info no-bullet">
@@ -63,7 +63,7 @@
 								{{#link-to "me"}}
 									<div class="avatar" style={{htmlSafeImage sessionAccount.account.profile.avatarUrl}}>
 										<img src= {{sessionAccount.account.profile.avatarUrl}} class="hide">
-									</div>								
+									</div>
 								{{/link-to}}
 							</li>
 						</ul>
@@ -75,7 +75,7 @@
 									<a data-toggle="dd-menu" class="dropdown-button-arrow">
 										<i class="icons caret"></i>
 									</a>
-								{{/zf-tooltip}}								
+								{{/zf-tooltip}}
 							</li>
 						</ul>
 
@@ -112,7 +112,7 @@
 				          {{item.target.profile.firstName}} {{item.target.profile.lastName}}
 					        <div class="position">{{item.title}} at {{item.company}}</div>
 					      </div>
-								
+
 							</div>
 							<div class="columns medium-4 timestamp text-right">
 								{{ timestamp item.createdAt }}
@@ -157,11 +157,11 @@
 			          {{item.target.profile.firstName}} {{item.target.profile.lastName}}
 				        <div class="position">{{item.title}} at {{item.company}}</div>
 				      </div>
-							
+
 						</div>
 						<div class="columns medium-4 actions text-right">
 		          <a {{action "acceptConnection" item }}><i class="fa fa-check-circle-o" aria-hidden="true"></i></a>
-		          <a {{action "rejectConnection" item }}><i class="fa fa-times-circle-o" aria-hidden="true"></i></a>							
+		          <a {{action "rejectConnection" item }}><i class="fa fa-times-circle-o" aria-hidden="true"></i></a>
 						</div>
 					</div>
 				</div>
@@ -173,7 +173,7 @@
 			{{/each}}
 		</ul>
 		{{#link-to 'requests' class="footer-button button expanded"}}
-			See All Connection Requests 
+			See All Connection Requests
 		{{/link-to}}
 	{{/zf-dropdown}}
 
@@ -197,10 +197,10 @@
 				      <div class="user-info">
 			          {{item.target.profile.firstName}} {{item.target.profile.lastName}}
 				        <div class="position">{{{ getNotificationContent item.content }}}</div>
-				      </div>							
+				      </div>
 						</div>
 						<div class="columns medium-4 timestamp text-right">
-		          {{ timestamp item.createdAt }}							
+		          {{ timestamp item.createdAt }}
 						</div>
 					</div>
 				{{/link-to}}
@@ -240,7 +240,7 @@
 		              	<strong>{{item.target.profile.firstName }} {{item.target.profile.lastName }}</strong> {{{notification-text item}}}
 		              </div>
 		              <span class="timestamp">{{ timestamp item.createdAt }}</span>
-					      </div>							
+					      </div>
 							</div>
 						</div>
 					</a>
@@ -264,7 +264,7 @@
 		<ul class="menu">
 			<li>{{link-to "Profile" "me"}}</li>
 			<li>{{link-to "Edit Profile" "me.edit"}}</li>
-			
+
 		</ul>
 		<ul class="menu">
 			<li>{{link-to "Connections" "me.connections"}}</li>
@@ -277,8 +277,8 @@
 		<ul class="menu">
 			<li>{{link-to "Settings" "settings" }}</li>
 			<li>{{link-to "User Guide" "user-guide" }}</li>
-			<li><a href="" {{action 'logout'}}>Log out</a></li>									
+			<li><a href="" {{action 'logout'}}>Log out</a></li>
 		</ul>
-	{{/zf-dropdown}}						
+	{{/zf-dropdown}}
 
 </div>

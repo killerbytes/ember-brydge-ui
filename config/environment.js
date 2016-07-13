@@ -48,14 +48,14 @@ module.exports = function(environment) {
     // ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
     // ENV.APP.LOG_VIEW_LOOKUPS = true;
 
-  
+
     ENV['ember-cli-mirage'] = {
       enabled: false
     }
 
     if(ENV['ember-cli-mirage'].enabled == false) {
       ENV['ember-simple-auth'] = {
-        serverTokenEndpoint: '//localhost:8000/token',
+        serverTokenEndpoint: '//localhost:8000/v2/token',
         authorizerHost: '//localhost:8000'
       };
     }
@@ -77,8 +77,8 @@ module.exports = function(environment) {
 
   if (environment === 'production') {
     ENV['ember-simple-auth'] = {
-      serverTokenEndpoint: '//api.brydge.me/token',
-      authorizerHost: '//api.brydge.me'
+      serverTokenEndpoint: '//api.brydge.com/v2/token',
+      authorizerHost: '//api.brydge.com'
     }
   }
 

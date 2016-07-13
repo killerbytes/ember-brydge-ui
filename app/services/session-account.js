@@ -43,13 +43,13 @@ export default Ember.Service.extend({
     //  return this.get('ajax').put('/users/report/' + targetid)
   },
   upvote(postid)  {
-    return this.get('ajax').request('/v1/posts/'+postid+'/up');
+    return this.get('ajax').request('/v2/posts/'+postid+'/up');
   },
   downvote(postid) {
-    return this.get('ajax').request('/v1/posts/'+postid+'/down');
+    return this.get('ajax').request('/v2/posts/'+postid+'/down');
   },
   resetVote(postid) {
-    return this.get('ajax').request('/v1/posts/'+postid+'/votereset');
+    return this.get('ajax').request('/v2/posts/'+postid+'/votereset');
   }
 
 

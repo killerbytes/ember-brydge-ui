@@ -13,11 +13,11 @@ export default Ember.Component.extend(SharePostIndustryPicker, {
     let title = this.get('site.title') || this.get('site.url');
     return title.length > 100 ? title.substr(0, 100) + ' ...' : title;
   }),
-  isOccupational: Ember.computed('profile.occupationOneId', function(){
-    return this.get('profile.occupationOneId') ? true : false && this.get('profile.occupationTwoId') ? true : false;
+  isOccupational: Ember.computed('profile.industryTwoId', function(){
+    return this.get('profile.industryTwoId') ? true : false && this.get('profile.industryThreeId') ? true : false;
   }),
   crawl(uri){
-    var url = "v1/crawl?url=" + uri;
+    var url = "v2/crawl?url=" + uri;
     this.get('ajaxApi').request(url, {
       method: 'GET'
     }).then((res)=>{
@@ -30,7 +30,7 @@ export default Ember.Component.extend(SharePostIndustryPicker, {
     var url;
     var matchArray;
     // Regular expression to find FTP, HTTP(S) and email URLs.
-    
+
     var regexToken = /(?:https?:\/\/)?(?:[\w]+\.)([a-zA-Z\.]{2,6})([\/\w\.-]*)*\/?/g;
     // Iterate through any URLs in the text.
     while( (matchArray = regexToken.exec( source )) !== null ){
@@ -86,9 +86,9 @@ export default Ember.Component.extend(SharePostIndustryPicker, {
         var el = e.currentTarget;
         var offset = (el.offsetHeight - el.clientHeight);
         e.currentTarget.style.height = 'auto';
-        e.currentTarget.style.height = (e.currentTarget.scrollHeight+offset) + "px";        
+        e.currentTarget.style.height = (e.currentTarget.scrollHeight+offset) + "px";
       }else{
-        e.currentTarget.style.height = '';        
+        e.currentTarget.style.height = '';
       }
 
       if(this.get('site') || this.get('isNoPreview')) return false;

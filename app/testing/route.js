@@ -6,7 +6,7 @@ export default Ember.Route.extend(FilterDropdownListMixin, {
 	model(){
 		var userid = '2zd33na16gv';
 		// return this.store.query('experience',{userid: '2zd33na16gv'})
-		// return this.get('ajax').request('v1/profiles/2zd33na16gv');
+		// return this.get('ajax').request('v2/profiles/2zd33na16gv');
     return Ember.RSVP.hash({
       // educations: this.store.query('education', {userid: userid}),
       profile: this.store.findRecord('profile', '3ze5n8glm6b')

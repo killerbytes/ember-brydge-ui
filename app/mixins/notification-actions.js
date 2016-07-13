@@ -53,7 +53,7 @@ export default Ember.Mixin.create({
 					//this.get('store').findAll('notification',{ reload: true });
 					this.get('notification').checkForNotifications();
 				});
-			
+
 		},
 
 		selectMessage: function(item) {
@@ -62,7 +62,7 @@ export default Ember.Mixin.create({
 			console.log('type =>', type);
 
 			if(type == 'message') {
-			
+
 				this.get('notification').readNotification(item.get('id'))
 				.then((res)=>{
 					var targetid = item.get('targetid');
@@ -110,19 +110,19 @@ export default Ember.Mixin.create({
 					this.get('notification').checkForNotifications();
 			})
 
-			
+
 		},
 
 		clickNotification: function(count) {
 			console.log('clicked notification', count);
 			//if(_.isUndefined(count)) return;
 
-			// 
+			//
 			// load notifications
 			//
 			this.get('notification').loadNotifications('general');
 
-			var url = '/v1/notifications/release';
+			var url = '/v2/notifications/release';
     	this.get('ajax').request(url, {
 	      method: 'POST',
 	      data: {
@@ -138,12 +138,12 @@ export default Ember.Mixin.create({
 			console.log('clicked message', count);
 			//if(_.isUndefined(count)) return;
 
-			// 
+			//
 			// load notifications
 			//
 			this.get('notification').loadNotifications('message');
 
-			var url = '/v1/notifications/release';
+			var url = '/v2/notifications/release';
     	this.get('ajax').request(url, {
 	      method: 'POST',
 	      data: {
@@ -160,12 +160,12 @@ export default Ember.Mixin.create({
 			console.log('clicked connection', count);
 			//if(_.isUndefined(count)) return;
 
-			// 
+			//
 			// load notifications
 			//
 			this.get('notification').loadNotifications('connection');
 
-			var url = '/v1/notifications/release';
+			var url = '/v2/notifications/release';
     	this.get('ajax').request(url, {
 	      method: 'POST',
 	      data: {
@@ -181,12 +181,12 @@ export default Ember.Mixin.create({
 			console.log('clicked profile', count);
 			//if(_.isUndefined(count)) return;
 
-			// 
+			//
 			// load notifications
 			//
 			this.get('notification').loadNotifications('views');
 
-			var url = '/v1/notifications/release';
+			var url = '/v2/notifications/release';
     	this.get('ajax').request(url, {
 	      method: 'POST',
 	      data: {

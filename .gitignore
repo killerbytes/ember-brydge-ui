@@ -3,6 +3,9 @@
 *.swp
 *.swo
 
+*.tags
+*.tags1
+
 # compiled output
 /dist
 /tmp

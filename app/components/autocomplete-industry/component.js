@@ -20,7 +20,7 @@ export default Ember.Component.extend({
 	},
 	actions: {
     onchange: function (q) {
-      this.get('ajaxApi').request('categories?q='+q, {
+      this.get('ajaxApi').request('/v2/categories?q='+q, {
           method: 'GET'
         }).then((res)=>{
           this.set('items', res.data.map((d)=>{
@@ -46,5 +46,3 @@ export default Ember.Component.extend({
 		}
 	}
 });
-
-

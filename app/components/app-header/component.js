@@ -8,8 +8,8 @@ export default Ember.Component.extend(NotificationActionsMixin, {
     closeTooltip(e){
       $('body').find('.tooltip').hide();
     },
-    logout(){
-    	this.sendAction('logout');
-    }
+		logout() {
+			this.sendAction('logout');
+		}
 	}
 });

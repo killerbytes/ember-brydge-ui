@@ -7,10 +7,10 @@ export default DS.Model.extend(Validations, {
   studyField: DS.attr('string'),
   content: DS.attr('string'),
   location: DS.attr('string'),
-  from: DS.attr('date', {
+  startFrom: DS.attr('date', {
     defaultValue() { return new Date(); }
   }),
-  to: DS.attr('date', {
+  endAt: DS.attr('date', {
     defaultValue() { return new Date(); }
   })
 });

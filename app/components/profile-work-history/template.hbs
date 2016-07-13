@@ -30,20 +30,20 @@
 				<div class="name">{{ item.title }}</div>
 				<div class="company">{{ item.company }}</div>
 				<div class="timestamp">
-		      {{term-date-format item.from}} - 
+		      {{term-date-format item.startFrom}} - 
 		      {{#if item.currentCompany}}
 		        Present
 		      {{else}}
-		        {{term-date-format item.to}}
+		        {{term-date-format item.endAt}}
 		      {{/if}}
 	      </div>
 		</a>
 		<div class="col text-right">
-			{{#if item.showHighlight}}
+			{{#if item.isProfileTitle}}
 				<label><a>Current Title</a></label>
 			{{else}}
 			<label for="{{item.id}}" class="for-radio">
-				{{action-radio id=item.id name="highlight" value=item htmlChecked=item.showHighlight action="onHighlight" param=item}}
+				{{action-radio id=item.id name="highlight" value=item htmlChecked=item.isProfileTitle action="onHighlight" param=item}}
 				<a>Use this as Title</a> 
 			</label>
 			{{/if}}

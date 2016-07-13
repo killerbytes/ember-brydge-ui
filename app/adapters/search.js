@@ -4,8 +4,8 @@ import UrlTemplates from "ember-data-url-templates";
 
 export default ApplicationAdapter.extend(UrlTemplates, {
 	namespace: null,
-	urlTemplate: '{+host}/search',
-  // queryUrlTemplate: '{+host}/search/profile{/query}',	
+	urlTemplate: '{+host}/v2/search',
+  // queryUrlTemplate: '{+host}/search/profile{/query}',
 	// queryUrlTemplate: '{+host}/search{/type}{/query}',
 
 	// urlSegments: {

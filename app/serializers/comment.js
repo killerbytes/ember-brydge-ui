@@ -7,23 +7,13 @@ export default DS.JSONAPISerializer.extend({
       rel = result.data.relationships || {};
 
 
-    var payloadData= Object.keys(rel).reduce(function(acc, elem) {
-     
-      const data = rel[elem].data;
-      if (data) {
-        acc[elem + "_id"] = data.id;
-      }
-      if (data && data.type) {
-        acc[elem + "_type"] = data.type[0].toUpperCase() + data.type.slice(1, -1);
-      }
-      return acc;
-
-    }, attr);
-
-    return payloadData;
+    var payloadData = attr;
+    return {
+      comment: payloadData
+    };
     
  },
   keyForAttribute: function(attr) {
-    return attr;
+    return Ember.String.underscore(attr);
   }
 });
