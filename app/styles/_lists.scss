@@ -1,3 +1,7 @@
+.new-notification{
+  background: $brydge-gray;
+}
+
 ul.media-list{
 	@extend .no-bullet;
   li:not(:last-child){
@@ -122,9 +126,6 @@ ul.messages-list{
 //   }
 // }
 
-// // .new-notification{
-// //   background: #CFEFFF;
-// // }
 
 // ul.question-pending-list{
 //   // padding: 0 .5rem 1rem;

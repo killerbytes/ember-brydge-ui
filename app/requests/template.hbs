@@ -7,9 +7,9 @@
     </div>
     <div class="box">
       <ul class="media-list user">
-        {{#each model as |item|}}
+        {{#each requests as |item|}}
         <li>
-          <div {{action "selectView" item}} class="padding {{if item.read false 'new-notification'}}">
+          <div class="padding {{if item.read false 'new-notification'}}">
             <div class="row collapse">
               <div class="columns medium-8">
                 {{#link-to "profile" item.id}}
