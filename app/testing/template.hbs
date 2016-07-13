@@ -1,12 +1,18 @@
 <div class="row">
 	<div class="columns medium-5">
+		<a data-open="industryModal">Use the Industry Picker</a>
 	</div>
   <div class="columns medium-7">
   	<button class="button" {{action "add"}}>Add</button>
-		{{#each model.educations as |item|}}
-			<div>{{item.school}} - {{item.location}}</div>
+		{{#each model.favorites as |item|}}
+			<div {{action "delete" item}}>{{item.code}} - {{item.name}}</div>
 		{{/each}}
 
 
   </div>
 </div>
+
+
+{{#zf-reveal id="industryModal" overlay=true class="small industry-picker box"}}
+  {{picker-industry-multi name="search" categories=model.categories selected=(readonly industries) onSelect="onIndustrySelect" }} 
+{{/zf-reveal}}

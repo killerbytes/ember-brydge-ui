@@ -38,7 +38,7 @@
 								<li><a>Enterprise Software & Technology</a></li>
 								<li><a>Broadcast Media</a></li>
 							</ul>
-							<a class="button success rounded">Add More</a>
+							<a class="button success rounded" data-open="industryModal">Add More</a>
 						</section>
 					</div>
 				</div>
@@ -46,3 +46,7 @@
     </div>
   </li>
 {{/zf-accordion}}
+
+{{#zf-reveal id="industryModal" overlay=true class="small industry-picker box"}}
+  {{picker-industry-multi name="search" categories=categories selected=(readonly industries) onSelect="onIndustrySelect" }} 
+{{/zf-reveal}}

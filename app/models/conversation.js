@@ -6,5 +6,5 @@ export default DS.Model.extend({
   targetid: DS.attr(),
   content: DS.attr(),
   createdAt: DS.attr(),
-  messages: DS.hasMany('message')
+  messages: DS.attr()
 });

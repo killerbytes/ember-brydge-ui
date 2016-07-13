@@ -14,6 +14,7 @@ export default Ember.Route.extend({
       });
     },
     select(item){
+      console.log(item)
     	this.controller.setProperties({
     		selected: item,
     		key: null

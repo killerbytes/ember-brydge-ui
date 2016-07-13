@@ -11,7 +11,7 @@ export default Ember.Component.extend({
   	submit: function() {
       this.get('store').createRecord('message', {
         content: this.get('utils').insertParagraph(this.get('message')),
-        userid: this.get('session.data.authenticated.user_id')
+        userid: this.get('to')
       }).save().then(res=>{
         console.log(res)
         this.set('message', null);

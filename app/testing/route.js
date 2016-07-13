@@ -8,17 +8,28 @@ export default Ember.Route.extend(FilterDropdownListMixin, {
 		// return this.store.query('experience',{userid: '2zd33na16gv'})
 		// return this.get('ajax').request('v2/profiles/2zd33na16gv');
     return Ember.RSVP.hash({
-      favoritesIndustries: this.store.findAll('favoritesIndustries'),
+      categories: $.getJSON('data/categories.json'),
+      favorites: this.store.findAll('favoriteindustry'),
       profile: this.store.findRecord('profile', '3ze5n8glm6b')
     });
 	},
 	actions: {
 		add(){
-			var xx = this.get('store').createRecord('education', {school: 'azid', 'location': 'somewhere'});
+			this.get('store')
+				.createRecord('favoriteindustry', {
+						code: '10102', 
+						userid: '2zd33na16gv',
+						name: 'Oil & Gas'
+					})
+				.save();
 
-			xx.save(()=>{
-				this.get('controller.model.educations').pushObject(xx)
-			});
+			
+		},
+		onIndustrySelect(items){
+			console.log(items)
+		},
+		delete(item){
+			item.destroyRecord();
 		},
 		toggle(){
 			console.log('toggle')

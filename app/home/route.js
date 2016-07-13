@@ -18,7 +18,8 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, FilterDropdownListMix
   model: function (params) {
     let ownerid = this.get('session.data.authenticated.user_id');
     return Ember.RSVP.hash({
-      profile: this.store.findRecord('profile', ownerid)
+      profile: this.store.findRecord('profile', ownerid),
+      categories: $.getJSON('data/categories.json')
     });
   },
   setupController(){
