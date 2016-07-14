@@ -17,6 +17,7 @@ export default Ember.Route.extend({
     }
   },
   model: function(params) {
+    console.log(params)
     var ownerid = this.get('session.data.authenticated.user_id');
     
     return this.store.findRecord('profile', params.username).then(res=>{
