@@ -69,6 +69,8 @@ Router.map(function() {
   this.route('feedback');
   this.route('terms-of-use');
   this.route('privacy-policy');
+  this.route("thank-you");
+
   this.route('testing');
 });
 

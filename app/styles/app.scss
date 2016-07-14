@@ -98,6 +98,10 @@ a.hover{
 		z-index: 11;
 	}	
 }
+label.inline{
+	display: inline-block;
+	margin-right: 10px;
+}
 a.more.no-arrow:after{
 	display: none;
 }

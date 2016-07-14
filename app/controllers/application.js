@@ -34,6 +34,7 @@ export default Ember.Controller.extend({
       case 'index':
         this.set('page', null);
         break;
+      case 'thank-you':
       case 'register':
         this.set('page', 'simple_header');
         break;
