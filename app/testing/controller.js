@@ -6,6 +6,12 @@ export default Ember.Controller.extend({
   queryParams: ['tab', 'channels', 'q', 'location'],
   channels: null,
   location: null,
+  myfavs: Ember.computed.map('model.favorites', function(i){
+  	return {
+  		code: i.get('code'),
+  		name: i.get('name')
+  	};
+  }),
 	items: Ember.computed.sort('model', 'sortFrom'),
 	experiences: Ember.computed('model', function(){
 		var exp = this.get('items').toArray();

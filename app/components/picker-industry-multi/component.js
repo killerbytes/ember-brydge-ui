@@ -5,6 +5,11 @@ export default Ember.Component.extend({
 		console.log('computed')
 		return this.get('categories');
 	}),
+	limit: 10,
+	cap: Ember.computed('selected.length', function(){
+		console.log(this.get('selected').length, this.get('limit'))
+		return this.get('selected').length >= this.get('limit') ;
+	}),
 	actions: {
 		remove(item){
 			this.get('selected').removeObject(item)
@@ -30,6 +35,7 @@ export default Ember.Component.extend({
 			}
 		},
 		select(item){
+			if(this.get('cap')) return false;
 			if(!this.get('selected')) this.set('selected', []);
 
 			this.get('selected').pushObject({

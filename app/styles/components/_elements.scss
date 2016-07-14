@@ -296,3 +296,16 @@ section.message-content{
 		}
 	}
 }
+
+.hover-close{
+	.fa-times{
+		display: none;
+		float: right;
+		margin-top: 3px;
+	}
+	li:hover{
+		.fa-times{
+			display: block;
+		}
+	}
+}

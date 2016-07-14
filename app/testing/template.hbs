@@ -12,7 +12,6 @@
   </div>
 </div>
 
-
 {{#zf-reveal id="industryModal" overlay=true class="small industry-picker box"}}
-  {{picker-industry-multi name="search" categories=model.categories selected=(readonly industries) onSelect="onIndustrySelect" }} 
+  {{picker-industry-multi name="search" categories=model.categories selected=(readonly myfavs) onSelect="onIndustrySelect" }}
 {{/zf-reveal}}

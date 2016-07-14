@@ -33,10 +33,8 @@ export default Ember.Component.extend({
   actions: {
     disconnect(){
       var connection = this.get('store').peekRecord('connection', this.get('profile.connection.connectionid'));
-      // connection.desset('status', 'disconnect');
-      // console.log(connection)
+      this.get('profile.connection')
       // connection.destroyRecord();
-      this.transitionTo(this.get('profile.id'));
 
     }
   }

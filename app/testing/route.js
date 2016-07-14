@@ -17,16 +17,25 @@ export default Ember.Route.extend(FilterDropdownListMixin, {
 		add(){
 			this.get('store')
 				.createRecord('favoriteindustry', {
-						code: '10102', 
+						code: '10102',
 						userid: '2zd33na16gv',
 						name: 'Oil & Gas'
 					})
 				.save();
 
-			
+
 		},
 		onIndustrySelect(items){
-			console.log(items)
+			this.get('controller.model.favorites').forEach(function(i){
+				i.destroyRecord()
+			})
+			_.each(items, i=>{
+				this.get('store').createRecord('favoriteindustry', {
+					code: i.code,
+					name: i.name,
+					userid: '2zd33na16gv'
+				}).save();
+			})
 		},
 		delete(item){
 			item.destroyRecord();
@@ -46,7 +55,7 @@ export default Ember.Route.extend(FilterDropdownListMixin, {
 		setLocation(location){
 			if(location == "Everywhere"){
 				this.controller.set('location', null)
-			}else{				
+			}else{
       	this.controller.set('location', location);
 			}
 		}

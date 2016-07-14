@@ -6,7 +6,9 @@ export default Ember.Component.extend({
 	store: Ember.inject.service(),
 	classNames: ['accordion-picker'],
 	selectedText: Ember.computed('selected', function(){
-		return this.get('selected') ? this.getIndustryName(this.get('selected')) : this.getIndustryName(0);
+		// console.log(this.getCategory(this.get('selected')))
+		return this.get('selected') ? this.getCategory(this.get('selected')) : {name: "My Connections"};
+		// return this.get('selected') ? this.getIndustryName(this.get('selected')) : this.getIndustryName(0);
 	}), 
 	industries: Ember.computed('profile', function(){
 		return [{
@@ -17,6 +19,18 @@ export default Ember.Component.extend({
       text: this.get('profile.industryThreeName')
     }];			
 	}),
+  getCategory(value){
+    var categories = this.get('categories');
+    return _.chain(_.map(categories, 'categories'))
+               .flatten()
+               .map((i)=>{ return i.industries; })
+               .flatten()
+               .filter((d)=>{ return d.data.code == value; })
+               .map((i)=>{ return {code: i.data.code, name: i.data.subIndustry } })
+               .first()
+               .value();
+  },
+
 	getIndustryName: function (id) {    
     var col = {};
     col[0] = "My Connections";
@@ -29,6 +43,10 @@ export default Ember.Component.extend({
 		select(id){
 			this.sendAction('select', id);
 			this.$('.accordion').foundation('toggle', this.$('.accordion-content'));
-		}
+		},
+		delete(item){
+			item.destroyRecord();
+		},
+		
 	}
 });

@@ -19,6 +19,12 @@ export default Ember.Controller.extend(
   filteredIndustry: Ember.computed('channels', function(){
     return this.getIndustryName(this.get('model.profile'), this.get('channels') || 0);
   }),
+  myfavs: Ember.computed.map('model.favorites', function(i){
+    return {
+      code: i.get('code'),
+      name: i.get('name')
+    };
+  }),
   feed_live: Ember.computed.sort('newsfeed.live', 'sortProps'),
   feed_curated: Ember.computed.sort('newsfeed.curated', 'sortProps'),
   feed_search: Ember.computed.sort('newsfeed.search', 'sortProps'),

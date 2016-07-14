@@ -19,7 +19,8 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, FilterDropdownListMix
     let ownerid = this.get('session.data.authenticated.user_id');
     return Ember.RSVP.hash({
       profile: this.store.findRecord('profile', ownerid),
-      categories: $.getJSON('data/categories.json')
+      categories: $.getJSON('data/categories.json'),
+      favorites: this.store.findAll('favoriteindustry')
     });
   },
   setupController(){
@@ -119,6 +120,19 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, FilterDropdownListMix
     clear(){
       this.controller.set('q', null)
       this.controller.set('searchContent', null)
-    }
+    },
+    onFavoriteIndustrySelect(items){
+      this.get('controller.model.favorites').forEach(function(i){
+        i.destroyRecord()
+      })
+      _.each(items, i=>{
+        this.get('store').createRecord('favoriteindustry', {
+          code: i.code,
+          name: i.name,
+          userid: '2zd33na16gv'
+        }).save();
+      })
+    },
+
   }
 });
