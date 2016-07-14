@@ -19,18 +19,11 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
       conversation.set('action', 'toggle_hide');
       conversation.save()
         .then(res=>{
-          // this.store.unloadRecord(conversation);
-          // this.store.findAll('conversation');
+          this.store.unloadRecord(conversation);
+          this.store.findAll('conversation');
           this.transitionTo('/messages');
-          
+
         })
-
-      // this.get('ajax').request('/v2/conversations/'+id+'/delete', {
-      //   method: 'PATCH'
-      // }).then(res =>{
-      //   var conversation = this.store.peekRecord('conversation', id);
-      // });
-
     }
   }
 });

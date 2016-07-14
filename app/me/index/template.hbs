@@ -1,63 +1,3 @@
-<!--
-<a data-toggle="dd-info-callout" class="hide">
-</a>
-{{#zf-dropdown id="dd-info-callout" closeOnClick=false }}
-  <div class="wrapper"> 
-    <div class="callout info-callout rounded">
-      <div class="triangle"></div>
-      <h3>Hey {{profile.firstName}}!</h3>
-      <p>
-        Thanks for signing up. Have a look around.<br>
-        Your profile is not searchable because you haven't completed the following fields: Title, Business Industry, and Occupation Industry.
-      </p>
-      <p>You can do so {{#link-to "me.edit" (query-params tab="work")}}here{{/link-to}}</p>
-      <div class="text-right">
-        <button class="button" data-toggle="dd-info-callout">OK</button>    
-      </div>     
-    </div>
-  </div>
-{{/zf-dropdown}}
-
-<div class="full-width profile-cover-wrapper profile-cover">
-  <div class="row column collapse">
-      <div class="columns text-right" style="width:37%">
-        <div class="name hover-edit">          
-          {{profile.firstName}}
-          <span>
-            {{#link-to "me.edit" (query-params tab="personal")}}       
-              <i class="icons pencil icon-left"></i>
-            {{/link-to}}
-            {{profile.lastName}}
-          </span>
-        </div>
-      </div>
-      <div class="columns" style="width:26%">
-      </div>
-
-      <div class="columns" style="width:37%">
-        <div class="location hover-edit">
-          {{location.city}}<br>
-          <big>{{location.state}} 
-            {{#link-to "me.edit" (query-params tab="personal")}}                 
-              <i class="icons pencil"></i>
-            {{/link-to}}
-          </big>        
-        </div>
-      </div>
-  </div>  
-</div>
-
-<div class="row column">
-  <div class="medium-6 float-left box profile profile-bar rounded hover-edit hover-edit-absolute">
-    {{#link-to "me.edit" (query-params tab="work") }}       
-      <i class="icons pencil"></i>
-    {{/link-to}}
-  </div>
-  <div class="medium-6 float-right profile wrapper">
-    {{partial "partials/profile-actions" }}
-  </div>
-</div>
--->
 
 <div class="row">
   <div class="columns medium-5 sidebar">
@@ -67,7 +7,6 @@
   </div>
 
   <div class="columns medium-7">
-  {{log connections}}
     {{profile-menu isOwner=true connections=connections}}
   
     {{ share-post-box 
@@ -92,5 +31,4 @@
 
 </div>
 
-
-	{{ post-sharer post=sharePost.selected profile=profile value=sharePost.valueText submit="sharePost" }}
+{{ post-sharer submit="sharePost" }}

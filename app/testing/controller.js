@@ -24,6 +24,11 @@ export default Ember.Controller.extend({
 		return "azidburn";
 	}),
 	actions: {
+		invite(){
+			this.store.createRecord('invitation', {
+				email: "heinzeya@gmail.com"
+			}).save();
+		},
 		resize(value, e){
 			// console.log(value)
 			if(value){

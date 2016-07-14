@@ -1,7 +1,7 @@
 import Ember from 'ember';
 
 export default Ember.Component.extend({
-  session: Ember.inject.service(),
+  sessionAccount: Ember.inject.service(),
   store: Ember.inject.service(),
   utils: Ember.inject.service(),
 	actions: {
@@ -13,21 +13,9 @@ export default Ember.Component.extend({
         content: this.get('utils').insertParagraph(this.get('message')),
         userid: this.get('to')
       }).save().then(res=>{
-        console.log(res)
         this.set('message', null);
         this.sendAction('resp', res.get('conversationid'));
-
       })
-      // var url = '/v1/messages';
-      // this.get('ajax').request(url, {
-      //   method: 'POST',
-      //   data: {
-      //     content: this.get('utils').insertParagraph(this.get('message')),
-      //     to_id: this.get('to'),
-      //     to_type: "User"
-      //   }
-      // }).then(res =>{
-      // });
   	}
   }
 });

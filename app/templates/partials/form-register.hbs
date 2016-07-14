@@ -4,14 +4,14 @@
       <a href="/"><img class="logo" src="assets/brydge-blue.svg"></a>
     </div>
     <div class="row">
-      <div class="columns medium-6">{{input name="firstName" placeholder="First Name" value=profile.firstName}}</div>
-      <div class="columns medium-6">{{input name="lastName" placeholder="Last Name" value=profile.lastName}}</div>
-      <div class="columns">{{input name="location" placeholder="City, Country" value=profile.location}}</div>
+      <div class="columns medium-6">{{input name="firstName" placeholder="First Name" value=model.firstName}}</div>
+      <div class="columns medium-6">{{input name="lastName" placeholder="Last Name" value=model.lastName}}</div>
+      <div class="columns">{{input name="location" placeholder="City, Country" value=model.location}}</div>
       <fieldset class="large-6 columns">
         <input type="radio" name="gender" value="female" id="female" required><label for="female">Female</label>
         <input type="radio" name="gender" value="male" id="male"><label for="male">Male</label>
       </fieldset>
-      <div class="columns">{{input name="email" placeholder="Email" value=profile.email}}</div>
+      <div class="columns">{{input name="email" placeholder="Email" value=model.email}}</div>
       <div class="columns">{{input name="confirm_email" placeholder="Re-enter email" value=confirm_email}}</div>
       <div class="columns">{{input type='password' placeholder="Password" value=password}}</div>
     </div>

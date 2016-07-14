@@ -12,23 +12,26 @@
     <a {{action "removePreview"}} class="x-button fa fa-times"></a>    
   {{/unless}}
 {{/if}}
-<div class="post-content">
-  {{#unless model.trending}}
-    <div class="title"><a href="{{model.url}}" target="_blank">{{title}}</a></div>
-    {{#if model.siteName}}
-      {{#unless preview}}
+{{#if model.title}}
+  <div class="post-content">
+    {{#unless model.trending}}
+      <div class="title">
+        <a href="{{model.url}}" target="_blank">{{title}}</a>
+      </div>
+      {{#if model.siteName}}
+        {{#unless preview}}
+          <a href="{{model.url}}" target="_blank">{{model.siteName}}</a>
+        {{else}}
+          <a>{{model.siteName}}</a>
+          <a {{action "removeObject"}} class="x-button fa fa-times"></a>
+        {{/unless}}
+      {{/if}}
+
+    {{else}}
+      {{#if model.siteName}}
         <a href="{{model.url}}" target="_blank">{{model.siteName}}</a>
-      {{else}}
-        <a>{{model.siteName}}</a>
-        <a {{action "removeObject"}} class="x-button fa fa-times"></a>
-      {{/unless}}
-    {{/if}}
-
-  {{else}}
-    {{#if model.siteName}}
-      <a href="{{model.url}}" target="_blank">{{model.siteName}}</a>
-    {{/if}}
-    <div class="title"><a href="{{model.url}}" target="_blank">{{title}}</a></div>
-
-  {{/unless}}
-</div>
+      {{/if}}
+      <div class="title"><a href="{{model.url}}" target="_blank">{{title}}</a></div>
+    {{/unless}}
+  </div>
+{{/if}}

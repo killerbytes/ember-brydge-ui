@@ -18,11 +18,5 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
       connections: this.store.query('connection',{userid: userid}),        
     });
 
-  },
-  renderTemplate(){
-    this._super();
-    Ember.run.later(()=>{
-      if(!this.get('currentModel.profile.profileComplete.completeness')) $('#dd-info-callout').foundation('open');
-    })
   }
 });

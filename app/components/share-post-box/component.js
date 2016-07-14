@@ -17,6 +17,7 @@ export default Ember.Component.extend(SharePostIndustryPicker, {
     return this.get('profile.industryTwoId') ? true : false && this.get('profile.industryThreeId') ? true : false;
   }),
   crawl(uri){
+    console.log(uri)
     var url = "v2/crawl?url=" + uri;
     this.get('ajaxApi').request(url, {
       method: 'GET'
@@ -25,6 +26,7 @@ export default Ember.Component.extend(SharePostIndustryPicker, {
     });
   },
   findUrls( text ){
+    console.log(text)
     var source = (text || '').toString();
     var urlArray = [];
     var url;
@@ -49,7 +51,7 @@ export default Ember.Component.extend(SharePostIndustryPicker, {
     },
     post() {
       var url = this.findUrls(this.get('postContent'))
-      if(this.get('site') && url){
+      if(this.get('site.title') && url){
         this.set('postContent', (this.get('postContent').replace(url[0], "")).trim() ) ;
       }
 

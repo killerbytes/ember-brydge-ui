@@ -12,13 +12,13 @@
           <div class="padding {{if item.read false 'new-notification'}}">
             <div class="row collapse">
               <div class="columns medium-8">
-                {{#link-to "profile" item.id}}
+                {{#link-to "profile" item.userid}}
                 <div class="avatar" style={{htmlSafeImage item.avatar }}>
                   <img src= {{item.avatar}} class="hide">
                 </div>
                 {{/link-to}}
                 <div class="user-info">                  
-                  {{link-to item.fullName "profile" item.id }}
+                  {{link-to item.fullName "profile" item.userid }}
                   <div class="position">{{item.currentTitle}} at {{item.currentCompany}}</div>
                 </div>
                 

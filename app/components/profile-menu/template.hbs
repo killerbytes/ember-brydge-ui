@@ -22,11 +22,11 @@
   {{#zf-dropdown id="dd-public-options" class="dropdown-menu" closeOnClick=true}}
     <ul class="menu">
       {{#if isOwner}}
-        <li>{{link-to "Connections" "me.connections"}}</li>
+        <li>{{#link-to "me.connections"}} Connections ({{ activeConnections.length }}) {{/link-to}}</li>
         <li>{{link-to "Edit Profile" "me.edit"}}</li>
       {{else}}
         <li>{{#link-to "connections" profile.id }} {{profile.firstName}}'s connection ({{ activeConnections.length }}){{/link-to}}</li>
-        <li><a href="" class="warning" {{action "disconnect"}}>Disconnect from {{profile.firstName}}</a></li>
+        <li><a class="warning" {{action "disconnect"}}>Disconnect from {{profile.firstName}}</a></li>
       {{/if}}
     </ul>
   {{/zf-dropdown}}

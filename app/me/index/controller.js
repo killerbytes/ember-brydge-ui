@@ -15,7 +15,7 @@ export default Ember.Controller.extend({
   compliments: Ember.computed.alias('model.compliments'),
   connections: Ember.computed.alias('model.connections'),
 
-	sortProps: ['createdAt:desc'],
+	sortProps: ['updatedAt:desc'],
   sortFrom: ['from:desc'],
   work: Ember.computed.sort('experiences', 'sortFrom'),
   academia: Ember.computed.sort('educations', 'sortFrom'),
@@ -48,7 +48,8 @@ export default Ember.Controller.extend({
   isOwner: true,
   actions: {
     postFeed: function (data, cb) {
-      this.store.createRecord('post', {
+      console.log('newsfeed')
+      this.store.createRecord('newsfeed', {
         site: data.site,
         preview: data.preview,
         content: data.postContent,
