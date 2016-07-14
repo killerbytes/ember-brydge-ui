@@ -1,4 +1,4 @@
-<form {{action 'submit' on='submit'}} class="micro-forms mb20">
+<form {{action "request" on="submit"}} class="micro-forms mb20">
   <div class="row column">
     <div class="text-center">
       <a href="/"><img class="logo" src="assets/brydge-blue.svg"></a>
@@ -10,8 +10,8 @@
         <p>&nbsp;</p>
       </div>
     </div>
-    {{input name="email" placeholder="Email" value=profile.email}}
-    <button class="button success" type="submit">Create Account</button>
+    {{input name="email" placeholder="Email" value=email}}
+    <button class="button success" type="submit">Request Account</button>
 
   </div>
 </form>

@@ -129,7 +129,7 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, FilterDropdownListMix
         this.get('store').createRecord('favoriteindustry', {
           code: i.code,
           name: i.name,
-          userid: '2zd33na16gv'
+          userid: this.get('session.data.authenticated.user_id')
         }).save();
       })
     },

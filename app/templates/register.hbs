@@ -1,29 +1,36 @@
+{{#if model}}
 <div class="row">
   <div class="medium-6 small-centered columns">
     {{partial "partials/form-register"}} 
   </div>
 </div>
 
+{{else}}
 
 <div class="row">
   <div class="medium-6 small-centered columns">
     {{partial "partials/form-request-invite"}}
   </div>
 </div>
+{{/if}}
 
-<div class="row">
-  <div class="medium-10 small-centered columns">
-    <div class="box">
-      <section class="title">
-        <h4>Verify you email</h4>
-      </section>
-      <section>
-        
-        <p>First things first, we will need you to verify your email. We have sent a verification link to <strong>email@email.com</strong>. In order to proceed, click on that link to verify your email.</p>
-        <div class="text-center">
-          <button class="button success">Resend email</button>
-        </div>
-      </section>
-    </div>
-  </div>
-</div>
+<button class="button" data-open="verify-message">Reveal</button>
+
+{{#zf-reveal id="verify-message" overlay=true class="small box"}}
+  <div class="box">
+    <section class="title">
+      <h4>Verify you email</h4>
+      <button class="close-button" aria-label="Dismiss alert" type="button" data-close>
+        <span aria-hidden="true">&times;</span>
+      </button>
+      
+    </section>
+    <section>      
+      <p>First things first, we will need you to verify your email. We have sent a verification link to <strong>email@email.com</strong>. In order to proceed, click on that link to verify your email.</p>
+      <div class="text-center">
+        <button class="button success">Resend email</button>
+      </div>
+    </section>
+  </div>  
+{{/zf-reveal}}
+

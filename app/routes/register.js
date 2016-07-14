@@ -2,7 +2,18 @@ import Ember from 'ember';
 
 export default Ember.Route.extend({
 	model: function(params){
-		console.log(arguments)
-		return this.store.findRecord('invitation', 'd53b05ae499b11e69626acbc32b17109');
+		if(!params.code) return false;
+		return this.store.findRecord('invitation', params.code).catch(error=>{
+		});
+	},
+	actions: {
+		request(){
+			this.store.createRecord('invitation', {
+				email: this.get('controller.email')
+			}).save()
+				.then(res=>{
+					$('#verify-message').foundation('open');
+				});
+		}
 	}
 });
