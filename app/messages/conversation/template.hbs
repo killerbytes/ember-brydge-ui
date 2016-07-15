@@ -5,7 +5,7 @@
         <img src= {{model.avatar}} class="hide">
       </div>
       <div class="user-info">
-        {{#link-to "profile" model.id }}
+        {{#link-to "profile" model.other.id }}
           {{ model.fullName }}
         {{/link-to}}
       </div>
@@ -46,6 +46,6 @@
   </section>
   {{/if}}
   <section>
-    {{ message-box resp="submit" buttonLabel='Reply' showToInput=false to=model.other.id}}
+    {{ message-box resp="submit" buttonLabel='Reply' showToInput=false to=model.other.id }}
   </section>
 </section>

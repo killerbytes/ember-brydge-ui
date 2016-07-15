@@ -5,6 +5,7 @@ export default DS.Model.extend({
   userid: DS.attr(),
   requestid: DS.attr(),
   friendid: DS.attr(),
+  friend: DS.attr(),
   conversationid: DS.attr(),
   currentCompany: DS.attr(),
   currentTitle: DS.attr(),

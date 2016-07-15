@@ -2,7 +2,7 @@ import Ember from 'ember';
 
 export default Ember.Controller.extend({
 	store: Ember.inject.service(),
-	conversations: Ember.computed('model.@each','key', function(){		
+	conversations: Ember.computed('model.@each','key', function(){
 		let query = this.get('key');
 		if(!query) return this.get('model');
 
