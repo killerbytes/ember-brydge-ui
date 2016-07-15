@@ -2,6 +2,7 @@ import Ember from 'ember';
 
 export default Ember.Component.extend({
   sessionAccount: Ember.inject.service('session-account'),
+  store: Ember.inject.service(),
   sharePost: Ember.inject.service(),
 	ajax: Ember.inject.service(),
 	classNames: ['newsfeed-item'],
@@ -12,16 +13,19 @@ export default Ember.Component.extend({
 	actions: {
 		delete(){
 			var post = this.get('post');
+      this.get('store').unloadRecord(post)
 			post.deleteRecord();
 			post.save().then(res=>{
-				if(this.get('posts')) this.get('posts').removeObject(post);
-				this.sendAction('onDelete');
+        console.log(res.get('id'))
+				// if(this.get('posts')) this.get('posts').removeObject(post);
+        // this.get('store').unloadRecord('newsfeed', res)
+				// this.sendAction('onDelete');
 			});
 		},
 		vote(type){
 			let post = this.get('post');
 			let upvotes = post.get('upvotes');
-			let postId = post.get('id');			
+			let postId = post.get('id');
 			//let postId = this.get('post.id');
       $('body').find('.tooltip').hide();
 
@@ -29,9 +33,9 @@ export default Ember.Component.extend({
 			this.set('disabled', true);
 			switch(type){
 				case 'down':
-					this.get('sessionAccount').downvote(postId).then((res) => { 
+					this.get('sessionAccount').downvote(postId).then((res) => {
 						console.log('downvote =>', res);
-						
+
 						post.get('vote').set('upVotes', res.data.attributes.upVotes);
 						post.get('vote').set('downVotes', res.data.attributes.downVotes);
 						post.get('vote').set('upVoted', false);
@@ -42,9 +46,9 @@ export default Ember.Component.extend({
 					});
 				break;
 				case 'reset':
-					this.get('sessionAccount').resetVote(postId).then((res) => { 
+					this.get('sessionAccount').resetVote(postId).then((res) => {
 						console.log('resetvote =>', res);
-						
+
 						post.get('vote').set('upVotes', res.data.attributes.upVotes);
 						post.get('vote').set('upVoted', false);
 
@@ -57,7 +61,7 @@ export default Ember.Component.extend({
 					});
 				break;
 				default:
-					this.get('sessionAccount').upvote(postId).then((res) => { 
+					this.get('sessionAccount').upvote(postId).then((res) => {
 						console.log('upvote =>', res);
 						post.get('vote').set('upVotes', res.data.attributes.upVotes);
 						post.get('vote').set('upVoted', true);

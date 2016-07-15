@@ -51,7 +51,7 @@ body{
 	background-color: $body-bg-color;
 	color: $body-text-color;
   // font-family: 'Helvetica Neue', Arial, sans-serif;
-	// font-family: 'Montserrat', sans-serif;  
+	// font-family: 'Montserrat', sans-serif;
 
 // font-family: 'Montserrat', sans-serif;
 // font-family: 'Prompt', sans-serif;
@@ -96,7 +96,7 @@ a.hover{
 		bottom: -3px;
 		left: 0;
 		z-index: 11;
-	}	
+	}
 }
 label.inline{
 	display: inline-block;
@@ -166,7 +166,7 @@ p.wrap{
 }
 .shadowed{
 	// box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.5) inset, 0 0px 1px rgba(0, 0, 0, 0.5);
-	box-shadow: 0px 1px 5px 0.05px rgba(214, 224, 229, 0.8); 
+	box-shadow: 0px 1px 5px 0.05px rgba(214, 224, 229, 0.8);
 }
 .no-shadow{
 	box-shadow: none;
@@ -187,7 +187,7 @@ p.wrap{
 }
 .padded{
 	padding-left: $global-padding;
-	padding-right: $global-padding;	
+	padding-right: $global-padding;
 }
 
 .border-l{
@@ -218,7 +218,7 @@ p.wrap{
 .mb50{ margin-bottom: 50px !important;}
 
 .timestamp{
-	color: $text-gray;	
+	color: $text-gray;
 	font-size: 10px;
 }
 input.flat{
@@ -226,7 +226,7 @@ input.flat{
 	box-shadow: none;
 }
 .circle{
-	border-radius: 200px;	
+	border-radius: 200px;
 	overflow: hidden;
 }
 .inline-block{
@@ -254,7 +254,7 @@ li[aria-expanded=false]{
 }
 
 .truncate {
-  width: 240px;
+  // width: 240px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -265,7 +265,7 @@ li[aria-expanded=false]{
   -webkit-user-select: none; /* webkit (safari, chrome) browsers */
   -moz-user-select: none; /* mozilla browsers */
   -khtml-user-select: none; /* webkit (konqueror) browsers */
-  -ms-user-select: none; /* IE10+ */  	
+  -ms-user-select: none; /* IE10+ */
 }
 
 

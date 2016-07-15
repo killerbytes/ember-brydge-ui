@@ -4,7 +4,7 @@
       {{#if isOwner}}
         {{link-to "Broadcasts" "me" class=(active-tab '0' index "button")}}
         {{link-to "Background" "me.about" class=(active-tab '1' index "button")}}
-        {{link-to "Ask" "me.ask" class=(active-tab '2' index "button")}} 
+        {{link-to "Ask" "me.ask" class=(active-tab '2' index "button")}}
         {{link-to "Compliments" "me.compliments" class=(active-tab '3' index "button")}}
       {{else}}
         {{link-to "Broadcasts" "profile" profile.id class=(active-tab '0' index "button")}}
@@ -18,7 +18,7 @@
     <a class="button menu dropdown-button-arrow button-ellipsis" data-toggle="dd-public-options"></a>
   </div>
 </div>
-<div class="row columns wrapper">    
+<div class="row columns wrapper">
   {{#zf-dropdown id="dd-public-options" class="dropdown-menu" closeOnClick=true}}
     <ul class="menu">
       {{#if isOwner}}
@@ -26,7 +26,11 @@
         <li>{{link-to "Edit Profile" "me.edit"}}</li>
       {{else}}
         <li>{{#link-to "connections" profile.id }} {{profile.firstName}}'s connection ({{ activeConnections.length }}){{/link-to}}</li>
-        <li><a class="warning" {{action "disconnect"}}>Disconnect from {{profile.firstName}}</a></li>
+          {{#if isConnected }}
+          <li>
+              <a class="warning" {{action "disconnect"}}>Disconnect from {{profile.firstName}}</a>
+          </li>
+          {{/if}}
       {{/if}}
     </ul>
   {{/zf-dropdown}}

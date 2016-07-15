@@ -33,7 +33,7 @@ table{
 	}
 	.action-button{
 		display: inline-block;
-	}	
+	}
 	&.section-main{
 		@extend .clearfix;
 		@extend .padding;
@@ -67,7 +67,7 @@ table{
 
 .accordion-arrow{
 	&[aria-expanded="false"]:before,
-	&[aria-expanded="false"]:after{ 
+	&[aria-expanded="false"]:after{
 	  visibility: hidden;
 	}
 	&:after{
@@ -215,7 +215,7 @@ table{
 	}
 }
 .user-guide-box{
-	padding: 1px;	
+	padding: 1px;
 }
 
 footer{
@@ -265,11 +265,14 @@ footer{
 
 .message-pane{
 	min-height: 700px;
-	position: relative;	
+	position: relative;
 }
 section.message-content{
 	@extend .bg-white;
 	padding: 0;
+}
+.message-body{
+	padding-left: 40px;
 }
 .message-box{
 	border-top: 1px solid $border-color;

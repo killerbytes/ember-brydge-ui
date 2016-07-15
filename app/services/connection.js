@@ -24,7 +24,7 @@ export default Ember.Service.extend({
   },
   request(id){
     return this.get('store').createRecord('connection', {
-        userid: id
+        requestid: id
       }).save();
     // var url = '/v2/connections/'+id;
     // return this.get('ajax').request(url, {
@@ -38,4 +38,3 @@ export default Ember.Service.extend({
     })
   }
 });
-

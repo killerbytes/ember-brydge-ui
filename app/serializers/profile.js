@@ -1,6 +1,9 @@
 import DS from 'ember-data';
 
 export default DS.JSONAPISerializer.extend(DS.EmbeddedRecordsMixin, {
+  attrs: {
+    connection: {embedded: 'always'}
+  },
   serialize() {
     const result = this._super(...arguments),
       attr = result.data.attributes || {},

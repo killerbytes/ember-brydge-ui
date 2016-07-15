@@ -7,11 +7,11 @@
     <section>
       <form class="form-profile">
         {{input value=key placeholder="Search by Name" class="no-margin search-input"}}
-      </form> 
+      </form>
     </section>
     <section class="container">
       <ul class="no-bullet user-link-list bg-white">
-        {{#each conversations as |item| }}    
+        {{#each conversations as |item| }}
         {{#if item.content}}
         <li>
           {{#link-to "messages.conversation" item.id class="no-color"}}
@@ -22,7 +22,6 @@
               </div>
               <div class="user-info">
                 <a class="name">{{ item.fullName }}</a>
-                <div class="truncate">{{{item.content}}}</div>
               </div>
             </div>
             <div class="column medium-4 text-right">
@@ -31,14 +30,16 @@
               </div>
             </div>
           </div>
+          <div class="message-body truncate">{{{item.content}}}</div>
+
           {{/link-to}}
         </li>
         {{/if}}
-        {{/each}} 
+        {{/each}}
       </ul>
     </section>
   </div>
   <div class="medium-7 columns border-l message-pane">
-    {{ outlet }}        
+    {{ outlet }}
   </div>
 </div>

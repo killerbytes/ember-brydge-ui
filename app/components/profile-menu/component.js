@@ -8,6 +8,9 @@ const {
 export default Ember.Component.extend({
   store: Ember.inject.service(),
   activeConnections: Ember.computed.filterBy('connections', 'status', 'accepted'),
+  isConnected: Ember.computed('profile.connection.status', function(){
+    return this.get('profile.connection.status') == 'accepted';
+  }),
   index: Ember.computed(function(){
   	var index;
   	switch( getOwner(this).lookup('controller:application').currentPath ){
@@ -30,13 +33,20 @@ export default Ember.Component.extend({
   	}
   	return index;
   }),
+
+  init(){
+    this._super();
+    this.get('store').query('connection',{userid: this.get('profile.id') }).then(res=>{
+      this.set('connections', res);
+    })
+  },
   actions: {
     disconnect(){
       var connection = this.get('store').peekRecord('connection', this.get('profile.connection.connectionid'));
+      console.log(connection,  this.get('profile.connection.connectionid'));
       connection.destroyRecord();
+      this.set('profile.connection', {})
 
     }
   }
 });
-
-

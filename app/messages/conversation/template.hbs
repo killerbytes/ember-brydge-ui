@@ -1,11 +1,11 @@
 <section>
   <div class="row">
-    <div class="columns medium-8"><a class="name button clear">{{ model.fullName }}</a></div>
+    <div class="columns medium-8">{{link-to model.fullName "profile" model.userid class="name button clear"}}</div>
     <div class="columns medium-4 text-right">
-      <button class="button secondary clear" {{action 'delete' model.id}}>Delete Conversation</button>      
+      <button class="button secondary clear" {{action 'delete' model.id}}>Delete Conversation</button>
     </div>
   </div>
-  
+
 </section>
 <section class="message-box container">
   {{#if model.messages}}
@@ -20,7 +20,6 @@
               </div>
               <div class="user-info">
                 <a class="name">{{ item.first_name }} {{ item.last_name }}</a>
-                <div class="truncate">{{{item.content}}}</div>
               </div>
             </div>
             <div class="column medium-4 text-right">
@@ -29,8 +28,9 @@
               </div>
             </div>
           </div>
+          <div class="message-body">{{{item.content}}}</div>
         </li>
-      {{/each}} 
+      {{/each}}
     </ul>
   </section>
   {{/if}}

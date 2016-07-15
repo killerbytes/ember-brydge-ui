@@ -1,12 +1,13 @@
 import DS from 'ember-data';
 
 export default DS.JSONAPISerializer.extend({
-  
+
   serialize() {
     const json = this._super(...arguments);
+    console.log(json.data.attributes)
     return {
       connection: {
-        userid: json.data.attributes.userid,
+        userid: json.data.attributes.requestid,
         status: json.data.attributes.status
       }
     };

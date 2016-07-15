@@ -7,9 +7,9 @@
   </div>
 
   <div class="columns medium-7">
-    {{profile-menu isOwner=true connections=connections}}
-  
-    {{ share-post-box 
+    {{profile-menu}}
+
+    {{ share-post-box
       postToNewsfeed='postToNewsfeed'
       profile=profile
       submit='postFeed' }}
@@ -23,7 +23,7 @@
         <div class="column">
           <div class="empty-message">
             {{profile.firstName}} hasn't shared any broadcast yet
-          </div>      
+          </div>
         </div>
       {{/if}}
     {{/if}}

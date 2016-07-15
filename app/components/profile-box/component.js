@@ -1,12 +1,17 @@
 import Ember from 'ember';
 
 export default Ember.Component.extend({
+	session: Ember.inject.service(),
 	classNames: ['profile-box'],
 	connection: Ember.inject.service(),
 	store: Ember.inject.service(),
   isConnected: Ember.computed('profile.connection.status', function(){
     return this.get('profile.connection.status') == 'accepted' ? true : false;
   }),
+	isOwner: Ember.computed('profile.connection.requestid', function(){
+		console.log( this.get('profile.connection.requestid'))
+		return this.get('profile.connection.requestid') == this.get('session.data.authenticated.user_id');
+	}),
   connectionStatus: Ember.computed('isConnected', function(){
     return this.get('isConnected') ? true : this.get('profile.connection.status') == 'pending' ? 'Connection Request Sent' : 'Add Connection';
   }),
@@ -22,12 +27,22 @@ export default Ember.Component.extend({
   actions: {
     connect (cb) {
       var userid = this.get('profile.id');
+
       this.get('connection')
       .request(userid)
       .then(res=>{
-        cb.apply(null, [res.get('status')]);
+				this.set('profile.connection', res);
+        // cb.apply(null, ['Connection Request Sent']);
       });
     },
+		accept: function(){
+			var connection = this.get('store').peekRecord('connection', "d4443e124a4611e6a0d1acbc32b17109");
+			// console.log(connection, this.get('profile.id'))
+
+			connection.set('status', 'accepted')
+			connection.save();
+		},
+
 
   }
 });

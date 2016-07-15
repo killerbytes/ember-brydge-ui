@@ -15,15 +15,28 @@
     {{profile.location}}
   </div>
 
-  {{#unless isOwner }}
-    <div class="text-title">
-        {{#if isConnected }}
-          {{#link-to "messages.conversation" profile.conversationid class="button large"}}
-            Message {{profile.firstName}}
-          {{/link-to}}    
+  <div class="text-title">
+    {{#if isOwner }}
+      {{#if isConnected }}
+        {{#link-to "messages.conversation" profile.conversationid class="button large"}}
+          Message {{profile.firstName}}
+        {{/link-to}}
+      {{else}}
+        {{spinning-button clicked="connect" value=connectionStatus disabled=isPending class=isDisconnected }}
+      {{/if}}
+    {{else}}
+      {{#if isConnected }}
+        {{#link-to "messages.conversation" profile.conversationid class="button large"}}
+          Message {{profile.firstName}}
+        {{/link-to}}
+      {{else}}
+        {{#if isPending}}
+          {{spinning-button clicked="accept" value="Accept Request" class=isDisconnected}}
         {{else}}
           {{spinning-button clicked="connect" value=connectionStatus disabled=isPending class=isDisconnected }}
         {{/if}}
-    </div>
-  {{/unless}}
+      {{/if}}
+
+    {{/if}}
+  </div>
 </div>

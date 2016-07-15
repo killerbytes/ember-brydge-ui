@@ -26,9 +26,8 @@ export default Ember.Mixin.create({
 	}),
 	compliments: Ember.computed('complimentTitle', function(){
 		var selected = this.get('complimentTitle');
-		console.log(selected)
 		if(!selected || selected == 'All'){
-			return this.get('toAccept');			
+			return this.get('toAccept');
 		}else{
 			return this.get('toAccept').filterBy('title', this.get('complimentTitle'));
 		}
