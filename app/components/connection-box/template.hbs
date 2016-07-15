@@ -9,19 +9,25 @@
     <div class="position">{{item.location}}</div>
   </div>
 </div>
-{{#unless isOwner}}
-{{#if isConnected}}
+{{#if isMe}}
   {{#link-to "messages.conversation" item.conversationid class="button success expanded"}}
     Message
   {{/link-to}}
 {{else}}
-  {{#if isPending}}
-    <div class="button expanded bordered">
-      Connection Request Sent
-    </div>
-  {{else}}
-    {{spinning-button clicked="connect" value="Connect" class="button expanded bordered" }}
-  {{/if}}
+  {{#unless isOwner}}
+    {{#if isConnected}}
+      {{#link-to "messages.conversation" item.conversationid class="button success expanded"}}
+        Message
+      {{/link-to}}
+    {{else}}
+      {{#if isPending}}
+        <div class="button expanded bordered">
+          Connection Request Sent
+        </div>
+      {{else}}
+        {{spinning-button clicked="connect" value="Connect" class="button expanded bordered" }}
+      {{/if}}
 
+    {{/if}}
+  {{/unless}}
 {{/if}}
-{{/unless}}
