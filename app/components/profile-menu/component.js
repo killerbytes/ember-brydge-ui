@@ -7,9 +7,13 @@ const {
 
 export default Ember.Component.extend({
   store: Ember.inject.service(),
+  session: Ember.inject.service(),
   activeConnections: Ember.computed.filterBy('connections', 'status', 'accepted'),
   isConnected: Ember.computed('profile.connection.status', function(){
     return this.get('profile.connection.status') == 'accepted';
+  }),
+  isOwner: Ember.computed('profile', function(){
+    return this.get('profile.id') == this.get('session.data.authenticated.user_id');
   }),
   index: Ember.computed(function(){
   	var index;

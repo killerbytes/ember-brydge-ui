@@ -1,6 +1,6 @@
 <div class="row">
   <aside class="columns medium-5 sidebar">
-    {{profile-box profile=profile class="mb20" isOwner=true}}
+    {{profile-box profile=profile class="mb20"}}
 
     {{partial 'partials/profile-sidebar'}}
   </aside>
@@ -10,16 +10,16 @@
 
     <div class="box tab-background">
       <section>
-        <h3>Work History</h3>        
+        <h3>Work History</h3>
       </section>
         <div class="section-group section-accordion-group">
           {{#each experiences as |item|}}
-            <section> 
+            <section>
               <div class="section-main">
                 <div class="title">{{item.title}}</div>
                 <strong><a>{{item.company}}</a></strong>
                 <div class="text-gray">
-                  {{term-date-format item.from}} - 
+                  {{term-date-format item.from}} -
                   {{#if item.currentCompany}}
                     Present ({{time-diff item.from item.to}})
                   {{else}}
@@ -35,20 +35,20 @@
                   </ul>
                   <a class="more no-arrow"><span class="content-more">Show More</span><span class="content-less">Show Less</span></a>
                 </li>
-              {{/zf-accordion-menu}}               
+              {{/zf-accordion-menu}}
             {{/if}}
-            </section>          
+            </section>
           {{/each}}
         </div>
     </div>
 
     <div class="box">
       <section>
-        <h3>Academia</h3>        
+        <h3>Academia</h3>
       </section>
       <div class="section-group section-accordion-group">
       {{#each educations as |item|}}
-        <section> 
+        <section>
           <div class="section-main">
             <div class="title">{{item.school}}</div>
             <div class="sub-title">{{item.degree}}, {{item.studyField}}</div>
@@ -56,31 +56,30 @@
               {{term-date-format item.to 'YYYY'}}
             </div>
           </div>
-        </section>          
+        </section>
       {{/each}}
       </div>
-    </div>  
+    </div>
 
     <div class="box">
       <section>
-        <h3>Languages</h3>        
+        <h3>Languages</h3>
       </section>
       <div class="section-group section-accordion-group">
       <div class="row medium-up-2">
       {{#each languages as |item|}}
         <div class="columns">
-          <section> 
+          <section>
             <div class="content-pad">
               <div class="title">{{item.name}}</div>
               <div class="sub-title">{{item.proficiency}}</div>
             </div>
-          </section>          
-          
+          </section>
+
         </div>
       {{/each}}
       </div>
       </div>
-    </div>  
+    </div>
   </div>
 </div>
-

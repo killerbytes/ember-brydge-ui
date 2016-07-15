@@ -1,7 +1,7 @@
 <div class="row ask wrapper">
-	{{#unless profile.settings.ask}}	
+	{{#unless profile.settings.ask}}
 	<div class="overlay-wrapper">
-		<div class="overlay">		
+		<div class="overlay">
 		</div>
 	</div>
 	{{/unless}}
@@ -21,13 +21,12 @@
 					{{else}}
 						You are currently not accepting questions. To enable the ASK feature go to {{link-to "Settings" "settings" (query-params tab="ask") }}.
 					{{/if}}
-				</p>										
+				</p>
 				<p class="text-center">
 					Note: <i>Hidden Questions</i> and questions <i>Pending Answers</i> are only visible to you
-				</p>    	
+				</p>
 			</div>
 		{{else}}
-			{{#if isConnected}}
       <form {{action 'submit' on='submit'}} class="box user-top-form mb20">
         <section>
 
@@ -36,15 +35,14 @@
 					<div class="row">
 						<div class="columns medium-8 text-gray">
 							Ask anyone a professional question. <br>
-							If answered, it will appear on both profiles.							
+							If answered, it will appear on both profiles.
 						</div>
 						<div class="columns medium-4 text-right">
 							<button class="button btn success">Ask</button>
 						</div>
 					</div>
         </section>
-      </form>      
-      {{/if}}
+      </form>
 
 		{{/if}}
 
@@ -72,6 +70,3 @@
 </div>
 
 {{answer-form}}
-
-
-

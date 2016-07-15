@@ -14,30 +14,23 @@
   <div class="location mb">
     {{profile.location}}
   </div>
-
   <div class="text-title">
-    {{log isConnected}}
-    {{#if isOwner }}
+    {{#unless isOwner }}
       {{#if isConnected }}
-        {{#link-to "messages.conversation" profile.conversationid class="button large"}}
-          Message {{profile.firstName}}
-        {{/link-to}}
-      {{else}}
-        {{spinning-button clicked="connect" value=connectionStatus disabled=isPending class=isDisconnected }}
-      {{/if}}
-    {{else}}
-      {{#if isConnected }}
-        {{#link-to "messages.conversation" profile.conversationid class="button large"}}
+        {{#link-to "messages.conversation" profile.connection.conversationid class="button large"}}
           Message {{profile.firstName}}
         {{/link-to}}
       {{else}}
         {{#if isPending}}
-          {{spinning-button clicked="accept" value="Accept Request" class=isDisconnected}}
+          {{#if isSender}}
+            Connection Request Sent
+          {{else}}
+            {{spinning-button clicked="accept" value="Accept Request" class=isDisconnected}}
+          {{/if}}
         {{else}}
-          {{spinning-button clicked="connect" value=connectionStatus disabled=isPending class=isDisconnected }}
+          {{spinning-button clicked="connect" value="Connect" class=isDisconnected }}
         {{/if}}
       {{/if}}
-
-    {{/if}}
+    {{/unless}}
   </div>
 </div>

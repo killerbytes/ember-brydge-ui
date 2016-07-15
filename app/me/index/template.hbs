@@ -1,13 +1,13 @@
 
 <div class="row">
   <div class="columns medium-5 sidebar">
-    {{profile-box profile=profile class="mb20" isOwner=true}}
+    {{profile-box profile=profile class="mb20"}}
 
     {{partial 'partials/profile-sidebar'}}
   </div>
 
   <div class="columns medium-7">
-    {{profile-menu}}
+    {{profile-menu profile=profile}}
 
     {{ share-post-box
       postToNewsfeed='postToNewsfeed'

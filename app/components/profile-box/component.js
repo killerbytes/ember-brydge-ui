@@ -6,18 +6,18 @@ export default Ember.Component.extend({
 	connection: Ember.inject.service(),
 	store: Ember.inject.service(),
   isConnected: Ember.computed('profile.connection.status', function(){
-		console.log(this.get('profile.connection.status'))
     return this.get('profile.connection.status') == 'accepted' ? true : false;
   }),
-	isOwner: Ember.computed('profile.connection.requestid', function(){
-		console.log( this.get('profile.connection.requestid'))
-		return this.get('profile.connection.requestid') == this.get('session.data.authenticated.user_id');
+	isOwner: Ember.computed('profile', function(){
+		return this.get('profile.id') == this.get('session.data.authenticated.user_id');
 	}),
   connectionStatus: Ember.computed('isConnected', function(){
     return this.get('isConnected') ? true : this.get('profile.connection.status') == 'pending' ? 'Connection Request Sent' : 'Add Connection';
   }),
+	isSender: Ember.computed('profile.connection.requestid', function(){
+  	return this.get('profile.connection.requestid') ==  this.get('session.data.authenticated.user_id');
+  }),
   isPending: Ember.computed('isConnected', function(){
-		console.log(this.get('profile.connection.status'))
   	return this.get('profile.connection.status') == 'pending' ? true : null;
   }),
   isDisconnected: Ember.computed('connectionStatus', function(){
