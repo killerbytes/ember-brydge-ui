@@ -4,6 +4,11 @@ import QueryLocationMixin from 'web/mixins/query-locations';
 export default Ember.Route.extend(QueryLocationMixin, {
   flashMessages: Ember.inject.service(),
   session: Ember.inject.service(),
+  resetController(controller, isExiting, transition) {
+      if (isExiting) {
+        controller.set(tab, 'personal');
+      }
+  },
 	model: function (params) {
     var userid = this.get('session.data.authenticated.user_id');
     this.store.unloadAll('language');

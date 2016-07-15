@@ -1,6 +1,6 @@
 <div class="row">
   <div class="medium-6 small-centered columns">
-    {{partial "partials/form-login"}} 
+    {{partial "partials/form-login"}}
   </div>
 </div>
 <div class="row">
@@ -12,16 +12,16 @@
   <div class="medium-6 small-centered columns">
     <form>
       <div class="input-group">
-        <input class="input-group-field" type="text">
+        {{input value=code class="input-group-field" placeholder="Invitation code" }}
         <div class="input-group-button">
-          <button type="submit" class="button expanded success">Proceed</button>
+          <button type="submit" class="button expanded success" {{action "proceed"}}>Proceed</button>
         </div>
       </div>
     </form>
-  </div>  
+  </div>
 </div>
 <div class="row">
   <div class="columns text-center">
-    Don't have a code? Leave us your email <a>here</a>, we'll sort it out.
+    Don't have a code? Leave us your email {{link-to "here" "register"}}, we'll sort it out.
   </div>
 </div>

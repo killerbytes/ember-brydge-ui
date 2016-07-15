@@ -9,6 +9,16 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, FilterDropdownListMix
   geoChannels: '',
   isCurated: null,
   isLive: null,
+  resetController(controller, isExiting, transition) {
+      if (isExiting) {
+        controller.setProperties({
+          tab: 'curated',
+          channels: null,
+          location: null,
+          q: null
+        });
+      }
+  },
 
   beforeModel(transition, params) {
     this._super(transition, params);
@@ -88,7 +98,7 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, FilterDropdownListMix
     setLocation(location){
       if(location == "Everywhere"){
         this.controller.set('location', null)
-      }else{        
+      }else{
         this.controller.set('location', location);
       }
       this.loadNewsfeed();

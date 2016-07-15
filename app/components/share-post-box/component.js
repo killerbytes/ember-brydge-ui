@@ -42,13 +42,6 @@ export default Ember.Component.extend(SharePostIndustryPicker, {
     return urlArray;
   },
 	actions: {
-    removePreview(){
-      this.set('site.image', null);
-    },
-    removeObject(){
-      this.set('site', null);
-      this.set('isNoPreview', true);
-    },
     post() {
       var url = this.findUrls(this.get('postContent'))
       if(this.get('site.title') && url){

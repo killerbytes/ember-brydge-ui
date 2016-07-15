@@ -5,6 +5,9 @@ export default Ember.Controller.extend({
   session: Ember.inject.service('session'),
   auth: Ember.inject.service(),
   actions: {
+    proceed(){
+      this.transitionToRoute('register', {queryParams: {code: this.get('code') }});
+    },
     authenticate() {
 
       let { email, password } = this.getProperties('email', 'password');
@@ -29,7 +32,7 @@ export default Ember.Controller.extend({
     },
 
     createAccount: function (cb) {
-     
+
       var data = {
         email: this.get('registerEmail'),
         password: this.get('registerPassword'),

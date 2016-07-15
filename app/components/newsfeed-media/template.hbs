@@ -9,7 +9,7 @@
     <div class="post-image" style={{htmlSafeImage model.image }}>
       <img src="{{model.image}}" class="hide">
     </div>
-    <a {{action "removePreview"}} class="x-button fa fa-times"></a>    
+    <a {{action "removePreview"}} class="x-button fa fa-times"></a>
   {{/unless}}
 {{/if}}
 {{#if model.title}}
@@ -25,6 +25,11 @@
           <a>{{model.siteName}}</a>
           <a {{action "removeObject"}} class="x-button fa fa-times"></a>
         {{/unless}}
+      {{else}}
+        {{#if model.site_name}}
+          <a href="{{model.url}}" target="_blank">{{model.site_name}}</a>
+          <a {{action "removeObject"}} class="x-button fa fa-times"></a>
+        {{/if}}
       {{/if}}
 
     {{else}}
