@@ -22,7 +22,7 @@ export default DS.JSONAPISerializer.extend({
 
 
     // return Object.keys(rel).reduce(function(acc, elem) {
-     
+
     //   const data = rel[elem].data;
     //   if (data) {
     //     acc[elem + "_id"] = data.id;
@@ -35,7 +35,7 @@ export default DS.JSONAPISerializer.extend({
     // }, attr);
  },
  keyForAttribute: function(attr) {
-    return attr;
+    return Ember.String.underscore(attr);
   }
 
 });

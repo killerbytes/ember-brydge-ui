@@ -5,7 +5,7 @@
 		{{else}}
 			<form>
 				{{input id="contact-input" value=key class="input-group-field" type="search" placeholder="Name"}}
-			</form>	
+			</form>
 		{{/if}}
 	</section>
 
@@ -14,7 +14,7 @@
 		<ul class="user-link-list contact-list no-bullet" >
 		{{#each contacts as |item|}}
 			<li>
-				<a {{action "select" item }}>
+				{{#link-to "messages.conversation" item.conversationid }}
 	        <div class="row user">
 	          <div class="columns">
 	            <div class="avatar" style={{htmlSafeImage item.avatar }}>
@@ -25,7 +25,7 @@
 	            </div>
 	          </div>
 	        </div>
-				</a>
+				{{/link-to}}
 			</li>
 		{{/each}}
 		</ul>

@@ -10,7 +10,7 @@ export default DS.Model.extend({
   messageid: DS.attr(),
   updatedAt: DS.attr('date'),
   readStatus: DS.attr(),
-  messages: DS.attr(),
+  messages: DS.hasMany(),
   action: DS.attr(),
   you: DS.belongsTo('user'),
   other: DS.belongsTo('user'),

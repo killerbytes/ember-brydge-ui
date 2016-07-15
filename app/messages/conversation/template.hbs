@@ -1,7 +1,16 @@
 <section>
-  <div class="row">
-    <div class="columns medium-8">{{link-to model.fullName "profile" model.other.userid class="name button clear"}}</div>
-    <div class="columns medium-4 text-right">
+  <div class="row user cards">
+    <div class="columns medium-8">
+      <div class="avatar" style={{htmlSafeImage model.avatar }}>
+        <img src= {{model.avatar}} class="hide">
+      </div>
+      <div class="user-info">
+        {{#link-to "profile" model.id }}
+          {{ model.fullName }}
+        {{/link-to}}
+      </div>
+    </div>
+    <div class="column medium-4 text-right">
       <button class="button secondary clear" {{action 'delete' model.id}}>Delete Conversation</button>
     </div>
   </div>
@@ -20,13 +29,13 @@
               </div>
               <div class="user-info">
                 {{#link-to "profile" item.sender }}
-                  {{ item.first_name }} {{ item.last_name }}
+                  {{ item.fullName }}
                 {{/link-to}}
               </div>
             </div>
             <div class="column medium-4 text-right">
-              <div>{{log item}}
-                <div class="timestamp">{{ moment-format item.updated_at "DD/dd h:mma" }}</div>
+              <div>
+                <div class="timestamp">{{ timestamp item.updatedAt }}</div>
               </div>
             </div>
           </div>
