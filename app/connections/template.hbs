@@ -1,7 +1,7 @@
-<div class="page-heading">      
+<div class="page-heading">
   <h1>{{profile.firstName}}'s Connections</h1>
   <p class="text-center">
-  </p>                    
+  </p>
 </div>
 
 <div class="row">
@@ -24,12 +24,12 @@
           </form>
         </section>
         <section class="row medium-up-2 columns bg-gray user-list">
-          {{#each connections as |item|}}
-            <div class="columns medium-6">            
+          {{#each model.list as |item|}}
+            <div class="columns medium-6">
               {{connection-box item=item}}
             </div>
           {{/each}}
-        </section>    
+        </section>
       </div>
     </div>
     <div class="tabs-panel {{active-tab 'tab_2' tab}}" id="tab_2">
@@ -40,7 +40,7 @@
           </form>
         </section>
         <section class="row medium-up-2 columns bg-gray user-list">
-          {{#each mutual as |item|}}
+          {{#each model.mutual as |item|}}
             <div class="columns medium-6">
               {{connection-box item=item}}
             </div>
@@ -49,7 +49,7 @@
               No Mutual Connections
             </div>
           {{/each}}
-        </section>    
+        </section>
       </div>
     </div>
   </div>

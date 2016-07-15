@@ -4,6 +4,7 @@ export default DS.Model.extend({
   avatar: DS.attr(),
   content: DS.attr(),
   conversationid: DS.attr(),
+  recepient: DS.attr(),
   firstName: DS.attr(),
   lastName: DS.attr(),
   messageid: DS.attr(),
@@ -16,5 +17,5 @@ export default DS.Model.extend({
   fullName: Ember.computed('firstName', 'lastName', function(){
   	return this.get('firstName') + ' ' + this.get('lastName');
   })
-  
+
 });

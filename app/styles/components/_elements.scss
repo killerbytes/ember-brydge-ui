@@ -279,6 +279,13 @@ section.message-content{
 	position: absolute;
 	bottom: 0;
 	width: 100%;
+	.message-scrollable{
+		// position: absolute;
+		// width: 100%;
+		// bottom: 144px;
+		// max-height: 500px;
+		// overflow: auto;
+	}
 }
 
 .ask-menu{

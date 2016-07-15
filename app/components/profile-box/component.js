@@ -6,6 +6,7 @@ export default Ember.Component.extend({
 	connection: Ember.inject.service(),
 	store: Ember.inject.service(),
   isConnected: Ember.computed('profile.connection.status', function(){
+		console.log(this.get('profile.connection.status'))
     return this.get('profile.connection.status') == 'accepted' ? true : false;
   }),
 	isOwner: Ember.computed('profile.connection.requestid', function(){
@@ -16,6 +17,7 @@ export default Ember.Component.extend({
     return this.get('isConnected') ? true : this.get('profile.connection.status') == 'pending' ? 'Connection Request Sent' : 'Add Connection';
   }),
   isPending: Ember.computed('isConnected', function(){
+		console.log(this.get('profile.connection.status'))
   	return this.get('profile.connection.status') == 'pending' ? true : null;
   }),
   isDisconnected: Ember.computed('connectionStatus', function(){
@@ -36,11 +38,15 @@ export default Ember.Component.extend({
       });
     },
 		accept: function(){
-			var connection = this.get('store').peekRecord('connection', "d4443e124a4611e6a0d1acbc32b17109");
-			// console.log(connection, this.get('profile.id'))
-
+			// console.log(this.get('profile.connection.connectionid'))
+			var connection = this.get('store').peekRecord('connection', this.get('profile.connection.connectionid'));
+			// console.log(connection)
+			// return false;
 			connection.set('status', 'accepted')
-			connection.save();
+			connection.save().then(res=>{
+				this.set('profile.connection.status', 'accepted');
+				console.log(res)
+			});
 		},
 
 

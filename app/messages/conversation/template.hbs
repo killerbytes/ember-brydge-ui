@@ -1,6 +1,6 @@
 <section>
   <div class="row">
-    <div class="columns medium-8">{{link-to model.fullName "profile" model.userid class="name button clear"}}</div>
+    <div class="columns medium-8">{{link-to model.fullName "profile" model.other.userid class="name button clear"}}</div>
     <div class="columns medium-4 text-right">
       <button class="button secondary clear" {{action 'delete' model.id}}>Delete Conversation</button>
     </div>
@@ -9,7 +9,7 @@
 </section>
 <section class="message-box container">
   {{#if model.messages}}
-  <section class="container bg-white">
+  <section class="container bg-white message-scrollable">
     <ul class="messages-list no-bullet">
       {{#each model.messages as |item| }}
         <li>
@@ -19,7 +19,9 @@
                 <img src= {{item.avatar}} class="hide">
               </div>
               <div class="user-info">
-                <a class="name">{{ item.first_name }} {{ item.last_name }}</a>
+                {{#link-to "profile" item.sender }}
+                  {{ item.first_name }} {{ item.last_name }}
+                {{/link-to}}
               </div>
             </div>
             <div class="column medium-4 text-right">

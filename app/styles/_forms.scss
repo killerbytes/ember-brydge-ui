@@ -1,18 +1,18 @@
 form{
-	[type='text'], 
-	[type='password'], 
-	[type='date'], 
-	[type='datetime'], 
-	[type='datetime-local'], 
-	[type='month'], 
-	[type='week'], 
-	[type='email'], 
-	[type='number'], 
-	[type='search'], 
-	[type='tel'], 
-	[type='time'], 
-	[type='url'], 
-	[type='color'], 
+	[type='text'],
+	[type='password'],
+	[type='date'],
+	[type='datetime'],
+	[type='datetime-local'],
+	[type='month'],
+	[type='week'],
+	[type='email'],
+	[type='number'],
+	[type='search'],
+	[type='tel'],
+	[type='time'],
+	[type='url'],
+	[type='color'],
 	textarea,
 	select{
 		box-shadow: none;
@@ -87,7 +87,7 @@ form{
 		.button{
 			margin-top: 25px;
 		}
-	}	
+	}
 	label.for-radio{
 		a{
 			color: $text-gray;
@@ -182,4 +182,8 @@ form{
 		margin-left: 1em;
 		display: block;
 	}
+}
+
+.content-editable{
+	max-height: 300px;
 }

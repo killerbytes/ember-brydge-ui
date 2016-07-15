@@ -4,8 +4,8 @@ export default Ember.Controller.extend({
   queryParams: ['tab'],
   tab: 'tab_1',
   profile: Ember.computed.alias('model.profile'),
-  list: Ember.computed.alias('model.list'),
-  mutual: Ember.computed.alias('model.mutual'),
+  listxxx: Ember.computed.alias('model.list'),
+  mutualxxxx: Ember.computed.alias('model.mutual'),
   connections: Ember.computed('model.list.@each', 'key', function(){
     let query = this.get('key');
     if(!query) return this.get('model.list').filterBy('status','accepted');

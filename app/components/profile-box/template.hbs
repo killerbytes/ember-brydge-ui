@@ -16,6 +16,7 @@
   </div>
 
   <div class="text-title">
+    {{log isConnected}}
     {{#if isOwner }}
       {{#if isConnected }}
         {{#link-to "messages.conversation" profile.conversationid class="button large"}}
