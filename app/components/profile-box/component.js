@@ -17,7 +17,8 @@ export default Ember.Component.extend({
 	isSender: Ember.computed('profile.connection.requestid', function(){
   	return this.get('profile.connection.requestid') ==  this.get('session.data.authenticated.user_id');
   }),
-  isPending: Ember.computed('isConnected', function(){
+  isPending: Ember.computed('profile','isConnected', function(){
+		console.log('isConnected', this.get('profile.connection.status'))
   	return this.get('profile.connection.status') == 'pending' ? true : null;
   }),
   isDisconnected: Ember.computed('connectionStatus', function(){
@@ -44,8 +45,8 @@ export default Ember.Component.extend({
 			// return false;
 			connection.set('status', 'accepted')
 			connection.save().then(res=>{
-				this.set('profile.connection.status', 'accepted');
-				console.log(res)
+				this.set('profile.connection.status', res);
+				// console.log(res)
 			});
 		},
 

@@ -7,20 +7,20 @@
             <div class="avatar float-left" style={{htmlSafeImage item.from.content.profile.avatarUrl}}>
               <img src= {{item.from.content.profile.avatarUrl}} class="hide">
             </div>
-            <div class="user-info">{{link-to item.from.content.profile.firstName "profile" item.from.content.id }} asked {{link-to item.to.content.profile.firstName "profile" item.to.content.id }}</div>
+            <div class="user-info">{{link-to item.from.content.profile.fullName "profile" item.from.content.id }} asked {{link-to item.to.content.profile.fullName "profile" item.to.content.id }}</div>
           </div>
           <div class="column medium-4 text-right">
             {{#if isOwner}}
-              <a data-toggle="dd-card-menu-{{item.id}}" class="action-button"><i class="icons ellipsis"></i></a>      
+							<a class="button menu dropdown-button-arrow button-ellipsis" data-toggle="dd-card-menu-{{item.id}}"></a>
               {{#zf-dropdown id=(concat 'dd-card-menu-' item.id) closeOnClick=true class="card-menu-dropdown"}}
                 <ul class="menu">
-                  <li><a {{action "toggleHide" item }}>Hide</a></li>
+                  <li><a {{action "toggleHide" item }}>Archive</a></li>
                 </ul>
               {{/zf-dropdown}}
-            {{/if}}          
+            {{/if}}
             <div class="timestamp">{{timestamp item.createdAt}}</div>
           </div>
-        </div>      
+        </div>
       </section>
       <section>
         <div class="section-main">
@@ -33,8 +33,8 @@
             </ul>
             <a class="more no-arrow"><span class="content-more">See Answer</span><span class="content-less">Hide Answer</span></a>
           </li>
-        {{/zf-accordion-menu}}            
-      </section>    
+        {{/zf-accordion-menu}}
+      </section>
     </div>
 	</div>
 {{else}}

@@ -13,7 +13,7 @@ export default Ember.Controller.extend(
     return this.get('profile.industryTwoName') ? true : false && this.get('profile.industryThreeName') ? true : false;
   }),
   placeholder: Ember.computed('profile', function(){
-  	return 'Ask ' + this.get('profile.firstName') + ' a professional question or opinion';
+  	return 'Ask ' + this.get('profile.firstName') + ' a professional <br> question or opinion';
   }),
   isConnected: Ember.computed('profile.connection.status', function(){
     return this.get('profile.connection.status') == 'accepted' ? true : false;
@@ -22,19 +22,8 @@ export default Ember.Controller.extend(
     submit: function() {
 			this.get('ask').create(this.get('profile.id'), this.get('question')).then(res=>{
           this.set('question', null);
+          this.set('asked', true)
       })
-      // var savedCallback = () => {
-      //   // this.sendAction('action', this.get('controller.profile.id'));
-      //   // this.set('isSubmitted', true)
-      // };
-
-      // ask.set('from', this.get('sessionAccount.account'));
-			//
-      // this.store.findRecord('user', this.get('controller.profile.id')).then((user)=>{
-      //   ask.set('to', user);
-      //   this.set('question', null)
-      //   ask.save().then(savedCallback);
-      // })
     }
   }
 

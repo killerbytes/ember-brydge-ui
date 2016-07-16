@@ -8,7 +8,7 @@ export default Ember.Controller.extend({
   mutual: Ember.computed.alias('model.mutual'),
   mutual_connections: Ember.computed('model.mutual.@each', 'key', function(){
     let query = this.get('key');
-    if(!query) return this.get('model.mutual').filterBy('friend.status','accepted');
+    if(!query) return this.get('model.mutual').filterBy('status','accepted');
     var fields = ['firstName', 'lastName'];
     return this.get('model.mutual').filter(function(item){
       var found = false;

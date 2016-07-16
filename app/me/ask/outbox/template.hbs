@@ -8,8 +8,18 @@
     {{#each fromPending as |item| }}
       <div class="box {{if (eq item.id qid) 'highlight'}}">
         <section>
-          You asked {{link-to item.to.profile.fullName "profile" item.to.id class="name"}}
-          <div class="timestamp mb">{{timestamp item.updatedAt}}</div>
+          <div class="user mb">
+            <div class="avatar" style={{htmlSafeImage item.from.profile.avatarUrl }}>
+              <img src= {{item.from.profile.avatarUrl}} class="hide">
+            </div>
+            <div class="user-info">
+              <span class="name">
+                You asked {{link-to item.to.profile.fullName "profile" item.to.id}}
+              </span>
+              <div class="timestamp">{{timestamp item.updatedAt}}</div>
+            </div>
+          </div>
+
           {{item.question}}
         </section>
 

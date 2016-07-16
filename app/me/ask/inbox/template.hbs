@@ -10,15 +10,23 @@
       <div class="box {{if (eq item.id qid) 'highlight'}}">
         <section>
           <div class="section-main">
-            <div class="user">
-              Asked by {{link-to item.from.profile.fullName "profile" item.from.id class="name"}}
-              <div class="timestamp">{{timestamp item.updatedAt}}</div>
+            <div class="user mb">
+              <div class="avatar" style={{htmlSafeImage item.from.profile.avatarUrl }}>
+                <img src= {{item.from.profile.avatarUrl}} class="hide">
+              </div>
+              <div class="user-info">
+                <span class="name">
+                  Asked by {{link-to item.from.profile.fullName "profile" item.from.id}}
+                </span>
+                <div class="timestamp">{{timestamp item.updatedAt}}</div>
+              </div>
             </div>
+
             <div class="content-pad">{{item.question}}</div>
             <div class="section-footer-buttons">
               <a {{action "select" item }} class="button success rounded" data-open="answerFormModal">Write Answer</a>
               <a {{action "delete" item }} class="button button-border rounded">Delete</a>
-              <a class="button button-border rounded">Flag</a>
+              <a {{action "delete" item }} class="button button-border rounded">Flag</a>
             </div>
           </div>
         </section>

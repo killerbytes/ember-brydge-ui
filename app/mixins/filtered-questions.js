@@ -18,10 +18,6 @@ export default Ember.Mixin.create({
 	fromHidden: Ember.computed.filterBy('fromQuestions', 'status', 'hide'),
 	fromPendingQuestions: Ember.computed.filterBy('fromPending', 'delete', false),
 
-	hiddenCount: Ember.computed('fromHidden', 'toHidden', function(){
-		return this.get('fromHidden').length + this.get('toHidden').length;
-	}),
-
 	from: Ember.computed('fromQuestions.@each.status', 'fromQuestions.@each.delete', function(){
 		return {
 			pendingSidebar: this.get('fromPendingQuestions').slice(0, this.get('limit')),

@@ -7,7 +7,7 @@
             <div class="avatar float-left" style={{htmlSafeImage item.from.content.profile.avatarUrl}}>
               <img src= {{item.from.content.profile.avatarUrl}} class="hide">
             </div>
-            <div class="user-info">{{link-to item.from.content.profile.firstName "profile" item.from.content.id }} asked {{link-to item.to.content.profile.firstName "profile" item.to.content.id }}</div>
+            <div class="user-info">{{link-to item.from.content.profile.fullName "profile" item.from.content.id }} asked {{link-to item.to.content.profile.fullName "profile" item.to.content.id }}</div>
           </div>
           <div class="column medium-4 text-right">
             {{#if isOwner }}

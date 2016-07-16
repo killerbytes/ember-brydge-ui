@@ -16,11 +16,11 @@
     {{/if}}
     {{#if isOwnerx}}
       {{#link-to "me.edit" (query-params tab="industry")}}
-        <i class="icons pencil"></i>       
+        <i class="icons pencil"></i>
       {{/link-to}}
     {{/if}}
-  </section>        
-  
+  </section>
+
   <section>
     <h4>Occupational Industry</h4>
     {{#if isNotEmptyOccupation}}
@@ -42,16 +42,16 @@
       {{/if}}
     {{/if}}
     {{#if isOwnerx}}
-      {{#link-to "me.edit" (query-params tab="occupindustry") }}       
+      {{#link-to "me.edit" (query-params tab="occupindustry") }}
         <i class="icons pencil"></i>
       {{/link-to}}
     {{/if}}
   </section>
 
   <section>
-    <h4>Snapshot 
-      {{#if isOwnerx}}    
-        {{#link-to "me.edit" (query-params tab="snapshot")}}       
+    <h4>Snapshot
+      {{#if isOwnerx}}
+        {{#link-to "me.edit" (query-params tab="snapshot")}}
           <i class="icons pencil pull-right"></i>
         {{/link-to}}
       {{/if}}
@@ -72,12 +72,21 @@
     <section>
       <div class="section-main">
         <h4>Ask</h4>
-
-        <div class="title mb">{{latestQuestion.question}}</div>
-        <div class="user">
-          {{link-to latestQuestion.from.content.profile.firstName "profile" latestQuestion.from.content.id class="name" }} asked {{link-to latestQuestion.to.content.profile.firstName "profile" latestQuestion.to.content.id class="name"}}
-          <div class="text-gray">{{timestamp latestQuestion.createdAt}}</div>
+        <div class="user mb">
+          <div class="avatar" style={{htmlSafeImage latestQuestion.from.profile.avatarUrl }}>
+            <img src= {{latestQuestion.from.profile.avatarUrl}} class="hide">
+          </div>
+          <div class="user-info">
+            <span class="name">
+              {{link-to latestQuestion.from.profile.fullName "profile" latestQuestion.from.id}}
+              asked
+              {{link-to latestQuestion.to.profile.fullName "profile" latestQuestion.to.id}}
+            </span>
+            <div class="timestamp">{{timestamp latestQuestion.updatedAt}}</div>
+          </div>
         </div>
+
+        <div class="title">{{latestQuestion.question}}</div>
       </div>
       {{#zf-accordion-menu class="section-accordion" multiOpen=true}}
         <li>
@@ -86,7 +95,7 @@
           </ul>
           <a class="more no-arrow"><span class="content-more">See Answer</span><span class="content-less">Hide Answer</span></a>
         </li>
-      {{/zf-accordion-menu}}    
+      {{/zf-accordion-menu}}
     </section>
 
     <section class="section-footer-links">
@@ -96,18 +105,18 @@
         {{link-to "See more questions" 'ask' profile.id  class="button expanded"}}
       {{/if}}
     </section>
-  </div>  
+  </div>
 </div>
 {{/if}}
 
 <div class="box">
   <section>
     <h4>Compliments</h4>
-    {{#if latestCompliment}}  
+    {{#if latestCompliment}}
       <div class="mb">
-        <strong>{{latestCompliment.title}}:</strong> 
+        <strong>{{latestCompliment.title}}:</strong>
         <div class="content-pad">{{latestCompliment.content}}</div>
-      </div>    
+      </div>
       <div class="user">
         <div class="avatar" style={{htmlSafeImage latestCompliment.from.content.profile.avatarUrl }}>
           <img src= {{post.user.profile.avatarUrl}} class="hide">
@@ -115,7 +124,7 @@
         <div class="user-info">
           Complimented by
           <span class="name">
-            {{#link-to "profile" latestCompliment.from.content.id}} 
+            {{#link-to "profile" latestCompliment.from.content.id}}
               {{latestCompliment.from.content.profile.firstName}}
             {{/link-to}}
           </span>
@@ -127,7 +136,7 @@
     <div class="empty-message">
       {{profile.firstName}} hasn't received any Compliments
     </div>
-    {{/if}}  
+    {{/if}}
   </section>
   <section class="section-footer-links">
     {{#if latestCompliment}}
@@ -135,9 +144,9 @@
         {{link-to 'See more compliments' 'me.compliments' class="button expanded"}}
       {{else}}
         {{link-to 'See more compliments' 'compliments' latestCompliment.to.id class="button expanded"}}
-      {{/if}}    
+      {{/if}}
     {{/if}}
-  </section>    
+  </section>
 </div>
 
 {{ partial "partials/user-guide-box" }}
