@@ -6,7 +6,7 @@
       </p>
     </div>
 
-    {{#each from.hiddenx as |item| }}
+    {{#each from.hidden as |item| }}
 
       <div class="box {{if (eq item.id qid) 'highlight'}}">
         {{#if isOwner}}
@@ -20,9 +20,9 @@
           {{/zf-dropdown}}
         {{/if}}
         <section>
-          {{link-to item.from.content.name "profile" item.from.content.id class="name"}} asked {{link-to item.to.content.name "profile" item.to.content.id class="name"}}
-          <div class="timestamp">{{timestamp item.createdAt}}</div>
-          <div class="content-pad">{{item.content}}</div>
+          {{link-to item.from.profile.fullName "profile" item.from.id class="name"}} asked {{link-to item.to.profile.fullName "profile" item.to.id class="name"}}
+          <div class="timestamp">{{timestamp item.updatedAt}}</div>
+          <div class="content-pad">{{item.question}}</div>
           <div class="section-footer-buttons">
             <a {{action "toggleHide" item }} class="button success rounded">Unarchive</a>
           </div>

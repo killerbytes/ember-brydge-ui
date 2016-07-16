@@ -16,13 +16,12 @@ export default Ember.Component.extend({
       }
 		},
 		submit: function () {
-			let question = this.get('ask.question');			
+			let question = this.get('ask.question');
 			question.set('answer', this.get('utils').insertParagraph(this.get('answer')));
 			question.set('status', "accepted");
 			//
 			question.save().then(()=>{
 				this.set('answer', null);
-				console.log(this.$())
 				$('#answerFormModal').foundation('close');
 			});
 		}

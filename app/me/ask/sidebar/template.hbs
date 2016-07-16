@@ -1,29 +1,29 @@
 <div class="box">
 	<ul class="ask-menu no-bullet">
 		<li>
-			{{#link-to "me.ask.inbox" }} 
-				Ask: Inbox 
-				<span>(12)</span>
+			{{#link-to "me.ask.inbox" }}
+				Ask: Inbox
+				<span>({{toPending.length}})</span>
 				<i class="fa fa-chevron-right float-right" aria-hidden="true"></i>
 			{{/link-to}}
 		</li>
 		<li>
-			{{#link-to "me.ask.outbox" }} 
-				Ask: Outbox 
-				<span>(12)</span>
+			{{#link-to "me.ask.outbox" }}
+				Ask: Outbox
+				<span>({{fromPending.length}})</span>
 				<i class="fa fa-chevron-right float-right" aria-hidden="true"></i>
 			{{/link-to}}
 		</li>
 		<li>
-			{{#link-to "me.ask.hidden" }} 
-				Archived Questions 
-				<span>(12)</span>
+			{{#link-to "me.ask.hidden" }}
+				Archived Questions
+				<span>({{hiddenCount}})</span>
 				<i class="fa fa-chevron-right float-right" aria-hidden="true"></i>
 			{{/link-to}}
 		</li>
 	</ul>
 </div>
-<!-- 
+<!--
 <div class="box">
 	<section class="title">
 		<h4>Questions: Inbox</h4>
@@ -80,7 +80,7 @@
 
 <div class="box">
 	<section class="title">
-		<h4>Archived Questions</h4>		
+		<h4>Archived Questions</h4>
 	</section>
 		{{#each from.hiddenSidebar as |item| }}
 
@@ -102,7 +102,7 @@
           </ul>
           <a class="more no-arrow"><span class="content-more">See Answer</span><span class="content-less">Hide Answer</span></a>
         </li>
-      {{/zf-accordion-menu}}    
+      {{/zf-accordion-menu}}
     </section>
 
     <section class="section-footer-links">
@@ -112,7 +112,7 @@
         {{link-to "See more questions" 'ask' profile.id  class="button expanded"}}
       {{/if}}
     </section>
-  </div>  
+  </div>
 
 			<section>
 				{{link-to item.from.content.name "profile" item.from.content.id class="name"}} asked {{link-to item.to.content.name "profile" item.to.content.id class="name"}}
@@ -125,11 +125,11 @@
             </ul>
             <a class="more no-arrow"><span class="content-more">See Answer</span><span class="content-less">Hide Answer</span></a>
           </li>
-        {{/zf-accordion-menu}}    
+        {{/zf-accordion-menu}}
 
 				<div class="section-footer-buttons">
 					<a {{action "toggleHide" item }} class="button success rounded">Unarchive</a>
-				</div>			
+				</div>
 			</section>
 		{{/each}}
 		{{#each to.hiddenSidebar as |item| }}
@@ -139,7 +139,7 @@
 				<div class="content-pad">{{item.content}}</div>
 				<div class="section-footer-buttons">
 					<a {{action "toggleHide" item }} class="button success rounded">Unarchive</a>
-				</div>			
+				</div>
 			</section>
 		{{/each}}
 	<section class="section-footer-links">

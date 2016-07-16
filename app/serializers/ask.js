@@ -6,7 +6,7 @@ export default DS.JSONAPISerializer.extend({
     const json = this._super(...arguments);
     return {
       ask: {
-        to_user: json.data.attributes.to,
+        to_user: json.data.attributes.userid,
         from_user: json.data.attributes.from,
         question: json.data.attributes.question,
         status: json.data.attributes.status,

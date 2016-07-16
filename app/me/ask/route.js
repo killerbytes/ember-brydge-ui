@@ -17,12 +17,11 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
   		this.set('ask.question', item);
   	},
     delete(item){
-      this.get('ask').delete(item.id);
+      this.get('ask').delete(item);
     },
     toggleHide(item, list){
       this.get('ask').hide(item).then(res=>{
-				console.log(list, item)
-				list.removeObject(item)
+				if(list) list.removeObject(item);
 			});
     }
   }

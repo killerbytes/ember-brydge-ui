@@ -4,9 +4,9 @@ export default Ember.Service.extend({
 	ajax: Ember.inject.service(),
 	store: Ember.inject.service(),
   session: Ember.inject.service('session'),
-	create(to, question){
+	create(userid, question){
 		return this.get('store').createRecord('ask',{
-			to: to,
+			userid: userid,
 			question: question
 		}).save();
 
@@ -26,13 +26,14 @@ export default Ember.Service.extend({
     //   this.get('store').push({data: res});
     // });
   },
-  delete(id){
-    var url = '/v2/asks/'+id+'/delete';
-    this.get('ajax').request(url, {
-      method: 'POST'
-    }).then((res)=>{
-    	this.get('store').push({data: res});
-    });
+  delete(item){
+		item.destroyRecord();
+  //   var url = '/v2/asks/'+id+'/delete';
+  //   this.get('ajax').request(url, {
+  //     method: 'POST'
+  //   }).then((res)=>{
+  //   	this.get('store').push({data: res});
+  //   });
   }
 
 });
