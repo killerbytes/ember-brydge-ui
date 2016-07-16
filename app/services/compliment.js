@@ -5,19 +5,28 @@ export default Ember.Service.extend({
   ajax: Ember.inject.service(),
   post(id, title, content){
     var url = '/v2/compliments';
-    return this.get('ajax').request(url,{
-      method: 'POST',
-      data: {
-        to_id: id,
+    var data = { 
+      compliment: {
+        to_userid: id,
         title: title,
         content: content
       }
+    };
+    return this.get('ajax').request(url,{
+      method: 'POST',
+      data: data
     });
   },
   accept(id){
-    var url = '/v2/compliments/'+id+'/accept';
+    var url = '/v2/compliments/'+id;
+    var data = { 
+      compliment: {
+        status: 'accepted'
+      }
+    };
     return this.get('ajax').request(url,{
-      method: 'POST'
+      method: 'PATCH',
+      data: data
     });
   },
   reject(id){
@@ -27,9 +36,15 @@ export default Ember.Service.extend({
     });
   },
   delete(id){
-    var url = '/v2/compliments/'+id+'/delete';
+    var url = '/v2/compliments/'+id;
+    var data = { 
+      compliment: {
+        status: 'delete'
+      }
+    };
     return this.get('ajax').request(url,{
-      method: 'POST'
+      method: 'PATCH',
+      data: data
     });
   }
 });
