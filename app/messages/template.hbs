@@ -5,7 +5,7 @@
     </section>
     <section>
       <form class="form-profile">
-        {{input value=key placeholder="Search by Name" class="no-margin search-input"}}
+        {{input type="search" value=key placeholder="Search by Name" class="no-margin search-input"}}
       </form>
     </section>
     <section class="container">
@@ -25,7 +25,7 @@
             </div>
             <div class="column medium-4 text-right">
               <div>
-                <div class="timestamp">{{ moment-format item.updatedAt "h:ma" }}</div>
+                <div class="timestamp">{{ moment-format item.updatedAt "h:mma" }}</div>
               </div>
             </div>
           </div>

@@ -10,11 +10,11 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
     this.store.findAll('conversation');
   },
   actions: {
-  	submit: function() {
+  	submit() {
       this.store.findAll('conversation')
       this.controller.model.reload()
     },
-    delete: function(id) {
+    delete(id) {
       var conversation = this.store.peekRecord('conversation', id);
       conversation.set('action', 'toggle_hide');
       conversation.save()
@@ -22,7 +22,6 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
           this.store.unloadRecord(conversation);
           this.store.findAll('conversation');
           this.transitionTo('/messages');
-
         })
     }
   }

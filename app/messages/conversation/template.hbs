@@ -14,38 +14,6 @@
       <button class="button secondary clear" {{action 'delete' model.id}}>Delete Conversation</button>
     </div>
   </div>
+</section>
 
-</section>
-<section class="message-box container">
-  {{#if model.messages}}
-  <section class="container bg-white message-scrollable">
-    <ul class="messages-list no-bullet">
-      {{#each model.messages as |item| }}
-        <li>
-          <div class="row user">
-            <div class="columns medium-8">
-              <div class="avatar" style={{htmlSafeImage item.avatar }}>
-                <img src= {{item.avatar}} class="hide">
-              </div>
-              <div class="user-info">
-                {{#link-to "profile" item.sender }}
-                  {{ item.fullName }}
-                {{/link-to}}
-              </div>
-            </div>
-            <div class="column medium-4 text-right">
-              <div>
-                <div class="timestamp">{{ timestamp item.updatedAt }}</div>
-              </div>
-            </div>
-          </div>
-          <div class="message-body">{{{item.content}}}</div>
-        </li>
-      {{/each}}
-    </ul>
-  </section>
-  {{/if}}
-  <section>
-    {{ message-box resp="submit" buttonLabel='Reply' showToInput=false to=model.other.id }}
-  </section>
-</section>
+{{message-box resp="submit" to=model.other.id messages=model.messages}}

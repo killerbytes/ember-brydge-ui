@@ -1,24 +1,38 @@
 import Ember from 'ember';
 
 export default Ember.Component.extend({
+  classNames: ['message-box', 'container'],
+  tagName: 'section',
   sessionAccount: Ember.inject.service(),
   store: Ember.inject.service(),
   utils: Ember.inject.service(),
+  onTextChange: Ember.observer('message', function() {
+    this.get('utils').textAreaChange(this.$('textarea'), this.get('message'));
+    this.resize();
+  }),
+
+  resize(){
+    var $scrollable = this.$('.message-scrollable');
+    $scrollable.animate({'scrollTop': $scrollable.find('ul:first').height()});
+    console.log($scrollable.parent().height(), 645)
+    if($scrollable.parent().height() >= 645){
+      $scrollable.height(500- ($scrollable.next().outerHeight()-144) + 'px');
+    }else{
+      $scrollable.height('auto');
+    }
+  },
   didReceiveAttrs(){
     this._super();
-    console.log('didUpdateAttrs')
     this.set('message', null);
+    Ember.run.scheduleOnce('afterRender', this, function(){
+      this.resize();
+    })
+
   },
 	actions: {
-    edit(){
-      this.get('utils').edit(...arguments);
-      var $scrollable = this.$().parents('section.message-box').find('.message-scrollable');
-      // console.log(, this.$().parent().outerHeight())
-      $scrollable.animate({'scrollTop': $scrollable.find('ul:first').height()});
-      $scrollable.height(500- (this.$().parent().outerHeight()-144) + 'px');
-    	// this.set('dHeight', 500- this.get('height')+ 'px');
-
-      // this.set('height', this.$().parents('section:first').outerHeight() - 145)
+    clear(){
+      this.set('message', null);
+      this.resize();
     },
   	submit: function() {
       this.get('store').createRecord('message', {

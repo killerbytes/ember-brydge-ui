@@ -1,20 +1,46 @@
-<form class="form-input mb">
-  {{#if showToInput}}
-  	{{input value=to type="text" id="middle-label" placeholder="Type a person name.."}}
+  {{#if messages}}
+  <section class="container bg-white message-scrollable">
+    <ul class="messages-list no-bullet">
+      {{#each messages as |item| }}
+        <li>
+          <div class="row user">
+            <div class="columns medium-8">
+              <div class="avatar" style={{htmlSafeImage item.avatar }}>
+                <img src= {{item.avatar}} class="hide">
+              </div>
+              <div class="user-info">
+                {{#link-to "profile" item.sender }}
+                  {{ item.fullName }}
+                {{/link-to}}
+              </div>
+            </div>
+            <div class="column medium-4 text-right">
+              <div>
+                <div class="timestamp">{{ timestamp item.updatedAt }}</div>
+              </div>
+            </div>
+          </div>
+          <div class="message-body">{{{item.content}}}</div>
+        </li>
+      {{/each}}
+    </ul>
+  </section>
   {{/if}}
-	<div class="avatar circle" style={{htmlSafeImage sessionAccount.account.profile.avatarUrl}}>
-	  <img src="{{ sessionAccount.account.profile.avatarUrl }}" class="hide">
-	</div>
-	<div class="input-wrapper">
-	  {{textarea 
-	    value=message
-	    key-up="edit" 
-	    enter="submit"
-	    class="textarea content-editable" 
-	  	placeholder="Message..." 
-	    }}  	      	      
-	</div>
-</form>
-<div class="text-right">
-	<button type="submit" {{action "submit"}} class="button success rounded">{{buttonLabel}}</button>
-</div>
+  <section>
+    <form class="form-input mb">
+    	<div class="avatar circle" style={{htmlSafeImage sessionAccount.account.profile.avatarUrl}}>
+    	  <img src="{{ sessionAccount.account.profile.avatarUrl }}" class="hide">
+    	</div>
+    	<div class="input-wrapper">
+    	  {{textarea
+    	    value=message
+    	    enter="submit"
+    	    class="textarea content-editable"
+    	  	placeholder="Message..."
+    	    }}
+    	</div>
+    </form>
+    <div class="text-right">
+    	<button type="submit" {{action "submit"}} class="button success rounded">Reply</button>
+    </div>
+  </section>

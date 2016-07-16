@@ -1,18 +1,13 @@
 <section class="container">
 	<section>
-		{{#if selected}}
-			<span class="label label-item"><a {{action "remove" }}>{{fa-icon "close"}}</a> {{selected.fullName}}</span>
-		{{else}}
-			<form>
-				{{input id="contact-input" value=key class="input-group-field" type="search" placeholder="Name"}}
-			</form>
-		{{/if}}
+		<form>
+			{{input id="contact-input" value=key class="input-group-field" type="search" placeholder="Search by Name"}}
+		</form>
 	</section>
 
-	{{#unless selected}}
 	<section class="container bg-white">
 		<ul class="user-link-list contact-list no-bullet" >
-		{{#each contacts as |item|}}
+		{{#each connections as |item|}}
 			<li>
 				{{#link-to "messages.conversation" item.conversationid }}
 	        <div class="row user">
@@ -30,11 +25,4 @@
 		{{/each}}
 		</ul>
 	</section>
-	{{/unless}}
 </section>
-
-{{#if selected}}
-<section class="message-box">
-	{{ message-box resp='submit' buttonLabel='Send' showToInput=false to=selected.userid}}
-</section>
-{{/if}}
