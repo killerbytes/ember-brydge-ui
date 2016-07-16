@@ -1,9 +1,9 @@
-<div class="row"> 
+<div class="row">
   <div class="large-7 medium-7 columns">
-    <div class="page-heading">      
+    <div class="page-heading">
       <h1>Archived Questions</h1>
       <p class="text-center">
-      </p>                    
+      </p>
     </div>
 
     {{#each from.hiddenx as |item| }}
@@ -11,7 +11,7 @@
       <div class="box {{if (eq item.id qid) 'highlight'}}">
         {{#if isOwner}}
           <div class="menu-wrapper">
-            <a data-toggle="dd-card-menu-{{item.id}}"><i class="icons ellipsis"></i></a>      
+            <a data-toggle="dd-card-menu-{{item.id}}"><i class="icons ellipsis"></i></a>
           </div>
           {{#zf-dropdown id=(concat 'dd-card-menu-' item.id) closeOnClick=true class="card-menu-dropdown"}}
             <ul class="menu">
@@ -25,7 +25,7 @@
           <div class="content-pad">{{item.content}}</div>
           <div class="section-footer-buttons">
             <a {{action "toggleHide" item }} class="button success rounded">Unarchive</a>
-          </div>      
+          </div>
         </section>
       </div>
     {{/each}}
@@ -39,24 +39,24 @@
                 <div class="avatar float-left" style={{htmlSafeImage item.from.content.profile.avatarUrl}}>
                   <img src= {{item.from.content.profile.avatarUrl}} class="hide">
                 </div>
-                <div class="user-info">{{link-to item.from.content.name "profile" item.from.content.id }} asked {{link-to item.to.content.name "profile" item.to.content.id }}</div>
+                <div class="user-info">{{link-to item.from.profile.fullName "profile" item.from.id }} asked {{link-to item.to.profile.fullName "profile" item.to.id }}</div>
               </div>
               <div class="column medium-4 text-right">
                 {{#if isOwner }}
-                  <a data-toggle="dd-card-menu-{{item.id}}" class="action-button dropdown-button-arrow"><i class="icons ellipsis"></i></a>      
+                  <a data-toggle="dd-card-menu-{{item.id}}" class="action-button dropdown-button-arrow"><i class="icons ellipsis"></i></a>
                   {{#zf-dropdown id=(concat 'dd-card-menu-' item.id) closeOnClick=true class="card-menu-dropdown"}}
                     <ul class="menu">
                       <li><a {{action "toggleHide" item }}>Unarchive</a></li>
                     </ul>
                   {{/zf-dropdown}}
-                {{/if}}              
-                <div class="timestamp">{{timestamp item.createdAt}}</div>              
+                {{/if}}
+                <div class="timestamp">{{timestamp item.updatedAt}}</div>
               </div>
             </div>
           </section>
           <section>
             <div class="section-main">
-              <div class="title">{{item.content}}</div>
+              <div class="title">{{item.question}}</div>
             </div>
             {{#zf-accordion-menu class="section-accordion" multiOpen=true}}
               <li>
@@ -65,12 +65,12 @@
                 </ul>
                 <a class="more no-arrow"><span class="content-more">See Answer</span><span class="content-less">Hide Answer</span></a>
               </li>
-            {{/zf-accordion-menu}}    
+            {{/zf-accordion-menu}}
           </section>
         </div>
       </div>
     {{else}}
-      No questions to show  
+      No questions to show
     {{/each}}
 
 
@@ -80,5 +80,3 @@
     {{ partial "footer"}}
   </div>
 </div>
-
-

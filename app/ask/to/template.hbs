@@ -14,11 +14,11 @@
               <a class="button menu dropdown-button-arrow button-ellipsis" data-toggle="dd-card-menu-{{item.id}}"></a>
               {{#zf-dropdown id=(concat 'dd-card-menu-' item.id) closeOnClick=true class="card-menu-dropdown"}}
                 <ul class="menu">
-                  <li><a {{action "toggleHide" item }}>Archive</a></li>
+                  <li><a {{action "toggleHide" item to.answered }}>Archive</a></li>
                 </ul>
               {{/zf-dropdown}}
-            {{/if}}              
-            <div class="timestamp">{{timestamp item.createdAt}}</div>              
+            {{/if}}
+            <div class="timestamp">{{timestamp item.createdAt}}</div>
           </div>
         </div>
       </section>
@@ -33,10 +33,10 @@
             </ul>
             <a class="more no-arrow"><span class="content-more">See Answer</span><span class="content-less">Hide Answer</span></a>
           </li>
-        {{/zf-accordion-menu}}    
+        {{/zf-accordion-menu}}
       </section>
     </div>
 	</div>
 {{else}}
-  No questions to show  
+  No questions to show
 {{/each}}

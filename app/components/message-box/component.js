@@ -14,7 +14,6 @@ export default Ember.Component.extend({
   resize(){
     var $scrollable = this.$('.message-scrollable');
     $scrollable.animate({'scrollTop': $scrollable.find('ul:first').height()});
-    console.log($scrollable.parent().height(), 645)
     if($scrollable.parent().height() > 645){
       $scrollable.height(500- ($scrollable.next().outerHeight()-144) + 'px');
     }else{

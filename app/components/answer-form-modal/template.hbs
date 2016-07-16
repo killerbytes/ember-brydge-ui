@@ -11,21 +11,21 @@
         <img src={{sessionAccount.account.profile.avatarUrl}} class="hide">
       </div>
       <div class="input-wrapper">
-        {{textarea 
-          value=answer 
-          key-up="edit" 
-          class="textarea content-editable" 
-          placeholder="Would you like to say something about this?" 
-          }}                  
+        {{textarea
+          value=answer
+          key-up="edit"
+          class="textarea content-editable"
+          placeholder="Would you like to say something about this?"
+          }}
       </div>
-    </form>    
+    </form>
   </section>
   <section>
-  	<div class="title">{{ask.question.content}}</div>
+  	<div class="title">{{ask.question.question}}</div>
   </section>
   <section>
     <button class="success button rounded" type="submit" {{action "submit"}}>Submit</button>
 		<a class="button clear float-right" data-close>Cancel</a>
   </section>
-  
+
 {{/zf-reveal}}
