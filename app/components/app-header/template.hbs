@@ -92,11 +92,13 @@
 	{{#zf-dropdown id="dd-views" class="dropdown-notification" closeOnClick=true }}
 		<div class="dropdown-header">
 			<h4>See who's viewed your profile</h4>
+      <div>
 			{{#if setting.profileView}}
-				<div>Turning this ON will also let other users know you've seen their profile. You can turn it OFF in {{link-to "Settings" "settings" (query-params tab="views") }}.</div>
+        Toggling this ON will also notify other users when you view their profiles. If you don’t like that, you can toggle it OFF in {{link-to "Settings" "settings" (query-params tab="views") }}.
 			{{else}}
-				<div>Turning this ON will also let other users know you've seen their profile. You can turn it ON in {{link-to "Settings" "settings" (query-params tab="views") }}.</div>
+        Toggling this ON will also notify other users when you view their profiles. If you don’t like that, you can toggle it ON in {{link-to "Settings" "settings" (query-params tab="views") }}.
 			{{/if}}
+      </div>
 		</div>
 		<ul class="media-list user">
 			{{#if sessionAccount.account.profile.settings.profileView}}
@@ -129,19 +131,16 @@
 				</li>
 			{{/if}}
 		</ul>
-		{{#if sessionAccount.account.profile.settings.profileView}}
-			{{#link-to 'profile-views' class="footer-button button expanded"}}
-				See all profile views
-			{{/link-to}}
-		{{/if}}
+		{{#link-to 'profile-views' class="footer-button button expanded"}}
+			See all profile views
+		{{/link-to}}
 	{{/zf-dropdown}}
 
 	{{#zf-dropdown id="dd-requests" class="dropdown-notification" closeOnClick=true }}
 		<div class="dropdown-header">
 			<h4>Your Connection Requests</h4>
 				<div>
-					These professionals want to connect! <br>
-					Are they relevant to your career? Check their profile.
+					These users want to connect! Accept if you know them, or head over to their profile to see if they can be relevant professional acquaintances.
 				</div>
 		</div>
 		<ul class="media-list user">
@@ -181,7 +180,7 @@
 		<div class="dropdown-header">
 			<h4>Your Incoming Messages</h4>
 				<div>
-					Speak with professionals and create connections! Network and expand your connections with highly qualified professionals
+					Speak with connections privately. Only connections can message you, so if you are receiving inappropriate messages or spam, inform the user or disconnect from them.
 				</div>
 		</div>
 
@@ -222,7 +221,7 @@
 		<div class="dropdown-header">
 			<h4>Your Notifications</h4>
 				<div>
-					Get updates on what people are doing with your content and post shares, interact!
+          Get updates on your interaction with connections and users who interact with your post.
 				</div>
 		</div>
 

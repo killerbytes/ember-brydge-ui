@@ -1,11 +1,7 @@
-{{#zf-dropdown id=(concat 'dd-industry-picker-' name) class="industry-picker"}}
 	<section class="content-title">
-	  <h4>Industry Picker</h4>	
-	  <button class="close-button" aria-label="Close alert" type="button" {{action "close"}}>
-    	<span aria-hidden="true">&times;</span>
-  	</button>
+	  <h4>Industry Picker</h4>
 	</section>
-	  
+
 	  {{#zf-tabs class="hide" id=(concat "industry-tab-" name)}}
 	    <li class="tabs-title is-active"><a href="#{{name}}-root">Root</a></li>
 	    {{#each categories as |item|}}
@@ -13,7 +9,7 @@
 	        {{#each item.categories as |category|}}
 	          <li class="tabs-title"><a href="#{{name}}-{{category.code}}">{{category.name}}</a></li>
 	        {{/each}}
-	    {{/each}}  
+	    {{/each}}
 	    <li class="tabs-title"><a href="#{{name}}-done">Done</a></li>
 	  {{/zf-tabs}}
 
@@ -86,5 +82,3 @@
 	      </form>
 	    </div>
 	  </div>
-
-{{/zf-dropdown}}

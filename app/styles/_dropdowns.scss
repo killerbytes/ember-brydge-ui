@@ -28,10 +28,18 @@
 .dropdown-button-arrow.hover{
   @extend .dropdown-arrow;
 }
+.dropdown-button-arrow{
+  &:before, &:after{
+    z-index: 13;
+  }
+}
+.dropdown-button-arrow+.dropdown-pane{
+  z-index: 12;
+}
 
 .arrow{
   content: '';
-  z-index: 13;
+  // z-index: 13;
   position: absolute;
   width: 0;
   height: 0;

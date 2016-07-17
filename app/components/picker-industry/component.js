@@ -9,7 +9,7 @@ export default Ember.Component.extend({
     	switch(index){
     		case "0":
 		      this.$('#industry-tab-'+ this.get('name')).foundation('selectTab', $('#'+ this.get('name') + '-root'));
-    			break;    		
+    			break;
     		case "1":
     			this.set('sector', item);
 
@@ -27,8 +27,11 @@ export default Ember.Component.extend({
       // this.$('#industry-tab-'+ this.get('name')).foundation('selectTab', $('[data-id="'+link+'"]'));
     },
     select(item){
-    	this.sendAction('onSelect', item);
-			this.$('.industry-picker').foundation('toggle');
+    	this.sendAction('onSelect', {
+					code: item.data.code,
+					name: item.data.subIndustry
+				});
+			if(this.$().parents('.industry-picker:first')) this.$().parents('.industry-picker:first').foundation('toggle');
     }
 
 	}

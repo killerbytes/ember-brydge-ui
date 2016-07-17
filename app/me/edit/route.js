@@ -6,7 +6,7 @@ export default Ember.Route.extend(QueryLocationMixin, {
   session: Ember.inject.service(),
   resetController(controller, isExiting, transition) {
       if (isExiting) {
-        controller.set(tab, 'personal');
+        controller.set(controller.tab, 'personal');
       }
   },
 	model: function (params) {
@@ -47,16 +47,17 @@ export default Ember.Route.extend(QueryLocationMixin, {
       })
     },
     setBusinessIndustry(item){
-      this.set('controller.profile.industryOneId', item.data.code);
-      this.set('controller.profile.industryOneName', item.data.subIndustry);
+      console.log(item);
+      this.set('controller.profile.industryOneId', item.code);
+      this.set('controller.profile.industryOneName', item.name );
     },
     setOccupationalOne(item){
-      this.set('controller.profile.industryTwoId', item.data.code);
-      this.set('controller.profile.industryTwoName', item.data.subIndustry);
+      this.set('controller.profile.industryTwoId', item.code);
+      this.set('controller.profile.industryTwoName', item.name);
     },
     setOccupationalTwo(item){
-      this.set('controller.profile.industryThreeId', item.data.code);
-      this.set('controller.profile.industryThreeName', item.data.subIndustry);
+      this.set('controller.profile.industryThreeId', item.code);
+      this.set('controller.profile.industryThreeName', item.name);
     },
 
     onLocationSelect(item){

@@ -1,10 +1,10 @@
 <div class="row">
   <div class="medium-6 small-centered columns">
-    <div class="page-heading">      
+    <div class="page-heading">
       <h1>Edit Profile</h1>
       <p class="text-center">
-        Invest some time here. It'll do you good! A complete profile increases your chances of being noticed by industry peers.
-      </p>                    
+        A complete profile increases your chances of being noticed by industry peers and businesses. So invest some time here—it’ll do you good! 
+      </p>
     </div>
   </div>
 
@@ -27,7 +27,7 @@
       </div>
       <div class="medium-9 columns float-left">
         <div class="tabs-content vertical boxz" data-tabs-content="edit-tabs">
-          <a data-toggle="dd-industry-picker-business" class="action-button dropdown-button-arrow invisible"><i class="icons ellipsis"></i></a>      
+          <a data-toggle="dd-industry-picker-business" class="action-button dropdown-button-arrow invisible"><i class="icons ellipsis"></i></a>
 
           <div class="tabs-panel {{active-tab 'personal' tab}}" id="personal">
             <section class="personal-info">
@@ -35,7 +35,14 @@
             </section>
           </div>
           <div class="tabs-panel {{active-tab 'industry' tab}}" id="industry">
-            {{picker-industry name="business" categories=categories onSelect='setBusinessIndustry' }} 
+            {{#zf-dropdown id="dd-industry-picker-business" class="industry-picker"}}
+              <button class="close-button" data-close aria-label="Close modal" type="button">
+                <span aria-hidden="true">&times;</span>
+              </button>
+
+              {{picker-industry name="business" categories=categories onSelect='setBusinessIndustry' }}
+            {{/zf-dropdown}}
+
             <section class="header">
               <form class="form-occupational-industry">
                 <div class="row">
@@ -44,7 +51,7 @@
                       <label for="">
                         Business Industry
                        {{dropdown-filter
-                        items=industries 
+                        items=industries
                         selected=selectedIndustry
                         query='queryIndustries'
                         itemSelected='industrySelected'
@@ -68,8 +75,19 @@
 
           </div>
           <div class="tabs-panel {{active-tab 'occupindustry' tab}}" id="occupindustry">
-            {{picker-industry name="occupationalOne" categories=categories onSelect='setOccupationalOne' }} 
-            {{picker-industry name="occupationalTwo" categories=categories onSelect='setOccupationalTwo' }} 
+            {{#zf-dropdown id="dd-industry-picker-occupationalOne" class="industry-picker"}}
+              <button class="close-button" data-close aria-label="Close modal" type="button">
+                <span aria-hidden="true">&times;</span>
+              </button>
+              {{picker-industry name="occupationalOne" categories=categories onSelect='setOccupationalOne' }}
+            {{/zf-dropdown}}
+            {{#zf-dropdown id="dd-industry-picker-occupationalTwo" class="industry-picker"}}
+              <button class="close-button" data-close aria-label="Close modal" type="button">
+                <span aria-hidden="true">&times;</span>
+              </button>
+              {{picker-industry name="occupationalTwo" categories=categories onSelect='setOccupationalTwo' }}
+            {{/zf-dropdown}}
+
             <section class="header">
               <p>Occupational Industries are industries that you deal with as part of your job. We allow you to pick up 2 Occupational Industries on Brydge. See example below.</p>
               <p>If you think this isn't applicable to you, check the Not Applicable box.</p>
@@ -80,7 +98,7 @@
                       <label for="">
                         Occupation Industry #1
                         {{dropdown-filter
-                        items=industries 
+                        items=industries
                         selected=selectedOccupOne
                         query='queryIndustries'
                         itemSelected='occupOneSelected'
@@ -101,7 +119,7 @@
                       <label for="">
                         Occupation Industry #2 (optional)
                         {{dropdown-filter
-                        items=industries 
+                        items=industries
                         selected=selectedOccupTwo
                         query='queryIndustries'
                         itemSelected='occupTwoSelected'
@@ -128,7 +146,7 @@
             <section class="header">
               <form>
                 <label for="">Write a summary about yourself:</label>
-                <div class="wrapper">{{form-text-counter limit=500 value=profile.snapshot rows=10 class="mb"}}</div>         
+                <div class="wrapper">{{form-text-counter limit=500 value=profile.snapshot rows=10 class="mb"}}</div>
                 <button class="button success rounded" {{ action 'save' }}>Save Changes</button>
               </form>
 
@@ -144,9 +162,8 @@
             {{ profile-language items=languages}}
           </div>
 
-        </div>            
+        </div>
       </div>
     </div>
   </div>
 </div>
-

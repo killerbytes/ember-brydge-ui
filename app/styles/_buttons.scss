@@ -14,7 +14,7 @@
 	background-color: #FFF;
 	min-width: 6rem;
 	padding: 8px 12px;
-	&.button-border{				
+	&.button-border{
 		border: 1px solid $button-blue;
 	}
 	&.rounded{
@@ -52,8 +52,8 @@
 	background-position: center center;
 	background-repeat: no-repeat;
 	width: 38px;
-	height: 25px;
-	min-width: auto;	
+	// height: 25px;
+	min-width: auto;
 }
 
 .button.clear{

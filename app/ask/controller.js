@@ -22,7 +22,7 @@ export default Ember.Controller.extend(
     submit: function() {
 			this.get('ask').create(this.get('profile.id'), this.get('question')).then(res=>{
           this.set('question', null);
-          this.set('asked', true)
+          this.set('isAsked', true)
       })
     }
   }

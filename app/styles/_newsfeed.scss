@@ -14,17 +14,17 @@
 	section{
 		position: relative;
 	}
-	.dropdown-button-arrow.hover{
-  	@extend .dropdown-arrow;
-  	&:before{
-  		left: 14% !important;
-  		border-width: 6px !important;
-  	}
-  	&:after{
-			left: 18% !important;
-  		border-width: 6px !important;
-  	}
-	}
+	// .dropdown-button-arrow.hover{
+  // 	@extend .dropdown-arrow;
+  // 	&:before{
+  // 		left: 14% !important;
+  // 		border-width: 6px !important;
+  // 	}
+  // 	&:after{
+	// 		left: 18% !important;
+  // 		border-width: 6px !important;
+  // 	}
+	// }
 
 	.user{
 		.timestamp{

@@ -27,27 +27,24 @@
 				</p>
 			</div>
 		{{else}}
-			{{#unless asked}}
 	      <form {{action 'submit' on='submit'}} class="box user-top-form mb20">
-	        <section>
-
-	        	{{form-text-counter placeholder="Ask anyone a professional question. If answered, it will appear on both profiles." limit=140 value=question rows=3 showCount=true class="mb"}}
-
-						<div class="row">
-							<div class="columns medium-8 text-gray">
-
+					{{#unless isAsked}}
+		        <section>
+		        	{{form-text-counter placeholder="Ask anyone a professional question. If answered, it will appear on both profiles." limit=140 value=question rows=3 showCount=true class="mb"}}
+							<div class="row">
+								<div class="columns medium-8 text-gray">
+								</div>
+								<div class="columns medium-4 text-right">
+									<button class="button btn success">Ask</button>
+								</div>
 							</div>
-							<div class="columns medium-4 text-right">
-								<button class="button btn success">Ask</button>
-							</div>
-						</div>
-	        </section>
-	      </form>
-			{{else}}
-				<p>
-					Your question has been sent.
-				</p>
-			{{/unless}}
+		        </section>
+					{{else}}
+						<p>
+							Your question has been sent.
+						</p>
+					{{/unless}}
+				</form>
 		{{/if}}
 
     <div class="mb">

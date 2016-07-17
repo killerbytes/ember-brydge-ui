@@ -30,7 +30,7 @@
       </section>
       <section class="bg-gray">
         <form class="brydge-form">
-          {{ autocomplete-industry onSelect="addIndustry"}}
+          {{input-text-button-pop}}
         </form>
         {{#each industries as |item|}}
           <span class="label label-item"><a {{action "removeIndustry" item}}>{{fa-icon "close"}}</a> {{item.name}}</span>
@@ -65,28 +65,19 @@
     <section class="row medium-up-2 columns bg-gray user-list">
       {{#each search.results as |item|}}
         <div class="columns medium-6">
-          {{connection-box item=item}}
-          <div class="box">
-            <div class="user section-main">
-              <div class="avatar float-left" style={{htmlSafeImage item.avatarUrl}}>
-                <img src= {{item.from.content.profile.avatarUrl}} class="hide">
-              </div>
-              <div class="user-info">
-                {{link-to item.name "profile" item.id }}
-                <div class="position">{{item.title}}</div>
-                <div class="position"><strong>{{item.company}}</strong></div>
-                <div class="position">{{item.location}}</div>
-              </div>
-            </div>
-            {{log item}}
-            <button class="button success expanded">Message</button>
-          </div>
+          {{connection-box-search item=item}}
         </div>
       {{/each}}
     </section>
   </div>
 </div>
 {{/if}}
+
+
 {{#zf-reveal id="industryModal" overlay=true class="small industry-picker box"}}
-  {{picker-industry-multi name="search" categories=categories selected=(readonly industries) onSelect="onIndustrySelect" }}
+  <button class="close-button" data-close aria-label="Close modal" type="button">
+    <span aria-hidden="true">&times;</span>
+  </button>
+
+  {{picker-industry name="search" categories=categories onSelect="onIndustrySelect" }}
 {{/zf-reveal}}

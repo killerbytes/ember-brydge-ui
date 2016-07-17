@@ -114,7 +114,9 @@
     <h4>Compliments</h4>
     {{#if latestCompliment}}
       <div class="mb">
-        <strong>{{latestCompliment.title}}:</strong>
+        <div class="title">
+          {{latestCompliment.title}}!
+        </div>
         <div class="content-pad">{{latestCompliment.content}}</div>
       </div>
       <div class="user">
@@ -124,11 +126,11 @@
         <div class="user-info">
           Complimented by
           <span class="name">
-            {{#link-to "profile" latestCompliment.from.content.id}}
-              {{latestCompliment.from.content.profile.firstName}}
+            {{#link-to "profile" latestCompliment.from.id}}
+              {{latestCompliment.from.profile.fullName}}
             {{/link-to}}
           </span>
-          <div class="timestamp">{{timestamp latestCompliment.createdAt}}</div>
+          <div class="timestamp">{{timestamp latestCompliment.updatedAt}}</div>
         </div>
       </div>
 

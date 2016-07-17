@@ -35,34 +35,34 @@ export default TransitionToListenerRoute.extend(
         });
       }
     },
-    registerUser(data) {
-      console.log(" >>>> application:route:registeruser:data", data);
-      const self = this;
-      this.controller.set('errorMessage', 'mmm');
-      return;
-      this.store.createRecord('user', data).save()
-        .then(function(res) {
-
-          let { username, password } = res.getProperties('username', 'password');
-
-          const _this = this;
-          self.get('session').authenticate('authenticator:oauth2', username, password)
-            .then((user) => {
-              const userid = self.get('session.data.authenticated.account_id');
-              const name = self.get('session.data.authenticated.name');
-              self.get('session').set('data.userid', userid);
-              self.get('session').set('data.name', name);
-              self.transitionTo('me');
-            },
-          (err) => {
-          this.set('errorMessage', err.errors[0].details);
-          // console.log(err, this.get('errorMessage'));
-          });
-
-        }).catch(function(err) {
-          console.log("Error saving user:", err);
-        });
-    },
+    // registerUser(data) {
+    //   console.log(" >>>> application:route:registeruser:data", data);
+    //   const self = this;
+    //   this.controller.set('errorMessage', 'mmm');
+    //   return;
+    //   this.store.createRecord('user', data).save()
+    //     .then(function(res) {
+    //
+    //       let { username, password } = res.getProperties('username', 'password');
+    //
+    //       const _this = this;
+    //       self.get('session').authenticate('authenticator:oauth2', username, password)
+    //         .then((user) => {
+    //           const userid = self.get('session.data.authenticated.account_id');
+    //           const name = self.get('session.data.authenticated.name');
+    //           self.get('session').set('data.userid', userid);
+    //           self.get('session').set('data.name', name);
+    //           self.transitionTo('me');
+    //         },
+    //       (err) => {
+    //       this.set('errorMessage', err.errors[0].details);
+    //       // console.log(err, this.get('errorMessage'));
+    //       });
+    //
+    //     }).catch(function(err) {
+    //       console.log("Error saving user:", err);
+    //     });
+    // },
     authorizationFailed() {
       console.log("TODO >>>>> application:route:authorizationFailed", this);
     },

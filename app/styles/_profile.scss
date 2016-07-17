@@ -16,7 +16,7 @@
 			margin-bottom: 0;
 		}
 	}
-	.button-ellipsis{
+	.menu.button-ellipsis{
 		height: 38px;
 	}
 	.button.is-active{
@@ -39,7 +39,7 @@
 
 	}
 }
-.profile-box{	
+.profile-box{
 	font-size: 14px;
 	text-align: center;
 	.name{
@@ -71,7 +71,7 @@
 		width: 130px;
 		height: 130px;
 		margin: auto;
-		border: 3px solid #FFF;			
+		border: 3px solid #FFF;
 	}
 }
 
@@ -87,8 +87,8 @@
 // 	cursor: pointer;
 // 	width: 250px;
 // 	height: 250px;
-// 	background-size: cover;	
-// 	background-position: center center;	
+// 	background-size: cover;
+// 	background-position: center center;
 // 	margin: auto;
 // 	margin-bottom: 20px;
 // }
@@ -114,7 +114,7 @@
 // 	.position{
 // 		font-size: 15px;
 // 		line-height: 1.4em;
-// 	}	
+// 	}
 // }
 
 // .profile-industry{
@@ -127,7 +127,7 @@
 // 		padding: 10px;
 // 		font-size: 42px;
 // 		background-color: #F1F1F1;
-// 		color: #717171;	
+// 		color: #717171;
 // 		border-right: 1px solid $border-color;
 // 		margin-right: 1rem;
 // 		display: inline-block;
@@ -155,7 +155,7 @@
 // 		position: relative;
 // 		top: 3em;
 // 		span{
-// 			text-transform: uppercase;		
+// 			text-transform: uppercase;
 // 			font-size: 26px;
 // 			display: block;
 // 			font-weight: bold;
@@ -171,4 +171,3 @@
 // 	}
 
 // }
-

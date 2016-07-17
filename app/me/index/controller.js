@@ -4,7 +4,7 @@ export default Ember.Controller.extend({
 	session: Ember.inject.service(),
   ajax: Ember.inject.service(),
   flashMessages: Ember.inject.service(),
-  sharePost: Ember.inject.service(),	
+  sharePost: Ember.inject.service(),
   profile: Ember.computed.alias('model.profile'),
   posts: Ember.computed.alias('model.posts'),
   languages: Ember.computed.alias('model.languages'),
@@ -48,7 +48,6 @@ export default Ember.Controller.extend({
   isOwner: true,
   actions: {
     postFeed: function (data, cb) {
-      console.log('newsfeed')
       this.store.createRecord('newsfeed', {
         site: data.site,
         preview: data.preview,
@@ -58,7 +57,7 @@ export default Ember.Controller.extend({
         var newsfeed = this.get('posts');
         newsfeed.pushObject(res._internalModel);
         cb.apply();
-        Ember.get(this, 'flashMessages').success('Post Successful!');     
+        Ember.get(this, 'flashMessages').success('Post Successful!');
       }).catch((err) => {
         console.log("Error posting to newsfeed:", err);
       });
@@ -75,7 +74,7 @@ export default Ember.Controller.extend({
         post.set('vote.sharedCount', res.get('shareCount'))
 
         cb();
-        Ember.get(this, 'flashMessages').success('Post Shared!');     
+        Ember.get(this, 'flashMessages').success('Post Shared!');
       });
     },
     fileLoaded: function(formData){

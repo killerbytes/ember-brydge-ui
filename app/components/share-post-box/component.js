@@ -26,27 +26,28 @@ export default Ember.Component.extend(SharePostIndustryPicker, {
     });
   },
   findUrls( text ){
-    console.log(text)
     var source = (text || '').toString();
     var urlArray = [];
     var url;
     var matchArray;
     // Regular expression to find FTP, HTTP(S) and email URLs.
 
-    var regexToken = /(?:https?:\/\/)?(?:[\w]+\.)([a-zA-Z\.]{2,6})([\/\w\.-]*)*\/?/g;
+    // var regexToken = /(?:https?:\/\/)?(?:[\w]+\.)([a-zA-Z\.]{2,6})([\/\w\.-]*)*\/?/g;
+    var regexToken = /^((http[s]?|ftp):\/)?\/?([^:\/\s]+)((\/\w+)*\/)([\w\-\.]+[^#?\s]+)(.*)?(#[\w\-]+)?$/g;
     // Iterate through any URLs in the text.
     while( (matchArray = regexToken.exec( source )) !== null ){
         var token = matchArray[0];
         urlArray.push( token );
     }
+    console.log(urlArray)
     return urlArray;
   },
 	actions: {
     post() {
       var url = this.findUrls(this.get('postContent'))
-      if(this.get('site.title') && url){
-        this.set('postContent', (this.get('postContent').replace(url[0], "")).trim() ) ;
-      }
+      // if(this.get('site.title') && url){
+      //   this.set('postContent', (this.get('postContent').replace(url[0], "")).trim() ) ;
+      // }
 
       var data = {
         postContent: this.get('postContent'),

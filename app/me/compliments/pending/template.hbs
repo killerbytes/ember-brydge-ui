@@ -1,16 +1,23 @@
-<div class="row"> 
-  <div class="large-7 medium-7 columns">
-    <div class="page-heading">      
-      <h1>Pending Compliment Requests</h1>
+<div class="row">
+  <div class="medium-6 small-centered columns">
+    <div class="page-heading">
+      <h1>Compliments Requiring Approval</h1>
       <p class="text-center">
-      </p>                    
+        Approve these compliments to show them publicly on your profile!
+      </p>
     </div>
+  </div>
+
+</div>
+
+<div class="row">
+  <div class="large-7 medium-7 columns">
     {{#each toPending as |item| }}
       <div class="box {{if (eq item.id qid) 'highlight' }}">
         <section>
           <div class="user mb">
             Complimented by {{link-to item.from.name "profile" item.from.id class="name"}}
-            <div class="timestamp">{{timestamp item.createdAt}}</div>                
+            <div class="timestamp">{{timestamp item.createdAt}}</div>
           </div>
           <strong>{{item.title}}:</strong>
           <div class="content-pad">
@@ -19,9 +26,9 @@
           <div class="section-footer-buttons">
             <a {{action 'accept' item.id}} class="button success rounded">Add to profile</a>
             <a {{action 'reject' item.id}} class="button button-border rounded">Delete</a>
-          </div>      
+          </div>
         </section>
-      </div>      
+      </div>
     {{/each}}
   </div>
   <div class="large-5 medium-5 columns sidebar">

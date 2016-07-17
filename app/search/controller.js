@@ -15,12 +15,11 @@ export default Ember.Controller.extend(QueryLocationMixin, {
                .flatten()
                .map((i)=>{ return i.industries; })
                .flatten()
-               .filter((d)=>{ console.log(d.data.code, d.data.code == value); return d.data.code == value; })
+               .filter((d)=>{ return d.data.code == value; })
                .first()
                .value();
   },
   cities: Ember.computed('city', function(){
-    console.log(this.get('city'))
     return this.get('city') ? this.get('city').split(';') : [];
   }),
   keywords: Ember.computed('key', function(){
@@ -31,9 +30,8 @@ export default Ember.Controller.extend(QueryLocationMixin, {
     if(!this.get('industry')) return [];
     _.forEach(this.get('industry').split(','), (i)=>{
       var item = this.getCategory(i);
-      console.log(i, item)
       if(item) industries.push({code: item.data.code, name: item.data.subIndustry})
-    })        
+    })
     return industries;
   }),
   query: function(){
@@ -47,8 +45,7 @@ export default Ember.Controller.extend(QueryLocationMixin, {
   }.observes('city', 'key'),
   actions: {
   	addLocation(item){
-      // if(!this.get('city')) return false;
-      // console.log(this.get('cities'), item)
+      this.set('cities', []);
       this.get('cities').pushObject(item);
       this.set('valueText', null);
       this.set('city', this.get('cities').join(';'));
@@ -60,15 +57,16 @@ export default Ember.Controller.extend(QueryLocationMixin, {
       this.set('key', this.get('keywords').join(','))
     },
     addIndustry(item){
+      // var industry;
       console.log(item)
-      var industry;
-      if(this.get('industry')){
-        industry = this.get('industry').split(',');
-      }else{
-        industry = [];
-      }
-      industry.push(item.id);
-      this.set('industry', industry.join(','));
+      this.set('industries', []);
+      // if(this.get('industry')){
+      //   industry = this.get('industry').split(',');
+      // }else{
+      //   industry = [];
+      // }
+      this.get('industries').pushObject(item);
+      this.set('industry', this.get('industries').join(','));
     },
     removeIndustry(item){
       var industry = this.get('industry').split(',');
@@ -86,8 +84,8 @@ export default Ember.Controller.extend(QueryLocationMixin, {
           break;
       }
     },
-    onIndustrySelect(items){
-      this.set('industry', _.map(items, 'code').join(','))
+    onIndustrySelect(item){
+      this.set('industry',item.code)
     },
     refresh: function(){
       this.get('search').query({
@@ -98,7 +96,7 @@ export default Ember.Controller.extend(QueryLocationMixin, {
         type: 'profile'
       });
     }.observes('city')
-    
+
 
   }
 });
