@@ -1,4 +1,4 @@
-{{#each to.answered as |item| }}
+{{#each toAnswered as |item| }}
 	<div class="box ask-card">
     <div class="section-group section-accordion-group">
       <section>
@@ -17,8 +17,12 @@
                   <li><a {{action "toggleHide" item to.answered }}>Archive</a></li>
                 </ul>
               {{/zf-dropdown}}
-            {{/if}}{{log item}}
-            <div class="timestamp">{{timestamp item.answeredAt }}</div>
+            {{/if}}
+						<div>
+	            {{#link-to "ask.details" item.id class="timestamp"}}
+								{{timestamp item.answeredAt}}
+							{{/link-to}}
+						</div>
           </div>
         </div>
       </section>

@@ -4,8 +4,8 @@ export default Ember.Mixin.create({
 	session: Ember.inject.service(),
 	limit: 3,
   profile: Ember.computed.alias('model.profile'),
-	todosSortingDesc: ['name:desc'],
-
+	sort: ['updatedAt:desc'],
+	sortAnswered: ['answeredAt:desc'],
   fromQuestions: Ember.computed.alias('model.fromQuestions'),
   toQuestions: Ember.computed.alias('model.toQuestions'),
 
@@ -13,11 +13,15 @@ export default Ember.Mixin.create({
 	toAccept: Ember.computed.filterBy('toQuestions', 'status', 'accepted'),
 	toHidden: Ember.computed.filterBy('toQuestions', 'status', 'hide'),
 	toPendingQuestions: Ember.computed.filterBy('toPending', 'delete', false),
+	toAnswered: Ember.computed.sort('toAccept', 'sortAnswered'),
+	toHiddenSorted: Ember.computed.sort('toHidden', 'sortAnswered'),
 
 	fromPending: Ember.computed.filterBy('fromQuestions', 'status', 'pending'),
 	fromAccept: Ember.computed.filterBy('fromQuestions', 'status', 'accepted'),
 	fromHidden: Ember.computed.filterBy('fromQuestions', 'status', 'hide'),
 	fromPendingQuestions: Ember.computed.filterBy('fromPending', 'delete', false),
+	fromAnswered: Ember.computed.sort('fromAccept', 'sortAnswered'),
+	fromHiddenSorted: Ember.computed.sort('fromHidden', 'sortAnswered'),
 
 	from: Ember.computed('fromQuestions.@each.status', 'fromQuestions.@each.delete', function(){
 		return {
@@ -26,7 +30,9 @@ export default Ember.Mixin.create({
 				return this.get('fromPendingQuestions').length > this.get('limit');
 			}),
 			pending: this.get('fromPendingQuestions'),
-			answered: this.get('fromAccept'),
+			answered: ()=>{
+				return Ember.computed.sort('fromAccept', 'answeredSort')
+			},
 			hiddenSidebar: this.get('fromHidden').slice(0, 2),
 			hidden: this.get('fromHidden')
 		}

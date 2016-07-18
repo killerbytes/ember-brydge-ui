@@ -1,5 +1,5 @@
-{{#each from.answered as |item| }}
-	<div class="box ask-card {{if (eq item.id qid) "highlight"}}">
+{{#each fromAnswered as |item| }}
+	<div class="box ask-card">
     <div class="section-group section-accordion-group">
       <section>
         <div class="row user section-main">
@@ -18,7 +18,11 @@
                 </ul>
               {{/zf-dropdown}}
             {{/if}}
-            <div class="timestamp">{{timestamp item.answeredAt}}</div>
+						<div>
+	            {{#link-to "ask.details" item.id class="timestamp"}}
+								{{timestamp item.answeredAt}}
+							{{/link-to}}
+						</div>
           </div>
         </div>
       </section>

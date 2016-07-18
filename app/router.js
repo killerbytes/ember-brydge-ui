@@ -21,7 +21,6 @@ Router.map(function() {
       this.route('inbox');
       this.route('outbox');
       this.route('hidden');
-
     });
     this.route('compliments', {path: '/compliments'}, function(){
       this.route('pending');
@@ -52,6 +51,8 @@ Router.map(function() {
 
   this.route('profile', {path: ':username'});
   this.route('ask', {path: ':username/ask'});
+  this.route('ask.details', {path: 'ask/details/:id'});    
+
   this.route('about', {path: ':username/about'});
   this.route('connections', {path: ':username/connections'});
   this.route('compliments', {path: ':userid/compliments'}, function(){

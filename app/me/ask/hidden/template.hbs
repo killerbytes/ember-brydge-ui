@@ -12,86 +12,12 @@
 
 <div class="row">
   <div class="large-7 medium-7 columns">
-    {{#each from.hidden as |item| }}
-      <div class="box ask-card">
-        <div class="section-group section-accordion-group">
-          <section>
-            <div class="row user section-main">
-              <div class="columns medium-8">
-                <div class="avatar float-left" style={{htmlSafeImage item.from.content.profile.avatarUrl}}>
-                  <img src= {{item.from.content.profile.avatarUrl}} class="hide">
-                </div>
-                <div class="user-info">{{link-to item.from.profile.fullName "profile" item.from.id }} asked {{link-to item.to.profile.fullName "profile" item.to.id }}</div>
-              </div>
-              <div class="column medium-4 text-right">
-                {{#if isOwner }}
-                  <a data-toggle="dd-card-menu-{{item.id}}" class="action-button dropdown-button-arrow"><i class="icons ellipsis"></i></a>
-                  {{#zf-dropdown id=(concat 'dd-card-menu-' item.id) closeOnClick=true class="card-menu-dropdown"}}
-                    <ul class="menu">
-                      <li><a {{action "toggleHide" item }}>Unarchive</a></li>
-                    </ul>
-                  {{/zf-dropdown}}
-                {{/if}}
-                <div class="timestamp">{{timestamp item.answeredAt}}</div>
-              </div>
-            </div>
-          </section>
-          <section>
-            <div class="section-main">
-              <div class="title">{{item.question}}</div>
-            </div>
-            {{#zf-accordion-menu class="section-accordion" multiOpen=true}}
-              <li>
-                <ul class="section-accordion-content no-bullet">
-                  <li>{{{item.answer}}}</li>
-                </ul>
-                <a class="more no-arrow"><span class="content-more">See Answer</span><span class="content-less">Hide Answer</span></a>
-              </li>
-            {{/zf-accordion-menu}}
-          </section>
-        </div>
-      </div>
+    {{#each fromHiddenSorted as |item| }}
+      {{ask-card item=item isOwner=isOwner}}
     {{/each}}
 
-    {{#each to.hidden as |item|}}
-      <div class="box ask-card">
-        <div class="section-group section-accordion-group">
-          <section>
-            <div class="row user section-main">
-              <div class="columns medium-8">
-                <div class="avatar float-left" style={{htmlSafeImage item.from.profile.avatarUrl}}>
-                  <img src= {{item.from.profile.avatarUrl}} class="hide">
-                </div>
-                <div class="user-info">{{link-to item.from.profile.fullName "profile" item.from.id }} asked {{link-to item.to.profile.fullName "profile" item.to.id }}</div>
-              </div>
-              <div class="column medium-4 text-right">
-                {{#if isOwner }}
-                  <a data-toggle="dd-card-menu-{{item.id}}" class="action-button dropdown-button-arrow"><i class="icons ellipsis"></i></a>
-                  {{#zf-dropdown id=(concat 'dd-card-menu-' item.id) closeOnClick=true class="card-menu-dropdown"}}
-                    <ul class="menu">
-                      <li><a {{action "toggleHide" item }}>Unarchive</a></li>
-                    </ul>
-                  {{/zf-dropdown}}
-                {{/if}}
-                <div class="timestamp">{{timestamp item.answeredAt}}</div>
-              </div>
-            </div>
-          </section>
-          <section>
-            <div class="section-main">
-              <div class="title">{{item.question}}</div>
-            </div>
-            {{#zf-accordion-menu class="section-accordion" multiOpen=true}}
-              <li>
-                <ul class="section-accordion-content no-bullet">
-                  <li>{{{item.answer}}}</li>
-                </ul>
-                <a class="more no-arrow"><span class="content-more">See Answer</span><span class="content-less">Hide Answer</span></a>
-              </li>
-            {{/zf-accordion-menu}}
-          </section>
-        </div>
-      </div>
+    {{#each toHiddenSorted as |item|}}
+      {{ask-card item=item isOwner=isOwner}}
     {{/each}}
 
 

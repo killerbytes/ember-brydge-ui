@@ -19,10 +19,5 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
     delete(item){
       this.get('ask').delete(item);
     },
-    toggleHide(item, list){
-      this.get('ask').hide(item).then(res=>{
-				if(list) list.removeObject(item);
-			});
-    }
   }
 });
