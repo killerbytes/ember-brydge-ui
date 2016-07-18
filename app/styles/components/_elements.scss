@@ -39,6 +39,9 @@ table{
 		@extend .padding;
 		// min-height: 87px;
 	}
+	.text-right{
+		padding-left: 0;
+	}
 }
 .user-info{
 	.position{

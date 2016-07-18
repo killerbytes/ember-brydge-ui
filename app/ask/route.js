@@ -2,6 +2,11 @@ import Ember from 'ember';
 
 export default Ember.Route.extend({
 	ask: Ember.inject.service(),
+	resetController(controller, isExiting, transition) {
+      if (isExiting) {
+        controller.set('isAsked', null);
+      }
+  },
 	model: function(params) {
     let userid = params.username;
     return Ember.RSVP.hash({

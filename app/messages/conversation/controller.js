@@ -2,7 +2,11 @@ import Ember from 'ember';
 
 export default Ember.Controller.extend({
 	// sortProps: ['updatedAt:desc'],
-  // messages: Ember.computed.sort('model', 'sortProps'),
+  messages: Ember.computed('model.messages', function(){
+		console.log(this.get('model.messages'))
+		this.get('messages').pushObjects(this.get('model.messages'))
+		// this.set('messages', this.get('model.messages'))
+	})
   // groupMessages: Ember.computed('messages', function(){
   // 	return this.get('messages');
   // })

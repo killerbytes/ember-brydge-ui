@@ -10,5 +10,6 @@ export default DS.Model.extend({
 	delete: DS.attr({defaultValue: false}),
 	from: DS.belongsTo('user'),
 	to: DS.belongsTo('user'),
-  updatedAt: DS.attr()
+  updatedAt: DS.attr('date'),
+	answeredAt: DS.attr('date'),
 });

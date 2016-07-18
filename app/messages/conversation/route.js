@@ -4,7 +4,7 @@ import AuthenticatedRouteMixin from 'ember-simple-auth/mixins/authenticated-rout
 export default Ember.Route.extend(AuthenticatedRouteMixin, {
   ajax: Ember.inject.service(),
   model: function(params) {
-    return this.store.findRecord('conversation', params.conversation_id);
+    return this.store.queryRecord('conversation', {id: params.conversation_id, limit: 3, page: 1});
   },
   afterModel(){
     this.store.findAll('conversation');
@@ -23,6 +23,12 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
           this.store.findAll('conversation');
           this.transitionTo('/messages');
         })
+    },
+    load(){
+      // console.log()
+      this.store.queryRecord('conversation', {id: this.get('controller.model.id'), limit: 3, page: 2}).then(res=>{
+        console.log('test')
+      })
     }
   }
 });

@@ -4,6 +4,7 @@ export default Ember.Mixin.create({
 	session: Ember.inject.service(),
 	limit: 3,
   profile: Ember.computed.alias('model.profile'),
+	todosSortingDesc: ['name:desc'],
 
   fromQuestions: Ember.computed.alias('model.fromQuestions'),
   toQuestions: Ember.computed.alias('model.toQuestions'),

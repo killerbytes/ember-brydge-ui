@@ -5,8 +5,6 @@ export default DS.Model.extend({
 	firstName: DS.attr('string'),
 	lastName: DS.attr('string'),
 	location: DS.attr('string'),
-	connection: DS.attr(),
-	// connection: DS.belongsTo('connection', {async: false}),
 	settings: DS.attr({defaultValue: {}}),
 	industryOneName: DS.attr('string'),
 	industryTwoName: DS.attr('string'),
@@ -23,6 +21,7 @@ export default DS.Model.extend({
 	search: DS.hasMany(),
 	conversationid: DS.attr(),
 	user: DS.belongsTo('user'),
+	connection: DS.belongsTo('connection', {async: false}),
 	fullName: Ember.computed('firstName', 'lastName', function(){
 		return this.get('firstName') + ' ' + this.get('lastName');
 	})
