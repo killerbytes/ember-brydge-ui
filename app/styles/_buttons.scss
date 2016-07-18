@@ -28,6 +28,13 @@
 			// background-color: $dark-blue;
 		}
 	}
+	&.circle{
+		min-width: auto;
+		border-radius: 100px;
+		background-color: $button-blue;
+		padding: 6px 7px;
+	}
+
 	&.secondary{
 		color: #666;
 		&:hover{
@@ -49,7 +56,7 @@
 .button-ellipsis{
 	background-image: url(icons/ellipsis.png);
 	background-size: 50%;
-	background-position: center center;
+	background-position: center right;
 	background-repeat: no-repeat;
 	width: 38px;
 	// height: 25px;

@@ -8,30 +8,25 @@ export default Ember.Component.extend({
   utils: Ember.inject.service(),
   onTextChange: Ember.observer('message', function() {
     this.get('utils').textAreaChange(this.$('textarea'), this.get('message'));
-    this.resize();
+    this.scrollBottom();
   }),
 
-  resize(){
+  scrollBottom(){
     var $scrollable = this.$('.message-scrollable');
     $scrollable.animate({'scrollTop': $scrollable.find('ul:first').height()});
-    if($scrollable.parent().height() > 645){
-      $scrollable.height(500- ($scrollable.next().outerHeight()-144) + 'px');
-    }else{
-      $scrollable.height('auto');
-    }
   },
   didReceiveAttrs(){
     this._super();
     this.set('message', null);
     Ember.run.scheduleOnce('afterRender', this, function(){
-      this.resize();
+      this.scrollBottom();
     })
 
   },
 	actions: {
     clear(){
       this.set('message', null);
-      this.resize();
+      this.scrollBottom();
     },
   	submit: function() {
       this.get('store').createRecord('message', {

@@ -61,10 +61,14 @@
 		</div>
 		<div class="tabs-content questions" data-tabs-content="ask-tabs">
 			<div class="tabs-panel {{active-tab 'questions' tab}}" id="question_answered">
-				{{ partial 'ask/to'}}
+				{{#each toAnswered as |item| }}
+					{{ask-card item=item}}
+				{{/each}}
 			</div>
 			<div class="tabs-panel {{active-tab 'asked' tab}}" id="question_asked">
-			    {{ partial 'ask/from'}}
+				{{#each fromAnswered as |item| }}
+					{{ask-card item=item}}
+				{{/each}}
 			</div>
 		</div>
   </div>

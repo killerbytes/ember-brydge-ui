@@ -42,13 +42,13 @@
 		<div class="tabs-content ask-card" data-tabs-content="ask-tabs">
 			<div class="tabs-panel {{active-tab 'questions' tab}}" id="question_answered">
 				{{#each toAnswered as |item| }}
-					{{ask-card item=item isOwner=isOwner}}
+					{{ask-card item=item }}
 				{{/each}}
 
 			</div>
 			<div class="tabs-panel {{active-tab 'asked' tab}}" id="question_asked">
 				{{#each fromAnswered as |item| }}
-					{{ask-card item=item isOwner=isOwner}}
+					{{ask-card item=item }}
 				{{/each}}
 
 			</div>

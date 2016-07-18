@@ -1,8 +1,17 @@
 <div class="row">
   <div class="columns medium-5 sidebar">
-    {{partial 'partials/profile-sidebar'}}
   </div>
 
   <div class="columns medium-7">
+    <div>
+    {{#each model as |item|}}
+      <div class="test">
+        {{item.question}}, {{item.status}}, {{item.answer}}
+      </div>
+    {{/each}}
+    {{#infinity-loader infinityModel=model}}
+      <div class="loader">Loading...</div>
+    {{/infinity-loader}}
+    </div>
   </div>
 </div>

@@ -39,15 +39,12 @@ export default Ember.Component.extend({
       });
     },
 		accept: function(){
-			// console.log(this.get('profile.connection.connectionid'))
-			var connection = this.get('store').peekRecord('connection', this.get('profile.connection.connectionid'));
+			var connection = this.get('profile.connection');
+			// var connection = this.get('store').peekRecord('connection', this.get('profile.connection.connectionid'));
 			// console.log(connection)
 			// return false;
 			connection.set('status', 'accepted')
-			connection.save().then(res=>{
-				this.set('profile.connection.status', res);
-				// console.log(res)
-			});
+			connection.save();
 		},
 
 

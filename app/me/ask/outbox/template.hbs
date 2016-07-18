@@ -11,7 +11,7 @@
 
 <div class="row">
   <div class="large-7 medium-7 columns">
-    {{#each fromPending as |item| }}
+    {{#each model as |item| }}
       <div class="box {{if (eq item.id qid) 'highlight'}}">
         <section>
           <div class="user mb">
@@ -35,6 +35,10 @@
         <section>Nothing to see here</section>
       </div>
     {{/each}}
+    {{#infinity-loader infinityModel=model}}
+      <div class="loader">Loading...</div>
+    {{/infinity-loader}}
+    
 
 
   </div>

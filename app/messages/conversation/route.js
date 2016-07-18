@@ -2,10 +2,10 @@ import Ember from 'ember';
 import AuthenticatedRouteMixin from 'ember-simple-auth/mixins/authenticated-route-mixin';
 import InfinityRoute from "ember-infinity/mixins/route";
 
-export default Ember.Route.extend(AuthenticatedRouteMixin, InfinityRoute, {
+export default Ember.Route.extend(AuthenticatedRouteMixin,{
   ajax: Ember.inject.service(),
   model: function(params) {
-    return this.store.queryRecord('conversation', {id: params.conversation_id});
+    return this.store.findRecord('conversation', params.conversation_id);
   },
   afterModel(){
     this.store.findAll('conversation');

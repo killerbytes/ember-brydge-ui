@@ -1,0 +1,39 @@
+<div class="row">
+	<div class="large-7 medium-7 columns">
+    <div class="box">
+      <section>
+        <div class="section-main">
+          <div class="user mb">
+            <div class="avatar" style={{htmlSafeImage model.from.profile.avatarUrl }}>
+              <img src= {{model.from.profile.avatarUrl}} class="hide">
+            </div>
+            <div class="user-info">
+              <span class="name">
+                Asked by {{link-to model.from.profile.fullName "profile" model.from.id}}
+              </span>
+              <div>
+                {{#link-to "me.ask.inbox.details" model.id class="timestamp"}}
+                  {{timestamp model.updatedAt}}
+                {{/link-to}}
+              </div>
+            </div>
+          </div>
+
+          <div class="content-pad">{{model.question}}</div>
+          <div class="section-footer-buttons">
+            <a {{action "select" model }} class="button success rounded" data-open="answerFormModal">Write Answer</a>
+            <a {{action "delete" model }} class="button button-border rounded">Delete</a>
+            <a {{action "delete" model }} class="button button-border rounded">Flag</a>
+          </div>
+        </div>
+      </section>
+    </div>
+
+	</div>
+	<div class="large-5 medium-5 columns sidebar">
+    {{ partial 'partials/user-guide-box' }}
+    {{ partial "footer"}}
+	</div>
+</div>
+
+{{answer-form-modal}}

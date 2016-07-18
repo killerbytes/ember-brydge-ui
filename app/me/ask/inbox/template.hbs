@@ -12,7 +12,7 @@
   <div class="large-7 medium-7 columns">
 
     {{#each toPending as |item| }}
-      <div class="box {{if (eq item.id qid) 'highlight'}}">
+      <div class="box">
         <section>
           <div class="section-main">
             <div class="user mb">
@@ -23,7 +23,11 @@
                 <span class="name">
                   Asked by {{link-to item.from.profile.fullName "profile" item.from.id}}
                 </span>
-                <div class="timestamp">{{timestamp item.updatedAt}}</div>
+                <div>
+                  {{#link-to "me.ask.inbox.details" item.id class="timestamp"}}
+                    {{timestamp item.updatedAt}}
+                  {{/link-to}}
+                </div>
               </div>
             </div>
 

@@ -6,21 +6,21 @@
 <a data-toggle="dd-search" class="hide">
 </a>
 
-{{#zf-dropdown id="dd-search" closeOnClick=true autoFocus=false}}
+{{#zf-dropdown id="dd-search" closeOnClick=true autoFocus=false class="dropdown-notification"}}
 	<div class="wrapper">
 		<div class="triangle"></div>
 	</div>
-	
+
 	<ul class="media-list no-bullet user">
 		{{#each search.results as |item|}}
 			<li {{action "clear"}}>
 				{{#link-to "profile" item.id}}
-		      <div class="avatar" style={{htmlSafeImage item.avatarUrl }}>
-		        <img src= {{item.avatarUrl}} class="hide">
+		      <div class="avatar" style={{htmlSafeImage item.avatar }}>
+		        <img src= {{item.avatar}} class="hide">
 		      </div>
 		      <div class="user-info">
-            <div class="name">{{item.name}}</div>
-		        <div class="position">{{item.title}} at {{item.company}}</div>
+            <div class="name">{{item.fullName}}</div>
+		        <div class="position">{{item.currentTitle}} at {{item.currentCompany}}</div>
 		      </div>
 				{{/link-to}}
 			</li>

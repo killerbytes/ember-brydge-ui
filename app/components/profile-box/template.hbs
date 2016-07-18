@@ -1,5 +1,21 @@
 <div class="profile-photo">
-  {{image-upload fileLoaded="fileLoaded" logoUrl=profile.avatarUrl}}
+  {{#if isOwner}}
+    {{image-upload fileLoaded="fileLoaded" logoUrl=profile.avatarUrl}}
+  {{else}}
+    <div class="avatar-wrapper">
+      <div class="avatar" style={{htmlSafeImage profile.avatarUrl}}>
+        <img src="{{profile.avatarUrl}}" class="hide">
+      </div>
+      {{#if isConnected }}
+        {{#link-to "messages.conversation" profile.connection.conversationid class="button circle"}}
+          <i class="icons messages white"></i>
+        {{/link-to}}
+      {{/if}}
+    </div>
+
+  {{/if}}
+
+
 </div>
 <div class="text-center">
   <div class="name">{{profile.firstName}} {{profile.lastName}}</div>
@@ -16,21 +32,17 @@
   </div>
   <div class="text-title">
     {{#unless isOwner }}
-      {{#if isConnected }}
-        {{#link-to "messages.conversation" profile.connection.conversationid class="button large"}}
-          Message {{profile.firstName}}
-        {{/link-to}}
-      {{else}}
+      {{#unless isConnected }}
         {{#if isPending}}
           {{#if isSender}}
             Connection Request Sent
           {{else}}
-            {{spinning-button clicked="accept" value="Accept Request" class=isDisconnected}}
+            <button class="button large bordered green"{{action "accept"}}>Accept Request</button>
           {{/if}}
         {{else}}
-          {{spinning-button clicked="connect" value="Connect" class=isDisconnected }}
+          <button class="button large bordered green"{{action "connect"}}>Connect</button>
         {{/if}}
-      {{/if}}
+      {{/unless}}
     {{/unless}}
   </div>
 </div>

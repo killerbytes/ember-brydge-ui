@@ -28,6 +28,9 @@
 	}
 	&.messages{
 		background-image: url(icons/BRYDGE_MESSAGES.png);
+		&.white{
+			background-image: url(icons/BRYDGE_MESSAGES_WHITE.png);		
+		}
 	}
 	&.stack{
 		background-image: url(icons/BRYDGE_NOTIFICATIONS.png)

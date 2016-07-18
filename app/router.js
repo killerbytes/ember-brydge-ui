@@ -19,6 +19,7 @@ Router.map(function() {
     this.route('about',{path:'/about'});
     this.route('ask', {path: '/ask'}, function(){
       this.route('inbox');
+      this.route('inbox.details',{path: '/details/:id'});
       this.route('outbox');
       this.route('hidden');
     });
@@ -51,7 +52,7 @@ Router.map(function() {
 
   this.route('profile', {path: ':username'});
   this.route('ask', {path: ':username/ask'});
-  this.route('ask.details', {path: 'ask/details/:id'});    
+  this.route('ask.details', {path: 'ask/details/:id'});
 
   this.route('about', {path: ':username/about'});
   this.route('connections', {path: ':username/connections'});

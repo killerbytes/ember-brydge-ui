@@ -1,6 +1,6 @@
 <header>
   <div class="title-bar">
-    <div class="row columns">
+    <div class="row collapse">
       <div class="title-bar-left">
         <ul class="dropdown menu" data-dropdown-menu>
           <li>
@@ -56,6 +56,13 @@
 							</a>
 						{{/zf-tooltip}}
 
+					</li>
+          <li>
+            <span>
+            {{#link-to "home" class="home-icon"}}
+              <i class="fa fa-home" aria-hidden="true"></i>
+            {{/link-to}}
+            </span>
 					</li>
 					<li>
 						<ul class="user-info no-bullet">

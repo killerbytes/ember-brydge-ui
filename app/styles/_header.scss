@@ -46,8 +46,13 @@ header{
 			padding: 0.7rem 1rem;
 			display: block;
 		}
+		.home-icon{
+			margin-left: 20px;
+			padding: 0 1rem;
+		}
+		
 		[data-toggle].hover{
-			background-color: darken($button-blue, 10%);
+			// background-color: darken($button-blue, 10%);
 		}
 		[data-toggle]+.wrapper{
 			position: absolute;
@@ -58,6 +63,13 @@ header{
 		[data-toggle].hover + .wrapper{
 			display: block;
 		}
+	}
+	.fa-home{
+		background-color: $button-blue;
+		font-size: 20px;
+		color: #FFF;
+		border-radius: 100px;
+		padding: 5px 6px;
 	}
 
 
@@ -75,7 +87,7 @@ header.simple-header{
 
 .top-bar-search {
 	@extend .search-box;
-	width: 350px;
+	width: 308px;
 	.user{
 		border-bottom: 1px solid $border-color;
 		font-size: 10px;

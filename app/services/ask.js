@@ -27,7 +27,7 @@ export default Ember.Service.extend({
     // });
   },
   delete(item){
-		item.destroyRecord();
+		return item.destroyRecord();
   //   var url = '/v2/asks/'+id+'/delete';
   //   this.get('ajax').request(url, {
   //     method: 'POST'
