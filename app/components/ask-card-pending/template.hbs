@@ -1,0 +1,32 @@
+<section>
+  <div class="section-main">
+    <div class="user mb">
+      <div class="avatar" style={{htmlSafeImage item.from.profile.avatarUrl }}>
+        <img src= {{item.from.profile.avatarUrl}} class="hide">
+      </div>
+      <div class="user-info">
+        <span class="name">
+          {{#if isOwner}}
+            Asked by {{link-to item.from.profile.fullName "profile" item.from.id}}
+          {{else}}
+            You asked {{link-to item.to.profile.fullName "profile" item.to.id}}
+          {{/if}}
+        </span>
+        <div>
+          {{#link-to "me.ask.details" item.id class="timestamp"}}
+            {{timestamp item.createdAt}}
+          {{/link-to}}
+        </div>
+      </div>
+    </div>
+
+    <div class="content-pad">{{item.question}}</div>
+    {{#if isOwner}}
+      <div class="section-footer-buttons">
+        <a {{action "select" item }} class="button success rounded" data-open="answerFormModal">Write Answer</a>
+        <a {{action "delete" item }} class="button button-border rounded">Delete</a>
+        <a {{action "delete" item }} class="button button-border rounded">Flag</a>
+      </div>
+    {{/if}}
+  </div>
+</section>

@@ -6,7 +6,7 @@ export default Ember.Route.extend(InfinityRoute, {
 	model: function() {
 		let userid = this.get('session.data.authenticated.user_id');
 		return this.infinityModel('ask',{
-			to: userid,
+			userid: userid,
 			perPage: 5,
 			startingPage: 1,
 			status: 'hide',

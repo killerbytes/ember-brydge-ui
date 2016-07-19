@@ -12,28 +12,7 @@
 <div class="row">
   <div class="large-7 medium-7 columns">
     {{#each list as |item| }}
-      <div class="box {{if (eq item.id qid) 'highlight'}}">
-        <section>
-          <div class="user mb">
-            <div class="avatar" style={{htmlSafeImage item.from.profile.avatarUrl }}>
-              <img src= {{item.from.profile.avatarUrl}} class="hide">
-            </div>
-            <div class="user-info">
-              <span class="name">
-                You asked {{link-to item.to.profile.fullName "profile" item.to.id}}
-              </span>
-              <div>
-                {{#link-to "me.ask.details" item.id class="timestamp"}}
-                  {{timestamp item.updatedAt}}
-                {{/link-to}}
-              </div>
-            </div>
-          </div>
-
-          {{item.question}}
-        </section>
-
-      </div>
+      {{ask-card-pending item=item}}
     {{else}}
       <div class="box">
         <section>Nothing to see here</section>

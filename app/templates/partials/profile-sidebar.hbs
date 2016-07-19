@@ -82,7 +82,12 @@
               asked
               {{link-to latestQuestion.to.profile.fullName "profile" latestQuestion.to.id}}
             </span>
-            <div class="timestamp">{{timestamp latestQuestion.updatedAt}}</div>
+            <div class="timestamp">
+              {{#link-to "ask.details" latestQuestion.id class="timestamp"}}
+                {{timestamp latestQuestion.answeredAt}}
+              {{/link-to}}
+            </div>
+
           </div>
         </div>
 

@@ -13,7 +13,7 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, InfinityRoute, {
 		// });
 
     return Ember.RSVP.hash({
-      // conversation: this.store.findRecord('conversation', params.id),
+      conversation: this.store.findRecord('conversation', params.id),
       messages: this.store.query('message', {conversationid: params.id, per_page: 99999, page: 1})
       // return this.infinityModel('message',{
 			// 	id: params.id,

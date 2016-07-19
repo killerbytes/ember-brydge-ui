@@ -12,34 +12,7 @@
   <div class="large-7 medium-7 columns">
 
     {{#each list as |item| }}
-      <div class="box">
-        <section>
-          <div class="section-main">
-            <div class="user mb">
-              <div class="avatar" style={{htmlSafeImage item.from.profile.avatarUrl }}>
-                <img src= {{item.from.profile.avatarUrl}} class="hide">
-              </div>
-              <div class="user-info">
-                <span class="name">
-                  Asked by {{link-to item.from.profile.fullName "profile" item.from.id}}
-                </span>
-                <div>
-                  {{#link-to "me.ask.details" item.id class="timestamp"}}
-                    {{timestamp item.updatedAt}}
-                  {{/link-to}}
-                </div>
-              </div>
-            </div>
-
-            <div class="content-pad">{{item.question}}</div>
-            <div class="section-footer-buttons">
-              <a {{action "select" item }} class="button success rounded" data-open="answerFormModal">Write Answer</a>
-              <a {{action "delete" item }} class="button button-border rounded">Delete</a>
-              <a {{action "delete" item }} class="button button-border rounded">Flag</a>
-            </div>
-          </div>
-        </section>
-      </div>
+      {{ask-card-pending item=item}}
     {{else}}
       <div class="box">
         <section>No Pending Questions</section>

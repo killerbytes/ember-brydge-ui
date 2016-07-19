@@ -55,8 +55,8 @@ module.exports = function(environment) {
 
     if(ENV['ember-cli-mirage'].enabled == false) {
       ENV['ember-simple-auth'] = {
-        serverTokenEndpoint: '//localhost:8000/v2/token',
-        authorizerHost: '//localhost:8000'
+        serverTokenEndpoint: 'https://api.brydge.com/v2/token',
+        authorizerHost: 'https://api.brydge.com'
       };
     }
 

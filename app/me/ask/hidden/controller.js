@@ -2,7 +2,7 @@ import Ember from 'ember';
 import FilteredQuestionsMixin from 'web/mixins/filtered-questions';
 
 export default Ember.Controller.extend(FilteredQuestionsMixin, {
-  sort: ['updatedAt:desc'],
+  sort: ['answeredAt:desc'],
   hidden: Ember.computed.filterBy('model', 'status', 'hide'),
   list: Ember.computed.sort('hidden', 'sort'),
   reachedInfinity: Ember.observer('model.reachedInfinity', function() {

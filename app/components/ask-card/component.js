@@ -7,6 +7,9 @@ export default Ember.Component.extend({
 	isOwner: Ember.computed('item', function(){
 		return this.get('session.data.authenticated.user_id') == this.get('item.requestid');
 	}),
+	isArchived: Ember.computed('item', function(){
+		return this.get('item.status') == 'hide';
+	}),
 	actions: {
 		toggleHide(item, list){
       this.get('ask').hide(item).then(res=>{

@@ -2,6 +2,7 @@ import Ember from 'ember';
 
 export default Ember.Controller.extend({
 	// sortProps: ['updatedAt:desc'],
+  conversation: Ember.computed.alias('model.conversation'),
   messages: Ember.computed('model.messages', function(){
     console.log('model.messages')
 		return this.get('model.messages');
