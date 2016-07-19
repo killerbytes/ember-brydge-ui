@@ -29,30 +29,25 @@
 			</p>
 		</div>
     <div class="mb">
-      {{#zf-tabs id="ask-tabs" class="tab-controls"}}
-        <li data-tab='live' class="tabs-title is-active">
-          <a href="#question_answered" aria-selected="true">Questions: Answered</a>
+			<ul id="ask-tabs" class="tab-controls tabs">
+				<li data-tab='live' class="tabs-title is-active">
+					{{link-to "Questions: Answered" "me.ask" }}
         </li>
         <li data-tab='curated' class="tabs-title">
-          <a href="#question_asked">Questions: Asked</a>
+          {{link-to "Questions: Asked" "me.ask.other"}}
         </li>
-      {{/zf-tabs}}
-
+			</ul>
 		</div>
-		<div class="tabs-content ask-card" data-tabs-content="ask-tabs">
-			<div class="tabs-panel {{active-tab 'questions' tab}}" id="question_answered">
-				{{#each toAnswered as |item| }}
-					{{ask-card item=item }}
-				{{/each}}
 
-			</div>
-			<div class="tabs-panel {{active-tab 'asked' tab}}" id="question_asked">
-				{{#each fromAnswered as |item| }}
-					{{ask-card item=item }}
-				{{/each}}
+		{{#each toQuestions as |item| }}
+			{{ask-card item=item}}
+		{{/each}}
+			{{#infinity-loader infinityModel=toQuestions}}
+				{{#unless canLoadMore }}
+					<div class="loader">Loading...</div>
+				{{/unless}}
+			{{/infinity-loader}}
 
-			</div>
-		</div>
   </div>
 </div>
 

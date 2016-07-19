@@ -1,23 +1,17 @@
 import Ember from 'ember';
+import InfinityRoute from "ember-infinity/mixins/route";
 
-export default Ember.Route.extend({
-	sessionAccount: Ember.inject.service(),
-  beforeModel() {
-    this._super(...arguments);
-    return this.get('sessionAccount.account'); // needed to make sure sessionAccount is full realized
-  },
+export default Ember.Route.extend(InfinityRoute, {
+	session: Ember.inject.service(),
 	model: function() {
-		let ownerid = this.get('sessionAccount.account.id');
-		return Ember.RSVP.hash({
-      fromQuestions: this.store.query('ask',{from: ownerid}),
-      toQuestions: this.store.query('ask',{to: ownerid}),
+		let userid = this.get('session.data.authenticated.user_id');
+		return this.infinityModel('ask',{
+			to: userid,
+			perPage: 5,
+			startingPage: 1,
+			status: 'hide',
+		});
 
-    })
-	},
-	setupController(controller, model){
-		this._super(...arguments);
-		controller.set('username', this.get('sessionAccount.account.username'))
-		controller.setProperties(model);
 	}
 
 });

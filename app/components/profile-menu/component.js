@@ -28,6 +28,7 @@ export default Ember.Component.extend({
   			break;
   		case 'ask':
   		case 'me.ask.index':
+      case 'me.ask.other':
   			index = 2;
   			break;
   		case 'compliments.index':

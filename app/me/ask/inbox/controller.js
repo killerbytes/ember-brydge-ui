@@ -2,7 +2,8 @@ import Ember from 'ember';
 import FilteredQuestionsMixin from 'web/mixins/filtered-questions';
 
 export default Ember.Controller.extend(FilteredQuestionsMixin, {
-  queryParams: ['tab','qid'],
-  tab: 'questions',
-  qid: null,
+  sort: ['updatedAt:desc'],
+  pending: Ember.computed.filterBy('model', 'status', 'pending'),
+  list: Ember.computed.sort('pending', 'sort'),
+  canLoadMore: true
 });

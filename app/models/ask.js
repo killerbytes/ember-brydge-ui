@@ -3,6 +3,7 @@ import DS from 'ember-data';
 /* Profile query by username (as PK) */
 export default DS.Model.extend({
 	userid: DS.attr(),
+	requestid: DS.attr(),
 	question: DS.attr('string'),
 	answer: DS.attr('string'),
 	status: DS.attr(),

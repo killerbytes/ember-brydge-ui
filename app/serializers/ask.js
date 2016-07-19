@@ -1,6 +1,14 @@
 import DS from 'ember-data';
 
 export default DS.JSONAPISerializer.extend({
+  // normalizeQueryResponse(store, type, payload) {
+  //   console.log(arguments)
+  //   const resp = {
+  //     data: payload.data,
+  //     meta: payload.meta
+  //   }
+  //   return resp;
+  // },
 
   serialize() {
     const json = this._super(...arguments);

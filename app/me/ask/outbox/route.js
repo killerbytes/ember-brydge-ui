@@ -6,20 +6,9 @@ export default Ember.Route.extend(InfinityRoute, {
 	model: function() {
 		return this.infinityModel('ask',{
 			from: this.get('session.data.authenticated.user_id'),
-			perPage: 3,
-			startingPage: 1
+			perPage: 5,
+			startingPage: 1,
+			status: 'pending'
 		});
-	},
-	actions: {
-    didTransition: function(){
-      Ember.run.later(()=>{
-        Ember.$('.question-tab .tabs:first').on('change.zf.tabs', (e, elem)=>{
-          this.set('controller.tab', elem.data('tab'))
-        })
-      })
-    }
-
-
 	}
-
 });

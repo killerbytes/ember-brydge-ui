@@ -11,7 +11,7 @@
 <div class="row">
   <div class="large-7 medium-7 columns">
 
-    {{#each toPending as |item| }}
+    {{#each list as |item| }}
       <div class="box">
         <section>
           <div class="section-main">
@@ -24,7 +24,7 @@
                   Asked by {{link-to item.from.profile.fullName "profile" item.from.id}}
                 </span>
                 <div>
-                  {{#link-to "me.ask.inbox.details" item.id class="timestamp"}}
+                  {{#link-to "me.ask.details" item.id class="timestamp"}}
                     {{timestamp item.updatedAt}}
                   {{/link-to}}
                 </div>
@@ -45,6 +45,11 @@
         <section>No Pending Questions</section>
       </div>
     {{/each}}
+    {{#if canLoadMore}}
+      {{#infinity-loader infinityModel=list}}
+        <div class="loader">Loading...</div>
+      {{/infinity-loader}}
+    {{/if}}
 
   </div>
   <div class="large-5 medium-5 columns sidebar">

@@ -11,7 +11,7 @@
 
 <div class="row">
   <div class="large-7 medium-7 columns">
-    {{#each model as |item| }}
+    {{#each list as |item| }}
       <div class="box {{if (eq item.id qid) 'highlight'}}">
         <section>
           <div class="user mb">
@@ -22,7 +22,11 @@
               <span class="name">
                 You asked {{link-to item.to.profile.fullName "profile" item.to.id}}
               </span>
-              <div class="timestamp">{{timestamp item.updatedAt}}</div>
+              <div>
+                {{#link-to "me.ask.details" item.id class="timestamp"}}
+                  {{timestamp item.updatedAt}}
+                {{/link-to}}
+              </div>
             </div>
           </div>
 
@@ -35,10 +39,13 @@
         <section>Nothing to see here</section>
       </div>
     {{/each}}
-    {{#infinity-loader infinityModel=model}}
-      <div class="loader">Loading...</div>
+
+    {{#infinity-loader infinityModel=list}}
+      {{#unless canLoadMore}}
+        <div class="loader">Loading...</div>
+      {{/unless}}
     {{/infinity-loader}}
-    
+
 
 
   </div>

@@ -3,24 +3,33 @@ import AuthenticatedRouteMixin from 'ember-simple-auth/mixins/authenticated-rout
 import InfinityRoute from "ember-infinity/mixins/route";
 
 export default Ember.Route.extend(AuthenticatedRouteMixin, InfinityRoute, {
-	ask: Ember.inject.service(),
-	resetController(controller, isExiting, transition) {
-      if (isExiting) {
-        controller.set('isAsked', null);
-      }
-  },
-	model: function(params) {
-    let userid = params.username;
+	session: Ember.inject.service(),
+  ask: Ember.inject.service(),
+	model: function() {
+    let userid = this.get('session.data.authenticated.user_id');
 		return Ember.RSVP.hash({
 			profile: this.store.findRecord('profile', userid),
-			connections: this.store.query('connection',{userid: userid}),
+			inbox: this.store.query('ask',{
+				to: userid,
+				per_page: 1,
+				page: 1,
+				status: 'pending',
+			}),
       toQuestions: this.infinityModel('ask',{
 				to: userid,
-				perPage: 2,
+				perPage: 3,
 				startingPage: 1,
 				status: 'accepted',
 				modelPath: 'controller.model.toQuestions'
 			}),
     });
-	}
+	},
+  actions: {
+  	select(item) {
+  		this.set('ask.question', item);
+  	},
+    delete(item){
+      this.get('ask').delete(item);
+    },
+  }
 });

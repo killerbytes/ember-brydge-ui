@@ -6,12 +6,12 @@ export default Ember.Route.extend({
 		return this.store.find('ask', params.id);
 	},
 	actions: {
-  // 	select(item) {
-  // 		this.set('ask.question', item);
-  // 	},
+  	error() {
+  		this.transitionTo('me.ask');
+  	},
     delete(item){
       this.get('ask').delete(item).then(()=>{
-				this.transitionTo('me.ask');				
+				this.transitionTo('me.ask');
 			});
     },
   }

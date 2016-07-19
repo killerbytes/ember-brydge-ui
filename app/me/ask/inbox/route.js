@@ -1,19 +1,17 @@
 import Ember from 'ember';
+import InfinityRoute from "ember-infinity/mixins/route";
 
-export default Ember.Route.extend({
-	sessionAccount: Ember.inject.service(),
-  beforeModel() {
-    this._super(...arguments);
-    return this.get('sessionAccount.account'); // needed to make sure sessionAccount is full realized
-  },
-	actions: {
-    didTransition: function(){
-      Ember.run.later(()=>{
-        Ember.$('.question-tab .tabs:first').on('change.zf.tabs', (e, elem)=>{
-          this.set('controller.tab', elem.data('tab'))
-        })
-      })
-    }
-	}
-
+export default Ember.Route.extend(InfinityRoute, {
+	session: Ember.inject.service(),
+	model: function() {
+		return this.infinityModel('ask',{
+			to: this.get('session.data.authenticated.user_id'),
+			perPage: 5,
+			startingPage: 1,
+			status: 'pending'
+		});
+	},
+	infinityModelLoaded(){
+		this.set('controller.canLoadMore', false);
+	},
 });

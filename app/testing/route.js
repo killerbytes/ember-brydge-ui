@@ -3,20 +3,36 @@ import InfinityRoute from "ember-infinity/mixins/route";
 
 export default Ember.Route.extend(InfinityRoute, {
 	ajax: Ember.inject.service(),
-	model(){
+	// queryParams: {
+	// 	per_page: {
+	// 		refreshModel: true
+	// 	},
+	// 	limit: {
+	// 		refreshModel: true
+	// 	}
+	// },
+	model(params){
+		console.log(params)
 		var userid = '2zd33na16gv';
-		// return this.store.queryRecord('conversation', {id: params.conversation_id});
-		return this.infinityModel('conversation',{
-			id: 'adc73f9c4a4511e6a648acbc32b17109',
-			perPage: 3,
-			startingPage: 1,
-			modelPath: 'controller.model.messages'
+		return this.store.query('message', {
+			id: "adc73f9c4a4511e6a648acbc32b17109",
+			per_page: 3,
+			page: 1
 		});
-		// return this.get('ajax').request('v2/profiles/2zd33na16gv');
-    // return Ember.RSVP.hash({
-    //   categories: $.getJSON('data/categories.json'),
-    //   favorites: this.store.findAll('favoriteindustry'),
-    //   profile: this.store.findRecord('profile', '3ze5n8glm6b')
-    // });
-	}
+	},
+	actions: {
+    load(){
+			this.set('controller.page', this.get('controller.page')+1)
+			var userid = '2zd33na16gv';
+	    this.store.query('ask', {
+	      from: userid,
+	      status: 'pending',
+	      per_page: 3,
+	      page: this.get('controller.page')
+	    }).then(res=>{
+	      this.get('controller.model').pushObjects(res.content)
+	    })
+
+    }
+  }
 });

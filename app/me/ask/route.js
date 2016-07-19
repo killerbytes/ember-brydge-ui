@@ -1,17 +1,10 @@
 import Ember from 'ember';
 import AuthenticatedRouteMixin from 'ember-simple-auth/mixins/authenticated-route-mixin';
+import InfinityRoute from "ember-infinity/mixins/route";
 
-export default Ember.Route.extend(AuthenticatedRouteMixin, {
-	sessionAccount: Ember.inject.service(),
+export default Ember.Route.extend(AuthenticatedRouteMixin, InfinityRoute, {
+	session: Ember.inject.service(),
   ask: Ember.inject.service(),
-	model: function() {
-    let userid = this.get('session.data.authenticated.user_id');
-		return Ember.RSVP.hash({
-      profile: this.store.findRecord('profile', userid),
-      fromQuestions: this.store.query('ask',{from: userid}),
-      toQuestions: this.store.query('ask',{to: userid})
-    })
-	},
   actions: {
   	select(item) {
   		this.set('ask.question', item);

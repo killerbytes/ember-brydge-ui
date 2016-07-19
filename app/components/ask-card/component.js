@@ -5,7 +5,7 @@ export default Ember.Component.extend({
 	session: Ember.inject.service(),
 	classNames: ['box', 'ask-card'],
 	isOwner: Ember.computed('item', function(){
-		return this.get('session.data.authenticated.user_id') == this.get('item.to.id');
+		return this.get('session.data.authenticated.user_id') == this.get('item.requestid');
 	}),
 	actions: {
 		toggleHide(item, list){

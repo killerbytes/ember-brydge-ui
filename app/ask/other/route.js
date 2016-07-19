@@ -1,8 +1,7 @@
 import Ember from 'ember';
-import AuthenticatedRouteMixin from 'ember-simple-auth/mixins/authenticated-route-mixin';
 import InfinityRoute from "ember-infinity/mixins/route";
 
-export default Ember.Route.extend(AuthenticatedRouteMixin, InfinityRoute, {
+export default Ember.Route.extend(InfinityRoute, {
 	ask: Ember.inject.service(),
 	resetController(controller, isExiting, transition) {
       if (isExiting) {
@@ -10,17 +9,18 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, InfinityRoute, {
       }
   },
 	model: function(params) {
-    let userid = params.username;
+		console.log(params)
+    let userid = params.id;
 		return Ember.RSVP.hash({
 			profile: this.store.findRecord('profile', userid),
 			connections: this.store.query('connection',{userid: userid}),
-      toQuestions: this.infinityModel('ask',{
-				to: userid,
-				perPage: 2,
+      fromQuestions: this.infinityModel('ask',{
+				from: userid,
+				perPage: 3,
 				startingPage: 1,
 				status: 'accepted',
-				modelPath: 'controller.model.toQuestions'
+				modelPath: 'controller.model.fromQuestions'
 			}),
     });
-	}
+  }
 });

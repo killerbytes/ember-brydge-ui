@@ -2,7 +2,7 @@ import Ember from 'ember';
 
 export default Ember.Service.extend({
   insertParagraph(text){
-    return text.split("\n").join("<br />");
+    return text ? text.split("\n").join("<br />") : text;
   },
 	textAreaChange(elem, value){
     var el = elem.get(0);

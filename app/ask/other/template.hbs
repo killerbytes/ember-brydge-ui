@@ -49,24 +49,23 @@
 
 		<div class="mb">
 			<ul id="ask-tabs" class="tab-controls tabs">
-				<li data-tab='live' class="tabs-title is-active">
+				<li data-tab='live' class="tabs-title">
 					{{link-to "Questions: Answered" "ask" profile.id }}
         </li>
-        <li data-tab='curated' class="tabs-title">
+        <li data-tab='curated' class="tabs-title is-active">
           {{link-to "Questions: Asked" "ask.other" profile.id }}
         </li>
 			</ul>
 		</div>
 
-		{{#each toQuestions as |item| }}
+		{{#each fromQuestions as |item| }}
 			{{ask-card item=item isOwner=false}}
 		{{/each}}
-		{{#infinity-loader infinityModel=toQuestions}}
+		{{#infinity-loader infinityModel=fromQuestions}}
 			{{#unless canLoadMore }}
 				<div class="loader">Loading...</div>
 			{{/unless}}
 		{{/infinity-loader}}
-
 
   </div>
 </div>

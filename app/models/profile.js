@@ -2,8 +2,8 @@ import DS from 'ember-data';
 
 /* Profile query by username (as PK) */
 export default DS.Model.extend({
-	firstName: DS.attr('string'),
-	lastName: DS.attr('string'),
+	firstName: DS.attr('string', {defaultValue: ''}),
+	lastName: DS.attr('string', {defaultValue: ''}),
 	location: DS.attr('string'),
 	settings: DS.attr({defaultValue: {}}),
 	industryOneName: DS.attr('string'),

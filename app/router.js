@@ -18,8 +18,9 @@ Router.map(function() {
     this.route('edit',{path:'/edit'});
     this.route('about',{path:'/about'});
     this.route('ask', {path: '/ask'}, function(){
+      this.route('other');
       this.route('inbox');
-      this.route('inbox.details',{path: '/details/:id'});
+      this.route('details',{path: 'details/:id'});
       this.route('outbox');
       this.route('hidden');
     });
@@ -46,12 +47,13 @@ Router.map(function() {
   this.route('public-profile-error');
 
   this.route('messages', function() {
-    this.route('conversation', { path: ':conversation_id'});
+    this.route('conversation', { path: ':id'});
     this.route('compose');
   });
 
   this.route('profile', {path: ':username'});
   this.route('ask', {path: ':username/ask'});
+  this.route('ask.other', {path: ':id/ask/other'});
   this.route('ask.details', {path: 'ask/details/:id'});
 
   this.route('about', {path: ':username/about'});

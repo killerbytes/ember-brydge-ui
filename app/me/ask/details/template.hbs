@@ -9,22 +9,26 @@
             </div>
             <div class="user-info">
               <span class="name">
-                Asked by {{link-to model.from.profile.fullName "profile" model.from.id}}
+								{{#if isInbox}}
+                	Asked by {{link-to model.from.profile.fullName "profile" model.from.id}}
+								{{else}}
+									You asked {{link-to model.to.profile.fullName "profile" model.to.id}}
+								{{/if}}
               </span>
-              <div>
-                {{#link-to "me.ask.inbox.details" model.id class="timestamp"}}
-                  {{timestamp model.updatedAt}}
-                {{/link-to}}
+              <div class="timestamp">
+								{{timestamp model.updatedAt}}
               </div>
             </div>
           </div>
 
           <div class="content-pad">{{model.question}}</div>
+					{{#if isInbox}}
           <div class="section-footer-buttons">
             <a {{action "select" model }} class="button success rounded" data-open="answerFormModal">Write Answer</a>
             <a {{action "delete" model }} class="button button-border rounded">Delete</a>
             <a {{action "delete" model }} class="button button-border rounded">Flag</a>
           </div>
+					{{/if}}
         </div>
       </section>
     </div>

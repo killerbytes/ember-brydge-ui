@@ -1,0 +1,46 @@
+{{#each fromAnswered as |item| }}
+	<div class="box ask-card">
+    <div class="section-group section-accordion-group">
+      <section>
+        <div class="row user section-main">
+          <div class="columns medium-8">
+            <div class="avatar float-left" style={{htmlSafeImage item.from.content.profile.avatarUrl}}>
+              <img src= {{item.from.content.profile.avatarUrl}} class="hide">
+            </div>
+            <div class="user-info">{{link-to item.from.content.profile.fullName "profile" item.from.content.id }} asked {{link-to item.to.content.profile.fullName "profile" item.to.content.id }}</div>
+          </div>
+          <div class="column medium-4 text-right">
+            {{#if isOwner}}
+							<a class="button dropdown-button-arrow button-ellipsis" data-toggle="dd-card-menu-{{item.id}}"></a>
+              {{#zf-dropdown id=(concat 'dd-card-menu-' item.id) closeOnClick=true class="card-menu-dropdown"}}
+                <ul class="menu">
+                  <li><a {{action "toggleHide" item }}>Archive</a></li>
+                </ul>
+              {{/zf-dropdown}}
+            {{/if}}
+						<div>
+	            {{#link-to "ask.details" item.id class="timestamp"}}
+								{{timestamp item.answeredAt}}
+							{{/link-to}}
+						</div>
+          </div>
+        </div>
+      </section>
+      <section>
+        <div class="section-main">
+          <div class="title">{{item.question}}</div>
+        </div>
+        {{#zf-accordion-menu class="section-accordion" multiOpen=true}}
+          <li>
+            <ul class="section-accordion-content no-bullet">
+              <li>{{{item.answer}}}</li>
+            </ul>
+            <a class="more no-arrow"><span class="content-more">See Answer</span><span class="content-less">Hide Answer</span></a>
+          </li>
+        {{/zf-accordion-menu}}
+      </section>
+    </div>
+	</div>
+{{else}}
+	No questions to show
+{{/each}}

@@ -2,10 +2,27 @@ import Ember from 'ember';
 import AuthenticatedRouteMixin from 'ember-simple-auth/mixins/authenticated-route-mixin';
 import InfinityRoute from "ember-infinity/mixins/route";
 
-export default Ember.Route.extend(AuthenticatedRouteMixin,{
+export default Ember.Route.extend(AuthenticatedRouteMixin, InfinityRoute, {
   ajax: Ember.inject.service(),
   model: function(params) {
-    return this.store.findRecord('conversation', params.conversation_id);
+    // return this.store.findRecord('conversation', params.id);
+    // return this.store.query('message', {
+		// 	id: "adc73f9c4a4511e6a648acbc32b17109",
+		// 	per_page: 999999,
+		// 	page: 1
+		// });
+
+    return Ember.RSVP.hash({
+      // conversation: this.store.findRecord('conversation', params.id),
+      messages: this.store.query('message', {id: params.id, per_page: 99999, page: 1})
+      // return this.infinityModel('message',{
+			// 	id: params.id,
+			// 	perPage: 3,
+			// 	startingPage: 1,
+      //   // modelPath: 'controller.model.messages'
+			// })
+    });
+
   },
   afterModel(){
     this.store.findAll('conversation');

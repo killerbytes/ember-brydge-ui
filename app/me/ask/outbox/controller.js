@@ -2,7 +2,9 @@ import Ember from 'ember';
 import FilteredQuestionsMixin from 'web/mixins/filtered-questions';
 
 export default Ember.Controller.extend(FilteredQuestionsMixin, {
-  queryParams: ['tab','qid'],
-  tab: 'questions',
-  qid: null,
+	sort: ['updatedAt:desc'],
+  list: Ember.computed.sort('model', 'sort'),
+	reachedInfinity: Ember.observer('model.reachedInfinity', function() {
+		if(this.get('model.reachedInfinity')) this.set('canLoadMore', this.get('model.reachedInfinity'));
+  }),
 });

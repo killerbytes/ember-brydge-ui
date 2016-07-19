@@ -1,11 +1,29 @@
 .cards{
 	.user-info, .timestamp{
 		padding-top: 6px;
-	}	
+	}
+	.dropdown-arrow{
+	  &:before{
+	    left: auto;
+			right: 0;
+	  }
+	  &:after{
+	    left: auto;
+			right: 0;
+	  }
+	}
+
 }
 .ask-card{
 	@extend .cards;
-	div+.timestamp{
+	div.timestamp{
+		padding-top: 0;
+		margin-top: 5px;
+	}
+	div+div.timestamp{
+		margin-top: 0;
+	}
+	div+a.timestamp{
 		padding-top: 0;
 	}
 	.title{

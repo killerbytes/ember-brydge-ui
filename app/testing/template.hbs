@@ -3,15 +3,13 @@
   </div>
 
   <div class="columns medium-7">
+    <button class="button" {{action "load"}}>Load</button>
     <div>
     {{#each model as |item|}}
       <div class="test">
-        {{item.question}}, {{item.status}}, {{item.answer}}
+        {{item.id}}, {{item.content}}, {{item.answer}}
       </div>
     {{/each}}
-    {{#infinity-loader infinityModel=model}}
-      <div class="loader">Loading...</div>
-    {{/infinity-loader}}
     </div>
   </div>
 </div>
