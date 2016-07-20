@@ -4,12 +4,12 @@ export default Ember.Mixin.create({
 	session: Ember.inject.service(),
 	limit: 3,
   profile: Ember.computed.alias('model.profile'),
-	sort: ['updatedAt:desc'],
-	sortAnswered: ['answeredAt:desc'],
-	toQuestionsAccepted: Ember.computed.filterBy('model.toQuestions', 'status', 'accepted'),
-  toQuestions: Ember.computed.sort('toQuestionsAccepted', 'sortAnswered'),
-	FromQuestionsAccepted: Ember.computed.filterBy('model.fromQuestions', 'status', 'accepted'),
-	fromQuestions: Ember.computed.sort('FromQuestionsAccepted', 'sortAnswered'),
+	// sort: ['updatedAt:desc'],
+	// sortAnswered: ['answeredAt:desc'],
+	toQuestions: Ember.computed.filterBy('model.toQuestions', 'status', 'accepted'),
+  // toQuestions: Ember.computed.sort('toQuestionsAccepted', 'sortAnswered'),
+	fromQuestions: Ember.computed.filterBy('model.fromQuestions', 'status', 'accepted'),
+	// fromQuestions: Ember.computed.sort('FromQuestionsAccepted', 'sortAnswered'),
 	inbox: Ember.computed.alias('model.inbox')
 
 	// fromQuestions: Ember.computed('model.fromQuestions', function(){

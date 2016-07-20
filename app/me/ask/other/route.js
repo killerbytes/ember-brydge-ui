@@ -11,7 +11,7 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, InfinityRoute, {
       profile: this.store.findRecord('profile', userid),
 			inbox: this.store.query('ask',{
 				to: userid,
-				per_page: 5,
+				per_page: 1,
 				page: 1,
 				status: 'pending',
 			}),

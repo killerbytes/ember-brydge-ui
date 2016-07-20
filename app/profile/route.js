@@ -31,14 +31,7 @@ export default Ember.Route.extend({
         experiences: this.store.query('experience',{userid: userid}),
         educations: this.store.query('education',{userid: userid}),
         //interests: this.store.query('interest',{userid: userid}),
-        questions: this.store.query('ask',{
-          // userid: userid,
-          to: userid,
-  				per_page: 3,
-  				page: 1,
-  				status: 'accepted',
-
-        }),
+        questions: this.store.query('ask',{ userid: userid, per_page: 1, page:1 }),
         posts: this.store.query('newsfeed',{filter: userid, tab: 'profile'}),
         compliments: this.store.query('compliment',{to: userid, userid: userid})
       });

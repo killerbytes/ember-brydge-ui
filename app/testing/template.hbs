@@ -3,13 +3,13 @@
   </div>
 
   <div class="columns medium-7">
-    <button class="button" {{action "load"}}>Load</button>
-    <div>
     {{#each model as |item|}}
-      <div class="test">
-        {{item.id}}, {{item.content}}, {{item.answer}}
-      </div>
+      {{ask-card-pending item=item}}
     {{/each}}
-    </div>
+    {{#brydge-scroller model=model onClick="load"}}
+      {{#if isLoading}}
+        <div class="loader">Loading...</div>
+      {{/if}}
+    {{/brydge-scroller}}
   </div>
 </div>

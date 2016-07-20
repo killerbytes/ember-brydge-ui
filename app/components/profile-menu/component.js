@@ -27,6 +27,7 @@ export default Ember.Component.extend({
   			index = 1;
   			break;
   		case 'ask':
+      case 'ask.other':
   		case 'me.ask.index':
       case 'me.ask.other':
   			index = 2;

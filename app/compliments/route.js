@@ -8,7 +8,7 @@ export default Ember.Route.extend({
       connections: this.store.query('connection',{userid: userid}),
       fromCompliments: this.store.query('compliment',{from: params.userid, userid: userid}),
       toCompliments: this.store.query('compliment',{to: params.userid, userid: userid}),
-      questions: this.store.query('ask', {userid: userid}),
+      questions: this.store.query('ask',{ userid: userid, per_page: 1, page:1 }),
       compliments: this.store.query('compliment',{to: userid, userid: userid})
     })
   }

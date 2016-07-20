@@ -34,6 +34,7 @@ export default Ember.Component.extend({
         userid: this.get('to.id')
       }).save().then(res=>{
         this.set('message', null);
+        // this.get('messages').pushObjects(res)
         this.sendAction('resp', res.get('conversationid'));
       })
   	}

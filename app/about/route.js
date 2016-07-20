@@ -13,7 +13,7 @@ export default Ember.Route.extend(
       interests: [], //this.store.query('interest', {userid: userid}),
       experiences: this.store.query('experience', {userid: userid}),
       educations: this.store.query('education', {userid: userid}),
-      questions: this.store.query('ask', {userid: userid}),
+      questions: this.store.query('ask',{ userid: userid, per_page: 1, page:1 }),
       compliments: this.store.query('compliment',{to: userid, userid: userid})   
     });
   }

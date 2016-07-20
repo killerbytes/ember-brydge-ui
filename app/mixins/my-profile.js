@@ -8,7 +8,7 @@ export default Ember.Mixin.create({
   interests: Ember.computed.alias('model.interests'),
   experiences: Ember.computed.alias('model.experiences'),
   educations: Ember.computed.alias('model.educations'),
-  questions: Ember.computed.sort('model.questions', 'sortAnswered'),
+  questions: Ember.computed.alias('model.questions'),
   compliments: Ember.computed.alias('model.compliments'),
   connections: Ember.computed.alias('model.connections'),
 
