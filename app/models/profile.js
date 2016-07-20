@@ -21,7 +21,7 @@ export default DS.Model.extend({
 	search: DS.hasMany(),
 	conversationid: DS.attr(),
 	user: DS.belongsTo('user'),
-	connection: DS.belongsTo('connection', {async: true}),
+	connection: DS.belongsTo('connection', {async: false}),
 	fullName: Ember.computed('firstName', 'lastName', function(){
 		return this.get('firstName') + ' ' + this.get('lastName');
 	})
