@@ -111,6 +111,9 @@
 	}
 	.tabs.vertical{
 		border-right: 0;
+		.tabs-title{
+			text-align: left;
+		}
 	}
 	.tabs-content{
 		&.vertical{

@@ -4,7 +4,6 @@ export default Ember.Helper.helper(([date])=>{
   var today = moment();
   var date = moment(date);
   var dd = today.diff(date, 'seconds')
-  console.log(date)
   switch(true){
     case dd < 60: // < 60 seconds
       return 'Just now';

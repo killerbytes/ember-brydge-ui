@@ -18,11 +18,12 @@
         <section>No Pending Questions</section>
       </div>
     {{/each}}
-    {{#if canLoadMore}}
-      {{#infinity-loader infinityModel=list}}
+
+    {{#infinity-loader infinityModel=list}}
+      {{#unless canLoadMore}}
         <div class="loader">Loading...</div>
-      {{/infinity-loader}}
-    {{/if}}
+      {{/unless}}
+    {{/infinity-loader}}
 
   </div>
   <div class="large-5 medium-5 columns sidebar">
