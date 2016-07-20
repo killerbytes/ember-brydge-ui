@@ -19,10 +19,10 @@
 		        <section>
               {{select-native content=titles action=(action (mut formComplimentTitle))}}
 
-              {{form-text-counter limit=140 value=complimentContent rows=3 class="mb wrapper" showCount=true}}
+              {{form-text-counter placeholder="Compliment someone on an achievement, a job well done, or expertise provided" limit=140 value=complimentContent rows=3 class="mb wrapper" showCount=true}}
 
               <div class="row">
-                <div class="columns medium-8 text-gray">Compliment someone on an achievement, a job well done, or expertise provided</div>
+                <div class="columns medium-8 text-gray"></div>
                 <div class="columns medium-4 text-right">
                   <button class="button btn success" disabled={{isEmpty}} type="submit">Compliment</button>
                 </div>
