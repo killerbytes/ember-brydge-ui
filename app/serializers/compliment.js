@@ -5,9 +5,10 @@ export default DS.JSONAPISerializer.extend({
 		const json = this._super(...arguments);
     return {
       compliment: {
-        userid: json.data.attributes.userid,
+        to_userid: json.data.attributes.userid,
         title: json.data.attributes.title,
-				content: json.data.attributes.content
+				content: json.data.attributes.content,
+				status: json.data.attributes.status
       }
     };
 

@@ -9,61 +9,48 @@
     {{profile-menu profile=profile}}
 
     {{#if isOwner }}
-      <div class="page-heading">      
+      <div class="page-heading">
         <h1>Your Compliments Page</h1>
       </div>
     {{else}}
       {{#if isConnected}}
         <form {{action 'submit' on='submit'}} class="box user-top-form mb20">
-          <section>
-            {{select-native content=titles action=(action (mut formComplimentTitle))}}
+          {{#unless isClosed }}
+		        <section>
+              {{select-native content=titles action=(action (mut formComplimentTitle))}}
 
-            {{form-text-counter limit=140 value=complimentContent rows=3 class="mb wrapper" showCount=true}}
+              {{form-text-counter limit=140 value=complimentContent rows=3 class="mb wrapper" showCount=true}}
 
-            <div class="row">
-              <div class="columns medium-8 text-gray">Compliment someone on an achievement, a job well done, or expertise provided</div>
-              <div class="columns medium-4 text-right">
-                <button class="button btn success" disabled={{isEmpty}} type="submit">Compliment</button>
+              <div class="row">
+                <div class="columns medium-8 text-gray">Compliment someone on an achievement, a job well done, or expertise provided</div>
+                <div class="columns medium-4 text-right">
+                  <button class="button btn success" disabled={{isEmpty}} type="submit">Compliment</button>
+                </div>
               </div>
-            </div>
-          </section>
-        </form>  
-      {{/if}}    
+		        </section>
+					{{else}}
+						<p>
+							Your compliment has been sent.
+						</p>
+					{{/unless}}
+
+        </form>
+      {{/if}}
     {{/if}}
 
     <form>
       <div class="row collapse">
         <div class="small-8 columns">
-          <h4 class="text-right middle select-label">Filter compliments by</h4>                      
+          <h4 class="text-right middle select-label">Filter compliments by</h4>
         </div>
         <div class="small-4 columns">
-        {{select-native content=complimentTitles action=(action (mut complimentTitle)) }}
+          {{select-native content=complimentTitles action=(action (mut complimentTitle)) }}
         </div>
       </div>
     </form>
 
     {{#each list as |item|}}
-    <div class="box compliment-card">
-      <section>
-        <div class="row user">
-          <div class="columns medium-8">
-            <div class="avatar" style={{htmlSafeImage item.from.profile.avatarUrl}}>
-              <img src="{{item.from.profile.avatarUrl}}" class="hide">
-            </div>
-            <div class="user-info">
-              {{link-to item.from.name "profile" item.from.id}} complimented {{link-to item.to.name "profile" item.to.id}}              
-            </div>            
-          </div>
-          <div class="columns medium-4 text-right">
-            <div class="timestamp">{{timestamp item.createdAt}}</div>                          
-          </div>
-        </div>
-      </section>
-      <section>
-          <div class="title">{{item.title}}:</div>
-          <div class="content-pad">{{item.content}}</div>
-      </section>
-    </div>
+      {{compliment-card item=item}}
     {{/each}}
   </div>
 </div>

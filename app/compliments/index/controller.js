@@ -5,16 +5,17 @@ import ProfileSidebarMixin from 'web/mixins/profile-sidebar';
 
 export default Ember.Controller.extend(
   ProfileSidebarMixin,
-	ComplimentTitlesMixin, 
+	ComplimentTitlesMixin,
 	FilteredComplimentsMixin, {
   compliment: Ember.inject.service(),
   profile: Ember.computed.alias('model.profile'),
-	list: Ember.computed('complimentTitle', 'model.toCompliments', function(){
+  toCompliments: Ember.computed.alias('model.toCompliments'),
+	list: Ember.computed('complimentTitle', 'toCompliments', function(){
 		var selected = this.get('complimentTitle');
 		if(!selected || selected == 'All'){
-			return this.get('toAccept');			
+			return this.get('toCompliments');
 		}else{
-			return this.get('toAccept').filterBy('title', this.get('complimentTitle'));
+			return this.get('toCompliments').filterBy('title', this.get('complimentTitle'));
 		}
 	}),
   isEmpty: Ember.computed('complimentContent', function(){
@@ -30,13 +31,15 @@ export default Ember.Controller.extend(
   }),
 
   actions: {
-    submit(){      
+    submit(){
       var userid = this.get('model.profile.id')
       var title = this.get('formComplimentTitle');
       var content = this.get('complimentContent');
+      console.log(this.get('compliment'))
       this.get('compliment').post(userid, title, content)
       .then((res)=>{
         this.set('complimentContent', null);
+        this.set('isClosed', true);
       })
     }
   }

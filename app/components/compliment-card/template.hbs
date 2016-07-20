@@ -1,0 +1,33 @@
+<section>
+  <div class="row user">
+    <div class="columns medium-8">
+      <div class="avatar" style={{htmlSafeImage item.from.profile.avatarUrl}}>
+        <img src="{{item.from.profile.avatarUrl}}" class="hide">
+      </div>
+      <div class="user-info">
+        {{link-to item.from.profile.fullName "profile" item.from.id}} complimented {{link-to item.to.profile.fullName "profile" 'me'}}
+      </div>
+    </div>
+    <div class="columns medium-4 text-right">
+      {{#if isOwners}}
+        <a class="button dropdown-button-arrow button-ellipsis" data-toggle="dd-card-menu-{{item.id}}"></a>
+        {{#zf-dropdown id=(concat 'dd-card-menu-' item.id) closeOnClick=true class="card-menu-dropdown"}}
+          <ul class="menu">
+            <li><a {{action "delete" item }}>Delete</a></li>
+          </ul>
+        {{/zf-dropdown}}
+      {{/if}}
+
+      <div class="timestamp">
+        {{#link-to "compliments.detail" item.to.id item.id class="timestamp"}}
+          {{timestamp item.updatedAt}}
+        {{/link-to}}
+      </div>
+
+    </div>
+  </div>
+</section>
+<section>
+  <div class="title">{{item.title}}!</div>
+  <div class="content-pad">{{item.content}}</div>
+</section>

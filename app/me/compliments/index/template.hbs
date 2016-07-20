@@ -22,28 +22,8 @@
     </form>
 
     <div class="cards">
-      {{#each compliments as |item|}}
-      <div class="box">
-        <section>
-          <div class="row user section-main">
-            <div class="columns medium-8">
-              <div class="avatar" style={{htmlSafeImage item.from.profile.avatarUrl}}>
-                <img src="{{item.from.profile.avatarUrl}}" class="hide">
-              </div>
-              <div class="user-info">
-                {{link-to item.from.profile.firstName "profile" item.from.id}} complimented {{link-to item.to.profile.firstName "profile" 'me'}}
-              </div>
-            </div>
-            <div class="columns medium-4 text-right">
-              <div class="timestamp">{{timestamp item.createdAt}}</div>
-            </div>
-          </div>
-        </section>
-        <section>
-            <div class="title">{{item.title}}:</div>
-            <div class="content-pad">{{item.content}}</div>
-        </section>
-      </div>
+      {{#each list as |item|}}
+        {{compliment-card item=item}}
       {{/each}}
     </div>
   </div>

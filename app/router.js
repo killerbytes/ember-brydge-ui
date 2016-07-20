@@ -17,6 +17,7 @@ Router.map(function() {
   this.route('me', function() {
     this.route('edit',{path:'/edit'});
     this.route('about',{path:'/about'});
+
     this.route('ask', {path: '/ask'}, function(){
       this.route('other');
       this.route('inbox');
@@ -25,8 +26,10 @@ Router.map(function() {
       this.route('hidden');
     });
     this.route('compliments', {path: '/compliments'}, function(){
-      this.route('pending');
-      this.route('posted');
+      this.route('detail',{path: '/:id'});
+      this.route('inbox');
+      this.route('outbox');
+      this.route('hidden');
     });
 
   });
@@ -59,6 +62,7 @@ Router.map(function() {
   this.route('about', {path: ':username/about'});
   this.route('connections', {path: ':username/connections'});
   this.route('compliments', {path: ':userid/compliments'}, function(){
+    this.route('detail',{path: '/:id'});
     this.route('posted')
   });
   this.route('requests');

@@ -1,0 +1,21 @@
+<div class="row">
+  <div class="medium-6 small-centered columns">
+    <div class="page-heading">
+      <h1>{{link-to "Compliments" "me.compliments"}} You Have Posted</h1>
+      <p class="text-center">
+        These are the compliments you have given your connections.
+      </p>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="large-7 medium-7 columns">
+    {{#each list as |item| }}
+      {{compliment-card-pending item=item}}
+    {{/each}}
+  </div>
+  <div class="large-5 medium-5 columns sidebar">
+    {{ partial 'partials/user-guide-box' }}
+    {{ partial "footer"}}
+  </div>
+</div>

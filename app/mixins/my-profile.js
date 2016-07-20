@@ -27,9 +27,8 @@ export default Ember.Mixin.create({
   latestQuestion: Ember.computed('acceptedQuestion', function(){
     return this.get('acceptedQuestion.firstObject');
   }),
-  acceptedCompliments: Ember.computed.filterBy('compliments', 'status', 'accepted'),
-  latestCompliment: Ember.computed('acceptedCompliments', function(){
-    return this.get('acceptedCompliments.firstObject');
+  latestCompliment: Ember.computed('compliments', function(){
+    return this.get('compliments.firstObject');
   }),
   location: Ember.computed('profile.location', function(){
     if(!this.get('profile.location')) return false;

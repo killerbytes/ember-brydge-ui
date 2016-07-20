@@ -9,48 +9,13 @@ export default Ember.Service.extend({
       userid: id,
       title: title,
       content: content
-    })
-    // var url = '/v2/compliments';
-    // var data = {
-    //   compliment: {
-    //     to_userid: id,
-    //     title: title,
-    //     content: content
-    //   }
-    // };
-    // return this.get('ajax').request(url,{
-    //   method: 'POST',
-    //   data: data
-    // });
+    }).save();
   },
-  accept(id){
-    var url = '/v2/compliments/'+id;
-    var data = {
-      compliment: {
-        status: 'accepted'
-      }
-    };
-    return this.get('ajax').request(url,{
-      method: 'PATCH',
-      data: data
-    });
+  accept(item){
+    item.set('status', 'accepted');
+		return item.save();
   },
-  reject(id){
-    var url = '/v2/compliments/'+id+'/reject';
-    return this.get('ajax').request(url,{
-      method: 'POST'
-    });
-  },
-  delete(id){
-    var url = '/v2/compliments/'+id;
-    var data = {
-      compliment: {
-        status: 'delete'
-      }
-    };
-    return this.get('ajax').request(url,{
-      method: 'PATCH',
-      data: data
-    });
+  delete(item){
+    return item.destroyRecord();
   }
 });

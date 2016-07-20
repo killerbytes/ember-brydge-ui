@@ -1,63 +1,17 @@
 <div class="box">
-  <section class="title">
-    <h4>Compliments Requiring Approval</h4>
-  </section>
-    {{#if toPendingSidebar}}
-      {{#each toPendingSidebar as |item| }}
-        <section>
-          <div class="user mb">
-            Complimented by {{link-to item.from.name "profile" item.from.id class="name"}}
-            <div class="timestamp">{{timestamp item.createdAt}}</div>                
-          </div>
-          <strong>{{item.title}}:</strong>
-          <div class="content-pad">
-            {{item.content}}
-          </div>
-          <div class="section-footer-buttons">
-            <a {{action 'accept' item.id}} class="button success rounded">Add to profile</a>
-            <a {{action 'reject' item.id}} class="button button-border rounded">Delete</a>
-          </div>      
-        </section>
-      {{/each}}
-    {{else}}
-      <p class="columns">Nothing to show here</p>  
-    {{/if}}
-    {{#if toPendingSidebarShowLink}}
-			<section class="section-footer-links">
-  		{{#link-to 'me.compliments.pending' class="footer-button button expanded" }}
-    		See All
-  		{{/link-to}}
-  		</section>
-  	{{/if}}
-
-</div>
-
-<div class="box">
-  <section class="title">
-    <h4>Compliments you have posted</h4>
-  </section>
-  {{#each fromAcceptSidebar as |item| }}
-    <section>
-      <div class="user mb">
-        You complimented {{link-to item.to.name "profile" item.to.id class="name"}}
-        <div class="timestamp">{{timestamp item.createdAt}}</div>                
-      </div>
-      <strong>{{item.title}}:</strong>
-      <div class="content-pad">
-        {{item.content}}
-      </div>
-      <div class="section-footer-buttons">
-      	<a {{action 'delete' item.id}} class="button success rounded">Delete</a>
-      </div>      
-    </section>
-  {{else}}
-    <p class="columns">Nothing to show here</p>  
-  {{/each}}
-	{{#if fromAcceptSidebarShowLink }}
-		<section class="section-footer-links">
-	  {{#link-to 'me.compliments.posted' class="footer-button button expanded" }}
-	    See All
-	  {{/link-to}}
-	  </section>
-  {{/if}}
+	<ul class="ask-menu no-bullet">
+		<li>
+			{{#link-to "me.compliments.inbox" }}
+				Compliments Requiring Approval
+				<span>({{inbox.meta.total}})</span>
+				<i class="fa fa-chevron-right float-right" aria-hidden="true"></i>
+			{{/link-to}}
+		</li>
+		<li>
+			{{#link-to "me.compliments.outbox" }}
+				Compliments You Have Posted
+				<i class="fa fa-chevron-right float-right" aria-hidden="true"></i>
+			{{/link-to}}
+		</li>
+	</ul>
 </div>

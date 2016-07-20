@@ -1,6 +1,6 @@
 <div class="box">
   <section>
-    <h4><i class="fa fa-briefcase" aria-hidden="true"></i>Business Industry</h4>
+    <h4><i class="fa fa-building-o" aria-hidden="true"></i>Business Industry</h4>
     {{#if profile.industryOneName}}
       <strong><a href="">{{profile.industryOneName}}</a></strong>
     {{else}}
@@ -22,7 +22,7 @@
   </section>
 
   <section>
-    <h4>Occupational Industry</h4>
+    <h4><i class="fa fa-briefcase" aria-hidden="true"></i>Occupational Industry</h4>
     {{#if isNotEmptyOccupation}}
       <div>
         <strong><a href="">{{profile.industryTwoName}}</a></strong>
@@ -135,7 +135,12 @@
               {{latestCompliment.from.profile.fullName}}
             {{/link-to}}
           </span>
-          <div class="timestamp">{{timestamp latestCompliment.updatedAt}}</div>
+          <div class="timestamp">
+            {{#link-to "compliments.detail" latestCompliment.id class="timestamp"}}
+              {{timestamp latestCompliment.updatedAt}}
+            {{/link-to}}
+          </div>
+
         </div>
       </div>
 
