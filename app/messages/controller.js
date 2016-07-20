@@ -4,7 +4,7 @@ export default Ember.Controller.extend({
 	store: Ember.inject.service(),
 	sort: ['updatedAt:desc'],
 	conversations: Ember.computed.sort('model', 'sort'),
-	list: Ember.computed('conversations.@each','key', function(){
+	list: Ember.computed('model.@each','key', function(){
 		let query = this.get('key');
 		if(!query) return this.get('conversations');
 

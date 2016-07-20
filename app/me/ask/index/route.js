@@ -17,7 +17,7 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, InfinityRoute, {
 			}),
       toQuestions: this.infinityModel('ask',{
 				to: userid,
-				perPage: 3,
+				perPage: 5,
 				startingPage: 1,
 				status: 'accepted',
 				modelPath: 'controller.model.toQuestions'

@@ -3,7 +3,7 @@
     <div class="page-heading">
       <h1>Edit Profile</h1>
       <p class="text-center">
-        A complete profile increases your chances of being noticed by industry peers and businesses. So invest some time here—it’ll do you good! 
+        A complete profile increases your chances of being noticed by industry peers and businesses. So invest some time here—it’ll do you good!
       </p>
     </div>
   </div>
@@ -16,8 +16,12 @@
       <div class="medium-3 columns">
 
         {{#zf-tabs class="vertical" id="edit-tabs"}}
-        <li data-tab='personal' class="tabs-title {{active-tab 'personal' tab}}"><a href="#personal" aria-selected="true">Personal Particulars</a></li>
-        <li data-tab='industry' class="tabs-title {{active-tab 'industry' tab}}"><a href="#industry">Business Industry</a></li>
+        <li data-tab='personal' class="tabs-title {{active-tab 'personal' tab}}">
+          <a href="#personal" aria-selected="true">Personal Particulars</a>
+        </li>
+        <li data-tab='industry' class="tabs-title {{active-tab 'industry' tab}}">
+          <a href="#industry"><i class="fa fa-briefcase" aria-hidden="true"></i>Business Industry</a>
+        </li>
         <li data-tab='occupindustry' class="tabs-title {{active-tab 'occupindustry' tab}}"><a href="#occupindustry">Occupational Industry</a></li>
         <li data-tab='snapshot' class="tabs-title {{active-tab 'snapshot' tab}}"><a href="#snapshot">Snapshot</a></li>
         <li data-tab='work' class="tabs-title {{active-tab 'work' tab}}"><a href="#work">Work History</a></li>

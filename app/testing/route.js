@@ -5,9 +5,7 @@ export default Ember.Route.extend(BrydgeScroller, {
 	model(params){
 		var userid = '2zd33na16gv';
 		return this.brydgeScroller('ask', {
-			from: "2zd33na16gv",
-			per_page: this.get('perPage'),
-			page: 1,
+			to: "2zd33na16gv",
 			status: 'pending'
 		});
 	},

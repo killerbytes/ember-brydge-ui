@@ -4,6 +4,7 @@ export default Ember.Helper.helper(([date])=>{
   var today = moment();
   var date = moment(date);
   var dd = today.diff(date, 'seconds')
+  console.log(date)
   switch(true){
     case dd < 60: // < 60 seconds
       return 'Just now';
@@ -21,9 +22,9 @@ export default Ember.Helper.helper(([date])=>{
       break;
     default:
       if(today.year() == date.year()){
-        return  date.format("MMMM D [at] h:mma");          
+        return  date.format("MMMM D [at] h:mma");
       }else{
-        return  date.format("MMMM D, YYYY [at] h:mma");        
+        return  date.format("MMMM D, YYYY [at] h:mma");
       }
       break;
   }

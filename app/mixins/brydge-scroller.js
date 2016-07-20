@@ -22,15 +22,16 @@ export default Ember.Mixin.create({
 		load(){
 			var infinityReached = this.get('page') >= this.get('totalPage');
 			var isPage = this.get('page') == this.get('currentPage');
+			
 			if( isPage || infinityReached ) return false;
 			this.set('currentPage', this.get('page'));
 			this.set('controller.isLoading', true)
 			this.brydgeScroller().then(res=>{
+				this.set('controller.isLoading', false)
 				if(this.get('page') >= res.get('meta.total_pages')) return false;
 				this.set('totalPage', res.get('meta.total_pages'));
 				this.get('controller.model').pushObjects(res.content);
 				this.set('page', this.get('page')+1);
-				this.set('controller.isLoading', false)
 			})
 		},
 	}

@@ -29,7 +29,7 @@
 	&.messages{
 		background-image: url(icons/BRYDGE_MESSAGES.png);
 		&.white{
-			background-image: url(icons/BRYDGE_MESSAGES_WHITE.png);		
+			background-image: url(icons/BRYDGE_MESSAGES_WHITE.png);
 		}
 	}
 	&.stack{
@@ -74,4 +74,8 @@
 .icons.icon-inline{
 	display: inline-block;
 	margin-left: 10px;
+}
+
+a .fa{
+	margin-right: 5px;
 }
