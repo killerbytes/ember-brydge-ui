@@ -1,18 +1,20 @@
 <section>
-  <div class="user mb">
-    <div class="avatar" style={{htmlSafeImage item.from.profile.avatarUrl }}>
-      <img src= {{item.from.profile.avatarUrl}} class="hide">
-    </div>
-    <div class="user-info">
-      {{#if isOwner}}
-        You complimented {{link-to item.to.profile.fullName "profile" item.to.id class="name"}}
-      {{else}}
-        Complimented by {{link-to item.from.profile.fullName "profile" item.from.id class="name"}}
-      {{/if}}
-      <div class="timestamp">
-        {{#link-to "me.compliments.detail" item.id class="timestamp"}}
-          {{timestamp item.updatedAt}}
-        {{/link-to}}
+  <div class="row user mb">
+    <div class="columns">
+      <div class="avatar" style={{htmlSafeImage item.from.profile.avatarUrl}}>
+        <img src="{{item.from.profile.avatarUrl}}" class="hide">
+      </div>
+      <div class="user-info">
+        {{#if isOwner}}
+          Complimented by {{link-to item.from.profile.fullName "profile" item.from.id class="name"}}
+        {{else}}
+          You complimented {{link-to item.to.profile.fullName "profile" item.to.id class="name"}}
+        {{/if}}
+        <div class="timestamp">
+          {{#link-to "me.compliments.detail" item.id class="timestamp"}}
+            {{timestamp item.updatedAt}}
+          {{/link-to}}
+        </div>
 
       </div>
     </div>
@@ -26,6 +28,10 @@
     <div class="section-footer-buttons">
       <a {{action "accept" item}} class="button success rounded">Add to profile</a>
       <a {{action "delete" item}} class="button button-border rounded">Delete</a>
+    </div>
+  {{else}}
+    <div class="section-footer-buttons">
+      <a {{action "delete" item}} class="button success rounded">Delete</a>
     </div>
   {{/if}}
 </section>

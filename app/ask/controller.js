@@ -8,7 +8,6 @@ export default Ember.Controller.extend(
   sessionAccount: Ember.inject.service(),
   ask: Ember.inject.service(),
   reachedInfinity: Ember.observer('model.toQuestions.reachedInfinity', function() {
-    console.log(this.get('model.toQuestions.reachedInfinity'))
   	this.set('canLoadMore', this.get('model.toQuestions.reachedInfinity'));
   }),
   // queryParams: ['tab','qid'],

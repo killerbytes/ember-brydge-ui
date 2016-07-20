@@ -25,8 +25,9 @@ export default Ember.Controller.extend(
     return this.get('profile.connection.status') == 'accepted' ? true : false;
   }),
 
+
 	complimentFilter: [],
-  formComplimentTitle: Ember.computed('', function(){
+  formComplimentTitle: Ember.computed(function(){
   	return this.get('titles.firstObject');
   }),
 
@@ -35,12 +36,15 @@ export default Ember.Controller.extend(
       var userid = this.get('model.profile.id')
       var title = this.get('formComplimentTitle');
       var content = this.get('complimentContent');
-      console.log(this.get('compliment'))
       this.get('compliment').post(userid, title, content)
       .then((res)=>{
         this.set('complimentContent', null);
         this.set('isClosed', true);
+        this.set('formComplimentTitle', this.get('titles.firstObject'));
       })
+    },
+    onSelectTitle(selected){
+      this.set('formComplimentTitle', selected);
     }
   }
 

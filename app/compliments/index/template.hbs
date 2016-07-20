@@ -17,7 +17,11 @@
         <form {{action 'submit' on='submit'}} class="box user-top-form mb20">
           {{#unless isClosed }}
 		        <section>
-              {{select-native content=titles action=(action (mut formComplimentTitle))}}
+              <select onchange={{action "onSelectTitle" value="target.value"}}>
+                {{#each titles as |item|}}
+                  <option value={{item}} selected={{eq formComplimentTitle item}}>{{item}}</option>
+                {{/each}}
+              </select>
 
               {{form-text-counter placeholder="Compliment someone on an achievement, a job well done, or expertise provided" limit=140 value=complimentContent rows=3 class="mb wrapper" showCount=true}}
 
