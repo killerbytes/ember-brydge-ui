@@ -11,7 +11,7 @@ export default Ember.Route.extend({
   beforeModel: function(transition) {
     const loggedinUser = this.get('session.data.authenticated');
     this.set('loggedinUser', loggedinUser);
-    if (loggedinUser.username === transition.params['profile'].username) {
+    if (loggedinUser.user_id === transition.params['profile'].username) {
       this.transitionTo('me');
       return;
     }

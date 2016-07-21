@@ -1,0 +1,21 @@
+{{#if errors}}
+<div class="error-messages">
+  <h4>There was an error submitting the form</h4>
+  <ul class="no-bullet errors">
+    {{#each errors as |item|}}
+        <li>{{item.detail}}</li>
+    {{/each}}
+  </ul>
+</div>
+{{/if}}
+
+<label>Old Password
+  {{form-input type="password" model=this valuePath="oldPassword"}}
+</label>
+<label>New Password
+  {{form-input type="password" model=this valuePath="password"}}
+</label>
+<label>Re-type new password
+  {{form-input type="password" model=this valuePath="confirmPassword"}}
+</label>
+<button class="button success rounded" {{action "update"}} disabled={{v-get this 'isInvalid'}}>Save</button>

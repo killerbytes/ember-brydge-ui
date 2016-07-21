@@ -5,7 +5,7 @@ import SaveProfileMixin from 'web/mixins/save-profile';
 import QueryIndustryMixin from 'web/mixins/query-industries';
 
 export default Ember.Controller.extend({
-	settings: Ember.inject.service(),	
+	settings: Ember.inject.service(),
   queryParams: ['tab'],
   tab: 'email',
   actions: {
@@ -23,16 +23,6 @@ export default Ember.Controller.extend({
       this.set('model.settings.'+ e.currentTarget.name, e.currentTarget.checked);
       this.get('settings').update(this.get('model.settings'));
     },
-    updateEmail(value, cb){
-      this.get('settings').updateEmail(value).then((res)=>{
-        cb.apply();
-      })
-    },
-    updatePassword(value, cb){
-      this.get('settings').updatePassword(value).then((res)=>{
-        cb.apply();
-      })
-    }
   }
 
 });

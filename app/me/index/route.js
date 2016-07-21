@@ -17,6 +17,7 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
       compliments: this.store.query('compliment', {to: userid, page:1, per_page: 1}),
       connections: this.store.query('connection',{userid: userid}),
     });
-
   }
+
+
 });

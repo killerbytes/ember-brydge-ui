@@ -339,3 +339,20 @@ section.message-content{
 	height: 200px;
 	border: 1px solid #000;
 }
+
+div.error-messages{
+	@extend .bordered;
+	background-color: $brydge-gray;
+	padding: 1rem;
+	margin-bottom: 1rem;
+	h4{
+		margin-bottom: 5px;
+	}
+	ul.errors{
+		color: $text-orange;
+		text-transform: capitalize;
+		li{
+			margin-bottom: 5px;
+		}
+	}
+}

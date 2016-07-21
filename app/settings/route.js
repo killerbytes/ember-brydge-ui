@@ -2,6 +2,13 @@ import Ember from 'ember';
 
 export default Ember.Route.extend({
 	session: Ember.inject.service(),
+	resetController(controller, isExiting, transition) {
+      if (isExiting) {
+        controller.setProperties({
+          tab: 'email'
+        });
+      }
+  },
 	model: function () {
     var userid = this.get('session.data.authenticated.user_id');
     return this.store.findRecord('profile', userid);
@@ -10,7 +17,7 @@ export default Ember.Route.extend({
     this._super(...arguments);
     controller.set('settingsChanged', function(value) {
       this.send('settingsChanged', value);
-    });    
+    });
   },
 	actions: {
     didTransition: function(){

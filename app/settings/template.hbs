@@ -29,7 +29,7 @@
                   <form class="brydge-form">
                     <div class="row columns">
                       <label>Current email: <a>{{model.user.email}}</a></label>
-                      {{update-email-form update="updateEmail"}}
+                      {{form-update-email}}
                     </div>
                   </form>
                 </section>
@@ -38,7 +38,7 @@
               </div>
               <div class="tabs-panel space-filler {{active-tab 'password' tab}}" id="password">
                 <section class="header">
-                  {{update-password-form update="updatePassword"}}
+                  {{form-update-password}}
                 </section>
               </div>
               <div class="tabs-panel {{active-tab 'notification' tab}}" id="notification">

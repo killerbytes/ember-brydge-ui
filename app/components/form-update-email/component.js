@@ -9,9 +9,9 @@ const Validations = buildValidations({
 export default Ember.Component.extend(Validations, {
 	actions: {
 		update(){
-			this.sendAction('update', this.get('email'), ()=>{
-				this.set('email', null);
-			});
+      this.get('settings').updateEmail(this.get('email')).then((res)=>{
+        this.set('email', null);
+      })
 		}
 	}
 });

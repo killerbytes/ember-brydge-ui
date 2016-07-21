@@ -2,20 +2,14 @@ import DS from 'ember-data';
 
 export default DS.JSONAPISerializer.extend(DS.EmbeddedRecordsMixin, {
   serialize() {
-    const result = this._super(...arguments),
-      attr = result.data.attributes || {};
-
-    // return {
-    //   name: attr.name,
-    //   email: attr.username,
-    //   password: attr.password
-    // };
-
-    var payloadData = attr;
+    const json = this._super(...arguments);
     return {
-      user: payloadData
+      account: {
+        password: json.data.attributes.password,
+        old_password: json.data.attributes.oldPassword
+      }
     };
- },
+  },
 
   keyForAttribute: function(attr) {
     return attr;
