@@ -20,12 +20,6 @@ export default Ember.Mixin.create({
 	// fromAcceptSidebarShowLink: Ember.computed('fromAccept', function(){
 	// 	return this.get('fromAccept').length > this.get('limit');
 	// }),
-	complimentTitles: Ember.computed('titles', function(){
-		console.log(this.get('titles'))
-		this.set('compliment_titles', Ember.copy(this.get('titles')))
-		this.get('compliment_titles').unshift("All")
-		return this.get('compliment_titles');
-	}),
 	// compliments: Ember.computed('complimentTitle', function(){
 	// 	var selected = this.get('complimentTitle');
 	// 	if(!selected || selected == 'All'){

@@ -12,12 +12,11 @@ export default Ember.Component.extend({
 			Ember.$(document).on('scroll', ()=>{
 				this._checkElementInView();
 			})
-			
+
 		})
 	},
 	_checkElementInView(){
 		var pos = this.get('el').getBoundingClientRect();
-		console.log(pos.top, this.get('height'))
 		if(pos.top <= this.get('height')) this._loadRecords();
 	},
 	_loadRecords(){

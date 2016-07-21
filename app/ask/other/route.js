@@ -1,7 +1,7 @@
 import Ember from 'ember';
-import InfinityRoute from "ember-infinity/mixins/route";
+import BrydgeScroller from 'web/mixins/brydge-scroller';
 
-export default Ember.Route.extend(InfinityRoute, {
+export default Ember.Route.extend(BrydgeScroller, {
 	ask: Ember.inject.service(),
 	resetController(controller, isExiting, transition) {
       if (isExiting) {
@@ -9,15 +9,12 @@ export default Ember.Route.extend(InfinityRoute, {
       }
   },
 	model: function(params) {
-		console.log(params)
     let userid = params.id;
 		return Ember.RSVP.hash({
 			profile: this.store.findRecord('profile', userid),
-			connections: this.store.query('connection',{userid: userid}),
-      fromQuestions: this.infinityModel('ask',{
+			// connections: this.store.query('connection',{userid: userid}),
+      fromQuestions: this.brydgeScroller('ask',{
 				from: userid,
-				perPage: 3,
-				startingPage: 1,
 				status: 'accepted',
 				modelPath: 'controller.model.fromQuestions'
 			}),

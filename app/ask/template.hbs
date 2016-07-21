@@ -61,12 +61,12 @@
 		{{#each toQuestions as |item| }}
 			{{ask-card item=item isOwner=false}}
 		{{/each}}
-		{{#infinity-loader infinityModel=toQuestions}}
-			{{#unless canLoadMore }}
-				<div class="loader">Loading...</div>
-			{{/unless}}
-		{{/infinity-loader}}
-
+		
+		{{#brydge-scroller model=toQuestions onClick="load"}}
+      {{#if isLoading}}
+        <div class="loader">Loading...</div>
+      {{/if}}
+    {{/brydge-scroller}}
 
   </div>
 </div>

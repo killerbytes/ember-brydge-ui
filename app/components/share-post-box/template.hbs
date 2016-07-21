@@ -4,27 +4,27 @@
 		    <img src= {{avatarUrl}} class="hide">
 		  </div>
 		  <div class="input-wrapper">
-		    {{textarea 
-		      value=postContent 
-		      key-up="edit" 
+		    {{textarea
+		      value=postContent
+		      key-up="edit"
 		      enter="comment"
-		      class="textarea content-editable" 
-		    	placeholder='Get noticed! Broadcast opinions, industry news, trends.' 
-		      }}  	      	      
+		      class="textarea content-editable"
+		    	placeholder='Get noticed! Broadcast opinions, industry news, trends.'
+		      }}
 		  </div>
 	  {{#if site.title}}
 			<div class="newsfeed-item">
 				{{newsfeed-media model=site preview=true}}
 			</div>
 		{{/if}}
-	
+
 	</form>
-	
+
 	<div class="row">
 		<div class="columns medium-8">
 			<div class="wrapper">
 				<a class="dropdown-button button clear" {{action "toggle"}}>
-					Add Industry Channel
+					Tag Industry Channels
 					<i class="icons caret"></i>
 				</a>
 			</div>
@@ -43,17 +43,19 @@
   </li>
 {{/zf-accordion}}
 
-<section class="section-footer">
+<section class="section-footer bg-gray">
   {{#if categories}}
 		<div class="broadcast-list">
-		  	<span class="broadcast-title">Broadcasting to: </span> 
-		  	<strong class="text-gray">My Connections{{#each categories as |item|}}
-				    	{{~ concat '; ' item.text ~}}
-				    {{/each}}
-		  	</strong>
+	  	<strong class="broadcast-title">Broadcasting to: </strong>
+	  	<strong class="text-gray">Connections{{#each categories as |item|}}
+			    	{{~ concat '; ' item.text ~}}
+			    {{/each}}
+	  	</strong>
 		</div>
 	{{else}}
-		<div class="broadcast-list"><span class="broadcast-title">Broadcasting to: </span><strong class="text-gray">My Connections Only</strong></div>
+		<div class="broadcast-list">
+			<strong class="broadcast-title">Broadcasting to: </strong>
+			<strong class="text-gray">Connections Only</strong>
+		</div>
 	{{/if}}
 </section>
-	

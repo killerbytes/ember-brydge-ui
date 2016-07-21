@@ -1,7 +1,7 @@
 .share-post-box{
 	@extend .bordered;
 	@extend .rounded;
-	background-color: $brydge-gray;	
+	background-color: $brydge-gray;
 	margin-bottom: 1rem;
 	section{
 		padding: 1rem;
@@ -12,9 +12,6 @@
 	.newsfeed-item{
 		border: none;
 	}
-	.section-footer{
-		background-color: #FFF;
-	}
 	.dropdown-button{
 		padding-left: 0;
 	}
@@ -24,7 +21,7 @@
 	.accordion-picker{
 		>li{
 			border-top: 1px solid $border-color;
-			
+
 		}
 		>li.is-active{
 			border-bottom: 1px solid $border-color;

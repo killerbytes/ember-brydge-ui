@@ -19,11 +19,11 @@
       </div>
     {{/each}}
 
-    {{#infinity-loader infinityModel=list}}
-      {{#unless canLoadMore}}
+    {{#brydge-scroller model=model onClick="load"}}
+      {{#if isLoading}}
         <div class="loader">Loading...</div>
-      {{/unless}}
-    {{/infinity-loader}}
+      {{/if}}
+    {{/brydge-scroller}}
 
 
 

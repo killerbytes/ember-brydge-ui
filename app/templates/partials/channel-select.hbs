@@ -2,24 +2,34 @@
 		<div class="row collapse">
 			<div class="columns medium-6">
 				<section>
-					<div class="sub-title">Your Business Industry</div>
-					{{#if profile.industryOneId}}
+					<div class="sub-title">Your Business Industry (
+						{{#if profile.industryOneId}}
+							{{link-to "Edit" "me.edit"}}
+						{{else}}
+							{{link-to "Add" "me.edit"}}
+						{{/if}}
+						)</div>
+						{{#if profile.industryOneId}}
 						<ul class="no-bullet content-pad">
 							<li>
 								{{action-checkbox-bind value=profile.industryOneId text=profile.industryOneName action="checkboxChanged" name="industryOneId" checked=industryOneId }}
 							</li>
 						</ul>
-						<p>{{#link-to 'me.edit'}}Edit Business Industry{{/link-to}}</p>
-					{{else}}
-						<p>{{#link-to 'me.edit'}}Add Business Industry{{/link-to}}</p>	
-					{{/if}}
+						{{/if}}
 				</section>
 			</div>
 			<div class="columns medium-6">
 				<section>
-					<div class="sub-title">Your Occupational Industry</div>
+					<div class="sub-title">Your Occupational Industry (
+						{{#if isOccupational }}
+							{{link-to "Edit" "me.edit"}}
+						{{else}}
+							{{link-to "Add" "me.edit"}}
+						{{/if}}
+
+						)</div>
 					{{#if isOccupational }}
-						<ul class="no-bullet content-pad">	
+						<ul class="no-bullet content-pad">
 							<li>
 								{{action-checkbox-bind value=profile.industryTwoId text=profile.industryTwoName action="checkboxChanged" name="industryTwoName" checked=industryTwoName }}
 							</li>
@@ -27,14 +37,8 @@
 								{{action-checkbox-bind value=profile.industryThreeId text=profile.industryThreeName action="checkboxChanged" name="industryThreeName" checked=industryThreeName }}
 							</li>
 						</ul>
-						<p>{{#link-to 'me.edit'}}Edit Occupational Industry{{/link-to}}</p>
-					{{else}}
-						<p>{{#link-to 'me.edit'}}Add Occupational Industry{{/link-to}}</p>
 					{{/if}}
-				</section>				
+				</section>
 			</div>
 		</div>
 	</form>
-<section class="accordion-footer text-center text-gray">
-	Note: Broadcasts will also be shared with Connections by default
-</section>

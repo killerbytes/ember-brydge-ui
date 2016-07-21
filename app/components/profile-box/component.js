@@ -18,7 +18,6 @@ export default Ember.Component.extend({
   	return this.get('profile.connection.requestid') ==  this.get('session.data.authenticated.user_id');
   }),
   isPending: Ember.computed('profile','isConnected', function(){
-		console.log('isConnected', this.get('profile.connection.status'))
   	return this.get('profile.connection.status') == 'pending' ? true : null;
   }),
   isDisconnected: Ember.computed('connectionStatus', function(){
@@ -27,6 +26,12 @@ export default Ember.Component.extend({
   isNotEmptyTitleCompany: Ember.computed('profile.currentTitle', 'profile.currentCompany', function(){
     return this.get('profile.currentTitle') ? true : false && this.get('profile.currentCompany') ? true : false;
   }),
+	init(){
+    this._super();
+    this.get('store').query('connection',{userid: this.get('profile.id') }).then(res=>{
+      this.set('connections', res);
+    })
+  },	
   actions: {
     connect (cb) {
       var userid = this.get('profile.id');

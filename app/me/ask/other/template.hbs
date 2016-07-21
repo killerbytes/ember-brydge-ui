@@ -42,11 +42,11 @@
 			{{ask-card item=item }}
 		{{/each}}
 
-		{{#infinity-loader infinityModel=fromQuestions}}
-			{{#unless canLoadMore }}
-				<div class="loader">Loading...</div>
-			{{/unless}}
-		{{/infinity-loader}}
+		{{#brydge-scroller model=fromQuestions onClick="load"}}
+      {{#if isLoading}}
+        <div class="loader">Loading...</div>
+      {{/if}}
+    {{/brydge-scroller}}
 
 	</div>
 </div>
