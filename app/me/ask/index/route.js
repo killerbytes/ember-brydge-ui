@@ -1,8 +1,8 @@
 import Ember from 'ember';
 import AuthenticatedRouteMixin from 'ember-simple-auth/mixins/authenticated-route-mixin';
-import InfinityRoute from "ember-infinity/mixins/route";
+import BrydgeScroller from 'web/mixins/brydge-scroller';
 
-export default Ember.Route.extend(AuthenticatedRouteMixin, InfinityRoute, {
+export default Ember.Route.extend(AuthenticatedRouteMixin, BrydgeScroller, {
 	session: Ember.inject.service(),
   ask: Ember.inject.service(),
 	model: function() {
@@ -15,10 +15,8 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, InfinityRoute, {
 				page: 1,
 				status: 'pending',
 			}),
-      toQuestions: this.infinityModel('ask',{
+      toQuestions: this.brydgeScroller('ask',{
 				to: userid,
-				perPage: 5,
-				startingPage: 1,
 				status: 'accepted',
 				modelPath: 'controller.model.toQuestions'
 			}),

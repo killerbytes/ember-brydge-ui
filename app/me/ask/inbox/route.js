@@ -1,17 +1,12 @@
 import Ember from 'ember';
-import InfinityRoute from "ember-infinity/mixins/route";
+import BrydgeScroller from 'web/mixins/brydge-scroller';
 
-export default Ember.Route.extend(InfinityRoute, {
+export default Ember.Route.extend(BrydgeScroller, {
 	session: Ember.inject.service(),
 	model: function() {
-		return this.infinityModel('ask',{
+		return this.brydgeScroller('ask',{
 			to: this.get('session.data.authenticated.user_id'),
-			perPage: 5,
-			startingPage: 1,
 			status: 'pending'
 		});
-	},
-	infinityModelLoaded(){
-		this.set('controller.canLoadMore', false);
 	},
 });

@@ -10,23 +10,23 @@ export default Ember.Controller.extend({
     return this.get('page') == 'simple_header';
   }),
   init(){
-    var notification = this.get('notification');
+    // var notification = this.get('notification');
 
-    function notificationChecker(){
-      Ember.run.later(()=>{
-        // notification.checkForNotifications(()=>{
-        //   notificationChecker();
-        // });
-
-        notification.checkNotificationCounts(()=>{
-          notificationChecker();
-        });
-      },60000)
-    }
-
-    notification.checkNotificationCounts();
-    //notification.checkForNotifications();
-    notificationChecker.apply(this);
+    // function notificationChecker(){
+    //   Ember.run.later(()=>{
+    //     // notification.checkForNotifications(()=>{
+    //     //   notificationChecker();
+    //     // });
+    //
+    //     notification.checkNotificationCounts(()=>{
+    //       notificationChecker();
+    //     });
+    //   },60000)
+    // }
+    //
+    // notification.checkNotificationCounts();
+    // //notification.checkForNotifications();
+    // notificationChecker.apply(this);
   },
   updateCurrentPath: function(){
     switch(this.get('currentPath')){
