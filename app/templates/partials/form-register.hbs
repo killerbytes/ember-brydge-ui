@@ -18,16 +18,16 @@
         <label for="gender_2" class="inline">{{action-radio id="gender_2" value="female" htmlChecked=form.gender name="gender" action="onChecked" }} Female</label>
       </fieldset>
       <div class="columns">
-        {{form-input model=form valuePath="email" placeholder="Email"}}        
+        {{form-input model=form valuePath="email" placeholder="Email"}}
       </div>
       <div class="columns">
         {{input name="confirm_email" placeholder="Re-enter email" value=confirm_email}}
       </div>
       <div class="columns">
-        {{form-input model=form valuePath="password" placeholder="Password"}}        
+        {{form-input type="password" model=form valuePath="password" placeholder="Password"}}        
       </div>
     </div>
     <p>By signing up to the service you are agreeing to our <a>Terms of User</a> and our <a>Privacy Policy</a></p>
-    <button class="button success rounded" disabled={{v-get form 'isInvalid'}} {{ action "register" }} type="submit">Create Account</button>    
+    <button class="button success rounded" disabled={{v-get form 'isInvalid'}} {{ action "register" }} type="submit">Create Account</button>
   </div>
 </form>

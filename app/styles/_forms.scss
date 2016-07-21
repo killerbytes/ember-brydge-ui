@@ -20,6 +20,9 @@ form{
 		font-size: 12px;
 		height: auto;
 	}
+	input:focus, input:active{
+		border-color: $border-color;
+	}
 	input[type="search"]{
 		@extend .rounded;
 		border-color: $border-color;
