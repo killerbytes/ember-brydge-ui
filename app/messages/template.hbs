@@ -2,9 +2,6 @@
   <div class="medium-6 medium-centered columns">
     <div class="page-heading">
       <h1>Messages</h1>
-      <p class="text-center">
-        Speak with connections privately. Only connections can message you, so if you are receiving inappropriate messages or spam, inform the user or disconnect from them.
-      </p>
     </div>
 
   </div>
@@ -22,8 +19,7 @@
     </section>
     <section class="container">
       <ul class="no-bullet user-link-list bg-white">
-        {{#each list as |item| }}
-        {{#if item.content}}
+      {{#each list as |item| }}
         <li>
           {{#link-to "messages.conversation" item.id class="no-color"}}
           <div class="row user">
@@ -45,8 +41,7 @@
 
           {{/link-to}}
         </li>
-        {{/if}}
-        {{/each}}
+      {{/each}}
       </ul>
     </section>
   </div>

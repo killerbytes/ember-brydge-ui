@@ -6,7 +6,7 @@ export default DS.JSONAPISerializer.extend({
     const json = this._super(...arguments);
     return {
       message: {
-        friendid: json.data.attributes.userid,
+        friendid: json.data.attributes.recipient,
         content: json.data.attributes.content
       }
     };

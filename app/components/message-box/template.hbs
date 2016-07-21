@@ -5,12 +5,12 @@
         <li>
           <div class="row user">
             <div class="columns medium-8">
-              <div class="avatar" style={{htmlSafeImage item.avatar }}>
-                <img src= {{item.avatar}} class="hide">
+              <div class="avatar" style={{htmlSafeImage item.from.profile.avatarUrl }}>
+                <img src= {{item.from.profile.avatarUrl}} class="hide">
               </div>
               <div class="user-info">
-                {{#link-to "profile" item.sender }}
-                  {{ item.fullName }}
+                {{#link-to "profile" item.from.id }}
+                  {{ item.from.profile.fullName }}
                 {{/link-to}}
               </div>
             </div>
