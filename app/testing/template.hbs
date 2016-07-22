@@ -3,13 +3,9 @@
   </div>
 
   <div class="columns medium-7">
-    {{#each model as |item|}}
-      {{ask-card-pending item=item}}
-    {{/each}}
-    {{#brydge-scroller model=model onClick="load"}}
-      {{#if isLoading}}
-        <div class="loader">Loading...</div>
-      {{/if}}
-    {{/brydge-scroller}}
+    <form action="" class="brydge-form">
+      {{input-date-picker value=date}}
+      {{date}}
+    </form>
   </div>
 </div>

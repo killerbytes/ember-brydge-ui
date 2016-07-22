@@ -13,7 +13,7 @@
   <div class="columns">
     <div class="row collapse brydge-tab brydge-form">
 
-      <div class="medium-3 columns">
+      <div class="medium-4 columns">
 
         {{#zf-tabs class="vertical" id="edit-tabs"}}
         <li data-tab='personal' class="tabs-title {{active-tab 'personal' tab}}">
@@ -25,13 +25,21 @@
         <li data-tab='occupindustry' class="tabs-title {{active-tab 'occupindustry' tab}}">
           <a href="#occupindustry"><i class="fa fa-briefcase" aria-hidden="true"></i>Occupational Industry</a>
         </li>
-        <li data-tab='snapshot' class="tabs-title {{active-tab 'snapshot' tab}}"><a href="#snapshot">Snapshot</a></li>
-        <li data-tab='work' class="tabs-title {{active-tab 'work' tab}}"><a href="#work">Work History</a></li>
-        <li data-tab='academia' class="tabs-title {{active-tab 'academia' tab}}"><a href="#academia">Academia</a></li>
-        <li data-tab='language' class="tabs-title {{active-tab 'language' tab}}"><a href="#language">Languages</a></li>
+        <li data-tab='snapshot' class="tabs-title {{active-tab 'snapshot' tab}}">
+          <a href="#snapshot"><i class="fa fa-camera-retro" aria-hidden="true"></i>Snapshot</a>
+        </li>
+        <li data-tab='work' class="tabs-title {{active-tab 'work' tab}}">
+          <a href="#work"><i class="fa fa-paperclip" aria-hidden="true"></i>Work History</a>
+        </li>
+        <li data-tab='academia' class="tabs-title {{active-tab 'academia' tab}}">
+          <a href="#academia"><i class="fa fa-graduation-cap" aria-hidden="true"></i>Academia</a>
+        </li>
+        <li data-tab='language' class="tabs-title {{active-tab 'language' tab}}">
+          <a href="#language"><i class="fa fa-globe" aria-hidden="true"></i>Languages</a>
+        </li>
         {{/zf-tabs}}
       </div>
-      <div class="medium-9 columns float-left">
+      <div class="medium-8 columns float-left">
         <div class="tabs-content vertical boxz" data-tabs-content="edit-tabs">
           <a data-toggle="dd-industry-picker-business" class="action-button dropdown-button-arrow invisible"><i class="icons ellipsis"></i></a>
 

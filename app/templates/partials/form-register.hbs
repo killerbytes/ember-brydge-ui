@@ -1,8 +1,5 @@
-<form class="micro-forms mb20">
+<form class="brydge-form micro-forms mb20" autocomplete="false" >
   <div class="row column">
-    <div class="text-center">
-      <a href="/"><img class="logo" src="assets/brydge-blue.svg"></a>
-    </div>
     <div class="row">
       <div class="columns medium-6">
         {{form-input model=form valuePath="firstName" placeholder="First Name"}}
@@ -11,23 +8,29 @@
         {{form-input model=form valuePath="lastName" placeholder="Last Name"}}
       </div>
       <div class="columns">
-        {{form-input model=form valuePath="location" placeholder="City"}}
+        {{form-input-location
+            model=form
+            valuePath="location"
+            selected=location
+            onItemSelected="onLocationSelect"
+            placeholder="City"}}
       </div>
       <fieldset class="large-6 columns">
-        <label for="gender_1" class="inline">{{action-radio id="gender_1" value="male" htmlChecked=form.gender name="gender" action="onChecked" required=true}} Male</label>
         <label for="gender_2" class="inline">{{action-radio id="gender_2" value="female" htmlChecked=form.gender name="gender" action="onChecked" }} Female</label>
+        <label for="gender_1" class="inline">{{action-radio id="gender_1" value="male" htmlChecked=form.gender name="gender" action="onChecked" required=true}} Male</label>
       </fieldset>
       <div class="columns">
-        {{form-input model=form valuePath="email" placeholder="Email"}}
+        {{form-input model=form valuePath="email" placeholder="Email" disabled=true}}
       </div>
       <div class="columns">
-        {{input name="confirm_email" placeholder="Re-enter email" value=confirm_email}}
+        {{form-input type="password" model=form valuePath="password" placeholder="Create Password"}}
       </div>
       <div class="columns">
-        {{form-input type="password" model=form valuePath="password" placeholder="Password"}}        
+        {{input-date-picker value=form.dob}}
+        {{form-input model=form valuePath="dob" placeholder="DOB" class="hide"}}
       </div>
     </div>
-    <p>By signing up to the service you are agreeing to our <a>Terms of User</a> and our <a>Privacy Policy</a></p>
+    <p>By signing up to the service you are agreeing to our {{link-to "Terms of Use" "terms-of-use"}} and our {{link-to "Privacy Policy" "privacy-policy"}}</p>
     <button class="button success rounded" disabled={{v-get form 'isInvalid'}} {{ action "register" }} type="submit">Create Account</button>
   </div>
 </form>

@@ -2,6 +2,11 @@ import Ember from 'ember';
 import AuthenticatedRouteMixin from 'ember-simple-auth/mixins/authenticated-route-mixin';
 import ENV from 'web/config/environment';
 import FilterDropdownListMixin from 'web/mixins/filter-dropdown-list';
+// const {
+//   Component,
+//   computed,
+//   getOwner
+// } = Ember;
 
 export default Ember.Route.extend(AuthenticatedRouteMixin, FilterDropdownListMixin, {
   session: Ember.inject.service('session'),
@@ -22,6 +27,7 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, FilterDropdownListMix
 
   beforeModel(transition, params) {
     this._super(transition, params);
+    // getOwner(this).lookup('controller:application').set('header', true);
     return this.get('sessionAccount.account');
   },
 

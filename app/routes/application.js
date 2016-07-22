@@ -2,9 +2,10 @@ import Ember from 'ember';
 import ApplicationRouteMixin from 'ember-simple-auth/mixins/application-route-mixin';
 import ENV from 'web/config/environment';
 import TransitionToListenerRoute from 'ember-cli-routing-service/routes/transition-to-listener';
-
+import HideHeaderMixin from 'web/mixins/hide-header';
 
 export default TransitionToListenerRoute.extend(
+  HideHeaderMixin,
   ApplicationRouteMixin, {
   tmp: Ember.inject.service('temp'),
 

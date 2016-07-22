@@ -1,11 +1,8 @@
-{{#if isHeader}}
+{{#if header}}
   {{app-header logout='logout'}}
 {{/if}}
-{{#if isSimpleHeader}}
-  {{partial "partials/simple_header"}}
-{{/if}}
 <section class="main">
-{{outlet}}
+  {{outlet}}
 </section>
 
 <div class="flash-notification">
@@ -20,40 +17,3 @@
 	  {{/flash-message}}
 	{{/each}}
 </div>
-
-
-{{#zf-reveal id="locationModal" overlay=true class="tiny reveal-popup"}}
-  <h4>Select Your Location</h4>
-  <div class="padding">
-  	<p>This is a comprehensive list of all countries (and their respective states and cities) available on Brydge.</p>
-  	<p>If you can't find your city or town, select the city or town closest to you.</p>
-  </div>
-  <div class="medium-7 small-centered columns">
-
-    <select name="" id="">
-      <option value="">Country</option>
-      <option value="">Good job on</option>
-      <option value="">Congratulations on</option>
-      <option value="">Kudos on</option>
-    </select>
-    <select name="" id="">
-      <option value="">State</option>
-      <option value="">Good job on</option>
-      <option value="">Congratulations on</option>
-      <option value="">Kudos on</option>
-    </select>
-    <select name="" id="">
-      <option value="">City</option>
-      <option value="">Good job on</option>
-      <option value="">Congratulations on</option>
-      <option value="">Kudos on</option>
-    </select>
-
-  </div>
-  <div class="reveal-footer text-right">
-  	<div class="medium-8 small-centered columns text-center">
-		<button class="button success">Select</button>
-		<button class="button success" data-close>Cancel</button>
-  	</div>
-  </div>
-{{/zf-reveal}}

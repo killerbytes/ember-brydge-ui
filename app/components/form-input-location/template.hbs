@@ -1,0 +1,14 @@
+{{input type=type name=valuePath key-up="query" focus-in="open" value=value placeholder=placeholder}}
+{{#if showMessage}}
+  <div class="error">
+      {{v-get model valuePath 'message'}}
+  </div>
+{{/if}}
+
+<div class="wrapper {{if isOpen 'is-open'}}">
+	<ul class="no-bullet">
+	{{#each items as |item|}}
+		<li {{action "onSelect" item}}> <a>{{location-join item}}</a> </li>
+	{{/each}}
+	</ul>
+</div>

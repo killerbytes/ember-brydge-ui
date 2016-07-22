@@ -1,13 +1,18 @@
 import Ember from 'ember';
+import { validator, buildValidations } from 'ember-cp-validations';
 
-export default Ember.Controller.extend({
+
+const Validations = buildValidations({
+	email: [ validator('presence', true),
+					validator('format', { type: 'email'}) ]
+});
+
+export default Ember.Controller.extend(Validations, {
 	session: Ember.inject.service(),
   queryParams: ['code'],
 	form: Ember.computed(function(){
-		
-		return this.get('store').createRecord('register', {email: this.get('model.email')});
+		return this.get('store').createRecord('register', {email: this.get('model.email'), gender: 'female'});
 	}),
-
 	actions: {
 		request(){
 			this.store.createRecord('invitation', {
@@ -22,17 +27,13 @@ export default Ember.Controller.extend({
         this.get('session').authenticate('authenticator:oauth2', res.get('email'), res.get('password'))
           .then((user) => {
             const userid = this.get('session.data.authenticated.account_id');
-            //const name = _this.get('session.data.authenticated.name');
             this.get('session').set('data.userid', userid);
-            //_this.get('session').set('data.name', name);
-            // cb();
             this.transitionToRoute('home');
           })
 			});
-
 		},
-		onChecked(item){
-			console.log(item)
+		onLocationSelect(selected){
+			this.set('location', selected);
 		}
 	}
 

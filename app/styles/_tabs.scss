@@ -117,7 +117,7 @@
 	}
 	.tabs-content{
 		&.vertical{
-			@extend .bordered;
+			border: 1px solid $border-color;
 			position: relative;
 			min-height: 302px;
 		}

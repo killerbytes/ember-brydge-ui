@@ -13,16 +13,26 @@
     <div class="columns">
         <div class="row collapse brydge-tab brydge-form">
 
-          <div class="medium-3 columns">
+          <div class="medium-4 columns">
             {{#zf-tabs class="vertical bg-gray" id="settings-tabs"}}
-              <li data-tab='email' class="tabs-title {{active-tab 'email' tab}}"><a href="#email">Email address</a></li>
-              <li data-tab='password' class="tabs-title {{active-tab 'password' tab}}"><a href="#password">Password</a></li>
-              <li data-tab='notification' class="tabs-title {{active-tab 'notification' tab}}"><a href="#notification">Notification settings</a></li>
-              <li data-tab='ask' class="tabs-title {{active-tab 'ask' tab}}"><a href="#ask">ASK settings</a></li>
-              <li data-tab='views' class="tabs-title {{active-tab 'views' tab}}"><a href="#views">Profile views</a></li>
+              <li data-tab='email' class="tabs-title {{active-tab 'email' tab}}">
+                <a href="#email"><i class="fa fa-envelope-o" aria-hidden="true"></i>Email address</a>
+              </li>
+              <li data-tab='password' class="tabs-title {{active-tab 'password' tab}}">
+                <a href="#password"><i class="fa fa-asterisk" aria-hidden="true"></i>Password</a>
+              </li>
+              <li data-tab='notification' class="tabs-title {{active-tab 'notification' tab}}">
+                <a href="#notification"><i class="fa fa-sticky-note" aria-hidden="true"></i>Notification settings</a>
+              </li>
+              <li data-tab='ask' class="tabs-title {{active-tab 'ask' tab}}">
+                <a href="#ask"><i class="fa fa-quote-left" aria-hidden="true"></i>ASK settings</a>
+              </li>
+              <li data-tab='views' class="tabs-title {{active-tab 'views' tab}}">
+                <a href="#views"><i class="fa fa-binoculars" aria-hidden="true"></i>Profile views</a>
+              </li>
             {{/zf-tabs}}
           </div>
-          <div class="medium-9 columns float-left">
+          <div class="medium-8 columns float-left">
             <div class="tabs-content vertical boxz" data-tabs-content="settings-tabs">
               <div class="tabs-panel {{active-tab 'email' tab}}" id="email">
                 <section class="header">

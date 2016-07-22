@@ -20,6 +20,16 @@ table{
 	}
 }
 
+.avatar{
+	@extend .circle;
+	background-position: center center;
+	background-size: cover;
+	border: 1px solid $border-color;
+	width: 30px;
+	height: 30px;
+	margin: auto;
+}
+
 .user{
 	position: relative;
 	.avatar{
@@ -353,6 +363,44 @@ div.error-messages{
 		text-transform: capitalize;
 		li{
 			margin-bottom: 5px;
+		}
+	}
+}
+
+footer{
+	text-align: center;
+	a{ color: $text-gray; }
+	ul{
+		display: block;
+		text-align: center;
+		li{
+			display: inline-block;
+			a{
+				padding: .7rem 1rem;
+			}
+		}
+	}
+}
+
+
+.dialog-wrapper{
+	@extend .rounded;
+	background-color: #FFF;
+	.error-messages{
+		margin: 0 2rem 1rem;
+	}
+}
+.page-dialog:last-child{
+	padding: 1rem;
+	margin-bottom: 1rem;
+}
+.page-dialog{
+	padding: 2rem 1rem;
+	.logo{
+		text-align: center;
+		display: block;
+		img {
+			height: 40px;
 		}
 	}
 }
