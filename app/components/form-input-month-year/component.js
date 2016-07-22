@@ -7,7 +7,7 @@ export default Ember.Component.extend({
   years: Ember.computed('',function(){
   	var years = [];
     var minYear = 1900;
-  	var maxYear = this.get('maxYear') || moment().year();
+  	var maxYear = this.get('maxYear') || moment().year() + 15;
   	while(maxYear > minYear){
   		years.push(maxYear--);
   	}

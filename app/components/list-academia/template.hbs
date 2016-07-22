@@ -1,10 +1,10 @@
 {{#each model as |item|}}
   <li>
     <div class="name">{{item.school}}</div>
-    <div>{{item.degree}} , {{item.studyField}}</div>
+    <div>{{item.degree}}</div>
     <span class="dim-text">
     	{{term-date-format item.to 'YYYY'}}
-    </span>   
+    </span>
 
   </li>
 {{/each}}

@@ -6,7 +6,7 @@
 				<div class="columns medium-8">
 						{{select-native content=highlightStatuses action=(action (mut highlightStatus)) selectedValue=profile.currentTitle}}
 				</div>
-				<div class="columns medium-4">				
+				<div class="columns medium-4">
 					{{#if isHighlightStatus}}
 						<label class="middle">
 							<a>Current Title</a>
@@ -54,7 +54,7 @@
 				<div class="row">
 					<div class="columns">
 				    <button class="button success rounded" disabled={{v-get item 'isInvalid'}} {{ action 'update' item }}>Save</button>
-				    <a class="float-right button clear" {{ action 'delete' item }}>Delete this Position</a>
+				    <a class="float-right button clear" {{ action 'delete' item }}>Delete</a>
 					</div>
 				</div>
 			</div>

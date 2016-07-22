@@ -3,7 +3,7 @@
     <span aria-hidden="true">&times;</span>
   </button>
   <section class="title">
-    <h4>Share {{#link-to "profile" sharePost.post.user.id }}{{sharePost.post.user.profile.fullName}}'s{{/link-to}} post</h4>
+    <h4>Share {{link-to sharePost.post.user.profile.fullName "profile" sharePost.post.user.id }}'s post</h4>
   </section>
   <section class="header">
     <form class="form-input">
@@ -11,15 +11,15 @@
         <img src= {{avatarUrl}} class="hide">
       </div>
       <div class="input-wrapper">
-        {{textarea 
-          value=sharePost.valueText 
-          key-up="edit" 
+        {{textarea
+          value=sharePost.valueText
+          key-up="edit"
           enter="comment"
-          class="textarea content-editable" 
-          placeholder="Would you like to say something about this?" 
-          }}                  
+          class="textarea content-editable"
+          placeholder="Would you like to say something about this?"
+          }}
       </div>
-    </form>    
+    </form>
   </section>
   <section>
     <div class="newsfeed-item">
@@ -29,7 +29,7 @@
 
       {{#if sharePost.post.title}}
         {{newsfeed-media model=sharePost.post }}
-      {{/if}}          
+      {{/if}}
     </div>
     <div class="row collapse">
       <div class="columns medium-8">
@@ -52,19 +52,17 @@
       </div>
     </li>
   {{/zf-accordion}}
-  <section class="section-footer">
+  <section class="section-footer bg-gray">
     {{#if categories}}
       <div class="broadcast-list">
-          <span class="broadcast-title">Broadcasting to: </span> 
-          <strong class="text-gray">My Connections{{#each categories as |item|}}
+          <strong class="broadcast-title">Broadcasting to: </strong>
+          <strong class="text-gray">Connections{{#each categories as |item|}}
                 {{~ concat '; ' item.text ~}}
               {{/each}}
           </strong>
       </div>
     {{else}}
-      <div class="broadcast-list"><span class="broadcast-title">Broadcasting to: </span><strong class="text-gray">My Connections Only</strong></div>
+      <div class="broadcast-list"><strong class="broadcast-title">Broadcasting to: </strong><strong class="text-gray">Connections Only</strong></div>
     {{/if}}
-  </section>    
+  </section>
 {{/zf-reveal}}
-
-
