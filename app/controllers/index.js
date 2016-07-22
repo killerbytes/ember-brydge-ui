@@ -25,7 +25,7 @@ export default Ember.Controller.extend({
           _this.transitionToRoute('home');
         },
         (err) => {
-          this.set('errorMessage', err.errors[0].details);
+          this.set('errors', err.errors);
           // console.log(err, this.get('errorMessage'));
         });
 

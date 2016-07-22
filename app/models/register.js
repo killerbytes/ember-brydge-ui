@@ -9,5 +9,6 @@ export default DS.Model.extend(Validations, {
   firstName: DS.attr(),
   lastName: DS.attr(),
   gender: DS.attr(),
+  dob: DS.attr(),
   location: DS.attr()
 });

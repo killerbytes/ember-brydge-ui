@@ -10,10 +10,6 @@ export default Ember.Route.extend({
 	},
 	setupController(){
 		this._super(...arguments);
-		if(this.get('errors')){
-			this.set('controller.errors',this.get('errors'));
-			this.set('controller.token', 2342);
-
-		}
+		this.set('controller.errors',this.get('errors'));
 	}
 });

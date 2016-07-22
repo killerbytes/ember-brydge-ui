@@ -1,7 +1,7 @@
 import DS from 'ember-data';
 
 export default DS.JSONAPISerializer.extend({
-  
+
   serialize() {
     const json = this._super(...arguments);
     console.log(json.data.attributes)
@@ -11,7 +11,8 @@ export default DS.JSONAPISerializer.extend({
         password: json.data.attributes.password,
         first_name: json.data.attributes.first_name,
         last_name: json.data.attributes.last_name,
-        gender: "male",
+        gender: json.data.attributes.gender,
+        dob: json.data.attributes.dob,
         location: json.data.attributes.location
       }
     };

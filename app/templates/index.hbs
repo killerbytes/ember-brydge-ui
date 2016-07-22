@@ -1,14 +1,32 @@
 <div class="row">
   <div class="medium-6 small-centered columns">
-    {{partial "partials/form-login"}}
+    <div class="dialog-wrapper">
+      <div class="page-dialog">
+        <a href="/" class="logo"><img src="assets/brydge-blue.svg"></a>
+      </div>
+      {{#if errors}}
+        <div class="error-messages">
+          <ul class="no-bullet errors">
+          {{#each errors as |item|}}
+              <li>
+                <h4>{{item.title}}</h4>
+                {{item.detail}}
+              </li>
+          {{/each}}
+          </ul>
+        </div>
+      {{/if}}
+      {{partial "partials/form-login"}}
+    </div>
   </div>
 </div>
+
 <div class="row">
   <div class="content-pad text-center">
     BRYDGE is currently in closed beta. If you have an invitation code, paste it below.
   </div>
 </div>
-<div class="row mb50">
+<div class="row">
   <div class="medium-6 small-centered columns">
     <form>
       <div class="input-group">
