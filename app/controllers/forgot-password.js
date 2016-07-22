@@ -27,8 +27,6 @@ export default Ember.Controller.extend(Validations, {
 	},
 	actions: {
 		submit(){
-			this.set('token', '')
-			return false;
 			this.get('ajax').request('/v2/forgot_password', {
           method: 'POST',
 					data: {

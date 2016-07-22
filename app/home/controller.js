@@ -1,9 +1,14 @@
 import Ember from 'ember';
 import QueryLocationMixin from 'web/mixins/query-locations';
 import GetIndustryFromCodeMixin from 'web/mixins/get-industry-from-code';
+const {
+  Component,
+  computed,
+  getOwner
+} = Ember;
 
 export default Ember.Controller.extend(
-  QueryLocationMixin, 
+  QueryLocationMixin,
   GetIndustryFromCodeMixin, {
   flashMessages: Ember.inject.service(),
   ajax: Ember.inject.service(),
@@ -36,6 +41,10 @@ export default Ember.Controller.extend(
   channels: null,
   location: null,
   q: null,
+  init(){
+    console.log('init');
+    getOwner(this).lookup('controller:application').set('header', true);
+  },
   loadNewsfeed(tab, cb){
     var tab = tab ||  this.tab;
     this.set('newsfeed', {});
@@ -66,7 +75,7 @@ export default Ember.Controller.extend(
     })
   },
 
-  
+
   // queryParams: {
   //   tab: {
   //     refreshModel: true
@@ -97,13 +106,13 @@ export default Ember.Controller.extend(
           var newsfeed = this.get('newsfeed.live');
           newsfeed.pushObject(res._internalModel);
           cb.apply();
-          Ember.get(this, 'flashMessages').success('Post Successful!');     
+          Ember.get(this, 'flashMessages').success('Post Successful!');
 
         }else{
           this.set('tab', 'live');
           this.loadNewsfeed('live', ()=>{
             cb.apply();
-            Ember.get(this, 'flashMessages').success('Post Successful!');     
+            Ember.get(this, 'flashMessages').success('Post Successful!');
           })
         }
       }).catch((err) => {
@@ -125,11 +134,11 @@ export default Ember.Controller.extend(
           this.set('tab', 'live');
           cb.apply();
           this.loadNewsfeed('live', ()=>{
-            Ember.get(this, 'flashMessages').success('Post Successful!');     
-          })          
+            Ember.get(this, 'flashMessages').success('Post Successful!');
+          })
         }
 
-        // Ember.get(this, 'flashMessages').success('Post Shared!');    
+        // Ember.get(this, 'flashMessages').success('Post Shared!');
         // cb.apply();
       });
     }
