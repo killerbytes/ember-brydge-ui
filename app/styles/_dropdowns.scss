@@ -36,6 +36,14 @@
 .dropdown-button-arrow+.dropdown-pane{
   z-index: 12;
 }
+a.dropdown-button-icons.dropdown-button-arrow{
+  &:before{
+    border-color: transparent transparent $border-color transparent;
+  }
+  &:after{
+    border-color: transparent transparent $brydge-gray transparent;
+  }
+}
 
 .arrow{
   content: '';
@@ -112,6 +120,9 @@
     background-color: $brydge-gray;
     padding: 1rem;
     border-bottom: 1px solid $border-color;
+    h4+div{
+      font-size: 11px;
+    }
   }
   ul.media-list{
     li>a{

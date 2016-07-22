@@ -78,7 +78,7 @@
 					    {{newsfeed-list newsfeed=feed_live }}
 				    {{else}}
 							{{#if isLoading }}
-								<div class="loader">Loading...</div>
+								<div class="loading"></div>
 							{{else}}
 					      <div class="column">
 					        <div class="empty-message">
@@ -93,7 +93,7 @@
 				    {{newsfeed-list newsfeed=feed_curated }}
 			    {{else}}
 						{{#if isLoading }}
-							<div class="loader">Loading...</div>
+							<div class="loading"></div>
 						{{else}}			    
 				      <div class="column">
 				        <div class="empty-message">
@@ -108,7 +108,7 @@
 				    {{newsfeed-list newsfeed=feed_search }}
 			    {{else}}
 						{{#if isLoading }}
-							<div class="loader">Loading...</div>
+							<div class="loading"></div>
 						{{else}}
 				      <div class="column">
 				        <div class="empty-message">

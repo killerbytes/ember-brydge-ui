@@ -41,6 +41,7 @@
 	}
 }
 .profile-box{
+	margin: 0 30px;
 	font-size: 14px;
 	text-align: center;
 	.name{
@@ -68,10 +69,10 @@
 		border-radius: 100px;
 	}
 	.button.circle{
-		position: absolute;
-		bottom: 0;
-		right: 0;
-		border: 2px solid #FFF;
+		// position: absolute;
+		// bottom: 0;
+		// right: 0;
+		// border: 2px solid #FFF;
 	}
 
 }

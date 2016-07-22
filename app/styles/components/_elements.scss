@@ -244,6 +244,9 @@ footer{
 }
 
 .industry-examples{
+	.medium-3{
+		margin-top: 4rem;
+	}
 	.avatar{
 		margin-top: 1rem;
 	}
@@ -266,6 +269,19 @@ footer{
 		  left: -20px;
 		  border-color: transparent $brydge-gray transparent transparent ;
 		  border-width: 10px;
+		}
+	}
+	.alt{
+		.callout{
+			&:after{
+				@extend .arrow;
+			  top: 15px;
+				left: auto;
+			  right: -20px;
+			  border-color: transparent transparent transparent $brydge-gray ;
+			  border-width: 10px;
+			}
+
 		}
 	}
 }
@@ -344,12 +360,6 @@ section.message-content{
 	}
 }
 
-
-.test{
-	height: 200px;
-	border: 1px solid #000;
-}
-
 div.error-messages{
 	@extend .bordered;
 	background-color: $brydge-gray;
@@ -369,6 +379,7 @@ div.error-messages{
 
 footer{
 	text-align: center;
+	font-weight: bold;
 	a{ color: $text-gray; }
 	ul{
 		display: block;
@@ -403,4 +414,8 @@ footer{
 			height: 40px;
 		}
 	}
+}
+
+.current-job{
+	margin-top: 5px;
 }

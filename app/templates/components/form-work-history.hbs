@@ -1,9 +1,9 @@
 <div class="row">
 	<div class="columns">
-		<label>					
+		<label>
 			Title
 			{{form-input model=model valuePath="title"}}
-		</label>						
+		</label>
 	</div>
 </div>
 <div class="row">
@@ -19,7 +19,7 @@
 		<label>
 			Location
 			{{form-input model=model valuePath="location"}}
-		</label>						
+		</label>
 	</div>
 </div>
 <div class="row">
@@ -28,36 +28,40 @@
 			Start Date
 		</label>
 		<div class="row">
-			<div class="columns medium-6">{{form-input-month-year value=model.startFrom}}</div>
-			<div class="columns medium-6">{{form-input-month-year value=model.startFrom type="year"}}</div>
+			<div class="columns medium-5">{{form-input-month-year value=model.startFrom}}</div>
+			<div class="columns medium-3">{{form-input-month-year value=model.startFrom type="year"}}</div>
+			<div class="columns"></div>
 		</div>
 	</div>
 </div>
 <div class="row">
 	<div class="columns">
 		<label>
-			End Date							
+			End Date
 		</label>
 		<div class="row">
-			<div class="columns medium-6">{{form-input-month-year value=model.endAt disabled=model.currentCompany}}</div>
-			<div class="columns medium-6">{{form-input-month-year value=model.endAt type="year" disabled=model.currentCompany}}</div>
+			<div class="columns medium-5">{{form-input-month-year value=model.endAt disabled=model.currentCompany}}</div>
+			<div class="columns medium-3">{{form-input-month-year value=model.endAt type="year" disabled=model.currentCompany}}</div>
+			<div class="columns medium-4">
+				<div class="checkbox current-job">
+					<label>
+						{{input type="checkbox" name="currentCompany" checked=model.currentCompany}} Current Job
+					</label>
+				</div>
+
+			</div>
 		</div>
 	</div>
 </div>
 <div class="row">
 	<div class="columns">
-		<div class="checkbox">
-			<label>
-				{{input type="checkbox" name="currentCompany" checked=model.currentCompany}} I currently work here
-			</label>
-		</div>
 	</div>
 </div>
 <div class="row">
 	<div class="columns">
 		<label>
 			Description
-		</label>						
-		{{form-text-counter limit=2100 value=model.content rows=10 }}				
+		</label>
+		{{form-text-counter limit=2100 value=model.content rows=10 }}
 	</div>
 </div>

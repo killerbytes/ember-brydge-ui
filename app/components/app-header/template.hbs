@@ -14,8 +14,8 @@
       <div class="title-bar-right">
 				<ul class="top-bar-group menu menu-actions wrapper" {{ action "closeTooltip" preventDefault=false }}>
 					<li>
-						{{#zf-tooltip title="Profile Views"}}
-							<a data-toggle="dd-views" class="dropdown-button-arrow" {{action 'clickProfile' notification.profileCount}}>
+						{{#zf-tooltip title="Profile Views"  vOffset=7}}
+							<a data-toggle="dd-views" class="dropdown-button-arrow dropdown-button-icons" {{action 'clickProfile' notification.profileCount}}>
 								{{#if notification.profileCount}}
 									<span class="alert badge">{{notification.profileCount}}</span>
 								{{/if}}
@@ -25,8 +25,8 @@
 					</li>
 
 					<li>
-						{{#zf-tooltip title="Connection Requests"}}
-							<a data-toggle="dd-requests" class="dropdown-button-arrow" {{action 'clickConnection' notification.connectionCount}}>
+						{{#zf-tooltip title="Connection Requests" vOffset=7}}
+							<a data-toggle="dd-requests" class="dropdown-button-arrow dropdown-button-icons" {{action 'clickConnection' notification.connectionCount}}>
 								{{#if notification.connectionCount}}
 									<span class="alert badge">{{notification.connectionCount}}</span>
 								{{/if}}
@@ -36,8 +36,8 @@
 
 					</li>
 					<li>
-						{{#zf-tooltip title="Messages"}}
-							<a data-toggle="dd-messages" class="dropdown-button-arrow" {{action 'clickMessage' notification.messageCount}}>
+						{{#zf-tooltip title="Messages" vOffset=7}}
+							<a data-toggle="dd-messages" class="dropdown-button-arrow dropdown-button-icons" {{action 'clickMessage' notification.messageCount}}>
 								{{#if notification.messageCount}}
 									<span class="alert badge">{{notification.messageCount}}</span>
 								{{/if}}
@@ -47,8 +47,8 @@
 
 					</li>
 					<li>
-						{{#zf-tooltip title="Notifications"}}
-							<a data-toggle="dd-notification" class="dropdown-button-arrow" {{action 'clickNotification' notification.notificationCount}}>
+						{{#zf-tooltip title="Notifications" vOffset=7}}
+							<a data-toggle="dd-notification" class="dropdown-button-arrow dropdown-button-icons" {{action 'clickNotification' notification.notificationCount}}>
 									{{#if notification.notificationCount }}
 							      <span class="alert badge">{{notification.notificationCount}}</span>
 							    {{/if}}
@@ -78,7 +78,7 @@
 					<li>
 						<ul class="menu">
 							<li>
-								{{#zf-tooltip title="Menu"}}
+								{{#zf-tooltip title="Menu" vOffset=7}}
 									<a data-toggle="dd-menu" class="dropdown-button-arrow">
 										<i class="icons caret"></i>
 									</a>
@@ -139,7 +139,7 @@
 			{{/if}}
 		</ul>
 		{{#link-to 'profile-views' class="footer-button button expanded"}}
-			See all profile views
+			See all Profile Views
 		{{/link-to}}
 	{{/zf-dropdown}}
 
@@ -179,7 +179,7 @@
 			{{/each}}
 		</ul>
 		{{#link-to 'requests' class="footer-button button expanded"}}
-			See All Connection Requests
+			See all Connection Requests
 		{{/link-to}}
 	{{/zf-dropdown}}
 
@@ -220,7 +220,7 @@
 			{{/each}}
 		</ul>
 		{{#link-to 'messages' class="footer-button button expanded"}}
-			See All Messages
+			See all Messages
 		{{/link-to}}
 	{{/zf-dropdown}}
 
@@ -258,7 +258,7 @@
 		  {{/each}}
 	  </ul>
 			{{#link-to 'notifications' class="footer-button button expanded"}}
-				See All Notifications
+				See all Notifications
 			{{/link-to}}
 	{{/zf-dropdown}}
 
@@ -274,7 +274,7 @@
 		</ul>
 		<ul class="menu">
 			<li>{{link-to "Connections" "me.connections"}}</li>
-			<li>{{link-to "Your ASK Page" "me.ask"}}</li>
+			<li>{{link-to "Ask" "me.ask"}}</li>
 			<li>{{link-to "Compliments" "me.compliments"}}</li>
 		</ul>
 		<ul class="menu">

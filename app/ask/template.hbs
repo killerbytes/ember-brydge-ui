@@ -61,10 +61,10 @@
 		{{#each toQuestions as |item| }}
 			{{ask-card item=item isOwner=false}}
 		{{/each}}
-		
+
 		{{#brydge-scroller model=toQuestions onClick="load"}}
       {{#if isLoading}}
-        <div class="loader">Loading...</div>
+        <div class="loading"></div>
       {{/if}}
     {{/brydge-scroller}}
 

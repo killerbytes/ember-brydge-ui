@@ -19,7 +19,7 @@
 								<li><a {{action "select" profile.industryOneId profile.industryOneName }}>{{profile.industryOneName}}</a></li>
 							</ul>
 						</section>
-						
+
 						<section>
 							<div class="sub-title">Your Occupational Industry ({{#link-to 'me.edit' (query-params tab="occupindustry")}}Edit{{/link-to}})</div>
 							<ul class="no-bullet content-pad">
@@ -28,7 +28,7 @@
 							{{/each}}
 							</ul>
 						</section>
-						
+
 					</div>
 					<div class="columns medium-6">
 						<section>
@@ -38,7 +38,7 @@
 									<li><a {{action "select" item.code item.name }}>{{item.name}}</a> <a {{action "delete" item}}><i class="fa fa-times" aria-hidden="true"></i></a> </li>
 								{{/each}}
 							</ul>
-							<a class="button success rounded" data-open="industryModal">Add More</a>
+							<a class="button success rounded" data-open="industryModal">Add</a>
 						</section>
 					</div>
 				</div>

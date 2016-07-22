@@ -105,9 +105,9 @@
 
     <section class="section-footer-links">
       {{#if isOwner }}
-        {{link-to "See more questions" 'me.ask'  class="button expanded"}}
+        {{link-to "Go to Ask" 'me.ask'  class="button expanded"}}
       {{else}}
-        {{link-to "See more questions" 'ask' profile.id  class="button expanded"}}
+        {{link-to "Go to Ask" 'ask' profile.id  class="button expanded"}}
       {{/if}}
     </section>
   </div>
@@ -153,9 +153,9 @@
   <section class="section-footer-links">
     {{#if latestCompliment}}
       {{#if isOwner }}
-        {{link-to 'See more compliments' 'me.compliments' class="button expanded"}}
+        {{link-to 'Go to Compliments' 'me.compliments' class="button expanded"}}
       {{else}}
-        {{link-to 'See more compliments' 'compliments' latestCompliment.to.id class="button expanded"}}
+        {{link-to 'Go to Compliments' 'compliments' latestCompliment.to.id class="button expanded"}}
       {{/if}}
     {{/if}}
   </section>

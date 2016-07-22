@@ -18,12 +18,14 @@
       {{newsfeed-list newsfeed=newsfeed }}
     {{else}}
       {{#if isLoading }}
-        <div class="loader">Loading...</div>
+        <div class="loading"></div>
       {{else}}
-        <div class="column">
-          <div class="empty-message">
-            {{profile.firstName}} hasn't shared any broadcast yet
-          </div>
+        <div class="box">
+          <section>
+            <div class="empty-message">
+              You haven't shared any broadcasts yet.
+            </div>
+          </section>
         </div>
       {{/if}}
     {{/if}}

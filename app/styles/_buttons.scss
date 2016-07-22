@@ -34,6 +34,9 @@
 		border-radius: 100px;
 		background-color: $button-blue;
 		padding: 6px 7px;
+		&:hover, &:focus{
+			background-color: $button-blue;
+		}
 	}
 
 	&.secondary{
@@ -101,7 +104,7 @@
 	.icons, .fa-caret-down{
 		position: absolute;
 		right: 10px;
-		top: 0;
+		top: 2px;
 		width: 10px;
 	}
 

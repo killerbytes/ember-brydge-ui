@@ -548,11 +548,11 @@ $titlebar-icon-spacing: 0.25rem;
 
 $has-tip-font-weight: $global-weight-bold;
 $has-tip-border-bottom: dotted 1px $dark-gray;
-$tooltip-background-color: $black;
+$tooltip-background-color: #404040;
 $tooltip-color: $white;
 $tooltip-padding: 0.75rem;
 $tooltip-font-size: $small-font-size;
-$tooltip-pip-width: 0.75rem;
+$tooltip-pip-width: 0.48rem;
 $tooltip-pip-height: $tooltip-pip-width * 0.866;
 $tooltip-radius: $global-radius;
 
@@ -565,4 +565,3 @@ $topbar-submenu-background: $topbar-background;
 $topbar-title-spacing: 1rem;
 $topbar-input-width: 200px;
 $topbar-unstack-breakpoint: medium;
-

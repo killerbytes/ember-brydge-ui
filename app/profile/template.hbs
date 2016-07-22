@@ -3,7 +3,7 @@
   <div class="columns medium-5 sidebar">
     {{profile-box profile=profile class="mb20"}}
     {{partial 'partials/profile-sidebar'}}
-    
+
   </div>
   <div class="columns medium-7">
     {{profile-menu profile=profile connections=connections}}
@@ -11,12 +11,12 @@
       {{newsfeed-list newsfeed=posts profile=model}}
     {{else}}
       {{#if isLoading }}
-        <div class="loader">Loading...</div>
+        <div class="loading"></div>
       {{else}}
         <div class="box">
           <section>
             <div class="empty-message">
-              {{profile.firstName}} hasn't shared any broadcast yet
+              {{profile.firstName}} hasn't shared any broadcasts yet
             </div>
           </section>
         </div>
@@ -31,7 +31,7 @@
   <p class="lead">Show your appreciation for {{profile.firstName}} by complementing him</p>
   <form {{action 'postCompliment' on='submit'}}>
     <div class="content clearfix">
-      
+
       {{select-native content=titles action=(action (mut complimentTitle))}}
 
       {{form-text-counter limit=250 value=complimentContent rows=5 }}

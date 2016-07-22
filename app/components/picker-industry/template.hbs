@@ -16,7 +16,7 @@
 	  <div data-tabs-content="industry-tab-{{name}}">
 	    <div class="tabs-panel is-active bg-gray" id="{{name}}-root">
 	    	<section>
-				  What sector is you industry in?
+				  What sector is the industry in?
 		      <ul class="no-bullet text-title">
 		        {{#each categories as |item|}}
 		          <li><a {{action "goto" "1" item }}>{{item.name}}</a></li>
@@ -77,7 +77,7 @@
 	      		<label>Industry:</label> <strong>{{industry.data.subIndustry}}</strong> <a {{action "goto" "2" group }}>Change</a>
 	        </section>
 		    	<section>
-				    <button class="button success rounded" {{action "select" industry }}>Save Changes</button>
+				    <button class="button success rounded" {{action "select" industry }}>Select</button>
 		      </section>
 	      </form>
 	    </div>

@@ -19,7 +19,7 @@
   <div class="medium-7 columns">
 		{{profile-menu profile=profile}}
     <div class="page-heading">
-			<h1>YOUR ASK PAGE</h1>
+			<h1>Your Ask Page</h1>
 			<p class="text-center">
 				{{#if profile.settings.ask}}
 					You are currently accepting questions. To disable the ASK feature go to {{link-to "Settings" "settings" (query-params tab="ask") }}.
@@ -44,7 +44,7 @@
 		{{/each}}
 		{{#brydge-scroller model=toQuestions onClick="load"}}
       {{#if isLoading}}
-        <div class="loader">Loading...</div>
+        <div class="loading"></div>
       {{/if}}
     {{/brydge-scroller}}
 

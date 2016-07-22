@@ -3,7 +3,7 @@
 		<li>
 			{{#link-to "me.compliments.inbox" }}
 				Compliments Requiring Approval
-				<span>({{inbox.meta.total}})</span>
+				<span class="badge">{{inbox.meta.total}}</span>
 				<i class="fa fa-chevron-right float-right" aria-hidden="true"></i>
 			{{/link-to}}
 		</li>
@@ -15,3 +15,6 @@
 		</li>
 	</ul>
 </div>
+
+{{ partial "partials/user-guide-box" }}
+{{ partial "footer"}}

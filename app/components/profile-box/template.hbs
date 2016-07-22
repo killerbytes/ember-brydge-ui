@@ -6,11 +6,6 @@
       <div class="avatar" style={{htmlSafeImage profile.avatarUrl}}>
         <img src="{{profile.avatarUrl}}" class="hide">
       </div>
-      {{#if isConnected }}
-        {{#link-to "messages.conversation" profile.connection.conversationid class="button circle"}}
-          <i class="icons messages white"></i>
-        {{/link-to}}
-      {{/if}}
     </div>
 
   {{/if}}
@@ -23,9 +18,11 @@
     <div class="position font-light">{{profile.currentTitle}}</div>
     <div class="company">{{profile.currentCompany}}</div>
   {{else}}
-    <div class="empty-message" style="margin:.5rem; ">
-      Add Current Title and Company
-    </div>
+    {{#if isOwner}}
+      <div class="empty-message" style="margin:.5rem; ">
+        Add Current Title and Company
+      </div>
+    {{/if}}
   {{/if}}
   <div class="location mb">
     {{profile.location}}
@@ -42,6 +39,11 @@
         {{else}}
           <button class="button large bordered green"{{action "connect"}}>Connect</button>
         {{/if}}
+      {{else}}
+        {{#link-to "messages.conversation" profile.connection.conversationid class="button circle"}}
+          <i class="icons messages white"></i>
+        {{/link-to}}
+
       {{/unless}}
     {{/unless}}
   </div>
