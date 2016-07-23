@@ -12,8 +12,9 @@ export default Ember.Component.extend({
 		console.log('file change', evt.target.files[0]);
 		var _this = this;
 
-		var form = this.$('form')[0]; // You need to use standart javascript object here
+		var form = this.$()[0]; // You need to use standart javascript object here
 		var formData = new FormData(form);
+		
 
 		var oFReader = new FileReader();
 	  oFReader.readAsDataURL(evt.target.files[0]);
