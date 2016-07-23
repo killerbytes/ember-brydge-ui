@@ -65,18 +65,18 @@ export default Ember.Controller.extend(ProfileSidebarMixin, {
         Ember.get(this, 'flashMessages').success('Post Shared!');
       });
     },
-    fileLoaded: function(formData){
-      console.log(formData)
-      return this.get('ajax').request('/v2/profile/avatar', {
-        method: 'POST',
-        data: formData,
-        contentType: false,
-        processData: false,
-      }).then((res)=>{
-        console.log(res);
-        this.get('model').set('avatarUrl',res.data.attributes.avatarUrl);
-      })
-    }
+    // fileLoadedxxx: function(formData){
+    //   console.log(formData)
+    //   return this.get('ajax').request('/v2/profile/avatar', {
+    //     method: 'POST',
+    //     data: formData,
+    //     contentType: false,
+    //     processData: false,
+    //   }).then((res)=>{
+    //     console.log(res);
+    //     this.get('model').set('avatarUrl',res.data.attributes.avatarUrl);
+    //   })
+    // }
 
   }
 });

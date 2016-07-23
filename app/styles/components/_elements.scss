@@ -361,7 +361,7 @@ section.message-content{
 }
 
 div.error-messages{
-	@extend .bordered;
+	border: 1px solid $border-color;
 	background-color: $brydge-gray;
 	padding: 1rem;
 	margin-bottom: 1rem;

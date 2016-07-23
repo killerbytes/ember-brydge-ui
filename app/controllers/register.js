@@ -20,16 +20,23 @@ export default Ember.Controller.extend(Validations, {
 			}).save()
 				.then(res=>{
 					this.transitionToRoute('thank-you');
+				})
+				.catch(err=>{
+					this.set('errors', err.errors);
 				});
 		},
 		register(){
-			this.get('form').save().then(res=>{
+			this.get('form').save()
+			.then(res=>{
         this.get('session').authenticate('authenticator:oauth2', res.get('email'), res.get('password'))
           .then((user) => {
             const userid = this.get('session.data.authenticated.account_id');
             this.get('session').set('data.userid', userid);
             this.transitionToRoute('home');
           })
+			})
+			.catch(err=>{
+				this.set('errors', err.errors);
 			});
 		},
 		onLocationSelect(selected){

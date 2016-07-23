@@ -42,7 +42,6 @@ export default Ember.Controller.extend(
   location: null,
   q: null,
   init(){
-    console.log('init');
     getOwner(this).lookup('controller:application').set('header', true);
   },
   loadNewsfeed(tab, cb){

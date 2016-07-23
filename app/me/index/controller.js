@@ -38,17 +38,18 @@ export default Ember.Controller.extend(MyProfileMixin, {
         Ember.get(this, 'flashMessages').success('Post Shared!');
       });
     },
-    fileLoaded: function(formData){
-      return this.get('ajax').request('/v2/profile/avatar', {
-        method: 'POST',
-        data: formData,
-        contentType: false,
-        processData: false,
-      }).then((res)=>{
-        console.log(res);
-        this.get('model').set('avatarUrl',res.data.attributes.avatarUrl);
-      })
-    }
+    // fileLoaded: function(formData){
+		// 	console.log('me')
+    //   return this.get('ajax').request('/v2/profile/avatar', {
+    //     method: 'POST',
+    //     data: formData,
+    //     contentType: false,
+    //     processData: false,
+    //   }).then((res)=>{
+    //     console.log(res);
+    //     this.get('model').set('avatarUrl',res.data.attributes.avatarUrl);
+    //   })
+    // }
 
   }
 });
