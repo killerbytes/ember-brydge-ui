@@ -28,6 +28,26 @@ table{
 	width: 30px;
 	height: 30px;
 	margin: auto;
+	.overlay{
+		display: none;
+	}
+	&:hover{
+		.overlay{
+			display: block;
+			@extend .circle;
+			position: absolute;
+			top: 0;
+			left: 0
+			background-color(rgba(0,0,0,.5));
+			width: 100%;
+			height: 100%;
+			.fa{
+				margin-top: 45%;
+				font-size: 1.5rem;
+				color: #FFF;
+			}
+		}
+	}
 }
 
 .user{
@@ -127,7 +147,7 @@ table{
 	input{ margin: 0 !important; }
 
 	.wrapper{
-		display: none;
+		// display: none;
 	}
 	.wrapper.is-open{
 		display: block;

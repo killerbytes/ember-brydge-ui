@@ -2,7 +2,7 @@
 	<div class="columns">
 		<label>
 			School
-			{{form-input model=model valuePath='school'}}
+			{{form-input model=item valuePath='school'}}
 		</label>
 	</div>
 	<div class="columns medium-8">
@@ -12,7 +12,7 @@
 	<div class="columns">
 		<label>
 			Location
-			{{form-input model=model valuePath='location'}}
+			{{form-input model=item valuePath='location'}}
 		</label>
 	</div>
 </div>
@@ -20,15 +20,15 @@
 	<div class="columns">
 		<label>
 			Degree / Diploma / Certification
-			{{form-input model=model valuePath='degree'}}
+			{{form-input model=item valuePath='degree'}}
 		</label>
 	</div>
 </div>
 <div class="row">
 	<div class="columns">
 		<label>
-			Year of Graduation
-			{{form-input-month-year value=model.endAt type="year" maxYear=maxYear}}
+			Year of Graduation {{item.endAt}}
+			{{form-input-month-year value=item.endAt type="year" maxYear=maxYear}}
 		</label>
 	</div>
 </div>

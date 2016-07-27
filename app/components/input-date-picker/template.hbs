@@ -1,23 +1,22 @@
 <div class="row collapse">
   <div class="columns medium-2">
     <select onchange={{action "onSelectDay" value="target.value"}}>
-      {{log day}}
       {{#each day as |item|}}
-        <option value={{item}} selected={{eq selectedDay item}}>{{item}}</option>
+        <option value={{item}} selected={{eq dd item}}>{{item}}</option>
       {{/each}}
     </select>
   </div>
   <div class="columns medium-6">
     <select onchange={{action "onSelectMonth" value="target.value"}}>
-      {{#each month as |item|}}
-        <option value={{item}} selected={{eq selectedMonth item}}>{{item}}</option>
+      {{#each month as |item index|}}
+        <option value={{index}} selected={{month-equal mm index}}>{{item}}</option>
       {{/each}}
     </select>
   </div>
   <div class="columns medium-4">
     <select onchange={{action "onSelectYear" value="target.value"}}>
       {{#each year as |item|}}
-        <option value={{item}} selected={{eq selectedYear item}}>{{item}}</option>
+        <option value={{item}} selected={{eq yy item}}>{{item}}</option>
       {{/each}}
     </select>
   </div>

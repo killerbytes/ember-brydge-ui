@@ -79,6 +79,8 @@
 a .fa{
 	margin-right: 5px;
 }
-h4 .fa, .tabs-title .fa{
-	margin-right: 10px;
+h3, h4, .tabs-title{
+	.fa{
+		margin-right: 10px;
+	}
 }

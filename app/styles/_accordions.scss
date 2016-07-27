@@ -7,7 +7,7 @@
 			margin-bottom: 0;
 		}
 		input[type="radio"]{
-			display: none;
+			// display: none;
 		}
 	}
 	section.header{
@@ -58,7 +58,7 @@
 
 	}
 	.accordion-content{
-		position: relative;		
+		position: relative;
 	}
 	.content{
 		background-color: $brydge-gray;
@@ -67,7 +67,7 @@
 		textarea{
 			font-size: 12px;
 			margin-bottom: 1rem;
-		}		
+		}
 
 	}
 

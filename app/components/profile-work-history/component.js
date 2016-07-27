@@ -9,14 +9,14 @@ export default Ember.Component.extend( {
 	classNames: ['accordion-form'],
 	tagName: 'form',
 	highlightStatuses: [
-		'Select a career status', 
+		'Select a career status',
 		'On a Sabbatical',
 		'Looking for Work',
 		'Self-employed Freelancer',
 		'Self-employed Consultant',
 		'Independent Contractor' ],
 	today: moment(),
-	model: Ember.computed(function(){
+	item: Ember.computed(function(){
 		return this.get('store').createRecord('experience');
 	}),
 	list: Ember.computed.filterBy('items', 'isNew', false),
@@ -39,7 +39,6 @@ export default Ember.Component.extend( {
 		var profile = this.get('sessionAccount.account.profile');
 		profile.set('currentTitle', data.get('title'));
 		profile.set('currentCompany', data.get('company'));
-		console.log(profile)
   },
   resetShowHighlight(){
 		_.each(this.get('list'), function(i){
@@ -51,7 +50,7 @@ export default Ember.Component.extend( {
 		if(!this.get('highlightStatus') || this.get('highlightStatus') == 'Select a career status') return false;
 
 		let userid = this.get('session.data.authenticated.user_id');
-		var data = { 
+		var data = {
 			status: this.get('highlightStatus')
     };
 
@@ -75,11 +74,11 @@ export default Ember.Component.extend( {
     },
 		update (item) {
 			item.save().then(()=>{
-				this.$('ul.accordion').foundation('toggle', $('.accordion-content'))		
+				this.$('ul.accordion').foundation('toggle', $('.accordion-content'))
 			})
 		},
     create(data, cb){
-      this.get('model').save().then(()=>{
+      this.get('item').save().then(()=>{
         Ember.get(this, 'flashMessages').success('Success!');
 				this.$('ul.accordion').foundation('toggle', $('.accordion-content'));
 				Foundation.reInit($('ul.accordion'));
@@ -95,6 +94,7 @@ export default Ember.Component.extend( {
 			this.onHighlightStatus();
 		},
 		onHighlight(item){
+			console.log('onHighlight')
 
 			// switch(item){
 			// 	case 'isHighlightStatus':
@@ -111,9 +111,8 @@ export default Ember.Component.extend( {
 			//       Ember.get(this, 'flashMessages').success('Highlight Success!');
 			// 		});
 			// 		this.set('isHighlightStatus', false);
-			// 		break; 
+			// 		break;
 			// }
-
 			this.resetShowHighlight();
 			// var model = this.get('store').peekRecord('experience', item.id)
 			item.set('isProfileTitle', true);

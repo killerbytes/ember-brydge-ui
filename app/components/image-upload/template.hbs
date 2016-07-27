@@ -1,6 +1,7 @@
 <input type="file" name="file" style="display: none" />
 {{#unless text}}
 <div class="avatar" {{action "clicked"}} style={{htmlSafeImage logoUrl}}>
+  <div class="overlay"><i class="fa fa-camera" aria-hidden="true"></i></div>
 </div>
 {{else}}
  <a>{{placeholder}}</a>

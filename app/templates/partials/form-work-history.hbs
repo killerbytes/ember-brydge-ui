@@ -2,7 +2,7 @@
 	<div class="columns">
 		<label>
 			Title
-			{{form-input model=model valuePath="title"}}
+			{{form-input model=item valuePath="title"}}
 		</label>
 	</div>
 </div>
@@ -10,7 +10,7 @@
 	<div class="columns">
 		<label>
 			Company
-			{{form-input model=model valuePath='company'}}
+			{{form-input model=item valuePath='company'}}
 		</label>
 	</div>
 </div>
@@ -18,7 +18,12 @@
 	<div class="columns">
 		<label>
 			Location
-			{{form-input model=model valuePath="location"}}
+			{{form-input-location
+					model=item
+					valuePath="location"
+					selected=item.location
+					placeholder="City"}}
+
 		</label>
 	</div>
 </div>
@@ -28,8 +33,8 @@
 			Start Date
 		</label>
 		<div class="row">
-			<div class="columns medium-5">{{form-input-month-year value=model.startFrom}}</div>
-			<div class="columns medium-3">{{form-input-month-year value=model.startFrom type="year"}}</div>
+			<div class="columns medium-5">{{form-input-month-year value=item.startFrom}}</div>
+			<div class="columns medium-3">{{form-input-month-year value=item.startFrom type="year"}}</div>
 			<div class="columns"></div>
 		</div>
 	</div>
@@ -40,12 +45,12 @@
 			End Date
 		</label>
 		<div class="row">
-			<div class="columns medium-5">{{form-input-month-year value=model.endAt disabled=model.currentCompany}}</div>
-			<div class="columns medium-3">{{form-input-month-year value=model.endAt type="year" disabled=model.currentCompany}}</div>
+			<div class="columns medium-5">{{form-input-month-year value=item.endAt disabled=item.currentCompany}}</div>
+			<div class="columns medium-3">{{form-input-month-year value=item.endAt type="year" disabled=item.currentCompany}}</div>
 			<div class="columns medium-4">
 				<div class="checkbox current-job">
 					<label>
-						{{input type="checkbox" name="currentCompany" checked=model.currentCompany}} Current Job
+						{{input type="checkbox" name="currentCompany" checked=item.currentCompany}} Current Job
 					</label>
 				</div>
 
@@ -62,6 +67,6 @@
 		<label>
 			Description
 		</label>
-		{{form-text-counter limit=2100 value=model.content rows=10 }}
+		{{form-text-counter limit=2100 value=item.content rows=10 }}
 	</div>
 </div>

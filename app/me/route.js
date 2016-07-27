@@ -10,5 +10,6 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
     //     window.history.replaceState( {} , 'me', this.get('session.data.authenticated.user_id') );
     //   })
     // }
+
   }
 });

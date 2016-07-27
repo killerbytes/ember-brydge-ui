@@ -49,7 +49,7 @@
   </section>
 
   <section>
-    <h4>Snapshot
+    <h4><i class="fa fa-camera-retro" aria-hidden="true"></i>Snapshot
       {{#if isOwnerx}}
         {{#link-to "me.edit" (query-params tab="snapshot")}}
           <i class="icons pencil pull-right"></i>
@@ -71,7 +71,7 @@
   <div class="section-group section-accordion-group">
     <section>
       <div class="section-main">
-        <h4>Ask</h4>
+        <h4><i class="fa fa-quote-left" aria-hidden="true"></i>Ask</h4>
         <div class="user mb">
           <div class="avatar" style={{htmlSafeImage latestQuestion.from.profile.avatarUrl }}>
             <img src= {{latestQuestion.from.profile.avatarUrl}} class="hide">
@@ -116,7 +116,7 @@
 
 <div class="box">
   <section>
-    <h4>Compliments</h4>
+    <h4><i class="fa fa-thumbs-o-up" aria-hidden="true"></i>Compliments</h4>
     {{#if latestCompliment}}
       <div class="mb">
         <div class="title">

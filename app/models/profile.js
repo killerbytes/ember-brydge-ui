@@ -1,10 +1,10 @@
 import DS from 'ember-data';
+import Validations from './validations/profile';
 
-/* Profile query by username (as PK) */
-export default DS.Model.extend({
-	firstName: DS.attr('string', {defaultValue: ''}),
-	lastName: DS.attr('string', {defaultValue: ''}),
-	location: DS.attr('string'),
+export default DS.Model.extend(Validations, {
+	firstName: DS.attr(),
+	lastName: DS.attr(),
+	location: DS.attr(),
 	settings: DS.attr({defaultValue: {}}),
 	industryOneName: DS.attr('string'),
 	industryTwoName: DS.attr('string'),
@@ -13,7 +13,7 @@ export default DS.Model.extend({
 	industryTwoId: DS.attr('string'),
 	industryThreeId: DS.attr('string'),
 	snapshot: DS.attr('string'),
-	dob: DS.attr('date'),
+	dob: DS.attr(),
 	avatarUrl: DS.attr('string', { defaultValue: 'assets/blank-user.jpg' }),
 	currentTitle: DS.attr('string'),
 	currentCompany: DS.attr('string'),

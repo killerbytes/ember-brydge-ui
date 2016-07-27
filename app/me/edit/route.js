@@ -39,6 +39,16 @@ export default Ember.Route.extend(QueryLocationMixin, {
   },
 
 	actions: {
+    save: function () {
+      var profile = this.get('controller.profile');
+      // profile.set('dob', "1979-02-15");
+
+      // console.log(profile)
+      this.get('controller.profile').save().then(()=>{
+        Ember.get(this, 'flashMessages').success('Success!');
+      });
+    },
+
     didTransition: function(){
       Ember.run.later(()=>{
         Ember.$('.brydge-tab .tabs:first').on('change.zf.tabs', (e, elem)=>{

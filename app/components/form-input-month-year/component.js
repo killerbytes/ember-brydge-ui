@@ -1,5 +1,6 @@
 import Ember from 'ember';
 export default Ember.Component.extend({
+	utils: Ember.inject.service(),
 	typeYear: Ember.computed('type', function(){
 		return this.get('type') ? true : false;
 	}),
@@ -25,9 +26,11 @@ export default Ember.Component.extend({
 			this.set('value', moment({month: value, year: year}).format())
   	},
   	onChangeYear(value){
-      var i = this.get('value') || moment();
-  		var month = moment(i).month();
-			this.set('value', moment({month: month, year: value}))
+      var date = moment.utc().set({year:value, month:0, date:1}).format()
+  		// var month = moment(i).month();
+			console.log(date)
+
+			this.set('value', date);
   	}
   }
 });

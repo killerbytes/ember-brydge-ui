@@ -11,25 +11,27 @@ export default Ember.Component.extend({
 	attributeBindings: ['tabindex'],
   model: null,
   value: null,
-  type: 'text',
+  type: 'search',
   valuePath: '',
   placeholder: '',
   validation: null,
   isTyping: false,
 	isOpen: false,
 	tabindex: 0,
-	didReceiveAttrs() {
-		this._super(...arguments);
-		this.set('value', this.get('selected'));
-	},
 	focusOut: function(e){
-		Em.run.later(this, function() {
+		Em.run.later(this, ()=>{
 			var focussedElement = document.activeElement;
 			var target = this.$();
 			if (target) {
 				var isFocussedOut = target.has(focussedElement).length === 0 && !target.is(focussedElement);
 				if(isFocussedOut) {
 					this.set('isOpen', false);
+					if(!this.get('id')) {
+						if(this.get('orig') != this.get('selected')){
+							this.set('selected', null);
+							this.set('items', null);
+						}
+					}
 				}
 			}
 		}, 0);
@@ -39,6 +41,8 @@ export default Ember.Component.extend({
     var valuePath = this.get('valuePath');
     defineProperty(this, 'validation', computed.oneWay(`model.validations.attrs.${valuePath}`));
     defineProperty(this, 'value', computed.alias(`model.${valuePath}`));
+		this.set('orig', this.get('selected'));
+
   },
   notValidating: computed.not('validation.isValidating'),
   didValidate: computed.oneWay('targetObject.didValidate'),
@@ -51,23 +55,24 @@ export default Ember.Component.extend({
   }),
 	actions: {
 		query(q) {
+			if(!q) return false;
+			this.set('id', null);
 			this.get('ajaxApi').request('/v2/cities/'+ q, {
 					method: 'GET'
 				}).then(res=>{
 					this.set('items', res);
+					this.set('isOpen', true);
 				});
 		},
-		open: function(){
-			this.set('items', []);
-			this.set('isOpen', true)
-		},
 		onSelect: function(selected) {
-			this.set('isOpen', false);
-			this.set('items', []);
-			this.set('selected', selected.terms.join(', '));
-			// this.set('value', selected.terms.join(', '));
-			this.sendAction('onItemSelected', selected.terms.join(', '), (res)=>{
-			});
+			this.set('items', null);
+			this.setProperties({
+				isOpen: false,
+				items: null,
+				selected: selected.terms.join(', '),
+				id: selected.place_id
+			})
+			this.sendAction('onItemSelected', selected.terms.join(', '));
 		}
 	}
 
