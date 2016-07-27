@@ -9,12 +9,11 @@ export default Ember.Component.extend(Validations, {
 	tagName: 'form',
 	maxYear: moment().year() + 6,
 	list: Ember.computed.filterBy('items', 'isNew', false),
-	model: Ember.computed(function(){
-		return this.get('store').createRecord('education');
+	item: Ember.computed(function(){
+		return this.get('store').createRecord('education', {endAt: new Date()});
 	}),
 	actions: {
 		update: function (item) {
-			console.log(item)
 			this.$('ul.accordion').foundation('toggle', $('.accordion-content'))
 			item.save(()=>{
 				Ember.get(this, 'flashMessages').success('Success!');
@@ -22,10 +21,11 @@ export default Ember.Component.extend(Validations, {
 
 		},
 		create: function () {
-			this.get('model').save().then(() => {
-				Ember.get(this, 'flashMessages').success('Success!');
-				this.$('ul.accordion').foundation('toggle', $('.accordion-content'))
-				Foundation.reInit($('ul.accordion'))
+			this.get('item').save().then(() => {
+				Ember.run.later(()=>{
+					this.$('ul.accordion').foundation('toggle', $('.accordion-content'));
+					Foundation.reInit($('ul.accordion'));
+				})
 			})
 		},
 		delete: function(item){

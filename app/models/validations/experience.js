@@ -4,8 +4,8 @@ export default buildValidations({
   title: validator('presence', true),
   company: validator('presence', true),
   location: validator('presence', true),
-  // from: [ 
-  //   validator('presence', true), 
-  // ],
-  // to: validator('presence', true)
+  startFrom: [
+    validator('presence', true),
+  ],
+  endAt: validator('presence', true)
 });

@@ -22,14 +22,11 @@ export default Ember.Component.extend({
   }),
   actions: {
   	onChangeMonth(value){
-  		var year = moment(this.get('value') || moment()).year();
-			this.set('value', moment({month: value, year: year}).format())
+			var date = moment.utc().set({year: this.get('year'), month: value, date:1}).format()
+			this.set('value', date);
   	},
   	onChangeYear(value){
-      var date = moment.utc().set({year:value, month:0, date:1}).format()
-  		// var month = moment(i).month();
-			console.log(date)
-
+      var date = moment.utc().set({year:value, month: this.get('month'), date:1}).format()
 			this.set('value', date);
   	}
   }

@@ -17,7 +17,7 @@ export default Ember.Component.extend( {
 		'Independent Contractor' ],
 	today: moment(),
 	item: Ember.computed(function(){
-		return this.get('store').createRecord('experience');
+		return this.get('store').createRecord('experience', {startFrom: new Date(), endAt: new Date()});
 	}),
 	list: Ember.computed.filterBy('items', 'isNew', false),
 	from: Ember.computed('today', function(){
@@ -35,12 +35,12 @@ export default Ember.Component.extend( {
   _onDropdownChange: Ember.observer('highlightStatus', function() {
   	if(this.get('isHighlightStatus')) this.onHighlightStatus();
   }),
-  setProfile(data){
+  _setProfile(data){
 		var profile = this.get('sessionAccount.account.profile');
 		profile.set('currentTitle', data.get('title'));
 		profile.set('currentCompany', data.get('company'));
   },
-  resetShowHighlight(){
+  _resetShowHighlight(){
 		_.each(this.get('list'), function(i){
 			i.set('isProfileTitle', false)
 		})
@@ -79,9 +79,11 @@ export default Ember.Component.extend( {
 		},
     create(data, cb){
       this.get('item').save().then(()=>{
-        Ember.get(this, 'flashMessages').success('Success!');
 				this.$('ul.accordion').foundation('toggle', $('.accordion-content'));
-				Foundation.reInit($('ul.accordion'));
+				Ember.run.later(()=>{
+					Foundation.reInit($('ul.accordion'));
+					this.set('item', this.get('store').createRecord('experience'))
+				})
       })
     },
 		delete(item){
@@ -92,6 +94,12 @@ export default Ember.Component.extend( {
 			// this.set('isHighlightStatus', true);
 			this.set('profile.customTitle', true);
 			this.onHighlightStatus();
+		},
+		highlight(item){
+			item.set('isProfileTitle', true)
+			item.save().then(res=>{
+				this._resetShowHighlight();
+			});
 		},
 		onHighlight(item){
 			console.log('onHighlight')
@@ -113,7 +121,6 @@ export default Ember.Component.extend( {
 			// 		this.set('isHighlightStatus', false);
 			// 		break;
 			// }
-			this.resetShowHighlight();
 			// var model = this.get('store').peekRecord('experience', item.id)
 			item.set('isProfileTitle', true);
 			item.save().then(res=>{

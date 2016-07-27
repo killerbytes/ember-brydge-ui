@@ -14,7 +14,7 @@
 					{{partial "partials/form-academia"}}
 						<div class="row">
 							<div class="columns">
-						    <button class="button success rounded" {{ action 'update' item }}>Save</button>
+								<button class="button success rounded" {{action "update" item}} disabled={{v-get item 'isInvalid'}}>Save</button>
 						    <button class="button clear float-right" {{ action 'delete' item }}>Delete this Graduation</button>
 							</div>
 						</div>
@@ -30,7 +30,7 @@
 		  		{{partial "partials/form-academia"}}
 					<div class="row">
 						<div class="columns">
-				    	<button class="button success rounded" {{ action 'create' }}>Save</button>
+							<button class="button success rounded" {{action "create"}} disabled={{v-get item 'isInvalid'}}>Save</button>
 					    <button class="button clear float-right">Delete</button>
 						</div>
 					</div>

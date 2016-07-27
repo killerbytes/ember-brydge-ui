@@ -6,7 +6,7 @@ const {
 
 export default Ember.Component.extend({
 	ajaxApi: Ember.inject.service(),
-  classNames: ['validated-input', 'dropdown-select'],
+  classNames: ['validated-input', 'dropdown-select', 'dropdown-autocomplete'],
   classNameBindings: ['showErrorClass:has-error', 'isValid:has-success', 'isValid', 'showMessage:has-error'],
 	attributeBindings: ['tabindex'],
   model: null,

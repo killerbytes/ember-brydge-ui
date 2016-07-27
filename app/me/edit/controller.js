@@ -7,10 +7,11 @@ export default Ember.Controller.extend(
   AvatarMixin,
   SaveProfileMixin,
   QueryIndustryMixin, {
+  sort: ['endAt:desc'],
   categories: Ember.computed.alias('model.categories'),
   profile: Ember.computed.alias('model.profile'),
   experiences: Ember.computed.alias('model.experiences'),
-  educations: Ember.computed.alias('model.educations'),
+  educations: Ember.computed.sort('model.educations', 'sort'),
   languages: Ember.computed.alias('model.languages'),
   interests: Ember.computed.alias('model.interests'),
   selectedIndustry: Ember.computed('profile.industryOneId', 'profile.industryOneName', function(){

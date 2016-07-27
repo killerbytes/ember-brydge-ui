@@ -34,17 +34,21 @@ table{
 	&:hover{
 		.overlay{
 			display: block;
+			border: 1px solid #FFF;
 			@extend .circle;
 			position: absolute;
 			top: 0;
-			left: 0
-			background-color(rgba(0,0,0,.5));
+			left: 0;
+			background-color: rgba(0,0,0,.5);
 			width: 100%;
 			height: 100%;
 			.fa{
+				display: block;
+				margin: auto;
 				margin-top: 45%;
 				font-size: 1.5rem;
 				color: #FFF;
+				width: 20px;
 			}
 		}
 	}

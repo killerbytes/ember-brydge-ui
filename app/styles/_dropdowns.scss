@@ -76,7 +76,18 @@ a.dropdown-button-icons.dropdown-button-arrow{
 
   }
 }
-
+.dropdown-autocomplete{
+  input[type="search"]{
+    margin-bottom: 0 !important;
+  }
+  .wrapper{
+    ul{
+      position: absolute;
+      width: 100%;
+      background-color: #FFF;
+    }
+  }
+}
 .dropdown-pane{
   @extend .no-select;
   z-index: 14;

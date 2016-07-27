@@ -9,9 +9,12 @@ export default Ember.Component.extend({
 		return this.get('store').createRecord('language');
 	}),
 	list: Ember.computed.filterBy('items', 'isNew', false),
+	item: Ember.computed(function(){
+		return this.get('store').createRecord('language');
+	}),
 	actions: {
 		update: function(item){
-			this.$('ul.accordion').foundation('toggle', $('.accordion-content'))		
+			this.$('ul.accordion').foundation('toggle', $('.accordion-content'))
 			item.save().then(()=>{
 				Ember.get(this, 'flashMessages').success('Success!');
 			});
@@ -20,10 +23,12 @@ export default Ember.Component.extend({
 			item.destroyRecord();
 		},
 		create: function(){
-			let language = this.get('store').createRecord('language', this.get('model'));
-			language.save().then((res) => {
-				Ember.get(this, 'flashMessages').success('Success!');
-				Foundation.reInit($('ul.accordion'));
+			this.get('item').save()
+			.then(res => {
+				Ember.run.later(()=>{
+					Foundation.reInit($('ul.accordion'));
+					this.set('item', this.get('store').createRecord('language'));
+				});
 			})
 		}
 	}

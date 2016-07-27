@@ -2,7 +2,7 @@
 	<div class="columns">
 		<label >
 			Name
-			{{form-input model=model valuePath='name'}}
+			{{form-input model=item valuePath='name'}}
 		</label>
 	</div>
 </div>
@@ -10,7 +10,7 @@
 	<div class="columns">
 		<label >
 			Proficiency
-    	{{dropdown-proficiency-filter items=items model=model.proficiency template="partials/proficiency-filter"}}
+			{{select-native content=languageProficiency action=(action (mut item.proficiency)) }}
 		</label>
 	</div>
 </div>

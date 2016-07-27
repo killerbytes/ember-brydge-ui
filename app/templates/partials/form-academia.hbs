@@ -1,7 +1,7 @@
 <div class="row">
 	<div class="columns">
 		<label>
-			School
+			School / College / University
 			{{form-input model=item valuePath='school'}}
 		</label>
 	</div>
@@ -12,7 +12,12 @@
 	<div class="columns">
 		<label>
 			Location
-			{{form-input model=item valuePath='location'}}
+			{{form-input-location
+					model=item
+					valuePath="location"
+					selected=item.location
+					placeholder="City"}}
+
 		</label>
 	</div>
 </div>
@@ -27,7 +32,7 @@
 <div class="row">
 	<div class="columns">
 		<label>
-			Year of Graduation {{item.endAt}}
+			Year of Graduation
 			{{form-input-month-year value=item.endAt type="year" maxYear=maxYear}}
 		</label>
 	</div>
