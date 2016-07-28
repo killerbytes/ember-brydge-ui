@@ -9,8 +9,11 @@ export default Ember.Component.extend(Validations, {
 	tagName: 'form',
 	maxYear: moment().year() + 6,
 	list: Ember.computed.filterBy('items', 'isNew', false),
-	item: Ember.computed(function(){
+	default: Ember.computed(function(){
 		return this.get('store').createRecord('education', {endAt: new Date()});
+	}),
+	item: Ember.computed(function(){
+		return this.get('default');
 	}),
 	actions: {
 		update: function (item) {
@@ -25,6 +28,7 @@ export default Ember.Component.extend(Validations, {
 				Ember.run.later(()=>{
 					this.$('ul.accordion').foundation('toggle', $('.accordion-content'));
 					Foundation.reInit($('ul.accordion'));
+					this.set('item', this.get('default'));
 				})
 			})
 		},

@@ -4,13 +4,13 @@ export default Ember.Component.extend({
 	classNames: ['accordion-form'],
 	tagName: 'form',
 	store: Ember.inject.service(),
-  languageProficiency: ["Beginner", "Intermediate", "Upper Intermediate", "Advanced", "Native or Bilingual"],
-	model: Ember.computed(function(){
+	default: Ember.computed(function(){
 		return this.get('store').createRecord('language', {proficiency: "Beginner"});
 	}),
+  languageProficiency: ["Beginner", "Intermediate", "Upper Intermediate", "Advanced", "Native or Bilingual"],
 	list: Ember.computed.filterBy('items', 'isNew', false),
 	item: Ember.computed(function(){
-		return this.get('store').createRecord('language');
+		return this.get('default');
 	}),
 	actions: {
 		update: function(item){
@@ -27,7 +27,7 @@ export default Ember.Component.extend({
 			.then(res => {
 				Ember.run.later(()=>{
 					Foundation.reInit($('ul.accordion'));
-					this.set('item', this.get('store').createRecord('language'));
+					this.set('item', this.get('default'));
 				});
 			})
 		}

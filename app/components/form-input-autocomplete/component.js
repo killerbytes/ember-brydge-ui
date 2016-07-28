@@ -26,10 +26,12 @@ export default Ember.Component.extend({
 				var isFocussedOut = target.has(focussedElement).length === 0 && !target.is(focussedElement);
 				if(isFocussedOut) {
 					this.set('isOpen', false);
-					if(!this.get('id')) {
-						if(this.get('orig') != this.get('selected')){
-							this.set('selected', null);
-							this.set('items', null);
+					if(this.get('forceList')){
+						if(!this.get('id')) {
+							if(this.get('orig') != this.get('selected')){
+								this.set('selected', null);
+								this.set('items', null);
+							}
 						}
 					}
 				}

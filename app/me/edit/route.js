@@ -4,6 +4,7 @@ import QueryLocationMixin from 'web/mixins/query-locations';
 export default Ember.Route.extend(QueryLocationMixin, {
   flashMessages: Ember.inject.service(),
   session: Ember.inject.service(),
+  utils: Ember.inject.service(),
   resetController(controller, isExiting, transition) {
       if (isExiting) {
         controller.set(controller.tab, 'personal');
@@ -38,9 +39,10 @@ export default Ember.Route.extend(QueryLocationMixin, {
   },
 
 	actions: {
-    save: function () {
+    save(){
       var profile = this.get('controller.profile');
-      this.get('controller.profile').save().then(()=>{
+      // profile.set('snapshot', this.get('utils').insertParagraph(profile.get('snapshot')));
+      profile.save().then(()=>{
         Ember.get(this, 'flashMessages').success('Success!');
       });
     },

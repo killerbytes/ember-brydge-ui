@@ -269,7 +269,9 @@ footer{
 
 .industry-examples{
 	.medium-3{
-		margin-top: 4rem;
+		margin-top: 3rem;
+		padding-right: 10px !important;
+
 	}
 	.avatar{
 		margin-top: 1rem;
@@ -296,6 +298,10 @@ footer{
 		}
 	}
 	.alt{
+		.medium-3{
+			padding-right: 0;
+			padding-left: 10px !important;
+		}
 		.callout{
 			&:after{
 				@extend .arrow;

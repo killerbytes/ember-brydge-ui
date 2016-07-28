@@ -19,8 +19,11 @@ export default Ember.Component.extend( {
 		'Independent Consultant',
 		'Independent Contractor' ],
 	today: moment(),
-	item: Ember.computed(function(){
+	default: Ember.computed(function(){
 		return this.get('store').createRecord('experience', {startFrom: new Date(), endAt: new Date()});
+	}),
+	item: Ember.computed(function(){
+		return this.get('default');
 	}),
 	list: Ember.computed.filterBy('items', 'isNew', false),
 	profile: Ember.computed('sessionAccount.account.profile', function(){
@@ -62,7 +65,7 @@ export default Ember.Component.extend( {
 				this.$('ul.accordion').foundation('toggle', $('.accordion-content'));
 				Ember.run.later(()=>{
 					Foundation.reInit($('ul.accordion'));
-					this.set('item', this.get('store').createRecord('experience'))
+					this.set('item', this.get('default'))
 				})
       })
     },
