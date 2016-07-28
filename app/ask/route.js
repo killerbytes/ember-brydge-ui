@@ -11,6 +11,10 @@ export default Ember.Route.extend(
         controller.set('isAsked', null);
       }
   },
+	beforeModel() {
+    this._super(...arguments);
+    return this.get('sessionAccount.account');
+  },
 	model: function(params) {
     let userid = params.username;
 		return Ember.RSVP.hash({

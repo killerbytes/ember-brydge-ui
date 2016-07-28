@@ -52,6 +52,9 @@
 	&:hover, &:focus{
 		background-color: #FFF;
 	}
+	&.is-loading{
+		padding: 2px;
+	}
 }
 .btn{
 	@extend .rounded;

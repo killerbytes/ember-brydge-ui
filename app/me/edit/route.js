@@ -39,11 +39,10 @@ export default Ember.Route.extend(QueryLocationMixin, {
   },
 
 	actions: {
-    save(){
+    save(cb){
       var profile = this.get('controller.profile');
-      // profile.set('snapshot', this.get('utils').insertParagraph(profile.get('snapshot')));
       profile.save().then(()=>{
-        Ember.get(this, 'flashMessages').success('Success!');
+        cb.apply()
       });
     },
 

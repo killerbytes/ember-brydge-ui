@@ -100,7 +100,7 @@
 		<div class="dropdown-header">
 			<h4>See who's viewed your profile</h4>
       <div>
-			{{#if setting.profileView}}
+			{{#if settings.profileView}}
         Toggling this ON will also notify other users when you view their profiles. If you don’t like that, you can toggle it OFF in {{link-to "Settings" "settings" (query-params tab="views") }}.
 			{{else}}
         Toggling this ON will also notify other users when you view their profiles. If you don’t like that, you can toggle it ON in {{link-to "Settings" "settings" (query-params tab="views") }}.
@@ -108,28 +108,35 @@
       </div>
 		</div>
 		<ul class="media-list user">
-			{{#if sessionAccount.account.profile.settings.profileView}}
+			{{#if settings.profileView}}
 				{{#each notification.views as |item|}}
-				<li>
-					<a {{action "selectView" item}} class="{{if item.read false 'new-notification'}}">
-						<div class="row collapse">
-							<div class="columns medium-8">
-					      <div class="avatar" style={{htmlSafeImage item.target.profile.avatarUrl }}>
-					        <img src= {{item.target.profile.avatarUrl}} class="hide">
-					      </div>
-					      <div class="user-info">
-				          {{item.target.profile.firstName}} {{item.target.profile.lastName}}
-					        <div class="position">{{item.title}} at {{item.company}}</div>
-					      </div>
+  				<li>
+  					<a {{action "selectView" item}} class="{{if item.read false 'new-notification'}}">
+  						<div class="row collapse">
+  							<div class="columns medium-8">
+  					      <div class="avatar" style={{htmlSafeImage item.target.profile.avatarUrl }}>
+  					        <img src= {{item.target.profile.avatarUrl}} class="hide">
+  					      </div>
+  					      <div class="user-info">
+  				          {{item.target.profile.firstName}} {{item.target.profile.lastName}}
+  					        <div class="position">{{item.title}} at {{item.company}}</div>
+  					      </div>
 
-							</div>
-							<div class="columns medium-4 timestamp text-right">
-								{{ timestamp item.createdAt }}
-							</div>
-						</div>
-					</a>
-				</li>
+  							</div>
+  							<div class="columns medium-4 timestamp text-right">
+  								{{ timestamp item.createdAt }}
+  							</div>
+  						</div>
+  					</a>
+  				</li>
+        {{else}}
+          <li>
+  					<div class="empty-message">
+  						You have no profile views
+  					</div>
+  				</li>
 				{{/each}}
+
 			{{else}}
 				<li>
 					<div class="empty-message">
@@ -138,9 +145,11 @@
 				</li>
 			{{/if}}
 		</ul>
-		{{#link-to 'profile-views' class="footer-button button expanded"}}
-			See all Profile Views
-		{{/link-to}}
+    {{#if settings.profileView}}
+  		{{#link-to 'profile-views' class="footer-button button expanded"}}
+  			See all Profile Views
+  		{{/link-to}}
+    {{/if}}
 	{{/zf-dropdown}}
 
 	{{#zf-dropdown id="dd-requests" class="dropdown-notification" closeOnClick=true }}

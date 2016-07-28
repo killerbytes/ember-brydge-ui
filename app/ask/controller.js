@@ -10,6 +10,13 @@ export default Ember.Controller.extend(
   reachedInfinity: Ember.observer('model.toQuestions.reachedInfinity', function() {
   	this.set('canLoadMore', this.get('model.toQuestions.reachedInfinity'));
   }),
+  askUserEnabled: Ember.computed('profile.setting.ask', function(){
+    console.log(this.get('profile.setting.ask'));
+    return this.get('profile.setting.ask');
+  }),
+  askEnabled: Ember.computed('sessionAccount.account.profile.setting.ask', function(){
+    return this.get('sessionAccount.account.profile.setting.ask');
+  }),
   // queryParams: ['tab','qid'],
   // tab: 'questions',
   // isNotEmptyOccupation: Ember.computed('profile.industryTwoName', 'profile.industryThreeName', function(){

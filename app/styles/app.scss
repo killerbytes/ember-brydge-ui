@@ -271,3 +271,15 @@ li[aria-expanded=false]{
   -khtml-user-select: none; /* webkit (konqueror) browsers */
   -ms-user-select: none; /* IE10+ */
 }
+
+.faded{
+	margin-left: 1rem;
+	visibility: hidden;
+  opacity: 0;
+  transition: visibility 5s, opacity 0.5s linear;
+}
+.faded.is-visible{
+	visibility: visible;
+ 	opacity: 1;
+	display: inline-block !important;
+}

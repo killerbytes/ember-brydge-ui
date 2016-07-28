@@ -80,7 +80,7 @@
                   </div>
                 </div>
                 <div>
-                  <button class="button success rounded" {{ action 'save' }}>Save</button>
+                  {{form-input-button submit="save" placeholder="Saved"}}
                 </div>
               </form>
             </section>
@@ -148,7 +148,7 @@
                   </div>
                 </div>
                 <div>
-                  <button class="button success rounded" {{ action "save" }}>Save</button>
+                  {{form-input-button submit="save" placeholder="Saved"}}
                 </div>
               </form>
             </section>
@@ -160,7 +160,7 @@
               <form>
                 <label for="">Write a summary about yourself:</label>
                 <div class="wrapper">{{form-text-counter limit=500 value=profile.snapshot rows=10 class="mb"}}</div>
-                <button class="button success rounded" {{ action 'save' }}>Save</button>
+                {{form-input-button submit="save" placeholder="Snapshot Saved"}}
               </form>
 
             </section>

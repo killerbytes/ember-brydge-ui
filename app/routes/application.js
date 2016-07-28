@@ -8,6 +8,10 @@ export default TransitionToListenerRoute.extend(
   HideHeaderMixin,
   ApplicationRouteMixin, {
   tmp: Ember.inject.service('temp'),
+  // beforeModel() {
+  //   this._super(...arguments);
+  //   return this.get('sessionAccount.account');
+  // },
 
   actions: {
     error(error, transition) {

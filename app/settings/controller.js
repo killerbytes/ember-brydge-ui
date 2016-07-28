@@ -1,8 +1,4 @@
 import Ember from 'ember';
-import QueryLocationMixin from 'web/mixins/query-locations';
-import AvatarMixin from 'web/mixins/avatar';
-import SaveProfileMixin from 'web/mixins/save-profile';
-import QueryIndustryMixin from 'web/mixins/query-industries';
 
 export default Ember.Controller.extend({
 	settings: Ember.inject.service(),
@@ -20,8 +16,8 @@ export default Ember.Controller.extend({
       this.get('settings').update(this.get('model.settings'));
     },
     settingsChanged(e){
-      this.set('model.settings.'+ e.currentTarget.name, e.currentTarget.checked);
-      this.get('settings').update(this.get('model.settings'));
+      // this.set('model.setting.'+ e.currentTarget.name, e.currentTarget.checked);
+      this.get('settings').update("feature", e.currentTarget.name, e.currentTarget.checked);
     },
   }
 

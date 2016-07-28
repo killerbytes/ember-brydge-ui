@@ -4,13 +4,15 @@ export default Ember.Service.extend({
 	ajax: Ember.inject.service(),
 	store: Ember.inject.service(),
   session: Ember.inject.service(),
-  update(data){
-    var url = '/v2/settings';
-    return this.get('ajax').request(url, {
-      contentType: 'application/json',
-      method: 'POST',
-      data: JSON.stringify(data),
-    })
+	sessionAccount: Ember.inject.service(),
+  update(base, key, value){
+		var settings = this.get('sessionAccount.account.profile.setting')
+		settings.setProperties({
+			base: base,
+			key: key,
+			value: value
+		})
+		return settings.save();
   },
   updateEmail(email){
     var userid = this.get('session.data.authenticated.user_id');

@@ -55,14 +55,16 @@ export default Ember.Component.extend( {
         cb.apply();
       });
     },
-		update (item) {
-			item.save().then(()=>{
+		update (data, cb) {
+			data.save().then(()=>{
 				this.$('ul.accordion').foundation('toggle', $('.accordion-content'))
+				cb.apply();
 			})
 		},
     create(data, cb){
-      this.get('item').save().then(()=>{
+      data.save().then(()=>{
 				this.$('ul.accordion').foundation('toggle', $('.accordion-content'));
+				cb.apply();
 				Ember.run.later(()=>{
 					Foundation.reInit($('ul.accordion'));
 					this.set('item', this.get('default'))

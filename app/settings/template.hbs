@@ -64,7 +64,7 @@
                     </div>
                     <div class="columns medium-6">
                       <div class="switch">
-                        {{input type="checkbox" change=(action settingsChanged) checked=model.settings.ask class="switch-iput" id="settings_ask" name="ask" }}
+                        {{input type="checkbox" change=(action settingsChanged) checked=model.setting.ask class="switch-iput" id="settings_ask" name="ask" }}
                         <label class="switch-paddle" for="settings_ask">
                           <span class="show-for-sr">Turn ASK OFF</span>
                         </label>
@@ -86,7 +86,7 @@
                     </div>
                     <div class="columns medium-6">
                       <div class="switch">
-                        {{input type="checkbox" change=(action settingsChanged) checked=model.settings.profileView class="switch-iput" id="settings_view" name="profileView" }}
+                        {{input type="checkbox" change=(action settingsChanged) checked=model.setting.profileView class="switch-iput" id="settings_view" name="profile_view" }}
                         <label class="switch-paddle" for="settings_view">
                           <span class="show-for-sr">Turn Profile Views OFF</span>
                         </label>
