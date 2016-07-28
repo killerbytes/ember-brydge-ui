@@ -5,6 +5,9 @@
   <section class="title">
     <h4>Write Answer</h4>
   </section>
+  <section>
+  	<div class="title">{{ask.question.question}}</div>
+  </section>
   <section class="header">
     <form class="form-input">
       <div class="avatar circle" style={{htmlSafeImage sessionAccount.account.profile.avatarUrl}}>
@@ -15,13 +18,10 @@
           value=answer
           key-up="edit"
           class="textarea content-editable"
-          placeholder="Would you like to say something about this?"
+          placeholder="Type answer here"
           }}
       </div>
     </form>
-  </section>
-  <section>
-  	<div class="title">{{ask.question.question}}</div>
   </section>
   <section>
     <button class="success button rounded" type="submit" {{action "submit"}}>Submit</button>

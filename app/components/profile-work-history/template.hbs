@@ -12,10 +12,11 @@
 							<a>Current Title</a>
 						</label>
 					{{else}}
-						<label for="highlightStatus" class="for-radio middle">
-							{{action-radio id='highlightStatus' value="isHighlightStatus" htmlChecked=profile.customTitle name="highlight" action="onHighlightCustom"}}
-							<a {{action "highlight"}}>Use this as Title</a>
-						</label>
+            {{#if highlightStatus}}
+  						<label for="highlightStatus" class="for-radio middle">
+  							<a {{action "highlightCustom"}}>Use this as Title</a>
+  						</label>
+            {{/if}}
 					{{/if}}
 				</div>
 			</div>
@@ -42,9 +43,11 @@
 			{{#if item.isProfileTitle}}
 				<label><a>Current Title</a></label>
 			{{else}}
-  			<label for="{{item.id}}" class="for-radio">
-  				<a {{action "highlight" item}}>Use this as Title</a>
-  			</label>
+        {{#if item.currentCompany}}
+    			<label for="{{item.id}}" class="for-radio">
+    				<a {{action "highlight" item}}>Use this as Title</a>
+    			</label>
+        {{/if}}
 			{{/if}}
 		</div>
 		<div class="accordion-content" data-tab-content>

@@ -6,7 +6,7 @@ export default Ember.Component.extend({
 	store: Ember.inject.service(),
   languageProficiency: ["Beginner", "Intermediate", "Upper Intermediate", "Advanced", "Native or Bilingual"],
 	model: Ember.computed(function(){
-		return this.get('store').createRecord('language');
+		return this.get('store').createRecord('language', {proficiency: "Beginner"});
 	}),
 	list: Ember.computed.filterBy('items', 'isNew', false),
 	item: Ember.computed(function(){

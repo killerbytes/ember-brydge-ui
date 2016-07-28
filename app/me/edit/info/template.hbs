@@ -2,9 +2,11 @@
   <div class="row columns">
     <div class="columns medium-4">
       <div class="profile-photo circle">
-          {{image-upload fileLoaded="fileLoaded" logoUrl=profile.avatarUrl}}
+        {{image-upload fileLoaded="fileLoaded" logoUrl=profile.avatarUrl}}
       </div>
-      <div class="text-center">{{image-upload fileLoaded="fileLoaded" logoUrl=profile.avatarUrl text=true placeholder="Change Profile Photo"}}</div>
+      <div class="text-center">
+        {{image-upload fileLoaded="fileLoaded" logoUrl=profile.avatarUrl text=true placeholder="Change Profile Photo"}}
+      </div>
 
     </div>
     <div class="columns medium-8">

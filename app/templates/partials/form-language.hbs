@@ -2,7 +2,13 @@
 	<div class="columns">
 		<label >
 			Name
-			{{form-input model=item valuePath='name'}}
+			{{form-input-autocomplete
+					api="languages/"
+					model=item
+					valuePath="name"
+					selected=item.name
+					placeholder="Language"}}
+
 		</label>
 	</div>
 </div>
@@ -10,7 +16,7 @@
 	<div class="columns">
 		<label >
 			Proficiency
-			{{select-native content=languageProficiency action=(action (mut item.proficiency)) }}
+			{{select-native content=languageProficiency action=(action (mut item.proficiency)) selectedValue=item.proficiency}}
 		</label>
 	</div>
 </div>

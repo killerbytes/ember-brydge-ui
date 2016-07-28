@@ -10,7 +10,12 @@
 	<div class="columns">
 		<label>
 			Company
-			{{form-input model=item valuePath='company'}}
+			{{form-input-autocomplete
+					api="companies/"
+					model=item
+					valuePath="company"
+					selected=item.company
+					placeholder="Company"}}
 		</label>
 	</div>
 </div>
