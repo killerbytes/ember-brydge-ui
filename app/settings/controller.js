@@ -4,6 +4,9 @@ export default Ember.Controller.extend({
 	settings: Ember.inject.service(),
   queryParams: ['tab'],
   tab: 'email',
+	settings: Ember.computed('model.setting', function(){
+		return this.get('model.setting');
+	}),
   actions: {
     emailNotificationChanged(e){
       if(!this.get('model.settings.emailNotifications')) this.set('model.settings.emailNotifications', {});

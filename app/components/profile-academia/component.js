@@ -9,31 +9,35 @@ export default Ember.Component.extend(Validations, {
 	tagName: 'form',
 	maxYear: moment().year() + 6,
 	list: Ember.computed.filterBy('items', 'isNew', false),
-	default: Ember.computed(function(){
+	default: function(){
 		return this.get('store').createRecord('education', {endAt: new Date()});
-	}),
+	},
 	item: Ember.computed(function(){
-		return this.get('default');
+		return this.default();
 	}),
 	actions: {
-		update: function (item) {
-			this.$('ul.accordion').foundation('toggle', $('.accordion-content'))
-			item.save(()=>{
-				Ember.get(this, 'flashMessages').success('Success!');
+		update(data, cb) {
+			data.save().then(()=>{
+				this.$('ul.accordion').foundation('toggle', $('.accordion-content'));
+				cb.apply();
 			});
 
 		},
-		create: function () {
+		create(data, cb) {
 			this.get('item').save().then(() => {
+				cb.apply();
 				Ember.run.later(()=>{
 					this.$('ul.accordion').foundation('toggle', $('.accordion-content'));
 					Foundation.reInit($('ul.accordion'));
-					this.set('item', this.get('default'));
+					this.set('item', this.default());
 				})
 			})
 		},
-		delete: function(item){
+		delete(item){
 			item.destroyRecord();
+		},
+		clear(){
+			this.set('item', this.default());
 		}
 
 

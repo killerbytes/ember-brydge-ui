@@ -15,7 +15,7 @@
 			margin-bottom: 0;
 		}
 	}
-	.button.clear{
+	.button-clear{
 		text-decoration: underline;
 		color: $text-gray;
 	}
@@ -36,6 +36,9 @@
 		.col:first-child{
 			width: 70%;
 		}
+	}
+	.accordion-item:first-child{
+		margin-bottom: 1rem;
 	}
 	.accordion-item.is-active{
 		.content:not(.form-new){

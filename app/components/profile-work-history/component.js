@@ -9,7 +9,6 @@ export default Ember.Component.extend( {
 	classNames: ['accordion-form'],
 	tagName: 'form',
 	highlightStatuses: [
-		'Select a career status',
 		'Student',
 		'Graduate',
 		'On Sabbatical Leave',
@@ -19,11 +18,14 @@ export default Ember.Component.extend( {
 		'Independent Consultant',
 		'Independent Contractor' ],
 	today: moment(),
-	default: Ember.computed(function(){
+	default: function(){
 		return this.get('store').createRecord('experience', {startFrom: new Date(), endAt: new Date()});
-	}),
+	},
 	item: Ember.computed(function(){
-		return this.get('default');
+		return this.default();
+	}),
+	defaultCareerStatus: Ember.computed(function(){
+		return this.get('profile.customTitle') ? this.get('profile.currentTitle') : 'On Sabbatical Leave';
 	}),
 	list: Ember.computed.filterBy('items', 'isNew', false),
 	profile: Ember.computed('sessionAccount.account.profile', function(){
@@ -51,7 +53,6 @@ export default Ember.Component.extend( {
 	actions: {
     updateWork(item, cb){
       item.save().then(()=>{
-        Ember.get(this, 'flashMessages').success('Success!');
         cb.apply();
       });
     },
@@ -63,16 +64,19 @@ export default Ember.Component.extend( {
 		},
     create(data, cb){
       data.save().then(()=>{
-				this.$('ul.accordion').foundation('toggle', $('.accordion-content'));
 				cb.apply();
+				this.set('item', this.default())
 				Ember.run.later(()=>{
 					Foundation.reInit($('ul.accordion'));
-					this.set('item', this.get('default'))
+					this.$('ul.accordion').foundation('toggle', $('.accordion-content'));
 				})
       })
     },
 		delete(item){
 			item.destroyRecord();
+		},
+		clear(){
+			this.set('item', this.default())
 		},
 		highlightCustom(){
 			this._resetShowHighlight();

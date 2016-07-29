@@ -39,7 +39,7 @@ export default Ember.Route.extend(QueryLocationMixin, {
   },
 
 	actions: {
-    save(cb){
+    save(item, cb){
       var profile = this.get('controller.profile');
       profile.save().then(()=>{
         cb.apply()

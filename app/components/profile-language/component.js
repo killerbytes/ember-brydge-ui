@@ -4,32 +4,37 @@ export default Ember.Component.extend({
 	classNames: ['accordion-form'],
 	tagName: 'form',
 	store: Ember.inject.service(),
-	default: Ember.computed(function(){
+	default: function(){
 		return this.get('store').createRecord('language', {proficiency: "Beginner"});
-	}),
+	},
   languageProficiency: ["Beginner", "Intermediate", "Upper Intermediate", "Advanced", "Native or Bilingual"],
 	list: Ember.computed.filterBy('items', 'isNew', false),
 	item: Ember.computed(function(){
-		return this.get('default');
+		return this.default();
 	}),
 	actions: {
-		update: function(item){
-			this.$('ul.accordion').foundation('toggle', $('.accordion-content'))
+		update: function(item, cb){
 			item.save().then(()=>{
-				Ember.get(this, 'flashMessages').success('Success!');
+				cb.apply();
+				this.$('ul.accordion').foundation('toggle', $('.accordion-content'));
 			});
 		},
 		delete: function(item){
 			item.destroyRecord();
 		},
-		create: function(){
+		create: function(item, cb){
 			this.get('item').save()
 			.then(res => {
+				cb.apply();
+				this.set('item', this.default());
 				Ember.run.later(()=>{
 					Foundation.reInit($('ul.accordion'));
-					this.set('item', this.get('default'));
+					this.$('ul.accordion').foundation('toggle', $('.accordion-content'));					
 				});
 			})
+		},
+		clear(item){
+			this.set('item', this.default());
 		}
 	}
 });

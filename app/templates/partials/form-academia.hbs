@@ -2,7 +2,12 @@
 	<div class="columns">
 		<label>
 			School / College / University
-			{{form-input model=item valuePath='school'}}
+			{{form-input-establishment
+					model=item
+					valuePath="school"
+					selected=item.school
+					placeholder="School / College / University"}}
+
 		</label>
 	</div>
 	<div class="columns medium-8">

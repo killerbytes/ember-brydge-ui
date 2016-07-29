@@ -18,6 +18,7 @@ export default Ember.Component.extend({
   isTyping: false,
 	isOpen: false,
 	tabindex: 0,
+	timer: null,
 	focusOut: function(e){
 		Em.run.later(this, ()=>{
 			var focussedElement = document.activeElement;
@@ -55,16 +56,22 @@ export default Ember.Component.extend({
   showMessage: computed('validation.isDirty', 'isInvalid', 'didValidate', function() {
     return (this.get('validation.isDirty') || this.get('didValidate')) && this.get('isInvalid');
   }),
+	query(q) {
+		this.set('id', null);
+		this.get('ajaxApi').request('/v2/'+ this.get('api') + q, {
+				method: 'GET'
+			}).then(res=>{
+				this.set('items', res);
+				this.set('isOpen', true);
+			});
+	},
 	actions: {
-		query(q) {
+		query(q){
 			if(!q) return false;
-			this.set('id', null);
-			this.get('ajaxApi').request('/v2/'+ this.get('api') + q, {
-					method: 'GET'
-				}).then(res=>{
-					this.set('items', res);
-					this.set('isOpen', true);
-				});
+			if (this.timer) clearTimeout(this.timer);
+			this.timer = setTimeout(()=>{
+				this.query(q)
+			}, 500)
 		},
 		onSelect: function(selected) {
 			this.set('items', null);

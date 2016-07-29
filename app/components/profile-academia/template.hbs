@@ -1,7 +1,20 @@
 <section>
 	<label class="title">Academia</label>
 	{{#zf-accordion allowAllClosed="true"}}
-
+		<li class="accordion-item" data-accordion-item>
+			<a class="button success expanded rounded">Add Academia</a>
+			<div class="accordion-content" data-tab-content>
+				<div class="content form-new">
+					{{partial "partials/form-academia"}}
+					<div class="row">
+						<div class="columns">
+							{{form-input-button item=item submit="create" placeholder="Saved"}}
+							<button class="button button-clear float-right">Reset</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</li>
 	{{#each list as |item|}}
 		<li class="accordion-item box" data-accordion-item >
 				<a class="accordion-header">
@@ -14,8 +27,8 @@
 					{{partial "partials/form-academia"}}
 						<div class="row">
 							<div class="columns">
-								<button class="button success rounded" {{action "update" item}} disabled={{v-get item 'isInvalid'}}>Save</button>
-						    <button class="button clear float-right" {{ action 'delete' item }}>Delete this Graduation</button>
+								{{form-input-button item=item submit="update" placeholder="Saved"}}
+						    <button class="button button-clear float-right" {{ action 'delete' item }}>Delete</button>
 							</div>
 						</div>
 				</div>
@@ -23,19 +36,5 @@
 			</div>
 		</li>
 	{{/each}}
-		<li class="accordion-item" data-accordion-item>
-  		<a class="button success expanded rounded">Add Academia</a>
-			<div class="accordion-content" data-tab-content>
-				<div class="content form-new">
-		  		{{partial "partials/form-academia"}}
-					<div class="row">
-						<div class="columns">
-							<button class="button success rounded" {{action "create"}} disabled={{v-get item 'isInvalid'}}>Save</button>
-					    <button class="button clear float-right">Delete</button>
-						</div>
-					</div>
-				</div>
-			</div>
-		</li>
 	{{/zf-accordion}}
 </section>

@@ -27,12 +27,12 @@ export default Ember.Component.extend({
 				var isFocussedOut = target.has(focussedElement).length === 0 && !target.is(focussedElement);
 				if(isFocussedOut) {
 					this.set('isOpen', false);
-					if(!this.get('id')) {
-						if(this.get('orig') != this.get('selected')){
-							this.set('selected', null);
-							this.set('items', null);
-						}
-					}
+					// if(!this.get('id')) {
+					// 	if(this.get('orig') != this.get('selected')){
+					// 		this.set('selected', null);
+					// 		this.set('items', null);
+					// 	}
+					// }
 				}
 			}
 		}, 0);
@@ -54,9 +54,9 @@ export default Ember.Component.extend({
   showMessage: computed('validation.isDirty', 'isInvalid', 'didValidate', function() {
     return (this.get('validation.isDirty') || this.get('didValidate')) && this.get('isInvalid');
   }),
-	query(q) {
+	query(q){
 		this.set('id', null);
-		this.get('ajaxApi').request('/v2/cities/'+ q, {
+		this.get('ajaxApi').request('/v2/establishments/'+ q, {
 				method: 'GET'
 			}).then(res=>{
 				this.set('items', res);
@@ -76,10 +76,10 @@ export default Ember.Component.extend({
 			this.setProperties({
 				isOpen: false,
 				items: null,
-				selected: selected.terms.join(', '),
+				selected: selected.terms[0],
 				id: selected.place_id
 			})
-			this.sendAction('onItemSelected', selected.terms.join(', '));
+			this.sendAction('onItemSelected', selected.terms[0]);
 		}
 	}
 

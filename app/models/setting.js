@@ -4,6 +4,7 @@ export default DS.Model.extend({
 	ask: DS.attr(),
 	profileView: DS.attr(),
 	message: DS.attr(),
+	notification: DS.attr(),
 	base: DS.attr(),
 	key: DS.attr(),
 	value: DS.attr(),

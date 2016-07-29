@@ -1,0 +1,15 @@
+{{input type=type name=valuePath key-up="query" value=value placeholder=placeholder autocomplete="off"}}
+{{#if showMessage}}
+  <div class="error">
+      {{v-get model valuePath 'message'}}
+  </div>
+{{/if}}
+{{#if isOpen}}
+  <div class="wrapper ">
+  	<ul class="no-bullet">
+  	{{#each items as |item|}}
+  		<li {{action "onSelect" item}}> <a>{{establishment item}}</a> </li>
+  	{{/each}}
+  	</ul>
+  </div>
+{{/if}}

@@ -70,23 +70,15 @@
 	min-width: auto;
 }
 
-.button.clear{
+.button-clear, .button-clear:focus{
 	background: transparent;
 	padding-left: 0;
 	min-width: auto;
 	// color: #000;
 }
-.button.clear:hover{
+.button-clear:hover{
 	background-color: transparent;
 }
-
-// .button-group .button{
-// 	border: 1px solid $border-color;
-// }
-// .button-group .button:not(:last-child){
-// 	border-right: none;
-// }
-
 
 .dropdown-button{
 	color: $button-blue;

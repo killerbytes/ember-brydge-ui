@@ -17,7 +17,7 @@ export default Ember.Component.extend(Validations, {
 	settings: Ember.inject.service(),
 	tagName: 'form',
 	actions: {
-		update(){
+		update(item, cb){
 			this.get('settings').updatePassword({
 				password: this.get('password'),
 				oldPassword: this.get('oldPassword')
@@ -26,6 +26,7 @@ export default Ember.Component.extend(Validations, {
 				this.set('password', null);
 				this.set('oldPassword', null);
 				this.set('confirmPassword', null);
+				cb.apply();
 			}).catch((err)=>{
 				this.set('errors', err.errors);
 			});

@@ -10,83 +10,83 @@
     <tr>
       <td>When someone upvotes my broadcast</td>
       <td class="text-center">
-        {{input type="checkbox" change=(action 'notificationChanged') checked=model.settings.notifications.vote id="notifications.vote" name="notifications.vote" }}                        
+        {{input type="checkbox" change=(action 'notificationChanged') checked=settings.notification.vote id="notification.vote" name="notification.vote" }}
       </td>
       <td class="text-center">
-        {{input type="checkbox" change=(action 'emailNotificationChanged') checked=model.settings.emailNotifications.vote id="emailNotifications.vote" name="emailNotifications.vote" }}
+        {{input type="checkbox" change=(action 'emailNotificationChanged') checked=settings.notification.emailNotifications.vote id="emailNotifications.vote" name="emailNotifications.vote" }}
       </td>
     </tr>
     <tr>
       <td>When someone comments on my broadcast</td>
       <td class="text-center">
-        {{input type="checkbox" change=(action 'notificationChanged') checked=model.settings.notifications.comment id="notifications.comment" name="notifications.comment" }}
+        {{input type="checkbox" change=(action 'notificationChanged') checked=settings.notification.comment id="notification.comment" name="notification.comment" }}
       </td>
       <td class="text-center">
-        {{input type="checkbox" change=(action 'emailNotificationChanged') checked=model.settings.emailNotifications.comment id="emailNotifications.comment" name="emailNotifications.comment" }}
+        {{input type="checkbox" change=(action 'emailNotificationChanged') checked=settings.notification.emailNotifications.comment id="emailNotifications.comment" name="emailNotifications.comment" }}
       </td>
     </tr>
     <tr>
       <td>When someone shares my broadcast</td>
       <td class="text-center">
-        {{input type="checkbox" change=(action 'notificationChanged') checked=model.settings.notifications.share id="notifications.share" name="notifications.share" }}
+        {{input type="checkbox" change=(action 'notificationChanged') checked=settings.notification.share id="notification.share" name="notification.share" }}
       </td>
       <td class="text-center">
-        {{input type="checkbox" change=(action 'emailNotificationChanged') checked=model.settings.emailNotifications.share id="emailNotifications.share" name="emailNotifications.share" }}
+        {{input type="checkbox" change=(action 'emailNotificationChanged') checked=settings.notification.emailNotifications.share id="emailNotifications.share" name="emailNotifications.share" }}
       </td>
     </tr>
     <tr>
       <td>When someone asks me a question</td>
       <td class="text-center">
-        {{input type="checkbox" change=(action 'notificationChanged') checked=model.settings.notifications.ask id="notifications.ask" name="notifications.ask" }}
+        {{input type="checkbox" change=(action 'notificationChanged') checked=settings.notification.ask id="notification.ask" name="notification.ask" }}
       </td>
       <td class="text-center">
-        {{input type="checkbox" change=(action 'emailNotificationChanged') checked=model.settings.emailNotifications.ask id="emailNotifications.ask" name="emailNotifications.ask" }}
+        {{input type="checkbox" change=(action 'emailNotificationChanged') checked=settings.notification.emailNotifications.ask id="emailNotifications.ask" name="emailNotifications.ask" }}
       </td>
     </tr>
     <tr>
       <td>When someone answers a question I asked</td>
       <td class="text-center">
-        {{input type="checkbox" change=(action 'notificationChanged') checked=model.settings.notifications.answer id="notifications.answer" name="notifications.answer" }}                        
+        {{input type="checkbox" change=(action 'notificationChanged') checked=settings.notification.answer id="notification.answer" name="notification.answer" }}
       </td>
       <td class="text-center">
-        {{input type="checkbox" change=(action 'emailNotificationChanged') checked=model.settings.emailNotifications.answer id="emailNotifications.answer" name="emailNotifications.answer" }}
+        {{input type="checkbox" change=(action 'emailNotificationChanged') checked=settings.notification.emailNotifications.answer id="emailNotifications.answer" name="emailNotifications.answer" }}
       </td>
     </tr>
     <tr>
       <td>When someone compliments me</td>
       <td class="text-center">
-        {{input type="checkbox" change=(action 'notificationChanged') checked=model.settings.notifications.compliment id="notifications.compliment" name="notifications.compliment" }}
+        {{input type="checkbox" change=(action 'notificationChanged') checked=settings.notification.compliment id="notification.compliment" name="notification.compliment" }}
       </td>
       <td class="text-center">
-        {{input type="checkbox" change=(action 'emailNotificationChanged') checked=model.settings.emailNotifications.compliment id="emailNotifications.compliment" name="emailNotifications.compliment" }}
+        {{input type="checkbox" change=(action 'emailNotificationChanged') checked=settings.notification.emailNotifications.compliment id="emailNotifications.compliment" name="emailNotifications.compliment" }}
       </td>
     </tr>
     <tr>
       <td>When someone requests to connect with me</td>
       <td class="text-center">
-        {{input type="checkbox" change=(action 'notificationChanged') checked=model.settings.notifications.request id="notifications.request" name="notifications.request" }}
+        {{input type="checkbox" change=(action 'notificationChanged') checked=settings.notification.request id="notification.request" name="notification.request" }}
       </td>
       <td class="text-center">
-        {{input type="checkbox" change=(action 'emailNotificationChanged') checked=model.settings.emailNotifications.request id="emailNotifications.request" name="emailNotifications.request" }}
+        {{input type="checkbox" change=(action 'emailNotificationChanged') checked=settings.notification.emailNotifications.request id="emailNotifications.request" name="emailNotifications.request" }}
       </td>
     </tr>
     <tr>
       <td>When someone accepts my connection request</td>
       <td class="text-center">
-        {{input type="checkbox" change=(action 'notificationChanged') checked=model.settings.notifications.accept id="notifications.accept" name="notifications.accept" }}
+        {{input type="checkbox" change=(action 'notificationChanged') checked=settings.notification.accept id="notification.accept" name="notification.accept" }}
       </td>
       <td class="text-center">
-        {{input type="checkbox" change=(action 'emailNotificationChanged') checked=model.settings.emailNotifications.accept id="emailNotifications.accept" name="emailNotifications.accept" }}
+        {{input type="checkbox" change=(action 'emailNotificationChanged') checked=settings.notification.emailNotifications.accept id="emailNotifications.accept" name="emailNotifications.accept" }}
       </td>
     </tr>
     <tr>
       <td>When someone sends me a message</td>
       <td class="text-center">
-        {{input type="checkbox" change=(action 'notificationChanged') checked=model.settings.notifications.message id="notifications.message" name="notifications.message" }}
+        {{input type="checkbox" change=(action 'notificationChanged') checked=settings.notification.message id="notification.message" name="notification.message" }}
       </td>
       <td class="text-center">
-        {{input type="checkbox" change=(action 'emailNotificationChanged') checked=model.settings.emailNotifications.message id="emailNotifications.message" name="emailNotifications.message" }}
+        {{input type="checkbox" change=(action 'emailNotificationChanged') checked=settings.notification.emailNotifications.message id="emailNotifications.message" name="emailNotifications.message" }}
       </td>
     </tr>
   </tbody>
-</table>  
+</table>

@@ -18,4 +18,6 @@
 <label>Re-type new password
   {{form-input type="password" model=this valuePath="confirmPassword"}}
 </label>
-<button class="button success rounded" {{action "update"}} disabled={{v-get this 'isInvalid'}}>Save</button>
+<div class="row">
+  <div class="columns">{{form-input-button item=this submit="update" placeholder="Saved"}}</div>
+</div>

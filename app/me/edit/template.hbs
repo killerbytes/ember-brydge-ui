@@ -79,8 +79,8 @@
                     </label>
                   </div>
                 </div>
-                <div>
-                  {{form-input-button submit="save" placeholder="Saved"}}
+                <div class="row">
+                  <div class="columns">{{form-input-button submit="save" placeholder="Saved"}}</div>
                 </div>
               </form>
             </section>
@@ -147,8 +147,10 @@
 
                   </div>
                 </div>
-                <div>
-                  {{form-input-button submit="save" placeholder="Saved"}}
+                <div class="row">
+                  <div class="columns">
+                    {{form-input-button submit="save" placeholder="Saved"}}
+                  </div>
                 </div>
               </form>
             </section>
@@ -160,13 +162,15 @@
               <form>
                 <label for="">Write a summary about yourself:</label>
                 <div class="wrapper">{{form-text-counter limit=500 value=profile.snapshot rows=10 class="mb"}}</div>
-                {{form-input-button submit="save" placeholder="Snapshot Saved"}}
+                <div class="row">
+                  <div class="columns">{{form-input-button submit="save" placeholder="Saved"}}</div>
+                </div>
               </form>
 
             </section>
           </div>
           <div class="tabs-panel {{active-tab 'work' tab}}" id="work">
-            {{ profile-work-history items=experiences }}
+            {{ profile-work-history items=experiences}}
           </div>
           <div class="tabs-panel {{active-tab 'academia' tab}}" id="academia">
             {{ profile-academia items=educations}}

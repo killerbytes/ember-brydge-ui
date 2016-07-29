@@ -4,7 +4,7 @@
 		<label for="">Select a Career Status <span>(If you are currently not employed full-time)</span></label>
 			<div class="row">
 				<div class="columns medium-8">
-						{{select-native content=highlightStatuses action=(action (mut highlightStatus)) selectedValue=profile.currentTitle}}
+						{{select-native content=highlightStatuses action=(action (mut highlightStatus)) selectedValue=defaultCareerStatus}}
 				</div>
 				<div class="columns medium-4">
 					{{#if isHighlightStatus}}
@@ -12,11 +12,9 @@
 							<a>Current Title</a>
 						</label>
 					{{else}}
-            {{#if highlightStatus}}
-  						<label for="highlightStatus" class="for-radio middle">
-  							<a {{action "highlightCustom"}}>Use this as Title</a>
-  						</label>
-            {{/if}}
+						<label for="highlightStatus" class="for-radio middle">
+							<a {{action "highlightCustom"}}>Use this as Title</a>
+						</label>
 					{{/if}}
 				</div>
 			</div>
@@ -24,60 +22,56 @@
 <section>
 	<label class="title">Work History</label>
 {{#zf-accordion allowAllClosed="true"}}
-{{#each list as |item|}}
-	<li class="accordion-item box	" data-accordion-item >
+    <li class="accordion-item" data-accordion-item>
+      <a class="button success expanded rounded">Add Job Position</a>
+      <div class="accordion-content" data-tab-content>
+        <div class="content form-new">
+          {{partial "partials/form-work-history"}}
+          <div class="row">
+            <div class="columns">
+              {{form-input-button item=item submit="create" placeholder="Saved"}}
+              <a class="float-right button button-clear">Reset</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </li>
+  {{#each list as |item|}}
+  	<li class="accordion-item box	" data-accordion-item >
 
-		<a class="col">
-				<div class="name">{{ item.title }}</div>
-				<div class="company">{{ item.company }}</div>
-				<div class="timestamp">
-		      {{term-date-format item.startFrom}} -
-		      {{#if item.currentCompany}}
-		        Present
-		      {{else}}
-		        {{term-date-format item.endAt}}
-		      {{/if}}
-	      </div>
-		</a>
-		<div class="col text-right">
-			{{#if item.isProfileTitle}}
-				<label><a>Current Title</a></label>
-			{{else}}
-        {{#if item.currentCompany}}
+  		<a class="col">
+  				<div class="name">{{ item.title }}</div>
+  				<div class="company">{{ item.company }}</div>
+  				<div class="timestamp">
+  		      {{term-date-format item.startFrom}} -
+  		      {{#if item.currentCompany}}
+  		        Present
+  		      {{else}}
+  		        {{term-date-format item.endAt}}
+  		      {{/if}}
+  	      </div>
+  		</a>
+  		<div class="col text-right">
+  			{{#if item.isProfileTitle}}
+  				<label><a>Current Title</a></label>
+  			{{else}}
     			<label for="{{item.id}}" class="for-radio">
     				<a {{action "highlight" item}}>Use this as Title</a>
     			</label>
-        {{/if}}
-			{{/if}}
-		</div>
-		<div class="accordion-content" data-tab-content>
-	  	<div class="content">
-				{{partial "partials/form-work-history"}}
-				<div class="row">
-					<div class="columns">
-				    <button class="button success rounded" disabled={{v-get item 'isInvalid'}} {{ action 'update' item }}>Save</button>
-            {{form-input-button item=item submit="update" placeholder="Saved"}}
-				    <a class="float-right button clear" {{ action 'delete' item }}>Delete</a>
-					</div>
-				</div>
-			</div>
-		</div>
-	</li>
-{{/each}}
-	<li class="accordion-item" data-accordion-item>
-		<a class="button success expanded rounded">Add Job Position</a>
-		<div class="accordion-content" data-tab-content>
-  		<div class="content form-new">
-	  		{{partial "partials/form-work-history"}}
-				<div class="row">
-					<div class="columns">
-			    	<button class="button success rounded" disabled={{v-get item 'isInvalid'}} {{ action 'create' }}>Save</button>
-            {{form-input-button item=item submit="create" placeholder="Saved"}}
-				    <a class="float-right button clear">Reset</a>
-					</div>
-				</div>
-			</div>
-		</div>
-	</li>
+  			{{/if}}
+  		</div>
+  		<div class="accordion-content" data-tab-content>
+  	  	<div class="content">
+  				{{partial "partials/form-work-history"}}
+  				<div class="row">
+  					<div class="columns">
+              {{form-input-button item=item submit="update" placeholder="Saved"}}
+  				    <a class="float-right button button-clear" {{ action 'delete' item }}>Delete</a>
+  					</div>
+  				</div>
+  			</div>
+  		</div>
+  	</li>
+  {{/each}}
 {{/zf-accordion}}
 </section>
