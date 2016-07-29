@@ -13,10 +13,24 @@
 
 </div>
 <div class="text-center">
-  <div class="name">{{profile.firstName}} {{profile.lastName}}</div>
+  <section class="hoverable">
+    <div class="name">{{profile.firstName}} {{profile.lastName}}</div>
+    {{#if isOwner}}
+      {{#link-to "me.edit" (query-params tab="personal") class="editable" }}
+        <i class="fa fa-pencil-square-o"></i>
+      {{/link-to}}
+    {{/if}}
+  </section>
   {{#if isNotEmptyTitleCompany}}
-    <div class="position font-light">{{profile.currentTitle}}</div>
-    <div class="company">{{profile.currentCompany}}</div>
+    <section class="hoverable">
+      <div class="position font-light">{{profile.currentTitle}}</div>
+      <div class="company">{{profile.currentCompany}}</div>
+      {{#if isOwner}}
+        {{#link-to "me.edit" (query-params tab="work") class="editable" }}
+          <i class="fa fa-pencil-square-o"></i>
+        {{/link-to}}
+      {{/if}}
+    </section>
   {{else}}
     {{#if isOwner}}
       <div class="empty-message" style="margin:.5rem; ">
@@ -24,9 +38,17 @@
       </div>
     {{/if}}
   {{/if}}
-  <div class="location mb">
-    {{profile.location}}
-  </div>
+  <section class="hoverable">
+    <div class="location mb">
+      {{profile.location}}
+      {{#if isOwner}}
+        {{#link-to "me.edit" (query-params tab="work") class="editable" }}
+          <i class="fa fa-pencil-square-o"></i>
+        {{/link-to}}
+      {{/if}}
+
+    </div>
+  </section>
   <div class="text-title">
     {{#unless isOwner }}
       {{#unless isConnected }}

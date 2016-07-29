@@ -1,9 +1,11 @@
 {{input type=type name=valuePath key-up="query" value=value placeholder=placeholder autocomplete="off"}}
-{{#if showMessage}}
-  <div class="error">
-      {{v-get model valuePath 'message'}}
-  </div>
-{{/if}}
+{{#unless isOpen}}
+  {{#if showMessage}}
+    <div class="error">
+        {{v-get model valuePath 'message'}}
+    </div>
+  {{/if}}
+{{/unless}}
 {{#if isOpen}}
   <div class="wrapper ">
   	<ul class="no-bullet">

@@ -1,6 +1,13 @@
 <div class="box">
-  <section>
-    <h4><i class="fa fa-building-o" aria-hidden="true"></i>Business Industry</h4>
+  <section class="hoverable">
+    <h4><i class="fa fa-building-o" aria-hidden="true"></i>
+      Business Industry
+      {{#if isOwner}}
+        {{#link-to "me.edit" (query-params tab="industry") class="editable"}}
+          <i class="fa fa-pencil-square-o"></i>
+        {{/link-to}}
+      {{/if}}
+    </h4>
     {{#if profile.industryOneName}}
       <strong><a href="">{{profile.industryOneName}}</a></strong>
     {{else}}
@@ -14,15 +21,17 @@
         </div>
       {{/if}}
     {{/if}}
-    {{#if isOwnerx}}
-      {{#link-to "me.edit" (query-params tab="industry")}}
-        <i class="icons pencil"></i>
-      {{/link-to}}
-    {{/if}}
   </section>
 
-  <section>
-    <h4><i class="fa fa-briefcase" aria-hidden="true"></i>Occupational Industry</h4>
+  <section class="hoverable">
+    <h4><i class="fa fa-briefcase" aria-hidden="true"></i>
+      Occupational Industry
+      {{#if isOwner}}
+        {{#link-to "me.edit" (query-params tab="occupindustry") class="editable" }}
+          <i class="fa fa-pencil-square-o"></i>
+        {{/link-to}}
+      {{/if}}
+    </h4>
     {{#if isNotEmptyOccupation}}
       <div>
         <strong><a href="">{{profile.industryTwoName}}</a></strong>
@@ -41,18 +50,14 @@
       </div>
       {{/if}}
     {{/if}}
-    {{#if isOwnerx}}
-      {{#link-to "me.edit" (query-params tab="occupindustry") }}
-        <i class="icons pencil"></i>
-      {{/link-to}}
-    {{/if}}
   </section>
 
-  <section>
-    <h4><i class="fa fa-camera-retro" aria-hidden="true"></i>Snapshot
-      {{#if isOwnerx}}
-        {{#link-to "me.edit" (query-params tab="snapshot")}}
-          <i class="icons pencil pull-right"></i>
+  <section class="hoverable">
+    <h4><i class="fa fa-camera-retro" aria-hidden="true"></i>
+      Snapshot
+      {{#if isOwner}}
+        {{#link-to "me.edit" (query-params tab="snapshot") class="editable"}}
+          <i class="fa fa-pencil-square-o"></i>
         {{/link-to}}
       {{/if}}
     </h4>

@@ -83,4 +83,20 @@ h3, h4, .tabs-title{
 	.fa{
 		margin-right: 10px;
 	}
+
+}
+
+.hoverable{
+	a.editable{
+		float: right;
+		display: none;
+		.fa{
+			margin-right: 0;
+		}
+	}
+}
+.hoverable:hover{
+	a.editable{
+		display: block;
+	}
 }

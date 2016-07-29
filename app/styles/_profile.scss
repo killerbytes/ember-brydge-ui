@@ -47,6 +47,7 @@
 	.name{
 		font-size: 20px;
 		margin-bottom: 2rem;
+		line-height: 2rem;
 	}
 	.position, .company{
 		line-height: 1.4em;
@@ -68,13 +69,22 @@
 		font-weight: bold;
 		border-radius: 100px;
 	}
-	.button.circle{
-		// position: absolute;
-		// bottom: 0;
-		// right: 0;
-		// border: 2px solid #FFF;
+	section.hoverable{
+		position: relative;
+		a.editable{
+			position: absolute;
+			// bottom: 0;
+			right: 0;
+		}
 	}
+	section.hoverable:hover{
+		a.editable{
+			position: absolute;
+			bottom: 0;
+			right: 0;
+		}
 
+	}
 }
 .profile-photo{
 	form{
