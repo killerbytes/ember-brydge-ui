@@ -16,20 +16,17 @@ form{
 	textarea,
 	select{
 		box-shadow: none;
-		// padding: 5px 10px;
 		font-size: 12px;
 		height: auto;
 	}
 	input:focus, input:active{
-		border-color: $border-color;
+		border-color: $button-blue !important;
+		box-shadow: none;		
 	}
 	input[type="search"]{
 		@extend .rounded;
-		border-color: $border-color;
-
 	}
 	.input-group{
-		border: 1px solid $border-color;
 		input.input-group-field{
 			border: none;
 		}
@@ -103,7 +100,6 @@ form{
 		color: $body-text-color;
 	}
 	input:focus{
-		border: 1px solid $button-blue;
 		box-shadow: none;
 	}
 }

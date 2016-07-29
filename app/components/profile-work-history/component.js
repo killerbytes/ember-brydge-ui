@@ -35,21 +35,28 @@ export default Ember.Component.extend( {
 		return this.get('profile.customTitle');
 	}),
   _onDropdownChange: Ember.observer('highlightStatus', function() {
-  	if(this.get('isHighlightStatus') && this.get('highlightStatus') != "Select a career status") this._highlightStatus();
+  	if(this.get('isHighlightStatus')) this._highlightStatus();
   }),
+	_highlightStatus(){
+		var userid = this.get('session.data.authenticated.user_id');
+		var data = {
+			status: this.get('defaultCareerStatus')
+		};
+		this.get('ajax').request('/v2/profile-highlight/'+userid, {
+			method: 'PATCH',
+			data: { highlight: data },
+		}).then(res=>{
+			this._resetShowHighlight();
+			var profile = this.get('store').peekRecord('profile', userid);
+			profile.set('customTitle', true);
+		})
+	},
   _resetShowHighlight(){
 		_.each(this.get('list'), function(i){
 			i.set('isProfileTitle', false)
 		})
 		this.set('profile.customTitle', false);
   },
-	_highlightStatus(){
-		var profile = this.get('store').peekRecord('profile', this.get('session.data.authenticated.user_id'));
-		profile.set('customTitle', true);
-		profile.set('currentTitle', this.get('highlightStatus'));
-		profile.set('currentCompany', null);
-		profile.save();
-	},
 	actions: {
     updateWork(item, cb){
       item.save().then(()=>{
@@ -79,24 +86,18 @@ export default Ember.Component.extend( {
 			this.set('item', this.default())
 		},
 		highlightCustom(){
-			this._resetShowHighlight();
 			this._highlightStatus();
-			let userid = this.get('session.data.authenticated.user_id');
-			var data = {
-				status: this.get('highlightStatus')
-	    };
-
-	    this.get('ajax').request('/v2/profile-highlight/'+userid, {
-	      method: 'PATCH',
-	      data: {highlight: data},
-	    })
-
 		},
 		highlight(item){
+			// this._setProfile(false, item.get('title'), item.get('company'))
 			item.set('isProfileTitle', true)
 			item.save().then(res=>{
 				this._resetShowHighlight();
 				item.set('isProfileTitle', true)
+				// var data = {
+				// 	status: item.get('title')
+				// }
+				// this._highlightStatus(data);
 			});
 		}
 	}
