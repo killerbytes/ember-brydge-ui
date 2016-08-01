@@ -2,8 +2,8 @@ import DS from 'ember-data';
 import Validations from './validations/profile';
 
 export default DS.Model.extend(Validations, {
-	firstName: DS.attr(),
-	lastName: DS.attr(),
+	firstName: DS.attr({defaultValue: ''}),
+	lastName: DS.attr({defaultValue: ''}),
 	location: DS.attr(),
 	industryOneName: DS.attr('string'),
 	industryTwoName: DS.attr('string'),
