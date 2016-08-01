@@ -5,9 +5,12 @@ export default Ember.Route.extend(QueryLocationMixin, {
   flashMessages: Ember.inject.service(),
   session: Ember.inject.service(),
   utils: Ember.inject.service(),
+
   resetController(controller, isExiting, transition) {
       if (isExiting) {
-        controller.set(controller.tab, 'personal');
+        controller.setProperties({
+          tab: 'personal',
+        });
       }
   },
 	model: function (params) {

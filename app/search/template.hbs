@@ -56,15 +56,20 @@
   </div>
 </div>
 
-<div class="row">
-  <div class="columns">
+{{#if isDirty}}
+  <div class="row columns">
     <div class="box">
-      <section class="text-center">
-        {{search.results.length}} people found &nbsp;<a>Clear All</a>
-      </section>
+      <div class="row columns">
+        <div class="columns medium-6">
+          <span class="middle">{{search.results.length}} people found</span> &nbsp;<a class="button button-clear" {{action "clear"}}>Clear All</a>
+        </div>
+        <div class="columns medium-6 text-right">
+          <a class="button" {{action "refresh"}}>Refresh</a>
+        </div>
+      </div>
     </div>
   </div>
-</div>
+{{/if}}
 
 {{#if search.results}}
 <div class="row columns">

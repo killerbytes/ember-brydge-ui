@@ -12,12 +12,11 @@ export default Ember.Component.extend({
     			break;
     		case "1":
     			this.set('sector', item);
-
-		      this.$('#industry-tab-'+ this.get('name')).foundation('selectTab', $('#'+ this.get('name') + '-' + item.code));
+		      this.$('#industry-tab-'+ this.get('name')).foundation('selectTab', $('#'+ this.get('name') + '-' + item.sector_id));
     			break;
     		case "2":
     			this.set('group', item);
-		      this.$('#industry-tab-'+ this.get('name')).foundation('selectTab', $('#'+ this.get('name') + '-' + item.code));
+		      this.$('#industry-tab-'+ this.get('name')).foundation('selectTab', $('#'+ this.get('name') + '-' + item.industry_id));
     			break;
     		case "3":
     			this.set('industry', item)

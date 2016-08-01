@@ -5,10 +5,9 @@ export default Ember.Controller.extend(QueryLocationMixin, {
   queryParams: ['city', 'key', 'industry'],
   search: Ember.inject.service(),
   categories: Ember.computed.alias('model.categories'),
-  // cities: [],
-  // keywords: [],
   industries: [],
   selectedIndustries: [],
+  clear: true,
   getCategory(value){
     var categories = this.get('categories');
     return _.chain(_.map(categories, 'categories'))
@@ -35,14 +34,17 @@ export default Ember.Controller.extend(QueryLocationMixin, {
     return industries;
   }),
   query: function(){
-    this.get('search').query({
-      // q: this.get('search.key'),
+    var query = {
       industry: this.get('industry'),
       city: this.get('city'),
       q: this.get('search.key') || this.get('key'),
       type: 'profile'
-    });
-  }.observes('city', 'key'),
+    };
+    if(!query.q && !query.industry && !query.city && !query.key) return false;
+    query.q = query.q + "*";
+    this.set('isDirty', true);
+    this.get('search').query(query);
+  }.observes('city', 'industry', 'key'),
   actions: {
   	addLocation(item){
       this.set('cities', []);
@@ -87,15 +89,29 @@ export default Ember.Controller.extend(QueryLocationMixin, {
     onIndustrySelect(item){
       this.set('industry',item.code)
     },
-    refresh: function(){
-      this.get('search').query({
-        q: this.get('search.key'),
-        industry: this.get('industry'),
-        city: this.get('city'),
-        key: this.get('key'),
-        type: 'profile'
+    clear(){
+      this.setProperties({
+        key: '',
+        industry: '',
+        location: ''
       });
-    }.observes('city')
+      this.set('search.results', []);
+      this.set('isDirty', false);
+
+    },
+    refresh: function(){
+      this.query();
+    //   var query = {
+    //     q: this.get('search.key'),
+    //     industry: this.get('industry'),
+    //     city: this.get('city'),
+    //     key: this.get('key'),
+    //     type: 'profile'
+    //   }
+    //   console.log(!query.q, !query.industry, !query.city, !query.key)
+    //   if(!query.q && !query.industry && !query.city && !query.key) return false;
+    //   this.get('search').query(query);
+    }
 
 
   }

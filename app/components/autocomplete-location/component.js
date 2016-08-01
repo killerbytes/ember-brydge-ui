@@ -1,11 +1,17 @@
+/*
+	Returns: place_id
+*/
+
 import Ember from 'ember';
 
 export default Ember.Component.extend({
 	ajaxApi: Ember.inject.service(),
 	classNames: ['dropdown-select'],
 	attributeBindings: ['tabindex'],
+	placeholder: 'City',
 	isOpen: false,
 	tabindex: 0,
+	timer: null,
 	didReceiveAttrs() {
     this._super(...arguments);
     this.set('value', this.get('selected'));
@@ -23,15 +29,24 @@ export default Ember.Component.extend({
       }
     }, 0);
 	},
+	query(q) {
+		this.set('id', null);
+		this.get('ajaxApi').request('/v2/cities/'+ q, {
+				method: 'GET'
+			}).then(res=>{
+				this.set('items', res);
+				this.set('isOpen', true);
+			});
+	},
 	actions: {
-    query(q) {
-			this.set('id', null)
-      this.get('ajaxApi').request('/v2/cities/'+ q, {
-          method: 'GET'
-        }).then(res=>{
-          this.set('items', res);
-      	});
-    },
+		query(q) {
+			if(!q) return false;
+			if (this.timer) clearTimeout(this.timer);
+			this.timer = setTimeout(()=>{
+				this.query(q)
+			}, 500)
+		},
+
 		open: function(){
 			this.set('items', []);
 			this.set('isOpen', true)
@@ -39,10 +54,9 @@ export default Ember.Component.extend({
 		onSelect: function(selected) {
 			this.set('isOpen', false);
 			this.set('items', []);
-			this.set('selected', selected.terms.join(', '));
+			this.set('selected', selected.place_id);
 			this.set('id', selected.place_id)
-			this.sendAction('onItemSelected', selected.terms.join(', '), (res)=>{
-			});
+			this.sendAction('onItemSelected', selected.place_id);
 		}
 	}
 });

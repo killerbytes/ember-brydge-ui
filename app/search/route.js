@@ -4,9 +4,18 @@ import QueryLocationMixin from 'web/mixins/query-locations';
 
 export default Ember.Route.extend(QueryLocationMixin, {
   ajaxApi: Ember.inject.service('ajax-api'),
+  resetController(controller, isExiting, transition) {
+      if (isExiting) {
+        controller.setProperties({
+          key: '',
+          industry: '',
+          location: '',
+        });
+      }
+  },
   model: function (params) {
     return Ember.RSVP.hash({
-      categories: $.getJSON('data/categories.json')
+      categories: this.get('ajaxApi').request('/v2/categories/menu')
     })
   },
 	actions: {

@@ -4,10 +4,9 @@
 	  {{#zf-tabs class="hide" id=(concat "industry-tab-" name)}}
 	    <li class="tabs-title is-active"><a href="#{{name}}-root">Root</a></li>
 	    {{#each categories as |item|}}
-	        <li class="tabs-title"><a href="#{{name}}-{{item.code}}">{{item.name}}</a></li>
+	        <li class="tabs-title"><a href="#{{name}}-{{item.sector_id}}">{{item.name}}</a></li>
 	        {{#each item.categories as |category|}}
-						{{log category.name}}
-	          <li class="tabs-title"><a href="#{{name}}-{{category.code}}">{{category.name}}</a></li>
+	          <li class="tabs-title"><a href="#{{name}}-{{category.industry_id}}">{{category.name}}</a></li>
 	        {{/each}}
 	    {{/each}}
 	    <li class="tabs-title"><a href="#{{name}}-done">Done</a></li>
@@ -27,7 +26,7 @@
 
 	    <form action="">
 	      {{#each categories as |item|}}
-	        <div class="tabs-panel" id="{{name}}-{{item.code}}">
+	        <div class="tabs-panel" id="{{name}}-{{item.sector_id}}">
 	          <section class="content-title text-title">
 	        		<label>Sector:</label> <strong>{{item.name}}</strong> <a {{action "goto" "0" "root" }}>Change</a>
 	          </section>
@@ -42,7 +41,7 @@
 	        </div>
 
 	        {{#each item.categories as |category|}}
-	          <div class="tabs-panel" id="{{name}}-{{category.code}}">
+	          <div class="tabs-panel" id="{{name}}-{{category.industry_id}}">
 	          	<section class="content-title text-title">
 	            	<label>Sector:</label> <strong>{{item.name}}</strong> <a {{action "goto" "0" "root" }}>Change</a>
 	            </section>
