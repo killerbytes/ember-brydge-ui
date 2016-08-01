@@ -3,9 +3,8 @@
   </div>
 
   <div class="columns medium-7">
-    <form action="" class="brydge-form">
-      {{input-date-picker selected=date value=date}}
-    </form>
+    {{dialog-box name="delete" title="Delete Post" content="Are you sure you want to delete this post?" submit="deletePost"}}
   </div>
-  <button class="button" {{action "save"}}>Save</button>
+
+  <button class="button" data-open="dialog-box-delete" {{action "select"}}>Open</button>
 </div>

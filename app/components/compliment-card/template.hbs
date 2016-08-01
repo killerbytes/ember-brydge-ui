@@ -13,7 +13,7 @@
         <a class="button dropdown-button-arrow button-ellipsis" data-toggle="dd-card-menu-{{item.id}}"></a>
         {{#zf-dropdown id=(concat 'dd-card-menu-' item.id) closeOnClick=true class="card-menu-dropdown"}}
           <ul class="menu">
-            <li><a {{action "delete" item }}>Delete</a></li>
+            <li><a data-open={{concat 'dialog-box-' 'delete' item.id}}>Delete</a></li>
           </ul>
         {{/zf-dropdown}}
       {{/if}}
@@ -31,3 +31,5 @@
   <div class="title">{{item.title}}!</div>
   <div class="content-pad">{{item.content}}</div>
 </section>
+
+{{dialog-box name="delete" item=item title="Delete Compliment" content="Are you sure you want to delete this compliment`?" submit="delete"}}

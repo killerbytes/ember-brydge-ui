@@ -11,6 +11,18 @@ export default Ember.Component.extend({
 		return this.get('post.userid') == this.get('sessionAccount.account.profile.id');
 	}),
 	actions: {
+    flag(){
+			var post = this.get('post');
+      console.log(this.get('post.title'))
+      // this.get('store').unloadRecord(post)
+			// post.deleteRecord();
+			// post.save().then(res=>{
+      //   console.log(res.get('id'))
+			// 	// if(this.get('posts')) this.get('posts').removeObject(post);
+      //   // this.get('store').unloadRecord('newsfeed', res)
+			// 	// this.sendAction('onDelete');
+			// });
+		},
 		delete(){
 			var post = this.get('post');
       this.get('store').unloadRecord(post)

@@ -17,9 +17,9 @@ export default Ember.Component.extend({
 				this.sendAction('onSubmit');
 			});
 		},
-		delete: function (item) {
-			this.get('compliment').delete(item).then(res=>{
-				this.sendAction('onDelete', item);
+		delete: function () {
+			this.get('compliment').delete(this.get('item')).then(res=>{
+				this.sendAction('onDelete', this.get('item'));
 				this.sendAction('onSubmit');
 			})
 		}

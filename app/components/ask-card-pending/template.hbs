@@ -24,9 +24,12 @@
     {{#if isOwner}}
       <div class="section-footer-buttons">
         <a {{action "select" item }} class="button success rounded" data-open="answerFormModal">Write Answer</a>
-        <a {{action "delete" item }} class="button button-border rounded">Delete</a>
-        <a {{action "delete" item }} class="button button-border rounded">Flag</a>
+        <a class="button button-border rounded" data-open={{concat 'dialog-box-' 'delete' item.id}}>Delete</a>
+        <a class="button button-border rounded" data-open={{concat 'dialog-box-' 'flag' item.id}}>Flag</a>
       </div>
     {{/if}}
   </div>
 </section>
+
+{{dialog-box name="delete" item=item title="Delete Question" content="Are you sure you want to delete this question?" submit="delete"}}
+{{dialog-box name="flag" item=item title="Flag Question" content="Are you sure you want to flag this question?" submit="flag"}}

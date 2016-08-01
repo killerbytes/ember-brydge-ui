@@ -11,8 +11,8 @@ export default Ember.Component.extend({
 		return this.get('item.to.id') == this.get('session.data.authenticated.user_id');
 	}),
 	actions: {
-		delete(item){
-			this.get('compliment').delete(item);
+		delete(){
+			this.get('compliment').delete(this.get('item'));
 		}
 	}
 });

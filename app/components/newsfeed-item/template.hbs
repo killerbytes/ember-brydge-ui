@@ -25,9 +25,13 @@
         {{#zf-dropdown id=(concat "dd-post-menu-" post.id) closeOnClick=true class="card-menu-dropdown"}}
           <ul class="menu">
             {{#if isOwner}}
-            <li><a {{action "delete"}}>Delete Post</a></li>
+            <li>
+              <a data-open={{concat 'dialog-box-' 'delete' post.id}}>Delete Post</a>
+            </li>
             {{else}}
-            <li><a {{action "flag"}}>Flag this Post</a></li>
+            <li>
+              <a data-open={{concat 'dialog-box-' 'flag' post.id}}>Flag this Post</a>
+            </li>
             {{/if}}
           </ul>
         {{/zf-dropdown}}
@@ -96,3 +100,6 @@
     {{comment-box post=post total=post.commentCount}}
   </section>
 {{/unless}}
+
+{{dialog-box name="delete" item=post title="Delete Post" content="Are you sure you want to delete this post?" submit="delete"}}
+{{dialog-box name="flag" item=post title="Flag Post" content="Are you sure you want to flag this post?" submit="flag"}}

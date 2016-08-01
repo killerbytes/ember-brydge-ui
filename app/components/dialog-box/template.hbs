@@ -1,14 +1,19 @@
-{{#zf-reveal id=(concat "dialog-box-" name) overlay=true class="small box"}}
+{{#zf-reveal id=(concat "dialog-box-" name item.id) overlay=true class="small box"}}
   <button class="close-button" aria-label="Dismiss alert" type="button" data-close>
     <span aria-hidden="true">&times;</span>
   </button>
   <section class="title">
-    <h4>Write Answer</h4>
+    <h4>{{title}}</h4>
   </section>
   <section>
+    <p>{{content}}</p>
   </section>
-  <section>
-    <button class="success button rounded" type="submit" {{action "submit"}}>Yes</button>
-		<a class="button button-clear float-right" data-close>No</a>
+  <section class="text-right">
+    {{#unless confirm}}
+      <button class="success button rounded" type="submit" {{action "submit"}} data-close>Yes</button>
+	  	<a class="button button-clear" data-close>No</a>
+    {{else}}
+      <button class="success button rounded" type="submit" data-close>OK</button>
+    {{/unless}}
   </section>
 {{/zf-reveal}}

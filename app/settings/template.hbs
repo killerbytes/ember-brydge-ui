@@ -48,7 +48,7 @@
               </div>
               <div class="tabs-panel space-filler {{active-tab 'password' tab}}" id="password">
                 <section class="header">
-                  {{form-update-password}}
+                  {{form-update-password confirm="confirm"}}
                 </section>
               </div>
               <div class="tabs-panel {{active-tab 'notification' tab}}" id="notification">
@@ -64,7 +64,7 @@
                     </div>
                     <div class="columns medium-6">
                       <div class="switch">
-                        {{input type="checkbox" change=(action settingsChanged) checked=model.setting.ask class="switch-iput" id="settings_ask" name="ask" }}
+                        {{input type="checkbox" change=(action settingsChanged) checked=setting.ask class="switch-iput" id="settings_ask" name="ask" }}
                         <label class="switch-paddle" for="settings_ask">
                           <span class="show-for-sr">Turn ASK OFF</span>
                         </label>
@@ -103,3 +103,5 @@
         </div>
     </div>
 </div>
+
+{{dialog-box name="confirm" confirm=true title=title content=content}}
