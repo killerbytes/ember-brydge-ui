@@ -1,12 +1,12 @@
 	<section class="content-title">
 	  <h4>Industry Picker</h4>
 	</section>
-
 	  {{#zf-tabs class="hide" id=(concat "industry-tab-" name)}}
 	    <li class="tabs-title is-active"><a href="#{{name}}-root">Root</a></li>
 	    {{#each categories as |item|}}
 	        <li class="tabs-title"><a href="#{{name}}-{{item.code}}">{{item.name}}</a></li>
 	        {{#each item.categories as |category|}}
+						{{log category.name}}
 	          <li class="tabs-title"><a href="#{{name}}-{{category.code}}">{{category.name}}</a></li>
 	        {{/each}}
 	    {{/each}}

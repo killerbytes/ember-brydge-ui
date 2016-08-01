@@ -16,7 +16,7 @@
 {{else}}
   {{#unless isOwner}}
     {{#if isConnected}}
-      {{#link-to "messages.conversation" item.friend.conversationid class="button success expanded"}}
+      {{#link-to "messages.conversation" item.friendid class="button success expanded"}}
         Message
       {{/link-to}}
     {{else}}
