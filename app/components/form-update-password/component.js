@@ -33,6 +33,7 @@ export default Ember.Component.extend(Validations, {
 				cb.apply();
 			}).catch((err)=>{
 				this.set('errors', err.errors);
+				cb.apply(this, [false]);
 			});
 		}
 	}

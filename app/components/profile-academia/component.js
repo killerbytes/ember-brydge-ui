@@ -7,7 +7,7 @@ export default Ember.Component.extend(Validations, {
 	flashMessages: Ember.inject.service(),
 	classNames: ['accordion-form'],
 	tagName: 'form',
-	maxYear: moment().year() + 6,
+	maxYear: moment().year() + 10,
 	list: Ember.computed.filterBy('items', 'isNew', false),
 	default: function(){
 		return this.get('store').createRecord('education', {endAt: new Date()});

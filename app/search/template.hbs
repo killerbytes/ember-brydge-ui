@@ -48,7 +48,7 @@
           {{autocomplete-location selected=valueText onItemSelected="addLocation" }}
         </form>
         {{#each cities as |item|}}
-          <span class="label label-item"><a {{action "removeItem" item 'cities' 'city'}}>{{fa-icon "close"}}</a> {{item}}</span>
+          <span class="label label-item"><a {{action "removeItem" item 'cities' 'city'}}>{{fa-icon "close"}}</a> {{google-places item=item}}</span>
         {{/each}}
 
       </section>

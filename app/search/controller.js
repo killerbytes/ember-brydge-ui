@@ -37,15 +37,13 @@ export default Ember.Controller.extend(QueryLocationMixin, {
     var query = {
       industry: this.get('industry'),
       city: this.get('city'),
-      q: _.map(this.get('key').split(","), i=>{
+      q: this.get('key') && _.map(this.get('key').split(","), i=>{
         return i + "*";
       }).join(","),
       type: 'profile'
     };
-    // console.log(this.get('key'))
     if(!query.q && !query.industry && !query.city && !query.key) return false;
     this.set('isDirty', true);
-    console.log(query)
     this.get('search').query(query);
   }.observes('city', 'industry', 'key'),
   actions: {

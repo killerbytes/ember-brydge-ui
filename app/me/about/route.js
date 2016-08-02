@@ -14,11 +14,11 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
       profile: this.store.findRecord('profile', userid, {reload: true}),
 
       // posts: this.store.query('newsfeed', {filter: userid, tab: 'profile'}),
-      //languages: this.store.findAll('language'),
+      languages: this.store.findAll('language'),
       experiences: this.store.findAll('experience'),
       educations: this.store.findAll('education'),
       questions: this.store.query('ask', {userid: userid}),
-      compliments: this.store.query('compliment', {to: userid})      
+      compliments: this.store.query('compliment', {to: userid})
     });
 
   },
