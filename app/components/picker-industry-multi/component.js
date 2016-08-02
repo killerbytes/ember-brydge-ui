@@ -18,15 +18,15 @@ export default Ember.Component.extend({
 			switch(index){
 				case "0":
 				  this.$('#industry-tab-'+ this.get('name')).foundation('selectTab', $('#'+ this.get('name') + '-root'));
-					break;    		
+					break;
 				case "1":
 					this.set('sector', item);
 
-				  this.$('#industry-tab-'+ this.get('name')).foundation('selectTab', $('#'+ this.get('name') + '-' + item.code));
+				  this.$('#industry-tab-'+ this.get('name')).foundation('selectTab', $('#'+ this.get('name') + '-' + item.sector_id));
 					break;
 				case "2":
 					this.set('group', item);
-				  this.$('#industry-tab-'+ this.get('name')).foundation('selectTab', $('#'+ this.get('name') + '-' + item.code));
+				  this.$('#industry-tab-'+ this.get('name')).foundation('selectTab', $('#'+ this.get('name') + '-' + item.industry_id));
 					break;
 				case "3":
 					this.set('industry', item)
@@ -45,7 +45,7 @@ export default Ember.Component.extend({
 		},
 		submit(){
 			this.$().parents('.reveal:first').foundation('close');
-			this.sendAction('onSelect', this.get('selected'));		
+			this.sendAction('onSelect', this.get('selected'));
 		}
 	}
 });

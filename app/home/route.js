@@ -10,6 +10,7 @@ import FilterDropdownListMixin from 'web/mixins/filter-dropdown-list';
 
 export default Ember.Route.extend(AuthenticatedRouteMixin, FilterDropdownListMixin, {
   session: Ember.inject.service('session'),
+  ajax: Ember.inject.service(),
   categoryid: '',
   geoChannels: '',
   isCurated: null,
@@ -35,7 +36,7 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, FilterDropdownListMix
     let ownerid = this.get('session.data.authenticated.user_id');
     return Ember.RSVP.hash({
       profile: this.store.findRecord('profile', ownerid),
-      categories: $.getJSON('data/categories.json'),
+      categories: this.get('ajax').request('/v2/categories/menu'),
       favorites: this.store.findAll('favoriteindustry')
     });
   },

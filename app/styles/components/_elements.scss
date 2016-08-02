@@ -450,13 +450,7 @@ footer{
 	margin-top: 5px;
 }
 
-.description-list{
-	a{
-		float: left;
-		margin-right: 10px;
-	}
-	a+p{
-		padding-left: 130px;
-		line-height: inherit;
-	}
+.picker-tooltip{
+	padding: 1rem 1.25rem;
+	max-width: 350px !important;
 }

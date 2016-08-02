@@ -1,6 +1,10 @@
 	<section class="content-title">
 	  <h4>Industry Picker</h4>
+		<button class="close-button" aria-label="Dismiss alert" type="button" data-close>
+	    <span aria-hidden="true">&times;</span>
+	  </button>
 	</section>
+
 	  {{#zf-tabs class="hide" id=(concat "industry-tab-" name)}}
 	    <li class="tabs-title is-active"><a href="#{{name}}-root">Root</a></li>
 	    {{#each categories as |item|}}
@@ -17,9 +21,13 @@
 	    	<section>
 				  What sector is the industry in?
 					<form>
-			      <ul class="no-bullet description-list text-title">
+			      <ul class="no-bullet text-title">
 			        {{#each categories as |item|}}
-			          <li><a {{action "goto" "1" item }}>{{item.name}}</a><p>{{item.sector_description}}</p></li>
+			          <li>
+									{{#zf-tooltip title=item.sector_description positionClass="right" templateClasses="picker-tooltip"}}
+										<a {{action "goto" "1" item }}>{{item.name}}</a>
+									{{/zf-tooltip}}
+								</li>
 			        {{/each}}
 			      </ul>
 					</form>
@@ -34,9 +42,13 @@
 	          </section>
 	          <section class="content">
 	          	Choose an Industry Group
-	            <ul class="no-bullet description-list text-title">
+	            <ul class="no-bullet text-title">
 	            {{#each item.categories as |item|}}
-	              <li><a {{action "goto" "2" item }}>{{item.name}}</a><p>{{item.industry_description}}</p></li>
+	              <li>
+									{{#zf-tooltip title=item.industry_description positionClass="right" templateClasses="picker-tooltip"}}
+										<a {{action "goto" "2" item }}>{{item.name}}</a>
+									{{/zf-tooltip}}
+								</li>
 	            {{/each}}
 	            </ul>
 	          </section>
@@ -61,7 +73,6 @@
 		            </ul>
 	            </section>
 	          </div>
-
 	        {{/each}}
 	      {{/each}}
 	    </form>

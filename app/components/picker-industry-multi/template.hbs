@@ -3,15 +3,14 @@
   <button class="close-button" aria-label="Dismiss alert" type="button" data-close>
     <span aria-hidden="true">&times;</span>
   </button>
-
 </section>
 
 {{#zf-tabs class="hide" id=(concat "industry-tab-" name)}}
   <li class="tabs-title is-active"><a href="#{{name}}-root">Root</a></li>
   {{#each categories as |item|}}
-      <li class="tabs-title"><a href="#{{name}}-{{item.code}}">{{item.name}}</a></li>
+      <li class="tabs-title"><a href="#{{name}}-{{item.sector_id}}">{{item.name}}</a></li>
       {{#each item.categories as |category|}}
-        <li class="tabs-title"><a href="#{{name}}-{{category.code}}">{{category.name}}</a></li>
+        <li class="tabs-title"><a href="#{{name}}-{{category.industry_id}}">{{category.name}}</a></li>
       {{/each}}
   {{/each}}
   <li class="tabs-title"><a href="#{{name}}-done">Done</a></li>
@@ -21,17 +20,23 @@
   <div class="tabs-panel is-active bg-gray" id="{{name}}-root">
   	<section>
 		  What sector is the industry in?
-      <ul class="no-bullet text-title">
-        {{#each categories as |item|}}
-          <li><a {{action "goto" "1" item }}>{{item.name}}</a></li>
-        {{/each}}
-      </ul>
+      <form>
+        <ul class="no-bullet text-title">
+          {{#each categories as |item|}}
+            <li>
+              {{#zf-tooltip title=item.sector_description positionClass="right" templateClasses="picker-tooltip"}}
+                <a {{action "goto" "1" item }}>{{item.name}}</a>
+              {{/zf-tooltip}}
+            </li>
+          {{/each}}
+        </ul>
+      </form>
     </section>
   </div>
 
-  <form action="">
+  <form>
     {{#each categories as |item|}}
-      <div class="tabs-panel" id="{{name}}-{{item.code}}">
+      <div class="tabs-panel" id="{{name}}-{{item.sector_id}}">
         <section class="content-title text-title">
       		<label>Sector:</label> <strong>{{item.name}}</strong> &nbsp;&nbsp;<a {{action "goto" "0" "root" }}>Change</a>
         </section>
@@ -39,14 +44,18 @@
         	Choose an Industry Group
           <ul class="no-bullet text-title">
           {{#each item.categories as |item|}}
-            <li><a {{action "goto" "2" item }}>{{item.name}}</a></li>
+            <li>
+              {{#zf-tooltip title=item.industry_description positionClass="right" templateClasses="picker-tooltip"}}
+                <a {{action "goto" "2" item }}>{{item.name}}</a>
+              {{/zf-tooltip}}
+            </li>
           {{/each}}
           </ul>
         </section>
       </div>
 
       {{#each item.categories as |category|}}
-        <div class="tabs-panel" id="{{name}}-{{category.code}}">
+        <div class="tabs-panel" id="{{name}}-{{category.industry_id}}">
         	<section class="content-title text-title">
           	<label>Sector:</label> <strong>{{item.name}}</strong> <a {{action "goto" "0" "root" }}>Change</a>
           </section>
