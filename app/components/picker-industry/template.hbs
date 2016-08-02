@@ -16,15 +16,17 @@
 	    <div class="tabs-panel is-active bg-gray" id="{{name}}-root">
 	    	<section>
 				  What sector is the industry in?
-		      <ul class="no-bullet text-title">
-		        {{#each categories as |item|}}
-		          <li><a {{action "goto" "1" item }}>{{item.name}}</a></li>
-		        {{/each}}
-		      </ul>
+					<form>
+			      <ul class="no-bullet description-list text-title">
+			        {{#each categories as |item|}}
+			          <li><a {{action "goto" "1" item }}>{{item.name}}</a><p>{{item.sector_description}}</p></li>
+			        {{/each}}
+			      </ul>
+					</form>
 	      </section>
 	    </div>
 
-	    <form action="">
+	    <form>
 	      {{#each categories as |item|}}
 	        <div class="tabs-panel" id="{{name}}-{{item.sector_id}}">
 	          <section class="content-title text-title">
@@ -32,9 +34,9 @@
 	          </section>
 	          <section class="content">
 	          	Choose an Industry Group
-	            <ul class="no-bullet text-title">
+	            <ul class="no-bullet description-list text-title">
 	            {{#each item.categories as |item|}}
-	              <li><a {{action "goto" "2" item }}>{{item.name}}</a></li>
+	              <li><a {{action "goto" "2" item }}>{{item.name}}</a><p>{{item.industry_description}}</p></li>
 	            {{/each}}
 	            </ul>
 	          </section>
