@@ -9,10 +9,10 @@ export default Ember.Controller.extend(
   QueryIndustryMixin, {
   sort: ['endAt:desc'],
   sortCurrentCompany: ['currentCompany:desc', 'endAt:desc'],
+  educations: Ember.computed.sort('model.educations', 'sort'),
+  experiences: Ember.computed.sort('model.experiences', 'sortCurrentCompany'),
   categories: Ember.computed.alias('model.categories'),
   profile: Ember.computed.alias('model.profile'),
-  experiences: Ember.computed.sort('model.experiences', 'sortCurrentCompany'),
-  educations: Ember.computed.sort('model.educations', 'sort'),
   languages: Ember.computed.alias('model.languages'),
   interests: Ember.computed.alias('model.interests'),
   selectedIndustry: Ember.computed('profile.industryOneId', 'profile.industryOneName', function(){

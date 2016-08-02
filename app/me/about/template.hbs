@@ -9,8 +9,16 @@
     {{profile-menu profile=profile}}
 
     <div class="box tab-background">
-      <section>
-        <h3><i class="fa fa-paperclip" aria-hidden="true"></i>Work History</h3>
+      <section class="hoverable">
+        <h3><i class="fa fa-paperclip" aria-hidden="true"></i>
+          Work History
+          {{#if isOwner}}
+            {{#link-to "me.edit" (query-params tab="work") class="editable"}}
+              <i class="fa fa-pencil-square-o"></i>
+            {{/link-to}}
+          {{/if}}
+
+        </h3>
       </section>
         <div class="section-group section-accordion-group">
           {{#each experiences as |item|}}
@@ -43,8 +51,16 @@
     </div>
 
     <div class="box">
-      <section>
-        <h3><i class="fa fa-graduation-cap" aria-hidden="true"></i>Academia</h3>
+      <section class="hoverable">
+        <h3><i class="fa fa-graduation-cap" aria-hidden="true"></i>
+          Academia
+          {{#if isOwner}}
+            {{#link-to "me.edit" (query-params tab="academia") class="editable"}}
+              <i class="fa fa-pencil-square-o"></i>
+            {{/link-to}}
+          {{/if}}
+
+        </h3>
       </section>
       <div class="section-group section-accordion-group">
       {{#each educations as |item|}}
@@ -53,7 +69,7 @@
             <div class="title">{{item.school}}</div>
             <div class="sub-title">{{item.degree}}</div>
             <div class="sub-title">
-              Class of {{term-date-format item.to 'YYYY'}}
+              Class of {{term-date-format item.endAt 'YYYY'}}
             </div>
           </div>
         </section>
@@ -62,8 +78,16 @@
     </div>
 
     <div class="box">
-      <section>
-        <h3><i class="fa fa-globe" aria-hidden="true"></i>Languages</h3>
+      <section class="hoverable">
+        <h3><i class="fa fa-globe" aria-hidden="true"></i>
+          Languages
+          {{#if isOwner}}
+            {{#link-to "me.edit" (query-params tab="language") class="editable"}}
+              <i class="fa fa-pencil-square-o"></i>
+            {{/link-to}}
+          {{/if}}
+
+        </h3>
       </section>
       <div class="section-group section-accordion-group">
       <div class="row medium-up-2">

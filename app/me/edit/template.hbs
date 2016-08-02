@@ -40,7 +40,7 @@
         {{/zf-tabs}}
       </div>
       <div class="medium-8 columns float-left">
-        <div class="tabs-content vertical boxz" data-tabs-content="edit-tabs">
+        <div class="tabs-content vertical boxz form-highlight" data-tabs-content="edit-tabs">
           <a data-toggle="dd-industry-picker-business" class="action-button dropdown-button-arrow invisible"><i class="icons ellipsis"></i></a>
 
           <div class="tabs-panel {{active-tab 'personal' tab}}" id="personal">
@@ -84,7 +84,13 @@
                 </div>
               </form>
             </section>
-            {{partial 'partials/industry-examples'}}
+            <section class="industry-examples">
+              <p class="title text-center mb40">
+                Not sure what Business Industry you fit in? <br>
+                Take a look at some of our illustrated examples!
+              </p>
+              {{partial 'partials/industry-examples'}}
+            </section>
 
           </div>
           <div class="tabs-panel {{active-tab 'occupindustry' tab}}" id="occupindustry">
@@ -154,7 +160,14 @@
                 </div>
               </form>
             </section>
-            {{partial 'partials/industry-examples'}}
+            <section class="industry-examples">
+              <p class="title text-center mb40">
+                Not sure what Occupational Industry you fit in? <br>
+                Take a look at some of our illustrated examples!
+              </p>
+              {{partial 'partials/industry-examples'}}
+            </section>
+
 
           </div>
           <div class="tabs-panel {{active-tab 'snapshot' tab}}" id="snapshot">

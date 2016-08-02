@@ -104,6 +104,12 @@
 			font-size: 12px;
 			font-weight: bold;
 			text-transform: uppercase;
+			position: relative;
+			padding-left: 40px;
+			i{
+				position: absolute;
+				left: 1.25rem;
+			}
 		}
 	}
 	.tabs-title:not(:last-child){

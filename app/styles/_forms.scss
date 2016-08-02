@@ -18,10 +18,10 @@ form{
 		box-shadow: none;
 		font-size: 12px;
 		height: auto;
-	}
-	input:focus, input:active{
-		border-color: $button-blue !important;
-		box-shadow: none;		
+		&:focus, &:active{
+			box-shadow: none;
+			border: 1px solid $border-color;
+		}
 	}
 	input[type="search"]{
 		@extend .rounded;
@@ -76,6 +76,13 @@ form{
 		margin-top: 10px;
 		margin-right: 1rem;
 	}
+}
+.form-highlight{
+	input:focus, input:active{
+		border-color: $button-blue !important;
+	}
+
+
 }
 
 .brydge-form{

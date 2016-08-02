@@ -6,11 +6,14 @@ export default Ember.Mixin.create({
   posts: Ember.computed.alias('model.posts'),
   languages: Ember.computed.alias('model.languages'),
   interests: Ember.computed.alias('model.interests'),
-  experiences: Ember.computed.alias('model.experiences'),
-  educations: Ember.computed.alias('model.educations'),
   questions: Ember.computed.alias('model.questions'),
   compliments: Ember.computed.alias('model.compliments'),
   connections: Ember.computed.alias('model.connections'),
+
+	sort: ['endAt:desc'],
+  sortCurrentCompany: ['currentCompany:desc', 'endAt:desc'],
+  educations: Ember.computed.sort('model.educations', 'sort'),
+  experiences: Ember.computed.sort('model.experiences', 'sortCurrentCompany'),
 
 	sortProps: ['updatedAt:desc'],
   sortFrom: ['from:desc'],

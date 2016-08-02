@@ -6,7 +6,7 @@ export default Ember.Controller.extend(MyProfileMixin, {
   ajax: Ember.inject.service(),
   flashMessages: Ember.inject.service(),
   sharePost: Ember.inject.service(),
-  isOwner: false,
+  isOwner: true,
   actions: {
     postFeed: function (data, cb) {
       this.store.createRecord('post', {
