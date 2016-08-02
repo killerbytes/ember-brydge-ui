@@ -4,6 +4,7 @@ import QueryLocationMixin from 'web/mixins/query-locations';
 export default Ember.Controller.extend(QueryLocationMixin, {
   queryParams: ['city', 'key', 'industry'],
   search: Ember.inject.service(),
+  ajax: Ember.inject.service(),
   categories: Ember.computed.alias('model.categories'),
   industries: [],
   selectedIndustries: [],
@@ -46,12 +47,26 @@ export default Ember.Controller.extend(QueryLocationMixin, {
     this.set('isDirty', true);
     this.get('search').query(query);
   }.observes('city', 'industry', 'key'),
+  googlePlaces: function(){
+    if(this.get('city')){
+      var promiseObject = DS.PromiseObject.create({
+        promise: this.get('ajax').request('v2/places/' + this.get('city'))
+      });
+      promiseObject.then(res=>{
+        this.set('location', res);
+      });
+    }else{
+      this.set('location', null);
+    }
+
+  }.observes('city'),
   actions: {
   	addLocation(item){
-      this.set('cities', []);
-      this.get('cities').pushObject(item);
-      this.set('valueText', null);
-      this.set('city', this.get('cities').join(';'));
+      // this.set('location', item);
+      // this.set('cities', []);
+      // this.get('cities').pushObject(item);
+      // this.set('valueText', null);
+      this.set('city', item.place_id);
   	},
     addKeyword(){
       if(!this.get('keyword')) return false;
@@ -80,7 +95,8 @@ export default Ember.Controller.extend(QueryLocationMixin, {
       this.get(list).removeObject(item)
       switch(param){
         case 'city':
-          this.set(param, this.get(list).join('_'))
+          this.set(param, '');
+          this.set('location', null);
           break;
         default:
           this.set(param, this.get(list).join(','))
@@ -94,7 +110,7 @@ export default Ember.Controller.extend(QueryLocationMixin, {
       this.setProperties({
         key: '',
         industry: '',
-        location: ''
+        city: ''
       });
       this.set('search.results', []);
       this.set('isDirty', false);

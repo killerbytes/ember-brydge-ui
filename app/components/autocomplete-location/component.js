@@ -8,13 +8,12 @@ export default Ember.Component.extend({
 	ajaxApi: Ember.inject.service(),
 	classNames: ['dropdown-select'],
 	attributeBindings: ['tabindex'],
-	placeholder: 'City',
 	isOpen: false,
 	tabindex: 0,
 	timer: null,
 	didReceiveAttrs() {
     this._super(...arguments);
-    this.set('value', this.get('selected'));
+    // this.set('value', this.get('selected.description'));
   },
 	focusOut: function(e){
 		Em.run.later(this, function() {
@@ -51,12 +50,13 @@ export default Ember.Component.extend({
 			this.set('items', []);
 			this.set('isOpen', true)
 		},
-		onSelect: function(selected) {
+		onSelect: function(selected){
+			// console.log(selected)
 			this.set('isOpen', false);
 			this.set('items', []);
-			this.set('selected', selected.place_id);
-			this.set('id', selected.place_id)
-			this.sendAction('onItemSelected', selected.place_id);
+			this.set('value', null);
+			// this.set('id', selected.place_id)
+			this.sendAction('onItemSelected', selected);
 		}
 	}
 });

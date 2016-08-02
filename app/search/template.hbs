@@ -45,11 +45,11 @@
       </section>
       <section class="bg-gray">
         <form class="brydge-form" onsubmit="return false;">
-          {{autocomplete-location selected=valueText onItemSelected="addLocation" }}
+          {{autocomplete-location onItemSelected="addLocation" }}
         </form>
-        {{#each cities as |item|}}
-          <span class="label label-item"><a {{action "removeItem" item 'cities' 'city'}}>{{fa-icon "close"}}</a> {{google-places item=item}}</span>
-        {{/each}}
+        {{#if location}}
+          <span class="label label-item"><a {{action "removeItem" location 'cities' 'city'}}>{{fa-icon "close"}}</a> {{location.description}}</span>
+        {{/if}}
 
       </section>
     </div>
