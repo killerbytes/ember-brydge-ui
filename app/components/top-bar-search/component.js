@@ -14,7 +14,7 @@ export default Ember.Component.extend({
 			if(q && shouldDropdown){
 				this.$('#dd-search').foundation('open');
 			}else{
-				this.$('#dd-search').foundation('close');	      		
+				this.$('#dd-search').foundation('close');
 			}
 
 			if(q.length < 2) return false;
@@ -28,9 +28,9 @@ export default Ember.Component.extend({
 
 			delay(()=>{
 				this.get('search').query({
-					q: q,
+					q: q + "*",
 					type: 'profile'
-				})				
+				})
 			}, 500)
 		}
 	},

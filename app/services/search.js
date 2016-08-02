@@ -16,11 +16,11 @@ export default Ember.Service.extend({
   results: [],
   key: null,
   query(params)  {
+    console.log(params)
 		this.get('store').query('search', params).then((res)=>{
 			this.set('results', res);
-		})  	
+		})
   },
 
 
 });
-
