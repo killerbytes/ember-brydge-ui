@@ -11,9 +11,11 @@
         {{form-input-location
             model=form
             valuePath="location"
-            selected=location
+            selected=form.location
             onItemSelected="onLocationSelect"
             placeholder="City"}}
+
+
       </div>
       <fieldset class="large-6 columns">
         <label for="gender_2" class="inline">{{action-radio id="gender_2" value="female" htmlChecked=form.gender name="gender" action="onChecked" }} Female</label>
