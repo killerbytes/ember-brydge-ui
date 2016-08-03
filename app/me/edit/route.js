@@ -13,9 +13,6 @@ export default Ember.Route.extend(QueryLocationMixin, {
         });
       }
   },
-  beforeModel(){
-    console.log(this.store)
-  },
 	model: function (params) {
     var userid = this.get('session.data.authenticated.user_id');
 
@@ -24,9 +21,7 @@ export default Ember.Route.extend(QueryLocationMixin, {
       categories: this.get('ajaxApi').request('/v2/categories/menu'),
       languages: this.store.findAll('language'),
       experiences: this.store.findAll('experience'),
-      educations: this.store.findAll('education'),
-
-
+      educations: this.store.findAll('education')
 	  });
 	},
   getCategory(value){

@@ -9,9 +9,9 @@ export default Ember.Component.extend({
 			this.set('search.key', null);
 		},
 		search(q){
-			let shouldDropdown = this.get('search.shouldDropdown');
+			// let shouldDropdown = this.get('search.shouldDropdown');
 
-			if(q && shouldDropdown){
+			if(q){
 				this.$('#dd-search').foundation('open');
 			}else{
 				this.$('#dd-search').foundation('close');

@@ -11,16 +11,12 @@ export default Ember.Controller.extend({
 		return this.get('model.notification');
 	}),
   actions: {
-    emailNotificationChanged(e){
-    //   if(!this.get('setting.emailNotifications')) this.set('setting.emailNotifications', {});
-    //   this.set('setting.'+ e.currentTarget.name, e.currentTarget.checked);
-    //   this.get('settings').update(this.get('setting'));
-    },
     notificationChanged(e){
-      // if(!this.get('notifications')) this.set('setting.notifications', {});
-      // this.set('setting.'+ e.currentTarget.name, e.currentTarget.checked);
-			console.log(this.get('notification'))
-      // this.get('notification').update(this.get('notification'));
+			this.get('settings').update("notification", e.currentTarget.name, e.currentTarget.checked).then(res=>{
+				// this.set('setting', res);
+				// Ember.$('#dialog-box-confirm').foundation('open');
+			});
+
     },
     settingsChanged(e){
 			var el = e.currentTarget;

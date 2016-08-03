@@ -34,6 +34,12 @@ export default Ember.Controller.extend(QueryLocationMixin, {
     })
     return industries;
   }),
+  search(params)  {
+    this.get('store').query('search', params).then((res)=>{
+      this.set('results', res);
+    })
+  },
+
   query: function(){
     var query = {
       industry: this.get('industry'),
@@ -45,7 +51,8 @@ export default Ember.Controller.extend(QueryLocationMixin, {
     };
     if(!query.q && !query.industry && !query.city && !query.key) return false;
     this.set('isDirty', true);
-    this.get('search').query(query);
+    this.search(query);
+
   }.observes('city', 'industry', 'key'),
   googlePlaces: function(){
     if(this.get('city')){
