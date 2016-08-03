@@ -7,6 +7,9 @@ export default Ember.Controller.extend({
 	setting: Ember.computed('model.setting.ask', 'model.setting.profile_view', function(){
 		return this.get('model.setting');
 	}),
+	notification: Ember.computed('model.notification', function(){
+		return this.get('model.notification');
+	}),
   actions: {
     emailNotificationChanged(e){
     //   if(!this.get('setting.emailNotifications')) this.set('setting.emailNotifications', {});
@@ -14,9 +17,10 @@ export default Ember.Controller.extend({
     //   this.get('settings').update(this.get('setting'));
     },
     notificationChanged(e){
-      if(!this.get('setting.notifications')) this.set('setting.notifications', {});
-      this.set('setting.'+ e.currentTarget.name, e.currentTarget.checked);
-      this.get('settings').update(this.get('setting'));
+      // if(!this.get('notifications')) this.set('setting.notifications', {});
+      // this.set('setting.'+ e.currentTarget.name, e.currentTarget.checked);
+			console.log(this.get('notification'))
+      // this.get('notification').update(this.get('notification'));
     },
     settingsChanged(e){
 			var el = e.currentTarget;

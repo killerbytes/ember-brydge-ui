@@ -8,8 +8,8 @@
   <div class="columns medium-7">
     {{profile-menu profile=profile}}
 
-    <div class="box tab-background">
-      <section class="hoverable">
+    <div class="box tab-background hoverable">
+      <section>
         <h3><i class="fa fa-paperclip" aria-hidden="true"></i>
           Work History
           {{#if isOwner}}
@@ -27,11 +27,11 @@
                 <div class="title">{{item.title}}</div>
                 <strong><a>{{item.company}}</a></strong>
                 <div class="text-gray">
-                  {{term-date-format item.from}} -
+                  {{term-date-format item.starFrom}} -
                   {{#if item.currentCompany}}
-                    Present ({{time-diff item.from item.to}})
+                    Present ({{time-diff item.startFrom item.endAt}})
                   {{else}}
-                    {{term-date-format item.to}} ({{time-diff item.from item.to}})
+                    {{term-date-format item.endAt}} ({{time-diff item.startFrom item.endAt}})
                   {{/if}}
                 </div>
               </div>
@@ -50,8 +50,8 @@
         </div>
     </div>
 
-    <div class="box">
-      <section class="hoverable">
+    <div class="box hoverable">
+      <section>
         <h3><i class="fa fa-graduation-cap" aria-hidden="true"></i>
           Academia
           {{#if isOwner}}
@@ -77,8 +77,8 @@
       </div>
     </div>
 
-    <div class="box">
-      <section class="hoverable">
+    <div class="box hoverable">
+      <section>
         <h3><i class="fa fa-globe" aria-hidden="true"></i>
           Languages
           {{#if isOwner}}

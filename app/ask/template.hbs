@@ -13,26 +13,25 @@
   <div class="medium-7 columns">
   	{{profile-menu profile=profile}}
   	{{#if askEnabled}}
-
 			{{#if askUserEnabled}}
-			<form {{action 'submit' on='submit'}} class="box user-top-form mb20">
-				{{#unless isAsked}}
-					<section>
-						{{form-text-counter placeholder="Ask anyone a professional question. If answered, it will appear on both profiles." limit=140 value=question rows=3 showCount=true class="mb"}}
-						<div class="row">
-							<div class="columns medium-8 text-gray">
+				<form {{action 'submit' on='submit'}} class="box user-top-form mb20">
+					{{#unless isAsked}}
+						<section>
+							{{form-text-counter placeholder="Ask anyone a professional question. If answered, it will appear on both profiles." limit=140 value=question rows=3 showCount=true class="mb"}}
+							<div class="row">
+								<div class="columns medium-8 text-gray">
+								</div>
+								<div class="columns medium-4 text-right">
+									<button class="button btn success">Ask</button>
+								</div>
 							</div>
-							<div class="columns medium-4 text-right">
-								<button class="button btn success">Ask</button>
-							</div>
-						</div>
-					</section>
-				{{else}}
-					<p>
-						Your question has been sent.
-					</p>
-				{{/unless}}
-			</form>
+						</section>
+					{{else}}
+						<p>
+							Your question has been sent.
+						</p>
+					{{/unless}}
+				</form>
 			{{else}}
 				<form action="" class="box user-top-form mb20">
 					<section>

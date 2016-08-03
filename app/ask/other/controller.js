@@ -19,6 +19,12 @@ export default Ember.Controller.extend(
   isConnected: Ember.computed('profile.connection.status', function(){
     return this.get('profile.connection.status') == 'accepted' ? true : false;
   }),
+  askUserEnabled: Ember.computed('profile.setting.ask', function(){
+    return this.get('profile.setting.ask');
+  }),
+  askEnabled: Ember.computed('sessionAccount.account.profile.setting.ask', function(){
+    return this.get('sessionAccount.account.profile.setting.ask');
+  }),
   actions: {
     submit: function() {
 			this.get('ask').create(this.get('profile.id'), this.get('question')).then(res=>{

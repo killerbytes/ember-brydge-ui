@@ -12,25 +12,12 @@
   </div>
   <div class="medium-7 columns">
   	{{profile-menu profile=profile}}
-  	{{#if isOwner}}
-	    <div class="page-heading">
-				<h1>YOUR ASK PAGE</h1>
-				<p class="text-center">
-					{{#if profile.settings.ask}}
-						You are currently accepting questions. To disable the ASK feature go to {{link-to "Settings" "settings" (query-params tab="ask") }}.
-					{{else}}
-						You are currently not accepting questions. To enable the ASK feature go to {{link-to "Settings" "settings" (query-params tab="ask") }}.
-					{{/if}}
-				</p>
-				<p class="text-center">
-					Note: <i>Hidden Questions</i> and questions <i>Pending Answers</i> are only visible to you
-				</p>
-			</div>
-		{{else}}
-	      <form {{action 'submit' on='submit'}} class="box user-top-form mb20">
+		{{#if askEnabled}}
+			{{#if askUserEnabled}}
+				<form {{action 'submit' on='submit'}} class="box user-top-form mb20">
 					{{#unless isAsked}}
-		        <section>
-		        	{{form-text-counter placeholder="Ask anyone a professional question. If answered, it will appear on both profiles." limit=140 value=question rows=3 showCount=true class="mb"}}
+						<section>
+							{{form-text-counter placeholder="Ask anyone a professional question. If answered, it will appear on both profiles." limit=140 value=question rows=3 showCount=true class="mb"}}
 							<div class="row">
 								<div class="columns medium-8 text-gray">
 								</div>
@@ -38,15 +25,28 @@
 									<button class="button btn success">Ask</button>
 								</div>
 							</div>
-		        </section>
+						</section>
 					{{else}}
 						<p>
 							Your question has been sent.
 						</p>
 					{{/unless}}
 				</form>
+			{{else}}
+				<form action="" class="box user-top-form mb20">
+					<section>
+						<p class="text-center">{{profile.firstName}} has turned Ask OFF.</p>
+					</section>
+				</form>
+			{{/if}}
+		{{else}}
+			<form action="" class="box user-top-form mb20">
+				<section>
+					<p class="text-center">You have turned Ask OFF. Turn it on in {{link-to "Settings" "settings" (query-params tab="ask")}}.</p>
+				</section>
+			</form>
 		{{/if}}
-
+		
 		<div class="mb">
 			<ul id="ask-tabs" class="tab-controls tabs">
 				<li data-tab='live' class="tabs-title">

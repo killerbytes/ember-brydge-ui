@@ -9,6 +9,7 @@ export default DS.JSONAPISerializer.extend(DS.EmbeddedRecordsMixin, {
       attr = result.data.attributes || {},
       rel = result.data.relationships || {};
     return {
+      // profile: attr
       profile: {
         avatar: attr.avatar_url,
         current_company: attr.current_company,

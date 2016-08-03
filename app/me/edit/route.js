@@ -13,19 +13,18 @@ export default Ember.Route.extend(QueryLocationMixin, {
         });
       }
   },
+  beforeModel(){
+    console.log(this.store)
+  },
 	model: function (params) {
     var userid = this.get('session.data.authenticated.user_id');
-    this.store.unloadAll('language');
-    this.store.unloadAll('interest');
-    this.store.unloadAll('experience');
-    this.store.unloadAll('education');
 
 		return Ember.RSVP.hash({
       profile: this.store.findRecord('profile', userid, {reload: true}),
       categories: this.get('ajaxApi').request('/v2/categories/menu'),
-      languages: this.store.findAll('language', {userid: userid}),
-      experiences: this.store.findAll('experience', {userid: userid}),
-      educations: this.store.findAll('education', {userid: userid}),
+      languages: this.store.findAll('language'),
+      experiences: this.store.findAll('experience'),
+      educations: this.store.findAll('education'),
 
 
 	  });
@@ -44,6 +43,7 @@ export default Ember.Route.extend(QueryLocationMixin, {
 	actions: {
     save(item, cb){
       var profile = this.get('controller.profile');
+      profile.placeid = "123";
       profile.save().then(()=>{
         cb.apply()
       });
