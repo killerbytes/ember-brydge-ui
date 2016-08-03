@@ -13,14 +13,14 @@
       <div class="row">
         <div class="columns">
           <label>First Name
-            {{form-input model=profile valuePath="firstName" placeholder="First Name"}}
+            {{form-input model=profile valuePath="firstName"}}
           </label>
         </div>
       </div>
       <div class="row">
         <div class="columns">
           <label>Last Name
-            {{form-input model=profile valuePath="lastName" placeholder="Last Name"}}
+            {{form-input model=profile valuePath="lastName"}}
           </label>
         </div>
       </div>
@@ -31,8 +31,7 @@
                 model=profile
                 valuePath="location"
                 selected=profile.location
-                onItemSelected="onLocationSelect"
-                placeholder="City"}}
+                onItemSelected="onLocationSelect"}}
 
           </label>
         </div>

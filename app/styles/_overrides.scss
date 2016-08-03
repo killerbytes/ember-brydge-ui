@@ -78,6 +78,14 @@ ul > li.is-dropdown-submenu-parent.is-down-arrow > ul {
 	text-align: left;
 }
 .switch{
+	text-align: center;
+	label.middle{
+		display: inline-block;
+		vertical-align: middle;
+	}
+	label.switch-paddle{
+		margin: 0 1rem;
+	}
 	input{
 		display: none;
 	}

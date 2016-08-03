@@ -106,7 +106,7 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, FilterDropdownListMix
       if(location == "Everywhere"){
         this.controller.set('location', null)
       }else{
-        this.controller.set('location', location);
+        this.controller.set('location', location.place_id);
       }
       this.loadNewsfeed();
     },

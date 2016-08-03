@@ -7,11 +7,11 @@ export default Ember.Component.extend({
 	classNames: ['accordion-picker'],
 	selectedText: Ember.computed('selected', function(){
 		return this.get('selected') ? this.get('selected') : 'Everywhere';
-	}), 
+	}),
 	actions: {
-		select(text){
-			this.set('selectedText', text)
-			this.sendAction('select', text);
+		select(location){
+			this.set('selectedText', location.description)
+			this.sendAction('select', location);
 			this.$('.accordion').foundation('toggle', this.$('.accordion-content'));
 		}
 	}

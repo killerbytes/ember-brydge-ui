@@ -5,6 +5,7 @@ export default Ember.Component.extend({
 	format: "MM Do YYYY",
 	init(){
 		this._super(...arguments);
+		if(!this.get('selected')) return false;
 		var date = moment(this.get('selected'));
 		if(!date) return false;
 		this.setProperties({

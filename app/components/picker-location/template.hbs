@@ -24,7 +24,7 @@
 						<section>
 							<div class="sub-title">Search</div>
 							<form class="content-pad">
-								{{autocomplete-location closeOnClick=true selected=selectedLocation}}
+								{{autocomplete-location closeOnClick=true onItemSelected="select" }}
 								<button class="success button rounded" {{action 'select' selectedLocation}}>Select</button>
 							</form>
 

@@ -4,7 +4,7 @@ export default Ember.Controller.extend({
 	settings: Ember.inject.service(),
   queryParams: ['tab'],
   tab: 'email',
-	setting: Ember.computed('model.setting', function(){
+	setting: Ember.computed('model.setting.ask', 'model.setting.profile_view', function(){
 		return this.get('model.setting');
 	}),
   actions: {
@@ -22,15 +22,16 @@ export default Ember.Controller.extend({
 			var el = e.currentTarget;
 			switch(el.name){
 				case 'ask':
-					this.set('title', "Turn ASK Off");
-					this.set('content', "You have turn ASK " + (el.checked ? "on" : "off"));
+					this.set('title', "Turn Ask "+ (el.checked ? "ON" : "OFF"));
+					this.set('content', "You are turning ask " + (el.checked ? "ON" : "OFF"));
 					break;
 				case 'profile_view':
-					this.set('title', "Turn Profile Views Off");
-					this.set('content', "You have turn Profile Views " + (el.checked ? "on" : "off"));
+					this.set('title', "Turn Profile Views " + (el.checked ? "ON" : "OFF"));
+					this.set('content', "You are turning Profile Views " + (el.checked ? "ON" : "OFF"));
 					break;
 			}
       this.get('settings').update("feature", e.currentTarget.name, e.currentTarget.checked).then(res=>{
+				this.set('setting', res);
 				Ember.$('#dialog-box-confirm').foundation('open');
 			});
     },

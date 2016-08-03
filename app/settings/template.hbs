@@ -39,7 +39,7 @@
                   <form class="brydge-form">
                     <div class="row columns">
                       <label>Current email: <a>{{model.user.email}}</a></label>
-                      {{form-update-email}}
+                      <p>Email cannot be changed during the BETA. We will inform you when you can. Sorry for the inconvenience.</p>
                     </div>
                   </form>
                 </section>
@@ -58,17 +58,21 @@
               </div>
               <div class="tabs-panel space-filler {{active-tab 'ask' tab}}" id="ask">
                 <section class="header">
+                  <div class="switch">
+                    <label class="middle">OFF</label>
+                    {{input type="checkbox" change=(action settingsChanged) checked=setting.ask class="switch-iput" id="settings_ask" name="ask" }}
+                    <label class="switch-paddle" for="settings_ask">
+                      <span class="show-for-sr">Turn ASK OFF</span>
+                    </label>
+                    <label class="middle">ON</label>
+                  </div>
+
                   <div class="row">
-                    <div class="columns medium-6 text-right">
-                      <label class="middle">Turn ASK OFF</label>
+                    <div class="columns medium-5 text-right">
                     </div>
-                    <div class="columns medium-6">
-                      <div class="switch">
-                        {{input type="checkbox" change=(action settingsChanged) checked=setting.ask class="switch-iput" id="settings_ask" name="ask" }}
-                        <label class="switch-paddle" for="settings_ask">
-                          <span class="show-for-sr">Turn ASK OFF</span>
-                        </label>
-                      </div>
+                    <div class="columns medium-2">
+                    </div>
+                    <div class="columns medium-5 text-left">
                     </div>
                   </div>
                   <p class="text-center">
@@ -80,18 +84,13 @@
               </div>
               <div class="tabs-panel space-filler {{active-tab 'views' tab}}" id="views">
                 <section class="header">
-                  <div class="row">
-                    <div class="columns medium-6 text-right">
-                      <label class="middle">Turn Profile Views OFF</label>
-                    </div>
-                    <div class="columns medium-6">
-                      <div class="switch">
-                        {{input type="checkbox" change=(action settingsChanged) checked=model.setting.profileView class="switch-iput" id="settings_view" name="profile_view" }}
-                        <label class="switch-paddle" for="settings_view">
-                          <span class="show-for-sr">Turn Profile Views OFF</span>
-                        </label>
-                      </div>
-                    </div>
+                  <div class="switch">
+                    <label class="middle">OFF</label>
+                    {{input type="checkbox" change=(action settingsChanged) checked=setting.profileView class="switch-iput" id="settings_view" name="profile_view" }}
+                    <label class="switch-paddle" for="settings_view">
+                      <span class="show-for-sr">Turn Profile Views OFF</span>
+                    </label>
+                    <label class="middle">ON</label>
                   </div>
                   <p class="text-center">
                     Turning this ON will also let other users know you've seen their profile.

@@ -40,7 +40,6 @@ export default Ember.Controller.extend(Validations, {
 			});
 		},
 		onLocationSelect(selected){
-			console.log(arguments)
 			this.set('location', selected);
 		}
 	}

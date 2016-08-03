@@ -4,6 +4,9 @@ import UnauthenticatedRouteMixin from 'ember-simple-auth/mixins/unauthenticated-
 export default Ember.Controller.extend({
   session: Ember.inject.service('session'),
   auth: Ember.inject.service(),
+  isInvalid: Ember.computed('email', 'password', function(){
+    return !(this.get('email') && this.get('password'));
+  }),
   actions: {
     proceed(){
       this.transitionToRoute('register', {queryParams: {code: this.get('code') }});

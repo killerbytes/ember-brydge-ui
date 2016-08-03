@@ -3,16 +3,19 @@ import Ember from 'ember';
 export default Ember.Component.extend({
   tagName: 'input',
   type: 'radio',
-  attributeBindings: ['type', 'value', 'htmlChecked:checked', 'name', 'disabled'],
+  attributeBindings: ['type', 'value', 'checked', 'name', 'disabled'],
 
   // value: null,
   // checked: null,
   // checked: Ember.computed('value', function() {
   // }).readOnly(),
   //
-  checked: Ember.computed('value', function() {
+  checked: Ember.computed('htmlChecked','value', function() {
     return this.get('value') === this.get('htmlChecked');
   }).readOnly(),
+  click(e){
+    this.set('htmlChecked',e.currentTarget.value)
+  }
 
   // change: function() {
   //   console.log('change')
