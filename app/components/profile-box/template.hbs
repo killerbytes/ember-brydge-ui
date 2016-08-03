@@ -13,23 +13,40 @@
 
 </div>
 <div class="text-center">
-  <section class="hoverable">
-    <div class="name">{{profile.firstName}} {{profile.lastName}}</div>
-    {{#if isOwner}}
-      {{#link-to "me.edit" (query-params tab="personal") class="editable" }}
-        <i class="fa fa-pencil-square-o"></i>
-      {{/link-to}}
-    {{/if}}
+  <section>
+    <div class="name">
+      <span class="hoverable">
+        {{profile.firstName}} {{profile.lastName}}
+        {{#if isOwner}}
+          {{#link-to "me.edit" (query-params tab="personal") class="editable" }}
+            <i class="fa fa-pencil-square-o"></i>
+          {{/link-to}}
+        {{/if}}
+      </span>
+    </div>
   </section>
   {{#if isNotEmptyTitleCompany}}
-    <section class="hoverable">
-      <div class="position font-light">{{profile.currentTitle}}</div>
-      <div class="company">{{profile.currentCompany}}</div>
-      {{#if isOwner}}
-        {{#link-to "me.edit" (query-params tab="work") class="editable" }}
-          <i class="fa fa-pencil-square-o"></i>
-        {{/link-to}}
-      {{/if}}
+    <section>
+      <div>
+        <span class="position font-light hoverable">
+          {{profile.currentTitle}}
+          {{#if isOwner}}
+            {{#link-to "me.edit" (query-params tab="work") class="editable" }}
+              <i class="fa fa-pencil-square-o"></i>
+            {{/link-to}}
+          {{/if}}
+        </span>
+      </div>
+      <div>
+        <span class="company hoverable">
+          {{profile.currentCompany}}
+          {{#if isOwner}}
+            {{#link-to "me.edit" (query-params tab="work") class="editable" }}
+              <i class="fa fa-pencil-square-o"></i>
+            {{/link-to}}
+          {{/if}}
+        </span>
+      </div>
     </section>
   {{else}}
     {{#if isOwner}}
@@ -38,16 +55,16 @@
       </div>
     {{/if}}
   {{/if}}
-  <section class="hoverable">
-    <div class="location mb">
-      {{profile.location}}
+  <section>
+    <span class="hoverable location mb">
+      <strong>{{profile.location}}</strong>
       {{#if isOwner}}
         {{#link-to "me.edit" (query-params tab="work") class="editable" }}
           <i class="fa fa-pencil-square-o"></i>
         {{/link-to}}
       {{/if}}
 
-    </div>
+    </span>
   </section>
   <div class="text-title">
     {{#unless isOwner }}
@@ -62,9 +79,13 @@
           <button class="button large bordered green"{{action "connect"}}>Connect</button>
         {{/if}}
       {{else}}
-        {{#link-to "messages.conversation" profile.connection.conversationid class="button circle"}}
-          <i class="icons messages white"></i>
-        {{/link-to}}
+
+        {{#zf-tooltip title="Send Message" positionClass="right"}}
+          {{#link-to "messages.conversation" profile.connection.conversationid class="inline-block"}}
+            <i class="icons messages"></i>
+          {{/link-to}}
+        {{/zf-tooltip}}
+
 
       {{/unless}}
     {{/unless}}

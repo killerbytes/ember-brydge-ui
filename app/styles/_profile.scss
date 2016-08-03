@@ -64,12 +64,12 @@
 		padding-right: 2rem;
 	}
 	.button.green{
-		background: #42B728;
+		background: $brydge-green;
 		color: #FFF;
 		font-weight: bold;
 		border-radius: 100px;
 	}
-	section.hoverable{
+	.hoverable{
 		position: relative;
 		a.editable{
 			position: absolute;
@@ -77,11 +77,11 @@
 			right: 0;
 		}
 	}
-	section.hoverable:hover{
+	.hoverable:hover{
 		a.editable{
 			position: absolute;
-			bottom: 0;
-			right: 0;
+			top: 0;
+			right: -20px;
 		}
 
 	}

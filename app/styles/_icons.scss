@@ -90,9 +90,10 @@ h3, h4, .tabs-title{
 	a.editable{
 		float: right;
 		display: none;
+		color: $text-gray;
 		.fa{
 			margin-right: 0;
-			font-size: 12px;
+			font-size: 14px;
 		}
 	}
 }

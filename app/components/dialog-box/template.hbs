@@ -10,10 +10,10 @@
   </section>
   <section class="text-right">
     {{#unless confirm}}
-      <button class="success button rounded" type="submit" {{action "submit"}} data-close>Yes</button>
-	  	<a class="button button-clear" data-close>No</a>
+      <button class="success button" type="submit" {{action "submit"}} data-close>Yes</button>
+	  	<a class="button button-border" data-close>No</a>
     {{else}}
-      <button class="success button rounded" type="submit" data-close>OK</button>
+      <button class="success button" type="submit" data-close>OK</button>
     {{/unless}}
   </section>
 {{/zf-reveal}}

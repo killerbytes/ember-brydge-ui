@@ -12,10 +12,10 @@
       <section>
         <h3><i class="fa fa-paperclip" aria-hidden="true"></i>Work History</h3>
       </section>
-        <div class="section-group section-accordion-group">
+        <div class="work-history-group section-group section-accordion-group">
           {{#each experiences as |item|}}
             <section>
-              <div class="section-main">
+              <div class="section-main {{if item.content 'has-content'}}">
                 <div class="title">{{item.title}}</div>
                 <a>{{item.company}}</a>
                 <div class="text-gray">

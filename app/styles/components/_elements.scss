@@ -253,6 +253,15 @@ table{
 			padding-left: 2rem;
 			padding-right: 2rem;
 		}
+		.work-history-group {
+			.has-content{
+				padding-bottom: 0;
+			}
+			a.more{
+				color: $brydge-green;
+			}
+		}
+
 	}
 }
 .user-guide-box{
