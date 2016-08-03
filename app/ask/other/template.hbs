@@ -46,7 +46,7 @@
 				</section>
 			</form>
 		{{/if}}
-		
+
 		<div class="mb">
 			<ul id="ask-tabs" class="tab-controls tabs">
 				<li data-tab='live' class="tabs-title">
@@ -60,6 +60,15 @@
 
 		{{#each fromQuestions as |item| }}
 			{{ask-card item=item isOwner=false}}
+		{{else}}
+			<div class="box">
+				<section>
+					<div class="empty-message">
+						{{profile.firstName}} hasn't asked any questions
+					</div>
+				</section>
+			</div>
+
 		{{/each}}
 		{{#brydge-scroller model=fromQuestions onClick="load"}}
       {{#if isLoading}}

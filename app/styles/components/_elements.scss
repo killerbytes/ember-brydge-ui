@@ -247,23 +247,21 @@ table{
 .page-about{
 	.box{
 		section, .section-accordion-group .section-main{
-			padding: 1rem 2rem;
+			// padding: 1rem 2rem;
 		}
 		.section-accordion-group .section-accordion-content + a{
-			padding-left: 2rem;
-			padding-right: 2rem;
-		}
-		.work-history-group {
-			.has-content{
-				padding-bottom: 0;
-			}
-			a.more{
-				color: $brydge-green;
-			}
+			// padding-left: 2rem;
+			// padding-right: 2rem;
 		}
 
 	}
 }
+.work-history-group {
+	a.more{
+		color: $brydge-green;
+	}
+}
+
 .user-guide-box{
 	padding: 1px;
 }

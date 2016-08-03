@@ -15,9 +15,9 @@
         <div class="work-history-group section-group section-accordion-group">
           {{#each experiences as |item|}}
             <section>
-              <div class="section-main {{if item.content 'has-content'}}">
+              <div class="section-main">
                 <div class="title">{{item.title}}</div>
-                <a>{{item.company}}</a>
+                <strong><a>{{item.company}}</a></strong>
                 <div class="text-gray">
                   {{term-date-format item.from}} -
                   {{#if item.currentCompany}}
@@ -27,16 +27,22 @@
                   {{/if}}
                 </div>
               </div>
-            {{#if item.content}}
-              {{#zf-accordion-menu class="section-accordion"}}
-                <li>
-                  <ul class="section-accordion-content no-bullet">
-                    <li>{{{item.content}}}</li>
-                  </ul>
-                  <a class="more no-arrow"><span class="content-more">Show More</span><span class="content-less">Show Less</span></a>
-                </li>
-              {{/zf-accordion-menu}}
-            {{/if}}
+              {{#if item.content}}
+                {{#zf-accordion-menu class="section-accordion"}}
+                  <li>
+                    <ul class="section-accordion-content no-bullet">
+                      <li>{{{item.content}}}</li>
+                    </ul>
+                    <a class="more no-arrow"><span class="content-more">Show More</span><span class="content-less">Show Less</span></a>
+                  </li>
+                {{/zf-accordion-menu}}
+              {{/if}}
+            </section>
+          {{else}}
+            <section>
+              <div class="section-main">
+                {{profile.firstName}} hasn't added any Work History
+              </div>
             </section>
           {{/each}}
         </div>
@@ -57,7 +63,14 @@
             </div>
           </div>
         </section>
+      {{else}}
+        <section>
+          <div class="section-main">
+            {{profile.firstName}} hasn't added any Academia
+          </div>
+        </section>
       {{/each}}
+
       </div>
     </div>
 
@@ -77,7 +90,16 @@
           </section>
 
         </div>
+      {{else}}
+        <div class="columns">
+          <section>
+            <div class="section-main">
+              {{profile.firstName}} hasn't added any Language
+            </div>
+          </section>
+        </div>
       {{/each}}
+
       </div>
       </div>
     </div>

@@ -62,6 +62,14 @@
 
     {{#each list as |item|}}
       {{compliment-card item=item}}
+    {{else}}
+      <div class="box">
+        <section>
+          <div class="empty-message">
+            {{profile.firstName}} hasn't received any compliments
+          </div>
+        </section>
+      </div>
     {{/each}}
   </div>
 </div>

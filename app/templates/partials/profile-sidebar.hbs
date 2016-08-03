@@ -84,7 +84,9 @@
           <div class="user-info">
             <span class="name">
               {{link-to latestQuestion.from.profile.fullName "profile" latestQuestion.from.id}}
+            </span>
               asked
+            <span class="name">
               {{link-to latestQuestion.to.profile.fullName "profile" latestQuestion.to.id}}
             </span>
             <div class="timestamp">
@@ -142,7 +144,7 @@
 
 <div class="box">
   <section>
-    <h4><i class="fa fa-thumbs-o-up" aria-hidden="true"></i>Compliments</h4>
+    <h4><i class="fa fa-thumbs-up" aria-hidden="true"></i>Compliments</h4>
     {{#if latestCompliment}}
       <div class="mb">
         <div class="title">

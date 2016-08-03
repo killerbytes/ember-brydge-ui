@@ -41,6 +41,14 @@
 
 		{{#each toQuestions as |item| }}
 			{{ask-card item=item}}
+		{{else}}
+			<div class="box">
+				<section>
+					<div class="empty-message">
+						You haven't answered any questions
+					</div>
+				</section>
+			</div>
 		{{/each}}
 		{{#brydge-scroller model=toQuestions onClick="load"}}
       {{#if isLoading}}

@@ -70,7 +70,9 @@
 		border-radius: 100px;
 	}
 	.hoverable{
-		position: relative;
+		> span{
+			position: relative;
+		}
 		a.editable{
 			position: absolute;
 			// bottom: 0;

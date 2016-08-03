@@ -60,6 +60,14 @@
 
 		{{#each toQuestions as |item| }}
 			{{ask-card item=item isOwner=false}}
+		{{else}}
+			<div class="box">
+				<section>
+					<div class="empty-message">
+						{{profile.firstName}} hasn't answered any questions
+					</div>
+				</section>
+			</div>
 		{{/each}}
 
 		{{#brydge-scroller model=toQuestions onClick="load"}}
