@@ -54,9 +54,11 @@
   			{{#if item.isProfileTitle}}
   				<label><a>Current Title</a></label>
   			{{else}}
+          {{#if item.currentCompany}}
     			<label for="{{item.id}}" class="for-radio">
     				<a {{action "highlight" item}}>Use this as Title</a>
     			</label>
+          {{/if}}
   			{{/if}}
   		</div>
   		<div class="accordion-content" data-tab-content>
