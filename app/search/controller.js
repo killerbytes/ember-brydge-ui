@@ -8,7 +8,6 @@ export default Ember.Controller.extend(QueryLocationMixin, {
   categories: Ember.computed.alias('model.categories'),
   industries: [],
   selectedIndustries: [],
-  clear: true,
   getCategory(value){
     var categories = this.get('categories');
     return _.chain(_.map(categories, 'categories'))
@@ -53,7 +52,7 @@ export default Ember.Controller.extend(QueryLocationMixin, {
     this.set('isDirty', true);
     this.search(query);
 
-  }.observes('city', 'industry', 'key'),
+  },//.observes('city', 'industry', 'key'),
   googlePlaces: function(){
     if(this.get('city')){
       var promiseObject = DS.PromiseObject.create({
@@ -119,7 +118,7 @@ export default Ember.Controller.extend(QueryLocationMixin, {
         industry: '',
         city: ''
       });
-      this.set('search.results', []);
+      this.set('results', []);
       this.set('isDirty', false);
 
     },

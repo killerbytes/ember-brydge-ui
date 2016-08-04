@@ -9,41 +9,16 @@
     {{profile-menu profile=profile}}
 
     <div class="box">
-      <section>
+      <section class="title">
         <h3><i class="fa fa-paperclip" aria-hidden="true"></i>Work History</h3>
       </section>
-        <div class="work-history-group section-group section-accordion-group">
+        <div class="section-group section-accordion-group work-history-group">
           {{#each experiences as |item|}}
-            <section>
-              <div class="section-main">
-                <div class="title">{{item.title}}</div>
-                <strong><a>{{item.company}}</a></strong>
-                <div class="text-gray">
-                  {{term-date-format item.from}} -
-                  {{#if item.currentCompany}}
-                    Present ({{time-diff item.from item.to}})
-                  {{else}}
-                    {{term-date-format item.to}} ({{time-diff item.from item.to}})
-                  {{/if}}
-                </div>
-              </div>
-              {{#if item.content}}
-                {{#zf-accordion-menu class="section-accordion"}}
-                  <li>
-                    <ul class="section-accordion-content no-bullet">
-                      <li>{{{item.content}}}</li>
-                    </ul>
-                    <a class="more no-arrow"><span class="content-more">Show More</span><span class="content-less">Show Less</span></a>
-                  </li>
-                {{/zf-accordion-menu}}
-              {{/if}}
-            </section>
+            {{partial "partials/work-history-item"}}
           {{else}}
-            <section>
-              <div class="section-main">
-                {{profile.firstName}} hasn't added any Work History
-              </div>
-            </section>
+            <div class="section-main">
+              You haven't added any Work History
+            </div>
           {{/each}}
         </div>
     </div>
@@ -53,43 +28,26 @@
         <h3><i class="fa fa-graduation-cap" aria-hidden="true"></i>Academia</h3>
       </section>
       <div class="section-group">
-      {{#each educations as |item|}}
-        <section>
-          <div class="section-main">
-            <div class="title">{{item.school}}</div>
-            <div class="sub-title">{{item.degree}}</div>
-            <div class="sub-title">
-              Class of {{term-date-format item.to 'YYYY'}}
+        {{#each educations as |item|}}
+          {{partial "partials/academia-item"}}
+        {{else}}
+          <section>
+            <div class="section-main">
+              {{profile.firstName}} hasn't added any Academia
             </div>
-          </div>
-        </section>
-      {{else}}
-        <section>
-          <div class="section-main">
-            {{profile.firstName}} hasn't added any Academia
-          </div>
-        </section>
-      {{/each}}
-
+          </section>
+        {{/each}}
       </div>
     </div>
 
     <div class="box">
-      <section>
+      <section class="title">
         <h3><i class="fa fa-globe" aria-hidden="true"></i>Languages</h3>
       </section>
       <div class="section-group">
       <div class="row medium-up-2">
       {{#each languages as |item|}}
-        <div class="columns">
-          <section>
-            <div class="section-main">
-              <div class="title">{{item.name}}</div>
-              <div class="sub-title">{{item.proficiency}}</div>
-            </div>
-          </section>
-
-        </div>
+        {{partial "partials/language-item"}}
       {{else}}
         <div class="columns">
           <section>

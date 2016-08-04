@@ -1,3 +1,15 @@
+.brydge-accordion{
+	ul.accordion-menu>li>a{
+		padding: 0;
+	}
+	.accordion-content{
+		padding: 0;
+		border: none;
+		background: none;
+		color: inherit;
+	}
+	
+}
 .accordion-form{
 	label.title{
 		margin-bottom: 10px;

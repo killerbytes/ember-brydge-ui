@@ -9,7 +9,7 @@
     {{profile-menu profile=profile}}
 
     <div class="box tab-background hoverable">
-      <section>
+      <section class="title">
         <h3><i class="fa fa-paperclip" aria-hidden="true"></i>
           Work History
           {{#if isOwner}}
@@ -20,32 +20,9 @@
 
         </h3>
       </section>
-        <div class="section-group section-accordion-group">
+        <div class="section-group section-accordion-group work-history-group">
           {{#each experiences as |item|}}
-            <section>
-              <div class="section-main">
-                <div class="title">{{item.title}}</div>
-                <strong><a>{{item.company}}</a></strong>
-                <div class="text-gray">
-                  {{term-date-format item.starFrom}} -
-                  {{#if item.currentCompany}}
-                    Present ({{time-diff item.startFrom item.endAt}})
-                  {{else}}
-                    {{term-date-format item.endAt}} ({{time-diff item.startFrom item.endAt}})
-                  {{/if}}
-                </div>
-              </div>
-            {{#if item.content}}
-              {{#zf-accordion-menu class="section-accordion"}}
-                <li>
-                  <ul class="section-accordion-content no-bullet">
-                    <li class="paragraph">{{{item.content}}}</li>
-                  </ul>
-                  <a class="more no-arrow"><span class="content-more">Show More</span><span class="content-less">Show Less</span></a>
-                </li>
-              {{/zf-accordion-menu}}
-            {{/if}}
-            </section>
+            {{partial "partials/work-history-item"}}
           {{else}}
             <div class="section-main">
               You haven't added any Work History
@@ -55,7 +32,7 @@
     </div>
 
     <div class="box hoverable">
-      <section>
+      <section class="title">
         <h3><i class="fa fa-graduation-cap" aria-hidden="true"></i>
           Academia
           {{#if isOwner}}
@@ -67,26 +44,18 @@
         </h3>
       </section>
       <div class="section-group section-accordion-group">
-      {{#each educations as |item|}}
-        <section>
+        {{#each educations as |item|}}
+          {{partial "partials/academia-item"}}
+        {{else}}
           <div class="section-main">
-            <div class="title">{{item.school}}</div>
-            <div class="sub-title">{{item.degree}}</div>
-            <div class="sub-title">
-              Class of {{term-date-format item.endAt 'YYYY'}}
-            </div>
+            You haven't added any Academia
           </div>
-        </section>
-      {{else}}
-        <div class="section-main">
-          You haven't added any Academia
-        </div>
-      {{/each}}
+        {{/each}}
       </div>
     </div>
 
     <div class="box hoverable">
-      <section>
+      <section class="title">
         <h3><i class="fa fa-globe" aria-hidden="true"></i>
           Languages
           {{#if isOwner}}
@@ -100,15 +69,7 @@
       <div class="section-group section-accordion-group">
       <div class="row medium-up-2">
       {{#each languages as |item|}}
-        <div class="columns">
-          <section>
-            <div class="content-pad">
-              <div class="title">{{item.name}}</div>
-              <div class="sub-title">{{item.proficiency}}</div>
-            </div>
-          </section>
-
-        </div>
+        {{partial "partials/language-item"}}
       {{else}}
         <section>
           <div class="section-main">

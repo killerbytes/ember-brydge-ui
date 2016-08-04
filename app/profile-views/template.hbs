@@ -15,28 +15,28 @@
     <div class="box">
       <ul class="media-list user">
         {{#each model as |item|}}
-        <li>
-          <div {{action "selectView" item}} class="padding {{if item.read false 'new-notification'}}">
-            <div class="row collapse">
-              <div class="columns">
-                {{#link-to  "profile" item.target.profile.id class="name"}}
-                  <div class="avatar" style={{htmlSafeImage item.target.profile.avatarUrl }}>
-                    <img src= {{item.target.profile.avatarUrl}} class="hide">
+          <li>
+            <div {{action "selectView" item}} class="padding {{if item.read false 'new-notification'}}">
+              <div class="row collapse">
+                <div class="columns">
+                  {{#link-to  "profile" item.target.profile.id class="name"}}
+                    <div class="avatar" style={{htmlSafeImage item.target.profile.avatarUrl }}>
+                      <img src= {{item.target.profile.avatarUrl}} class="hide">
+                    </div>
+                  {{/link-to}}
+                  <div class="user-info">
+                    {{link-to item.target.profile.fullName "profile" item.target.profile.id class="name"}} viewed your profile
+                    <div class="timestamp">{{ timestamp item.createdAt }}</div>
                   </div>
-                {{/link-to}}
-                <div class="user-info">
-                  {{link-to item.target.profile.fullName "profile" item.target.profile.id class="name"}} viewed your profile
-                  <div class="timestamp">{{ timestamp item.createdAt }}</div>
-                </div>
 
+                </div>
               </div>
             </div>
-          </div>
-        </li>
+          </li>
         {{else}}
-        <li>
-          <div class="empty-message">No pending connection requests</div>
-        </li>
+          <section>
+            <div class="empty-message">No recent profile views</div>
+          </section>
         {{/each}}
       </ul>
     </div>

@@ -9,6 +9,7 @@
     <div class="position">{{item.location}}</div>
   </div>
 </div>
+{{log isMe}}
 {{#if isMe}}
   {{#link-to "messages.conversation" item.conversationid class="button success expanded"}}
     Message
@@ -16,6 +17,7 @@
 {{else}}
   {{#unless isOwner}}
     {{#if isConnected}}
+      {{log item.friend}}
       {{#link-to "messages.conversation" item.friend.conversationid class="button success expanded"}}
         Message
       {{/link-to}}

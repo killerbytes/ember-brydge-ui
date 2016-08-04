@@ -1,0 +1,24 @@
+<section>
+  <div class="section-main">
+    <div class="title">{{item.title}}</div>
+    <strong><a>{{item.company}}</a></strong>
+    <div class="text-gray">
+      {{term-date-format item.starFrom}} -
+      {{#if item.currentCompany}}
+        Present ({{time-diff item.startFrom item.endAt}})
+      {{else}}
+        {{term-date-format item.endAt}} ({{time-diff item.startFrom item.endAt}})
+      {{/if}}
+    </div>
+  </div>
+  {{#if item.content}}
+    {{#zf-accordion-menu class="section-accordion"}}
+      <li>
+        <ul class="section-accordion-content no-bullet">
+          <li class="paragraph">{{{item.content}}}</li>
+        </ul>
+        <a class="more no-arrow"><span class="content-more">Show More</span><span class="content-less">Show Less</span></a>
+      </li>
+    {{/zf-accordion-menu}}
+  {{/if}}
+</section>

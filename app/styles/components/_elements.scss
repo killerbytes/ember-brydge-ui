@@ -202,9 +202,9 @@ table{
 		padding: .25rem 0;
 		display: block;
 	}
-	.section-accordion-content+a.more{
-		padding-top: 1rem;
-	}
+	// .section-accordion-content+a.more{
+	// 	padding-top: 1rem;
+	// }
 }
 .form-text-counter{
 	position: relative;
@@ -460,4 +460,15 @@ footer{
 .picker-tooltip{
 	padding: 1rem 1.25rem;
 	max-width: 350px !important;
+}
+
+span.middle{
+	padding: 6px 0;
+	display: inline-block;
+}
+
+.dot-after:after{
+	content:'\00B7';padding-right:5px;
+	margin-left: 12px;
+	font-weight: bold;
 }

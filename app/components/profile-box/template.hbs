@@ -7,9 +7,7 @@
         <img src="{{profile.avatarUrl}}" class="hide">
       </div>
     </div>
-
   {{/if}}
-
 
 </div>
 <div class="text-center">
@@ -60,7 +58,7 @@
       <span class="location">
         <strong>{{profile.location}}</strong>
         {{#if isOwner}}
-          {{#link-to "me.edit" (query-params tab="work") class="editable" }}
+          {{#link-to "me.edit" (query-params tab="personal") class="editable" }}
             <i class="fa fa-pencil-square-o"></i>
           {{/link-to}}
         {{/if}}
