@@ -1,9 +1,11 @@
 import Ember from 'ember';
 import ComplimentTitlesMixin from 'web/mixins/compliment-titles';
+import MyProfileMixin from 'web/mixins/my-profile';
 
 
 export default Ember.Controller.extend(
-	ComplimentTitlesMixin, {
+	ComplimentTitlesMixin,
+	MyProfileMixin, {
 	profile: Ember.computed.alias('model.profile'),
 	toCompliments: Ember.computed.alias('model.toCompliments'),
 	inbox: Ember.computed.alias('model.inbox'),
@@ -12,7 +14,6 @@ export default Ember.Controller.extend(
  		if(!selected || selected == 'All'){
  			return this.get('toCompliments');
  		}else{
-			console.log(this.get('toCompliments').filterBy('title', this.get('complimentTitle')))
  			return this.get('toCompliments').filterBy('title', this.get('complimentTitle'));
  		}
  	}),

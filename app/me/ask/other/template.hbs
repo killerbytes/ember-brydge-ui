@@ -16,15 +16,15 @@
   {{render "footer"}}
 </div>
 	<div class="medium-7 columns">
-		{{profile-menu profile=profile}}
+		{{profile-menu profile=profile connections=connections}}{{log connections}}
 	  <div class="page-heading">
 			<h1>Your Ask Page</h1>
 			<p class="text-center">
-				{{#if profile.settings.ask}}
+				{{#if profile.setting.ask}}
 					You are currently accepting questions. To disable the ASK feature go to {{link-to "Settings" "settings" (query-params tab="ask") }}.
 				{{else}}
 					You are currently not accepting questions. To enable the ASK feature go to {{link-to "Settings" "settings" (query-params tab="ask") }}.
-				{{/if}}
+				{{/if}}				
 			</p>
 		</div>
 	  <div class="mb">

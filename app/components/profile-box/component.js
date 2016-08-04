@@ -1,6 +1,7 @@
 import Ember from 'ember';
+import AvatarMixin from 'web/mixins/avatar';
 
-export default Ember.Component.extend({
+export default Ember.Component.extend(AvatarMixin, {
 	session: Ember.inject.service(),
 	classNames: ['profile-box'],
 	connection: Ember.inject.service(),
@@ -31,7 +32,7 @@ export default Ember.Component.extend({
     this.get('store').query('connection',{userid: this.get('profile.id') }).then(res=>{
       this.set('connections', res);
     })
-  },	
+  },
   actions: {
     connect (cb) {
       var userid = this.get('profile.id');

@@ -7,7 +7,7 @@ export default Ember.Mixin.create({
   languages: Ember.computed.alias('model.languages'),
   interests: Ember.computed.alias('model.interests'),
   questions: Ember.computed.alias('model.questions'),
-  compliments: Ember.computed.alias('model.compliments'),
+  compliments: Ember.computed.filterBy('model.compliments', 'status', 'accepted'),
   connections: Ember.computed.alias('model.connections'),
 
 	sort: ['endAt:desc'],

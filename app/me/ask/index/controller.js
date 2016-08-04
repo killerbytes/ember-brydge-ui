@@ -1,7 +1,10 @@
 import Ember from 'ember';
 import FilteredQuestionsMixin from 'web/mixins/filtered-questions';
+import MyProfileMixin from 'web/mixins/my-profile';
 
-export default Ember.Controller.extend( FilteredQuestionsMixin, {
+export default Ember.Controller.extend(
+  FilteredQuestionsMixin,
+  MyProfileMixin, {
   isOwner: true,
 	// canLoadMore: Ember.computed('model.toQuestions', function(){
   //   // console.log(this.get('model.toQuestions.reachedInfinity'))

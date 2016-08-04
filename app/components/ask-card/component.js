@@ -5,7 +5,7 @@ export default Ember.Component.extend({
 	session: Ember.inject.service(),
 	classNames: ['box', 'ask-card'],
 	isOwner: Ember.computed('item', function(){
-		return this.get('session.data.authenticated.user_id') == this.get('item.requestid');
+		return this.get('item.requestid') == this.get('item.from.id') || this.get('item.requestid') == this.get('item.to.id');
 	}),
 	isArchived: Ember.computed('item', function(){
 		return this.get('item.status') == 'hide';

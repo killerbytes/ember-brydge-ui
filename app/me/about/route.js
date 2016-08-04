@@ -11,9 +11,8 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
     this.store.unloadAll('education');
 
     return Ember.RSVP.hash({
-      profile: this.store.findRecord('profile', userid, {reload: true}),
-
-      // posts: this.store.query('newsfeed', {filter: userid, tab: 'profile'}),
+      profile: this.store.findRecord('profile', userid),
+      connections: this.store.query('connection',{userid: userid}),
       languages: this.store.findAll('language'),
       experiences: this.store.findAll('experience'),
       educations: this.store.findAll('education'),
