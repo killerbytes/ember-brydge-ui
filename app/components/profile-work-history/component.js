@@ -70,6 +70,7 @@ export default Ember.Component.extend( {
 			})
 		},
     create(data, cb){
+			this._resetShowHighlight();
       data.save().then(()=>{
 				cb.apply();
 				this.set('item', this.default())
