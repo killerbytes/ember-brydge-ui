@@ -8,6 +8,13 @@ export default Ember.Route.extend({
   flashMessages: Ember.inject.service(),
   loggedinUser: null,
   paramsUserProfile: null,
+  resetController(controller, isExiting, transition) {
+      if (isExiting) {
+        this.store.unloadAll('language');
+        this.store.unloadAll('experience');
+        this.store.unloadAll('education');
+      }
+  },
 
   beforeModel: function(transition) {
     const loggedinUser = this.get('session.data.authenticated');

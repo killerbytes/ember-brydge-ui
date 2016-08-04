@@ -5,6 +5,9 @@ export default Ember.Route.extend(BrydgeScroller, {
 	ask: Ember.inject.service(),
 	resetController(controller, isExiting, transition) {
       if (isExiting) {
+				this.store.unloadAll('language');
+        this.store.unloadAll('experience');
+        this.store.unloadAll('education');
         controller.set('isAsked', null);
       }
   },
