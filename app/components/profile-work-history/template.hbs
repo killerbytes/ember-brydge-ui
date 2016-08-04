@@ -51,15 +51,16 @@
   	      </div>
   		</a>
   		<div class="col text-right">
-  			{{#if item.isProfileTitle}}
-  				<label><a>Current Title</a></label>
-  			{{else}}
-          {{#if item.currentCompany}}
-    			<label for="{{item.id}}" class="for-radio">
-    				<a {{action "highlight" item}}>Use this as Title</a>
-    			</label>
-          {{/if}}
-  			{{/if}}
+        {{#if item.currentCompany}}
+    			{{#if item.isProfileTitle}}
+    				<label><a>Current Title</a></label>
+    			{{else}}
+      			<label for="{{item.id}}" class="for-radio">
+      				<a {{action "highlight" item}}>Use this as Title</a>
+      			</label>
+    			{{/if}}
+        {{/if}}
+
   		</div>
   		<div class="accordion-content" data-tab-content>
   	  	<div class="content">

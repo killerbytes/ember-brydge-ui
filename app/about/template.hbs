@@ -44,22 +44,17 @@
       <section class="title">
         <h3><i class="fa fa-globe" aria-hidden="true"></i>Languages</h3>
       </section>
-      <div class="section-group">
-      <div class="row medium-up-2">
-      {{#each languages as |item|}}
-        {{partial "partials/language-item"}}
-      {{else}}
-        <div class="columns">
+      <div class="section-group section-accordion-group">
+        {{#each languages as |item|}}
+          {{partial "partials/language-item"}}
+        {{else}}
           <section>
             <div class="section-main">
               {{profile.firstName}} hasn't added any Language
             </div>
           </section>
-        </div>
-      {{/each}}
-
-      </div>
-      </div>
+        {{/each}}
+      </div>      
     </div>
   </div>
 </div>

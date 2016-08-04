@@ -67,17 +67,15 @@
         </h3>
       </section>
       <div class="section-group section-accordion-group">
-      <div class="row medium-up-2">
-      {{#each languages as |item|}}
-        {{partial "partials/language-item"}}
-      {{else}}
-        <section>
-          <div class="section-main">
-            You haven't added any Language
-          </div>
-        </section>
-      {{/each}}
-      </div>
+        {{#each languages as |item|}}
+          {{partial "partials/language-item"}}
+        {{else}}
+          <section>
+            <div class="section-main">
+              You haven't added any Language
+            </div>
+          </section>
+        {{/each}}
       </div>
     </div>
   </div>

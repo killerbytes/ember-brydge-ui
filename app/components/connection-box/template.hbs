@@ -23,9 +23,7 @@
       {{/link-to}}
     {{else}}
       {{#if isPending}}
-        <div class="button expanded bordered">
-          Connection Request Sent
-        </div>
+        {{link-to "Connection Request Pending" "profile" item.userid class="button bordered expanded button-green"}}
       {{else}}
         {{spinning-button clicked="connect" value="Connect" class="button expanded bordered" }}
       {{/if}}
