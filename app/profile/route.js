@@ -3,6 +3,7 @@ import Ember from 'ember';
 export default Ember.Route.extend({
   session: Ember.inject.service('session'),
   connection: Ember.inject.service(),
+  notification: Ember.inject.service(),
   compliment: Ember.inject.service(),
   flashMessages: Ember.inject.service(),
   loggedinUser: null,
@@ -36,6 +37,9 @@ export default Ember.Route.extend({
         compliments: this.store.query('compliment',{to: userid, userid: userid})
       });
     // })
+  },
+  afterModel(model){
+    this.get('notification').profileView(model.profile)
   },
   actions: {
     onClickedConnect (cb) {

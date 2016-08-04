@@ -1,11 +1,11 @@
 import Ember from 'ember';
 import ComplimentTitlesMixin from 'web/mixins/compliment-titles';
-import MyProfileMixin from 'web/mixins/my-profile';
+import ProfileMixin from 'web/mixins/profile';
 
 
 export default Ember.Controller.extend(
 	ComplimentTitlesMixin,
-	MyProfileMixin, {
+	ProfileMixin, {
 	profile: Ember.computed.alias('model.profile'),
 	toCompliments: Ember.computed.alias('model.toCompliments'),
 	inbox: Ember.computed.alias('model.inbox'),

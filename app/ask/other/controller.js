@@ -1,9 +1,9 @@
 import Ember from 'ember';
 import FilteredQuestionsMixin from 'web/mixins/filtered-questions';
-import ProfileSidebarMixin from 'web/mixins/profile-sidebar';
+import ProfileMixin from 'web/mixins/profile';
 
 export default Ember.Controller.extend(
-  ProfileSidebarMixin,
+  ProfileMixin,
 	FilteredQuestionsMixin, {
   sessionAccount: Ember.inject.service(),
   ask: Ember.inject.service(),

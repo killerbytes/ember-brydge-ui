@@ -1,22 +1,20 @@
 import Ember from 'ember';
-import CheckCurrentUserMixin from 'web/mixins/check-current-user';
 import ComplimentTitlesMixin from 'web/mixins/compliment-titles';
-import ProfileSidebarMixin from 'web/mixins/profile-sidebar';
+import ProfileMixin from 'web/mixins/profile';
 
 export default Ember.Controller.extend(
-  ProfileSidebarMixin,
-  ComplimentTitlesMixin, {
+  ComplimentTitlesMixin,
+  ProfileMixin, {
   sharePost: Ember.inject.service(),
-
-  me: Ember.computed.alias('model.me'), 
-  profile: Ember.computed.alias('model.profile'), 
-  languages: Ember.computed.alias('model.languages'), 
-  experiences: Ember.computed.alias('model.experiences'), 
-  educations: Ember.computed.alias('model.educations'), 
-  interests: Ember.computed.alias('model.interests'), 
-  questions: Ember.computed.alias('model.questions'), 
-  posts: Ember.computed.alias('model.posts'), 
-  compliments: Ember.computed.alias('model.compliments'), 
+  me: Ember.computed.alias('model.me'),
+  // profile: Ember.computed.alias('model.profile'),
+  // languages: Ember.computed.alias('model.languages'),
+  // experiences: Ember.computed.alias('model.experiences'),
+  // educations: Ember.computed.alias('model.educations'),
+  // interests: Ember.computed.alias('model.interests'),
+  // questions: Ember.computed.alias('model.questions'),
+  // posts: Ember.computed.alias('model.posts'),
+  // compliments: Ember.computed.alias('model.compliments'),
   isConnected: Ember.computed('profile.connection.status', function(){
     return this.get('profile.connection.status') == 'accepted' ? true : false;
   }),
@@ -38,14 +36,14 @@ export default Ember.Controller.extend(
   	return Ember.isEmpty(this.get('complimentContent'));
   }),
   sortFrom: ['from:desc'],
-  academia: Ember.computed.sort('educations', 'sortFrom'),
-  work: Ember.computed.sort('experiences', 'sortFrom'),
-  workHistory: Ember.computed('work', function(){
-    var work = this.get('work').toArray()
-    return _.sortBy(work, 'currentCompany', function(i){
-      return !i.get('currentCompany');
-    });
-  }),
+  // academia: Ember.computed.sort('educations', 'sortFrom'),
+  // work: Ember.computed.sort('experiences', 'sortFrom'),
+  // workHistory: Ember.computed('work', function(){
+  //   var work = this.get('work').toArray()
+  //   return _.sortBy(work, 'currentCompany', function(i){
+  //     return !i.get('currentCompany');
+  //   });
+  // }),
 
   acceptedCompliments: Ember.computed.filterBy('compliments', 'status', 'accepted'),
   latestCompliment: Ember.computed('acceptedCompliments', function(){

@@ -1,14 +1,14 @@
 import Ember from 'ember';
 import ComplimentTitlesMixin from 'web/mixins/compliment-titles';
 import FilteredComplimentsMixin from 'web/mixins/filtered-compliments';
-import ProfileSidebarMixin from 'web/mixins/profile-sidebar';
+import ProfileMixin from 'web/mixins/profile';
 
 export default Ember.Controller.extend(
-  ProfileSidebarMixin,
+  ProfileMixin,
 	ComplimentTitlesMixin,
 	FilteredComplimentsMixin, {
   compliment: Ember.inject.service(),
-  profile: Ember.computed.alias('model.profile'),
+  // profile: Ember.computed.alias('model.profile'),
   toCompliments: Ember.computed.alias('model.toCompliments'),
 	list: Ember.computed('complimentTitle', 'toCompliments', function(){
 		var selected = this.get('complimentTitle');

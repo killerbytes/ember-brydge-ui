@@ -1,7 +1,7 @@
 import Ember from 'ember';
-import MyProfileMixin from 'web/mixins/my-profile';
+import ProfileMixin from 'web/mixins/profile';
 
-export default Ember.Controller.extend(MyProfileMixin, {
+export default Ember.Controller.extend(ProfileMixin, {
 	session: Ember.inject.service(),
   ajax: Ember.inject.service(),
   flashMessages: Ember.inject.service(),

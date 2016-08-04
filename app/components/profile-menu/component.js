@@ -40,12 +40,12 @@ export default Ember.Component.extend({
   	return index;
   }),
 
-  init(){
-    this._super();
-    this.get('store').query('connection',{userid: this.get('profile.id') }).then(res=>{
-      this.set('connections', res);
-    })
-  },
+  // init(){
+  //   this._super();
+  //   this.get('store').query('connection',{userid: this.get('profile.id') }).then(res=>{
+  //     this.set('connections', res);
+  //   })
+  // },
   actions: {
     disconnect(){
       this.get('profile.connection').destroyRecord();

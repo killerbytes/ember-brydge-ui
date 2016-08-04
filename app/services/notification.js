@@ -95,5 +95,11 @@ export default Ember.Service.extend({
     return this.get('ajax').request(url, {
       method: 'GET'
     })
+  },
+  profileView(profile){
+    var url = '/v2/profile/view/' + profile.get('id');
+    return this.get('ajax').request(url, {
+      method: 'GET'
+    })
   }
 });
