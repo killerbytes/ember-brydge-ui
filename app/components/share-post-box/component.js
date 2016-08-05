@@ -43,7 +43,7 @@ export default Ember.Component.extend(SharePostIndustryPicker, {
     return urlArray;
   },
 	actions: {
-    post() {
+    post(item, cb) {
       var url = this.findUrls(this.get('postContent'))
       // if(this.get('site.title') && url){
       //   this.set('postContent', (this.get('postContent').replace(url[0], "")).trim() ) ;
@@ -61,11 +61,11 @@ export default Ember.Component.extend(SharePostIndustryPicker, {
           postContent: null, //textarea
           categories: [],
           site: null,
-          // isNoPreview: false,
-          occupationOne: false,
-          occupationTwo: false,
-          industryId: false
-        })
+          industryOneId: false,
+          industryTwoId: false,
+          industryThreeId: false
+        });
+        cb.apply();
       })
 
       Ember.run.later(()=>{

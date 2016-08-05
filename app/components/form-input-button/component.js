@@ -1,7 +1,7 @@
 import Ember from 'ember';
 
 export default Ember.Component.extend({
-	classNames: ['float-left'],
+	text: 'Save',
 	actions: {
 		submit(){
 			this.set('isLoading', true);

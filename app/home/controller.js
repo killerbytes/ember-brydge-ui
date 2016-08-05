@@ -10,7 +10,6 @@ const {
 export default Ember.Controller.extend(
   QueryLocationMixin,
   GetIndustryFromCodeMixin, {
-  flashMessages: Ember.inject.service(),
   ajax: Ember.inject.service(),
   utils: Ember.inject.service(),
   sharePost: Ember.inject.service(),
@@ -34,7 +33,10 @@ export default Ember.Controller.extend(
   googlePlaceObject: Ember.computed('location', function(){
     return this.get('location') ? this.get('utils').googlePlace(this.get('location')) : false;
   }),
-  feed_live: Ember.computed.sort('newsfeed.live.@each', 'sortProps'),
+  newsfeed_live: Ember.computed('newsfeed.live.length', function(){
+    return this.get('newsfeed.live');
+  }),
+  feed_live: Ember.computed.sort('newsfeed_live', 'sortProps'),
   feed_curated: Ember.computed.sort('newsfeed.curated', 'sortProps'),
   feed_search: Ember.computed.sort('newsfeed.search', 'sortProps'),
   searchContent: Ember.computed('q', function(){
@@ -77,29 +79,9 @@ export default Ember.Controller.extend(
       cb.apply();
     })
   },
-
-
-  // queryParams: {
-  //   tab: {
-  //     refreshModel: true
-  //   },
-  //   q: {
-  //     refreshModel: true
-  //   },
-  //   channels: {
-  //     refreshModel: true
-  //   },
-  //   location: {
-  //     refreshModel: true
-  //   }
-  // },
-
-  // isSearch: false,
-
   actions: {
     postFeed: function (data, cb) {
-      console.log(data)
-      this.store.createRecord('post', {
+      this.store.createRecord('newsfeed', {
         site: data.site,
         preview: data.preview,
         content: data.postContent,
@@ -109,13 +91,10 @@ export default Ember.Controller.extend(
           var newsfeed = this.get('newsfeed.live');
           newsfeed.pushObject(res._internalModel);
           cb.apply();
-          Ember.get(this, 'flashMessages').success('Post Successful!');
-
         }else{
           this.set('tab', 'live');
           this.loadNewsfeed('live', ()=>{
             cb.apply();
-            Ember.get(this, 'flashMessages').success('Post Successful!');
           })
         }
       }).catch((err) => {
@@ -136,13 +115,8 @@ export default Ember.Controller.extend(
         }else{
           this.set('tab', 'live');
           cb.apply();
-          this.loadNewsfeed('live', ()=>{
-            Ember.get(this, 'flashMessages').success('Post Successful!');
-          })
+          this.loadNewsfeed('live')
         }
-
-        // Ember.get(this, 'flashMessages').success('Post Shared!');
-        // cb.apply();
       });
     }
 

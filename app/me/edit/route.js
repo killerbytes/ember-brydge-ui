@@ -2,7 +2,6 @@ import Ember from 'ember';
 import QueryLocationMixin from 'web/mixins/query-locations';
 
 export default Ember.Route.extend(QueryLocationMixin, {
-  flashMessages: Ember.inject.service(),
   session: Ember.inject.service(),
   utils: Ember.inject.service(),
 
