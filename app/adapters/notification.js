@@ -16,4 +16,5 @@ export default ApplicationAdapter.extend({
   shouldBackgroundReloadAll: function(store, snapshot) {
     return false;
   }
+
 });

@@ -11,6 +11,10 @@ export default DS.Model.extend({
   share: DS.attr(),
   userid: DS.attr(),
   vote: DS.attr(),
+
+	key: DS.attr(),
+	value: DS.attr(),
+
   // action: DS.attr(),
   // content: DS.attr(),
   // createdAt: DS.attr(),

@@ -6,13 +6,32 @@ export default Ember.Component.extend({
 	store: Ember.inject.service(),
 	classNames: ['accordion-picker'],
 	selectedText: Ember.computed('selected', function(){
-		return this.get('selected') ? this.get('selected') : 'Everywhere';
+		return this.get('selected') ? this.get('selected') : {description: 'Everywhere'};
 	}),
+	_setLocation(location){
+		this.set('selectedText', location)
+		this.sendAction('select', location);
+		this.$('.accordion').foundation('toggle', this.$('.accordion-content'));
+	},
 	actions: {
+		selectSwitch(type){
+			switch(type){
+				case "profile":
+					this._setLocation({
+						place_id: this.get('profile.placeid'),
+						description: this.get('profile.location')
+					})
+					break;
+				case "all":
+					this._setLocation({
+						place_id: null,
+						description: "Everywhere"
+					})
+					break;
+			}
+		},
 		select(location){
-			this.set('selectedText', location.description)
-			this.sendAction('select', location);
-			this.$('.accordion').foundation('toggle', this.$('.accordion-content'));
+			this._setLocation(location);
 		}
 	}
 });

@@ -12,6 +12,7 @@ export default Ember.Controller.extend(
   GetIndustryFromCodeMixin, {
   flashMessages: Ember.inject.service(),
   ajax: Ember.inject.service(),
+  utils: Ember.inject.service(),
   sharePost: Ember.inject.service(),
   sortProps: ['createdAt:desc'],
   isSearch: Ember.computed('tab', function(){
@@ -29,6 +30,9 @@ export default Ember.Controller.extend(
       code: i.get('code'),
       name: i.get('name')
     };
+  }),
+  googlePlaceObject: Ember.computed('location', function(){
+    return this.get('location') ? this.get('utils').googlePlace(this.get('location')) : false;
   }),
   feed_live: Ember.computed.sort('newsfeed.live', 'sortProps'),
   feed_curated: Ember.computed.sort('newsfeed.curated', 'sortProps'),

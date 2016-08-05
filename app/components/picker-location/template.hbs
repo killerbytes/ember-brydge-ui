@@ -1,6 +1,6 @@
 {{#zf-accordion id="locationPicker" allowAllClosed=true class="brydge-accordion"}}
   <li class="accordion-item" data-accordion-item>
-    <a class="accordion-title">{{selectedText}}</a>
+    <a class="accordion-title">{{selectedText.description}}</a>
     <div class="accordion-content" data-tab-content>
 			<div class="boxz">
 				<section class="accordion-sub-title">Select a City</section>
@@ -9,14 +9,14 @@
 						<section>
 							<div class="sub-title">Your City ({{#link-to 'me.edit' (query-params tab="personal")}}Edit{{/link-to}})</div>
 							<ul class="no-bullet content-pad">
-								<li {{action "select" profile.location preventDefault=false }}><a>{{profile.location}}</a></li>
+								<li {{action "selectSwitch" "profile" preventDefault=false }}><a>{{profile.location}}</a></li>
 							</ul>
 
 						</section>
 						<section>
 							<div class="sub-title">Global</div>
 							<ul class="no-bullet content-pad">
-								<li {{action "select" "Everywhere" preventDefault=false }}><a>Everywhere</a></li>
+								<li {{action "selectSwitch" "all" preventDefault=false }}><a>Everywhere</a></li>
 							</ul>
 						</section>
 					</div>
@@ -25,7 +25,6 @@
 							<div class="sub-title">Search</div>
 							<form class="content-pad">
 								{{autocomplete-location closeOnClick=true onItemSelected="select" }}
-								<button class="success button rounded" {{action 'select' selectedLocation}}>Select</button>
 							</form>
 
 						</section>

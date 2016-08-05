@@ -33,13 +33,22 @@ export default Ember.Controller.extend(QueryLocationMixin, {
     })
     return industries;
   }),
+  _resetForm(){
+    this.setProperties({
+      key: '',
+      industry: '',
+      city: ''
+    });
+    this.set('results', []);
+    this.set('isDirty', false);
+  },
   search(params)  {
     this.get('store').query('search', params).then((res)=>{
       this.set('results', res);
     })
   },
 
-  query: function(){
+  _query: function(){
     var query = {
       industry: this.get('industry'),
       city: this.get('city'),
@@ -113,17 +122,10 @@ export default Ember.Controller.extend(QueryLocationMixin, {
       this.set('industry',item.code)
     },
     clear(){
-      this.setProperties({
-        key: '',
-        industry: '',
-        city: ''
-      });
-      this.set('results', []);
-      this.set('isDirty', false);
-
+      this._resetForm();
     },
     refresh: function(){
-      this.query();
+      this._query();
     //   var query = {
     //     q: this.get('search.key'),
     //     industry: this.get('industry'),

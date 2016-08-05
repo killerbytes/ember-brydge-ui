@@ -8,7 +8,7 @@
 		background: none;
 		color: inherit;
 	}
-	
+
 }
 .accordion-form{
 	label.title{
@@ -114,6 +114,9 @@
     width: 10px;
     height: 10px;
     opacity: .5;
+	}
+	.accordion-title[aria-selected=true]:before{
+		transform: rotate(180deg);
 	}
 	font-size: 12px;
 	section{

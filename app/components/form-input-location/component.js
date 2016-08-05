@@ -27,7 +27,7 @@ export default Ember.Component.extend({
 				var isFocussedOut = target.has(focussedElement).length === 0 && !target.is(focussedElement);
 				if(isFocussedOut) {
 					this.set('isOpen', false);
-					if(!this.get('id')) {
+					if(!this.get('placeid')) {
 						if(this.get('orig') != this.get('selected')){
 							this.set('selected', null);
 							this.set('items', null);
@@ -55,7 +55,7 @@ export default Ember.Component.extend({
     return (this.get('validation.isDirty') || this.get('didValidate')) && this.get('isInvalid');
   }),
 	query(q) {
-		this.set('id', null);
+		this.set('placeid', null);
 		this.get('ajaxApi').request('/v2/cities/'+ q, {
 				method: 'GET'
 			}).then(res=>{
@@ -77,7 +77,7 @@ export default Ember.Component.extend({
 				isOpen: false,
 				items: null,
 				selected: selected.terms.join(', '),
-				id: selected.place_id
+				placeid: selected.place_id
 			})
 			this.sendAction('onItemSelected', selected.terms.join(', '));
 		}

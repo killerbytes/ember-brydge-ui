@@ -6,7 +6,6 @@ export default DS.JSONAPISerializer.extend({
     const json = this._super(...arguments);
     return {
       setting: {
-        base: json.data.attributes.base,
         key: json.data.attributes.key,
         value: json.data.attributes.value,
       }

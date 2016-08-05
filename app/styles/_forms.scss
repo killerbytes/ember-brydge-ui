@@ -111,8 +111,6 @@ form{
 	}
 }
 
-.form-input-wrapper{
-}
 .form-input{
 	@extend .bordered;
 	@extend .rounded;
@@ -188,4 +186,23 @@ form{
 
 .content-editable{
 	max-height: 300px;
+}
+
+
+.form-input-wrapper{
+	position: relative;
+	input{
+		padding-right: 2rem;
+	}
+	.x-button{
+		display: none;
+		position: absolute;
+		right: .5rem;
+		top: 1rem;
+	}
+	&:hover{
+		.x-button{
+			display: block;
+		}
+	}
 }

@@ -12,7 +12,7 @@ export default Ember.Controller.extend({
 	}),
   actions: {
     notificationChanged(e){
-			this.get('settings').update("notification", e.currentTarget.name, e.currentTarget.checked).then(res=>{
+			this.get('settings').updateNotification(e.currentTarget.name, e.currentTarget.checked).then(res=>{
 				// this.set('setting', res);
 				// Ember.$('#dialog-box-confirm').foundation('open');
 			});
@@ -30,7 +30,7 @@ export default Ember.Controller.extend({
 					this.set('content', "You are turning Profile Views " + (el.checked ? "ON" : "OFF"));
 					break;
 			}
-      this.get('settings').update("feature", e.currentTarget.name, e.currentTarget.checked).then(res=>{
+      this.get('settings').update(e.currentTarget.name, e.currentTarget.checked).then(res=>{
 				this.set('setting', res);
 				Ember.$('#dialog-box-confirm').foundation('open');
 			});

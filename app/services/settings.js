@@ -5,14 +5,21 @@ export default Ember.Service.extend({
 	store: Ember.inject.service(),
   session: Ember.inject.service(),
 	sessionAccount: Ember.inject.service(),
-  update(base, key, value){
+  update(key, value){
 		var settings = this.get('sessionAccount.account.profile.setting')
 		settings.setProperties({
-			base: base,
 			key: key,
 			value: value
 		})
 		return settings.save();
+  },
+	updateNotification(key, value){
+		var notification = this.get('sessionAccount.account.profile.notification')
+		notification.setProperties({
+			key: key,
+			value: value
+		})
+		return notification.save();
   },
   updateEmail(email){
     var userid = this.get('session.data.authenticated.user_id');

@@ -19,10 +19,10 @@
   }
   &:after{
     @extend .arrow;
-    bottom: -3px;
-    left: 30%;
+    bottom: -2px;
+    left: 34%;
     border-color: transparent transparent #FFF transparent;
-    border-width: 8px;
+    border-width: 7px;
   }
 }
 .dropdown-button-arrow.hover{

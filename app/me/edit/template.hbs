@@ -53,7 +53,6 @@
               <button class="close-button" data-close aria-label="Close modal" type="button">
                 <span aria-hidden="true">&times;</span>
               </button>
-
               {{picker-industry name="business" categories=categories onSelect='setBusinessIndustry' }}
             {{/zf-dropdown}}
 
@@ -66,12 +65,11 @@
                     <form class="brydge-form">
                       <label for="">
                         Business Industry
-                       {{dropdown-filter
-                        items=industries
-                        selected=selectedIndustry
-                        query='queryIndustries'
-                        itemSelected='industrySelected'
-                        template="partials/industry-filter"}}
+                        <div class="form-input-wrapper">
+                          <a {{action "clear" "industryOne"}} class="x-button fa fa-times"></a>
+                          {{input type="text" value=profile.industryOneName  readonly="true" autocomplete="false"}}
+                        </div>
+
                       </label>
                     </form>
                   </div>
@@ -82,7 +80,9 @@
                   </div>
                 </div>
                 <div class="row">
-                  <div class="columns">{{form-input-button submit="save" placeholder="Saved"}}</div>
+                  <div class="columns medium-7">
+                    {{form-input-button submit="save" placeholder="Saved"}} <a class="button button-clear float-right" {{action "clear" "industryOne" }}>Clear</a>
+                  </div>
                 </div>
               </form>
             </section>
@@ -117,12 +117,10 @@
                     <form class="brydge-form">
                       <label for="">
                         Occupational Industry 1
-                        {{dropdown-filter
-                        items=industries
-                        selected=selectedOccupOne
-                        query='queryIndustries'
-                        itemSelected='occupOneSelected'
-                        template="partials/industry-filter"}}
+                        <div class="form-input-wrapper">
+                          <a {{action "clear" "industryTwo"}} class="x-button fa fa-times"></a>
+                          {{input type="text" value=profile.industryTwoName  readonly="true" autocomplete="false"}}
+                        </div>
                       </label>
                     </form>
                   </div>
@@ -138,12 +136,10 @@
                     <form class="brydge-form">
                       <label for="">
                         Occupational Industry 2 (Optional)
-                        {{dropdown-filter
-                        items=industries
-                        selected=selectedOccupTwo
-                        query='queryIndustries'
-                        itemSelected='occupTwoSelected'
-                        template="partials/industry-filter"}}
+                        <div class="form-input-wrapper">
+                          <a {{action "clear" "industryThree"}} class="x-button fa fa-times"></a>
+                          {{input type="text" value=profile.industryThreeName  readonly="true" autocomplete="false"}}
+                        </div>
                       </label>
                     </form>
                   </div>

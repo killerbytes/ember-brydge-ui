@@ -20,8 +20,10 @@ export default Ember.Route.extend(QueryLocationMixin, {
   },
 	actions: {
 		didTransition(){
-			this.set('controller.search.key', null);
-			this.set('controller.search.results', null);
+      this.set('controller.results', []);
+      this.controller._query()
+			// this.set('controller.search.key', null);
+			// this.set('controller.search.results', null);
 		}
 	}
 });

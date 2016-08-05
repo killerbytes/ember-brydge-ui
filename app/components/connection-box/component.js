@@ -8,7 +8,6 @@ export default Ember.Component.extend({
 		return this.get('item.friend.status') == 'accepted';
 	}),
 	isPending: Ember.computed('item.friend.status', function(){
-		console.log(this.get('item.friend.status'))
 		return this.get('item.friend.status') == 'pending';
 	}),
 	isOwner: Ember.computed('item.userid', function(){
@@ -17,14 +16,10 @@ export default Ember.Component.extend({
 	actions: {
     connect (cb) {
       var userid = this.get('item.userid');
-			console.log(userid)
-
       this.get('connection')
       .request(userid)
       .then(res=>{
 				this.set('item.friend.status', res.get('status'));
-				console.log(this.get('item'))
-        // cb.apply(null, ['Connection Request Sent']);
       });
     }
 	}

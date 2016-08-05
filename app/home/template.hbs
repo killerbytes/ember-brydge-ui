@@ -1,8 +1,8 @@
-<div class="row"> 
+<div class="row">
 
   <div class="large-7 medium-7 columns">
-    {{ share-post-box 
-    	postToNewsfeed='postToNewsfeed' 
+    {{ share-post-box
+    	postToNewsfeed='postToNewsfeed'
      	profile=profile
      	class="mb20"
      	submit='postFeed' }}
@@ -13,8 +13,8 @@
 			<h4 class="padded">Channel Filters</h4>
 			<div class="box">
 		    {{picker-channel profile=profile categories=model.categories favorites=model.favorites select="setChannel" selected=channels}}
-		    
-		    {{picker-location profile=profile select="setLocation" selected=location}}
+
+		    {{picker-location profile=profile select="setLocation" selected=googlePlaceObject}}
 
 	      {{#zf-tabs id="newsfeed-tabs" class="tab-controls"}}
 	        <li data-tab='live' class="tabs-title {{active-tab 'live' tab}}" style="width:20%">
@@ -25,17 +25,17 @@
 	        </li>
 	        <li class="search-box {{if isSearch 'active'}}">
 	          <form onsubmit="return false;">
-	            {{input 
-	              class="input-group-field flat" 
-	              type="search" 
-	              placeholder="Search this channel" 
+	            {{input
+	              class="input-group-field flat"
+	              type="search"
+	              placeholder="Search this channel"
 	              enter='search'
 	              focus-in="clear"
 	              value=searchContent }}
 
 	            {{fa-icon "search"}}
 	          </form>
-	          
+
 	        </li>
 	        <li data-tab='search' class="hide medium-6 tabs-title {{active-tab 'search' tab}}">
 	          <a href="#search">Search</a>
@@ -83,7 +83,7 @@
 					      <div class="column">
 					        <div class="empty-message">
 					          No Newsfeed found
-					        </div>      
+					        </div>
 					      </div>
 					    {{/if}}
 				    {{/if}}
@@ -94,11 +94,11 @@
 			    {{else}}
 						{{#if isLoading }}
 							<div class="loading"></div>
-						{{else}}			    
+						{{else}}
 				      <div class="column">
 				        <div class="empty-message">
 				          No broadcasts to see here as you haven't added any connections yet. Why not use the menu above to view broadcasts from Industry Channels?
-				        </div>      
+				        </div>
 				      </div>
 						{{/if}}
 			    {{/if}}
@@ -113,14 +113,14 @@
 				      <div class="column">
 				        <div class="empty-message">
 				          No Results found
-				        </div>      
+				        </div>
 				      </div>
 				  	{{/if}}
 			    {{/if}}
 				</div>
 			</div>
 		</div>
-    
+
   </div>
   <div class="large-5 medium-5 columns sidebar">
 		{{ partial 'partials/user-guide-box' }}

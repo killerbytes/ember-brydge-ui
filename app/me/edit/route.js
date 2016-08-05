@@ -126,7 +126,31 @@ export default Ember.Route.extend(QueryLocationMixin, {
       var x = this.controller.get('current');
       this.controller.set('profile.'+x, this.controller.get('_selected.text'))
       this.controller.set('profile.'+x+'Id', this.controller.get('_selected.id'))
+    },
+    clear(type){
+      var data;
+      switch (type) {
+        case 'industryOne':
+          data = {
+            industryOneId: null,
+            industryOneName: null
+          }
+          break;
+        case 'industryTwo':
+          data = {
+            industryTwoId: null,
+            industryTwoName: null
+          }
+          break;
+        case 'industryThree':
+          data = {
+            industryThreeId: null,
+            industryThreeName: null
+          }
+      }
+      this.get('controller.profile').setProperties(data)
     }
+
 
   }
 });
