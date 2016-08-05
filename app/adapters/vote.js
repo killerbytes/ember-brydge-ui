@@ -3,11 +3,18 @@ import Ember from 'ember';
 import UrlTemplates from "ember-data-url-templates";
 
 export default ApplicationAdapter.extend(UrlTemplates, {
-	urlTemplate: '{+host}/v2/posts/{voteid}/votes',
+	
+	createRecordUrlTemplate: '{+host}/{namespace}/newsfeeds/{postid}/votes',
+
+	urlTemplate: '{+host}/v2/newsfeeds/{newsfeedid}/votes',
 
 	urlSegments: {
-		voteid: function(type, id, snapshot, query) {
+		newsfeedid: function(type, id, snapshot, query) {
 			return id;
+		},
+
+		postid: function(type, id, snapshot, query) {
+			return snapshot.attributes().newsfeedid;
 		}
 	}
 });

@@ -42,15 +42,15 @@ export default Ember.Service.extend({
     //TODO
     //  return this.get('ajax').put('/users/report/' + targetid)
   },
-  upvote(postid)  {
-    return this.get('ajax').request('/v2/posts/'+postid+'/up');
-  },
-  downvote(postid) {
-    return this.get('ajax').request('/v2/posts/'+postid+'/down');
-  },
-  resetVote(postid) {
-    return this.get('ajax').request('/v2/posts/'+postid+'/votereset');
-  }
+  // upvote(postid)  {
+  //   return this.get('ajax').request('/v2/posts/'+postid+'/up');
+  // },
+  // downvote(postid) {
+  //   return this.get('ajax').request('/v2/posts/'+postid+'/down');
+  // },
+  // resetVote(postid) {
+  //   return this.get('ajax').request('/v2/posts/'+postid+'/votereset');
+  // }
 
 
 });

@@ -2,6 +2,7 @@ import Ember from 'ember';
 
 export default Ember.Component.extend({
   sessionAccount: Ember.inject.service('session-account'),
+  vote: Ember.inject.service(),
   store: Ember.inject.service(),
   sharePost: Ember.inject.service(),
 	ajax: Ember.inject.service(),
@@ -45,43 +46,56 @@ export default Ember.Component.extend({
 			this.set('disabled', true);
 			switch(type){
 				case 'down':
-					this.get('sessionAccount').downvote(postId).then((res) => {
+					// this.get('sessionAccount').downvote(postId).then((res) => {
+					// 	console.log('downvote =>', res);
+
+					// 	post.get('vote').set('upVotes', res.data.attributes.upVotes);
+					// 	post.get('vote').set('downVotes', res.data.attributes.downVotes);
+					// 	post.get('vote').set('upVoted', false);
+					// 	post.get('vote').set('downVoted', true);
+
+					// 	//this.setProperties({data})
+					// 	this.set('disabled', false);
+					// });
+					this.get('vote').downvote(postId).then((res) => {
 						console.log('downvote =>', res);
-
-						post.get('vote').set('upVotes', res.data.attributes.upVotes);
-						post.get('vote').set('downVotes', res.data.attributes.downVotes);
-						post.get('vote').set('upVoted', false);
-						post.get('vote').set('downVoted', true);
-
-						//this.setProperties({data})
 						this.set('disabled', false);
 					});
 				break;
 				case 'reset':
-					this.get('sessionAccount').resetVote(postId).then((res) => {
-						console.log('resetvote =>', res);
+					// this.get('sessionAccount').resetVote(postId).then((res) => {
+					// 	console.log('resetvote =>', res);
 
-						post.get('vote').set('upVotes', res.data.attributes.upVotes);
-						post.get('vote').set('upVoted', false);
+					// 	post.get('vote').set('upVotes', res.data.attributes.upVotes);
+					// 	post.get('vote').set('upVoted', false);
 
-						post.get('vote').set('downVotes', res.data.attributes.downVotes);
-						post.get('vote').set('downVoted', false);
+					// 	post.get('vote').set('downVotes', res.data.attributes.downVotes);
+					// 	post.get('vote').set('downVoted', false);
 
 
-						//this.setProperties({data})
+					// 	//this.setProperties({data})
+					// 	this.set('disabled', false);
+					// });
+					this.get('vote').resetvote(postId).then((res) => {
+						console.log('reset =>', res);
 						this.set('disabled', false);
 					});
 				break;
 				default:
-					this.get('sessionAccount').upvote(postId).then((res) => {
+					// this.get('sessionAccount').upvote(postId).then((res) => {
+					// 	console.log('upvote =>', res);
+					// 	post.get('vote').set('upVotes', res.data.attributes.upVotes);
+					// 	post.get('vote').set('upVoted', true);
+
+					// 	post.get('vote').set('downVotes', res.data.attributes.downVotes);
+					// 	post.get('vote').set('downVoted', false);
+
+					// 	//this.setProperties({data: res.data})
+					// 	this.set('disabled', false);
+					// });
+
+					this.get('vote').upvote(postId).then((res) => {
 						console.log('upvote =>', res);
-						post.get('vote').set('upVotes', res.data.attributes.upVotes);
-						post.get('vote').set('upVoted', true);
-
-						post.get('vote').set('downVotes', res.data.attributes.downVotes);
-						post.get('vote').set('downVoted', false);
-
-						//this.setProperties({data: res.data})
 						this.set('disabled', false);
 					});
 				break;

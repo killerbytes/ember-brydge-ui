@@ -7,5 +7,6 @@ export default DS.Model.extend({
   downVoted: DS.attr(),
   upVoters: DS.attr(),
   downVoters: DS.attr(),
-  sharedCount: DS.attr()
+  newsfeedid: DS.attr(),
+  action: DS.attr()
 });
