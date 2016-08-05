@@ -21,9 +21,9 @@ module.exports = function(environment) {
       'font-src': "'self' * fonts.gstatic.com https://fonts.googleapis.com",
       'img-src': "'self' * www.google-analytics.com placeholdit.imgix.net placehold.it s3.amazonaws.com data:",
       'style-src': "'self' fonts.gstatic.com 'unsafe-inline' https://fonts.googleapis.com",
-      'connect-src': "'self' localhost:8000 localhost:8080 * api.brydge.com",
+      'connect-src': "'self' localhost:8000 localhost:8080 * https://api.brydge.com",
       'document-uri': "'self'",
-      'script-src':  "'self' 'unsafe-inline' 'unsafe-eval' www.google-analytics.com https://fonts.googleapis.com www.google-analytics.com/analytics.js https://maps.googleapis.com"
+      'script-src':  "'self' 'unsafe-inline' 'unsafe-eval' api.brydge.com www.google-analytics.com https://fonts.googleapis.com www.google-analytics.com/analytics.js https://maps.googleapis.com"
     },
     'ember-simple-auth':{
       serverTokenRevocationEndpoint: 'revoke',
