@@ -31,12 +31,16 @@
 						{{/if}})</div>
 					{{#if isOccupational }}
 						<ul class="no-bullet content-pad">
-							<li>
-								{{action-checkbox-bind value=profile.industryTwoId text=profile.industryTwoName action="checkboxChanged" name="industryTwoName" checked=industryTwoName }}
-							</li>
-							<li>
-								{{action-checkbox-bind value=profile.industryThreeId text=profile.industryThreeName action="checkboxChanged" name="industryThreeName" checked=industryThreeName }}
-							</li>
+							{{#if profile.industryTwoId}}
+								<li>
+									{{action-checkbox-bind value=profile.industryTwoId text=profile.industryTwoName action="checkboxChanged" name="industryTwoName" checked=industryTwoName }}
+								</li>
+							{{/if}}
+							{{#if profile.industryThreeId}}
+								<li>
+									{{action-checkbox-bind value=profile.industryThreeId text=profile.industryThreeName action="checkboxChanged" name="industryThreeName" checked=industryThreeName }}
+								</li>
+							{{/if}}
 						</ul>
 					{{else}}
 						<div class="padded-h">
