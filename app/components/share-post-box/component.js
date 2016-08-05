@@ -1,5 +1,11 @@
 import Ember from 'ember';
 import SharePostIndustryPicker from 'web/mixins/share-post-industry-picker';
+import { validator, buildValidations } from 'ember-cp-validations';
+
+const Validations = buildValidations({
+  'email': [	validator('presence', true),
+    					validator('format', { type: 'email' }) ]
+});
 
 export default Ember.Component.extend(SharePostIndustryPicker, {
   sessionAccount: Ember.inject.service(),
@@ -44,6 +50,7 @@ export default Ember.Component.extend(SharePostIndustryPicker, {
   },
 	actions: {
     post(item, cb) {
+      if(!this.get('postContent')) return false;
       var url = this.findUrls(this.get('postContent'))
       // if(this.get('site.title') && url){
       //   this.set('postContent', (this.get('postContent').replace(url[0], "")).trim() ) ;

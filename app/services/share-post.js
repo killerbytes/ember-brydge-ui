@@ -9,7 +9,7 @@ export default Ember.Service.extend({
   // },
   submit: function(cb){
     var sharedPostid = this.get('selected.sharedPostid') || this.get('selected.id');
-    return this.get('store').createRecord('post', {
+    return this.get('store').createRecord('newsfeed', {
       content: this.get('valueText'),
       categories: _.map(this.get('categories'), 'id'),
       sharedPostid: sharedPostid
@@ -20,4 +20,3 @@ export default Ember.Service.extend({
   }
 
 });
-
