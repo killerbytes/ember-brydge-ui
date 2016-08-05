@@ -66,7 +66,9 @@
                       <label for="">
                         Business Industry
                         <div class="form-input-wrapper">
-                          <a {{action "clear" "industryOne"}} class="x-button fa fa-times"></a>
+                          {{#if profile.industryOneName}}
+                            <a {{action "clear" "industryOne"}} class="x-button fa fa-times"></a>
+                          {{/if}}
                           {{input type="text" value=profile.industryOneName  readonly="true" autocomplete="false"}}
                         </div>
 
@@ -81,7 +83,7 @@
                 </div>
                 <div class="row">
                   <div class="columns medium-7">
-                    {{form-input-button submit="save" placeholder="Saved"}}                     
+                    {{form-input-button submit="save" placeholder="Saved"}}
                   </div>
                 </div>
               </form>
@@ -113,21 +115,27 @@
               <p>See the illustrations below, or refer to the {{link-to "User Guide" "user-guide"}}</p>
               <form class="form-occupational-industry">
                 <div class="row">
+                  <div class="columns">
+                    <label for="">
+                      Occupational Industry (Pick 1 or 2)
+                    </label>
+
+                  </div>
+                </div>
+                <div class="row">
                   <div class="columns medium-7">
                     <form class="brydge-form">
-                      <label for="">
-                        Occupational Industry 1
-                        <div class="form-input-wrapper">
+                      <div class="form-input-wrapper">
+                        {{#if profile.industryTwoName}}
                           <a {{action "clear" "industryTwo"}} class="x-button fa fa-times"></a>
-                          {{input type="text" value=profile.industryTwoName  readonly="true" autocomplete="false"}}
-                        </div>
-                      </label>
+                        {{/if}}
+                        {{input type="text" value=profile.industryTwoName  readonly="true" autocomplete="false"}}
+                      </div>
+
                     </form>
                   </div>
                   <div class="columns medium-5">
-                    <label for="">
-                      <a data-toggle="dd-industry-picker-occupationalOne" class="picker" class="button button-border expanded rounded">Use the Industry Picker</a>
-                    </label>
+                    <a data-toggle="dd-industry-picker-occupationalOne" class="picker" class="button button-border expanded rounded">Use the Industry Picker</a>
                   </div>
                 </div>
 
@@ -135,19 +143,17 @@
                   <div class="columns medium-7">
                     <form class="brydge-form">
                       <label for="">
-                        Occupational Industry 2 (Optional)
                         <div class="form-input-wrapper">
-                          <a {{action "clear" "industryThree"}} class="x-button fa fa-times"></a>
+                          {{#if profile.industryThreeName}}
+                            <a {{action "clear" "industryThree"}} class="x-button fa fa-times"></a>
+                          {{/if}}
                           {{input type="text" value=profile.industryThreeName  readonly="true" autocomplete="false"}}
                         </div>
                       </label>
                     </form>
                   </div>
                   <div class="columns medium-5">
-                    <label for="">
-                      <a data-toggle="dd-industry-picker-occupationalTwo" class="picker" class="button button-border expanded rounded">Use the Industry Picker</a>
-                    </label>
-
+                    <a data-toggle="dd-industry-picker-occupationalTwo" class="picker" class="button button-border expanded rounded">Use the Industry Picker</a>
                   </div>
                 </div>
                 <div class="row">

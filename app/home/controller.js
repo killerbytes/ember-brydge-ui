@@ -14,7 +14,7 @@ export default Ember.Controller.extend(
   ajax: Ember.inject.service(),
   utils: Ember.inject.service(),
   sharePost: Ember.inject.service(),
-  sortProps: ['createdAt:desc'],
+  sortProps: ['updatedAt:desc'],
   isSearch: Ember.computed('tab', function(){
     return this.get('tab') == 'search' ? true: false;
   }),
@@ -34,7 +34,7 @@ export default Ember.Controller.extend(
   googlePlaceObject: Ember.computed('location', function(){
     return this.get('location') ? this.get('utils').googlePlace(this.get('location')) : false;
   }),
-  feed_live: Ember.computed.sort('newsfeed.live', 'sortProps'),
+  feed_live: Ember.computed.sort('newsfeed.live.@each', 'sortProps'),
   feed_curated: Ember.computed.sort('newsfeed.curated', 'sortProps'),
   feed_search: Ember.computed.sort('newsfeed.search', 'sortProps'),
   searchContent: Ember.computed('q', function(){

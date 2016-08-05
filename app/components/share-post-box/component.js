@@ -14,7 +14,7 @@ export default Ember.Component.extend(SharePostIndustryPicker, {
     return title.length > 100 ? title.substr(0, 100) + ' ...' : title;
   }),
   isOccupational: Ember.computed('profile.industryTwoId', function(){
-    return this.get('profile.industryTwoId') ? true : false && this.get('profile.industryThreeId') ? true : false;
+    return this.get('profile.industryTwoId') || this.get('profile.industryThreeId');
   }),
   crawl(uri){
     console.log(uri)

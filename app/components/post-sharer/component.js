@@ -21,7 +21,7 @@ export default Ember.Component.extend(SharePostIndustryPicker, {
 		return title.length > 100 ? title.substr(0, 100) + ' ...' : title;
 	}),
   isOccupational: Ember.computed('profile.industryTwoId', function(){
-    return this.get('profile.industryTwoId') ? true : false && this.get('profile.industryThreeId') ? true : false;
+    return this.get('profile.industryTwoId') || this.get('profile.industryThreeId');
   }),
 	actions: {
 		edit(text, e){
@@ -29,9 +29,9 @@ export default Ember.Component.extend(SharePostIndustryPicker, {
       var offset = (el.offsetHeight - el.clientHeight);
       if(text){
         el.style.height = 'auto';
-        el.style.height = (el.scrollHeight+offset) + "px";        
+        el.style.height = (el.scrollHeight+offset) + "px";
       }else{
-        el.style.height = '';        
+        el.style.height = '';
       }
 
 		}

@@ -195,6 +195,10 @@ p.wrap{
 	padding-left: $global-padding;
 	padding-right: $global-padding;
 }
+.padded-h{
+	padding-top: $global-padding;
+	padding-bottom: $global-padding;
+}
 
 .border-l{
 	border-left: 1px solid $border-color;
