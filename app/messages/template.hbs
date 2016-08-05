@@ -12,6 +12,7 @@
     <section class="container">
       <ul class="no-bullet user-link-list bg-white">
       {{#each list as |item| }}
+        {{#if item.content}}
         <li>
           {{#link-to "messages.conversation" item.id class="no-color"}}
           <div class="row user">
@@ -33,6 +34,7 @@
 
           {{/link-to}}
         </li>
+        {{/if}}
       {{/each}}
       </ul>
     </section>
