@@ -5,5 +5,6 @@
 {{else}}
   <button class="button success rounded" disabled={{v-get item "isInvalid"}} {{ action "submit" }}>{{text}}</button>
 {{/if}}
-
-<span class="{{if isSuccess 'faded is-visible' 'faded'}}">{{placeholder}}</span>
+{{#if placeholder}}
+  <span class="{{if isSuccess 'faded is-visible' 'faded'}}">{{placeholder}}</span>
+{{/if}}

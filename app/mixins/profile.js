@@ -2,7 +2,9 @@ import Ember from 'ember';
 
 export default Ember.Mixin.create({
 	profile: Ember.computed.alias('model.profile'),
-  posts: Ember.computed.alias('model.posts'),
+  posts: Ember.computed('model.posts', 'model.posts.@each', function(){ //TODO: remove isDeleted:true from list
+		return this.get('model.posts');
+	}),
   languages: Ember.computed.alias('model.languages'),
   interests: Ember.computed.alias('model.interests'),
   questions: Ember.computed.alias('model.questions'),

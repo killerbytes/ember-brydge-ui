@@ -24,13 +24,18 @@ export default Ember.Component.extend({
 			// });
 		},
 		delete(item){
-      item.destroyRecord();
+    	if(this.get('posts')) this.get('posts').removeObject(item);
+      item.destroyRecord().then(res=>{
+        // console.log(res, item)
+        this.get('store').unloadRecord(item);
+      });
+
 			// var post = this.get('post');
-      // this.get('store').unloadRecord(post)
-			// post.deleteRecord();
-			// post.save().then(res=>{
+			// item.deleteRecord();
+      // this.get('store').unloadRecord(item);
+			// item.save().then(res=>{
       //   console.log(res.get('id'))
-			// 	// if(this.get('posts')) this.get('posts').removeObject(post);
+				// if(this.get('posts')) this.get('posts').removeObject(item);
       //   // this.get('store').unloadRecord('newsfeed', res)
 			// 	// this.sendAction('onDelete');
 			// });
@@ -91,7 +96,6 @@ export default Ember.Component.extend({
 		},
 		share(){
 				this.set('sharePost.post', this.get('post.sharedPost.content') ? this.get('post.sharedPost') : this.get('post'));
-				console.log(this.get('sharePost.post'))
 		},
 		viewComments: function() {
 			this.$('.content-editable').focus();
