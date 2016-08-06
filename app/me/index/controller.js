@@ -4,7 +4,6 @@ import ProfileMixin from 'web/mixins/profile';
 export default Ember.Controller.extend(ProfileMixin, {
 	session: Ember.inject.service(),
   ajax: Ember.inject.service(),
-  flashMessages: Ember.inject.service(),
   sharePost: Ember.inject.service(),
   isOwner: true,
   actions: {
@@ -18,7 +17,6 @@ export default Ember.Controller.extend(ProfileMixin, {
         var newsfeed = this.get('posts');
         newsfeed.pushObject(res._internalModel);
         cb.apply();
-        Ember.get(this, 'flashMessages').success('Post Successful!');
       }).catch((err) => {
         console.log("Error posting to newsfeed:", err);
       });
@@ -35,7 +33,6 @@ export default Ember.Controller.extend(ProfileMixin, {
         post.set('vote.sharedCount', res.get('shareCount'))
 
         cb();
-        Ember.get(this, 'flashMessages').success('Post Shared!');
       });
     },
     // fileLoaded: function(formData){

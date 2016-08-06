@@ -30,14 +30,6 @@ module.exports = function(environment) {
       authenticationRoute: 'login',
       routeAfterAuthentication: 'home',
       routeIfAlreadyAuthenticated: 'home'
-    },
-    flashMessageDefaults: {
-      timeout: 5000,
-      extendedTimeout: 0,
-      priority: 200,
-      // sticky: true,
-      showProgress: true,
-
     }
 
   };

@@ -43,7 +43,6 @@ export default Ember.Controller.extend(
         var newsfeed = this.get('posts');
         newsfeed.pushObject(res._internalModel);
         cb.apply();
-        Ember.get(this, 'flashMessages').success('Post Successful!');
       }).catch((err) => {
         console.log("Error posting to newsfeed:", err);
       });
@@ -60,7 +59,6 @@ export default Ember.Controller.extend(
         post.set('vote.sharedCount', res.get('shareCount'))
 
         cb();
-        Ember.get(this, 'flashMessages').success('Post Shared!');
       });
     },
     // fileLoadedxxx: function(formData){

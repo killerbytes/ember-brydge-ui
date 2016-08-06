@@ -12,9 +12,9 @@ export default Ember.Component.extend({
 		return this.get('post.userid') == this.get('sessionAccount.account.profile.id');
 	}),
 	actions: {
-    flag(){
-			var post = this.get('post');
-      console.log(this.get('post.title'))
+    flag(item){
+			// var post = this.get('post');
+      // console.log(this.get('post.title'))
       // this.get('store').unloadRecord(post)
 			// post.deleteRecord();
 			// post.save().then(res=>{
@@ -24,16 +24,22 @@ export default Ember.Component.extend({
 			// 	// this.sendAction('onDelete');
 			// });
 		},
-		delete(){
-			var post = this.get('post');
-      this.get('store').unloadRecord(post)
-			post.deleteRecord();
-			post.save().then(res=>{
-        console.log(res.get('id'))
-				// if(this.get('posts')) this.get('posts').removeObject(post);
-        // this.get('store').unloadRecord('newsfeed', res)
-				// this.sendAction('onDelete');
-			});
+		delete(item){
+    	if(this.get('posts')) this.get('posts').removeObject(item);
+      item.destroyRecord().then(res=>{
+        // console.log(res, item)
+        this.get('store').unloadRecord(item);
+      });
+
+			// var post = this.get('post');
+			// item.deleteRecord();
+      // this.get('store').unloadRecord(item);
+			// item.save().then(res=>{
+      //   console.log(res.get('id'))
+				// if(this.get('posts')) this.get('posts').removeObject(item);
+      //   // this.get('store').unloadRecord('newsfeed', res)
+			// 	// this.sendAction('onDelete');
+			// });
 		},
 		vote(type){
 			let post = this.get('post');
@@ -104,7 +110,6 @@ export default Ember.Component.extend({
 		},
 		share(){
 				this.set('sharePost.post', this.get('post.sharedPost.content') ? this.get('post.sharedPost') : this.get('post'));
-				console.log(this.get('sharePost.post'))
 		},
 		viewComments: function() {
 			this.$('.content-editable').focus();

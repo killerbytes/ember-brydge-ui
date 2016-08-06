@@ -4,10 +4,7 @@ export default DS.JSONAPISerializer.extend({
   serialize() {
     const json = this._super(...arguments);
     return {
-      newsfeed: {
-        content: json.data.attributes.content,
-        site: json.data.attributes.site
-      }
+      newsfeed: json.data.attributes
     };
     // const result = this._super(...arguments),
     //   attr = result.data.attributes || {},

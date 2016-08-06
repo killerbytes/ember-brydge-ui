@@ -6,10 +6,12 @@
 	  &:before{
 	    left: auto;
 			right: 0;
+			bottom: -3px;
 	  }
 	  &:after{
 	    left: auto;
-			right: 0;
+			right: 2px;
+			bottom: -3px;
 	  }
 	}
 

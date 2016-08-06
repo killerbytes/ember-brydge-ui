@@ -5,7 +5,6 @@ export default Ember.Route.extend({
   connection: Ember.inject.service(),
   notification: Ember.inject.service(),
   compliment: Ember.inject.service(),
-  flashMessages: Ember.inject.service(),
   loggedinUser: null,
   paramsUserProfile: null,
   resetController(controller, isExiting, transition) {
@@ -66,7 +65,6 @@ export default Ember.Route.extend({
       });
     },
     goToAsk (username) {
-      Ember.get(this, 'flashMessages').success('Your question has been sent. Thank you!');
     },
     postCompliment(){
       var content = this.controller.get('complimentContent');
@@ -74,7 +72,6 @@ export default Ember.Route.extend({
       var title = this.controller.get('complimentTitle');
       this.get('compliment').post(userid,title,content)
       .then((res)=>{
-        Ember.get(this, 'flashMessages').success('Compliment has been sent. Thank you!');
         this.controller.set('complimentContent', null);
       })
     }

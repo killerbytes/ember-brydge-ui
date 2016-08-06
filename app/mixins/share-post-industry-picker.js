@@ -8,10 +8,21 @@ export default Ember.Mixin.create({
   toggle(state){
     this.get('elem').find('.accordion-picker').foundation(state, this.get('elem').find('.accordion-picker .accordion-content'));
   },
+  _didUpdate: Ember.observer('sharePost.post', function() {
+    this.set('sharePost.valueText', null);
+    this.setProperties({
+      categories: [],
+      site: null,
+      industryOneId: false,
+      industryTwoId: false,
+      industryThreeId: false
+    })
+    this.toggle('up');
+  }),
 	actions: {
     toggle(){
     	this.toggle('toggle');
-    },		
+    },
     checkboxChanged(value, checked, text, e) {
       if(checked) {
         this.categories.pushObject({id: value, text: text, checked: checked});
@@ -24,23 +35,11 @@ export default Ember.Mixin.create({
       }
     },
     submit() {
-      // var data = {
-      //   postContent: this.get('postContent'),
-      //   categories: _.map(this.get('categories'), 'id'),
-      //   site: this.get('site')
-      // }
+      this.set('sharePost.categories', _.map(this.get('categories'), 'id'));
 
       this.sendAction('submit', ()=>{
-      	this.toggle('up');
-        this.setProperties({
-        //   postContent: null,
-          categories: [],
-          site: null,
-        //   isNoPreview: false,
-          occupationOne: false,
-          occupationTwo: false,
-          industryId: false
-        })
+      // 	this.toggle('up');
+        this.get('elem').foundation('close');
       })
 
       Ember.run.later(()=>{

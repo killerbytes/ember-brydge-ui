@@ -8,16 +8,12 @@ export default Ember.Service.extend({
   //   this.set('selected', post);
   // },
   submit: function(cb){
-    var sharedPostid = this.get('selected.sharedPostid') || this.get('selected.id');
-    return this.get('store').createRecord('post', {
+    var sharedPostid = this.get('post.sharedPostid') || this.get('post.id');
+    return this.get('store').createRecord('newsfeed', {
       content: this.get('valueText'),
-      categories: _.map(this.get('categories'), 'id'),
-      sharedPostid: sharedPostid
-    }).save().then(()=>{
-      this.set('valueText', null);
-      cb.apply();
-    });
+      categories: this.get('categories'),
+      sharedid: sharedPostid
+    }).save()
   }
 
 });
-

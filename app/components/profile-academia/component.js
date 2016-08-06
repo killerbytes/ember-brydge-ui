@@ -4,7 +4,6 @@ import Validations from '../../models/validations/education';
 export default Ember.Component.extend(Validations, {
 	store: Ember.inject.service(),
 	utils: Ember.inject.service(),
-	flashMessages: Ember.inject.service(),
 	classNames: ['accordion-form'],
 	tagName: 'form',
 	maxYear: moment().year() + 10,
