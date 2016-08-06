@@ -3,21 +3,18 @@ import Ember from 'ember';
 export default Ember.Service.extend({
   store: Ember.inject.service(),
   upvote(newsfeedid){
-    return this.get('store').createRecord('vote', {
-      newsfeedid: newsfeedid,
-      action: "up"
-    }).save();
+    var vote = this.get('store').peekRecord('vote', newsfeedid);
+    vote.set('action','up')
+    return vote.save();
   },
   downvote(newsfeedid){
-    return this.get('store').createRecord('vote', {
-      newsfeedid: newsfeedid,
-      action: "down"
-    }).save();
+    var vote = this.get('store').peekRecord('vote', newsfeedid);
+    vote.set('action','down')
+    return vote.save();
   },
   resetvote(newsfeedid){
-    return this.get('store').createRecord('vote', {
-      newsfeedid: newsfeedid,
-      action: "reset"
-    }).save();
+    var vote = this.get('store').peekRecord('vote', newsfeedid);
+    vote.set('action','reset')
+    return vote.save();
   },
 });
