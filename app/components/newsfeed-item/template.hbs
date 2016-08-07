@@ -39,15 +39,16 @@
 </section>
 
 <section>
-  <div class="paragraph {{if isCollapsed 'is-collapsed'}}">
+  <div>
     {{#unless shared }}
-      {{#if post.content}}{{{ content }}}{{/if}}
+      {{#if post.content}}
+        {{see-more content=post.content limit=480 }}
+      {{/if}}
     {{else}}
-      {{#if post.content.content}}{{{post.content.content }}}{{/if}}
+      {{#if post.content.content}}
+        {{see-more content=post.content.content limit=480 }}
+      {{/if}}
     {{/unless}}
-    {{#if isCollapsed}}
-      <span><a {{action "seeMore"}}>See More</a></span>
-    {{/if}}
   </div>
 
 

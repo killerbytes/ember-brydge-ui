@@ -100,9 +100,9 @@ a.hover{
 }
 .paragraph{
 	white-space: pre-line;
-	&:first-line{
-		line-height: 0;
-	}
+	// &:first-line{
+	// 	line-height: 0;
+	// }
 	&.is-collapsed{
 		display: inline-table;
 	}
