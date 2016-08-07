@@ -8,8 +8,7 @@ export default Ember.Controller.extend({
       this.transitionToRoute('home');
     },
     sharePost(cb){
-      this.get('sharePost').submit(()=>{
-        $('#sharePostModal').foundation('close');
+      this.get('sharePost').submit().then(()=>{
         cb.apply();
       });
     }

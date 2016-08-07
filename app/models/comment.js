@@ -4,5 +4,5 @@ export default DS.Model.extend({
   content: DS.attr('string'),
   newsfeedid: DS.attr(),
   user: DS.belongsTo('user'),
-  insertedAt: DS.attr()
+  insertedAt: DS.attr('date')
 });

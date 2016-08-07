@@ -1,16 +1,16 @@
 <form>
-  {{textarea 
-    value=commentContent 
-    key-up="resize" 
+  {{textarea
+    value=commentContent
+    key-up="resize"
     enter="comment"
-    class="textarea content-editable" 
-    placeholder="Write your comment"}}  
+    class="textarea content-editable"
+    placeholder="Write your comment"}}
 </form>
 
 {{#if post.commentCount}}
   <div class="comment-group">
       {{#if showComments}}
-          {{#each comments as |comment|}}  
+          {{#each comments as |comment|}}
             <div class="comment-item">
               <div class="row user">
                 <div class="columns medium-8">
@@ -29,13 +29,13 @@
                 </div>
               </div>
               <div class="comment">
-                {{comment.content}}             
+                {{comment.content}}
               </div>
             </div>
           {{/each}}
       {{/if}}
       {{#if isLoading}}
-        <div class="loader small">Loading...</div>
+        <div class="loader small"></div>
       {{/if}}
 
       <div class="comment-footer">
@@ -44,7 +44,7 @@
             <a class="more no-arrow" {{action 'viewComments'}}>
               View more comments
             </a>
-          {{/if}}    
+          {{/if}}
           <a class="more no-arrow" {{action 'hideComments'}}>
             Hide comments
           </a>
@@ -53,7 +53,7 @@
             <a class="more no-arrow" {{action 'viewComments'}}>
               View comments
             </a>
-          {{/if}}    
+          {{/if}}
         {{/if}}
       </div>
   </div>
