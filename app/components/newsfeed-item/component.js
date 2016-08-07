@@ -65,6 +65,7 @@ export default Ember.Component.extend({
 					// });
 					this.get('vote').downvote(postId).then((res) => {
 						console.log('downvote =>', res);
+						post.reload();
 						this.set('disabled', false);
 					});
 				break;
@@ -84,6 +85,7 @@ export default Ember.Component.extend({
 					// });
 					this.get('vote').resetvote(postId).then((res) => {
 						console.log('reset =>', res);
+						post.reload();
 						this.set('disabled', false);
 					});
 				break;
@@ -102,6 +104,7 @@ export default Ember.Component.extend({
 
 					this.get('vote').upvote(postId).then((res) => {
 						console.log('upvote =>', res);
+						post.reload();
 						this.set('disabled', false);
 					});
 				break;
