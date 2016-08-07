@@ -8,10 +8,20 @@ export default Ember.Component.extend({
 	ajax: Ember.inject.service(),
 	classNames: ['newsfeed-item'],
 	disabled: false,
+  charLimit: 480,
+  isCollapsed: Ember.observer('post.content', function() {
+    this.set('isCollapsed', this.get('post.content.length') >= this.get('charLimit') ? true : false);
+  }),
 	isOwner: Ember.computed('post.userid', function(){
 		return this.get('post.userid') == this.get('sessionAccount.account.profile.id');
 	}),
+  content: Ember.computed('post.content.content', 'isCollapsed', function(){
+    return this.get('isCollapsed') ? this.get('post.content').substr(0,this.get('charLimit')) + '... ' : this.get('post.content');
+  }),
 	actions: {
+    seeMore(){
+      this.set('isCollapsed', false);
+    },
     flag(item){
 			// var post = this.get('post');
       // console.log(this.get('post.title'))

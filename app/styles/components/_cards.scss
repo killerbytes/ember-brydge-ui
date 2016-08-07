@@ -1,7 +1,7 @@
 .cards{
-	// .user-info, .timestamp{
-	// 	margin-top: 6px;
-	// }
+	.user-info, .timestamp{
+		margin-top: 6px;
+	}
 	.dropdown-arrow{
 	  &:before{
 	    left: auto;
@@ -51,4 +51,7 @@
 
 .newsfeed-item{
 	@extend .cards;
+	.user-info, .timestamp{
+		margin-top: 0;
+	}
 }

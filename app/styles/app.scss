@@ -99,7 +99,13 @@ a.hover{
 	}
 }
 .paragraph{
-	white-space: pre-wrap;
+	white-space: pre-line;
+	&:first-line{
+		line-height: 0;
+	}
+	&.is-collapsed{
+		display: inline-table;
+	}
 }
 label.inline{
 	display: inline-block;
@@ -112,7 +118,7 @@ a.no-color{
 	color: inherit;
 }
 p.wrap{
-	white-space: pre-wrap;
+		white-space: pre-wrap;
 }
 .clear{
 	clear: both;

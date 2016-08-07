@@ -25,13 +25,9 @@
         {{#zf-dropdown id=(concat "dd-post-menu-" post.id) closeOnClick=true class="card-menu-dropdown"}}
           <ul class="menu">
             {{#if isOwner}}
-            <li>
-              <a data-open={{concat 'dialog-box-' 'delete' post.id}}>Delete Post</a>
-            </li>
+              <li><a data-open={{concat 'dialog-box-' 'delete' post.id}}>Delete Post</a></li>
             {{else}}
-            <li>
-              <a data-open={{concat 'dialog-box-' 'flag' post.id}}>Flag this Post</a>
-            </li>
+              <li><a data-open={{concat 'dialog-box-' 'flag' post.id}}>Flag this Post</a></li>
             {{/if}}
           </ul>
         {{/zf-dropdown}}
@@ -43,13 +39,17 @@
 </section>
 
 <section>
-  <div>
+  <div class="paragraph {{if isCollapsed 'is-collapsed'}}">
     {{#unless shared }}
-      {{#if post.content}}{{{ post.content }}}{{/if}}
+      {{#if post.content}}{{{ content }}}{{/if}}
     {{else}}
       {{#if post.content.content}}{{{post.content.content }}}{{/if}}
     {{/unless}}
+    {{#if isCollapsed}}
+      <span><a {{action "seeMore"}}>See More</a></span>
+    {{/if}}
   </div>
+
 
   {{#if post.title}}
     {{newsfeed-media model=post}}
