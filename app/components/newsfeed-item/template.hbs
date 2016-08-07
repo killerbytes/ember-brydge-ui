@@ -66,14 +66,13 @@
   <section class="post-actions">
     <div class="row">
       <div class="columns medium-6">
-
         {{#if post.vote.upVoted}}
         <a {{action "vote" "reset"}} class="acted">Upvoted</a>
         {{else}}
         <a {{action "vote" "up"}}>Upvote</a>
         {{/if}}
 
-        {{#if post.vote.upVoted}}<span>{{post.vote.upVotes}}</span>{{/if}}
+        {{#if post.vote.upVotes}}<span>{{post.vote.upVotes}}</span>{{/if}}
 
 
         {{#if post.vote.downVoted}}
