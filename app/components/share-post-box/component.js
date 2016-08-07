@@ -22,8 +22,10 @@ export default Ember.Component.extend(SharePostIndustryPicker, {
   isOccupational: Ember.computed('profile.industryTwoId', function(){
     return this.get('profile.industryTwoId') || this.get('profile.industryThreeId');
   }),
+  _removeLink(content, link){
+    return content.replace(link, "");
+  },
   crawl(uri){
-    console.log(uri)
     var url = "v2/crawl?url=" + uri;
     this.get('ajaxApi').request(url, {
       method: 'GET'
@@ -39,25 +41,28 @@ export default Ember.Component.extend(SharePostIndustryPicker, {
     // Regular expression to find FTP, HTTP(S) and email URLs.
 
     // var regexToken = /(?:https?:\/\/)?(?:[\w]+\.)([a-zA-Z\.]{2,6})([\/\w\.-]*)*\/?/g;
-    var regexToken = /^((http[s]?|ftp):\/)?\/?([^:\/\s]+)((\/\w+)*\/)([\w\-\.]+[^#?\s]+)(.*)?(#[\w\-]+)?$/g;
+    var regexToken = /((http[s]?|ftp):\/)?\/?([^:\/\s]+)((\/\w+)*\/)([\w\-\.]+[^#?\s]+)(.*)?(#[\w\-]+)?\s+/g;
     // Iterate through any URLs in the text.
     while( (matchArray = regexToken.exec( source )) !== null ){
         var token = matchArray[0];
         urlArray.push( token );
     }
-    console.log(urlArray)
     return urlArray;
   },
 	actions: {
     post(item, cb) {
       if(!this.get('postContent')) return false;
-      var url = this.findUrls(this.get('postContent'))
+      var url = this.findUrls(this.get('postContent')).get(0)
+      var content = this.get('postContent');
+      if(this.get('site.image')){
+        content = this._removeLink(this.get('postContent'), url);
+      }
       // if(this.get('site.title') && url){
       //   this.set('postContent', (this.get('postContent').replace(url[0], "")).trim() ) ;
       // }
 
       var data = {
-        postContent: this.get('postContent'),
+        postContent: content,
         categories: _.map(this.get('categories'), 'id'),
         site: this.get('site')
       }
