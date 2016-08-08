@@ -2,14 +2,14 @@
   <strong>TRENDING</strong>
 </div>
 <section>
-  
+
   {{#if post.title}}
     {{newsfeed-media model=post}}
   {{/if}}
 
   {{#unless shared }}
-    {{#if post.sharedPost }}
-      {{newsfeed-item post=post.sharedPost shared=true class="shared-post"}}
+    {{#if post.shared }}
+      {{newsfeed-item post=post.shared shared=true class="shared-post"}}
     {{/if}}
   {{/unless}}
 
@@ -49,4 +49,3 @@
     {{comment-box post=post total=post.commentCount}}
   </section>
 {{/unless}}
-

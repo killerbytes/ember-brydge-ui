@@ -48,7 +48,7 @@ export default Ember.Controller.extend(
       });
     },
     sharePost(cb){
-      this.get('sharePost').submit().then((res)=>{
+      this.get('share').submit().then((res)=>{
         var newsfeed = this.get('posts');
         newsfeed.pushObject(res._internalModel);
         this.store.findRecord('vote', res.get('id')).then(vote=>{

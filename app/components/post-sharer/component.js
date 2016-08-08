@@ -15,8 +15,8 @@ export default Ember.Component.extend(SharePostIndustryPicker, {
 	profile: Ember.computed('sessionAccount.account.profile', function(){
 		return this.get('sessionAccount.account.profile');
 	}),
-	sharedTitle: Ember.computed('post.sharedPost.title', function(){
-		let title = this.get('post.sharedPost.title');
+	sharedTitle: Ember.computed('post.shared.title', function(){
+		let title = this.get('post.shared.title');
 		if(!title) return false;
 		return title.length > 100 ? title.substr(0, 100) + ' ...' : title;
 	}),
