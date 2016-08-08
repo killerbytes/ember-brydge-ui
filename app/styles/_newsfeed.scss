@@ -8,8 +8,11 @@
 		color: $text-gray;
 	}
 	.x-button{
-		color: #FFF;
-		text-shadow: 0 0 10px #999;
+		color: #b6c3ca;
+		background-color: #FFF;
+		padding: 1px 2px;
+		border: 1px solid #b6c3ca;
+		font-size: 11px;
 	}
 	section{
 		position: relative;
@@ -45,9 +48,13 @@
 	.media{
 		.fa-times{
 			position: absolute;
-			top: 1rem;
-			right: 1rem;
+			top: 11px;
+			right: 5px;
 		}
+	}
+	.newsfeed-content{
+		font-size: 13px;
+		line-height: 18px;
 	}
 	.post-actions{
 		padding: .3rem 1rem;
@@ -121,14 +128,15 @@
 			padding-top: 1rem;
 		}
 		.comment{
-			padding-top: 1rem;
+			// padding-top: 1rem;
 			padding-bottom: 1rem;
 			padding-left: 40px;
+			font-size: 11px;
 		}
 		.comment-footer{
-			a{
-				color: $text-light;
-			}
+			// a{
+			// 	color: $text-light;
+			// }
 			a:not(:first-child){
 				margin-left: 1rem;
 			}

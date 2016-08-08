@@ -158,3 +158,33 @@
 		border-left: none;
 	}
 }
+
+
+.accordion-user-guide{
+	.accordion-title{
+		font-size: 15px;
+		font-weight: bold;
+		text-align: center;
+	}
+	li.accordion-item:nth-child(5n+1) .accordion-title{
+		background-color: #cec9c9;
+		color: #FFF;
+	}
+	li.accordion-item:nth-child(5n+2) .accordion-title{
+		background-color: #ff5959;
+		color: #FFF;
+	}
+	li.accordion-item:nth-child(5n+3) .accordion-title{
+		background-color: #003a6f;
+		color: #FFF;
+	}
+	li.accordion-item:nth-child(5n+4) .accordion-title{
+		background-color: #6ec5e9;
+		color: #FFF;
+	}
+	li.accordion-item:nth-child(5n+5) .accordion-title{
+		background-color: #ffc56c;
+		color: #FFF;
+	}
+
+}

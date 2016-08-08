@@ -10,9 +10,7 @@ export default Ember.Route.extend({
   		this.transitionTo('me.ask');
   	},
     delete(item){
-      this.get('ask').delete(item).then(()=>{
-				this.transitionTo('me.ask');
-			});
+			this.transitionTo('me.ask');
     },
   }
 });

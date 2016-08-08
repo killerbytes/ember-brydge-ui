@@ -3,8 +3,10 @@ import ApplicationRouteMixin from 'ember-simple-auth/mixins/application-route-mi
 import ENV from 'web/config/environment';
 import TransitionToListenerRoute from 'ember-cli-routing-service/routes/transition-to-listener';
 import HideHeaderMixin from 'web/mixins/hide-header';
+import ScrollResetMixin from 'web/mixins/scroll-reset';
 
 export default TransitionToListenerRoute.extend(
+  ScrollResetMixin,
   HideHeaderMixin,
   ApplicationRouteMixin, {
   tmp: Ember.inject.service('temp'),
@@ -32,6 +34,7 @@ export default TransitionToListenerRoute.extend(
       });
     },
     didTransition() {
+      window.scroll(0,0);
       if (ga) {
         Ember.run.once(this, function() {
           ga('send', 'pageview',

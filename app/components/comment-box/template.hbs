@@ -18,7 +18,7 @@
                     <img src= {{comment.user.profile.avatarUrl}} class="hide">
                   </div>
                   <div class="user-info">
-                    {{#link-to "profile" comment.user.id class="name"}} {{comment.user.profile.firstName}} {{/link-to}}
+                    {{#link-to "profile" comment.user.id class="name"}} {{comment.user.profile.fullName}} {{/link-to}}
                     <div class="position">{{ comment.user.profile.currentTitle }} at {{ comment.user.profile.currentCompany }}</div>
                   </div>
                 </div>

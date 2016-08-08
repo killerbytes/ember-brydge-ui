@@ -12,11 +12,16 @@ export default Ember.Component.extend({
   		this.set('ask.question', item);
   	},
     delete(){
-      this.get('ask').delete(this.get('item'));
+      this.get('ask').delete(this.get('item')).then(res=>{
+				this.sendAction("delete");
+			});
+
     },
 		flag(){
 			console.log('question flagged...');
-      this.get('ask').delete(this.get('item'));
+      this.get('ask').delete(this.get('item')).then(res=>{
+				this.sendAction("delete");
+			});
     },
   }
 

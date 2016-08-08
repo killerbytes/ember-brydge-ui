@@ -24,7 +24,7 @@
 					You are currently accepting questions. To disable the ASK feature go to {{link-to "Settings" "settings" (query-params tab="ask") }}.
 				{{else}}
 					You are currently not accepting questions. To enable the ASK feature go to {{link-to "Settings" "settings" (query-params tab="ask") }}.
-				{{/if}}				
+				{{/if}}
 			</p>
 		</div>
 	  <div class="mb">
@@ -53,7 +53,7 @@
 
 		{{#brydge-scroller model=fromQuestions onClick="load"}}
       {{#if isLoading}}
-        <div class="loading"></div>
+        <div class="brydge-loading"></div>
       {{/if}}
     {{/brydge-scroller}}
 

@@ -2,13 +2,17 @@ import Ember from 'ember';
 import AuthenticatedRouteMixin from 'ember-simple-auth/mixins/authenticated-route-mixin';
 import ENV from 'web/config/environment';
 import FilterDropdownListMixin from 'web/mixins/filter-dropdown-list';
+import ScrollResetMixin from 'web/mixins/scroll-reset';
 // const {
 //   Component,
 //   computed,
 //   getOwner
 // } = Ember;
 
-export default Ember.Route.extend(AuthenticatedRouteMixin, FilterDropdownListMixin, {
+export default Ember.Route.extend(
+  ScrollResetMixin,
+  AuthenticatedRouteMixin,
+  FilterDropdownListMixin, {
   session: Ember.inject.service('session'),
   ajax: Ember.inject.service(),
   categoryid: '',
@@ -81,16 +85,16 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, FilterDropdownListMix
           this.loadNewsfeed(elem.data('tab'))
         });
 
-        Ember.$(window).on('scroll', function(){
-          var $win = $(window);
-          var $doc = $(document);
-          var winHeight = $win.height();
-          var docHeight = $doc.height();
-          var scrollTop = $doc.scrollTop();
-          if(docHeight - winHeight == scrollTop){
-            console.log('should load newsfeed')
-          }
-        })
+        // Ember.$(window).on('scroll', function(){
+        //   var $win = $(window);
+        //   var $doc = $(document);
+        //   var winHeight = $win.height();
+        //   var docHeight = $doc.height();
+        //   var scrollTop = $doc.scrollTop();
+        //   if(docHeight - winHeight == scrollTop){
+        //     console.log('should load newsfeed')
+        //   }
+        // })
 
       })
     },

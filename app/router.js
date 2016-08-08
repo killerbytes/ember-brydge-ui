@@ -63,9 +63,9 @@ Router.map(function() {
   this.route('about', {path: ':username/about'});
   this.route('connections', {path: ':username/connections'});
   this.route('compliments', {path: ':userid/compliments'}, function(){
-    this.route('detail',{path: '/:id'});
     this.route('posted')
   });
+  this.route('compliments.detail',{path: 'compliments/details/:id'});
   this.route('requests');
   this.route('notifications');
 

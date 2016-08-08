@@ -5,6 +5,7 @@
         <img src= {{item.from.profile.avatarUrl}} class="hide">
       </div>
       <div class="user-info">
+        {{log item}}
         <span class="name">
           {{#if isOwner}}
             Asked by {{link-to item.from.profile.fullName "profile" item.from.id}}
