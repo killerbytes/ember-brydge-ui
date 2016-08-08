@@ -62,5 +62,13 @@ export default Ember.Controller.extend(
 
   // titles: ['Thank you for','Good job on','Congratulations on','Kudos on'],
 
-  complimentTitle: 'Thank you for'
+  complimentTitle: 'Thank you for',
+  actions: {
+    sharePost(cb){
+      this.get('sharePost').submit().then((res)=>{
+        cb.apply();
+      });
+    },
+
+  }
 });
