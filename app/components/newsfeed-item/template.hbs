@@ -89,7 +89,7 @@
         <a {{action "viewComments"}}>Comment</a>
         {{#if post.commentCount}}<span>{{post.commentCount}}</span>{{/if}}
         <a {{action "share"}} data-open="sharePostModal">Share</a>
-        {{#if post.vote.sharedCount}}<span>{{post.vote.sharedCount}}</span>{{/if}}
+        {{#if post.shareCount}}<span>{{post.shareCount}}</span>{{/if}}
       </div>
     </div>
   </section>
