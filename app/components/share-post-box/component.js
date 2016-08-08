@@ -33,26 +33,10 @@ export default Ember.Component.extend(SharePostIndustryPicker, {
       this.set('site', res);
     });
   },
-  findUrls( text ){
-    var source = (text || '').toString();
-    var urlArray = [];
-    var url;
-    var matchArray;
-    // Regular expression to find FTP, HTTP(S) and email URLs.
-
-    // var regexToken = /(?:https?:\/\/)?(?:[\w]+\.)([a-zA-Z\.]{2,6})([\/\w\.-]*)*\/?/g;
-    var regexToken = /((http[s]?|ftp):\/)?\/?([^:\/\s]+)((\/\w+)*\/)([\w\-\.]+[^#?\s]+)(.*)?(#[\w\-]+)?\s+/g;
-    // Iterate through any URLs in the text.
-    while( (matchArray = regexToken.exec( source )) !== null ){
-        var token = matchArray[0];
-        urlArray.push( token );
-    }
-    return urlArray;
-  },
 	actions: {
     post(item, cb) {
       if(!this.get('postContent')) return false;
-      var url = this.findUrls(this.get('postContent')).get(0)
+      var url = this.get('utils').findUrls(this.get('postContent')).get(0)
       var content = this.get('postContent');
       if(this.get('site.image')){
         content = this._removeLink(this.get('postContent'), url);
@@ -104,7 +88,7 @@ export default Ember.Component.extend(SharePostIndustryPicker, {
         case 91:
         case 32:
         case 224:
-          var urls = this.findUrls(text);
+          var urls = this.get('utils').findUrls(text);
           if(urls.length){
             this.crawl(urls[0]);
           }

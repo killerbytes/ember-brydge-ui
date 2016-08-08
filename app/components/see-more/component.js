@@ -1,6 +1,7 @@
 import Ember from 'ember';
 
 export default Ember.Component.extend({
+	utils: Ember.inject.service(),
 	classNames: ['paragraph'],
 	classNameBindings: ['isCollapsed'],
 	limit: 280,
@@ -8,7 +9,7 @@ export default Ember.Component.extend({
 		return this.get('content.length') >= this.get('limit') ? true : false;
 	}),
 	text: Ember.computed('content', 'isCollapsed', function(){
-    return this.get('isCollapsed') ? this.get('content').substr(0,this.get('limit')) + '... ' : this.get('content');
+    return this.get('isCollapsed') ? this.get('content').substr(0,this.get('limit')) + '... ' : this.get('utils').replaceUrls(this.get('content'));
   }),
 	actions: {
 		seeMore(){
