@@ -13,6 +13,7 @@ export default Ember.Component.extend({
 	actions: {
 		delete(){
 			this.get('compliment').delete(this.get('item'));
+			this.sendAction('delete');
 		}
 	}
 });

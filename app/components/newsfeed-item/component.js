@@ -29,6 +29,7 @@ export default Ember.Component.extend({
       item.destroyRecord().then(res=>{
         // console.log(res, item)
         this.get('store').unloadRecord(item);
+      	this.sendAction('onDelete');
       });
 
 			// var post = this.get('post');

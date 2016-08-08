@@ -14,13 +14,12 @@ export default Ember.Component.extend({
 	actions: {
 		accept: function (item) {
 			this.get('compliment').accept(item).then(res=>{
-				this.sendAction('onSubmit');
+				this.sendAction('submit');
 			});
 		},
 		delete: function () {
 			this.get('compliment').delete(this.get('item')).then(res=>{
-				this.sendAction('onDelete', this.get('item'));
-				this.sendAction('onSubmit');
+				this.sendAction('submit');
 			})
 		}
 	}

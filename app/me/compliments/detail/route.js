@@ -9,6 +9,6 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
 	actions: {
 		submit(){
 			this.transitionTo('me.compliments');
-		}
+		},
 	}
 });
