@@ -5,15 +5,5 @@ export default Ember.Route.extend({
 	model(){
 		this.store.unloadAll('connection');
 		return this.store.findAll('connection');
-	},
-	actions: {
-		accept: function(item){
-			item.set('status', 'accepted')
-			item.save();
-		},
-		reject: function(item) {
-			item.destroyRecord();
-		}
-
 	}
 });

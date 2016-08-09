@@ -16,6 +16,8 @@ export default DS.Model.extend({
   action: DS.attr('string', { defaultValue: false }),
   fullName: Ember.computed('firstName', 'lastName', function(){
   	return this.get('firstName') + ' ' + this.get('lastName');
-  })
-  // status: DS.attr('string', { defaultValue: 'pending' }),
+  }),
+  career: Ember.computed('currentTitle', 'currentCompany', function(){
+		return this.get('currentCompany') ? this.get('currentTitle') + ' at ' + this.get('currentCompany') : this.get('currentTitle');
+	})
 });

@@ -15,9 +15,9 @@
 				<ul class="top-bar-group menu menu-actions wrapper" {{ action "closeTooltip" preventDefault=false }}>
 					<li>
 						{{#zf-tooltip title="Profile Views"  vOffset=7}}
-							<a data-toggle="dd-views" class="dropdown-button-arrow dropdown-button-icons" {{action 'clickProfile' notification.profileCount}}>
-								{{#if notification.profileCount}}
-									<span class="alert badge">{{notification.profileCount}}</span>
+							<a data-toggle="dd-views" class="dropdown-button-arrow dropdown-button-icons" {{action "open" "views" }}>
+								{{#if notification.count.view}}
+									<span class="alert badge">{{notification.count.view}}</span>
 								{{/if}}
 								<i class="icons bino"></i>
 							</a>
@@ -26,9 +26,9 @@
 
 					<li>
 						{{#zf-tooltip title="Connection Requests" vOffset=7}}
-							<a data-toggle="dd-requests" class="dropdown-button-arrow dropdown-button-icons" {{action 'clickConnection' notification.connectionCount}}>
-								{{#if notification.connectionCount}}
-									<span class="alert badge">{{notification.connectionCount}}</span>
+							<a data-toggle="dd-requests" class="dropdown-button-arrow dropdown-button-icons" {{action "open" "connection"}}>
+								{{#if notification.count.request}}
+									<span class="alert badge">{{notification.count.request}}</span>
 								{{/if}}
 								<i class="icons user"></i>
 							</a>
@@ -37,9 +37,9 @@
 					</li>
 					<li>
 						{{#zf-tooltip title="Messages" vOffset=7}}
-							<a data-toggle="dd-messages" class="dropdown-button-arrow dropdown-button-icons" {{action 'clickMessage' notification.messageCount}}>
-								{{#if notification.messageCount}}
-									<span class="alert badge">{{notification.messageCount}}</span>
+							<a data-toggle="dd-messages" class="dropdown-button-arrow dropdown-button-icons" {{action "open" "message"}}>
+								{{#if notification.count.message}}
+									<span class="alert badge">{{notification.count.message}}</span>
 								{{/if}}
 								<i class="icons messages"></i>
 							</a>
@@ -48,9 +48,9 @@
 					</li>
 					<li>
 						{{#zf-tooltip title="Notifications" vOffset=7}}
-							<a data-toggle="dd-notification" class="dropdown-button-arrow dropdown-button-icons" {{action 'clickNotification' notification.notificationCount}}>
-									{{#if notification.notificationCount }}
-							      <span class="alert badge">{{notification.notificationCount}}</span>
+							<a data-toggle="dd-notification" class="dropdown-button-arrow dropdown-button-icons" {{action "open" "general"}}>
+									{{#if notification.count.notification }}
+							      <span class="alert badge">{{notification.count.notification}}</span>
 							    {{/if}}
 									<i class="icons stack"></i>
 							</a>
@@ -96,7 +96,7 @@
 </header>
 
 <div class="row columns wrapper">
-	{{#zf-dropdown id="dd-views" class="dropdown-notification" closeOnClick=true }}
+	{{#zf-dropdown id="dd-views" dataName="views" class="dropdown-notification" closeOnClick=true }}
 		<div class="dropdown-header">
 			<h4>See who's viewed your profile</h4>
       <div>
@@ -109,17 +109,17 @@
 		</div>
 		<ul class="media-list user">
 			{{#if settings.profileView}}
-				{{#each notification.views as |item|}}
-  				<li>
-  					<a {{action "selectView" item}} class="{{if item.read false 'new-notification'}}">
+				{{#each views as |item|}}
+  				<li {{action "read" item}}>
+            {{#link-to "profile" item.target.id class=(if item.read false 'new-notification')}}
   						<div class="row collapse">
   							<div class="columns medium-8">
   					      <div class="avatar" style={{htmlSafeImage item.target.profile.avatarUrl }}>
   					        <img src= {{item.target.profile.avatarUrl}} class="hide">
   					      </div>
   					      <div class="user-info">
-  				          {{item.target.profile.firstName}} {{item.target.profile.lastName}}
-  					        <div class="position">{{item.title}} at {{item.company}}</div>
+  				          {{item.target.profile.fullName}}
+  					        <div class="position">{{item.target.profile.career}}</div>
   					      </div>
 
   							</div>
@@ -127,7 +127,7 @@
   								{{ timestamp item.createdAt }}
   							</div>
   						</div>
-  					</a>
+            {{/link-to}}
   				</li>
         {{else}}
           <li>
@@ -160,23 +160,23 @@
 				</div>
 		</div>
 		<ul class="media-list user">
-			{{#each notification.request as |item|}}
+			{{#each connection as |item|}}
 			<li>
-				<div {{action "selectView" item}} class="padding {{if item.read false 'new-notification'}}">
+				<div class="padding {{if item.read false 'new-notification'}}">
 					<div class="row collapse">
-						<div class="columns medium-8">
+						<div class="columns medium-9">
 				      <div class="avatar" style={{htmlSafeImage item.target.profile.avatarUrl }}>
 				        <img src= {{item.target.profile.avatarUrl}} class="hide">
 				      </div>
 				      <div class="user-info">
-			          {{item.target.profile.firstName}} {{item.target.profile.lastName}}
-				        <div class="position">{{item.title}} at {{item.company}}</div>
+			          {{item.target.profile.fullName}}
+				        <div class="position">{{item.target.profile.career}}</div>
 				      </div>
 
 						</div>
-						<div class="columns medium-4 actions text-right">
-		          <a {{action "acceptConnection" item }}><i class="fa fa-check-circle-o" aria-hidden="true"></i></a>
-		          <a {{action "rejectConnection" item }}><i class="fa fa-times-circle-o" aria-hidden="true"></i></a>
+						<div class="columns medium-3 actions text-right">
+		          <span class="middle"><a {{action "acceptConnection" item }}><i class="fa fa-check-circle-o" aria-hidden="true"></i></a></span>
+		          <span class="middle"><a {{action "rejectConnection" item }}><i class="fa fa-times-circle-o" aria-hidden="true"></i></a></span>
 						</div>
 					</div>
 				</div>
@@ -210,7 +210,7 @@
 				        <img src= {{item.target.profile.avatarUrl}} class="hide">
 				      </div>
 				      <div class="user-info">
-			          {{item.target.profile.firstName}} {{item.target.profile.lastName}}
+			          {{item.target.profile.fullName}}
 				        <div class="position">{{{ getNotificationContent item.content }}}</div>
 				      </div>
 						</div>
@@ -252,7 +252,7 @@
 					      </div>
 					      <div class="user-info">
 		              <div>
-		              	<strong>{{item.target.profile.firstName }} {{item.target.profile.lastName }}</strong> {{{notification-text item}}}
+		              	<strong>{{item.target.profile.fullName }}</strong> {{{notification-text item}}}
 		              </div>
 		              <span class="timestamp">{{ timestamp item.createdAt }}</span>
 					      </div>

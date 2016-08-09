@@ -13,29 +13,23 @@ export default Ember.Service.extend({
  //  requestConnections(){
  //    this.set('connectionStore', this.get('store').findAll('connection'))
  //  },
- check(){
-   console.log('notifications check')
- },
-  checkNotificationCounts(cb) {
-    // console.log('checking notifications');
-
+  check(cb) {
     var url = '/v2/notifications/count';
-    this.get('ajax').request(url)
-    .then((resp)=>{
-
-      var data = resp.data.attributes;
-      if(!data) return;
-
-      // console.log('notification count =>',data.notification)
-      // console.log('connection count =>',data.connection)
-      // console.log('message count =>',data.message)
-      // console.log('profile count =>',data.profile)
-
-      this.set('notificationCount',data.notification);
-      this.set('connectionCount',data.connection);
-      this.set('messageCount',data.message);
-      this.set('profileCount',data.profile);
-      if(cb) cb.call();
+    this.get('ajax').request(url).then(res=>{
+      this.set('count', res.count)
+      // var data = resp.data.attributes;
+      // if(!data) return;
+      //
+      // // console.log('notification count =>',data.notification)
+      // // console.log('connection count =>',data.connection)
+      // // console.log('message count =>',data.message)
+      // // console.log('profile count =>',data.profile)
+      //
+      // this.set('notificationCount',data.notification);
+      // this.set('connectionCount',data.connection);
+      // this.set('messageCount',data.message);
+      // this.set('profileCount',data.profile);
+      // if(cb) cb.call();
     })
     .catch((err)=>{
       console.log(err)
@@ -72,18 +66,19 @@ export default Ember.Service.extend({
 
   loadNotifications(group, cb) {
     var q = {group:group, limit: 5};
-    if(group === 'connection') q.isNew = true;
-
-    this.get('store').query('notification',q).then((res)=>{
-      console.log('loading..', group);
-
+    this.get('store').query('notification', q).then(res=>{
       if(group === 'general') this.set('notifications', res);
       if(group === 'message') this.set('messages', res);
-      if(group === 'connection') this.set('requests', res);
+      if(group === 'connection') this.set('connection', res);
       if(group === 'views') this.set('views', res);
       if(cb) cb.call();
-      console.log(this.get('views'))
-
+      var url = '/v2/notifications';
+      this.get('ajax').request(url, {
+        method: 'DELETE',
+        data: {
+          group: group
+        }
+      })
     });
   },
 

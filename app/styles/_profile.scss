@@ -39,6 +39,11 @@
 		}
 
 	}
+	.dropdown-arrow{
+		&:after{
+			z-index: 15;
+		}
+	}
 }
 .profile-box{
 	margin: 0 30px;

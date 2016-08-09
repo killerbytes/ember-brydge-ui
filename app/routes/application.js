@@ -35,7 +35,10 @@ export default TransitionToListenerRoute.extend(
       });
     },
     didTransition() {
-      this.get('notification').check();
+
+      this.get('notification').check(); // Check for notifications
+
+
       window.scroll(0,0);
       if (ga) {
         Ember.run.once(this, function() {

@@ -35,10 +35,9 @@ export default Ember.Component.extend(SharePostIndustryPicker, {
   },
 	actions: {
     post(item, cb) {
-      if(!this.get('postContent')) return false;
       var url = this.get('utils').findUrls(this.get('postContent')).get(0)
       var content = this.get('postContent');
-      if(this.get('site.image')){
+      if(this.get('site.title')){
         content = this._removeLink(this.get('postContent'), url);
       }
       // if(this.get('site.title') && url){
@@ -46,11 +45,10 @@ export default Ember.Component.extend(SharePostIndustryPicker, {
       // }
 
       var data = {
-        postContent: content,
+        postContent: content.trim(),
         categories: _.map(this.get('categories'), 'id'),
         site: this.get('site')
       }
-
       this.sendAction('submit', data, ()=>{
         this.toggle('up')
         this.setProperties({

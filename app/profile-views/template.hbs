@@ -15,7 +15,6 @@
     <div class="box">
       <ul class="media-list user">
         {{#each model as |item|}}
-        {{log item}}
           <li>
             <div {{action "selectView" item}} class="padding {{if item.read false 'new-notification'}}">
               <div class="row collapse">

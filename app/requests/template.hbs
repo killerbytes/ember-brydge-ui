@@ -14,26 +14,7 @@
       <ul class="media-list user">
         {{#each requests as |item|}}
         <li>
-          <div class="padding {{if item.read false 'new-notification'}}">
-            <div class="row collapse">
-              <div class="columns medium-8">
-                {{#link-to "profile" item.userid}}
-                <div class="avatar" style={{htmlSafeImage item.avatar }}>
-                  <img src= {{item.avatar}} class="hide">
-                </div>
-                {{/link-to}}
-                <div class="user-info">
-                  {{link-to item.fullName "profile" item.userid }}
-                  <div class="position">{{item.currentTitle}} at {{item.currentCompany}}</div>
-                </div>
-
-              </div>
-              <div class="columns medium-4 actions text-right">
-                <a {{action "accept" item }} class="button button-clear"><i class="fa fa-check-circle-o" aria-hidden="true"></i></a>
-                <a {{action "reject" item }} class="button button-clear"><i class="fa fa-times-circle-o" aria-hidden="true"></i></a>
-              </div>
-            </div>
-          </div>
+          {{request-card item=item}}
         </li>
         {{else}}
           <section>

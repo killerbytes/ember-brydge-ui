@@ -26,5 +26,8 @@ export default DS.Model.extend(Validations, {
 	connection: DS.belongsTo('connection', {async: false}),
 	fullName: Ember.computed('firstName', 'lastName', function(){
 		return this.get('firstName') + ' ' + this.get('lastName');
+	}),
+	career: Ember.computed('currentTitle', 'currentCompany', function(){
+		return this.get('currentCompany') ? this.get('currentTitle') + ' at ' + this.get('currentCompany') : this.get('currentTitle');
 	})
 });
