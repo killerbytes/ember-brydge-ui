@@ -7,8 +7,8 @@ export default Ember.Controller.extend({
 	setting: Ember.computed('model.setting.ask', 'model.setting.profile_view', function(){
 		return this.get('model.setting');
 	}),
-	notification: Ember.computed('model.notification', function(){
-		return this.get('model.notification');
+	notification: Ember.computed('model.notificationSetting', function(){
+		return this.get('model.notificationSetting');
 	}),
   actions: {
     notificationChanged(e){

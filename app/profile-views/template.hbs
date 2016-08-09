@@ -15,6 +15,7 @@
     <div class="box">
       <ul class="media-list user">
         {{#each model as |item|}}
+        {{log item}}
           <li>
             <div {{action "selectView" item}} class="padding {{if item.read false 'new-notification'}}">
               <div class="row collapse">
@@ -26,7 +27,7 @@
                   {{/link-to}}
                   <div class="user-info">
                     {{link-to item.target.profile.fullName "profile" item.target.profile.id class="name"}} viewed your profile
-                    <div class="timestamp">{{ timestamp item.createdAt }}</div>
+                    <div class="timestamp">{{ timestamp item.updatedAt }}</div>
                   </div>
 
                 </div>

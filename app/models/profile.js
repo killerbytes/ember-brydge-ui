@@ -22,7 +22,7 @@ export default DS.Model.extend(Validations, {
 	conversationid: DS.attr(),
 	user: DS.belongsTo('user'),
 	setting: DS.belongsTo('setting', {async: false}),
-	notification: DS.belongsTo('notification', {async: false}),
+	notificationSetting: DS.belongsTo('notificationSetting', {async: false}),
 	connection: DS.belongsTo('connection', {async: false}),
 	fullName: Ember.computed('firstName', 'lastName', function(){
 		return this.get('firstName') + ' ' + this.get('lastName');

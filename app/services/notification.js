@@ -13,6 +13,9 @@ export default Ember.Service.extend({
  //  requestConnections(){
  //    this.set('connectionStore', this.get('store').findAll('connection'))
  //  },
+ check(){
+   console.log('notifications check')
+ },
   checkNotificationCounts(cb) {
     // console.log('checking notifications');
 

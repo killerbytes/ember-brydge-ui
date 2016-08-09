@@ -9,6 +9,7 @@ export default TransitionToListenerRoute.extend(
   ScrollResetMixin,
   HideHeaderMixin,
   ApplicationRouteMixin, {
+  notification: Ember.inject.service(),
   tmp: Ember.inject.service('temp'),
   // beforeModel() {
   //   this._super(...arguments);
@@ -34,6 +35,7 @@ export default TransitionToListenerRoute.extend(
       });
     },
     didTransition() {
+      this.get('notification').check();
       window.scroll(0,0);
       if (ga) {
         Ember.run.once(this, function() {

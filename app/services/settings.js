@@ -14,7 +14,7 @@ export default Ember.Service.extend({
 		return settings.save();
   },
 	updateNotification(key, value){
-		var notification = this.get('sessionAccount.account.profile.notification')
+		var notification = this.get('sessionAccount.account.profile.notificationSetting')
 		notification.setProperties({
 			key: key,
 			value: value
