@@ -6,10 +6,10 @@ export default Ember.Mixin.create({
 	routing: Ember.inject.service(),
 	notification: Ember.inject.service(),
 	sort: ['createdAt:desc'],
-	views: Ember.computed.sort('notification.views', 'sort'),
-	requests: Ember.computed.sort('notification.requests', 'sort'),
-	messages: Ember.computed.sort('notification.messages', 'sort'),
-	notifications: Ember.computed.sort('notification.notifications', 'sort'),
+	views: Ember.computed.sort('notification.view', 'sort'),
+	requests: Ember.computed.sort('notification.request', 'sort'),
+	messages: Ember.computed.sort('notification.message', 'sort'),
+	notifications: Ember.computed.sort('notification.notification', 'sort'),
 	_read(item){
 		item.set('read', true);
 		item.save();
@@ -31,9 +31,12 @@ export default Ember.Mixin.create({
 					this.get('routing').transitionTo('post',targetid, referenceid);
 					break;
 				case 'ask':
-				case 'answer':
 					var referenceid = item.get('referenceid');
 					this.get('routing').transitionTo('me.ask.detail', referenceid);
+					break;
+				case 'answer':
+					var referenceid = item.get('referenceid');
+					this.get('routing').transitionTo('ask.detail', referenceid);
 					break;
 				case 'compliment':
 					var referenceid = item.get('referenceid');

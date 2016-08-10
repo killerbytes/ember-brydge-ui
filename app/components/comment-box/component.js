@@ -11,6 +11,10 @@ export default Ember.Component.extend(ViewCommentsActionMixin,{
 
 		return Math.ceil(this.get('total') / (this.get('limit') * (this.get('page')) )) > 1 ? true: false;
 	}),
+	init(){
+		this._super(...arguments);
+		this.loadComments();
+	},
 	sortProps: ['insertedAt:desc'],
   comments: Ember.computed.sort('post.comments', 'sortProps'),
 	loadComments(){

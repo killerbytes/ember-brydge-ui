@@ -1,7 +1,7 @@
 import Ember from 'ember';
 
 export default Ember.Helper.helper(([date])=>{
-  var today = moment();
+  var today = moment(new Date());
   var date = moment(date);
   var dd = today.diff(date, 'seconds')
   switch(true){
