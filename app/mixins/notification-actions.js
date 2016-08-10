@@ -86,7 +86,7 @@ export default Ember.Mixin.create({
 				connection.save().then(res=>{
 					this._read(item);
 					this.get('routing').transitionTo('profile', item.get('targetid'));
-					this.get('connection').removeObject(item);
+					// this.get('connection').removeObject(item);
 				})
 			})
 		},
@@ -94,7 +94,7 @@ export default Ember.Mixin.create({
 		rejectConnection: function(item) {
 			this.get('store').findRecord('connection', item.get('referenceid')).then(connection=>{
 				this._read(item);
-				this.get('connection').removeObject(item);
+				// this.get('connection').removeObject(item);
 				connection.destroyRecord();
 			})
 		},
