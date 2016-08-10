@@ -9,11 +9,23 @@ export default TransitionToListenerRoute.extend(
   ScrollResetMixin,
   HideHeaderMixin,
   ApplicationRouteMixin, {
+  notification: Ember.inject.service(),
   tmp: Ember.inject.service('temp'),
   // beforeModel() {
   //   this._super(...arguments);
   //   return this.get('sessionAccount.account');
   // },
+  notifier(){
+    this.get('notification').check(()=>{
+      this.start();
+    }); // Check for notifications
+  },
+  start: function(){
+    Ember.run.later(this, ()=>{
+      this.notifier();
+    }, 60000);
+
+  }.on('activate'),
 
   actions: {
     error(error, transition) {

@@ -16,8 +16,6 @@ export default Ember.Component.extend({
     return this.get('profile.id') == this.get('session.data.authenticated.user_id');
   }),
   index: Ember.computed(function(){
-    console.log(getOwner(this).lookup('controller:application'))
-
   	var index;
   	switch( getOwner(this).lookup('controller:application').currentPath ){
   		case 'profile':

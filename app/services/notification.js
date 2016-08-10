@@ -6,7 +6,8 @@ export default Ember.Service.extend({
   check(cb) {
     var url = '/v2/notifications/count';
     this.get('ajax').request(url).then(res=>{
-      this.set('count', res.count)
+      this.set('count', res.count);
+      if(cb) cb.apply();
     })
     .catch((err)=>{
       console.log(err)

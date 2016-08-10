@@ -9,8 +9,9 @@ const Router = Ember.Router.extend({
     if($('.dropdown-pane').length) $('.dropdown-pane').foundation('close');
   },
   didTransition(){
+    this._super(...arguments);
     this.get('notification').check(); // Check for notifications
-  }
+  },
 });
 
 Router.map(function() {
