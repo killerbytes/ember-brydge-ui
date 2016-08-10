@@ -63,22 +63,27 @@ export default Ember.Service.extend({
 
     })
   },
+  releaseCount(group){
+    var url = '/v2/notifications';
+    this.get('ajax').request(url, {
+      method: 'DELETE',
+      data: {
+        group: group
+      }
+    })
 
+  },
   loadNotifications(group, cb) {
+    this.set('count.'+group, 0);
+
     var q = {group:group, limit: 5};
     this.get('store').query('notification', q).then(res=>{
-      if(group === 'general') this.set('notifications', res);
+      if(group === 'notification') this.set('notifications', res);
       if(group === 'message') this.set('messages', res);
-      if(group === 'connection') this.set('connection', res);
-      if(group === 'views') this.set('views', res);
+      if(group === 'request') this.set('requests', res);
+      if(group === 'view') this.set('views', res);
       if(cb) cb.call();
-      var url = '/v2/notifications';
-      this.get('ajax').request(url, {
-        method: 'DELETE',
-        data: {
-          group: group
-        }
-      })
+      this.releaseCount(group);
     });
   },
 

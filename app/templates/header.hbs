@@ -15,7 +15,7 @@
 				<ul class="top-bar-group menu menu-actions wrapper" {{ action "closeTooltip" preventDefault=false }}>
 					<li>
 						{{#zf-tooltip title="Profile Views"  vOffset=7}}
-							<a data-toggle="dd-views" class="dropdown-button-arrow dropdown-button-icons" {{action "open" "views" }}>
+							<a data-toggle="dd-views" class="dropdown-button-arrow dropdown-button-icons" {{action "open" "view" }}>
 								{{#if notification.count.view}}
 									<span class="alert badge">{{notification.count.view}}</span>
 								{{/if}}
@@ -26,7 +26,7 @@
 
 					<li>
 						{{#zf-tooltip title="Connection Requests" vOffset=7}}
-							<a data-toggle="dd-requests" class="dropdown-button-arrow dropdown-button-icons" {{action "open" "connection"}}>
+							<a data-toggle="dd-requests" class="dropdown-button-arrow dropdown-button-icons" {{action "open" "request"}}>
 								{{#if notification.count.request}}
 									<span class="alert badge">{{notification.count.request}}</span>
 								{{/if}}
@@ -48,7 +48,7 @@
 					</li>
 					<li>
 						{{#zf-tooltip title="Notifications" vOffset=7}}
-							<a data-toggle="dd-notification" class="dropdown-button-arrow dropdown-button-icons" {{action "open" "general"}}>
+							<a data-toggle="dd-notification" class="dropdown-button-arrow dropdown-button-icons" {{action "open" "notification"}}>
 									{{#if notification.count.notification }}
 							      <span class="alert badge">{{notification.count.notification}}</span>
 							    {{/if}}
@@ -160,7 +160,7 @@
 				</div>
 		</div>
 		<ul class="media-list user">
-			{{#each connection as |item|}}
+			{{#each requests as |item|}}
 			<li>
 				<div class="padding {{if item.read false 'new-notification'}}">
 					<div class="row collapse">
@@ -201,7 +201,7 @@
 		</div>
 
 		<ul class="media-list user">
-			{{#each notification.messages as |item|}}
+			{{#each messages as |item|}}
 			<li {{action "selectMessage" item}} class="{{if item.read false 'new-notification'}}">
 				{{#link-to "messages.conversation" item.id }}
 					<div class="row collapse">
@@ -242,7 +242,7 @@
 		</div>
 
 	  <ul class="media-list user">
-		  {{#each notification.notifications as |item|}}
+		  {{#each notifications as |item|}}
 		    <li>
 		    	<a {{action "select" item}} class="{{if item.read false 'new-notification'}}">
 						<div class="row columns collapse">

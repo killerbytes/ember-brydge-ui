@@ -1,7 +1,8 @@
 import Ember from 'ember';
 
 export default Ember.Route.extend({
-  session: Ember.inject.service('session'),
+  session: Ember.inject.service(),
+  sessionAccount: Ember.inject.service(),
   connection: Ember.inject.service(),
   notification: Ember.inject.service(),
   compliment: Ember.inject.service(),

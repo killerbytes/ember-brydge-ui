@@ -7,7 +7,9 @@ export default Ember.Mixin.create({
 	notification: Ember.inject.service(),
 	sort: ['createdAt:desc'],
 	views: Ember.computed.sort('notification.views', 'sort'),
-	connection: Ember.computed.sort('notification.connection', 'sort'),
+	requests: Ember.computed.sort('notification.requests', 'sort'),
+	messages: Ember.computed.sort('notification.messages', 'sort'),
+	notifications: Ember.computed.sort('notification.notifications', 'sort'),
 	_read(item){
 		item.set('read', true);
 		item.save();
@@ -26,9 +28,9 @@ export default Ember.Mixin.create({
 					this.get('routing').transitionTo('me.compliments.detail', item.get('referenceid') );
 					break;
 				case 'comment':
-					var threadid = item.get('shortid');
 					var targetid = item.get('targetid');
-					this.get('routing').transitionTo('post',targetid,threadid);
+					var referenceid = item.get('referenceid');
+					this.get('routing').transitionTo('post',targetid,referenceid);
 					break;
 				case 'vote':
 					var threadid = item.get('shortid');
