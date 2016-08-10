@@ -5,7 +5,6 @@
         <img src= {{item.from.profile.avatarUrl}} class="hide">
       </div>
       <div class="user-info">
-        {{log item}}
         <span class="name">
           {{#if isOwner}}
             Asked by {{link-to item.from.profile.fullName "profile" item.from.id}}
@@ -14,7 +13,7 @@
           {{/if}}
         </span>
         <div>
-          {{#link-to "me.ask.details" item.id class="timestamp"}}
+          {{#link-to "me.ask.detail" item.id class="timestamp"}}
             {{timestamp item.answeredAt}}
           {{/link-to}}
         </div>
@@ -22,6 +21,7 @@
     </div>
 
     <div class="content-pad">{{item.question}}</div>
+    {{#unless item.answer}}
     {{#if isOwner}}
       <div class="section-footer-buttons">
         <a {{action "select" item }} class="button success rounded" data-open="answerFormModal">Write Answer</a>
@@ -29,6 +29,7 @@
         <a class="button button-border rounded" data-open={{concat 'dialog-box-' 'flag' item.id}}>Flag</a>
       </div>
     {{/if}}
+    {{/unless}}
   </div>
 </section>
 

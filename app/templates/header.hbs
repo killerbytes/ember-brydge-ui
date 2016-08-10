@@ -203,7 +203,7 @@
 		<ul class="media-list user">
 			{{#each messages as |item|}}
 			<li {{action "selectMessage" item}} class="{{if item.read false 'new-notification'}}">
-				{{#link-to "messages.conversation" item.id }}
+				{{#link-to "messages.conversation" item.referenceid }}
 					<div class="row collapse">
 						<div class="columns medium-8">
 				      <div class="avatar" style={{htmlSafeImage item.target.profile.avatarUrl }}>

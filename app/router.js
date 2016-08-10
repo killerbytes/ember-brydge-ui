@@ -26,7 +26,7 @@ Router.map(function() {
     this.route('ask', {path: '/ask'}, function(){
       this.route('other');
       this.route('inbox');
-      this.route('details',{path: 'details/:id'});
+      this.route('detail',{path: '/:id'});
       this.route('outbox');
       this.route('hidden');
     });
@@ -62,14 +62,14 @@ Router.map(function() {
   this.route('profile', {path: ':username'});
   this.route('ask', {path: ':username/ask'});
   this.route('ask.other', {path: ':id/ask/other'});
-  this.route('ask.details', {path: 'ask/details/:id'});
+  this.route('ask.detail', {path: 'ask/:id'});
 
   this.route('about', {path: ':username/about'});
   this.route('connections', {path: ':username/connections'});
   this.route('compliments', {path: ':userid/compliments'}, function(){
     this.route('posted')
   });
-  this.route('compliments.detail',{path: 'compliments/details/:id'});
+  this.route('compliments.detail',{path: 'compliments/:id'});
   this.route('requests');
   this.route('notifications');
 
