@@ -162,7 +162,7 @@
 		<ul class="media-list user">
 			{{#each requests as |item|}}
 			<li>
-				<div class="padding {{if item.read false 'new-notification'}}">
+				<div class="padding">
 					<div class="row collapse">
 						<div class="columns medium-9">
 				      <div class="avatar" style={{htmlSafeImage item.target.profile.avatarUrl }}>
@@ -202,7 +202,7 @@
 
 		<ul class="media-list user">
 			{{#each messages as |item|}}
-			<li {{action "selectMessage" item}} class="{{if item.read false 'new-notification'}}">
+			<li {{action "read" item}} class="{{if item.read false 'new-notification'}}">
 				{{#link-to "messages.conversation" item.referenceid }}
 					<div class="row collapse">
 						<div class="columns medium-8">
@@ -215,7 +215,7 @@
 				      </div>
 						</div>
 						<div class="columns medium-4 timestamp text-right">
-		          {{ timestamp item.createdAt }}
+		          {{ timestamp item.updatedAt }}
 						</div>
 					</div>
 				{{/link-to}}

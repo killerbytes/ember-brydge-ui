@@ -22,7 +22,6 @@ export default Ember.Mixin.create({
 			this.get('notification').loadNotifications(type);
 		},
 		select: function(item) {
-			console.log(item);
 			switch(item.get('type')){
 				case 'compliment':
 					this.get('routing').transitionTo('me.compliments.detail', item.get('referenceid') );
