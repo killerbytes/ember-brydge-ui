@@ -14,7 +14,7 @@
   <div class="large-7 medium-7 columns">
     <div class="box">
       <ul class="media-list user">
-        {{#each model as |item|}}
+        {{#each list as |item|}}
           <li>
             <a {{action "select" item}} class="plain {{if item.read false 'new-notification'}}">
               <div class="row columns collapse">
