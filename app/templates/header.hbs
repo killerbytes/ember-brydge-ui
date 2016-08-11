@@ -131,9 +131,14 @@
   				</li>
         {{else}}
           <li>
-  					<div class="empty-message">
-  						You have no profile views
-  					</div>
+            <div class="empty-message">
+              {{#if loading.view}}
+                <div class="brydge-loading"></div>
+              {{else}}
+                You have no profile views
+              {{/if}}
+            </div>
+
   				</li>
 				{{/each}}
 
@@ -187,7 +192,13 @@
 			</li>
 			{{else}}
 			<li>
-				<div class="empty-message">No pending connection requests</div>
+        <div class="empty-message">
+          {{#if loading.request}}
+            <div class="brydge-loading"></div>
+          {{else}}
+            No pending connection requests
+          {{/if}}
+        </div>
 			</li>
 			{{/each}}
 		</ul>
@@ -226,9 +237,13 @@
 			</li>
 			{{else}}
 			<li>
-				<div class="empty-message">
-					You have no recent messages
-				</div>
+        <div class="empty-message">
+          {{#if loading.message}}
+            <div class="brydge-loading"></div>
+          {{else}}
+            You have no recent messages
+          {{/if}}
+        </div>
 			</li>
 			{{/each}}
 		</ul>
@@ -266,7 +281,14 @@
 		    </li>
 		  {{else}}
 			  <li>
-			    <div class="empty-message">No new notifications</div>
+          <div class="empty-message">
+            {{#if loading.notification}}
+              <div class="brydge-loading"></div>
+            {{else}}
+              No new notifications
+            {{/if}}
+          </div>
+
 			  </li>
 		  {{/each}}
 	  </ul>

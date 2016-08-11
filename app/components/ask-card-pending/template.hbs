@@ -25,8 +25,8 @@
     {{#if isOwner}}
       <div class="section-footer-buttons">
         <a {{action "select" item }} class="button success rounded" data-open="answerFormModal">Write Answer</a>
-        <a class="button button-border rounded" data-open={{concat 'dialog-box-' 'delete' item.id}}>Delete</a>
-        <a class="button button-border rounded" data-open={{concat 'dialog-box-' 'flag' item.id}}>Flag</a>
+        <a class="button button-border rounded" data-open={{concat 'dialog-box-' 'delete-' item.id}}>Delete</a>
+        <a class="button button-border rounded" data-open={{concat 'dialog-box-' 'flag-' item.id}}>Flag</a>
       </div>
     {{/if}}
     {{/unless}}

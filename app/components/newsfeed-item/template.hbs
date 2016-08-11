@@ -25,9 +25,9 @@
         {{#zf-dropdown id=(concat "dd-post-menu-" post.id) closeOnClick=true class="card-menu-dropdown"}}
           <ul class="menu">
             {{#if isOwner}}
-              <li><a data-open={{concat 'dialog-box-' 'delete' post.id}}>Delete Post</a></li>
+              <li><a data-open={{concat 'dialog-box-' 'delete-' post.id}}>Delete Post</a></li>
             {{else}}
-              <li><a data-open={{concat 'dialog-box-' 'flag' post.id}}>Flag this Post</a></li>
+              <li><a data-open={{concat 'dialog-box-' 'flag-' post.id}}>Flag this Post</a></li>
             {{/if}}
           </ul>
         {{/zf-dropdown}}

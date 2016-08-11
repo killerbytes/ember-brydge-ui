@@ -13,34 +13,6 @@ export default Ember.Service.extend({
       console.log(err)
     })
   },
-
-
-  // checkForNotifications(cb){
-  //   this.get('store').query('notification',{group:'general', limit: 5}).then((res)=>{
-  //     console.log('Received notifications...');
-  //     this.set('notifications', res);
-  //
-  //
-  //     this.get('store').query('notification',{group:'message',limit: 5}).then((res)=>{
-  //       console.log('Received messages...');
-  //       this.set('messages', res);
-  //
-  //       this.get('store').query('notification',{group:'connection',limit: 5, isNew: true}).then((res)=>{
-  //         console.log('Received connections...');
-  //         this.set('requests', res);
-  //
-  //         this.get('store').query('notification',{group:'views',limit: 5}).then((res)=>{
-  //           console.log('Received profile view...');
-  //           this.set('views', res);
-  //           if(cb) cb.call();
-  //         })
-  //
-  //       })
-  //
-  //     })
-  //
-  //   })
-  // },
   releaseCount(group){
     var url = '/v2/notifications';
     this.get('ajax').request(url, {
@@ -49,7 +21,6 @@ export default Ember.Service.extend({
         group: group
       }
     })
-
   },
   loadNotifications(group, cb) {
     this.set(group, []);

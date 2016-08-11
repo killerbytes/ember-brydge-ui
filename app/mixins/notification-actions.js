@@ -6,6 +6,9 @@ export default Ember.Mixin.create({
 	routing: Ember.inject.service(),
 	notification: Ember.inject.service(),
 	sort: ['createdAt:desc'],
+	loading: Ember.computed(function(){
+		return {};
+	}),
 	views: Ember.computed.sort('notification.view', 'sort'),
 	requests: Ember.computed.sort('notification.request', 'sort'),
 	messages: Ember.computed.sort('notification.message', 'sort'),
@@ -19,7 +22,10 @@ export default Ember.Mixin.create({
 			this._read(item);
 		},
 		open(type){
-			this.get('notification').loadNotifications(type);
+			this.set('loading.'+type, true)
+			this.get('notification').loadNotifications(type, ()=>{
+				this.set('loading.'+type, false)
+			});
 		},
 		select: function(item) {
 			switch(item.get('type')){
@@ -53,6 +59,7 @@ export default Ember.Mixin.create({
 			this.get('store').findRecord('connection', item.get('referenceid')).then(connection=>{
 				connection.set('status', 'accepted');
 				connection.save().then(res=>{
+					this.get('requests').removeObject(item);
 					this.get('routing').transitionTo('profile', item.get('targetid'));
 				})
 			})

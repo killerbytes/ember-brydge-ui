@@ -29,7 +29,7 @@
         <li>{{#link-to "connections" profile.id }} {{profile.firstName}}'s connection ({{ activeConnections.length }}){{/link-to}}</li>
           {{#if isConnected }}
           <li>
-              <a class="warning" data-open={{concat 'dialog-box-' 'disconnect' item.id}}>Disconnect from {{profile.firstName}}</a>
+              <a class="warning" data-open={{concat 'dialog-box-' 'disconnect-' profile.id}}>Disconnect from {{profile.firstName}}</a>
           </li>
           {{/if}}
       {{/if}}
@@ -37,4 +37,4 @@
   {{/zf-dropdown}}
 </div>
 
-{{dialog-box name="disconnect" item=item title="Disconnect from Connection" content="Are you sure you want to disconnect this connection?" submit="disconnect"}}
+{{dialog-box name="disconnect" item=profile title="Disconnect from Connection" content="Are you sure you want to disconnect this connection?" submit="disconnect"}}
