@@ -13,14 +13,13 @@ export default Ember.Component.extend({
   	},
     delete(){
       this.get('ask').delete(this.get('item')).then(res=>{
-				this.sendAction("delete");
+				this.sendAction("submit");
 			});
-
     },
 		flag(){
 			console.log('question flagged...');
       this.get('ask').delete(this.get('item')).then(res=>{
-				this.sendAction("delete");
+				this.sendAction("submit");
 			});
     },
   }

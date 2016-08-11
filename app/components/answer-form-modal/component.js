@@ -23,6 +23,7 @@ export default Ember.Component.extend({
 			question.save().then(()=>{
 				this.set('answer', null);
 				$('#answerFormModal').foundation('close');
+				this.sendAction('submit');
 			});
 		}
 	}

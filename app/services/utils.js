@@ -31,21 +31,25 @@ export default Ember.Service.extend({
     // var regexToken = /(?:https?:\/\/)?(?:[\w]+\.)([a-zA-Z\.]{2,6})([\/\w\.-]*)*\/?/g;
     // var regexToken = /((http[s]?|ftp):\/)?\/?([^:\/\s]+)((\/\w+)*\/)([\w\-\.]+[^#?\s]+)(.*)?(#[\w\-]+)?\s+/g;
     // var regexToken = /((http[s]?|ftp):\/)?\/?([^:\/\s]+)((\/\w+)*\/)([\w\-\.]+[^#?\s]+)(#[\w\-]+)?/g;
-    var regexToken = /((?:[a-z][\w-]+:(?:\/{1,3}|[a-z0-9%])|www\d{0,3}[.]|[a-z0-9.\-]+[.][a-z]{2,4}\/)(?:[^\s()<>]+|\(([^\s()<>]+|(\([^\s()<>]+\)))*\))+(?:\(([^\s()<>]+|(\([^\s()<>]+\)))*\)|[^\s]))/g;
+    // var regexToken = /((?:[a-z][\w-]+:(?:\/{1,3}|[a-z0-9%])|www\d{0,3}[.]|[a-z0-9.\-]+[.][a-z]{2,4}\/)(?:[^\s()<>]+|\(([^\s()<>]+|(\([^\s()<>]+\)))*\))+(?:\(([^\s()<>]+|(\([^\s()<>]+\)))*\)|[^\s]))/g;
+    var regexToken = /(?:^|\s)(["'])?(?:(?:(?:(?:https?|ftp|\w):)?\/\/)|(?:www.))(?:\S+(?::\S*)?@)?(?:(?:[1-9]\d?|1\d\d|2[01]\d|22[0-3])(?:\.(?:1?\d{1,2}|2[0-4]\d|25[0-5])){2}(?:\.(?:1\d\d|2[0-4]\d|25[0-4]|[1-9]\d?))|(?:(?:[a-z\u00a1-\uffff0-9]-*)*[a-z\u00a1-\uffff0-9]+)(?:\.(?:[a-z\u00a1-\uffff0-9]-*)*[a-z\u00a1-\uffff0-9]+)*(?:\.(?:[a-z\u00a1-\uffff]{2,})))(?::\d{2,5})?(?:\/\S*)?\1(?:$|\s)/ig;
     // Iterate through any URLs in the text.
     while( (matchArray = regexToken.exec( source )) !== null ){
         var token = matchArray[0];
-        urlArray.push( token );
+        urlArray.push( token.trim() );
     }
     return urlArray;
   },
-  replaceUrls(content){
-    var urls = this.findUrls(content);
-    _.forEach(urls, i=>{
-      content = content.replace(i, '<a href='+i+' target=_blank>'+i+'</a>');
-    })
-    return content;
-  }
+  // replaceUrls(content){
+  //   var urls = this.findUrls(content);
+  //   _.forEach(urls, i=>{
+  //
+  //     var a = "<a href="+i.trim()+" >"+i.trim()+"</a>";
+  //     content = content.replace(i.trim(), a);
+  //     console.log(i)
+  //   })
+  //   return content;
+  // }
 
 
 });

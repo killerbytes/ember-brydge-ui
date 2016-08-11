@@ -61,6 +61,8 @@ export default Ember.Mixin.create({
 		rejectConnection: function(item) {
 			this.get('store').findRecord('connection', item.get('referenceid')).then(connection=>{
 				connection.destroyRecord();
+				this.get('requests').removeObject(item);
+
 			})
 		},
 

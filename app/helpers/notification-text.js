@@ -12,17 +12,17 @@ export default Ember.Helper.helper(function([item]){
 		case 'ask':
 			text = "asked you a question";
 			break;
-		case 'share':
-			text = "shared " + '<strong>' + getContent(item.get('content')) + '</strong>';;
-			break;
 		case 'answer':
 			text = "answered your question";
+			break;
+		case 'share':
+			text = "shared " + '<strong>' + getContent(item.get('content')) + '</strong>';;
 			break;
 		case 'comment':
 			text = "commented on " +  '<strong>' + getContent(item.get('content')) + '</strong>';
 			break;
 		case 'vote':
-			text = "upvoted your broadcast "  + '<strong>' + getContent(item.get('content')) + '</strong>';;
+			text = "upvoted on "  + '<strong>' + getContent(item.get('content')) + '</strong>';;
 			break;
 		case 'accept':
 			text = "accepted your request";
