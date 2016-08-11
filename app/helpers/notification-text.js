@@ -7,7 +7,7 @@ export default Ember.Helper.helper(function([item]){
 	var text;
 	switch(item.get('type')){
 		case 'compliment':
-		 	text = "posted a compliment to you";
+		 	text = "complimented you";
 			break;
 		case 'ask':
 			text = "asked you a question";
@@ -25,7 +25,7 @@ export default Ember.Helper.helper(function([item]){
 			text = "upvoted on "  + '<strong>' + getContent(item.get('content')) + '</strong>';;
 			break;
 		case 'accept':
-			text = "accepted your request";
+			text = "accepted your connection request";
 			break;
 	}
   return text;

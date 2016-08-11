@@ -48,7 +48,9 @@ export default Ember.Component.extend({
   // },
   actions: {
     disconnect(){
-      this.get('profile.connection').destroyRecord();
+      this.get('store').findRecord('connection', this.get('profile.connection.id')).then(res=>{
+        res.destroyRecord();
+      })
     }
   }
 });

@@ -6,6 +6,7 @@ export default DS.Model.extend(Validations, {
 	lastName: DS.attr({defaultValue: ''}),
 	location: DS.attr(),
 	placeid: DS.attr(),
+	isConnected: DS.attr(),
 	industryOneName: DS.attr('string'),
 	industryTwoName: DS.attr('string'),
 	industryThreeName: DS.attr('string'),
@@ -23,7 +24,7 @@ export default DS.Model.extend(Validations, {
 	user: DS.belongsTo('user'),
 	setting: DS.belongsTo('setting', {async: false}),
 	notificationSetting: DS.belongsTo('notificationSetting', {async: false}),
-	connection: DS.belongsTo('connection', {async: false}),
+	connection: DS.belongsTo('connection'),
 	fullName: Ember.computed('firstName', 'lastName', function(){
 		return this.get('firstName') + ' ' + this.get('lastName');
 	}),

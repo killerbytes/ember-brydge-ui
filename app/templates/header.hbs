@@ -17,7 +17,7 @@
 						{{#zf-tooltip title="Profile Views"  vOffset=7}}
 							<a data-toggle="dd-views" class="dropdown-button-arrow dropdown-button-icons" {{action "open" "view" }}>
 								{{#if notification.count.view}}
-									<span class="alert badge" data-toggle="dd-views">{{notification.count.view}}</span>
+									<span class="alert badge">{{notification.count.view}}</span>
 								{{/if}}
 								<i class="icons bino"></i>
 							</a>
@@ -28,7 +28,7 @@
 						{{#zf-tooltip title="Connection Requests" vOffset=7}}
 							<a data-toggle="dd-requests" class="dropdown-button-arrow dropdown-button-icons" {{action "open" "request"}}>
 								{{#if notification.count.request}}
-									<span class="alert badge" data-toggle="dd-requests">{{notification.count.request}}</span>
+									<span class="alert badge">{{notification.count.request}}</span>
 								{{/if}}
 								<i class="icons user"></i>
 							</a>
@@ -124,7 +124,7 @@
 
   							</div>
   							<div class="columns medium-4 timestamp text-right">
-  								{{ timestamp item.createdAt }}
+  								{{ timestamp-views item.createdAt }}
   							</div>
   						</div>
             {{/link-to}}

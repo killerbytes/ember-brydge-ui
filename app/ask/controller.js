@@ -11,7 +11,6 @@ export default Ember.Controller.extend(
   	this.set('canLoadMore', this.get('model.toQuestions.reachedInfinity'));
   }),
   askUserEnabled: Ember.computed('profile.setting.ask', function(){
-    console.log(this.get('profile.setting.ask'));
     return this.get('profile.setting.ask');
   }),
   askEnabled: Ember.computed('sessionAccount.account.profile.setting.ask', function(){

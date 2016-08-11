@@ -12,7 +12,7 @@ export default Ember.Component.extend(AvatarMixin, {
 	isOwner: Ember.computed('profile', function(){
 		return this.get('profile.id') == this.get('session.data.authenticated.user_id');
 	}),
-  connectionStatus: Ember.computed('isConnected', function(){
+  connectionStatus: Ember.computed('isConnected','profile.connection.status', function(){
     return this.get('isConnected') ? true : this.get('profile.connection.status') == 'pending' ? 'Connection Request Sent' : 'Add Connection';
   }),
 	isSender: Ember.computed('profile.connection.requestid', function(){
@@ -45,12 +45,14 @@ export default Ember.Component.extend(AvatarMixin, {
       });
     },
 		accept: function(){
-			var connection = this.get('profile.connection');
-			// var connection = this.get('store').peekRecord('connection', this.get('profile.connection.connectionid'));
-			// console.log(connection)
+			// var connection = this.get('profile.connection');
+			this.get('store').findRecord('connection', this.get('profile.connection.id')).then(res=>{
+				res.set('status', 'accepted');
+				res.save();
+				console.log(res)
+
+			})
 			// return false;
-			connection.set('status', 'accepted')
-			connection.save();
 		},
 
 

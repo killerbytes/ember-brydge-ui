@@ -24,7 +24,6 @@ export default Ember.Service.extend({
   },
   loadNotifications(group, cb) {
     this.set(group, []);
-    if(group != 'request') this.set('count.'+group, 0);
 
     var q = {group:group, limit: 5};
     this.get('store').query('notification', q).then(res=>{
@@ -32,7 +31,10 @@ export default Ember.Service.extend({
       if(group === 'message') this.set('message', res);
       if(group === 'request') this.set('request', res);
       if(group === 'view') this.set('view', res);
+
+      if(group != 'request') this.set('count.'+group, 0);
       if(group != 'request') this.releaseCount(group);
+
       if(cb) cb.call();
     });
   },

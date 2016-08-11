@@ -60,16 +60,17 @@ export default Ember.Mixin.create({
 				connection.set('status', 'accepted');
 				connection.save().then(res=>{
 					this.get('requests').removeObject(item);
-					this.get('routing').transitionTo('profile', item.get('targetid'));
+					this.get('notification').check();
 				})
 			})
 		},
 		//
 		rejectConnection: function(item) {
 			this.get('store').findRecord('connection', item.get('referenceid')).then(connection=>{
-				connection.destroyRecord();
-				this.get('requests').removeObject(item);
-
+				connection.destroyRecord().then(()=>{
+					this.get('requests').removeObject(item);
+					this.get('notification').check();
+				});
 			})
 		},
 
