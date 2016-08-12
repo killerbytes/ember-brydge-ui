@@ -21,7 +21,7 @@ export default DS.Model.extend({
   updatedAt: DS.attr('date'),
   user: DS.belongsTo('user'),
   shared: DS.belongsTo('newsfeed', {inverse: null}),
-  vote: DS.belongsTo('vote',{async: true}),
+  vote: DS.belongsTo('vote'),
   commentCount: DS.attr(),
   comments: DS.hasMany('comment',{async: true}),
   trending: DS.attr('boolean')

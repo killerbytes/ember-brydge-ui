@@ -8,7 +8,7 @@
     {{profile-menu profile=profile connections=connections}}
     {{#if posts}}
       {{newsfeed-list newsfeed=posts profile=model}}
-      {{#brydge-scroller id="newsfeed" model=model onClick="load"}}
+      {{#brydge-scroller id="newsfeed" model=posts onClick="load"}}
         {{#if isLoading}}
           <div class="brydge-loading"></div>
         {{/if}}

@@ -21,10 +21,10 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
     });
 
   },
-  renderTemplate(){
-    this._super();
-    Ember.run.later(()=>{
-      if(!this.get('currentModel.profile.profileComplete.completeness')) $('#dd-info-callout').foundation('open');
-    })
-  }
+  // renderTemplate(){
+  //   this._super();
+  //   Ember.run.later(()=>{
+  //     if(!this.get('currentModel.profile.profileComplete.completeness')) $('#dd-info-callout').foundation('open');
+  //   })
+  // }
 });

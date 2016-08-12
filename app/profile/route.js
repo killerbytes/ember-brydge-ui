@@ -41,6 +41,7 @@ export default Ember.Route.extend(BrydgeScroller, {
         questions: this.store.query('ask',{ userid: userid, per_page: 1, page:1 }),
         // posts: this.store.query('newsfeed',{filter: userid, tab: 'profile'}),
         posts: this.brydgeScroller('newsfeed', {
+          per_page: 5,
           scroller: 'newsfeed',
   				filter: userid,
   				tab: 'profile',

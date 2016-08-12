@@ -14,6 +14,7 @@ export default Ember.Route.extend(
       // posts: this.store.query('newsfeed', {filter: userid, tab: 'profile'}),
       posts: this.brydgeScroller('newsfeed', {
         scroller: 'newsfeed',
+        per_page: 5,
 				filter: userid,
 				tab: 'profile',
 				modelPath: 'controller.model.posts'
