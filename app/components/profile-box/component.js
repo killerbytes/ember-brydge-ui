@@ -6,7 +6,7 @@ export default Ember.Component.extend(AvatarMixin, {
 	classNames: ['profile-box'],
 	connection: Ember.inject.service(),
 	store: Ember.inject.service(),
-  isConnected: Ember.computed('profile.connection.status', function(){
+  isConnected: Ember.computed('profile.connection', function(){
     return this.get('profile.connection.status') == 'accepted' ? true : false;
   }),
 	isOwner: Ember.computed('profile', function(){
