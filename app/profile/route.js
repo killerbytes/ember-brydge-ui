@@ -1,6 +1,7 @@
 import Ember from 'ember';
+import BrydgeScroller from 'web/mixins/brydge-scroller';
 
-export default Ember.Route.extend({
+export default Ember.Route.extend(BrydgeScroller, {
   session: Ember.inject.service(),
   sessionAccount: Ember.inject.service(),
   connection: Ember.inject.service(),
@@ -35,12 +36,17 @@ export default Ember.Route.extend({
         username:  params.username,
         me: this.store.findRecord('profile', ownerid),
         connections: this.store.query('connection',{userid: userid}),
-        //languages: this.store.query('language',{userid: userid}, {reload: true}),
         experiences: this.store.query('experience',{userid: userid}),
         educations: this.store.query('education',{userid: userid}),
-        //interests: this.store.query('interest',{userid: userid}),
         questions: this.store.query('ask',{ userid: userid, per_page: 1, page:1 }),
-        posts: this.store.query('newsfeed',{filter: userid, tab: 'profile'}),
+        // posts: this.store.query('newsfeed',{filter: userid, tab: 'profile'}),
+        posts: this.brydgeScroller('newsfeed', {
+          scroller: 'newsfeed',
+  				filter: userid,
+  				tab: 'profile',
+  				modelPath: 'controller.model.posts'
+  			}),
+
         compliments: this.store.query('compliment',{to: userid, userid: userid})
       });
     // })

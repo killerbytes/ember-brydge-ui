@@ -6,34 +6,36 @@ export default Ember.Mixin.create({
 		page: 1,
 		modelPath: 'controller.model'
 	},
-	brydgeScroller(model, params){
+	scroller: {},
+	brydgeScroller(model, params, el){
 		if(model) this.set('modelName', model);
 		var settings = {}
 		var config = Ember.$.extend(settings, this.get('defaults'), params);
 		if(params){
-			this.set('params', config);
-			this.set('page', 1);
+			if(!this.get(params.scroller)) this.set(params.scroller, {});
+			this.set(params.scroller + '.params', config);
+			this.set(params.scroller + '.page', 1);
 		}else{
-			config = this.get('params');
-			config.page = this.get('page');
+			config = this.get(el+'.params');
+			config.page = this.get(el+'.page');
 		}
 		var _config = Ember.copy(config)
 		delete _config.modelPath;
+		var id = params && params.scroller || el;
 		return this.store.query(this.get('modelName'), _config).then(res=>{
-			this.set('page', this.get('page')+1);
-			this.set('totalPage', res.get('meta.total_pages'));
+			this.set(id + '.page', this.get(id+'.page')+1);
+			this.set(id + '.totalPage', res.get('meta.total_pages'));
 			return res;
 		})
 	},
 	actions: {
-		load(){
-			var infinityReached = this.get('page') > this.get('totalPage');
-			console.log(this.get('controller.isLoading'), this.get('noMoreData'), infinityReached, this.get('page'), this.get('totalPage'))
+		load(el){
+			var infinityReached = this.get(el+'.page') > this.get(el+'.totalPage');
 			if(this.get('controller.isLoading') || this.get('noMoreData') || infinityReached) return false;
 			this.set('controller.isLoading', true);
-			this.brydgeScroller().then(res=>{
+			this.brydgeScroller(null, null, el).then(res=>{
 				this.set('controller.isLoading', false);
-				this.get(this.get('params.modelPath')).pushObjects(res.content);
+				this.get(this.get(el+'.params.modelPath')).pushObjects(res.content);
 				if(res.get('length') == 0) this.set('noMoreData', true);
 			})
 		},

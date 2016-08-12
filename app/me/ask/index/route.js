@@ -17,10 +17,18 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, BrydgeScroller, {
 				status: 'pending',
 			}),
       toQuestions: this.brydgeScroller('ask',{
+				scroller: 'toQuestions',
 				to: userid,
 				status: 'accepted',
 				modelPath: 'controller.model.toQuestions'
 			}),
+			fromQuestions: this.brydgeScroller('ask',{
+				scroller: 'fromQuestions',
+				from: userid,
+				status: 'accepted',
+				modelPath: 'controller.model.fromQuestions'
+			}),
+
     });
 	},
   actions: {

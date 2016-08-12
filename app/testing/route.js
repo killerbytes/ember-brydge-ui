@@ -5,14 +5,15 @@ export default Ember.Route.extend(BrydgeScroller, {
   session: Ember.inject.service(),
   model: function() {
     let userid = this.get('session.data.authenticated.user_id');
-    console.log(userid)
 		return Ember.RSVP.hash({
       toQuestions: this.brydgeScroller('ask',{
+        scroller: 'scroll1',
 				to: userid,
 				status: 'accepted',
 				modelPath: 'controller.model.toQuestions'
 			}),
       fromQuestions: this.brydgeScroller('ask',{
+        scroller: 'scroll2',
 				from: userid,
 				status: 'accepted',
 				modelPath: 'controller.model.fromQuestions'

@@ -28,8 +28,16 @@ export default Ember.Route.extend(
       toQuestions: this.brydgeScroller('ask',{
 				to: userid,
 				status: 'accepted',
-				modelPath: 'controller.model.toQuestions'
+				modelPath: 'controller.model.toQuestions',
+				scroller: 'toQuestions'
 			}),
+			fromQuestions: this.brydgeScroller('ask',{
+				from: userid,
+				status: 'accepted',
+				modelPath: 'controller.model.fromQuestions',
+				scroller: 'fromQuestions'
+			}),
+
     });
 	}
 });

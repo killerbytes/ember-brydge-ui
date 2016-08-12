@@ -10,10 +10,10 @@ export default Ember.Controller.extend(
   //   // console.log(this.get('model.toQuestions.reachedInfinity'))
   //   return this.get('model.toQuestions.reachedInfinity');
   // }),
-  reachedInfinity: Ember.observer('model.toQuestions.reachedInfinity', function() {
-  	this.set('canLoadMore', this.get('model.toQuestions.reachedInfinity'));
-  }),
-
+  // reachedInfinity: Ember.observer('model.toQuestions.reachedInfinity', function() {
+  // 	this.set('canLoadMore', this.get('model.toQuestions.reachedInfinity'));
+  // }),
+  //
 	inbox: Ember.computed.alias('model.inbox'),
   actions: {
     test(){

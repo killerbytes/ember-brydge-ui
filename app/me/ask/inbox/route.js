@@ -6,7 +6,8 @@ export default Ember.Route.extend(BrydgeScroller, {
 	model: function() {
 		return this.brydgeScroller('ask',{
 			to: this.get('session.data.authenticated.user_id'),
-			status: 'pending'
+			status: 'pending',
+			scroller: 'inbox'
 		});
 	},
 });

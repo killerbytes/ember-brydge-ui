@@ -3,6 +3,7 @@ import AuthenticatedRouteMixin from 'ember-simple-auth/mixins/authenticated-rout
 import ENV from 'web/config/environment';
 import FilterDropdownListMixin from 'web/mixins/filter-dropdown-list';
 import ScrollResetMixin from 'web/mixins/scroll-reset';
+import BrydgeScroller from 'web/mixins/brydge-scroller';
 // const {
 //   Component,
 //   computed,
@@ -10,6 +11,7 @@ import ScrollResetMixin from 'web/mixins/scroll-reset';
 // } = Ember;
 
 export default Ember.Route.extend(
+  BrydgeScroller,
   ScrollResetMixin,
   AuthenticatedRouteMixin,
   FilterDropdownListMixin, {
@@ -63,15 +65,24 @@ export default Ember.Route.extend(
         tab = 'curated';
       }
     }
-    var params = {};
+    var params = {
+      scroller: tab,
+      modelPath: 'controller.newsfeed.' + tab
+    };
     if(this.controller.tab) params.tab = tab;
     if(this.controller.channels) params.channels = this.controller.channels;
     if(this.controller.location) params.location = this.controller.location;
+
     if(this.controller.q) params.q = this.controller.q;
-    this.store.query('newsfeed', params).then(res=>{
+    this.brydgeScroller('newsfeed', params).then(res=>{
       this.controller.set('newsfeed.'+ tab, res);
       this.controller.set('isLoading', false);
     })
+
+    // this.store.query('newsfeed', params).then(res=>{
+    //   this.controller.set('newsfeed.'+ tab, res);
+    //   this.controller.set('isLoading', false);
+    // })
   },
   actions: {
 

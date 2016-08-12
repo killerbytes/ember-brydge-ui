@@ -29,32 +29,58 @@
 			</p>
 		</div>
     <div class="mb">
-			<ul id="ask-tabs" class="tab-controls tabs">
-				<li data-tab='live' class="tabs-title is-active">
-					{{link-to "Questions: Answered" "me.ask" }}
-        </li>
-        <li data-tab='curated' class="tabs-title">
-          {{link-to "Questions: Asked" "me.ask.other"}}
-        </li>
-			</ul>
+			{{#zf-tabs id="ask-tabs" class="tab-controls tabs"}}
+	      <li class="tabs-title is-active">
+					<a href="#panel1" aria-selected="true">Questions: Answered</a></li>
+	      <li class="tabs-title">
+					<a href="#panel2">Questions: Asked</a>
+				</li>
+	    {{/zf-tabs}}
 		</div>
 
-		{{#each toQuestions as |item| }}
-			{{ask-card item=item}}
-		{{else}}
-			<div class="box">
-				<section>
-					<div class="empty-message">
-						You haven't answered any questions
+		<div class="tabs-content" data-tabs-content="ask-tabs">
+      <div class="tabs-panel is-active" id="panel1">
+				{{#each toQuestions as |item| }}
+					{{ask-card item=item}}
+				{{else}}
+					<div class="box">
+						<section>
+							<div class="empty-message">
+								You haven't answered any questions
+							</div>
+						</section>
 					</div>
-				</section>
-			</div>
-		{{/each}}
-		{{#brydge-scroller model=toQuestions onClick="load"}}
-      {{#if isLoading}}
-        <div class="brydge-loading"></div>
-      {{/if}}
-    {{/brydge-scroller}}
+				{{/each}}
+				{{#brydge-scroller id="toQuestions" model=toQuestions onClick="load"}}
+		      {{#if isLoading}}
+		        <div class="brydge-loading"></div>
+		      {{/if}}
+		    {{/brydge-scroller}}
+
+      </div>
+      <div class="tabs-panel" id="panel2">
+				{{#each fromQuestions as |item| }}
+					{{ask-card item=item}}
+				{{else}}
+					<div class="box">
+						<section>
+							<div class="empty-message">
+								You haven't asked any questions
+							</div>
+						</section>
+					</div>
+				{{/each}}
+				{{#brydge-scroller id="fromQuestions" model=fromQuestions onClick="load"}}
+		      {{#if isLoading}}
+		        <div class="brydge-loading"></div>
+		      {{/if}}
+		    {{/brydge-scroller}}
+
+      </div>
+    </div>
+
+
+
 
 
   </div>

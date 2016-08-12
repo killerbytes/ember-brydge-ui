@@ -75,6 +75,12 @@
 				<div class="tabs-panel {{active-tab 'live' tab}}" id="live">
 				    {{#if feed_live}}
 					    {{newsfeed-list newsfeed=feed_live }}
+              {{#brydge-scroller id="live" model=feed_live onClick="load"}}
+                {{#if isLoading}}
+                  <div class="brydge-loading"></div>
+                {{/if}}
+              {{/brydge-scroller}}
+
 				    {{else}}
 							{{#if isLoading }}
 								<div class="brydge-loading"></div>
@@ -90,6 +96,11 @@
 				<div class="tabs-panel {{active-tab 'curated' tab}}" id="curated">
 			    {{#if feed_curated}}
 				    {{newsfeed-list newsfeed=feed_curated }}
+            {{#brydge-scroller id="curated" model=feed_curated onClick="load"}}
+              {{#if isLoading}}
+                <div class="brydge-loading"></div>
+              {{/if}}
+            {{/brydge-scroller}}
 			    {{else}}
 						{{#if isLoading }}
 							<div class="loading"></div>
@@ -105,6 +116,11 @@
 				<div class="tabs-panel {{active-tab 'search' tab}}" id="search">
 			    {{#if feed_search}}
 				    {{newsfeed-list newsfeed=feed_search }}
+            {{#brydge-scroller id="search" model=feed_search onClick="load"}}
+              {{#if isLoading}}
+                <div class="brydge-loading"></div>
+              {{/if}}
+            {{/brydge-scroller}}
 			    {{else}}
 						{{#if isLoading }}
 							<div class="brydge-loading"></div>

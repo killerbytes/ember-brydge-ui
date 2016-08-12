@@ -19,7 +19,7 @@
       </div>
     {{/each}}
 
-    {{#brydge-scroller model=model onClick="load"}}
+    {{#brydge-scroller id="outbox" model=model onClick="load"}}
       {{#if isLoading}}
         <div class="brydge-loading"></div>
       {{/if}}
