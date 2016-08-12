@@ -15,11 +15,6 @@
       submit='postFeed' }}
     {{#if posts}}
       {{newsfeed-list newsfeed=newsfeed }}
-      {{#brydge-scroller model=posts onClick="load"}}
-        {{#if isLoading}}
-          <div class="brydge-loading"></div>
-        {{/if}}
-      {{/brydge-scroller}}
 
     {{else}}
       {{#if isLoading }}
