@@ -1,4 +1,3 @@
-{{#if model.image}}
   {{#unless preview}}
     <a href="{{model.url}}" target="_blank">
       <div class="post-image" style={{htmlSafeImage model.image }}>
@@ -11,7 +10,6 @@
     </div>
     <a {{action "removePreview"}} class="x-button fa fa-times"></a>
   {{/unless}}
-{{/if}}
 
 
     {{#unless preview}}

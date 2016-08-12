@@ -28,6 +28,7 @@ export default Ember.Mixin.create({
 	actions: {
 		load(){
 			var infinityReached = this.get('page') > this.get('totalPage');
+			console.log(this.get('controller.isLoading'), this.get('noMoreData'), infinityReached, this.get('page'), this.get('totalPage'))
 			if(this.get('controller.isLoading') || this.get('noMoreData') || infinityReached) return false;
 			this.set('controller.isLoading', true);
 			this.brydgeScroller().then(res=>{

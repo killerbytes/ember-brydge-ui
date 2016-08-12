@@ -16,8 +16,21 @@ export default Ember.Component.extend({
 		})
 	},
 	_checkElementInView(){
-		var pos = this.get('el').getBoundingClientRect();
-		if(pos.top <= this.get('height')) this._loadRecords();
+		// var delay = (()=>{
+		// 	return (callback, ms)=>{
+		// 		clearTimeout(this.get('timer'));
+		// 		this.set('timer', setTimeout(callback, ms))
+		// 	};
+		// })();
+
+		// delay(()=>{
+		if(!Ember.$(this.get('el')).is(':visible')) return false;
+
+			var pos = this.get('el').getBoundingClientRect();
+			console.log(pos.top, this.get('height'), Ember.$(this.get('el')).is(':visible'))
+			if(pos.top <= this.get('height') && Ember.$(this.get('el')).is(':visible')) this._loadRecords();
+		// }, 500)
+
 	},
 	_loadRecords(){
 		this.sendAction('onClick')
