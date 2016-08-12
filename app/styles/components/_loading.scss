@@ -42,4 +42,9 @@ $pulse-duration: 750ms;
     border-style: double;
     border-width: .5rem;
   }
+  &.inline{
+    display: inline-flex;
+    margin-top: 4px;
+    margin-right: 1rem;
+  }
 }

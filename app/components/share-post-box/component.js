@@ -26,10 +26,12 @@ export default Ember.Component.extend(SharePostIndustryPicker, {
     return content.replace(link, "");
   },
   crawl(uri){
+    this.set('isLoading', true);
     var url = "v2/crawl?url=" + uri;
     this.get('ajaxApi').request(url, {
       method: 'GET'
     }).then((res)=>{
+      this.set('isLoading', false);
       this.set('site', res);
     });
   },
@@ -40,9 +42,6 @@ export default Ember.Component.extend(SharePostIndustryPicker, {
       if(this.get('site.title')){
         content = this._removeLink(this.get('postContent'), url);
       }
-      // if(this.get('site.title') && url){
-      //   this.set('postContent', (this.get('postContent').replace(url[0], "")).trim() ) ;
-      // }
 
       var data = {
         postContent: content.trim(),

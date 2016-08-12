@@ -22,7 +22,7 @@ export default Ember.Helper.helper(function([item]){
 			text = "commented on " +  '<strong>' + getContent(item.get('content')) + '</strong>';
 			break;
 		case 'vote':
-			text = "upvoted on "  + '<strong>' + getContent(item.get('content')) + '</strong>';;
+			text = "upvoted "  + '<strong>' + getContent(item.get('content')) + '</strong>';;
 			break;
 		case 'accept':
 			text = "accepted your connection request";
