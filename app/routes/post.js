@@ -9,5 +9,9 @@ export default Ember.Route.extend({
     const userid = params.user_id;
     const newsfeedid = params.newsfeed_id;
     return this.store.findRecord('newsfeed', newsfeedid);
+  },
+  afterModel(model){
+    this._super(...arguments);
+    this.store.findRecord('vote', model.id);
   }
 });
