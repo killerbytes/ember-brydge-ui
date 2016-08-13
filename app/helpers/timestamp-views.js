@@ -10,13 +10,13 @@ export default Ember.Helper.helper(([date])=>{
       return  'Today';
       break;
     case dd < 172800: // < 48 hours
-      return  'Yesterday at ' + date.format("h:mma");
+      return  'Yesterday';
       break;
     default:
       if(today.year() == date.year()){
-        return  date.format("MMMM D [at] h:mma");
+        return  date.format("MMMM D");
       }else{
-        return  date.format("MMMM D, YYYY [at] h:mma");
+        return  date.format("MMMM D, YYYY");
       }
       break;
   }

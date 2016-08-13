@@ -73,9 +73,9 @@
 
 			<div data-tabs-content="newsfeed-tabs">
 				<div class="tabs-panel {{active-tab 'live' tab}}" id="live">
-				    {{#if newsfeed_live}}
-					    {{newsfeed-list newsfeed=newsfeed_live }}
-              {{#brydge-scroller id="live" model=newsfeed_live onClick="load"}}
+				    {{#if feed_live}}
+					    {{newsfeed-list newsfeed=feed_live }}
+              {{#brydge-scroller id="live" model=feed_live onClick="load"}}
                 {{#if isLoading}}
                   <div class="brydge-loading"></div>
                 {{/if}}
@@ -94,9 +94,9 @@
 				    {{/if}}
 				</div>
 				<div class="tabs-panel {{active-tab 'curated' tab}}" id="curated">
-			    {{#if newsfeed.curated}}
-				    {{newsfeed-list newsfeed=newsfeed.curated }}
-            {{#brydge-scroller id="curated" model=newsfeed.curated onClick="load"}}
+			    {{#if feed_curated}}
+				    {{newsfeed-list newsfeed=feed_curated }}
+            {{#brydge-scroller id="curated" model=feed_curated onClick="load"}}
               {{#if isLoading}}
                 <div class="brydge-loading"></div>
               {{/if}}
@@ -114,9 +114,9 @@
 			    {{/if}}
 				</div>
 				<div class="tabs-panel {{active-tab 'search' tab}}" id="search">
-			    {{#if newsfeed.search}}
-				    {{newsfeed-list newsfeed=newsfeed.search }}
-            {{#brydge-scroller id="search" model=newsfeed.search onClick="load"}}
+			    {{#if feed_search}}
+				    {{newsfeed-list newsfeed=feed_search }}
+            {{#brydge-scroller id="search" model=feed_search onClick="load"}}
               {{#if isLoading}}
                 <div class="brydge-loading"></div>
               {{/if}}
