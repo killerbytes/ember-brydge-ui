@@ -10,6 +10,7 @@ const {
 export default Ember.Controller.extend(
   QueryLocationMixin,
   GetIndustryFromCodeMixin, {
+  session: Ember.inject.service(),
   ajax: Ember.inject.service(),
   utils: Ember.inject.service(),
   sharePost: Ember.inject.service(),
@@ -50,13 +51,12 @@ export default Ember.Controller.extend(
   init(){
     getOwner(this).lookup('controller:application').set('header', true);
 
-    // TODO: Need help from Joel here
-    // if (email available already) {
-    //   // then set the doorbellOptions with the email and hide email field
-    //   window.doorbellOptions.email = "test@test.com";
-    //   window.doorbellOptions.hideEmail = true;
-    //   console.log(">>>>", window.doorbellOptions);
-    // }
+    const email = this.get('session.data.authenticated.email') || nil;
+    if (email) {
+      window.doorbellOptions.email = email;
+      window.doorbellOptions.hideEmail = true;
+      // console.log(">>>>", window.doorbellOptions);
+    }
 
   },
   loadNewsfeed(tab, cb){
