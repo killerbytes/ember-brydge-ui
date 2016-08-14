@@ -19,5 +19,6 @@ export default DS.Model.extend({
   }),
   career: Ember.computed('currentTitle', 'currentCompany', function(){
 		return this.get('currentCompany') ? this.get('currentTitle') + ' at ' + this.get('currentCompany') : this.get('currentTitle');
-	})
+	}),
+  isOwner: DS.attr()
 });
