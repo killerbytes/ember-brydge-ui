@@ -49,6 +49,15 @@ export default Ember.Controller.extend(
   q: null,
   init(){
     getOwner(this).lookup('controller:application').set('header', true);
+
+    // TODO: Need help from Joel here
+    // if (email available already) {
+    //   // then set the doorbellOptions with the email and hide email field
+    //   window.doorbellOptions.email = "test@test.com";
+    //   window.doorbellOptions.hideEmail = true;
+    //   console.log(">>>>", window.doorbellOptions);
+    // }
+
   },
   loadNewsfeed(tab, cb){
     var tab = tab ||  this.tab;
