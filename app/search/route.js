@@ -1,8 +1,11 @@
 import Ember from 'ember';
 import AjaxService from 'ember-ajax/services/ajax';
 import QueryLocationMixin from 'web/mixins/query-locations';
+import AuthenticatedRouteMixin from 'ember-simple-auth/mixins/authenticated-route-mixin';
 
-export default Ember.Route.extend(QueryLocationMixin, {
+export default Ember.Route.extend(
+  AuthenticatedRouteMixin,
+  QueryLocationMixin, {
   ajaxApi: Ember.inject.service('ajax-api'),
   resetController(controller, isExiting, transition) {
       if (isExiting) {

@@ -1,6 +1,8 @@
 import Ember from 'ember';
+import AuthenticatedRouteMixin from 'ember-simple-auth/mixins/authenticated-route-mixin';
 
-export default Ember.Route.extend({
+
+export default Ember.Route.extend(AuthenticatedRouteMixin, {
 	model: function() {
     this.store.unloadAll('connection');
 		return this.store.findAll('connection');
@@ -26,7 +28,7 @@ export default Ember.Route.extend({
     		key: null
     	});
     	Ember.run.later(this, function(){
-       Ember.$('#contact-input').focus()    		
+       Ember.$('#contact-input').focus()
      }) ;
     }
   }

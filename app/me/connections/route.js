@@ -1,6 +1,7 @@
 import Ember from 'ember';
+import AuthenticatedRouteMixin from 'ember-simple-auth/mixins/authenticated-route-mixin';
 
-export default Ember.Route.extend({
+export default Ember.Route.extend(AuthenticatedRouteMixin, {
 	model: function() {
 		this.store.unloadAll('connection');
 		return this.store.findAll('connection');
@@ -10,12 +11,12 @@ export default Ember.Route.extend({
  //    let ctx = this;
 
  //    model.pendingListTop = model.pendingList.splice(0,1);
-    
+
  //   	model.acceptedList.forEach(function(item){
 	//     item.get('from').then((user)=>{
-	    	
+
 	//     	if(ctx.get('userid') === user.get('userid')) {
-	//     		item.set('from', item.get('to')); 
+	//     		item.set('from', item.get('to'));
 	//     	}
 	//     })
 	//    });

@@ -3,7 +3,11 @@
     <img src= {{item.avatar}} class="hide">
   </div>
   <div class="user-info">
-    {{link-to item.fullName "profile" item.userid }}
+    {{#if isOwner}}
+      {{link-to item.fullName "profile" session.data.authenticated.user_id }}
+    {{else}}
+      {{link-to item.fullName "profile" item.userid }}
+    {{/if}}
     <div class="position">{{item.currentTitle}}</div>
     <div class="position"><strong>{{item.currentCompany}}</strong></div>
     <div class="position">{{item.location}}</div>

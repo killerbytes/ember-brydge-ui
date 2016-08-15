@@ -1,7 +1,11 @@
 import Ember from 'ember';
 import QueryLocationMixin from 'web/mixins/query-locations';
+import AuthenticatedRouteMixin from 'ember-simple-auth/mixins/authenticated-route-mixin';
 
-export default Ember.Route.extend(QueryLocationMixin, {
+
+export default Ember.Route.extend(
+  AuthenticatedRouteMixin,
+  QueryLocationMixin, {
   session: Ember.inject.service(),
   utils: Ember.inject.service(),
 
