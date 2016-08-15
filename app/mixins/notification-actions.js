@@ -56,9 +56,9 @@ export default Ember.Mixin.create({
 			this._read(item);
 		},
 		acceptConnection: function(item) {
-			this.get('store').findRecord('connection', item.get('referenceid')).then(connection=>{
-				connection.set('status', 'accepted');
-				connection.save().then(res=>{
+			this.get('store').findRecord('connection', item.get('referenceid')).then(res=>{
+				res.set('status', 'accepted');
+				res.save().then(()=>{
 					this.get('requests').removeObject(item);
 					this.get('notification').check();
 				})
@@ -66,7 +66,7 @@ export default Ember.Mixin.create({
 		},
 		//
 		rejectConnection: function(item) {
-			this.get('store').findRecord('connection', item.get('referenceid')).then(connection=>{
+			this.get('store').peekRecord('connection', item.get('referenceid')).then(connection=>{
 				connection.destroyRecord().then(()=>{
 					this.get('requests').removeObject(item);
 					this.get('notification').check();

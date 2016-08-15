@@ -1,7 +1,10 @@
 import Ember from 'ember';
+import AuthenticatedRouteMixin from 'ember-simple-auth/mixins/authenticated-route-mixin';
 import BrydgeScroller from 'web/mixins/brydge-scroller';
 
-export default Ember.Route.extend(BrydgeScroller, {
+export default Ember.Route.extend(
+  AuthenticatedRouteMixin,
+  BrydgeScroller, {
   session: Ember.inject.service(),
   sessionAccount: Ember.inject.service(),
   connection: Ember.inject.service(),
@@ -20,6 +23,7 @@ export default Ember.Route.extend(BrydgeScroller, {
   beforeModel: function(transition) {
     const loggedinUser = this.get('session.data.authenticated');
     this.set('loggedinUser', loggedinUser);
+    if(!loggedinUser.user_id) this.transitionTo('home');
     if (loggedinUser.user_id === transition.params['profile'].username) {
       this.transitionTo('me');
       return;
@@ -54,6 +58,9 @@ export default Ember.Route.extend(BrydgeScroller, {
   },
   afterModel(model){
     this.get('notification').profileView(model.profile)
+  },
+  error() {
+    this.transitionTo('home');
   },
   actions: {
     onClickedConnect (cb) {

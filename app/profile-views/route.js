@@ -1,8 +1,11 @@
 import Ember from 'ember';
+import AuthenticatedRouteMixin from 'ember-simple-auth/mixins/authenticated-route-mixin';
 import NotificationActionsMixin from 'web/mixins/notification-actions';
 
 
-export default Ember.Route.extend(NotificationActionsMixin,{
+export default Ember.Route.extend(
+	AuthenticatedRouteMixin,
+	NotificationActionsMixin,{
 	model(){
     return this.store.query('notification',{group:'view', limit: 9999});
 	},

@@ -20,7 +20,7 @@ export default Ember.Mixin.create({
   sortFrom: ['from:desc'],
   // work: Ember.computed.sort('experiences', 'sortFrom'),
   // academia: Ember.computed.sort('educations', 'sortFrom'),
-  // newsfeed: Ember.computed.sort('posts', 'sortProps'),
+  newsfeed: Ember.computed.sort('posts', 'sortProps'),
   // workHistory: Ember.computed('work', function(){
   //   var work = this.get('work').toArray()
   //   return _.sortBy(work, 'currentCompany', function(i){

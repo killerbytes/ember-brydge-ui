@@ -6,10 +6,10 @@ export default Ember.Component.extend(AvatarMixin, {
 	classNames: ['profile-box'],
 	connection: Ember.inject.service(),
 	store: Ember.inject.service(),
-  isConnected: Ember.computed('profile.connection', function(){
+  isConnected: Ember.computed('profile.connection.status', function(){
     return this.get('profile.connection.status') == 'accepted' ? true : false;
   }),
-	isOwner: Ember.computed('profile', function(){
+	isOwner: Ember.computed('profile.id', function(){
 		return this.get('profile.id') == this.get('session.data.authenticated.user_id');
 	}),
   connectionStatus: Ember.computed('isConnected','profile.connection.status', function(){
@@ -18,7 +18,7 @@ export default Ember.Component.extend(AvatarMixin, {
 	isSender: Ember.computed('profile.connection.requestid', function(){
   	return this.get('profile.connection.requestid') ==  this.get('session.data.authenticated.user_id');
   }),
-  isPending: Ember.computed('profile','isConnected', function(){
+  isPending: Ember.computed('profile.connection.status', function(){
   	return this.get('profile.connection.status') == 'pending' ? true : null;
   }),
   isDisconnected: Ember.computed('connectionStatus', function(){

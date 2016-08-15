@@ -1,8 +1,8 @@
 import Ember from 'ember';
-import AuthenticatedRouteMixin from 'ember-simple-auth/mixins/authenticated-route-mixin';
 import BrydgeScroller from 'web/mixins/brydge-scroller';
 
-export default Ember.Route.extend(AuthenticatedRouteMixin, BrydgeScroller, {
+export default Ember.Route.extend(
+	BrydgeScroller, {
 	session: Ember.inject.service(),
   ask: Ember.inject.service(),
 	model: function() {
