@@ -5,7 +5,7 @@ import ViewCommentsActionMixin from 'web/mixins/view-comments-action';
 export default Ember.Component.extend(ViewCommentsActionMixin,{
 	store: Ember.inject.service(),
 	sessionAccount: Ember.inject.service(),
-	limit: 5, //set default
+	limit: 3, //set default
 	page: 0, //set default
 	isMore: Ember.computed('limit', 'page', function(){
 
