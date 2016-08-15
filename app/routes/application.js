@@ -30,6 +30,13 @@ export default TransitionToListenerRoute.extend(
   actions: {
     error(error, transition) {
       if (error) console.log("Error:", error);
+      var accessToken = this.get('session.data.authenticated.access_token');
+      if(!accessToken) {
+        this.transitionTo('login');
+        this.refresh();
+        return;
+      }
+      console.log("access_token =>", accessToken)
       this.get('tmp').set('retryTransition', transition);
       return true;
       // XXX: TODO Display error notification on page template
