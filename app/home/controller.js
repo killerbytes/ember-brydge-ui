@@ -37,8 +37,8 @@ export default Ember.Controller.extend(
     return this.get('newsfeed.live');
   }),
   feed_live: Ember.computed.sort('newsfeed_live', 'sortProps'),
-  feed_curated: Ember.computed.sort('newsfeed.curated', 'sortProps'),
-  feed_search: Ember.computed.sort('newsfeed.search', 'sortProps'),
+  // feed_curated: Ember.computed.sort('newsfeed.curated', 'sortProps'),
+  // feed_search: Ember.computed.sort('newsfeed.search', 'sortProps'),
   searchContent: Ember.computed('q', function(){
     return this.get('q') || null;
   }),
