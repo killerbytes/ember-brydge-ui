@@ -58,16 +58,18 @@
 </section>
 
 
-<section class="comment-footer">
   {{#if showComments}}
-    <a class="more no-arrow" {{action 'hideComments'}}>
-      Hide comments
-    </a>
+    <section class="comment-footer">
+      <a class="more no-arrow" {{action 'hideComments'}}>
+        Hide comments
+      </a>
+    </section>
   {{else}}
     {{#if total}}
-      <a class="more no-arrow" {{action 'viewComments'}}>
-        View comments
-      </a>
+      <section class="comment-footer">
+        <a class="more no-arrow" {{action 'viewComments'}}>
+          View comments
+        </a>
+      </section>
     {{/if}}
   {{/if}}
-</section>
