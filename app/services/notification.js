@@ -3,6 +3,7 @@ import Ember from 'ember';
 export default Ember.Service.extend({
   store: Ember.inject.service(),
   ajax: Ember.inject.service(),
+  routing: Ember.inject.service(),
   check(cb) {
     var url = '/v2/notifications/count';
     this.get('ajax').request(url).then(res=>{
@@ -11,6 +12,8 @@ export default Ember.Service.extend({
     })
     .catch((err)=>{
       console.log(err)
+      this.get('routing').transitionTo('home');
+      this
     })
   },
   releaseCount(group){
