@@ -12,8 +12,7 @@ export default Ember.Service.extend({
     })
     .catch((err)=>{
       console.log(err)
-      this.get('routing').transitionTo('home');
-      this
+      // this.get('routing').transitionTo('home');
     })
   },
   releaseCount(group){
