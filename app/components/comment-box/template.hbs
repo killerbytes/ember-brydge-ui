@@ -1,59 +1,73 @@
-<form>
-  {{textarea
-    value=commentContent
-    key-up="resize"
-    enter="comment"
-    class="textarea content-editable"
-    placeholder="Write your comment"}}
-</form>
-{{#if post.commentCount}}
-  <div class="comment-group">
-      {{#if showComments}}
-          {{#each comments as |comment|}}
-            <div class="comment-item">
-              <div class="row user">
-                <div class="columns medium-8">
-                  <div class="avatar" style={{htmlSafeImage comment.user.profile.avatarUrl}}>
-                    <img src= {{comment.user.profile.avatarUrl}} class="hide">
-                  </div>
-                  <div class="user-info">
-                    {{#link-to "profile" comment.user.id class="name"}} {{comment.user.profile.fullName}} {{/link-to}}
-                    <div class="position">{{ comment.user.profile.career }}</div>
-                  </div>
-                </div>
-                <div class="column medium-4 text-right">
-                  <div>
-                    <div class="timestamp">{{timestamp comment.insertedAt}}</div>
-                  </div>
-                </div>
-              </div>
-              <div class="comment">
-                {{see-more content=comment.content}}
-              </div>
-            </div>
-          {{/each}}
-      {{/if}}
-      {{#if isLoading}}
-        <div class="loader small"></div>
-      {{/if}}
-
-      <div class="comment-footer">
-        {{#if showComments}}
-          {{#if isMore}}
-            <a class="more no-arrow" {{action 'viewComments'}}>
-              View previous comments
-            </a>
-          {{/if}}
-          <a class="more no-arrow" {{action 'hideComments'}}>
-            Hide comments
-          </a>
-        {{else}}
-          {{#if total}}
-            <a class="more no-arrow" {{action 'viewComments'}}>
-              View comments
-            </a>
-          {{/if}}
-        {{/if}}
-      </div>
-  </div>
+{{#if showComments}}
+  <section class="comment-header">
+    {{#if isMore}}
+      <span class="dot-after">
+      <a class="more no-arrow" {{action 'viewComments'}}>
+        View previous comments
+      </a>
+      </span>
+    {{/if}}
+    <a class="more no-arrow" {{action 'hideComments'}}>
+      Hide comments
+    </a>
+  </section>
 {{/if}}
+
+{{#if showComments}}
+  <section class="comment-group">
+    {{#each comments as |comment|}}
+      <div class="comment-item">
+        <div class="row user">
+          <div class="columns medium-8">
+            <div class="avatar" style={{htmlSafeImage comment.user.profile.avatarUrl}}>
+              <img src= {{comment.user.profile.avatarUrl}} class="hide">
+            </div>
+            <div class="user-info">
+              {{#link-to "profile" comment.user.id class="name"}} {{comment.user.profile.fullName}} {{/link-to}}
+              <div class="position">{{ comment.user.profile.career }}</div>
+            </div>
+          </div>
+          <div class="column medium-4 text-right">
+            <div>
+              <div class="timestamp">{{timestamp comment.insertedAt}}</div>
+            </div>
+          </div>
+        </div>
+        <div class="comment">
+          {{see-more content=comment.content}}
+        </div>
+      </div>
+    {{/each}}
+  </section>
+{{/if}}
+{{#if isLoading}}
+  <section class="comment-group">
+    <div class="loader small"></div>
+  </section>
+{{/if}}
+
+<section>
+  <form>
+    {{textarea
+      value=commentContent
+      key-up="resize"
+      enter="comment"
+      class="textarea content-editable"
+      placeholder="Write your comment"}}
+  </form>
+</section>
+
+
+<section class="comment-footer">
+  {{#if showComments}}
+    <a class="more no-arrow" {{action 'hideComments'}}>
+      Hide comments
+    </a>
+  {{else}}
+    {{#if total}}
+      <a class="more no-arrow" {{action 'viewComments'}}>
+        View comments
+      </a>
+    {{/if}}
+  {{/if}}
+</section>

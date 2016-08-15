@@ -133,7 +133,13 @@
 			padding-left: 40px;
 			font-size: 11px;
 		}
+		.comment-header{
+			padding-bottom: 1rem;
+			max-resolution: 1rem;
+			border-bottom: 1px solid $border-color;
+		}
 		.comment-footer{
+			padding-top: 1rem;
 			// a{
 			// 	color: $text-light;
 			// }
