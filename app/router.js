@@ -75,7 +75,6 @@ Router.map(function() {
   this.route('search');
   this.route('user-guide');
   this.route('help');
-  this.route('feedback');
   this.route('terms-of-use');
   this.route('privacy-policy');
   this.route("thank-you");
