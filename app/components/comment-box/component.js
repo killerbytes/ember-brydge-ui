@@ -15,7 +15,7 @@ export default Ember.Component.extend(ViewCommentsActionMixin,{
 		this._super(...arguments);
 		if(this.get('expanded')) this.loadComments();
 	},
-	sortProps: ['insertedAt:desc'],
+	sortProps: ['insertedAt:asc'],
   comments: Ember.computed.sort('post.comments', 'sortProps'),
 	loadComments(){
 			this.set('isLoading', true);
