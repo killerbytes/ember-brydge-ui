@@ -54,8 +54,12 @@ export default TransitionToListenerRoute.extend(
     },
     didTransition() {
 
+      $('.reveal-overlay').each(function(){ //reset foundation reveal overlay
+        $(this).hide();
+      })
 
-      window.scroll(0,0);
+      window.scroll(0,0); //reset scroll position
+
       if (ga) {
         Ember.run.once(this, function() {
           ga('send', 'pageview',
