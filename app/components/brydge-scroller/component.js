@@ -7,7 +7,7 @@ export default Ember.Component.extend({
 		window.removeEventListener('resize', ()=>{
 			this.onResize();
 		});
-		Ember.$(document).on('scroll');
+		// Ember.$(document).on('scroll');
 		this.set('timer', null);
 	},
 	didInsertElement(){
@@ -40,8 +40,8 @@ export default Ember.Component.extend({
 	},
 	_checkElementInView(){
 		if(!Ember.$(this.get('el')).is(':visible')) return false;
-
 		var pos = this.get('el').getBoundingClientRect();
+
 		if(pos.top <= this.get('height') && Ember.$(this.get('el')).is(':visible')) this._loadRecords(this.get('el.id'));
 
 	},

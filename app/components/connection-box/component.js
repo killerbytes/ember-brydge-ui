@@ -11,6 +11,7 @@ export default Ember.Component.extend({
 		return this.get('item.friend.status') == 'pending';
 	}),
 	isOwner: Ember.computed('item.userid', function(){
+		console.log(this.get('item'))
 		console.log("userid =>", this.get('item.userid'))
 		console.log("authenticated =>", this.get('session.data.authenticated.user_id'))
 		return this.get('item.userid') == this.get('session.data.authenticated.user_id');

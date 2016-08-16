@@ -3,7 +3,7 @@
     <img src= {{item.avatar}} class="hide">
   </div>
   <div class="user-info">
-    {{#if isOwner}}
+    {{#if item.isOwner}}
       {{link-to item.fullName "profile" session.data.authenticated.user_id }}
     {{else}}
       {{link-to item.fullName "profile" item.userid }}

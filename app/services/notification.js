@@ -2,17 +2,20 @@ import Ember from 'ember';
 
 export default Ember.Service.extend({
   store: Ember.inject.service(),
+  session: Ember.inject.service(),
   ajax: Ember.inject.service(),
   routing: Ember.inject.service(),
   check(cb) {
     var url = '/v2/notifications/count';
+    const authToken = this.get('session.data.authenticated.access_token');
+    if(!authToken) return false;
+
     this.get('ajax').request(url).then(res=>{
       this.set('count', res.count);
       if(cb) cb.apply();
     })
     .catch((err)=>{
       console.log(err)
-      // this.get('routing').transitionTo('home');
     })
   },
   releaseCount(group){
