@@ -1,6 +1,6 @@
 <section class="user">
   <div class="row">
-    <div class="columns medium-8">
+    <div class="columns medium-9">
       <div class="avatar" style={{htmlSafeImage post.user.profile.avatarUrl }}>
         <img src= {{post.user.profile.avatarUrl}} class="hide">
       </div>
@@ -19,7 +19,7 @@
         <div class="position">{{post.user.profile.currentTitle}} {{#if post.user.profile.currentCompany}} at {{post.user.profile.currentCompany}}{{/if}}</div>
       </div>
     </div>
-    <div class="columns medium-4 text-right">
+    <div class="columns medium-3 text-right">
       {{#unless shared }}
         <a class="button dropdown-button-arrow button-ellipsis" data-toggle="dd-post-menu-{{post.id}}"></a>
         {{#zf-dropdown id=(concat "dd-post-menu-" post.id) closeOnClick=true class="card-menu-dropdown"}}

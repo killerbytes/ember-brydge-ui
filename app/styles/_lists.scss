@@ -17,7 +17,7 @@ ul.media-list{
       font-size: 22px;
       color: $text-gray;
     }
-    .fa-check-circle-o{
+    .fa-check-circle{
       color: $brydge-blue;
     }
   }
@@ -26,7 +26,7 @@ ul.media-list{
 ul.user-link-list{
   li{
     border-bottom: 1px solid $border-color;
-  } 
+  }
   li>a{
     padding: 1rem;
     display: block;
@@ -60,7 +60,7 @@ ul.messages-list{
 //   }
 //   .warning{
 //     color: $text-orange;
-//   }  
+//   }
 // }
 
 // ul.list-inline{
@@ -96,12 +96,12 @@ ul.messages-list{
 //     .button:not(:last-child){
 //       margin-bottom: 3px;
 //     }
-//   }  
+//   }
 // }
 
 // ul.list-lined{
 //   >li:not(:last-child){
-//     border-bottom: 1px solid $border-color;   
+//     border-bottom: 1px solid $border-color;
 //   }
 
 // }
@@ -151,7 +151,7 @@ ul.messages-list{
 // .menu-media-list{
 //   @extend .menu-list;
 //   li:not(:last-child){
-//     border-bottom: 1px solid $border-color;        
+//     border-bottom: 1px solid $border-color;
 //   }
 //   li>a{
 //     display: block;
@@ -219,4 +219,3 @@ ul.messages-list{
 //   }
 
 // }
-
