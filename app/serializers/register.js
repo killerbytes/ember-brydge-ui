@@ -13,6 +13,7 @@ export default DS.JSONAPISerializer.extend({
         last_name: json.data.attributes.last_name,
         gender: json.data.attributes.gender,
         dob: json.data.attributes.dob,
+        placeid: json.data.attributes.placeid,
         location: json.data.attributes.location
       }
     };
