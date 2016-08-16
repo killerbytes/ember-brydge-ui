@@ -100,11 +100,7 @@
 		<div class="dropdown-header">
 			<h4>See who's viewed your profile</h4>
       <div>
-			{{#if settings.profileView}}
-        Toggling this ON will also notify other users when you view their profiles. If you don’t like that, you can toggle it OFF in {{link-to "Settings" "settings" (query-params tab="views") }}.
-			{{else}}
-        Toggling this ON will also notify other users when you view their profiles. If you don’t like that, you can toggle it ON in {{link-to "Settings" "settings" (query-params tab="views") }}.
-			{{/if}}
+        You can turn this ON or OFF in {{link-to "Settings" "settings" (query-params tab="views")}}.
       </div>
 		</div>
 		<ul class="media-list user">
@@ -256,7 +252,7 @@
 		<div class="dropdown-header">
 			<h4>Your Notifications</h4>
 				<div>
-          Get updates on your interaction with connections and users who interact with your post.
+          Get updates on your interaction with other users on Brydge.
 				</div>
 		</div>
 

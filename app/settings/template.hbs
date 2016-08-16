@@ -3,7 +3,7 @@
     <div class="page-heading">
       <h1>Settings</h1>
       <p class="text-center">
-        Stay in control! Use these settings to manage your account and control your notification frequency.
+        Stay in control! Use these settings to manage your account.
       </p>
     </div>
   </div>
@@ -39,7 +39,7 @@
                   <form class="brydge-form">
                     <div class="row columns">
                       <label>Current email: <a>{{model.user.email}}</a></label>
-                      <p>Email cannot be changed during the BETA. We will inform you when you can. Sorry for the inconvenience.</p>
+                      <p>Email cannot be changed in the BETA version. Sorry for the inconvenience.</p>
                     </div>
                   </form>
                 </section>
@@ -53,6 +53,7 @@
               </div>
               <div class="tabs-panel {{active-tab 'notification' tab}}" id="notification">
                 <section class="header">
+                  <p>Email notifications are not available in the BETA version. Sorry for the inconvenience.</p>
                   {{partial "partials/table-notification-settings"}}
                 </section>
               </div>
@@ -76,9 +77,7 @@
                     </div>
                   </div>
                   <p class="text-center">
-                    By turning ASK off, you are blocking anyone from asking you questions. <br>
-                    It will also disable you from asking questions.
-
+                    Turning Ask OFF will disable you from asking questions as well.
                   </p>
                 </section>
               </div>
@@ -93,7 +92,7 @@
                     <label class="middle">ON</label>
                   </div>
                   <p class="text-center">
-                    Turning this ON will also let other users know you've seen their profile.
+                    Turning Profile Views ON will also let other users know you have visited their profile.
                   </p>
                 </section>
               </div>

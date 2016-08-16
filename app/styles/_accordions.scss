@@ -166,25 +166,17 @@
 		font-weight: bold;
 		text-align: center;
 	}
-	li.accordion-item:nth-child(5n+1) .accordion-title{
-		background-color: #cec9c9;
-		color: #FFF;
-	}
-	li.accordion-item:nth-child(5n+2) .accordion-title{
-		background-color: #ff5959;
-		color: #FFF;
-	}
-	li.accordion-item:nth-child(5n+3) .accordion-title{
-		background-color: #003a6f;
-		color: #FFF;
-	}
-	li.accordion-item:nth-child(5n+4) .accordion-title{
+	li.accordion-item:nth-child(1n) .accordion-title{
 		background-color: #6ec5e9;
 		color: #FFF;
 	}
-	li.accordion-item:nth-child(5n+5) .accordion-title{
-		background-color: #ffc56c;
+	li.accordion-item:nth-child(2n) .accordion-title{
+		background-color: #cec9c9;//#ffc56c;
 		color: #FFF;
+	}
+	.accordion-content{
+		padding: 2rem 3rem;
+		font-size: 15px;
 	}
 
 }
