@@ -10,7 +10,7 @@ export default Ember.Mixin.create({
         contentType: false,
         processData: false,
       }).then((res)=>{
-        // this.get('profile').set('avatarUrl',res.data.attributes.avatar_url);
+        this.set('profile.avatarUrl',res.data.attributes.avatar_url);
       })
     }
   }

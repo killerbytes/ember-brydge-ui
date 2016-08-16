@@ -9,18 +9,17 @@ export default Ember.Component.extend({
  	method: "POST",
  	enctype: "multipart/form-data",
 	_fileChanged: function(evt) {
-		console.log('file change', evt.target.files[0]);
 		var _this = this;
 
 		var form = this.$()[0]; // You need to use standart javascript object here
 		var formData = new FormData(form);
-		
+
 
 		var oFReader = new FileReader();
 	  oFReader.readAsDataURL(evt.target.files[0]);
 
 	  oFReader.onload = function(oFREvent) {
-	  	_this.set('logoUrl',oFREvent.target.result);
+	  	// _this.set('logoUrl',oFREvent.target.result);
 	  	_this.sendAction('fileLoaded', formData);
 	  };
 	},

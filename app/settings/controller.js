@@ -23,22 +23,22 @@ export default Ember.Controller.extend({
 			switch(el.name){
 				case 'ask':
 					this.set('title', "Turn Ask "+ (el.checked ? "ON" : "OFF"));
-					this.set('content', "You are turning ask " + (el.checked ? "ON" : "OFF"));
+					this.set('description', "You are turning ask " + (el.checked ? "ON" : "OFF"));
 					break;
 				case 'profile_view':
 					this.set('title', "Turn Profile Views " + (el.checked ? "ON" : "OFF"));
-					this.set('content', "You are turning Profile Views " + (el.checked ? "ON" : "OFF"));
+					this.set('description', "You are turning Profile Views " + (el.checked ? "ON" : "OFF"));
 					break;
 			}
       this.get('settings').update(e.currentTarget.name, e.currentTarget.checked).then(res=>{
 				this.set('setting', res);
-				Ember.$('#dialog-box-confirm').foundation('open');
+				Ember.$('#dialog-box-confirm-'+ this.get('setting.id')).foundation('open');
 			});
     },
-		confirm(data){
-			this.setProperties(data);
-			Ember.$('#dialog-box-confirm').foundation('open');
-		}
+		// confirm(data){
+		// 	this.setProperties(data);
+		// 	Ember.$('#dialog-box-confirm-'+ this.get('model.id')).foundation('open');
+		// }
   }
 
 });

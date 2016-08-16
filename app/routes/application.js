@@ -1,10 +1,9 @@
 import Ember from 'ember';
 import ApplicationRouteMixin from 'ember-simple-auth/mixins/application-route-mixin';
-import ENV from 'web/config/environment';
+import ENV from '../config/environment';
 import TransitionToListenerRoute from 'ember-cli-routing-service/routes/transition-to-listener';
 import HideHeaderMixin from 'web/mixins/hide-header';
 import ScrollResetMixin from 'web/mixins/scroll-reset';
-
 export default TransitionToListenerRoute.extend(
   ScrollResetMixin,
   HideHeaderMixin,
@@ -21,6 +20,7 @@ export default TransitionToListenerRoute.extend(
     }); // Check for notifications
   },
   start: function(){
+    console.log('start', ENV.environment)
     Ember.run.later(this, ()=>{
       this.notifier();
     }, 60000);
