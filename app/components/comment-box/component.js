@@ -13,7 +13,7 @@ export default Ember.Component.extend(ViewCommentsActionMixin,{
 	}),
 	init(){
 		this._super(...arguments);
-		if(this.get('expanded')) this.loadComments();
+		if(this.get('expanded') && this.get('total')) this.loadComments();
 	},
 	sortProps: ['insertedAt:asc'],
   comments: Ember.computed.sort('post.comments', 'sortProps'),

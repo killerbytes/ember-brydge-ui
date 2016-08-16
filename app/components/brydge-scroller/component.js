@@ -7,7 +7,6 @@ export default Ember.Component.extend({
 		window.removeEventListener('resize', ()=>{
 			this.onResize();
 		});
-		// Ember.$(document).on('scroll');
 		this.set('timer', null);
 	},
 	didInsertElement(){

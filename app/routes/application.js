@@ -54,12 +54,6 @@ export default TransitionToListenerRoute.extend(
     },
     didTransition() {
 
-      $('.reveal-overlay').each(function(){ //reset foundation reveal overlay
-        $(this).hide();
-      })
-
-      window.scroll(0,0); //reset scroll position
-
       if (ga) {
         Ember.run.once(this, function() {
           ga('send', 'pageview',
@@ -68,58 +62,16 @@ export default TransitionToListenerRoute.extend(
         });
       }
     },
-    // registerUser(data) {
-    //   console.log(" >>>> application:route:registeruser:data", data);
-    //   const self = this;
-    //   this.controller.set('errorMessage', 'mmm');
-    //   return;
-    //   this.store.createRecord('user', data).save()
-    //     .then(function(res) {
-    //
-    //       let { username, password } = res.getProperties('username', 'password');
-    //
-    //       const _this = this;
-    //       self.get('session').authenticate('authenticator:oauth2', username, password)
-    //         .then((user) => {
-    //           const userid = self.get('session.data.authenticated.account_id');
-    //           const name = self.get('session.data.authenticated.name');
-    //           self.get('session').set('data.userid', userid);
-    //           self.get('session').set('data.name', name);
-    //           self.transitionTo('me');
-    //         },
-    //       (err) => {
-    //       this.set('errorMessage', err.errors[0].details);
-    //       // console.log(err, this.get('errorMessage'));
-    //       });
-    //
-    //     }).catch(function(err) {
-    //       console.log("Error saving user:", err);
-    //     });
-    // },
     authorizationFailed() {
       console.log("TODO >>>>> application:route:authorizationFailed", this);
     },
-    // postToNewsfeed(data) {
-    //   console.log(">>>> Posting to newsfeed", {
-    //     content: data
-    //   });
-    //   this.store.createRecord('post', {
-    //     content: data
-    //   }).save().
-    //   then((res) => {
-    //     console.log("Posted, should refresh newsfeed, ", res);
+    willTransition(){
+      $('.reveal-overlay').each(function(){ //reset foundation reveal overlay
+        $(this).hide();
+      });
+      $('body').removeClass('is-reveal-open');
 
-    //     this.refresh();
-    //     // this.controller.get('model').reload();
-
-
-    //   }).catch((err) => {
-    //     console.log("Error posting to newsfeed:", err);
-    //   });
-    // }
+      window.scroll(0,0);
+    }
   }
-  // ,
-  // sessionAuthenticated() {
-  //   console.log("*** authenticationSucceeded");
-  // }
 });
