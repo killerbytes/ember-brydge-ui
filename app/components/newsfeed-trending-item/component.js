@@ -10,6 +10,9 @@ export default Ember.Component.extend({
 		return title.length > 100 ? title.substr(0, 100) + ' ...' : title;
 	}),
 	disabled: false,
+  willDestroyElement(){
+    if(this.$('.has-tip').length != 0) this.$('.has-tip').foundation('destroy');
+	},
 	actions: {
 		vote(type){
 			let post = this.get('post');

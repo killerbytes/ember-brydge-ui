@@ -4,6 +4,9 @@ import SharePostIndustryPicker from 'web/mixins/share-post-industry-picker';
 export default Ember.Component.extend(SharePostIndustryPicker, {
 	sessionAccount: Ember.inject.service(),
 	sharePost: Ember.inject.service(),
+	willDestroyElement(){
+		$('#sharePostModal').parent().remove();
+	},
 	title: Ember.computed('post.title', function(){
 		let title = this.get('post.title');
 		if(!title) return false;

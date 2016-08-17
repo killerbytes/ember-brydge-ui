@@ -1,6 +1,9 @@
 import Ember from 'ember';
 
 export default Ember.Component.extend({
+	willDestroyElement(){
+    if(this.$('.has-tip').length != 0) this.$('.has-tip').foundation('destroy');
+	},
 	actions: {
 		close(){
 			this.$('.industry-picker').foundation('toggle');

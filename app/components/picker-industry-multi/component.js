@@ -1,6 +1,9 @@
 import Ember from 'ember';
 
 export default Ember.Component.extend({
+	willDestroyElement(){
+    if(this.$('.has-tip').length != 0) this.$('.has-tip').foundation('destroy');
+	},
 	limit: 10,
 	cap: Ember.computed('selected.length', function(){
 		return this.get('selected').length >= this.get('limit') ;

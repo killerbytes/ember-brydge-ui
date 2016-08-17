@@ -12,7 +12,7 @@ export default Ember.Component.extend({
 		return this.get('post.userid') == this.get('sessionAccount.account.profile.id');
 	}),
   willDestroyElement(){
-    // this.$('.has-tip').foundation('destroy');
+    if(this.$('.has-tip').length != 0) this.$('.has-tip').foundation('destroy');
 	},
 
 	actions: {

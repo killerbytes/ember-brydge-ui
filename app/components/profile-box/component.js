@@ -6,6 +6,9 @@ export default Ember.Component.extend(AvatarMixin, {
 	classNames: ['profile-box'],
 	connection: Ember.inject.service(),
 	store: Ember.inject.service(),
+	willDestroyElement(){
+    if(this.$('.has-tip').length != 0) this.$('.has-tip').foundation('destroy');
+	},
   isConnected: Ember.computed('profile.connection.status', function(){
     return this.get('profile.connection.status') == 'accepted' ? true : false;
   }),
@@ -27,12 +30,12 @@ export default Ember.Component.extend(AvatarMixin, {
   isNotEmptyTitleCompany: Ember.computed('profile.currentTitle', 'profile.currentCompany', function(){
     return this.get('profile.currentTitle') ? true : false && this.get('profile.currentCompany') ? true : false;
   }),
-	init(){
-    this._super();
-    this.get('store').query('connection',{userid: this.get('profile.id') }).then(res=>{
-      this.set('connections', res);
-    })
-  },
+	// init(){
+    // this._super();
+    // this.get('store').query('connection',{userid: this.get('profile.id') }).then(res=>{
+    //   this.set('connections', res);
+    // })
+  // },
   actions: {
     connect (cb) {
       var userid = this.get('profile.id');

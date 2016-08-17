@@ -4,8 +4,6 @@ import AuthenticatedRouteMixin from 'ember-simple-auth/mixins/authenticated-rout
 export default Ember.Route.extend(AuthenticatedRouteMixin, {
   model() {
     let userid = this.get('session.data.authenticated.user_id');
-    // let userid = '3ze5n8glm6b'
-    // return this.store.findRecord('profile', userid, {reload: true});
     this.store.unloadAll('language');
     this.store.unloadAll('experience');
     this.store.unloadAll('education');

@@ -13,11 +13,8 @@ export default Ember.Route.extend(
   },
   model() {
     let userid = this.get('session.data.authenticated.user_id');
-    // let userid = '3ze5n8glm6b'
-    // return this.store.findRecord('profile', userid, {reload: true});
     return Ember.RSVP.hash({
       profile: this.store.findRecord('profile', userid),
-      // posts: this.store.query('newsfeed', {filter: userid, tab: 'profile'}),
       posts: this.brydgeScroller('newsfeed', {
         scroller: 'newsfeed',
         per_page: 15,
@@ -28,7 +25,7 @@ export default Ember.Route.extend(
 
       questions: this.store.query('ask', {userid: userid}),
       compliments: this.store.query('compliment', {to: userid, page:1, per_page: 1}),
-      connections: this.store.query('connection',{userid: userid}),
+      connections: this.store.query('connection',{userid: userid})
     });
   }
 
