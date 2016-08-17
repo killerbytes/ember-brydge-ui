@@ -21,9 +21,9 @@ module.exports = function(environment) {
       'font-src': "'self' * fonts.gstatic.com https://fonts.googleapis.com",
       'img-src': "'self' * www.google-analytics.com placeholdit.imgix.net placehold.it s3.amazonaws.com data:",
       'style-src': "'self' fonts.gstatic.com 'unsafe-inline' https://fonts.googleapis.com https://embed.doorbell.io",
-      'connect-src': "'self' localhost:8000 localhost:8080 * https://api.brydge.com https://embed.doorbell.io",
+      'connect-src': "'self' localhost:8000 localhost:8080 * https://api.brydge.com https://api.brydge.me https://embed.doorbell.io",
       'document-uri': "'self'",
-      'script-src':  "'self' 'unsafe-inline' 'unsafe-eval' api.brydge.com www.google-analytics.com https://fonts.googleapis.com www.google-analytics.com/analytics.js https://maps.googleapis.com https://embed.doorbell.io"
+      'script-src':  "'self' 'unsafe-inline' 'unsafe-eval' api.brydge.com api.brydge.me www.google-analytics.com https://fonts.googleapis.com www.google-analytics.com/analytics.js https://maps.googleapis.com https://embed.doorbell.io"
     },
     'ember-simple-auth':{
       serverTokenRevocationEndpoint: 'revoke',
@@ -66,6 +66,13 @@ module.exports = function(environment) {
 
     ENV.APP.rootElement = '#ember-testing';
 
+  }
+
+  if (environment === "staging") {
+    ENV['ember-simple-auth'] = {
+      serverTokenEndpoint: '//api.brydge.me/v2/token',
+      authorizerHost: '//api.brydge.me'
+    }
   }
 
   if (environment === 'production') {
