@@ -67,7 +67,7 @@ export default Ember.Route.extend(
     }
     var params = {
       scroller: tab,
-      per_page: 1,
+      per_page: 15,
       modelPath: 'controller.newsfeed.' + tab
     };
     if(this.controller.tab) params.tab = tab;
