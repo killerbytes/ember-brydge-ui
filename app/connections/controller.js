@@ -5,12 +5,12 @@ export default Ember.Controller.extend({
   tab: 'tab_1',
   profile: Ember.computed.alias('model.profile'),
   list: Ember.computed.alias('model.list'),
-  mutual: Ember.computed.alias('model.mutual'),
-  mutual_connections: Ember.computed('model.mutual.@each', 'key', function(){
+  mutual: Ember.computed.filterBy('model.mutual', 'friend.status', 'accepted'),
+  mutual_connections: Ember.computed('mutual.@each', 'key', function(){
     let query = this.get('key');
-    if(!query) return this.get('model.mutual').filterBy('status','accepted');
+    if(!query) return this.get('mutual');
     var fields = ['firstName', 'lastName'];
-    return this.get('model.mutual').filter(function(item){
+    return this.get('mutual').filter(function(item){
       var found = false;
       _.forEach(fields, function(key) {
         found = item.get(key).toLowerCase().indexOf(query.toLowerCase()) >= 0 ? true : false;
