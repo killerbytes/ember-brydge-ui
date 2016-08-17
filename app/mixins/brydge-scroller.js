@@ -15,6 +15,7 @@ export default Ember.Mixin.create({
 			if(!this.get(params.scroller)) this.set(params.scroller, {});
 			this.set(params.scroller + '.params', config);
 			this.set(params.scroller + '.page', 1);
+			this.set(params.scroller + '.noMoreData', false);
 		}else{
 			config = this.get(el+'.params');
 			config.page = this.get(el+'.page');
@@ -22,6 +23,7 @@ export default Ember.Mixin.create({
 		var _config = Ember.copy(config)
 		delete _config.modelPath;
 		var id = params && params.scroller || el;
+		this.set('controller.isLoading', true);
 		return this.store.query(this.get('modelName'), _config).then(res=>{
 			this.set(id + '.page', this.get(id+'.page')+1);
 			this.set(id + '.totalPage', res.get('meta.total_pages'));
@@ -31,12 +33,11 @@ export default Ember.Mixin.create({
 	actions: {
 		load(el){
 			var infinityReached = this.get(el+'.page') > this.get(el+'.totalPage');
-			if(this.get('controller.isLoading') || this.get('noMoreData') || infinityReached) return false;
-			this.set('controller.isLoading', true);
+			if(this.get('controller.isLoading') || this.get(el+'.noMoreData') || infinityReached) return false;
 			this.brydgeScroller(null, null, el).then(res=>{
 				this.set('controller.isLoading', false);
-				this.get(this.get(el+'.params.modelPath')).pushObjects(res.content);
-				if(res.get('length') == 0) this.set('noMoreData', true);
+				if(this.get(this.get(el+'.params.modelPath'))) this.get(this.get(el+'.params.modelPath')).pushObjects(res.content);
+				if(res.get('length') == 0) this.set(el+'.noMoreData', true);
 			})
 		},
 	}
