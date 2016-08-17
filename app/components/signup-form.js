@@ -10,7 +10,6 @@ export default Ember.Component.extend({
 
       this.sendAction('signupUser', {name:name, username:email, password:password});
 
-      console.log("Register user >>", name, email, password);
       return true;
 
     }

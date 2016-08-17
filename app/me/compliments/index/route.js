@@ -16,7 +16,6 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
 	},
 	actions: {
 		error(){
-			console.log(arguments)
 		},
 		delete: function (id) {
 			this.get('compliment').delete(id)

@@ -77,10 +77,6 @@ export default Ember.Controller.extend(QueryLocationMixin, {
   }.observes('city'),
   actions: {
   	addLocation(item){
-      // this.set('location', item);
-      // this.set('cities', []);
-      // this.get('cities').pushObject(item);
-      // this.set('valueText', null);
       this.set('city', item.place_id);
   	},
     addKeyword(){
@@ -90,14 +86,7 @@ export default Ember.Controller.extend(QueryLocationMixin, {
       this.set('key', this.get('keywords').join(','))
     },
     addIndustry(item){
-      // var industry;
-      console.log(item)
       this.set('industries', []);
-      // if(this.get('industry')){
-      //   industry = this.get('industry').split(',');
-      // }else{
-      //   industry = [];
-      // }
       this.get('industries').pushObject(item);
       this.set('industry', this.get('industries').join(','));
     },
@@ -126,16 +115,6 @@ export default Ember.Controller.extend(QueryLocationMixin, {
     },
     refresh: function(){
       this._query();
-    //   var query = {
-    //     q: this.get('search.key'),
-    //     industry: this.get('industry'),
-    //     city: this.get('city'),
-    //     key: this.get('key'),
-    //     type: 'profile'
-    //   }
-    //   console.log(!query.q, !query.industry, !query.city, !query.key)
-    //   if(!query.q && !query.industry && !query.city && !query.key) return false;
-    //   this.get('search').query(query);
     }
 
 

@@ -7,7 +7,6 @@ export default Ember.Mixin.create({
 	setupController: function(controller, model) {
     let _this = this;
    	model.experiences.forEach(function(item){
-	    console.log(item.get('company'), item.get('currentCompany'));
 	    if(item.get('currentCompany')) {
 	    	_this.set('currentCompany', item.get('company'));
 	    	_this.set('jobTitle', item.get('title'));

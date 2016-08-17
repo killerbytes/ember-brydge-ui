@@ -1,15 +1,6 @@
 import DS from 'ember-data';
 
 export default DS.JSONAPISerializer.extend({
-  // normalizeQueryResponse(store, type, payload) {
-  //   console.log(arguments)
-  //   const resp = {
-  //     data: payload.data,
-  //     meta: payload.meta
-  //   }
-  //   return resp;
-  // },
-
   serialize() {
     const json = this._super(...arguments);
     return {
@@ -21,33 +12,9 @@ export default DS.JSONAPISerializer.extend({
 				answer: json.data.attributes.answer
       }
     };
-
-    // const result = this._super(...arguments),
-    //   attr = result.data.attributes || {},
-    //   rel = result.data.relationships || {};
-    //
-    //
-    // var payloadData= Object.keys(rel).reduce(function(acc, elem) {
-    //   const data = rel[elem].data;
-    //   if (data) {
-    //     acc[elem + "_user"] = data.id;
-    //   }
-    //   return acc;
-    //
-    // }, attr);
-    //
-    // return {
-    //   ask: payloadData
-    // };
-
   },
   keyForAttribute: function(attr) {
     return Ember.String.underscore(attr);
   }
-
-  // keyForAttribute: function(attr) {
-  //   console.log('<<<<<<< Profile keyForAttribute <<<<<<<<<',attr)
-  //   return Ember.String.underscore(attr);
-  // }
 
 });

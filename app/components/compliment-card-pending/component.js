@@ -8,7 +8,6 @@ export default Ember.Component.extend({
 		return this.get('item.to.id') == this.get('session.data.authenticated.user_id') || this.get('item.from.id') == this.get('session.data.authenticated.user_id');
 	}),
 	isOwner: Ember.computed('item', function(){
-		console.log(this.get('item.to.id'), this.get('session.data.authenticated.user_id'))
 		return this.get('item.to.id') == this.get('session.data.authenticated.user_id');
 	}),
 	actions: {

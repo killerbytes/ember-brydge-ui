@@ -33,7 +33,6 @@ export default Ember.Component.extend(SharePostIndustryPicker, {
     }).then((res)=>{
       this.set('isLoading', false);
       this.set('site', res);
-      console.log(res)
     });
   },
 	actions: {

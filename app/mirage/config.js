@@ -3,9 +3,9 @@ export default function() {
   this.get('/conversations', function(db, request) {
     return {
       data: db.conversations.map(attrs => (
-        { 
-          type: 'conversations', 
-          id: attrs.id, 
+        {
+          type: 'conversations',
+          id: attrs.id,
           attributes: attrs
         }
       ))
@@ -22,9 +22,9 @@ export default function() {
       attributes: conversation,
       relationships: {
         messages: {
-          data: messages.map(attrs => ({ 
-            type: 'messages', 
-            id: attrs.id, 
+          data: messages.map(attrs => ({
+            type: 'messages',
+            id: attrs.id,
             attributes: attrs
           }))
         }
@@ -50,9 +50,7 @@ export default function() {
 
   this.post('/messages', function(db, request) {
     var params = JSON.parse(request.requestBody);
-    console.log('params:', params);
 
-    console.log('conversations:', db.conversations)
 
     var payload = params.data.attributes;
 
@@ -64,11 +62,11 @@ export default function() {
 
     let conversation = db.conversations.find( payload.to_id);
 
-   
+
     if(conversation) {
       conversation.messages.push(message.id);
 
-      db.conversations.update(conversation.id, { messages: conversation.messages}); 
+      db.conversations.update(conversation.id, { messages: conversation.messages});
       db.messages.update(message.id, { conversation: conversation.id});
 
     }else {
@@ -81,7 +79,7 @@ export default function() {
        var _messages = [];
       _messages.push(message.id);
 
-      db.conversations.update(c.id, { messages: _messages}); 
+      db.conversations.update(c.id, { messages: _messages});
       db.messages.update(message.id, { conversation: c.id});
 
     }
@@ -93,7 +91,7 @@ export default function() {
     }
 
     return { data };
-    
+
     //let conversation = db.conversations.find(params.conversation);
     //conversation.messages.push()
   });

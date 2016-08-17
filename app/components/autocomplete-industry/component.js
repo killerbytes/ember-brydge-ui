@@ -24,7 +24,6 @@ export default Ember.Component.extend({
           method: 'GET'
         }).then((res)=>{
           this.set('items', res.data.map((d)=>{
-          	console.log(d)
             return {
               id: d.id,
               text: d.attributes.subIndustry

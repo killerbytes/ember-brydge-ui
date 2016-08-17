@@ -3,52 +3,6 @@
   </div>
 
   <div class="columns medium-7">
-    {{#zf-tabs id="example-tabs"}}
-      <li class="tabs-title is-active"><a href="#panel1" aria-selected="true">Tab 1</a></li>
-      <li class="tabs-title"><a href="#panel2">Tab 2</a></li>
-    {{/zf-tabs}}
-    <div class="tabs-content" data-tabs-content="example-tabs">
-      <div class="tabs-panel is-active" id="panel1">
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem quidem vel autem facilis dolorum commodi. Praesentium illum error provident optio tempora! Delectus ipsa, deserunt minima quia explicabo non placeat ducimus.</p>
-        {{#each model.toQuestions as |item| }}
-    			{{ask-card item=item}}
-    		{{else}}
-    			<div class="box">
-    				<section>
-    					<div class="empty-message">
-    						You haven't answered any questions
-    					</div>
-    				</section>
-    			</div>
-    		{{/each}}
-    		{{#brydge-scroller id="scroll1" model=model.toQuestions onClick="load"}}
-          {{#if isLoading}}
-            <div class="brydge-loading"></div>
-          {{/if}}
-        {{/brydge-scroller}}
-
-      </div>
-      <div class="tabs-panel" id="panel2">
-        {{#each model.fromQuestions as |item| }}
-    			{{ask-card item=item}}
-    		{{else}}
-    			<div class="box">
-    				<section>
-    					<div class="empty-message">
-    						You haven't answered any questions
-    					</div>
-    				</section>
-    			</div>
-    		{{/each}}
-    		{{#brydge-scroller id="scroll2" model=model.fromQuestions onClick="load"}}
-          {{#if isLoading}}
-            <div class="brydge-loading"></div>
-          {{/if}}
-        {{/brydge-scroller}}
-
-      </div>
-    </div>
-
 
   </div>
 

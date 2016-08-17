@@ -9,7 +9,6 @@ export default Ember.Service.extend({
   // XXX Remove -->
   // init() {
   //     this._super(...arguments);
-  //     console.log(this.get('session.data.authenticated.user_id'), this.get("account.name"));
   // },
 
   /* Must be init in beforeModel to make sure the promise is realized before use */
@@ -19,7 +18,6 @@ export default Ember.Service.extend({
     const username = this.get('session.data.authenticated.username');
 
     if (!Ember.isEmpty(accountId)) {
-      // console.log(" * session-account: 1", accountId);
       return DS.PromiseObject.create({
         promise: this.get('store').findRecord('user', accountId)
       });
@@ -42,15 +40,6 @@ export default Ember.Service.extend({
     //TODO
     //  return this.get('ajax').put('/users/report/' + targetid)
   },
-  // upvote(postid)  {
-  //   return this.get('ajax').request('/v2/posts/'+postid+'/up');
-  // },
-  // downvote(postid) {
-  //   return this.get('ajax').request('/v2/posts/'+postid+'/down');
-  // },
-  // resetVote(postid) {
-  //   return this.get('ajax').request('/v2/posts/'+postid+'/votereset');
-  // }
 
 
 });

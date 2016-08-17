@@ -22,7 +22,6 @@ export default Ember.Component.extend({
 				//TODO: Add Delay on scroll
 				// var delay = (()=>{
 				// 	return (callback, ms)=>{
-				// 		console.log(this.get('timer'))
 				// 		clearTimeout(this.get('timer'));
 				// 		ret
 				// 		this.set('timer', setTimeout(callback, ms))

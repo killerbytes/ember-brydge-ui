@@ -1,13 +1,8 @@
 import Ember from 'ember';
 
 export default Ember.Component.extend({
-	// list: Ember.computed('categories.@each.categories.@each.industries.@each.data',function(){
-	// 	console.log('computed')
-	// 	return this.get('categories');
-	// }),
 	limit: 10,
 	cap: Ember.computed('selected.length', function(){
-		console.log(this.get('selected').length, this.get('limit'))
 		return this.get('selected').length >= this.get('limit') ;
 	}),
 	actions: {

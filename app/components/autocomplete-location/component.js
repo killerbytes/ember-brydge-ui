@@ -51,7 +51,6 @@ export default Ember.Component.extend({
 			this.set('isOpen', true)
 		},
 		onSelect: function(selected){
-			// console.log(selected)
 			this.set('isOpen', false);
 			this.set('items', []);
 			this.set('value', null);

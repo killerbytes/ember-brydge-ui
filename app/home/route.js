@@ -67,7 +67,7 @@ export default Ember.Route.extend(
     }
     var params = {
       scroller: tab,
-      per_page: 5,
+      per_page: 1,
       modelPath: 'controller.newsfeed.' + tab
     };
     if(this.controller.tab) params.tab = tab;
@@ -97,17 +97,6 @@ export default Ember.Route.extend(
           this.loadNewsfeed(elem.data('tab'))
         });
 
-        // Ember.$(window).on('scroll', function(){
-        //   var $win = $(window);
-        //   var $doc = $(document);
-        //   var winHeight = $win.height();
-        //   var docHeight = $doc.height();
-        //   var scrollTop = $doc.scrollTop();
-        //   if(docHeight - winHeight == scrollTop){
-        //     console.log('should load newsfeed')
-        //   }
-        // })
-
       })
     },
     setChannel(id){
@@ -126,22 +115,6 @@ export default Ember.Route.extend(
       }
       this.loadNewsfeed();
     },
-
-
-    // setLocation: function(location, cb) {
-    //   this.controller.set('location', location);
-    //   cb.apply();
-    //   this.loadNewsfeed();
-    // },
-
-    // setChannel: function(geo, cb) {
-    //   if(geo == 0) geo = null;
-    //   console.log(geo);
-    //   return false;
-    //   this.controller.set('channels', geo);
-    //   cb.apply();
-    //   this.loadNewsfeed()
-    // },
     search: function () {
       this.controller.set('tab', 'search');
       this.controller.set('q', this.controller.get('searchContent'))

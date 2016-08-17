@@ -16,7 +16,6 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
       });
     },
     select(item){
-      console.log(item)
     	this.controller.setProperties({
     		selected: item,
     		key: null

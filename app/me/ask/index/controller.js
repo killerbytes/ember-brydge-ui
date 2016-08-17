@@ -7,7 +7,6 @@ export default Ember.Controller.extend(
   ProfileMixin, {
   isOwner: true,
 	// canLoadMore: Ember.computed('model.toQuestions', function(){
-  //   // console.log(this.get('model.toQuestions.reachedInfinity'))
   //   return this.get('model.toQuestions.reachedInfinity');
   // }),
   // reachedInfinity: Ember.observer('model.toQuestions.reachedInfinity', function() {
@@ -15,9 +14,4 @@ export default Ember.Controller.extend(
   // }),
   //
 	inbox: Ember.computed.alias('model.inbox'),
-  actions: {
-    test(){
-      console.log(this.get('model.toQuestions.reachedInfinity'))
-    }
-  }
 });

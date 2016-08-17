@@ -8,20 +8,7 @@ export default Ember.Route.extend(
   session: Ember.inject.service(),
   model: function() {
     let userid = this.get('session.data.authenticated.user_id');
-		return Ember.RSVP.hash({
-      toQuestions: this.brydgeScroller('ask',{
-        scroller: 'scroll1',
-				to: userid,
-				status: 'accepted',
-				modelPath: 'controller.model.toQuestions'
-			}),
-      fromQuestions: this.brydgeScroller('ask',{
-        scroller: 'scroll2',
-				from: userid,
-				status: 'accepted',
-				modelPath: 'controller.model.fromQuestions'
-			}),
-    });
+		return this.store.findRecord('profile', userid)
 	},
   actions: {
     save(){

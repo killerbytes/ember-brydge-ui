@@ -32,9 +32,7 @@ export default Ember.Route.extend(
   model: function(params) {
     var ownerid = this.get('session.data.authenticated.user_id');
 
-    // return this.store.findRecord('profile', params.username).then(res=>{
       var userid = params.username;
-      // console.log(params, userid)
       return Ember.RSVP.hash({
         profile: this.store.findRecord('profile', userid),
         username:  params.username,
@@ -43,9 +41,8 @@ export default Ember.Route.extend(
         experiences: this.store.query('experience',{userid: userid}),
         educations: this.store.query('education',{userid: userid}),
         questions: this.store.query('ask',{ userid: userid, per_page: 1, page:1 }),
-        // posts: this.store.query('newsfeed',{filter: userid, tab: 'profile'}),
         posts: this.brydgeScroller('newsfeed', {
-          per_page: 5,
+          per_page: 15,
           scroller: 'newsfeed',
   				filter: userid,
   				tab: 'profile',
@@ -54,7 +51,6 @@ export default Ember.Route.extend(
 
         compliments: this.store.query('compliment',{to: userid, userid: userid})
       });
-    // })
   },
   afterModel(model){
     this.get('notification').profileView(model.profile)

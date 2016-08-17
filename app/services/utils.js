@@ -40,16 +40,6 @@ export default Ember.Service.extend({
     }
     return urlArray;
   },
-  // replaceUrls(content){
-  //   var urls = this.findUrls(content);
-  //   _.forEach(urls, i=>{
-  //
-  //     var a = "<a href="+i.trim()+" >"+i.trim()+"</a>";
-  //     content = content.replace(i.trim(), a);
-  //     console.log(i)
-  //   })
-  //   return content;
-  // }
 
 
 });

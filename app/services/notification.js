@@ -15,7 +15,6 @@ export default Ember.Service.extend({
       if(cb) cb.apply();
     })
     .catch((err)=>{
-      console.log(err)
     })
   },
   releaseCount(group){

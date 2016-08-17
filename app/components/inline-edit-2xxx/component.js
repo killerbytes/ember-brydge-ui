@@ -7,10 +7,8 @@ export default Ember.Component.extend({
     }
   },
   focusOut: function() {
-  	console.log('focus out...')
     this.send('toggleEditing');
   },
   mouseOut: function() {
-  	console.log('mouse out....');
   }
 });

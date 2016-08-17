@@ -18,7 +18,6 @@ export default Ember.Controller.extend(ProfileMixin, {
         newsfeed.pushObject(res._internalModel);
         cb.apply();
       }).catch((err) => {
-        console.log("Error posting to newsfeed:", err);
       });
     },
     sharePost(cb){
@@ -34,18 +33,7 @@ export default Ember.Controller.extend(ProfileMixin, {
 
         cb();
       });
-    },
-    // fileLoaded: function(formData){
-    //   return this.get('ajax').request('/v2/profile/avatar', {
-    //     method: 'POST',
-    //     data: formData,
-    //     contentType: false,
-    //     processData: false,
-    //   }).then((res)=>{
-    //     console.log(res);
-    //     this.get('model').set('avatarUrl',res.data.attributes.avatarUrl);
-    //   })
-    // }
+    }
 
   }
 });

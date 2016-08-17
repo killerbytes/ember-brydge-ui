@@ -39,7 +39,6 @@ export default Ember.Component.extend({
 		var date = new Date(this.get('yy'), this.get('mm')+1, this.get('dd'))
 		var date = [date.getFullYear(), ('0' + date.getMonth()).slice(-2), ('0' + date.getDate()).slice(-2)].join('-');
 		var date = moment(date, "YYYY-MM-DD", true);
-		// console.log(date.isValid(), date.format())
 		if(date.isValid()){
 			this.set('value', date.format());
 		}else{

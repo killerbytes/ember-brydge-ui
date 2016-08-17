@@ -49,8 +49,6 @@ export default Ember.Component.extend(AvatarMixin, {
 			this.get('store').findRecord('connection', this.get('profile.connection.id')).then(res=>{
 				res.set('status', 'accepted');
 				res.save();
-				console.log(res)
-
 			})
 			// return false;
 		},

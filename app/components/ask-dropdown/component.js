@@ -11,7 +11,6 @@ export default Ember.Component.extend({
 			});
 			var savedCallback = () => {
 				this.sendAction('action', this.get('model.id'));
-				// this.$('#'+this.get('name')).foundation('close')
 				this.set('isSubmitted', true)
 			};
 			ask.set('from', this.get('from.user'));
@@ -24,7 +23,6 @@ export default Ember.Component.extend({
 	},
 	didInsertElement(){
 		this.$('#'+this.get('name')).on('show.zf.dropdown', res =>{
-			// console.log('show.zf.dropdown')
 			this.set('isSubmitted', false)
 		})
 	}

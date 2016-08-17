@@ -5,32 +5,6 @@ export default Ember.Controller.extend(
 	ProfileMixin, {
 	session: Ember.inject.service(),
   sharePost: Ember.inject.service(),
-
-  // profile: Ember.computed.alias('model.profile'),
-  // languages: Ember.computed.alias('model.languages'),
-  // experiences: Ember.computed.alias('model.experiences'),
-  // educations: Ember.computed.alias('model.educations'),
-  // questions: Ember.computed.alias('model.questions'),
-	//
-	// sortProps: ['createdAt:desc'],
-  // sortFrom: ['from:desc'],
-  // work: Ember.computed.sort('experiences', 'sortFrom'),
-  // academia: Ember.computed.sort('educations', 'sortFrom'),
-  // newsfeed: Ember.computed.sort('posts', 'sortProps'),
-  // workHistory: Ember.computed('work', function(){
-  //   var work = this.get('work').toArray()
-  //   return _.sortBy(work, 'currentCompany', function(i){
-  //     return !i.get('currentCompany');
-  //   });
-  // }),
-  // location: Ember.computed('profile.location', function(){
-  //   if(!this.get('profile.location')) return false;
-  //   var location = this.get('profile.location').split(',');
-  //   return {
-  //     city: location.splice(0, 1),
-  //     state: location.join(', ')
-  //   }
-  // }),
   isOwner: false,
   actions: {
     postFeed: function (data, cb) {
@@ -44,7 +18,6 @@ export default Ember.Controller.extend(
         newsfeed.pushObject(res._internalModel);
         cb.apply();
       }).catch((err) => {
-        console.log("Error posting to newsfeed:", err);
       });
     },
     sharePost(cb){
@@ -60,19 +33,6 @@ export default Ember.Controller.extend(
 
         cb();
       });
-    },
-    // fileLoadedxxx: function(formData){
-    //   console.log(formData)
-    //   return this.get('ajax').request('/v2/profile/avatar', {
-    //     method: 'POST',
-    //     data: formData,
-    //     contentType: false,
-    //     processData: false,
-    //   }).then((res)=>{
-    //     console.log(res);
-    //     this.get('model').set('avatarUrl',res.data.attributes.avatarUrl);
-    //   })
-    // }
-
+    }
   }
 });

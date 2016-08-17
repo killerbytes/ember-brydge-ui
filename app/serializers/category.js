@@ -3,10 +3,8 @@ import DS from 'ember-data';
 export default DS.JSONAPISerializer.extend({
 
   normalizeQueryResponse(store, type, payload) {
-    console.log(arguments)
-    const resp = { data: 
+    const resp = { data:
       payload.map((p)=>{
-        console.log(p.subIndustry);
         return {
           id: p.code,
           type: type.modelName,

@@ -12,7 +12,6 @@ export default Ember.Mixin.create({
     return this.get('compliments.firstObject');
   }),
   isNotEmptyOccupation: Ember.computed('profile.industryTwoName', 'profile.industryThreeName', function(){
-    console.log(this.get('profile.industryTwoName'), this.get('profile.industryThreeName'))
     return this.get('profile.industryTwoName') ? true : false && this.get('profile.industryThreeName') ? true : false;
   })
 });

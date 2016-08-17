@@ -38,8 +38,6 @@ export default Ember.Controller.extend(
     return this.get('newsfeed.live');
   }),
   feed_live: Ember.computed.sort('newsfeed_live', 'sortProps'),
-  // feed_curated: Ember.computed.sort('newsfeed.curated', 'sortProps'),
-  // feed_search: Ember.computed.sort('newsfeed.search', 'sortProps'),
   searchContent: Ember.computed('q', function(){
     return this.get('q') || null;
   }),
@@ -55,7 +53,6 @@ export default Ember.Controller.extend(
     if (email) {
       window.doorbellOptions.email = email;
       window.doorbellOptions.hideEmail = true;
-      // console.log(">>>>", window.doorbellOptions);
     }
 
   },
@@ -107,7 +104,6 @@ export default Ember.Controller.extend(
           })
         }
       }).catch((err) => {
-        console.log("Error posting to newsfeed:", err);
       });
     },
     sharePost(cb){
@@ -116,11 +112,6 @@ export default Ember.Controller.extend(
 
           var newsfeed = this.get('newsfeed.live');
           newsfeed.pushObject(res._internalModel);
-          // this.store.findRecord('vote', res.get('id')).then(vote=>{
-          //   res.set('vote', vote);
-          // })
-          // var post = this.store.peekRecord('newsfeed', res.get('sharedPostid'));
-          // post.set('vote.sharedCount', res.get('shareCount'))
           cb.apply();
         }else{
           this.set('tab', 'live');

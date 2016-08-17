@@ -41,7 +41,6 @@ export default Ember.Route.extend(
 	actions: {
     save(item, cb){
       var profile = this.get('controller.profile');
-      console.log(profile)
       profile.save().then(()=>{
         cb.apply()
       });
@@ -55,7 +54,6 @@ export default Ember.Route.extend(
       })
     },
     setBusinessIndustry(item){
-      console.log(item);
       this.set('controller.profile.industryOneId', item.code);
       this.set('controller.profile.industryOneName', item.name );
     },
@@ -69,14 +67,9 @@ export default Ember.Route.extend(
     },
 
     onLocationSelect(item){
-      console.log(item)
-      // let location = item.terms.join(', ');
-      // this.controller.set('selectedLoc', location);
-      // let profile = this.controller.get('profile');
       this.set('controller.profile.location', item);
     },
     industrySelected: function (item) {
-      console.log('industrySelected (route) =>', item);
 
        var filtered ={
         id : item.id,
@@ -90,7 +83,6 @@ export default Ember.Route.extend(
     },
 
     occupOneSelected: function (item) {
-      console.log('occupOneSelected (route) =>', item);
 
        var filtered ={
         id : item.id,
@@ -104,7 +96,6 @@ export default Ember.Route.extend(
     },
 
     occupTwoSelected: function (item) {
-      console.log('occupTwoSelected (route) =>', item);
 
        var filtered ={
         id : item.id,

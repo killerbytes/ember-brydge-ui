@@ -58,18 +58,6 @@ export default Ember.Component.extend(ViewCommentsActionMixin,{
       		this.set('post.commentCount', this.get('post.commentCount')+1);
       	}
     	})
-      // store.findRecord('newsfeed', this.get('post.id')).then(post=>{
-      	// this.set('post', post);
-	      // comment.save().then(res=>{
-	      	// this.loadComments();
-					// this.set('post.commentCount', comments.get('content').length)
-					// store.query('comment',{id: this.get('post.id')}).then(comments =>{
-					//    	post.set('commentCount', comments.get('content').length);
-					// 	post.set('comments', comments);
-					// 	this.$('.accordion-menu:first').foundation('down', $('.media-list'));
-					// })
-	      // })
-      // });
 		},
 		hideComments(){
 			this.set('showComments', false)
@@ -78,16 +66,8 @@ export default Ember.Component.extend(ViewCommentsActionMixin,{
 
 		},
 		viewComments: function () {
-			// if(this.get('post.comments.content').length > 0){
-				if(!this.get('showComments')) this.set('post.comments', []);
-			// 		this.set('showComments', true);
-			// 		console.log(12)
-			// 	}else{
-			// 		this.loadComments();
-			// 	}
-			// }else{
-				this.loadComments();
-			// }
+			if(!this.get('showComments')) this.set('post.comments', []);
+			this.loadComments();
 		},
 		resize(value, e){
 			if(value){

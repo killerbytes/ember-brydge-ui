@@ -5,7 +5,6 @@ export default ApplicationAdapter.extend(UrlTemplates, {
   queryUrlTemplate: '{+host}/v2/invitations/{queryid}',
   urlSegments: {
     queryid: function(type, id, snapshot, query) {
-      console.log(arguments)
       var id = query.code;
       delete query.code;
       return id;
