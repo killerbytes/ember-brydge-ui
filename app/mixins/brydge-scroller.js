@@ -23,7 +23,6 @@ export default Ember.Mixin.create({
 		var _config = Ember.copy(config)
 		delete _config.modelPath;
 		var id = params && params.scroller || el;
-		this.set('controller.isLoading', true);
 		return this.store.query(this.get('modelName'), _config).then(res=>{
 			this.set(id + '.page', this.get(id+'.page')+1);
 			this.set(id + '.totalPage', res.get('meta.total_pages'));
@@ -34,6 +33,7 @@ export default Ember.Mixin.create({
 		load(el){
 			var infinityReached = this.get(el+'.page') > this.get(el+'.totalPage');
 			if(this.get('controller.isLoading') || this.get(el+'.noMoreData') || infinityReached) return false;
+			this.set('controller.isLoading', true);
 			this.brydgeScroller(null, null, el).then(res=>{
 				this.set('controller.isLoading', false);
 				if(this.get(this.get(el+'.params.modelPath'))) this.get(this.get(el+'.params.modelPath')).pushObjects(res.content);
