@@ -10,10 +10,6 @@ export default TransitionToListenerRoute.extend(
   ApplicationRouteMixin, {
   notification: Ember.inject.service(),
   tmp: Ember.inject.service('temp'),
-  // beforeModel() {
-  //   this._super(...arguments);
-  //   return this.get('sessionAccount.account');
-  // },
   notifier(){
     this.get('notification').check(()=>{
       this.start();
@@ -50,13 +46,13 @@ export default TransitionToListenerRoute.extend(
     },
     didTransition() {
 
-      if (ga) {
-        Ember.run.once(this, function() {
-          ga('send', 'pageview',
-            this.router.get('url'),
-            this.getWithDefault('currentRouteName', 'unknown'));
-        });
-      }
+      // if (ga) {
+      //   Ember.run.once(this, function() {
+      //     ga('send', 'pageview',
+      //       this.router.get('url'),
+      //       this.getWithDefault('currentRouteName', 'unknown'));
+      //   });
+      // }
     },
     authorizationFailed() {
     },

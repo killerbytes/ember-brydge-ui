@@ -40,6 +40,9 @@ module.exports = function(environment) {
     // ENV.APP.LOG_TRANSITIONS = true;
     // ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
     // ENV.APP.LOG_VIEW_LOOKUPS = true;
+    ENV.googleAnalytics = {
+      webPropertyId: 'UA-72370021-1'
+    };
 
 
     ENV['ember-cli-mirage'] = {
@@ -69,6 +72,10 @@ module.exports = function(environment) {
   }
 
   if (environment === 'production') {
+    ENV.googleAnalytics = {
+      webPropertyId: 'UA-72370021-2'
+    };
+
     ENV['ember-simple-auth'] = {
       serverTokenEndpoint: '//api.brydge.com/v2/token',
       authorizerHost: '//api.brydge.com'
