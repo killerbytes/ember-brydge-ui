@@ -10,7 +10,6 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
 
     return Ember.RSVP.hash({
       profile: this.store.findRecord('profile', userid),
-      connections: this.store.query('connection',{userid: userid}),
       languages: this.store.findAll('language'),
       experiences: this.store.findAll('experience'),
       educations: this.store.findAll('education'),

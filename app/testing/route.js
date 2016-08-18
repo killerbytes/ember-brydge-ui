@@ -7,15 +7,10 @@ export default Ember.Route.extend(
   BrydgeScroller, {
   session: Ember.inject.service(),
   model: function() {
-
+    this.get('connectionCount').count("12312321");
     let userid = this.get('session.data.authenticated.user_id');
 		return this.store.findRecord('profile', userid)
 	},
   actions: {
-    save(){
-      this.set('controller.model.dob', moment({year: 1979, month: 1, date: 15}).format());
-      this.get('controller.model').save();
-
-    }
   }
 });

@@ -5,7 +5,7 @@
 
   </div>
   <div class="columns medium-7">
-    {{profile-menu profile=profile connections=connections}}
+    {{profile-menu profile=profile }}
     {{#if posts}}
       {{newsfeed-list newsfeed=posts profile=model}}
       {{#brydge-scroller id="newsfeed" model=posts onClick="load"}}

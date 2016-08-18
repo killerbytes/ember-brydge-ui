@@ -11,7 +11,7 @@
     {{partial 'partials/profile-sidebar'}}
   </div>
   <div class="medium-7 columns">
-		{{profile-menu profile=profile connections=connections}}
+		{{profile-menu profile=profile}}
   	{{#if askEnabled}}
 			{{#if askUserEnabled}}
 				<form {{action 'submit' on='submit'}} class="box user-top-form mb20">

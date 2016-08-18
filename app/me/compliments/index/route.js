@@ -8,7 +8,6 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
 		let userid = this.get('session.data.authenticated.user_id');
 		return Ember.RSVP.hash({
 			profile: this.store.findRecord('profile', userid),
-			connections: this.store.query('connection',{userid: userid}),
 			toCompliments: this.store.query('compliment',{to: userid, status: 'accepted'}),
 			inbox: this.store.query('compliment',{to: userid, status: 'pending'}),
     })

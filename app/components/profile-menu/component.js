@@ -8,7 +8,33 @@ const {
 export default Ember.Component.extend({
   store: Ember.inject.service(),
   session: Ember.inject.service(),
-  activeConnections: Ember.computed.filterBy('connections', 'status', 'accepted'),
+  connectionCount: Ember.inject.service(),
+
+  didReceiveAttrs(attr){
+    if(this.get('connectionCount.userid') != this.get('profile.id')){
+      this.set('connectionCount.userid', this.get('profile.id'));
+      this._getConnectionCount();
+    }
+    // console.log(this.get('connectionCount.userid'))
+    //
+    // console.log('didReceiveAttrs', arguments, attr.newAttrs.profile.value.id, this.get('profile.id'))
+  },
+  // init(){
+  //   this._super(...arguments);
+  // },
+  _poll(){
+    Ember.run.later(this, ()=>{
+      this._getConnectionCount();
+    }, 60000);
+  },
+  _getConnectionCount(){
+    this.get('store').query('connection', {userid: this.get('connectionCount.userid')}).then(res=>{
+      if(this.get('isDestroyed') || this.get('isDestroying')) return false;
+      this.set('connectionCount.connections', res);
+      this._poll();
+    })
+  },
+  count: Ember.computed.filterBy('connectionCount.connections', 'status', 'accepted' ),
   isConnected: Ember.computed('profile.connection.status', function(){
     return this.get('profile.connection.status') == 'accepted';
   }),
@@ -37,13 +63,6 @@ export default Ember.Component.extend({
   	}
   	return index;
   }),
-
-  // init(){
-  //   this._super();
-  //   this.get('store').query('connection',{userid: this.get('profile.id') }).then(res=>{
-  //     this.set('connections', res);
-  //   })
-  // },
   actions: {
     disconnect(){
       this.get('store').findRecord('connection', this.get('profile.connection.id')).then(res=>{
