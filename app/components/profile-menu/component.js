@@ -22,14 +22,12 @@ export default Ember.Component.extend({
   		case 'me.index':
   			index = 0;
   			break;
-  		case 'about':
-  		case 'me.about':
+  		case 'background':
+  		case 'me.background':
   			index = 1;
   			break;
   		case 'ask':
-      case 'ask.other':
   		case 'me.ask.index':
-      case 'me.ask.other':
   			index = 2;
   			break;
   		case 'compliments.index':
