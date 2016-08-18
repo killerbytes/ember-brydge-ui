@@ -21,7 +21,17 @@ export default TransitionToListenerRoute.extend(
     }, 60000);
 
   }.on('activate'),
-
+  browserCheck: function(){
+    if(this.get('detector.isMobile')){
+      Ember.run.later(this, ()=>{
+        Ember.$('#mobileBrowser').foundation('open');
+      })
+    }
+  }.on('activate'),
+  setupController(controller, model){
+    this._super(...arguments);
+    controller.set('detector', this.get('detector'));
+  },
   actions: {
     error(error, transition) {
       var accessToken = this.get('session.data.authenticated.access_token');
