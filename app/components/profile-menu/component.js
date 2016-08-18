@@ -14,14 +14,11 @@ export default Ember.Component.extend({
     if(this.get('connectionCount.userid') != this.get('profile.id')){
       this.set('connectionCount.userid', this.get('profile.id'));
       this._getConnectionCount();
+    }else{
+      this._poll();
     }
-    // console.log(this.get('connectionCount.userid'))
-    //
-    // console.log('didReceiveAttrs', arguments, attr.newAttrs.profile.value.id, this.get('profile.id'))
+
   },
-  // init(){
-  //   this._super(...arguments);
-  // },
   _poll(){
     Ember.run.later(this, ()=>{
       this._getConnectionCount();
