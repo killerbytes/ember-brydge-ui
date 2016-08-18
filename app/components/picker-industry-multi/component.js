@@ -35,7 +35,7 @@ export default Ember.Component.extend({
 		select(item){
 			if(this.get('cap')) return false;
 			if(!this.get('selected')) this.set('selected', []);
-
+			if(_.find(this.get('selected'), {code: item.data.code})) return false;
 			this.get('selected').pushObject({
 				code: item.data.code,
 				name: item.data.subIndustry

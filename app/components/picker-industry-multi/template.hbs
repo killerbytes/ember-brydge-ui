@@ -67,7 +67,7 @@
             <ul class="no-bullet sub-industry">
             {{#each category.industries as |industry|}}
               <li>
-								<a {{action "select" industry }}>{{industry.data.subIndustry}}</a>
+								<a {{action "select" industry }}>{{industry.data.subIndustry}} {{industry.disabled}}</a>
               </li>
             {{/each}}
             </ul>

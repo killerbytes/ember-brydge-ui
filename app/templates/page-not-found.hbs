@@ -1,10 +1,15 @@
-<div class="jumbotron">
+
+<div class="padding text-center">
 	<h2>
-      Something is wrong. Lets try again?
+    {{#if message}}
+        {{status}}: <small>{{message}}</small>
+    {{else}}
+			Content unavailable at this time. We are looking into it.
+    {{/if}}
 	</h2>
 
 	<div>
-	    {{link-to "Home" "home"}}
+	    Go back to {{link-to "Home" "home"}} page.
 	</div>
 
 </div>

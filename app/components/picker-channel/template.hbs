@@ -34,9 +34,13 @@
 						<section>
 							<div class="sub-title">Industry Channels you follow</div>
 							<ul class="no-bullet content-pad hover-close">
-								{{#each favorites as |item|}}
-									<li><a {{action "select" item.code item.name }}>{{item.name}}</a> <a {{action "delete" item}}><i class="fa fa-times" aria-hidden="true"></i></a> </li>
-								{{/each}}
+                {{#unless loading}}
+  								{{#each favorites as |item|}}
+  									<li><a {{action "select" item.code item.name }}>{{item.name}}</a> <a {{action "delete" item}}><i class="fa fa-times" aria-hidden="true"></i></a> </li>
+  								{{/each}}
+                {{else}}
+                  <li><div class="brydge-loading"></div></li>
+                {{/unless}}
 							</ul>
 							<a class="button success rounded" data-open="industryModal">Add</a>
 						</section>

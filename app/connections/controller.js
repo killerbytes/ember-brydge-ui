@@ -5,8 +5,9 @@ export default Ember.Controller.extend({
   tab: 'tab_1',
   profile: Ember.computed.alias('model.profile'),
   list: Ember.computed.alias('model.list'),
-  mutual: Ember.computed.filterBy('model.mutual', 'friend.status', 'accepted'),
-  mutual_connections: Ember.computed('mutual.@each', 'key', function(){
+  accepted: Ember.computed.filterBy('model.mutual', 'status', 'accepted'),
+  mutual: Ember.computed.filterBy('accepted', 'friend.status', 'accepted'),
+  mutual_connections: Ember.computed('mutual', 'key', function(){
     let query = this.get('key');
     if(!query) return this.get('mutual');
     var fields = ['firstName', 'lastName'];
@@ -19,7 +20,7 @@ export default Ember.Controller.extend({
       return found;
     })
   }),
-  connections: Ember.computed('model.list.@each', 'key', function(){
+  connections: Ember.computed('model.list', 'key', function(){
     let query = this.get('key');
     if(!query) return this.get('model.list').filterBy('status','accepted');
     var fields = ['firstName', 'lastName'];

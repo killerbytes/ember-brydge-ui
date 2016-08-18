@@ -128,15 +128,20 @@ export default Ember.Route.extend(
       this.controller.set('searchContent', null)
     },
     onFavoriteIndustrySelect(items){
-      this.get('controller.model.favorites').forEach(function(i){
-        i.destroyRecord()
+      this.set('controller.isFavoritesLoading', true);
+      var favorites = this.get('controller.model.favorites');
+      favorites.forEach((i)=>{
+        i.destroyRecord();
       })
       _.each(items, i=>{
+        this.set('controller.isFavoritesLoading', true);
         this.get('store').createRecord('favoriteindustry', {
           code: i.code,
           name: i.name,
           userid: this.get('session.data.authenticated.user_id')
-        }).save();
+        }).save().then(()=>{
+          this.set('controller.isFavoritesLoading', false);
+        });
       })
     },
 
