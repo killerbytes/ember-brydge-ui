@@ -3,7 +3,7 @@ import Ember from 'ember';
 export default Ember.Component.extend({
 	session: Ember.inject.service(),
 	compliment: Ember.inject.service(),
-	classNames: ['box', 'cards'],
+	classNames: ['box', 'cards', 'compliment-card'],
 	isOwners: Ember.computed('item', function(){
 		return this.get('item.to.id') == this.get('session.data.authenticated.user_id') || this.get('item.from.id') == this.get('session.data.authenticated.user_id');
 	}),

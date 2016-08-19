@@ -6,6 +6,10 @@ table{
 .title{
 	font-weight: bold;
 	font-size: 14px;
+	&.large{
+		font-size: 18px;
+		line-height: 2rem;
+	}
 }
 .sub-title{
 	color: $text-gray;
@@ -479,4 +483,9 @@ span.middle{
 }
 .static-content{
 	font-size: 15px;
+}
+
+.description-content{
+	font-size: 13px;
+	line-height: 1.6rem;
 }

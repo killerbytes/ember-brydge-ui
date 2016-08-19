@@ -7,7 +7,7 @@
 				<div class="content	form-new">
 					{{partial "partials/form-language"}}
 					<div class="row">
-						<div class="columns text-center">
+						<div class="columns">
 							{{form-input-button item=item submit="create" placeholder="Saved"}}
 						</div>
 					</div>
@@ -26,8 +26,8 @@
 			  		{{partial "partials/form-language"}}
 						<div class="row">
 							<div class="columns">
-								{{form-input-button item=item submit="update" placeholder="Saved"}}
-						    <a class="button button-clear float-right" data-open={{concat 'dialog-box-' 'delete-' item.id}}>Delete</a>
+								{{form-input-button item=item submit="update" placeholder="Saved" class="inline-block"}}
+						    <a class="button button-border float-right" data-open={{concat 'dialog-box-' 'delete-' item.id}}>Delete</a>
 							</div>
 						</div>
 					</div>

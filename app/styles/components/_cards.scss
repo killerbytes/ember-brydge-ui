@@ -28,9 +28,6 @@
 	div+a.timestamp{
 		padding-top: 0;
 	}
-	.title{
-		font-size: 16px;
-	}
 	.ask-answer{
 		border: 1px solid $border-color;
 		background-color: $brydge-gray;
@@ -40,13 +37,6 @@
 }
 
 .compliment-card{
-	@extend .cards;
-	.title{
-		// margin-bottom: 1rem;
-	}
-	.content{
-		// font-size: 10px;
-	}
 }
 
 .newsfeed-item{

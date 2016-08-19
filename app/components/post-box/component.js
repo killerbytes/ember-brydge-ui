@@ -11,7 +11,7 @@ export default Ember.Component.extend(SharePostIndustryPicker, {
   sessionAccount: Ember.inject.service(),
   ajaxApi: Ember.inject.service(),
   utils: Ember.inject.service(),
-	classNames: ['share-post-box'],
+	classNames: ['post-box'],
   elem: Ember.computed(function(){
     return this.$();
   }),

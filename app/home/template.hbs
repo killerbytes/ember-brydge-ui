@@ -1,6 +1,6 @@
 <div class="row">
   <div class="large-7 medium-7 columns">
-    {{ share-post-box
+    {{ post-box
     	postToNewsfeed='postToNewsfeed'
      	profile=profile
      	class="mb20"
@@ -43,32 +43,34 @@
 	      {{/zf-tabs}}
       </div>
 
-			<div class="box getting-started hide">
+			<div class="box getting-started">
 				<section>
 					<h3>Get Started, {{profile.firstName}}!</h3>
-					We'll keep this notice here for 7 days after you sign-up.
+          Welcome to the BETA Version. We’ll keep this notice here until you dismiss it.
 				</section>
 				<section>
 					<span class="badge">1</span>
 
-					<p>Explore your {{link-to "Profile" "me"}}</p>
-					<p>This is where all the posts you share (what we call <strong>Broadcasts</strong>), work and academic history(<strong>Background</strong>), questions you ask and answer (<strong>Ask</strong>) and <strong>Compliments</strong> you receive will reside.</p>
+					<p>Set up your {{link-to "Profile" "me"}}</p>
+          <p>This is where all the content you share (what we call <strong>Broadcasts</strong>), your work and academic history (<strong>Background</strong>), questions you ask and answer (<strong>Ask</strong>) and the <strong>Compliments</strong> you receive will live. See {{link-to "Nikhil Charan" "profile" "3ze5n8glm6b"}}’s profile for example.</p>
 
 				</section>
-				<section>
+        <section>
 					<span class="badge">2</span>
-					<p>To really get started - do this as soon as you can!</p>
-					<p>One of the first things you really want to do is go to your {{link-to "Edit Profile" "me.edit"}} page, and pick these two options:</p>
-					<p><strong class="text-upper">Business Industry</strong>: the industry your business operates in <br>
-						<strong class="text-upper">Occupational Industries</strong>: one (or two) other industries you deal with as part of your job
-					</p>
+					<p>Explore Industry Channels on the {{link-to "Home" "home"}} page</p>
+					<p>Once you've picked your relevant industries, you can use the Channel Filters at the top of this page to see:</p>
+					<p>
+            (a) what your industry peers are talking about and sharing <br>
+            (b) what your connections are talking about and sharing <br>
+            (c) both of the above can be filtered by location — so you see only what's most relevant to you
+          </p>
 				</section>
+
 				<section>
 					<span class="badge">3</span>
-					<p>Explore Industry Channels on the {{link-to "Home" "home"}} page</p>
-					<p>Once you've picked your relevant industries, you can use the channel filters on the Home page to see:</p>
-					<p>(a) what your connections are talking about and sharing, and <br> (b) what your industry peers are talking about and sharing</p>
-					<p>And you can further filter them by location!</p>
+					<p>Find people you know</p>
+					<p>We understand you might not have a lot of connections right now. We are working on ways to help you find people you might know on Brydge.</p>
+					<p>If you know anyone else who is participating in our BETA test, you can search for them. Feel free to connect and message {{link-to "Jon Vettori" "profile" "d36475e0645211e69ae542010af00003"}} for help; he would be happy to.</p>
 				</section>
 			</div>
 

@@ -3,7 +3,7 @@
     <div class="name">{{item.title}}</div>
     <div>{{item.company}}</div>
     <span class="dim-text">
-      {{term-date-format item.from}} - 
+      {{term-date-format item.from}} -
       {{#if item.currentCompany}}
         Present ({{time-diff item.from item.to}})
       {{else}}
@@ -18,7 +18,7 @@
           </ul>
           <a class="more no-arrow"><span class="content-more">Show More</span><span class="content-less">Show Less</span></a>
         </li>
-      {{/zf-accordion-menu}}               
+      {{/zf-accordion-menu}}
     {{/if}}
   </li>
 {{/each}}

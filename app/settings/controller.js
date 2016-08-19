@@ -23,7 +23,7 @@ export default Ember.Controller.extend({
 			switch(el.name){
 				case 'ask':
 					this.set('title', "Turn Ask "+ (el.checked ? "ON" : "OFF"));
-					this.set('description', "You are turning ask " + (el.checked ? "ON" : "OFF"));
+					this.set('description', "You are turning Ask " + (el.checked ? "ON" : "OFF"));
 					break;
 				case 'profile_view':
 					this.set('title', "Turn Profile Views " + (el.checked ? "ON" : "OFF"));
