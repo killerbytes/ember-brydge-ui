@@ -17,6 +17,7 @@ module.exports = function(environment) {
       // when it is created
     },
     contentSecurityPolicy: {
+        'connect-src': "'self' ws://localhost:4000",
       'default-src': "'self' safari-extension://*",
       'font-src': "'self' * fonts.gstatic.com https://fonts.googleapis.com",
       'img-src': "'self' * www.google-analytics.com placeholdit.imgix.net placehold.it s3.amazonaws.com data:",

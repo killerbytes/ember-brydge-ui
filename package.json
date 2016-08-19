@@ -20,7 +20,9 @@
   "license": "MIT",
   "devDependencies": {
     "broccoli-asset-rev": "^2.4.2",
+    "broccoli-babel-transpiler": "^5.6.1",
     "broccoli-clean-css": "^1.1.0",
+    "broccoli-es6modules": "^1.2.3",
     "broccoli-merge-trees": "^1.1.4",
     "broccoli-static-compiler": "^0.2.2",
     "ember-ajax": "^2.0.1",
