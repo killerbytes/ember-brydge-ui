@@ -41,12 +41,16 @@ form{
 			input{
 				border: 1px solid red;
 			}
+			.error{
+				display: block;
+			}
 		}
 		input, .dropdown-select input{
 			margin-bottom: 5px !important;
 		}
 		.error{
 			color: red;
+			display: none;
 		}
 
 	}

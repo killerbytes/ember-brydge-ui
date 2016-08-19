@@ -6,9 +6,9 @@
 	section{
 		padding: 1rem;
 	}
-	.section-footer{
+	.form-input{
+		position: relative;
 	}
-
 	.newsfeed-item{
 		border: none;
 	}
@@ -29,5 +29,11 @@
 	}
 	textarea{
 		padding-top: 6px;
+	}
+	.brydge-loading{
+		position: absolute;
+		right: 1rem;
+		bottom: 1rem;
+
 	}
 }

@@ -144,6 +144,11 @@ export default Ember.Route.extend(
         });
       })
     },
+    dismiss(){
 
+      var configSetting = this.store.peekRecord('configSetting', this.get('controller.profile.id'));
+      configSetting.set('showGuide', false);
+      configSetting.save();
+    }
   }
 });
