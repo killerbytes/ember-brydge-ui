@@ -1,18 +1,25 @@
-import {Socket} from "phoenix";
+// import {Socket} from "phoenix";
 
-export function initialize(application) {
-	// let a = application.get('session.data.authenticated');
-	// console.log(a)
-  let socket = new Socket("ws://localhost:8000/ws");
-  socket.connect({"token": "c5075fa0643c11e6b0da985aeb89a4c0"})
+// export function initialize(application) {
+// 	console.log('backend')
+//   let socket = new Socket("ws://localhost:8000/socket");
+//   socket.connect()
   
-  // let chan = socket.chan("rooms:lobby", {});
-  // chan.join().receive("ok", chan => {
-  //   console.log("Welcome to Phoenix Chat!");
-  // });
-}
+//   let chan = socket.channel("room:lobby", {});
+//   chan.join().receive("ok", chan => {
+//     console.log("Welcome to Phoenix Chat!");
+//   });
+// }
 
+// export default {
+//   name: 'backend',
+//   initialize: initialize
+// };
+
+export function initialize(application) {  
+  application.inject('controller', 'phoenix', 'service:phoenix');
+};
 export default {
-  name: 'backend',
+  name: 'socket',
   initialize: initialize
 };
