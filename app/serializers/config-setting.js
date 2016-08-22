@@ -5,7 +5,7 @@ export default DS.JSONAPISerializer.extend({
   serialize() {
     const json = this._super(...arguments);
     return {
-      'setting': json.data.attributes
+      'config': json.data.attributes
     };
  },
 
