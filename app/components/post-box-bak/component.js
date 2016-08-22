@@ -15,9 +15,6 @@ export default Ember.Component.extend(SharePostIndustryPicker, {
   elem: Ember.computed(function(){
     return this.$();
   }),
-  disabled: Ember.computed('postContent', function(){
-    return this.get('postContent').length > 0;
-  }),
   title: Ember.computed('site.title', function(){
     let title = this.get('site.title') || this.get('site.url');
     return title.length > 100 ? title.substr(0, 100) + ' ...' : title;
@@ -50,7 +47,7 @@ export default Ember.Component.extend(SharePostIndustryPicker, {
         site: this.get('site')
       }
       this.sendAction('submit', data, ()=>{
-        // this.toggle('up')
+        this.toggle('up')
         this.setProperties({
           postContent: null, //textarea
           categories: [],

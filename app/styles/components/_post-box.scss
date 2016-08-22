@@ -27,13 +27,21 @@
 			border-bottom: 1px solid $border-color;
 		}
 	}
+	.section-footer{
+		border-top: 1px solid $border-color;
+	}
 	textarea{
 		padding-top: 6px;
 	}
-	.brydge-loading{
+	span.brydge-loading{
 		position: absolute;
 		right: 1rem;
 		bottom: 1rem;
 
 	}
+}
+
+.post-sharer{
+	@extend .post-box;
+	background-color: #FFF;
 }

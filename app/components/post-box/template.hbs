@@ -1,7 +1,7 @@
 <section>
-	<form {{action 'post' on='submit'}} class="form-input mb">
+	<form {{action 'post' on='submit'}} class="form-input">
 		{{#if isLoading}}
-			<div class="brydge-loading"></div>
+			<span class="brydge-loading"></span>
 		{{/if}}
 	  <div class="avatar circle" style={{htmlSafeImage sessionAccount.account.profile.avatarUrl}}>
 	    <img src= {{avatarUrl}} class="hide">
@@ -22,43 +22,24 @@
 
 	</form>
 
+</section>
+
+<ul class="no-bullet accordion-picker brydge-accordion bg-white">
+  <li>
+    <div>
+      {{partial "partials/channel-select"}}
+    </div>
+  </li>
+</ul>
+
+<section class="section-footer bg-gray">
 	<div class="row">
 		<div class="columns medium-8">
-			<div class="wrapper">
-				<a class="dropdown-button button button-clear" {{action "toggle"}}>
-					Tag Industry Channels
-					<i class="icons caret"></i>
-				</a>
-			</div>
 		</div>
 	  <div class="columns medium-4 text-right">
 
 			{{form-input-button submit="post" item=this text="Broadcast" class="float-right" }}
 	  </div>
 	</div>
-</section>
 
-{{#zf-accordion id="channelSelect" class="accordion-picker brydge-accordion" allowAllClosed=true}}
-  <li class="accordion-item" data-accordion-item>
-    <div class="accordion-content" data-tab-content>
-      {{partial "partials/channel-select"}}
-    </div>
-  </li>
-{{/zf-accordion}}
-
-<section class="section-footer bg-gray">
-  {{#if categories}}
-		<div class="broadcast-list">
-	  	<strong class="broadcast-title">Broadcasting to: </strong>
-	  	<strong class="text-gray">Connections{{#each categories as |item|}}
-			    	{{~ concat '; ' item.text ~}}
-			    {{/each}}
-	  	</strong>
-		</div>
-	{{else}}
-		<div class="broadcast-list">
-			<strong class="broadcast-title">Broadcasting to: </strong>
-			<strong class="text-gray">Connections Only</strong>
-		</div>
-	{{/if}}
 </section>

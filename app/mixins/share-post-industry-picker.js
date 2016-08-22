@@ -17,7 +17,7 @@ export default Ember.Mixin.create({
       industryTwoId: false,
       industryThreeId: false
     })
-    this.toggle('up');
+    // this.toggle('up');
   }),
 	actions: {
     toggle(){
