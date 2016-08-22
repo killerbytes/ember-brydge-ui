@@ -157,15 +157,15 @@
 
 #channelPicker, #locationPicker{
 	.columns:first-child{
-		border-right: 1px solid $border-color;
+		border-right: none;
 	}
 	.columns:last-child{
-		border-left: none;
+		border-left: 1px solid $border-color;
 	}
-	ul+small{
-		position: absolute;
-		bottom: 1rem;
-	}
+	// ul+small{
+	// 	position: absolute;
+	// 	bottom: 1rem;
+	// }
 }
 
 

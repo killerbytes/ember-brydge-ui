@@ -20,7 +20,7 @@
           <a href="#personal" aria-selected="true"><i class="fa fa-street-view" aria-hidden="true"></i>Personal Particulars</a>
         </li>
         <li data-tab='industry' class="tabs-title {{active-tab 'industry' tab}}">
-          <a href="#industry"><i class="fa fa-briefcase" aria-hidden="true"></i>Industry</a>
+          <a href="#industry"><i class="fa fa-briefcase" aria-hidden="true"></i>Industries</a>
         </li>
         <li data-tab='snapshot' class="tabs-title {{active-tab 'snapshot' tab}}">
           <a href="#snapshot"><i class="fa fa-camera-retro" aria-hidden="true"></i>Snapshot</a>
@@ -108,16 +108,9 @@
             {{/zf-dropdown}}
 
             <section class="header">
-              <p>See the illustrations below, or refer to the {{link-to "User Guide" "user-guide"}}.</p>
+              <p>
+                Make sure you select at least 1. You can select up to 3 industries that are relevant to you. See the illustrations below, or refer to the {{link-to "User Guide" "user-guide"}}.</p>
               <form class="form-occupational-industry">
-                <div class="row">
-                  <div class="columns">
-                    <label>
-                      Industry (Pick 1 or 3)
-                    </label>
-
-                  </div>
-                </div>
                 <div class="row">
                   <div class="columns medium-7">
                     <form class="brydge-form">
@@ -180,8 +173,7 @@
             </section>
             <section class="industry-examples">
               <p class="title text-center mb40">
-                Not sure what Occupational Industry you fit in? <br>
-                Take a look at some of our illustrated examples!
+                Not sure what Industries to select?
               </p>
               {{partial 'partials/industry-examples'}}
             </section>

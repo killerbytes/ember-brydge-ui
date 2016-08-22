@@ -20,15 +20,13 @@
 	    <div class="tabs-panel is-active bg-gray" id="{{name}}-root">
 	    	<section>
 				  <p>
-				  	Step 1 of 2: <span class="text-green">Pick an Industry Group</span>
+				  	Step 1 of 2: <span class="text-green">Select an Industry Group</span>
 				  </p>
 					<form>
 			      <ul class="no-bullet text-title root-list">
 			        {{#each categories as |item|}}
 			          <li>
-									{{#zf-tooltip title=item.sector_description positionClass="right" templateClasses="picker-tooltip"}}
-										<strong class="text-title">{{item.name}}</strong>
-									{{/zf-tooltip}}
+									<strong>{{item.name}}</strong>
 									<ul class="no-bullet">
 				            {{#each item.categories as |item|}}
 				              <li>
@@ -71,7 +69,9 @@
 	          		<label>Industry Group:</label> <strong>{{category.name}}</strong> <a {{action "goto" "0" "root" }}>Change</a>
 	            </section>
 	            <section class="content">
-	            	Choose an Industry
+								<p>
+							  	Step 2 of 2: <span class="text-green">Select an Industry</span>
+							  </p>
 		            <ul class="no-bullet sub-industry">
 		            {{#each category.industries as |industry|}}
 		              <li>

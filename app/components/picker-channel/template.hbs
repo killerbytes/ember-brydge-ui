@@ -13,8 +13,8 @@
 								<li><label>{{myCompany.text}}</label></li>
 							</ul>
 						</section>
-						<section style="min-height: 120px;" class="wrapper">
-							<div class="sub-title">Your Industry</div>
+						<section>
+							<div class="sub-title">Your Industries</div>
               <ul class="no-bullet">
               {{#each industries as |item|}}
 								<li><a {{action "select" item.id item.text }}>{{item.text}}</a></li>
@@ -22,9 +22,9 @@
               </ul>
               <small>
                 {{#if isIndustry}}
-                  {{#link-to 'me.edit' (query-params tab="industry")}}Change Industry{{/link-to}}
+                  {{#link-to 'me.edit' (query-params tab="industry") class="text-gray"}}Change Industries{{/link-to}}
                 {{else}}
-                  {{#link-to 'me.edit' (query-params tab="industry")}}Add Industry{{/link-to}}
+                  {{#link-to 'me.edit' (query-params tab="industry") class="text-gray"}}Add Industries{{/link-to}}
                 {{/if}}
               </small>
 						</section>
@@ -32,8 +32,8 @@
 
 					</div>
 					<div class="columns medium-6">
-						<section>
-							<div class="sub-title">Industry Channels you follow</div>
+						<section style="min-height:194px;">
+							<div class="sub-title">Other Industries you follow</div>
 							<ul class="no-bullet content-pad hover-close">
                 {{#unless loading}}
   								{{#each favorites as |item|}}
