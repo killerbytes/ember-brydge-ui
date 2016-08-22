@@ -3,6 +3,11 @@ header{
 	width: 100%;
 	position: fixed;
 	z-index: 100;
+	.title-bar-left{
+		ul.menu{
+			margin-top: 2px;
+		}
+	}
 	.title-bar{
 		background-color: $brydge-blue;
 		color: #FFF;
@@ -18,7 +23,7 @@ header{
 		}
 	}
 	.logo{
-		width: 127px;
+		width: 115px;
 		margin-right: 2rem !important;
 	}
 	.user-info{
@@ -87,6 +92,7 @@ header.simple-header{
 
 .top-bar-search {
 	@extend .search-box;
+
 	width: 308px;
 	.user{
 		border-bottom: 1px solid $border-color;
@@ -96,6 +102,11 @@ header.simple-header{
 	}
 	.position{
 		color: $text-gray;
+	}
+	form input[type="search"]{
+		border-color: $brydge-blue;
+		// padding: 6px;
+		padding-right: 3rem;
 	}
 }
 
