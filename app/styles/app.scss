@@ -134,24 +134,15 @@ p.wrap{
 .no-margin{
 	margin: 0;
 }
-.text-gray{
-	color: $text-gray;
-}
-.text-light{
-	color: $text-light;
-}
-.text-blue{
-	color: $button-blue;
-}
-.text-justify{
-	text-align: justify;
-}
-.text-upper{
-	text-transform: uppercase;
-}
-.text-title{
-	text-transform: capitalize;
-}
+
+.text-gray{ color: $text-gray; }
+.text-light{ color: $text-light; }
+.text-blue{ color: $button-blue; }
+.text-green{ color: $brydge-green; }
+.text-justify{ text-align: justify; }
+.text-upper{ text-transform: uppercase; }
+.text-title{ text-transform: capitalize; }
+
 .font-light{
 	font-weight: 400;
 }

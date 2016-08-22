@@ -13,21 +13,22 @@
 								<li><label>{{myCompany.text}}</label></li>
 							</ul>
 						</section>
-						<section>
-							<div class="sub-title">Your Business Industry ({{#link-to 'me.edit' (query-params tab="industry")}}Edit{{/link-to}})</div>
-							<ul class="no-bullet content-pad">
-								<li><a {{action "select" profile.industryOneId profile.industryOneName }}>{{profile.industryOneName}}</a></li>
-							</ul>
-						</section>
-
-						<section>
-							<div class="sub-title">Your Occupational Industry ({{#link-to 'me.edit' (query-params tab="occupindustry")}}Edit{{/link-to}})</div>
-							<ul class="no-bullet content-pad">
-							{{#each industries as |item|}}
+						<section style="min-height: 120px;" class="wrapper">
+							<div class="sub-title">Your Industry</div>
+              <ul class="no-bullet">
+              {{#each industries as |item|}}
 								<li><a {{action "select" item.id item.text }}>{{item.text}}</a></li>
 							{{/each}}
-							</ul>
+              </ul>
+              <small>
+                {{#if isIndustry}}
+                  {{#link-to 'me.edit' (query-params tab="industry")}}Change Industry{{/link-to}}
+                {{else}}
+                  {{#link-to 'me.edit' (query-params tab="industry")}}Add Industry{{/link-to}}
+                {{/if}}
+              </small>
 						</section>
+
 
 					</div>
 					<div class="columns medium-6">

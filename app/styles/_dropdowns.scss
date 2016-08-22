@@ -123,7 +123,7 @@ a.dropdown-button-icons.dropdown-button-arrow{
 
 
 .dropdown-notification{
-  width: 360px !important;  
+  width: 360px !important;
   .empty-message{
     padding: 1rem;
     color: $body-text-color;
@@ -183,14 +183,18 @@ a.dropdown-button-icons.dropdown-button-arrow{
     background-color: $brydge-gray;
     min-height: 120px;
   }
-  ul.text-title{
-    margin-top: 3px;
-    li{
-      padding: 3px 0;
-      a{
-        font-size: 16px;
-        font-weight: bold;
-      }
+  .root-list{
+    columns: 2;
+    strong{
+      text-transform: uppercase;
+      font-weight: bold;
+      color: #000;
+    }
+    a{
+      font-weight: bold;
+    }
+    ul{
+      margin-bottom: 1rem;
     }
   }
   ul.sub-industry{
@@ -240,135 +244,3 @@ a.dropdown-button-icons.dropdown-button-arrow{
   // width: 100%;
   padding: 0;
 }
-
-// .accordion-arrow{
-// }
-
-// .dropdown-gray{
-//   background-color: #EEE;
-// }
-
-// #dd-ask{
-//   top: 49px !important;
-//   width: 90%;
-//   background-color: #EEE;
-
-// }
-// .dd-ask-form{
-//   top: 50px !important;
-//   width: 410px !important;
-// }
-// .dd-ask-form.dropdown-pane{
-//   button{
-//     display: inline-block;
-//   }
-// }
-
-// // a[data-toggle="dd-ask"],
-// // a[data-toggle="dd-ask-form"]{
-// //   .triangle{
-// //     border-color: rgba(0, 0, 0, 0) rgba(0, 0, 0, 0) #EEE rgba(0, 0, 0, 0);
-// //   }
-// // }
-// .triangle-gray{
-//   border-color: rgba(0, 0, 0, 0) rgba(0, 0, 0, 0) #EEE rgba(0, 0, 0, 0);
-// }
-
-// #dd-messages{
-//   ul.media-list li{
-//     padding: 1rem 0;
-//   }
-//   .thumbnail{
-//     width: 35px;
-//     height: 35px;
-//   }
-
-// }
-
-
-
-// #dd-notification{
-//   // width: 400px;
-// }
-// .item-menu-dropdown{
-//   width: 100px;
-//   button{
-//     background-color: #EFEFEF;
-//     border: 1px solid #D9D9D9;
-//     font-size: 12px;
-//     padding: 5px;
-//   }
-// }
-
-// .dropdown-menu-bar{
-//   width: 322px;
-//   // top: auto !important;
-//   ul>li{
-//     padding: 1rem;
-//   }
-//   ul{
-//     padding: 0 1rem;
-//     padding-bottom: 0;
-//   }
-//   p{ margin-bottom: 0; }
-//   .name{
-//     font-size: 14px;
-//     font-weight: bold;
-//     line-height: 1em;
-//   }
-//   .position{
-//     font-size: 10px;
-//     line-height: 1.4em;
-//   }
-//   .thumbnail{
-//     width: 50px;
-//     height: 50px;
-//     margin: 0;
-//     img{
-//       width: 100%;
-//     }
-//   }
-// }
-
-// #dd-select-channel, #dd-select-channel-post-sharer, #industry-dropdown, #location-dropdown{
-//   strong{
-//     font-size: 11px;
-//     text-transform: uppercase;
-//   }
-//   label{
-//     font-size: inherit;
-//     line-height: 1.5em;
-//   }
-//   a{
-//     font-size: 11px;
-//   }
-
-// }
-// #dd-select-channel{
-//   left: auto;
-//   right: 0;
-//   width: 300px;
-//   padding: 0;
-//   section{
-//     padding: .5rem;
-//     p:last-child{
-//       margin-bottom: 0;
-//     }
-//   }
-//   input[type="checkbox"]{
-//     float: right;
-//     margin: 3px 0;
-//   }
-
-//   hr{
-//     margin: 0;
-//     margin-bottom: .5rem;
-//   }
-//   section:last-child ul{
-//     margin: 0;
-//   }
-
-// }
-// #dd-incomplete-callout{
-
-// }

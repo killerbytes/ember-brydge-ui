@@ -19,9 +19,7 @@ export default Ember.Component.extend(SharePostIndustryPicker, {
     let title = this.get('site.title') || this.get('site.url');
     return title.length > 100 ? title.substr(0, 100) + ' ...' : title;
   }),
-  isOccupational: Ember.computed('profile.industryTwoId', function(){
-    return this.get('profile.industryTwoId') || this.get('profile.industryThreeId');
-  }),
+  isIndustry: Ember.computed.or('profile.industryOneId', 'profile.industryTwoId', 'profile.industryThreeId'),
   _removeLink(content, link){
     return content.replace(link, "");
   },

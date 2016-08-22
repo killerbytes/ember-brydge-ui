@@ -489,3 +489,15 @@ span.middle{
 	font-size: 13px;
 	line-height: 1.6rem;
 }
+
+.channel-select{
+	p{
+		text-align: center;
+		margin: 2rem;
+	}
+	ul+small{
+		position: absolute;
+		bottom: .5rem;
+		left: 3rem;
+	}
+}

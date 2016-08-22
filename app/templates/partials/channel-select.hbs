@@ -1,36 +1,17 @@
 	<form class="channel-select">
 		<div class="row collapse">
-			<div class="columns medium-6">
+			<div class="columns medium-5">
+				<p >By tagging industries to your broadcasts you can help other professionals discover you</p>
+			</div>
+			<div class="columns medium-7 wrapper">
 				<section>
-					<div class="sub-title">Your Business Industry
-						({{#if profile.industryOneId ~}}
-							{{link-to "Edit" "me.edit" (query-params tab="industry")}}
-						{{~ else ~}}
-							{{link-to "Add" "me.edit" (query-params tab="industry") ~}}
-						{{/if ~}})</div>
-						{{#if profile.industryOneId}}
-							<ul class="no-bullet content-pad">
+					<div class="sub-title">Tag Industry Channels</div>
+						<ul class="no-bullet content-pad">
+							{{#if profile.industryOneId}}
 								<li>
 									{{action-checkbox-bind value=profile.industryOneId text=profile.industryOneName action="checkboxChanged" name="industryOneId" checked=industryOneId }}
 								</li>
-							</ul>
-						{{else}}
-							<div class="padded-h">
-								Add Business Industry
-							</div>
-						{{/if}}
-				</section>
-			</div>
-			<div class="columns medium-6">
-				<section>
-					<div class="sub-title">Your Occupational Industry
-						({{#if isOccupational ~}}
-							{{link-to "Edit" "me.edit" (query-params tab="occupindustry")}}
-						{{~ else ~}}
-							{{link-to "Add" "me.edit" (query-params tab="occupindustry") ~}}
-						{{/if}})</div>
-					{{#if isOccupational }}
-						<ul class="no-bullet content-pad">
+							{{/if}}
 							{{#if profile.industryTwoId}}
 								<li>
 									{{action-checkbox-bind value=profile.industryTwoId text=profile.industryTwoName action="checkboxChanged" name="industryTwoName" checked=industryTwoId }}
@@ -42,11 +23,13 @@
 								</li>
 							{{/if}}
 						</ul>
-					{{else}}
-						<div class="padded-h">
-							Add Occupational Industry
-						</div>
+					<small>
+					{{#if isIndustry ~}}
+						{{link-to "Change Industries" "me.edit" (query-params tab="industry")}}
+					{{~ else ~}}
+						{{link-to "Add Industries" "me.edit" (query-params tab="industry") ~}}
 					{{/if}}
+					</small>
 
 				</section>
 			</div>

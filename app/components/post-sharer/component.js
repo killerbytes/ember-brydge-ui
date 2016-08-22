@@ -23,9 +23,7 @@ export default Ember.Component.extend(SharePostIndustryPicker, {
 		if(!title) return false;
 		return title.length > 100 ? title.substr(0, 100) + ' ...' : title;
 	}),
-  isOccupational: Ember.computed('profile.industryTwoId', function(){
-    return this.get('profile.industryTwoId') || this.get('profile.industryThreeId');
-  }),
+  isIndustry: Ember.computed.or('profile.industryOneId', 'profile.industryTwoId', 'profile.industryThreeId'),
 	actions: {
 		edit(text, e){
       var el = e.currentTarget;

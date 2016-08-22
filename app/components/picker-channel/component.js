@@ -9,8 +9,12 @@ export default Ember.Component.extend({
 		return this.get('selected') ? this.getCategory(this.get('selected')) : {name: "My Connections"};
 		// return this.get('selected') ? this.getIndustryName(this.get('selected')) : this.getIndustryName(0);
 	}),
+	isIndustry: Ember.computed.or('profile.industryOneId', 'profile.industryTwoId', 'profile.industryThreeId'),
 	industries: Ember.computed('profile', function(){
 		return [{
+      id: this.get('profile.industryOneId'),
+      text: this.get('profile.industryOneName')
+    },{
       id: this.get('profile.industryTwoId'),
       text: this.get('profile.industryTwoName')
     },{

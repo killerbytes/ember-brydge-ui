@@ -1,7 +1,7 @@
 <div class="box">
   <section class="hoverable">
     <h4><i class="fa fa-building-o" aria-hidden="true"></i>
-      Business Industry
+      Industry
       {{#if isOwner}}
         {{#link-to "me.edit" (query-params tab="industry") class="editable"}}
           <i class="fa fa-pencil-square-o"></i>
@@ -9,7 +9,10 @@
       {{/if}}
     </h4>
     {{#if profile.industryOneName}}
-      <strong><a href="">{{profile.industryOneName}}</a></strong>
+      <div><strong><a>{{profile.industryOneName}}</a></strong></div>
+      <div><strong><a>{{profile.industryTwoName}}</a></strong></div>
+      <div><strong><a>{{profile.industryThreeName}}</a></strong></div>
+
     {{else}}
       {{#if isOwner}}
         <div class="empty-message">
@@ -23,34 +26,6 @@
     {{/if}}
   </section>
 
-  <section class="hoverable">
-    <h4><i class="fa fa-briefcase" aria-hidden="true"></i>
-      Occupational Industry
-      {{#if isOwner}}
-        {{#link-to "me.edit" (query-params tab="occupindustry") class="editable" }}
-          <i class="fa fa-pencil-square-o"></i>
-        {{/link-to}}
-      {{/if}}
-    </h4>
-    {{#if isNotEmptyOccupation}}
-      <div>
-        <strong><a href="">{{profile.industryTwoName}}</a></strong>
-      </div>
-      <div>
-        <strong><a href="">{{profile.industryThreeName}}</a></strong>
-      </div>
-    {{else}}
-      {{#if isOwner}}
-      <div class="empty-message">
-        Add Occupational Industry
-      </div>
-      {{else}}
-      <div class="empty-message">
-        {{profile.firstName}} hasn't added an Occupational Industry
-      </div>
-      {{/if}}
-    {{/if}}
-  </section>
 
   <section class="hoverable">
     <h4><i class="fa fa-camera-retro" aria-hidden="true"></i>
