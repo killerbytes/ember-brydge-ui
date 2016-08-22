@@ -9,6 +9,7 @@ export default TransitionToListenerRoute.extend(
   HideHeaderMixin,
   ApplicationRouteMixin, {
   notification: Ember.inject.service(),
+  push_notification: Ember.inject.service("push-notification"),
   tmp: Ember.inject.service('temp'),
   notifier(){
     this.get('notification').check(()=>{
@@ -30,6 +31,8 @@ export default TransitionToListenerRoute.extend(
   }.on('activate'),
   setupController(controller, model){
     this._super(...arguments);
+    console.log('++++ application +++')
+    this.get('push_notification').check();
     controller.set('detector', this.get('detector'));
   },
   actions: {
