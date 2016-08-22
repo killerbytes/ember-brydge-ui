@@ -4,15 +4,22 @@ export default Ember.Controller.extend({
   channel: null,
   init: function() {
     let socket = this.get('phoenix').socket();  
-    let room = socket.channel("rooms:lobby", {});
-    this.set('channel', room);
+    let room = socket.channel("room:lobby", {});
     room.join().receive("ok", () => {
-      console.log("Welcome to Phoenix Chat!");
+      console.log("Welcome to Phoenix Websocket!");
     });
+
     room.on( "new:message", msg => this.renderMessage(msg) )
+    
+    // this.set('channel', room);
+    // room.join().receive("ok", () => {
+    //   console.log("Welcome to Phoenix Chat!");
+    // });
+    // room.on( "new:message", msg => this.renderMessage(msg) )
   },
   renderMessage: function (msg) {
-    this.messages.pushObject(msg.body);
+    console.log('get new message', msg)
+    // this.messages.pushObject(msg.body);
   },
   actions: {
     sendMessage: function (event) {
