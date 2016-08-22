@@ -13,9 +13,9 @@
       postToNewsfeed='postToNewsfeed'
       profile=profile
       submit='postFeed' }}
-    {{#if posts}}
-      {{newsfeed-list newsfeed=posts }}
-      {{#brydge-scroller id="newsfeed" model=posts onClick="load"}}
+    {{#if newsfeed}}
+      {{newsfeed-list newsfeed=newsfeed }}
+      {{#brydge-scroller id="newsfeed" model=newsfeed onClick="load"}}
         {{#if isLoading}}
           <div class="brydge-loading"></div>
         {{/if}}
