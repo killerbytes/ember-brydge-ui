@@ -147,7 +147,8 @@ export default Ember.Route.extend(
     dismiss(){
 
       var configSetting = this.store.peekRecord('configSetting', this.get('controller.profile.id'));
-      configSetting.set('showGuide', false);
+      configSetting.set('key', 'show_guide');
+      configSetting.set('value', false);
       configSetting.save();
     }
   }

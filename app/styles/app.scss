@@ -138,7 +138,7 @@ p.wrap{
 .text-gray{ color: $text-gray; }
 .text-light{ color: $text-light; }
 .text-blue{ color: $button-blue; }
-.text-green{ color: $brydge-green; }
+.text-green{ color: $brydge-green !important; }
 .text-justify{ text-align: justify; }
 .text-upper{ text-transform: uppercase; }
 .text-title{ text-transform: capitalize; }
