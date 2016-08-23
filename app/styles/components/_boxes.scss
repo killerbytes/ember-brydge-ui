@@ -27,6 +27,12 @@
 	section.title{
 		padding-bottom: 0;
 	}
+	.title-bg{
+		background-color: $brydge-blue;
+		h3{
+			color: #FFF;
+		}
+	}
 	.content .title{
 		font-size: 13px;
 	}
@@ -47,7 +53,7 @@
 	.text-content{
 		padding: 2rem 10rem;
 	}
-	
+
 
 	.section-accordion-group{
 		> section{
