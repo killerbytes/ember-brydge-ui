@@ -1,4 +1,4 @@
-@import 'https://fonts.googleapis.com/css?family=Droid+Serif%7CMerriweather%7CRoboto+Slab';
+// @import 'https://fonts.googleapis.com/css?family=Droid+Serif%7CMerriweather%7CRoboto+Slab';
 @import url(https://fonts.googleapis.com/css?family=Lato:400,300,700);
 
 $brydge-blue: #6BCDFD;
@@ -50,18 +50,6 @@ $text-orange: #FF5333;
 body{
 	background-color: $body-bg-color;
 	color: $body-text-color;
-  // font-family: 'Helvetica Neue', Arial, sans-serif;
-	// font-family: 'Montserrat', sans-serif;
-
-// font-family: 'Montserrat', sans-serif;
-// font-family: 'Prompt', sans-serif;
-// font-family: 'Hind Guntur', sans-serif;
-// font-family: 'Hind Madurai', sans-serif;
-// font-family: 'Hind', sans-serif;
-// font-family: 'Open Sans', sans-serif;
-// font-family: 'Roboto', sans-serif;
-// font-family: 'Lato', sans-serif;
-
 }
 *{
 	outline-width: 0;
@@ -72,9 +60,6 @@ body{
 }
 
 h1, h2, h3, h4, h5, h6 {
-  // font-family: 'Raleway:500', helvetica, arial, sans-serif;
-  // font-family: 'Helvetica Neue', Arial, sans-serif;
-  // font-weight: bold;
 }
 h4{
 	color: $text-light;
@@ -153,9 +138,6 @@ p.wrap{
 .bg-white{
 	background-color: #FFF !important;
 }
-// .bg-blue{
-// 	background-color: $button-blue;
-// }
 .bg-gray{
 	background-color: $brydge-gray;
 }
