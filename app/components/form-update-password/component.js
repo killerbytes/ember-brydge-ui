@@ -18,6 +18,10 @@ export default Ember.Component.extend(Validations, {
 	tagName: 'form',
 	actions: {
 		update(item, cb){
+			if(!this.get('validations.isValid')){
+				cb.apply(this,[false]);
+				return false;
+			}
 			this.get('settings').updatePassword({
 				password: this.get('password'),
 				oldPassword: this.get('oldPassword')
