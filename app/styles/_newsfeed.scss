@@ -134,6 +134,11 @@
 			padding-bottom: 1rem;
 			max-resolution: 1rem;
 			border-bottom: 1px solid $border-color;
+			a.more+.brydge-loading{
+				position: absolute;
+				right: 1rem;
+				top: .75rem;
+			}
 		}
 		.comment-footer{
 			padding-top: 1rem;

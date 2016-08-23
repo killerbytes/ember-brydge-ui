@@ -1,0 +1,45 @@
+<section>
+	<form {{action 'post' on='submit'}} class="form-input">
+		{{#if isLoading}}
+			<span class="brydge-loading"></span>
+		{{/if}}
+	  <div class="avatar circle" style={{htmlSafeImage sessionAccount.account.profile.avatarUrl}}>
+	    <img src= {{avatarUrl}} class="hide">
+	  </div>
+	  <div class="input-wrapper">
+	    {{textarea
+	      value=postContent
+	      key-up="edit"
+	      class="textarea content-editable"
+	    	placeholder='Get noticed! Broadcast opinions, industry news, trends.'
+	      }}
+	  </div>
+	  {{#if site.title}}
+			<div class="newsfeed-item">
+				{{newsfeed-media model=site preview=true}}
+			</div>
+		{{/if}}
+
+	</form>
+
+</section>
+
+<ul class="no-bullet accordion-picker brydge-accordion bg-white">
+  <li>
+    <div>
+      {{partial "partials/channel-select"}}
+    </div>
+  </li>
+</ul>
+
+<section class="section-footer bg-gray">
+	<div class="row">
+		<div class="columns medium-8">
+		</div>
+	  <div class="columns medium-4 text-right">
+
+			{{form-input-button submit="post" item=this text="Broadcast" class="float-right" }}
+	  </div>
+	</div>
+
+</section>

@@ -6,7 +6,7 @@ const {
 
 export default Ember.Component.extend({
   classNames: ['validated-input'],
-  classNameBindings: ['showErrorClass:has-error', 'isValid:has-success', 'isValid', 'showValidate:has-error'],
+  classNameBindings: ['showErrorClass:has-error', 'isValid:has-success', 'isValid', 'showMessage:has-error'],
   model: null,
   value: null,
   type: 'text',
@@ -21,20 +21,14 @@ export default Ember.Component.extend({
     defineProperty(this, 'validation', computed.oneWay(`model.validations.attrs.${valuePath}`));
     defineProperty(this, 'value', computed.alias(`model.${valuePath}`));
   },
-	actions: {
-		focusOut(){
-			this.set('focusOut', true);
-		}
-	},
 
   notValidating: computed.not('validation.isValidating'),
   didValidate: computed.oneWay('targetObject.didValidate'),
   hasContent: computed.notEmpty('value'),
   isValid: computed.and('hasContent', 'validation.isValid', 'notValidating'),
   isInvalid: computed.oneWay('validation.isInvalid'),
-  showErrorClass: computed.and('notValidating', 'showValidate', 'hasContent', 'validation'),
+  showErrorClass: computed.and('notValidating', 'showMessage', 'hasContent', 'validation'),
   showMessage: computed('validation.isDirty', 'isInvalid', 'didValidate', function() {
     return (this.get('validation.isDirty') || this.get('didValidate')) && this.get('isInvalid');
-  }),
-	showValidate: computed.and('focusOut', 'showMessage')
+  })
 });

@@ -109,18 +109,18 @@
   				<li {{action "read" item}}>
             {{#link-to "profile" item.target.id class=(if item.read false 'new-notification')}}
   						<div class="row collapse">
-  							<div class="columns medium-8">
+  							<div class="columns">
   					      <div class="avatar" style={{htmlSafeImage item.target.profile.avatarUrl }}>
   					        <img src= {{item.target.profile.avatarUrl}} class="hide">
   					      </div>
   					      <div class="user-info">
-  				          <span class="name">{{item.target.profile.fullName}}</span>
+                    <div>
+                      <span class="name">{{item.target.profile.fullName}}</span>
+                      <span class="timestamp float-right">{{ timestamp-views item.createdAt }}</span>
+                    </div>
   					        <div class="position">{{item.target.profile.career}}</div>
   					      </div>
 
-  							</div>
-  							<div class="columns medium-4 timestamp text-right">
-  								{{ timestamp-views item.createdAt }}
   							</div>
   						</div>
             {{/link-to}}

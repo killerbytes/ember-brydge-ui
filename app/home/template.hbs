@@ -1,6 +1,6 @@
 <div class="row">
   <div class="large-7 medium-7 columns">
-    {{ share-post-box
+    {{ post-box
     	postToNewsfeed='postToNewsfeed'
      	profile=profile
      	class="mb20"
@@ -42,36 +42,43 @@
 	        </li>
 	      {{/zf-tabs}}
       </div>
+      {{#if profile.configSetting.showGuide}}
+  			<div class="box getting-started">
+  				<section>
+  					<h3>Get Started, {{profile.firstName}}!</h3>
+            Welcome to the BETA Version. We’ll keep this notice here until you dismiss it.
+  				</section>
+          <section>
+  					<span class="badge">1</span>
+  					<p><strong>Pick {{link-to "Industries" "me.edit" (query-params tab="industry")}} relevant to you</strong></p>
+  					<p>Do this first. Once you do, it becomes easier for other professionals and businesses to discover you. And vice versa.</p>
+  				</section>
 
-			<div class="box getting-started hide">
-				<section>
-					<h3>Get Started, {{profile.firstName}}!</h3>
-					We'll keep this notice here for 7 days after you sign-up.
-				</section>
-				<section>
-					<span class="badge">1</span>
+          <section>
+  					<span class="badge">2</span>
+  					<p><strong>Browse Industry Channels</strong></p>
+  					<p>After you've picked your industries, use the Channel Filters at the top of this page to discover relevant content, people and industry news.</p>
+            <p>Go on, try it.</p>
+  				</section>
 
-					<p>Explore your {{link-to "Profile" "me"}}</p>
-					<p>This is where all the posts you share (what we call <strong>Broadcasts</strong>), work and academic history(<strong>Background</strong>), questions you ask and answer (<strong>Ask</strong>) and <strong>Compliments</strong> you receive will reside.</p>
+  				<section>
+  					<span class="badge">3</span>
 
-				</section>
-				<section>
-					<span class="badge">2</span>
-					<p>To really get started - do this as soon as you can!</p>
-					<p>One of the first things you really want to do is go to your {{link-to "Edit Profile" "me.edit"}} page, and pick these two options:</p>
-					<p><strong class="text-upper">Business Industry</strong>: the industry your business operates in <br>
-						<strong class="text-upper">Occupational Industries</strong>: one (or two) other industries you deal with as part of your job
-					</p>
-				</section>
-				<section>
-					<span class="badge">3</span>
-					<p>Explore Industry Channels on the {{link-to "Home" "home"}} page</p>
-					<p>Once you've picked your relevant industries, you can use the channel filters on the Home page to see:</p>
-					<p>(a) what your connections are talking about and sharing, and <br> (b) what your industry peers are talking about and sharing</p>
-					<p>And you can further filter them by location!</p>
-				</section>
-			</div>
+  					<p><strong>Set up your {{link-to "Profile" "me"}}</strong></p>
+            <p>Tell the world how amazing you are at what you do. Fill out your profile. If you need an example, see {{link-to "Jon Vettori" "profile" "d36475e0645211e69ae542010af00003"}}'s profile.</p>
 
+  				</section>
+
+  				<section>
+  					<span class="badge">4</span>
+  					<p><strong>Find people you know</strong></p>
+  					<p>If you know anyone else who is participating in our Closed BETA, you can search for them. Feel free to connect with {{link-to "Nikhil Charan" "profile" "3ze5n8glm6b"}} or {{link-to "Jon Vettori" "profile" "d36475e0645211e69ae542010af00003"}} if you need any help.</p>
+  				</section>
+          <section class="text-right">
+            <button class="button btn success" {{action "dismiss"}}>Dismiss</button>
+          </section>
+  			</div>
+      {{/if}}
 			<div data-tabs-content="newsfeed-tabs">
 				<div class="tabs-panel {{active-tab 'live' tab}}" id="live">
 				    {{#if feed_live}}

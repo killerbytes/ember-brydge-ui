@@ -1,7 +1,7 @@
 <div class="box">
   <section class="hoverable">
     <h4><i class="fa fa-building-o" aria-hidden="true"></i>
-      Business Industry
+      Industries
       {{#if isOwner}}
         {{#link-to "me.edit" (query-params tab="industry") class="editable"}}
           <i class="fa fa-pencil-square-o"></i>
@@ -9,7 +9,10 @@
       {{/if}}
     </h4>
     {{#if profile.industryOneName}}
-      <strong><a href="">{{profile.industryOneName}}</a></strong>
+      <div><strong><a>{{profile.industryOneName}}</a></strong></div>
+      <div><strong><a>{{profile.industryTwoName}}</a></strong></div>
+      <div><strong><a>{{profile.industryThreeName}}</a></strong></div>
+
     {{else}}
       {{#if isOwner}}
         <div class="empty-message">
@@ -23,34 +26,6 @@
     {{/if}}
   </section>
 
-  <section class="hoverable">
-    <h4><i class="fa fa-briefcase" aria-hidden="true"></i>
-      Occupational Industry
-      {{#if isOwner}}
-        {{#link-to "me.edit" (query-params tab="occupindustry") class="editable" }}
-          <i class="fa fa-pencil-square-o"></i>
-        {{/link-to}}
-      {{/if}}
-    </h4>
-    {{#if isNotEmptyOccupation}}
-      <div>
-        <strong><a href="">{{profile.industryTwoName}}</a></strong>
-      </div>
-      <div>
-        <strong><a href="">{{profile.industryThreeName}}</a></strong>
-      </div>
-    {{else}}
-      {{#if isOwner}}
-      <div class="empty-message">
-        Add Occupational Industry
-      </div>
-      {{else}}
-      <div class="empty-message">
-        {{profile.firstName}} hasn't added an Occupational Industry
-      </div>
-      {{/if}}
-    {{/if}}
-  </section>
 
   <section class="hoverable">
     <h4><i class="fa fa-camera-retro" aria-hidden="true"></i>
@@ -62,7 +37,7 @@
       {{/if}}
     </h4>
     {{#if profile.snapshot}}
-      <p class="paragraph">{{profile.snapshot}}</p>
+      <p class="paragraph snapshot">{{profile.snapshot}}</p>
     {{else}}
       <div class="empty-message">
         {{profile.firstName}} hasn't added a Snapshot
@@ -98,12 +73,12 @@
           </div>
         </div>
 
-        <div class="title">{{latestQuestion.question}}</div>
+        <div class="title large">{{latestQuestion.question}}</div>
       </div>
-      {{#zf-accordion-menu class="section-accordion" multiOpen=true}}
+      {{#zf-accordion-menu class="section-accordion accordion-ask-answer" multiOpen=true}}
         <li>
           <ul class="section-accordion-content no-bullet">
-            <li>{{{latestQuestion.answer}}}</li>
+            <li><span class="answer-content">{{{latestQuestion.answer}}}</span></li>
           </ul>
           <a class="more no-arrow"><span class="content-more">See Answer</span><span class="content-less">Hide Answer</span></a>
         </li>
@@ -142,15 +117,15 @@
   </div>
 {{/if}}
 
-<div class="box">
+<div class="box compliment-card">
   <section>
     <h4><i class="fa fa-thumbs-up" aria-hidden="true"></i>Compliments</h4>
     {{#if latestCompliment}}
       <div class="mb">
-        <div class="title">
+        <div class="title large">
           {{latestCompliment.title}}!
         </div>
-        <div class="content-pad">{{latestCompliment.content}}</div>
+        <div class="content-pad description-content">{{latestCompliment.content}}</div>
       </div>
       <div class="user">
         <div class="avatar" style={{htmlSafeImage latestCompliment.from.content.profile.avatarUrl }}>

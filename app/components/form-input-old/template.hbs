@@ -1,0 +1,6 @@
+{{input type=type value=value placeholder=placeholder name=valuePath disabled=disabled autocomplete="false"}}
+{{#if showMessage}}
+    <div class="error">
+        {{v-get model valuePath 'message'}}
+    </div>
+{{/if}}

@@ -69,8 +69,7 @@
 	background-position: center right;
 	background-repeat: no-repeat;
 	width: 38px;
-	// height: 25px;
-	min-width: auto;
+	min-width: initial;
 }
 
 .button-clear, .button-clear:focus{

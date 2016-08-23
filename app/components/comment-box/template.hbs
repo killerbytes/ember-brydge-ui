@@ -10,6 +10,10 @@
     <a class="more no-arrow" {{action 'hideComments'}}>
       Hide comments
     </a>
+    {{#if isLoading}}
+      <div class="brydge-loading"></div>
+    {{/if}}
+
   </section>
 {{/if}}
 
@@ -40,11 +44,13 @@
     {{/each}}
   </section>
 {{/if}}
-{{#if isLoading}}
-  <section class="comment-group">
-    <div class="loader small"></div>
-  </section>
-{{/if}}
+{{#unless showComments}}
+  {{#if isLoading}}
+    <section class="comment-group">
+      <div class="brydge-loading"></div>
+    </section>
+  {{/if}}
+{{/unless}}
 
 <section>
   <form>

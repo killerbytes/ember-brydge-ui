@@ -1,4 +1,4 @@
-.share-post-box{
+.post-box{
 	@extend .bordered;
 	@extend .rounded;
 	background-color: $brydge-gray;
@@ -6,9 +6,9 @@
 	section{
 		padding: 1rem;
 	}
-	.section-footer{
+	.form-input{
+		position: relative;
 	}
-
 	.newsfeed-item{
 		border: none;
 	}
@@ -27,7 +27,21 @@
 			border-bottom: 1px solid $border-color;
 		}
 	}
+	.section-footer{
+		border-top: 1px solid $border-color;
+	}
 	textarea{
 		padding-top: 6px;
 	}
+	span.brydge-loading{
+		position: absolute;
+		right: 1rem;
+		bottom: 1rem;
+
+	}
+}
+
+.post-sharer{
+	@extend .post-box;
+	background-color: #FFF;
 }

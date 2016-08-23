@@ -6,6 +6,10 @@ table{
 .title{
 	font-weight: bold;
 	font-size: 14px;
+	&.large{
+		font-size: 18px;
+		line-height: 2rem;
+	}
 }
 .sub-title{
 	color: $text-gray;
@@ -232,10 +236,13 @@ table{
 		color: #FFF;
 		font-size: 9px;
 		position: absolute;
-		top: 1rem;
+		top: 10px;
 		left: 1rem;
 	}
 	p{
+		strong{
+			font-size: 14px;
+		}
 		margin-bottom: 0;
 		padding-left: 25px;
 	}
@@ -479,4 +486,21 @@ span.middle{
 }
 .static-content{
 	font-size: 15px;
+}
+
+.description-content{
+	font-size: 13px;
+	line-height: 1.6rem;
+}
+
+.channel-select{
+	p{
+		text-align: center;
+		margin: 2rem;
+	}
+	ul+small{
+		// position: absolute;
+		// bottom: .5rem;
+		margin-left: 2rem;
+	}
 }

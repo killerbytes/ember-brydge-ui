@@ -20,10 +20,7 @@
           <a href="#personal" aria-selected="true"><i class="fa fa-street-view" aria-hidden="true"></i>Personal Particulars</a>
         </li>
         <li data-tab='industry' class="tabs-title {{active-tab 'industry' tab}}">
-          <a href="#industry"><i class="fa fa-building-o" aria-hidden="true"></i>Business Industry</a>
-        </li>
-        <li data-tab='occupindustry' class="tabs-title {{active-tab 'occupindustry' tab}}">
-          <a href="#occupindustry"><i class="fa fa-briefcase" aria-hidden="true"></i>Occupational Industry</a>
+          <a href="#industry"><i class="fa fa-briefcase" aria-hidden="true"></i>Industries</a>
         </li>
         <li data-tab='snapshot' class="tabs-title {{active-tab 'snapshot' tab}}">
           <a href="#snapshot"><i class="fa fa-camera-retro" aria-hidden="true"></i>Snapshot</a>
@@ -41,20 +38,13 @@
       </div>
       <div class="medium-8 columns float-left">
         <div class="tabs-content vertical boxz form-highlight" data-tabs-content="edit-tabs">
-          <a data-toggle="dd-industry-picker-business" class="action-button dropdown-button-arrow invisible"><i class="icons ellipsis"></i></a>
 
           <div class="tabs-panel {{active-tab 'personal' tab}}" id="personal">
             <section class="personal-info">
               {{partial 'me/edit/info'}}
             </section>
           </div>
-          <div class="tabs-panel {{active-tab 'industry' tab}}" id="industry">
-            {{#zf-dropdown id="dd-industry-picker-business" class="industry-picker"}}
-              <button class="close-button" data-close aria-label="Close modal" type="button">
-                <span aria-hidden="true">&times;</span>
-              </button>
-              {{picker-industry name="business" categories=categories onSelect='setBusinessIndustry' }}
-            {{/zf-dropdown}}
+          <div class="tabs-panel {{active-tab 'industryxxx' tab}}" id="industryxxx">
 
             <section class="header">
               <p>See the illustrations below, or refer to the {{link-to "User Guide" "user-guide"}}.</p>
@@ -97,7 +87,13 @@
             </section>
 
           </div>
-          <div class="tabs-panel {{active-tab 'occupindustry' tab}}" id="occupindustry">
+          <div class="tabs-panel {{active-tab 'industry' tab}}" id="industry">
+            {{#zf-dropdown id="dd-industry-picker-business" class="industry-picker"}}
+              <button class="close-button" data-close aria-label="Close modal" type="button">
+                <span aria-hidden="true">&times;</span>
+              </button>
+              {{picker-industry name="business" categories=categories onSelect='setBusinessIndustry' }}
+            {{/zf-dropdown}}
             {{#zf-dropdown id="dd-industry-picker-occupationalOne" class="industry-picker"}}
               <button class="close-button" data-close aria-label="Close modal" type="button">
                 <span aria-hidden="true">&times;</span>
@@ -112,16 +108,28 @@
             {{/zf-dropdown}}
 
             <section class="header">
-              <p>See the illustrations below, or refer to the {{link-to "User Guide" "user-guide"}}.</p>
+              <p>
+                Make sure you select at least 1. You can select up to 3 industries that are relevant to you. See the illustrations below, or refer to the {{link-to "User Guide" "user-guide"}}.</p>
               <form class="form-occupational-industry">
                 <div class="row">
-                  <div class="columns">
-                    <label for="">
-                      Occupational Industry (Pick 1 or 2)
-                    </label>
+                  <div class="columns medium-7">
+                    <form class="brydge-form">
+                      <label>
+                        <div class="form-input-wrapper">
+                          {{#if profile.industryOneName}}
+                            <a {{action "clear" "industryOne"}} class="x-button fa fa-times"></a>
+                          {{/if}}
+                          {{input type="text" value=profile.industryOneName  readonly="true" autocomplete="false"}}
+                        </div>
 
+                      </label>
+                    </form>
+                  </div>
+                  <div class="columns medium-5">
+                    <a data-toggle="dd-industry-picker-business" class="picker" class="button button-border expanded rounded">Use the Industry Picker</a>
                   </div>
                 </div>
+
                 <div class="row">
                   <div class="columns medium-7">
                     <form class="brydge-form">
@@ -165,8 +173,7 @@
             </section>
             <section class="industry-examples">
               <p class="title text-center mb40">
-                Not sure what Occupational Industry you fit in? <br>
-                Take a look at some of our illustrated examples!
+                Not sure what Industries to select?
               </p>
               {{partial 'partials/industry-examples'}}
             </section>
