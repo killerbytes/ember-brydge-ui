@@ -12,7 +12,7 @@
       </div>
       <div class="input-wrapper">
         {{textarea
-          value=sharePost.valueText
+          value=postContent
           key-up="edit"
           class="textarea content-editable"
           placeholder="Would you like to say something about this?"
@@ -39,7 +39,7 @@
       <div class="columns medium-8">
       </div>
       <div class="columns medium-4">
-        <button class="success button rounded float-right" type="submit" {{action "submit"}}>Broadcast</button>
+        <button class="success button rounded float-right" type="submit" {{action "share"}}>Broadcast</button>
       </div>
     </div>
 

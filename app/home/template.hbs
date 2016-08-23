@@ -4,7 +4,7 @@
     	postToNewsfeed='postToNewsfeed'
      	profile=profile
      	class="mb20"
-     	submit='postFeed' }}
+     	submit="post" }}
 
 
 
@@ -151,7 +151,7 @@
   </div>
 </div>
 
-{{ post-sharer submit='sharePost'}}
+{{ post-sharer submit="share"}}
 
 {{#zf-reveal id="industryModal" overlay=true class="small industry-picker box"}}
   {{picker-industry-multi name="search" categories=model.categories selected=(readonly myfavs) onSelect="onFavoriteIndustrySelect" }}

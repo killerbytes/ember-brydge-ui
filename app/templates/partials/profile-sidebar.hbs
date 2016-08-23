@@ -8,22 +8,23 @@
         {{/link-to}}
       {{/if}}
     </h4>
-    {{#if profile.industryOneName}}
-      <div><strong><a>{{profile.industryOneName}}</a></strong></div>
-      <div><strong><a>{{profile.industryTwoName}}</a></strong></div>
-      <div><strong><a>{{profile.industryThreeName}}</a></strong></div>
-
-    {{else}}
-      {{#if isOwner}}
-        <div class="empty-message">
-          Add Business Industry
-        </div>
+    <ul class="no-bullet">
+      {{#each industries as |item|}}
+        <li><strong><a>{{item.text}}</a></strong></li>
       {{else}}
-        <div class="empty-message">
-          {{profile.firstName}} hasn't added a Business Industry
-        </div>
-      {{/if}}
-    {{/if}}
+        {{#if isOwner}}
+          <li class="empty-message">
+            Add Business Industry
+          </li>
+        {{else}}
+          <li class="empty-message">
+            {{profile.firstName}} hasn't added a Business Industry
+          </li>
+        {{/if}}
+
+      {{/each}}
+
+    </ul>
   </section>
 
 

@@ -1,7 +1,9 @@
 import Ember from 'ember';
 import ProfileMixin from 'web/mixins/profile';
+import IndustryMixin from 'web/mixins/industry';
 
 export default Ember.Controller.extend(
+	IndustryMixin,
 	ProfileMixin, {
 	session: Ember.inject.service(),
   sharePost: Ember.inject.service(),

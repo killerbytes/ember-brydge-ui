@@ -1,5 +1,5 @@
 import Ember from 'ember';
-import SharePostIndustryPicker from 'web/mixins/share-post-industry-picker';
+import SharePostIndustryPicker from 'web/mixins/industry';
 
 export default Ember.Component.extend(SharePostIndustryPicker, {
 	sessionAccount: Ember.inject.service(),
