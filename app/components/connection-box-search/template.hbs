@@ -25,7 +25,7 @@
           Connection Request Sent
         </div>
       {{else}}
-        {{spinning-button clicked="connect" value="Connect" class="button expanded bordered" }}
+        <button class="button expanded bordered" {{action "connect"}}>Connect</button>
       {{/if}}
 
     {{/if}}

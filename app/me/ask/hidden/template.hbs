@@ -16,11 +16,11 @@
       {{ask-card item=item}}
     {{/each}}
 
-    {{#infinity-loader infinityModel=list}}
-      {{#unless canLoadMore}}
+    {{#brydge-scroller id="hidden" model=model onClick="load"}}
+      {{#if isLoading}}
         <div class="brydge-loading"></div>
-      {{/unless}}
-    {{/infinity-loader}}
+      {{/if}}
+    {{/brydge-scroller}}
 
 
 
