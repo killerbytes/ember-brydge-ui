@@ -1,8 +1,10 @@
 import Ember from 'ember';
 import FilteredQuestionsMixin from 'web/mixins/filtered-questions';
 import ProfileMixin from 'web/mixins/profile';
+import IndustryMixin from 'web/mixins/industry';
 
 export default Ember.Controller.extend(
+  IndustryMixin,
   ProfileMixin,
 	FilteredQuestionsMixin, {
   sessionAccount: Ember.inject.service(),
