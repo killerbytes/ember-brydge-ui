@@ -16,15 +16,10 @@
     {{#unless preview}}
       <a href="{{model.url}}" target="_blank">
         <div class="post-content">
-          {{#unless model.trending}}
-            <div class="title">
-              <a href="{{model.url}}" target="_blank">{{title}}</a>
-            </div>
-            <a>{{model.siteName}}</a>
-          {{else}}
-            {{model.siteName}}
-            <div class="title">{{title}}</div>
-          {{/unless}}
+          <div class="title">
+            <a href="{{model.url}}" target="_blank">{{title}}</a>
+          </div>
+          <a>{{model.siteName}}</a>
         </div>
       </a>
 

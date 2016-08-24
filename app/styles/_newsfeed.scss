@@ -1,11 +1,13 @@
 .newsfeed-item{
 	@extend .box;
-	// @extend .rounded;
 	position: relative;
 	.newsfeed-trending-title{
 		padding: 1rem;
 		padding-bottom: 0;
-		color: $text-gray;
+		h4{
+			color: $body-text-color;
+		}
+
 	}
 	.x-button{
 		color: #b6c3ca;
@@ -17,18 +19,6 @@
 	section{
 		position: relative;
 	}
-	// .dropdown-button-arrow.hover{
-  // 	@extend .dropdown-arrow;
-  // 	&:before{
-  // 		left: 14% !important;
-  // 		border-width: 6px !important;
-  // 	}
-  // 	&:after{
-	// 		left: 18% !important;
-  // 		border-width: 6px !important;
-  // 	}
-	// }
-
 	.user{
 		.position{
 			font-size: 11px;
@@ -75,10 +65,7 @@
 		margin-bottom: 13px;
 	}
 	.title a{
-
-		// font-family: 'Droid Serif', serif;
 		font-family: 'Lato', serif;
-		// font-family: 'Merriweather', serif;
 		font-weight: bold;
 		font-size: 18px;
 		color: $body-text-color;
@@ -142,161 +129,9 @@
 		}
 		.comment-footer{
 			padding-top: 1rem;
-			// a{
-			// 	color: $text-light;
-			// }
 			a:not(:first-child){
 				margin-left: 1rem;
 			}
 		}
 	}
-
 }
-
-// .newsfeed-filter{
-// 	.dropdown-button{
-// 		background: #FFF;
-// 		color: $button-blue;
-// 		font-weight: bold;
-// 		padding-right: 0;
-// 	}
-// 	.dropdown-pane{
-// 		ul{
-// 			li{
-// 				color: $text-color2;
-// 			}
-// 		}
-// 	}
-// 	.custom-select-list{
-// 	  li:hover{
-// 	    color:#6BCDFD;
-// 	    cursor: pointer;
-// 	    cursor: hand;
-// 	  }
-// 	}
-
-// }
-// .newsfeed-item{
-// 	@extend .box;
-// 	@extend .rounded;
-// 	font-size: 12px;
-// 	position: relative;
-// 	h3{
-// 		font-family: 'Din Alternate', helvetica;
-// 		display: table-cell;
-// 		vertical-align: middle;
-// 		font-size: 18px;
-// 		font-weight: bold;
-// 		color: #3b3e46;
-// 	}
-// 	p{
-// 		line-height: 1.4em;
-// 		word-break: break-word;
-// 		white-space: pre-line;
-// 	}
-// 	.media{
-// 		padding: 0 20px 30px;
-// 	}
-// 	.media-profile{
-// 		border-bottom: 1px solid $border-color;
-// 	}
-// 	.media-top{
-// 		padding-bottom: 0;
-// 	}
-
-// 	.media-profile{
-// 		min-height: 72px;
-// 		.avatar{
-// 			float: left;
-// 		}
-// 		.media-info{
-// 			padding-left: 48px;
-// 			display: block;
-// 		}
-// 		.name{
-// 			margin-bottom: 6px;
-// 			line-height: 1em;
-// 			font-size: 15px;
-// 		}
-// 		p.small{
-// 			font-size: 11px;
-// 		}
-// 		input{
-// 			@extend .rounded;
-// 		}
-// 	}
-// 	.post-comments{
-// 		.position{
-// 			margin-bottom: 3px;
-// 		}
-// 	}
-
-// 	.post-actions{
-// 		@extend .clearfix;
-// 		padding: 3px 20px;
-// 		color: #717171;
-// 		font-size: 12px;
-// 		border-top: 1px solid $border-color;
-// 		border-bottom: 1px solid $border-color;
-// 		a{
-// 			color:#CCC;
-// 			margin-right: 5px;
-// 		}
-// 		a+span:not(:last-child){
-// 			margin-right: 20px
-// 		}
-// 		.acted{
-// 			color:#43BFFB;
-// 		}
-
-// 	}
-// 	.media-main{
-// 		background-color: #EFEFEF;
-// 		border: 1px solid $border-media-color;
-// 		border-radius: 4px;
-// 		overflow: hidden;
-// 		.fa-times{
-// 			position: absolute;
-// 			top: 1px;
-// 			right: 1px;
-// 			color: #FFF;
-// 			text-shadow: 0px 0px 2px #999;
-// 		}
-// 	}
-// 	.post-image+.post-caption{
-// 		border-top: 1px solid $border-media-color;
-// 	}
-// 	.post-caption{
-// 		position: relative;
-// 		display: table;
-// 		width: 100%;
-// 		background-color: #EFEFEF;
-// 		padding: 5px 1rem;
-// 		min-height: 83px;
-// 		text-align: center;
-// 		a{
-// 			color: inherit;
-// 		}
-// 		.subheader{
-// 			color: $text-color2;
-// 			text-transform: uppercase;
-// 			font-size: 10px;
-// 			width: 100%;
-// 			display: table-row;
-// 		}
-// 		.subheader+h3{
-// 			display: block;
-// 		}
-// 	}
-// }
-
-// .newsfeed-trending{
-// 	.media-top{
-// 		font-size: 12px;
-// 		line-height: 2.5em;
-// 		color: $text-color2;
-// 	}
-// 	.post-caption{
-// 		text-align: left;
-// 	}
-// }

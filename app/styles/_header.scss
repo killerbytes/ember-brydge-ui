@@ -3,6 +3,11 @@ header{
 	width: 100%;
 	position: fixed;
 	z-index: 100;
+	.title-bar-left{
+		ul.menu{
+			margin-top: 2px;
+		}
+	}
 	.title-bar{
 		background-color: $brydge-blue;
 		color: #FFF;
@@ -18,7 +23,7 @@ header{
 		}
 	}
 	.logo{
-		width: 127px;
+		width: 115px;
 		margin-right: 2rem !important;
 	}
 	.user-info{
@@ -71,8 +76,6 @@ header{
 		border-radius: 100px;
 		margin-top: 3px;
 	}
-
-
 }
 
 header.simple-header{
@@ -87,6 +90,7 @@ header.simple-header{
 
 .top-bar-search {
 	@extend .search-box;
+
 	width: 308px;
 	.user{
 		border-bottom: 1px solid $border-color;
@@ -97,91 +101,8 @@ header.simple-header{
 	.position{
 		color: $text-gray;
 	}
-}
-
-/*
-header.top-bar {
-	.top-bar-left, .top-bar-right{
-		position: relative;
-	}
-	padding: 0;
-	border-bottom: 1px solid #50B1DA;
-	box-shadow: 0px 0px 2px 0px #404040;
-	ul{
-		background-color: transparent;
-	}
-	ul.menu-actions{
-		vertical-align: top;
-		margin-left: 16px;
-		.fa{
-			color: #417993;
-			font-size: 18px;
-			vertical-align: bottom;
-		}
-		>li>a{
-			padding: 0;
-		}
-		>li>a>span{
-			padding: 11px 7px;
-			min-width: 38px;
-			text-align: center;
-			position: relative;
-			i{ margin: 0;}
-			i.icons{ margin: 0 3px;}
-		}
-		>li>a:hover, li>a.hover{
-			background-color: $dark-blue;
-		}
-		li:last-child i.divider{
-			right: 0;
-			left: auto;
-		}
-		li:first-child i.divider{
-			left: 0;
-		}
-	}
-	ul.menu-links{
-		margin-top: 13px;
-		li{
-			border-right: 1px solid $dark-blue;
-		}
-		li:last-child{
-			border: none;
-		}
-		li > a{
-			color: #FFF;
-			padding: 0.3rem 1rem;
-			font-size: 13px;
-			font-weight: bold;
-		}
-	}
-
-
-}
-.top-bar-title{
-  font-family: 'Raleway:500', helvetica, arial, sans-serif;
-  font-size: 26px;
-  line-height: 1.4em;
-  font-weight: bold;
-  color: #FFF;
-  padding: 5px;
-	img{
-		width: 120px;
-		margin-bottom: 5px;
+	form input[type="search"]{
+		border-color: $brydge-blue;
+		padding-right: 3rem;
 	}
 }
-.top-bar-group{
-	vertical-align: top;
-	display: inline-table;
-	float: left;
-}
-
-/*  Search input in topbar has weird 1em offset bottom and right */
-
-
-// i.divider{
-// 	border-left: 1px solid $dark-blue;
-// 	padding: 10px 0;
-// 	position: absolute;
-// 	top: 13px;
-// }

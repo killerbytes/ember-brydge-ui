@@ -12,7 +12,7 @@
     {{ post-box
       postToNewsfeed='postToNewsfeed'
       profile=profile
-      submit='postFeed' }}
+      submit="post" }}
     {{#if newsfeed}}
       {{newsfeed-list newsfeed=newsfeed }}
       {{#brydge-scroller id="newsfeed" model=newsfeed onClick="load"}}
@@ -37,4 +37,4 @@
 
 </div>
 
-{{ post-sharer submit="sharePost" }}
+{{ post-sharer submit="share" }}

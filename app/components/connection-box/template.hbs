@@ -28,7 +28,7 @@
       {{#if isPending}}
         {{link-to "Connection Request Pending" "profile" item.userid class="button bordered expanded button-green"}}
       {{else}}
-        {{spinning-button clicked="connect" value="Connect" class="button expanded bordered" }}
+        <button class="button expanded bordered" {{action "connect"}}>Connect</button>
       {{/if}}
 
     {{/if}}

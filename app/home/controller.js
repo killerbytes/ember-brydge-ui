@@ -86,11 +86,11 @@ export default Ember.Controller.extend(
     })
   },
   actions: {
-    postFeed: function (data, cb) {
+    post: function (data, cb) {
       this.store.createRecord('newsfeed', {
         site: data.site,
         preview: data.preview,
-        content: data.postContent,
+        content: data.content,
         categories: data.categories
       }).save().then((res) => {
         if(this.get('tab') == 'live'){
@@ -106,10 +106,11 @@ export default Ember.Controller.extend(
       }).catch((err) => {
       });
     },
-    sharePost(cb){
+    share(data, cb){
+      this.set('sharePost.valueText', data.content );
+			this.set('sharePost.categories', data.categories );
       this.get('sharePost').submit().then(res =>{
         if(this.get('tab') == 'live'){
-
           var newsfeed = this.get('newsfeed.live');
           newsfeed.pushObject(res._internalModel);
           cb.apply();

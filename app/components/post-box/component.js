@@ -1,5 +1,5 @@
 import Ember from 'ember';
-import SharePostIndustryPicker from 'web/mixins/share-post-industry-picker';
+import SharePostIndustryPicker from 'web/mixins/industry';
 import { validator, buildValidations } from 'ember-cp-validations';
 
 const Validations = buildValidations({
@@ -22,10 +22,7 @@ export default Ember.Component.extend(SharePostIndustryPicker, {
     let title = this.get('site.title') || this.get('site.url');
     return title.length > 100 ? title.substr(0, 100) + ' ...' : title;
   }),
-  isIndustry: Ember.computed.or('profile.industryOneId', 'profile.industryTwoId', 'profile.industryThreeId'),
-  _removeLink(content, link){
-    return content.replace(link, "");
-  },
+
   crawl(uri){
     this.set('isLoading', true);
     var url = "v2/crawl?url=" + uri;
@@ -43,30 +40,20 @@ export default Ember.Component.extend(SharePostIndustryPicker, {
       if(this.get('site.title')){
         content = this._removeLink(this.get('postContent'), url);
       }
-
       var data = {
-        postContent: content.trim(),
+        content: content.trim(),
         categories: _.map(this.get('categories'), 'id'),
         site: this.get('site')
       }
       this.sendAction('submit', data, ()=>{
-        // this.toggle('up')
-        this.setProperties({
-          postContent: null, //textarea
-          categories: [],
-          site: null,
-          industryOneId: false,
-          industryTwoId: false,
-          industryThreeId: false
-        });
+        this._resetForm();
         cb.apply();
       })
-
       Ember.run.later(()=>{
         this.$('textarea').get(0).style.height = '';
       })
-
     },
+
     cancel() {
       this.set('postContent', '');
     },
@@ -92,7 +79,6 @@ export default Ember.Component.extend(SharePostIndustryPicker, {
           }
           break;
       }
-
     },
   }
 });

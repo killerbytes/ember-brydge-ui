@@ -1,8 +1,10 @@
 import Ember from 'ember';
 import ComplimentTitlesMixin from 'web/mixins/compliment-titles';
 import ProfileMixin from 'web/mixins/profile';
+import IndustryMixin from 'web/mixins/industry';
 
 export default Ember.Controller.extend(
+  IndustryMixin,
   ComplimentTitlesMixin,
   ProfileMixin, {
   sharePost: Ember.inject.service(),
@@ -64,7 +66,9 @@ export default Ember.Controller.extend(
 
   complimentTitle: 'Thank you for',
   actions: {
-    sharePost(cb){
+    share(data, cb){
+      this.set('sharePost.valueText', data.content );
+			this.set('sharePost.categories', data.categories );
       this.get('sharePost').submit().then((res)=>{
         cb.apply();
       });

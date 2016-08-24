@@ -5,27 +5,21 @@
 			</div>
 			<div class="columns medium-7 wrapper">
 				<section>
-					<div class="sub-title">Tag Industry Channels</div>
-						<ul class="no-bullet content-pad">
-							{{#if profile.industryOneId}}
-								<li>
-									{{action-checkbox-bind value=profile.industryOneId text=profile.industryOneName action="checkboxChanged" name="industryOneId" checked=industryOneId }}
-								</li>
-							{{/if}}
-							{{#if profile.industryTwoId}}
-								<li>
-									{{action-checkbox-bind value=profile.industryTwoId text=profile.industryTwoName action="checkboxChanged" name="industryTwoName" checked=industryTwoId }}
-								</li>
-							{{/if}}
-							{{#if profile.industryThreeId}}
-								<li>
-									{{action-checkbox-bind value=profile.industryThreeId text=profile.industryThreeName action="checkboxChanged" name="industryThreeName" checked=industryThreeId }}
-								</li>
-							{{/if}}
+					<div class="sub-title mb5">Tag Industry Channels</div>
+						<ul class="no-bullet">
+							{{#each industries as |item|}}
+							<li>
+								{{action-checkbox-bind value=item.id text=item.text action="checkboxChanged" name=item.id checked=item.checked }}
+							</li>
+							{{/each}}
 						</ul>
 					<small>
 					{{#if isIndustry ~}}
-						{{link-to "Change Industries" "me.edit" (query-params tab="industry")}}
+						{{#if isAddOrChange}}
+							{{link-to "Add or Change Industries" "me.edit" (query-params tab="industry")}}
+						{{else}}
+							{{link-to "Change Industries" "me.edit" (query-params tab="industry")}}
+						{{/if}}
 					{{~ else ~}}
 						{{link-to "Add Industries" "me.edit" (query-params tab="industry") ~}}
 					{{/if}}

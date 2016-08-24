@@ -6,11 +6,16 @@ var esTranspiler = require('broccoli-babel-transpiler');
 var mergeTrees = require('broccoli-merge-trees');
 
 module.exports = function(defaults) {
+  var env = EmberApp.env();
+  var isMinified = ['production', 'staging'].indexOf(env) > -1;
+
   var app = new EmberApp(defaults, {
     // Add options here
     'ember-cli-foundation-6-sass': {
       'foundationJs': 'all'
     },
+    minifyCSS: { enabled: isMinified },
+    minifyJS: { enabled: isMinified },    
 
     select2: {
       includeAssets: false
