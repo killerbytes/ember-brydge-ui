@@ -12,7 +12,7 @@ module.exports = function(defaults) {
       'foundationJs': 'all'
     },
     minifyCSS: { enabled: isMinified },
-    minifyJS: { enabled: isMinified },    
+    minifyJS: { enabled: isMinified },
 
     select2: {
       includeAssets: false
@@ -25,7 +25,7 @@ module.exports = function(defaults) {
   //app.import('bower_components/foundation-sites/dist/foundation.js');
   app.import('bower_components/motion-ui/dist/motion-ui.min.css');
   app.import('bower_components/motion-ui/dist/motion-ui.min.js');
-  app.import('bower_components/lodash/dist/lodash.js');
+  // app.import('bower_components/lodash/dist/lodash.js');
   // app.import('vendor/spinner.css');
   // app.import('bower_components/foundation-sites/js/foundation.core.js');
   // app.import('bower_components/foundation-sites/js/foundation.dropdownMenu.js');

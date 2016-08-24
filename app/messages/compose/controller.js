@@ -1,4 +1,5 @@
 import Ember from 'ember';
+import _ from 'lodash/lodash';
 
 export default Ember.Controller.extend({
 	connections: Ember.computed('model.@each.status', 'key', function(){

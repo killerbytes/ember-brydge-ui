@@ -5,7 +5,7 @@ export default Ember.Component.extend({
 	willDestroyElement() {
 	  this._super(...arguments);
 		window.removeEventListener('resize', ()=>{
-			this.onResize();
+			this._onResize();
 		});
 		this.set('timer', null);
 	},
@@ -15,9 +15,9 @@ export default Ember.Component.extend({
 
 			this.set('el', this.$().get(0));
 			window.addEventListener('resize', ()=>{
-				this.onResize();
+				this._onResize();
 			})
-			this.onResize();
+			this._onResize();
 			Ember.$(document).on('scroll', ()=>{
 				//TODO: Add Delay on scroll
 				// var delay = (()=>{
@@ -46,7 +46,8 @@ export default Ember.Component.extend({
 	_loadRecords(el){
 		this.sendAction('onClick', el)
 	},
-	onResize(){
+	_onResize(){
+		if(this.get('isDestroyed') || this.get('isDestroying')) return false;
 		this.set('height', window.innerHeight );
 		this._checkElementInView();
 	},

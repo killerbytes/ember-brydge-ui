@@ -4,6 +4,8 @@ import ENV from 'web/config/environment';
 import FilterDropdownListMixin from 'web/mixins/filter-dropdown-list';
 import ScrollResetMixin from 'web/mixins/scroll-reset';
 import BrydgeScroller from 'web/mixins/brydge-scroller';
+import _ from 'lodash/lodash';
+
 // const {
 //   Component,
 //   computed,

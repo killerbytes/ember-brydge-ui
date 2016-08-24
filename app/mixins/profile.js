@@ -21,12 +21,6 @@ export default Ember.Mixin.create({
   // work: Ember.computed.sort('experiences', 'sortFrom'),
   // academia: Ember.computed.sort('educations', 'sortFrom'),
   newsfeed: Ember.computed.sort('posts', 'sortProps'),
-  // workHistory: Ember.computed('work', function(){
-  //   var work = this.get('work').toArray()
-  //   return _.sortBy(work, 'currentCompany', function(i){
-  //     return !i.get('currentCompany');
-  //   });
-  // }),
   acceptedQuestion: Ember.computed.filterBy('questions', 'status', 'accepted'),
   latestQuestion: Ember.computed('acceptedQuestion', function(){
     return this.get('acceptedQuestion.firstObject');

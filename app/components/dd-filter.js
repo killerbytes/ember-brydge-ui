@@ -1,4 +1,5 @@
 import Ember from 'ember';
+import _ from 'lodash/lodash';
 
 export default Ember.Component.extend({
 	classNames: ['dropdown-select'],
@@ -20,7 +21,7 @@ export default Ember.Component.extend({
 			switch(typeof i){
 				case "string":
 					if(i.toLowerCase().indexOf(query.toLowerCase()) >= 0 ? true : false ) {
-						found = true;						
+						found = true;
 					}
 					break;
 				case "object":
@@ -63,7 +64,7 @@ export default Ember.Component.extend({
 				    this.set('model', _.clone(selected));
 				    this.set('selected', _.clone({name: selected}));
 				    break;
-				case "object": 
+				case "object":
 				    this.set('model', _.clone(selected[this.get('field')]));
 				    this.set('selected', _.clone(selected));
 				    break;

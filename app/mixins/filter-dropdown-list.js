@@ -1,5 +1,6 @@
 import Ember from 'ember';
 import GetIndustryFromCodeMixin from 'web/mixins/get-industry-from-code';
+import _ from 'lodash/lodash';
 
 
 export default Ember.Mixin.create(GetIndustryFromCodeMixin,{

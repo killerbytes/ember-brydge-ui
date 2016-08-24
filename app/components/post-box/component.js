@@ -1,6 +1,7 @@
 import Ember from 'ember';
 import SharePostIndustryPicker from 'web/mixins/industry';
 import { validator, buildValidations } from 'ember-cp-validations';
+import _ from 'lodash/lodash';
 
 const Validations = buildValidations({
   'email': [	validator('presence', true),

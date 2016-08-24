@@ -1,5 +1,6 @@
 import Ember from 'ember';
 import QueryLocationMixin from 'web/mixins/query-locations';
+import _ from 'lodash/lodash';
 
 export default Ember.Controller.extend(QueryLocationMixin, {
   queryParams: ['city', 'key', 'industry'],

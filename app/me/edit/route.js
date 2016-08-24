@@ -1,7 +1,7 @@
 import Ember from 'ember';
 import QueryLocationMixin from 'web/mixins/query-locations';
 import AuthenticatedRouteMixin from 'ember-simple-auth/mixins/authenticated-route-mixin';
-
+import _ from 'lodash/lodash';
 
 export default Ember.Route.extend(
   AuthenticatedRouteMixin,

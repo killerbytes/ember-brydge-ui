@@ -38,14 +38,6 @@ export default Ember.Controller.extend(
   	return Ember.isEmpty(this.get('complimentContent'));
   }),
   sortFrom: ['from:desc'],
-  // academia: Ember.computed.sort('educations', 'sortFrom'),
-  // work: Ember.computed.sort('experiences', 'sortFrom'),
-  // workHistory: Ember.computed('work', function(){
-  //   var work = this.get('work').toArray()
-  //   return _.sortBy(work, 'currentCompany', function(i){
-  //     return !i.get('currentCompany');
-  //   });
-  // }),
 
   acceptedCompliments: Ember.computed.filterBy('compliments', 'status', 'accepted'),
   latestCompliment: Ember.computed('acceptedCompliments', function(){
