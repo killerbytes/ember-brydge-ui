@@ -9,7 +9,7 @@
     {{profile-menu profile=profile }}
 
     <div class="box">
-      <section class="title">
+      <section class="title-bg">
         <h3><i class="fa fa-paperclip" aria-hidden="true"></i>Work History</h3>
       </section>
         <div class="section-group section-accordion-group work-history-group">
@@ -24,10 +24,10 @@
     </div>
 
     <div class="box">
-      <section>
+      <section class="title-bg">
         <h3><i class="fa fa-graduation-cap" aria-hidden="true"></i>Academia</h3>
       </section>
-      <div class="section-group">
+      <div class="section-group section-accordion-group">
         {{#each educations as |item|}}
           {{partial "partials/academia-item"}}
         {{else}}
@@ -41,7 +41,7 @@
     </div>
 
     <div class="box">
-      <section class="title">
+      <section class="title-bg">
         <h3><i class="fa fa-globe" aria-hidden="true"></i>Languages</h3>
       </section>
       <div class="section-group section-accordion-group">

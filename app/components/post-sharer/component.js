@@ -28,7 +28,7 @@ export default Ember.Component.extend(SharePostIndustryPicker, {
 		share() {
       var content = this.get('postContent');
       var data = {
-        content: content.trim(),
+        content: content && content.trim(),
         categories: _.map(this.get('categories'), 'id'),
       }
       this.sendAction('submit', data, ()=>{
