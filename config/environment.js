@@ -17,6 +17,7 @@ module.exports = function(environment) {
       // when it is created
     },
     contentSecurityPolicy: {
+        'connect-src': "'self' ws://localhost:4000",
       'default-src': "'self' safari-extension://*",
       'font-src': "'self' * fonts.gstatic.com https://fonts.googleapis.com",
       'img-src': "'self' * www.google-analytics.com placeholdit.imgix.net placehold.it s3.amazonaws.com data:",
@@ -41,6 +42,7 @@ module.exports = function(environment) {
     // ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
     // ENV.APP.LOG_VIEW_LOOKUPS = true;
 
+    ENV['socket'] = 'ws://localhost:8000/socket';
 
     ENV['ember-cli-mirage'] = {
       enabled: false
@@ -69,6 +71,8 @@ module.exports = function(environment) {
   }
 
   if (environment === "staging") {
+    ENV['socket'] = 'wss://api.brydge.me/socket';
+
     ENV.googleAnalytics = {
       webPropertyId: 'UA-72370021-1'
     };
@@ -80,6 +84,7 @@ module.exports = function(environment) {
   }
 
   if (environment === 'production') {
+    ENV['socket'] = 'wss://api.brydge.com/socket';
     ENV.googleAnalytics = {
       webPropertyId: 'UA-72370021-2'
     };
