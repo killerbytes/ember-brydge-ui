@@ -1,0 +1,25 @@
+.main.messaging{
+  padding-top: 41px;
+  >.box{
+    height: 100%;
+    margin-bottom: 0;
+  }
+  .message-pane{
+  	min-height: 700px;
+  	position: relative;
+  	overflow: hidden;
+  	.message-header{
+  		background-color: $brydge-gray;
+  		position: absolute;
+  		width: 100%;
+  		z-index: 1;
+  	}
+  }
+  .conversation-header{
+    
+  }
+  .conversation-list{
+    padding: 0;
+  }
+
+}

@@ -1,0 +1,28 @@
+<section class="container">
+	<section>
+		<form>
+			{{input id="contact-input" value=key class="input-group-field" type="search" placeholder="Search by Name"}}
+		</form>
+	</section>
+
+	<section class="container bg-white">
+		<ul class="user-link-list contact-list no-bullet" >
+		{{#each connections as |item|}}
+			<li>
+				{{#link-to "messages.conversation" item.conversationid }}
+	        <div class="row user">
+	          <div class="columns">
+	            <div class="avatar" style={{htmlSafeImage item.avatar }}>
+	              <img src= {{item.avatar}} class="hide">
+	            </div>
+	            <div class="user-info">
+	              <a class="name">{{ item.fullName }}</a>
+	            </div>
+	          </div>
+	        </div>
+				{{/link-to}}
+			</li>
+		{{/each}}
+		</ul>
+	</section>
+</section>

@@ -1,0 +1,18 @@
+<section class="message-header">
+  <div class="row user cards">
+    <div class="columns medium-8">
+      <div class="avatar" style={{htmlSafeImage conversation.other.profile.avatarUrl }}>
+        <img src= {{conversation.other.profile.avatarUrl}} class="hide">
+      </div>
+      <div class="user-info">
+        {{#link-to "profile" conversation.other.id }}
+          {{ conversation.other.profile.fullName }}
+        {{/link-to}}
+      </div>
+    </div>
+    <div class="column medium-4 text-right">
+      <button class="button button-clear" {{action 'delete' conversation.id}}>Delete Conversation</button>
+    </div>
+  </div>
+</section>
+{{message-box resp="submit" to=conversation.other messages=messages}}

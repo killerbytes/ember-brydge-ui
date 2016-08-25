@@ -340,17 +340,6 @@ footer{
 	margin-bottom: 2px;
 }
 
-.message-pane{
-	min-height: 700px;
-	position: relative;
-	overflow: hidden;
-	.message-header{
-		background-color: $brydge-gray;
-		position: absolute;
-		width: 100%;
-		z-index: 1;
-	}
-}
 section.message-content{
 	@extend .bg-white;
 	padding: 0;

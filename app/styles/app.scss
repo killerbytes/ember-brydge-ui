@@ -17,33 +17,33 @@ $text-orange: #FF5333;
 
 
 @import "settings";
-@import 'foundation';
+@import "foundation";
 @include foundation-everything;
 
 @import "overrides";
-@import "header";
-@import "icons";
 
-// @import "spinner";
-
-@import "pods";
-@import "buttons";
-@import "tables";
-@import "forms";
-@import "newsfeed";
-@import "modal";
-@import "dropdowns";
-@import "accordions";
-@import "media";
+@import "components/icons";
+@import "components/buttons";
+@import "components/tables";
+@import "components/forms";
+@import "components/modal";
+@import "components/dropdowns";
+@import "components/accordions";
 @import "components/boxes";
 @import "components/elements";
 @import "components/aside";
 @import "components/cards";
 @import "components/post-box";
-@import "profile";
-@import "lists";
-@import "tabs";
+@import "components/lists";
+@import "components/tabs";
 @import "components/loading";
+
+@import "newsfeed";
+@import "profile";
+@import "messaging";
+@import "media";
+@import "header";
+
 
 
 
@@ -57,6 +57,7 @@ body{
 }
 .main{
 	padding-top: 65px;
+	height: 100vh;
 }
 
 h1, h2, h3, h4, h5, h6 {
