@@ -29,7 +29,12 @@
 	}
 	.title-bg{
 		background-color: $brydge-blue;
+		padding: .5rem 1rem;
 		h3{
+			color: #FFF;
+			font-size: 20px;
+		}
+		.fa{
 			color: #FFF;
 		}
 	}
