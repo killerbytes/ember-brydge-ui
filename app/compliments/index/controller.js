@@ -2,8 +2,10 @@ import Ember from 'ember';
 import ComplimentTitlesMixin from 'web/mixins/compliment-titles';
 import FilteredComplimentsMixin from 'web/mixins/filtered-compliments';
 import ProfileMixin from 'web/mixins/profile';
+import IndustryMixin from 'web/mixins/industry';
 
 export default Ember.Controller.extend(
+  IndustryMixin,
   ProfileMixin,
 	ComplimentTitlesMixin,
 	FilteredComplimentsMixin, {
