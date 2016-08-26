@@ -13,6 +13,7 @@ export default Ember.Component.extend(SharePostIndustryPicker, {
   ajaxApi: Ember.inject.service(),
   utils: Ember.inject.service(),
 	classNames: ['post-box'],
+  expanded: false,
   elem: Ember.computed(function(){
     return this.$();
   }),
@@ -54,7 +55,12 @@ export default Ember.Component.extend(SharePostIndustryPicker, {
         this.$('textarea').get(0).style.height = '';
       })
     },
-
+    expand(){
+      this.set('expanded', true);
+    },
+    collapse(){
+      this.set('expanded', false);
+    },
     cancel() {
       this.set('postContent', '');
     },

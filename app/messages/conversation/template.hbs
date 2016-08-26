@@ -1,4 +1,4 @@
-<section class="message-header">
+<section class="pane-header">
   <div class="row user cards">
     <div class="columns medium-8">
       <div class="avatar" style={{htmlSafeImage conversation.other.profile.avatarUrl }}>
@@ -15,4 +15,6 @@
     </div>
   </div>
 </section>
-{{message-box resp="submit" to=conversation.other messages=messages}}
+
+
+{{message-box resp="submit" to=conversation.other model=messages load="load" isLoading=isLoading}}

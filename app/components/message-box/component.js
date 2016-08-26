@@ -6,23 +6,45 @@ export default Ember.Component.extend({
   sessionAccount: Ember.inject.service(),
   store: Ember.inject.service(),
   utils: Ember.inject.service(),
+  sort: ['updatedAt'],
+  initial: true,
+  messages: Ember.computed.sort('model', 'sort'),
   onTextChange: Ember.observer('message', function() {
     this.get('utils').textAreaChange(this.$('textarea'), this.get('message'));
     this.scrollBottom();
+    var height = this.$().height();
+    this.$('.message-scrollable').height(height - this.$('.message-form').outerHeight() + 'px');
   }),
 
   scrollBottom(){
     var $scrollable = this.$('.message-scrollable');
     $scrollable.animate({'scrollTop': $scrollable.find('ul:first').height()});
   },
-  didReceiveAttrs(){
+  didReceiveAttrs(attrs){
     this._super();
     this.set('message', null);
     Ember.run.scheduleOnce('afterRender', this, function(){
-      this.scrollBottom();
+      if( (attrs.oldAttrs && attrs.oldAttrs.to.value.get('id') != attrs.newAttrs.to.value.get('id')) || !attrs.oldAttrs){
+        this.scrollBottom();
+      }
+      Ember.$('.message-scrollable').on('scroll', ()=>{
+				this._checkElementInView(Ember.$('.message-scrollable'));
+			})
     })
-
   },
+  _checkElementInView(el){
+		var pos = el.get(0);
+		if(pos.scrollTop == 0) this._loadRecords(el);
+	},
+  _loadRecords(el){
+    var height = el.find('.messages-list').height();
+		this.sendAction('load', 'messages', ()=>{
+      Ember.run.next(this, function() {
+        $('.message-scrollable').scrollTop($('.messages-list').height() - height)
+     });
+    })
+	},
+
 	actions: {
     clear(){
       this.set('message', null);
@@ -34,7 +56,6 @@ export default Ember.Component.extend({
         recipient: this.get('to.id')
       }).save().then(res=>{
         this.set('message', null);
-        // this.get('messages').pushObjects(res)
         this.sendAction('resp', res.get('conversationid'));
       })
   	}
