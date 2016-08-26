@@ -1,7 +1,7 @@
-<div class="row collapse overflow box">
+<div class="row collapse overflow box bg-gray">
   <div class="medium-5 columns border-r">
     <section class="container pane-header">
-      <section class="text-right">
+      <section class="text-right bg-white">
         {{link-to "New Message" "messages.compose" class="button button-clear" }}
       </section>
       <section>
@@ -11,9 +11,9 @@
       </section>
     </section>
     <section class="conversation-list">
-      <ul class="no-bullet user-link-list">
+      <ul class="no-bullet user-link-list bg-white">
       {{#each list as |item| }}
-        {{!-- {{#if item.content}} --}}
+        {{#if item.content}}
         <li>
           {{#link-to "messages.conversation" item.id class="no-color"}}
             <div class="row user">
@@ -34,7 +34,7 @@
             <div class="message-body truncate">{{{item.content}}}</div>
           {{/link-to}}
         </li>
-        {{!-- {{/if}} --}}
+        {{/if}}
       {{/each}}
       </ul>
     </section>
