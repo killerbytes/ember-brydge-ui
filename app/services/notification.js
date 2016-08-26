@@ -5,6 +5,18 @@ export default Ember.Service.extend({
   session: Ember.inject.service(),
   ajax: Ember.inject.service(),
   routing: Ember.inject.service(),
+  phoenix: Ember.inject.service(),
+  checkPush() {
+    const authToken = this.get('session.data.authenticated.access_token');
+    if(!authToken) return false;
+    
+    console.log('check push notifier')
+    var _this = this;
+    this.get('phoenix').channel().on('notify', function(res) {
+      console.log('res =>', res)
+      _this.set('count', res.count);
+    })
+  },
   check(cb) {
     var url = '/v2/notifications/count';
     const authToken = this.get('session.data.authenticated.access_token');

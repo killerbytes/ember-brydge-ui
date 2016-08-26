@@ -1,6 +1,9 @@
 /*jshint node:true*/
 /* global require, module */
 var EmberApp = require('ember-cli/lib/broccoli/ember-app');
+var ES6Modules = require('broccoli-es6modules');
+var esTranspiler = require('broccoli-babel-transpiler');
+var mergeTrees = require('broccoli-merge-trees');
 
 module.exports = function(defaults) {
   var env = EmberApp.env();
@@ -43,5 +46,16 @@ module.exports = function(defaults) {
   // please specify an object with the list of modules as keys
   // along with the exports of each module as its value.
 
-  return app.toTree();
+  var phoenixTree = "./vendor/phoenix";
+  var phoenixAmdFiles = new ES6Modules(phoenixTree, {
+    format: 'amd',
+      esperantoOptions: {
+        strict: true,
+        amdName: "phoenix"
+      }
+  });
+  var phoenixTranspiledFiles = esTranspiler(phoenixAmdFiles, {});
+
+
+  return mergeTrees([app.toTree(), phoenixTranspiledFiles]);
 };

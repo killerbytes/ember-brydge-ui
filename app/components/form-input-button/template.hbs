@@ -3,7 +3,7 @@
     <div class="brydge-loading"></div>
   </button>
 {{else}}
-  <button class="button success rounded" disabled={{v-get item "isInvalid"}} {{ action "submit" }}>{{text}}</button>
+  <button class="button success rounded form-input-submit-button" disabled={{v-get item "isInvalid"}} {{ action "submit" }}>{{text}}</button>
 {{/if}}
 {{#if placeholder}}
   <span class="{{if isSuccess 'faded is-visible' 'faded'}}">{{placeholder}}</span>

@@ -80,6 +80,7 @@ Router.map(function() {
   this.route('privacy-policy');
   this.route("thank-you");
   this.route('testing');
+  this.route('phoenix-test')
 });
 
 export default Router;
