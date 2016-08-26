@@ -1,5 +1,11 @@
-  {{#if messages}}
-  <section class="container bg-white message-scrollable">
+  <section class="container message-scrollable">
+    <div id="messages">
+      {{#if isLoading}}
+        <div class="brydge-loading"></div>
+      {{/if}}
+    </div>
+
+
     <ul class="messages-list no-bullet">
       {{#each messages as |item| }}
         <li>
@@ -26,8 +32,7 @@
 
     </ul>
   </section>
-  {{/if}}
-  <section>
+  <section class="message-form">
     <form class="form-input mb">
     	<div class="avatar circle" style={{htmlSafeImage sessionAccount.account.profile.avatarUrl}}>
     	  <img src="{{ sessionAccount.account.profile.avatarUrl }}" class="hide">

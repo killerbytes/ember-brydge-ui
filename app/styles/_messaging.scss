@@ -1,0 +1,39 @@
+.main.messaging{
+  padding-top: 41px;
+  #contact-input{
+    padding-top: 6px;
+    padding-bottom: 7px;
+  }
+  .contact-list{
+    .user-info{
+      padding-top: 5px;
+    }
+  }
+  >.box{
+    height: 100%;
+    min-height: 400px;
+    margin-bottom: 0;
+  }
+  .message-box{
+    position: relative;
+  	.message-scrollable{
+  	}
+  }
+  .message-form{
+    @extend .bg-white;
+    border-top: 1px solid $border-color;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+  }
+
+  .conversation-header{
+
+  }
+  .conversation-list,
+  .contact-list,
+  .message-scrollable {
+    overflow: auto;
+    padding: 0;
+  }
+}

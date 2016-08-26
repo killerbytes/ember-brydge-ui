@@ -340,36 +340,12 @@ footer{
 	margin-bottom: 2px;
 }
 
-.message-pane{
-	min-height: 700px;
-	position: relative;
-	overflow: hidden;
-	.message-header{
-		background-color: $brydge-gray;
-		position: absolute;
-		width: 100%;
-		z-index: 1;
-	}
-}
 section.message-content{
 	@extend .bg-white;
 	padding: 0;
 }
 .message-body{
 	padding-left: 40px;
-}
-.message-box{
-	border-top: 1px solid $border-color;
-	position: absolute;
-	bottom: 0;
-	width: 100%;
-	.message-scrollable{
-		// position: absolute;
-		// width: 100%;
-		// bottom: 144px;
-		max-height: 501px;
-		overflow: auto;
-	}
 }
 
 .ask-menu{
@@ -483,6 +459,12 @@ span.middle{
 
 .brydge-scroller{
 	padding-bottom: 100px;
+}
+.brydge-messaging-scroller{
+	padding: 0;
+	.brydge-loading{
+		margin: 1rem auto;
+	}
 }
 .static-content{
 	font-size: 15px;

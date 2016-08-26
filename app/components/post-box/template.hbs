@@ -10,8 +10,9 @@
 	    {{textarea
 	      value=postContent
 	      key-up="edit"
+				focus-in="expand"
 	      class="textarea content-editable broadcast-textarea"
-	    	placeholder='Get noticed! Broadcast opinions, industry news, trends.'
+	    	placeholder='Broadcast updates, links, news or opinions'
 	      }}
 	  </div>
 	  {{#if site.title}}
@@ -24,21 +25,21 @@
 
 </section>
 
-<ul class="no-bullet accordion-picker brydge-accordion bg-white">
-  <li>
-    <div>
-      {{partial "partials/channel-select"}}
-    </div>
-  </li>
-</ul>
-
-<section class="section-footer bg-gray">
-	<div class="row">
-		<div class="columns medium-8">
+<div class="{{unless expanded 'is-collapsed'}}">
+	<ul class="no-bullet accordion-picker brydge-accordion bg-white">
+	  <li>
+	    <div>
+	      {{partial "partials/channel-select"}}
+	    </div>
+	  </li>
+	</ul>
+	<section class="section-footer bg-gray">
+		<div class="row">
+			<div class="columns medium-8">
+			</div>
+		  <div class="columns medium-4 text-right">
+				{{form-input-button submit="post" item=this text="Broadcast" class="float-right" }}
+		  </div>
 		</div>
-	  <div class="columns medium-4 text-right">
-			{{form-input-button submit="post" item=this text="Broadcast" class="float-right" }}
-	  </div>
-	</div>
-
-</section>
+	</section>
+</div>

@@ -10,17 +10,17 @@ export default TransitionToListenerRoute.extend(
   ApplicationRouteMixin, {
   notification: Ember.inject.service(),
   tmp: Ember.inject.service('temp'),
-  notifier(){
-    this.get('notification').check(()=>{
-      this.start();
-    }); // Check for notifications
-  },
-  start: function(){
-    Ember.run.later(this, ()=>{
-      this.notifier();
-    }, 60000);
+  // notifier(){
+  //   this.get('notification').check(()=>{
+  //     this.start();
+  //   }); // Check for notifications
+  // },
+  // start: function(){
+  //   Ember.run.later(this, ()=>{
+  //     this.notifier();
+  //   }, 60000);
 
-  }.on('activate'),
+  // }.on('activate'),
   browserCheck: function(){
     if(this.get('detector.isMobile')){
       Ember.run.later(this, ()=>{
@@ -30,6 +30,8 @@ export default TransitionToListenerRoute.extend(
   }.on('activate'),
   setupController(controller, model){
     this._super(...arguments);
+    console.log('++++ application +++')
+    this.get('notification').checkPush();
     controller.set('detector', this.get('detector'));
   },
   actions: {
