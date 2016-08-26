@@ -1,7 +1,7 @@
 <form {{action 'authenticate' on='submit'}} class="micro-forms mb20">
   <div class="row column">
     {{input id='email' placeholder="Email" value=email}}
-    {{input type='password' placeholder="Password" value=password}}
+    {{input type='password' id="password_field" placeholder="Password" value=password}}
     <button class="button success" disabled={{isInvalid}} type="submit">LOG IN</button>
 
     {{link-to "Forgot your password?" "forgot-password" class="float-right button"}}
