@@ -1,12 +1,12 @@
 <section class="container">
-	<section class="pane-header">
+	<section>
 		<form>
 			{{input id="contact-input" value=key class="input-group-field" type="search" placeholder="Search by Name"}}
 		</form>
 	</section>
 
-	<section class="container contact-list">
-		<ul class="user-link-list no-bullet" >
+	<section class="container bg-white">
+		<ul class="user-link-list contact-list no-bullet" >
 		{{#each connections as |item|}}
 			<li>
 				{{#link-to "messages.conversation" item.conversationid }}
