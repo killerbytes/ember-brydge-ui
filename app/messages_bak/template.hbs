@@ -1,0 +1,45 @@
+
+<div class="box bg-gray row collapse">
+  <div class="medium-5 columns">
+    <section class="bg-white text-right">
+      {{link-to "New Message" "messages.compose" class="button button-clear" }}
+    </section>
+    <section>
+      <form class="form-profile">
+        {{input type="search" value=key placeholder="Search by Name" class="no-margin search-input"}}
+      </form>
+    </section>
+    <section class="container">
+      <ul class="no-bullet user-link-list bg-white">
+      {{#each list as |item| }}
+        {{#if item.content}}
+        <li>
+          {{#link-to "messages.conversation" item.id class="no-color"}}
+          <div class="row user">
+            <div class="columns medium-8">
+              <div class="avatar" style={{htmlSafeImage item.other.profile.avatarUrl }}>
+                <img src= {{item.other.profile.avatarUrl}} class="hide">
+              </div>
+              <div class="user-info">
+                <a class="name">{{ item.other.profile.fullName }}</a>
+              </div>
+            </div>
+            <div class="column medium-4 text-right">
+              <div>
+                <div class="timestamp">{{ timestamp item.updatedAt }}</div>
+              </div>
+            </div>
+          </div>
+          <div class="message-body truncate">{{{item.content}}}</div>
+
+          {{/link-to}}
+        </li>
+        {{/if}}
+      {{/each}}
+      </ul>
+    </section>
+  </div>
+  <div class="medium-7 columns border-l message-pane">
+    {{ outlet }}
+  </div>
+</div>

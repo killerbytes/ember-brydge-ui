@@ -1,20 +1,10 @@
 import Ember from 'ember';
 import AuthenticatedRouteMixin from 'ember-simple-auth/mixins/authenticated-route-mixin';
-import BrydgeMessagingScroller from 'web/mixins/brydge-messaging-scroller';
 
-export default Ember.Route.extend(
-  BrydgeMessagingScroller,
-  AuthenticatedRouteMixin, {
+export default Ember.Route.extend(AuthenticatedRouteMixin, {
   ajax: Ember.inject.service(),
   model: function(params) {
-    // return this.store.queryRecord('conversation', {id: params.id, page: 1, per_page: 5});
-    return this.brydgeScroller('conversation',{
-			id: params.id,
-      per_page: 15,
-			scroller: 'messages',
-      modelPath: 'controller.model.messages'
-		});
-
+    return this.store.findRecord('conversation', params.id);
   },
   afterModel(){
     this.store.findAll('conversation');

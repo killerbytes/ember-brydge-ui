@@ -3,6 +3,9 @@
 	@extend .rounded;
 	background-color: $brydge-gray;
 	margin-bottom: 1rem;
+	.is-collapsed{
+		display: none;
+	}
 	section{
 		padding: 1rem;
 	}
