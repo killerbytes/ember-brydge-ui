@@ -36,4 +36,16 @@
     overflow: auto;
     padding: 0;
   }
+  .message-scrollable{
+    height: auto;
+    position: absolute;
+    bottom: 144px;
+    width: 100%;
+  }
+  .messages-list{
+    border-top: 1px solid $border-color;
+    // position: absolute;
+    // bottom: 0;
+    // width: 100%;
+  }
 }

@@ -19,7 +19,7 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
     Ember.$('.conversation-list').height((height - Ember.$('.conversation-list').siblings('.pane-header').outerHeight()) + 'px');
     Ember.$('.contact-list').height((height - Ember.$('.contact-list').siblings('.pane-header').outerHeight()) + 'px');
     Ember.$('.message-box').height((height - Ember.$('.message-box').siblings('.pane-header').outerHeight()) + 'px');
-    Ember.$('.message-scrollable').height((Ember.$('.message-box').height()- Ember.$('.message-form').outerHeight()) + 'px');
+    Ember.$('.message-scrollable').css('max-height',(Ember.$('.message-box').height()- Ember.$('.message-form').outerHeight()) + 'px');
 
 
 

@@ -10,4 +10,5 @@ export default Ember.Controller.extend({
     }
   	this.get('messages').pushObjects(this.get('model.messages').toArray());
   }),
+  // xx: Ember.computed.uniq('messages')
 });

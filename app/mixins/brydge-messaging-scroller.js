@@ -35,13 +35,13 @@ export default Ember.Mixin.create({
 			if(this.get('controller.isLoading') || this.get(el+'.noMoreData') || infinityReached) return false;
 			this.set('controller.isLoading', true);
 			this.brydgeScroller(null, null, el).then(res=>{
-
+				// console.log(res)
 				this.set('controller.isLoading', false);
 				// console.log(this.get(el+'.page'))
 				// if(this.get(this.get(el+'.params.modelPath'))) this.get(this.get(el+'.params.modelPath')).pushObjects(res.get('messages').toArray());
 				// console.log(this.get(this.get(el+'.params.modelPath')));
 				// this.set(this.get(el+'.params.modelPath'), res.get('messages'))
-				cb.apply();
+				cb.apply(res);
 
 				if(res.get('length') == 0) this.set(el+'.noMoreData', true);
 			})

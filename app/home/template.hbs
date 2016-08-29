@@ -10,7 +10,7 @@
 
 		<div class="newsfeed-tabs">
 			<h4 class="padded">Channel Filters</h4>
-			<div class="box">{{log model.categories}}
+			<div class="box">
 		    {{picker-channel profile=profile menu=model.categories favorites=model.favorites select="setChannel" selected=channels loading=isFavoritesLoading}}
 
 		    {{picker-location profile=profile select="setLocation" selected=googlePlaceObject}}

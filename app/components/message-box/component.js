@@ -13,7 +13,7 @@ export default Ember.Component.extend({
     this.get('utils').textAreaChange(this.$('textarea'), this.get('message'));
     this.scrollBottom();
     var height = this.$().height();
-    this.$('.message-scrollable').height(height - this.$('.message-form').outerHeight() + 'px');
+    this.$('.message-scrollable').css('max-height', height - this.$('.message-form').outerHeight() + 'px');
   }),
 
   scrollBottom(){
@@ -55,6 +55,9 @@ export default Ember.Component.extend({
         content: this.get('utils').insertParagraph(this.get('message')),
         recipient: this.get('to.id')
       }).save().then(res=>{
+        console.log(res)
+        this.get('messages').pushObject(res);
+        console.log(this.get('messages'))
         this.set('message', null);
         this.sendAction('resp', res.get('conversationid'));
       })

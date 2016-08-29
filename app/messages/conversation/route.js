@@ -22,7 +22,8 @@ export default Ember.Route.extend(
   actions: {
   	submit() {
       this.store.findAll('conversation');
-      this.get('controller.model').reload();
+      // this.set('controller.messages', []);
+      // this.get('controller.model').reload();
     },
     delete(id) {
       var conversation = this.store.peekRecord('conversation', id);

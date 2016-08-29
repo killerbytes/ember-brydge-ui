@@ -3,19 +3,14 @@
   </div>
 
   <div class="columns medium-7">
-    <button class="button"{{action "load"}}>Load</button>
+    <button class="button"{{action "load" "messages"}}>Load</button>
     <ul>
     {{#each messages as |item|}}
-      <li>{{item.content}}</li>
+      <li>{{item.id}}: {{item.content}}</li>
     {{/each}}
     </ul>
   <hr>
 
-  <ul>
-  {{#each xxx as |item|}}
-    <li>{{item.content}}</li>
-  {{/each}}
-  </ul>
 
 
   </div>
