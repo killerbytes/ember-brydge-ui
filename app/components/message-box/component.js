@@ -12,10 +12,23 @@ export default Ember.Component.extend({
   onTextChange: Ember.observer('message', function() {
     this.get('utils').textAreaChange(this.$('textarea'), this.get('message'));
     this.scrollBottom();
-    var height = this.$().height();
-    this.$('.message-scrollable').css('max-height', height - this.$('.message-form').outerHeight() + 'px');
-  }),
+    // var height = this.$().height();
+    this._resize();
 
+  }),
+  _resize(){
+    var height = Ember.$('.box').height();
+    this.$().height((height - Ember.$('.message-box').siblings('.pane-header').outerHeight()) + 'px');
+    // Ember.$('.message-box').height((height - Ember.$('.message-box').siblings('.pane-header').outerHeight()) + 'px');
+    Ember.$('.message-scrollable').css('max-height',(this.$().height()- Ember.$('.message-form').outerHeight()) + 'px');
+    var h = this.$().height();
+    this.$('.message-scrollable').css('max-height', h - this.$('.message-form').outerHeight() + 'px');
+    this.$('.message-scrollable').css({
+      top: (h - this.$('.message-scrollable').outerHeight() - this.$('.message-form').outerHeight()) +1 + 'px',
+      bottom: 'auto'
+    });
+
+  },
   scrollBottom(){
     var $scrollable = this.$('.message-scrollable');
     $scrollable.animate({'scrollTop': $scrollable.find('ul:first').height()});
@@ -30,6 +43,7 @@ export default Ember.Component.extend({
       Ember.$('.message-scrollable').on('scroll', ()=>{
 				this._checkElementInView(Ember.$('.message-scrollable'));
 			})
+      this._resize();
     })
   },
   _checkElementInView(el){

@@ -14,7 +14,7 @@
       <ul class="no-bullet user-link-list bg-white">
       {{#each list as |item| }}
         {{#if item.content}}
-        <li>
+        <li class="{{unless item.read 'new-notification'}}">
           {{#link-to "messages.conversation" item.id class="no-color"}}
             <div class="row user">
               <div class="columns medium-8">
@@ -23,15 +23,19 @@
                 </div>
                 <div class="user-info">
                   <a class="name">{{ item.other.profile.fullName }}</a>
+                  <div class="truncate">{{{item.content}}}</div>
                 </div>
               </div>
               <div class="column medium-4 text-right">
-                <div>
-                  <div class="timestamp">{{ timestamp item.updatedAt }}</div>
-                </div>
+                <div class="timestamp">{{ timestamp item.updatedAt }}</div>
+                {{#if item.count}}
+                  <div class="timestamp">
+                    {{item.count}} new
+                  </div>
+                {{/if}}
               </div>
             </div>
-            <div class="message-body truncate">{{{item.content}}}</div>
+            <div class="message-body truncate"></div>
           {{/link-to}}
         </li>
         {{/if}}

@@ -1,21 +1,14 @@
 import DS from 'ember-data';
 
 export default DS.Model.extend({
-  // avatar: DS.attr(),
   content: DS.attr(),
-  // conversationid: DS.attr(),
-  // recepient: DS.attr(),
-  // firstName: DS.attr(),
-  // lastName: DS.attr(),
-  // messageid: DS.attr(),
+  count: DS.attr(),
+  recepient: DS.attr(),
+  sender: DS.attr(),
   updatedAt: DS.attr('date'),
-  // readStatus: DS.attr(),
+  read: DS.attr(),
   messages: DS.hasMany({async: true}),
   action: DS.attr(),
-  // you: DS.belongsTo('user'),
   other: DS.belongsTo('user'),
-  // fullName: Ember.computed('firstName', 'lastName', function(){
-  // 	return this.get('firstName') + ' ' + this.get('lastName');
-  // })
 
 });
