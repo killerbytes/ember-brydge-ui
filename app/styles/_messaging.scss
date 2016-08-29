@@ -46,4 +46,14 @@
     // bottom: 0;
     // width: 100%;
   }
+  .messages-loader{
+    position: absolute;
+    z-index: 10;
+    top: 0;
+    width: 100%;
+    background-color: rgba(255,255,255,.8);
+    .brydge-loading{
+      margin: 1rem auto;
+    }
+  }
 }

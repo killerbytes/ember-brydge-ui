@@ -20,11 +20,12 @@ export default Ember.Component.extend({
     var height = Ember.$('.box').height();
     this.$().height((height - Ember.$('.message-box').siblings('.pane-header').outerHeight()) + 'px');
     // Ember.$('.message-box').height((height - Ember.$('.message-box').siblings('.pane-header').outerHeight()) + 'px');
-    Ember.$('.message-scrollable').css('max-height',(this.$().height()- Ember.$('.message-form').outerHeight()) + 'px');
+    // Ember.$('.message-scrollable').css('max-height',(this.$().height()- Ember.$('.message-form').outerHeight()) + 'px');
     var h = this.$().height();
-    this.$('.message-scrollable').css('max-height', h - this.$('.message-form').outerHeight() + 'px');
+    this.$('.message-scrollable').css('max-height', h - this.$('.message-form').outerHeight() + 1 + 'px');
+    var top  = h - this.$('.message-scrollable').outerHeight() - this.$('.message-form').outerHeight();
     this.$('.message-scrollable').css({
-      top: (h - this.$('.message-scrollable').outerHeight() - this.$('.message-form').outerHeight()) +1 + 'px',
+      top:  top <=0 ? 0 : top + 'px',
       bottom: 'auto'
     });
 
@@ -69,9 +70,7 @@ export default Ember.Component.extend({
         content: this.get('utils').insertParagraph(this.get('message')),
         recipient: this.get('to.id')
       }).save().then(res=>{
-        console.log(res)
         this.get('messages').pushObject(res);
-        console.log(this.get('messages'))
         this.set('message', null);
         this.sendAction('resp', res.get('conversationid'));
       })
