@@ -6,6 +6,7 @@ export default DS.Model.extend({
   recepient: DS.attr(),
   sender: DS.attr(),
   updatedAt: DS.attr('date'),
+  messagedAt: DS.attr('date'),
   read: DS.attr(),
   messages: DS.hasMany({async: true}),
   action: DS.attr(),

@@ -6,5 +6,5 @@ export default DS.Model.extend({
   sender: DS.attr(),
   recipient: DS.attr(),
   updatedAt: DS.attr('date'),
-  from: DS.belongsTo('user'),
+  from: DS.belongsTo('user')
 });

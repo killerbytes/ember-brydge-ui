@@ -6,12 +6,13 @@ export default Ember.Mixin.create({
 	routing: Ember.inject.service(),
 	notification: Ember.inject.service(),
 	sort: ['createdAt:desc'],
+	sortUpdated: ['updatedAt:desc'],
 	loading: Ember.computed(function(){
 		return {};
 	}),
 	views: Ember.computed.sort('notification.view', 'sort'),
 	requests: Ember.computed.sort('notification.request', 'sort'),
-	messages: Ember.computed.sort('notification.message', 'sort'),
+	messages: Ember.computed.sort('notification.message', 'sortUpdated'),
 	notifications: Ember.computed.sort('notification.notification', 'sort'),
 	_read(item){
 		item.set('read', true);
