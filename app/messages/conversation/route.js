@@ -9,7 +9,8 @@ export default Ember.Route.extend(
   resetController(controller, isExiting, transition) {
       if (isExiting) {
         controller.setProperties({
-          messages: []
+          messages: [],
+          id: null
         });
       }
   },
@@ -23,6 +24,13 @@ export default Ember.Route.extend(
 		});
 
   },
+  // setupController(controller, model){
+  //   this._super(...arguments);
+  //   // controller.set('messages', []);
+  //   controller.setProperties({
+  //     messages: []
+  //   })
+  // },
   afterModel(){
     this.store.findAll('conversation');
   },

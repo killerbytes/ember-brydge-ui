@@ -8,7 +8,13 @@ export default Ember.Controller.extend({
       this.set('messages', []);
       this.set('id', this.get('model.id'));
     }
-  	this.get('messages').pushObjects(this.get('model.messages').toArray());
+    this.get('model.messages').forEach(i=>{
+      if(!this.get('messages').findBy('id', i.get('id'))){
+        this.get('messages').pushObject(i);
+      }
+    })
+
+  	// this.get('messages').pushObjects(this.get('model.messages').toArray());
   }),
   // xx: Ember.computed.uniq('messages')
 });

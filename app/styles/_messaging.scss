@@ -24,6 +24,13 @@
     bottom: 0;
     width: 100%;
   }
+  .message-callout{
+    @extend .text-gray;
+    font-size: 16px;
+    text-align: center;
+    margin-top: 10rem;
+
+  }
 
   .conversation-header{
 
@@ -55,5 +62,23 @@
     .brydge-loading{
       margin: 1rem auto;
     }
+  }
+}
+
+.conversation-list,
+#dd-messages {
+  .name{
+    color: $body-text-color;
+  }
+  .message-count{
+    @extend .timestamp;
+    // color: $button-blue;
+    margin-left: 2px;
+    font-weight: normal;
+  }
+}
+#dd-messages{
+  .message-body{
+    font-size: 11px;
   }
 }

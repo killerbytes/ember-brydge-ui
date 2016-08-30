@@ -22,10 +22,10 @@ export default Ember.Service.extend({
         requestid: id
       }).save();
   },
-  disconnect(id){
-    var url = '/v2/connections/'+id+'/disconnect';
-    return this.get('ajax').request(url, {
-      method: 'POST'
-    })
-  }
+  // disconnect(id){
+  //   var url = '/v2/connections/'+id+'/disconnect';
+  //   return this.get('ajax').request(url, {
+  //     method: 'POST'
+  //   })
+  // }
 });

@@ -24,12 +24,12 @@
               <small>
                 {{#if isIndustry ~}}
       						{{#if isAddOrChange}}
-      							{{link-to "Add or Change Industries" "me.edit" (query-params tab="industry")}}
+      							{{link-to "Add or Change Industries" "me.edit" (query-params tab="industry") class="text-gray"}}
       						{{else}}
-      							{{link-to "Change Industries" "me.edit" (query-params tab="industry")}}
+      							{{link-to "Change Industries" "me.edit" (query-params tab="industry") class="text-gray"}}
       						{{/if}}
       					{{~ else ~}}
-      						{{link-to "Add Industries" "me.edit" (query-params tab="industry") ~}}
+      						{{link-to "Add Industries" "me.edit" (query-params tab="industry") class="text-gray" ~}}
       					{{/if}}
 
               </small>

@@ -26,6 +26,9 @@ ul.media-list{
 ul.user-link-list{
   li{
     border-bottom: 1px solid $border-color;
+    .name{
+      // color: $body-text-color;
+    }
   }
   li>a{
     padding: 1rem;

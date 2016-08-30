@@ -1,5 +1,5 @@
 table{
-	color: $text-light;
+	color: $text-gray;
 	input[type='checkbox']{
 		margin-bottom: 5px;
 	}
@@ -8,7 +8,7 @@ table{
 		font-weight: bold;
 	}
 	tbody tr:nth-child(even){
-		background-color: inherit;
+		// background-color: inherit;
 	}
 	tbody tr{
 		border-bottom: 1px solid $border-color;

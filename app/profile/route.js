@@ -55,27 +55,27 @@ export default Ember.Route.extend(
     this.get('notification').profileView(model.profile)
   },
   error() {
+    console.log(arguments)
     this.transitionTo('home');
   },
   actions: {
-    onClickedConnect (cb) {
-      var userid = this.get('currentModel.profile.id');
-      this.get('connection').request(userid)
-      .then(res=>{
-        var connection = this.store.createRecord('connection', res.data.attributes);
-        var status = connection.get('status');
-        cb.apply(null, [status]);
-      });
-    },
-    onClickedDisconnect() {
-      var userid = this.get('currentModel.profile.id');
-      this.get('connection').disconnect(userid)
-      .then((res)=>{
-        this.refresh();
-      });
-    },
-    goToAsk (username) {
-    },
+    // onClickedConnect (cb) {
+    //   var userid = this.get('currentModel.profile.id');
+    //   this.get('connection').request(userid)
+    //   .then(res=>{
+    //     var connection = this.store.createRecord('connection', res.data.attributes);
+    //     var status = connection.get('status');
+    //     cb.apply(null, [status]);
+    //   });
+    // },
+    // onClickedDisconnect() {
+    //   var userid = this.get('currentModel.profile.id');
+    //   console.log(userid)
+    //   // this.get('connection').disconnect(userid)
+    //   // .then((res)=>{
+    //   //   this.refresh();
+    //   // });
+    // },
     postCompliment(){
       var content = this.controller.get('complimentContent');
       var userid = this.get('currentModel.profile.id')
