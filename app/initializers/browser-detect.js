@@ -3,7 +3,6 @@ import Ember from 'ember';
 export function initialize(application) {
   var Detector = Ember.Object.extend({
     log(m) {
-      console.log(m);
     },
     isMobile: function(){
         var check = false;

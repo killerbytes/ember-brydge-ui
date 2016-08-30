@@ -1,0 +1,16 @@
+<table>
+  <thead>
+    <tr>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Receive weekly emails on important and unread notifications</td>
+      <td class="text-center">
+        {{input type="checkbox" change=(action 'emailNotificationChanged') checked=emailSetting.weekly id="emailSetting.weekly" name="weekly" }}
+      </td>
+    </tr>
+  </tbody>
+</table>

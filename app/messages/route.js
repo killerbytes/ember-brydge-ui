@@ -14,7 +14,6 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
 		return this.store.findAll('conversation');
 	},
 	_onResize(){
-    // console.log('resize')
 		var height = Ember.$('.box').height();
     Ember.$('.conversation-list').height((height - Ember.$('.conversation-list').siblings('.pane-header').outerHeight()) + 'px');
     Ember.$('.contact-list').height((height - Ember.$('.contact-list').siblings('.pane-header').outerHeight()) + 'px');

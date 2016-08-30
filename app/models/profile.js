@@ -25,7 +25,7 @@ export default DS.Model.extend(Validations, {
 	setting: DS.belongsTo('setting', {async: false}),
 	notificationSetting: DS.belongsTo('notificationSetting', {async: false}),
 	configSetting: DS.belongsTo('configSetting'),
-	emailSetting: DS.belongsTo('emailSetting'),
+	emailSetting: DS.belongsTo('emailSetting', {async: false}),
 	connection: DS.belongsTo('connection'),
 	fullName: Ember.computed('firstName', 'lastName', function(){
 		return this.get('firstName') + ' ' + this.get('lastName');

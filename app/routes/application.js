@@ -30,7 +30,6 @@ export default TransitionToListenerRoute.extend(
   }.on('activate'),
   setupController(controller, model){
     this._super(...arguments);
-    console.log('++++ application +++')
     this.get('notification').checkPush();
     controller.set('detector', this.get('detector'));
   },

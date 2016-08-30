@@ -26,20 +26,18 @@ export default Ember.Component.extend(SharePostIndustryPicker, {
 	// }),
   getCategory(value){
     var categories = this.get('menu');
-		console.log(value, categories);
 
     return _.chain(_.map(categories, 'categories'))
                .flatten()
-               .map((i)=>{ console.log(i); return i.industries; })
+               .map((i)=>{ return i.industries; })
                .flatten()
-               .filter((d)=>{ console.log(d); return d.data.code == value; })
+               .filter((d)=>{ return d.data.code == value; })
                .map((i)=>{ return {code: i.data.code, name: i.data.subIndustry } })
                .first()
                .value();
   },
 
 	getIndustryName: function (id) {
-		console.log(id)
     var col = {};
     col[0] = "My Connections";
     col[this.get('profile.industryOneId')] = this.get('profile.industryOneName');

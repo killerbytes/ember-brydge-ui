@@ -21,6 +21,14 @@ export default Ember.Service.extend({
 		})
 		return notification.save();
   },
+	updateEmailNotification(key, value){
+		var notification = this.get('sessionAccount.account.profile.emailSetting')
+		notification.setProperties({
+			key: key,
+			value: value
+		})
+		return notification.save();
+  },
   updateEmail(email){
     var userid = this.get('session.data.authenticated.user_id');
     var url = '/v2/users/'+userid;

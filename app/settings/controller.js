@@ -4,6 +4,9 @@ export default Ember.Controller.extend({
 	settings: Ember.inject.service(),
   queryParams: ['tab'],
   tab: 'email',
+	emailSetting: Ember.computed('model', 'model.emailSetting', function(){
+		return this.get('model.emailSetting');
+	}),
 	setting: Ember.computed('model.setting.ask', 'model.setting.profile_view', function(){
 		return this.get('model.setting');
 	}),
@@ -11,6 +14,13 @@ export default Ember.Controller.extend({
 		return this.get('model.notificationSetting');
 	}),
   actions: {
+		emailNotificationChanged(e){
+			this.get('settings').updateEmailNotification(e.currentTarget.name, e.currentTarget.checked).then(res=>{
+				// this.set('setting', res);
+				// Ember.$('#dialog-box-confirm').foundation('open');
+			});
+
+    },
     notificationChanged(e){
 			this.get('settings').updateNotification(e.currentTarget.name, e.currentTarget.checked).then(res=>{
 				// this.set('setting', res);

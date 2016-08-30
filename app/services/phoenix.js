@@ -7,7 +7,6 @@ export default Ember.Service.extend({
   socket: function () {
     let token = this.get('session.data.authenticated.access_token')
     let host = ENV['socket']
-    console.log(host)
 
     let s = new Socket(host,{params: {token: token}});
     s.connect();
@@ -16,9 +15,8 @@ export default Ember.Service.extend({
 
   channel: function () {
   	let room = this.socket().channel("room:lobby", {});
-  
+
     room.join().receive("ok", () => {
-      console.log("Welcome to Websocket!");
     });
     return room;
   }
