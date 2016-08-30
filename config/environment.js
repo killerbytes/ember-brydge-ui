@@ -17,14 +17,13 @@ module.exports = function(environment) {
       // when it is created
     },
     contentSecurityPolicy: {
-        'connect-src': "'self' ws://localhost:4000",
-      'default-src': "'self' safari-extension://*",
-      'font-src': "'self' * fonts.gstatic.com https://fonts.googleapis.com",
-      'img-src': "'self' * www.google-analytics.com placeholdit.imgix.net placehold.it s3.amazonaws.com data:",
-      'style-src': "'self' fonts.gstatic.com 'unsafe-inline' https://fonts.googleapis.com https://embed.doorbell.io",
-      'connect-src': "'self' localhost:8000 localhost:8080 * https://api.brydge.com https://api.brydge.me https://embed.doorbell.io",
-      'document-uri': "'self'",
-      'script-src':  "'self' 'unsafe-inline' 'unsafe-eval' api.brydge.com api.brydge.me www.google-analytics.com https://fonts.googleapis.com www.google-analytics.com/analytics.js https://maps.googleapis.com https://embed.doorbell.io"
+      'default-src': "'none'",
+      'connect-src': ["'self'", "ws://localhost:4000", "ws://localhost:8000", "http://localhost:8000", "https://api.brydge.me", "https://api.brydge.com", "https://embed.doorbell.io"],
+      'font-src': ["'self'", "fonts.gstatic.com", "https://fonts.googleapis.com"],
+      'img-src': ["'self'", "https://storage.googleapis.com", "www.google-analytics.com", "data:"],
+      // 'img-src': ["'self'", "https://storage.googleapis.com", "www.google-analytics.com", "data:", "*.cloudfront.net"],
+      'style-src': ["'self'", "'unsafe-inline'", "https://fonts.googleapis.com", "https://embed.doorbell.io"],
+      'script-src':  ["'self'", "'unsafe-inline'", "api.brydge.com", "api.brydge.me", "https://fonts.googleapis.com", "www.google-analytics.com/analytics.js", "https://maps.googleapis.com", "https://embed.doorbell.io"]
     },
     'ember-simple-auth':{
       serverTokenRevocationEndpoint: 'revoke',
