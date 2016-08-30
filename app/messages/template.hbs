@@ -22,17 +22,12 @@
                   <img src= {{item.other.profile.avatarUrl}} class="hide">
                 </div>
                 <div class="user-info">
-                  <a class="name">{{ item.other.profile.fullName }}</a>
+                  <a class="name">{{ item.other.profile.fullName }}</a> {{#if item.count}} <span class="timestamp">({{item.count}})</span> {{/if}}
                   <div class="truncate">{{{item.content}}}</div>
                 </div>
               </div>
               <div class="column medium-4 text-right">
                 <div class="timestamp">{{ timestamp item.updatedAt }}</div>
-                {{#if item.count}}
-                  <div class="timestamp">
-                    {{item.count}} new
-                  </div>
-                {{/if}}
               </div>
             </div>
             <div class="message-body truncate"></div>

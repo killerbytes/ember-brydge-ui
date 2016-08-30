@@ -6,6 +6,7 @@ export default DS.Model.extend({
   createdAt: DS.attr('date'),
   updatedAt: DS.attr('date'),
   read: DS.attr(),
+  count: DS.attr(),
   referenceid: DS.attr(),
   type: DS.attr(),
   targetid: DS.attr(),
