@@ -37,6 +37,11 @@ export default Ember.Component.extend(SharePostIndustryPicker, {
   },
 	actions: {
     post(item, cb) {
+      if(!this.get('postContent')){
+        cb.apply(this,[false]);
+        return false;
+      }
+
       var url = this.get('utils').findUrls(this.get('postContent')).get(0)
       var content = this.get('postContent');
       if(this.get('site.title')){

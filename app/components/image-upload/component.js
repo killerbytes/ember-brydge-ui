@@ -15,13 +15,16 @@ export default Ember.Component.extend({
 		var formData = new FormData(form);
 
 
-		var oFReader = new FileReader();
-	  oFReader.readAsDataURL(evt.target.files[0]);
+		var reader = new FileReader();
+	  reader.readAsDataURL(evt.target.files[0]);
 
-	  oFReader.onload = function(oFREvent) {
-	  	// _this.set('logoUrl',oFREvent.target.result);
-	  	_this.sendAction('fileLoaded', formData);
+	  reader.onload = e=>{
+			this.set('isLoading', true);
+	  	this.sendAction('fileLoaded', formData, ()=>{
+				this.set('isLoading', false);
+			});
 	  };
+
 	},
 
 	actions: {

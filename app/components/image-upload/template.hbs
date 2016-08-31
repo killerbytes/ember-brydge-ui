@@ -2,6 +2,9 @@
 {{#unless text}}
 <div class="avatar" {{action "clicked"}} style={{htmlSafeImage logoUrl}}>
   <div class="overlay"><i class="fa fa-camera" aria-hidden="true"></i></div>
+  {{#if isLoading}}
+    <div class="brydge-loading"></div>
+  {{/if}}
 </div>
 {{else}}
  <a {{action "clicked"}}>{{placeholder}}</a>
