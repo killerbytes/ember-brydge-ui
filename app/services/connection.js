@@ -8,8 +8,11 @@ export default Ember.Service.extend({
     var url = '/v2/connections/'+id+'/status';
     return this.get('ajax').request(url);
   },
-  accept(item)  {
-    var res =this.get('store').findRecord('connection', item.get('id'));
+  accept(id)  {
+    var connection = this.get('store').peekRecord('connection', id);
+    connection.set('status', 'accepted');
+    return connection.save();
+
   },
   reject(id){
 		var url = '/v2/connections/'+id+'/reject';
@@ -22,10 +25,8 @@ export default Ember.Service.extend({
         requestid: id
       }).save();
   },
-  // disconnect(id){
-  //   var url = '/v2/connections/'+id+'/disconnect';
-  //   return this.get('ajax').request(url, {
-  //     method: 'POST'
-  //   })
-  // }
+  disconnect(id){
+    var connection = this.get('store').peekRecord('connection', id);
+    connection.destroyRecord();
+  }
 });

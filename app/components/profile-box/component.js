@@ -44,16 +44,10 @@ export default Ember.Component.extend(AvatarMixin, {
       .request(userid)
       .then(res=>{
 				this.set('profile.connection', res);
-        // cb.apply(null, ['Connection Request Sent']);
       });
     },
 		accept: function(){
-			// var connection = this.get('profile.connection');
-			this.get('store').findRecord('connection', this.get('profile.connection.id')).then(res=>{
-				res.set('status', 'accepted');
-				res.save();
-			})
-			// return false;
+			this.get('connection').accept(this.get('profile.connection.id'))
 		},
 
 

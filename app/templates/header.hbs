@@ -161,42 +161,46 @@
 				</div>
 		</div>
 		<ul class="media-list user">
-			{{#each requests as |item|}}
-			<li>
-				<div class="padding">
-					<div class="row collapse">
-						<div class="columns medium-9">
-              {{#link-to "profile" item.target.id}}
-  				      <div class="avatar" style={{htmlSafeImage item.target.profile.avatarUrl }}>
-  			          <img src= {{item.target.profile.avatarUrl}} class="hide">
-  				      </div>
-              {{/link-to}}
-              {{#link-to "profile" item.target.id}}
-				      <div class="user-info">
-			          <div class="name">{{item.target.profile.fullName}}</div>
-				        <div class="position">{{item.target.profile.career}}</div>
-				      </div>
-              {{/link-to}}
-
-						</div>
-						<div class="columns medium-3 actions text-right">
-		          <span class="middle"><a {{action "acceptConnection" item }}><i class="fa fa-check-circle" aria-hidden="true"></i></a></span>
-		          <span class="middle"><a {{action "rejectConnection" item }}><i class="fa fa-times-circle" aria-hidden="true"></i></a></span>
-						</div>
-					</div>
-				</div>
-			</li>
-			{{else}}
-			<li>
-        <div class="empty-message">
-          {{#if loading.request}}
+      {{#if loading.request}}
+        <li>
+          <div class="empty-message">
             <div class="brydge-loading"></div>
-          {{else}}
-            No pending connection requests
-          {{/if}}
-        </div>
-			</li>
-			{{/each}}
+          </div>
+  			</li>
+      {{else}}
+        {{#each requests as |item|}}
+    			<li>
+    				<div class="padding">
+    					<div class="row collapse">
+    						<div class="columns medium-9">
+                  {{#link-to "profile" item.id}}
+      				      <div class="avatar" style={{htmlSafeImage item.avatar }}>
+      			          <img src= {{item.avatar}} class="hide">
+      				      </div>
+                  {{/link-to}}
+                  {{#link-to "profile" item.id}}
+    				      <div class="user-info">
+    			          <div class="name">{{item.fullName}}</div>
+    				        <div class="position">{{item.career}}</div>
+    				      </div>
+                  {{/link-to}}
+
+    						</div>
+    						<div class="columns medium-3 actions text-right">
+    		          <span class="middle"><a {{action "acceptConnection" item }}><i class="fa fa-check-circle" aria-hidden="true"></i></a></span>
+    		          <span class="middle"><a {{action "rejectConnection" item }}><i class="fa fa-times-circle" aria-hidden="true"></i></a></span>
+    						</div>
+    					</div>
+    				</div>
+    			</li>
+  			{{else}}
+    			<li>
+            <div class="empty-message">
+              No pending connection requests
+            </div>
+    			</li>
+  			{{/each}}
+      {{/if}}
 		</ul>
 		{{#link-to 'requests' class="footer-button button expanded"}}
 			See all Connection Requests

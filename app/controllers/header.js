@@ -7,6 +7,7 @@ export default Ember.Controller.extend(NotificationActionsMixin, {
   settings: Ember.computed('sessionAccount.account.profile.setting', function(){
     return this.get('sessionAccount.account.profile.setting');
   }),
+  
   actions: {
     closeTooltip(e){
       $('body').find('.tooltip').hide();

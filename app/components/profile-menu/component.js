@@ -8,6 +8,7 @@ const {
 export default Ember.Component.extend({
   store: Ember.inject.service(),
   session: Ember.inject.service(),
+  connection: Ember.inject.service(),
   connectionCount: Ember.inject.service(),
 
   didReceiveAttrs(attr){
@@ -62,9 +63,7 @@ export default Ember.Component.extend({
   }),
   actions: {
     disconnect(){
-      this.get('store').findRecord('connection', this.get('profile.connection.id')).then(res=>{
-        res.destroyRecord();
-      })
+      this.get('connection').disconnect(this.get('profile.connection.id'));
     }
   }
 });
