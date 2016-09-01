@@ -21,47 +21,37 @@ export default Ember.Route.extend(
   },
   _replaceState(path="me.index"){
     let userid = this.get('session.data.authenticated.user_id');
-    console.log(path)
     var page;
     switch (true) {
       case /me.index/.test(path):
         page = "";
-        window.history.replaceState( {} , path, `${userid}/${page}` );
         break;
       case /me.background/.test(path):
         page = "background";
-        window.history.replaceState( {} , path, `${userid}/${page}` );
         break;
       case /me.ask/.test(path):
         page = "ask";
-        window.history.replaceState( {} , path, `${userid}/${page}` );
         break;
       case /me.compliments/.test(path):
         page = "compliments";
-        window.history.replaceState( {} , path, `${userid}/${page}` );
         break;
       case /me.connections/.test(path):
         page = "connections";
-        window.history.replaceState( {} , path, `${userid}/${page}` );
+        break;
       default:
         page = "";
-        window.history.replaceState( {} , path, `${userid}/${page}` );
 
     }
+    window.history.replaceState( {} , path, `${userid}/${page}` );
 
   },
   _setState(path){
     this.set('path', path);
   },
   actions: {
-    willTransition(transition){
-      if(!transition) return false;
-      this._setState(transition.targetName);
-    },
     didTransition(){
       Ember.run.later(()=>{
-        this._replaceState(this.get('path'));
-        console.log(this.get('path'))
+        this._replaceState(getOwner(this).lookup('controller:application').currentPath);
       })
     }
   }

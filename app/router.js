@@ -62,7 +62,7 @@ Router.map(function() {
   this.route('ask.detail', {path: 'ask/:id'});
   this.route('background', {path: ':username/background'});
   this.route('connections', {path: ':username/connections'});
-  this.route('compliments', {path: ':userid/compliments'}, function(){
+  this.route('compliments', {path: ':username/compliments'}, function(){
     this.route('posted')
   });
   this.route('compliments.detail',{path: 'compliments/:id'});

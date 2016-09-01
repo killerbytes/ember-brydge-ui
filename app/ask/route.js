@@ -14,9 +14,12 @@ export default Ember.Route.extend(
         controller.set('isAsked', null);
       }
   },
-	beforeModel() {
+	beforeModel(transition) {
     this._super(...arguments);
-    return this.get('sessionAccount.account');
+		const userid = this.get('session.data.authenticated.user_id');
+		if (userid === transition.params[transition.targetName].username) {
+      this.transitionTo('me.ask.index');
+    }
   },
 	model: function(params) {
     let userid = params.username;

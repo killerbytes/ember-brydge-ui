@@ -3,13 +3,20 @@ import AuthenticatedRouteMixin from 'ember-simple-auth/mixins/authenticated-rout
 
 export default Ember.Route.extend(
   AuthenticatedRouteMixin, {
-    resetController(controller, isExiting, transition) {
-        if (isExiting) {
-          this.store.unloadAll('language');
-          this.store.unloadAll('experience');
-          this.store.unloadAll('education');
-        }
-    },
+  beforeModel(transition) {
+    this._super(...arguments);
+		const userid = this.get('session.data.authenticated.user_id');
+		if (userid === transition.params["background"].username) {
+      this.transitionTo('me.background');
+    }
+  },
+  resetController(controller, isExiting, transition) {
+      if (isExiting) {
+        this.store.unloadAll('language');
+        this.store.unloadAll('experience');
+        this.store.unloadAll('education');
+      }
+  },
   model(params) {
     let userid = params.username;
     return Ember.RSVP.hash({
