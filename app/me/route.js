@@ -11,10 +11,6 @@ import BrydgeScroller from 'web/mixins/brydge-scroller';
 export default Ember.Route.extend(
   BrydgeScroller,
   AuthenticatedRouteMixin, {
-  beforeModel(transition) {
-    this._super(...arguments);
-    this._replaceState(transition.targetName);
-  },
   model() {
     let userid = this.get('session.data.authenticated.user_id');
     return Ember.RSVP.hash({
@@ -23,28 +19,32 @@ export default Ember.Route.extend(
       compliments: this.store.query('compliment', {to: userid, page:1, per_page: 1}),
     });
   },
-  _replaceState(path){
+  _replaceState(path="me.index"){
     let userid = this.get('session.data.authenticated.user_id');
-    // console.log(path)
+    console.log(path)
     var page;
     switch (true) {
+      case /profile/.test(path):
       case /me.index/.test(path):
         page = "";
+        window.history.replaceState( {} , path, `${userid}/${page}` );
         break;
       case /me.background/.test(path):
         page = "background";
+        window.history.replaceState( {} , path, `${userid}/${page}` );
         break;
       case /me.ask/.test(path):
         page = "ask";
+        window.history.replaceState( {} , path, `${userid}/${page}` );
         break;
       case /me.compliments/.test(path):
         page = "compliments";
+        window.history.replaceState( {} , path, `${userid}/${page}` );
         break;
-      default:
-        page = "";
-
+      case /me.connections/.test(path):
+        page = "connections";
+        window.history.replaceState( {} , path, `${userid}/${page}` );
     }
-    window.history.replaceState( {} , path, `${userid}/${page}` );
 
   },
   _setState(path){
@@ -58,6 +58,7 @@ export default Ember.Route.extend(
     didTransition(){
       Ember.run.later(()=>{
         this._replaceState(this.get('path'));
+        console.log(this.get('path'))
       })
     }
   }
