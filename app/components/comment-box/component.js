@@ -31,7 +31,8 @@ export default Ember.Component.extend(ViewCommentsActionMixin,{
 			})
 	},
 	actions:{
-		comment(item, e) {
+		comment(item, event) {
+			// if (event.shiftKey) return false;
 			var value = this.get('commentContent');
 			if(!value.trim().length > 0) return false;
 			this.sendAction('postComment', value, this.get('post.id'));
