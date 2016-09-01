@@ -23,7 +23,6 @@ export default Ember.Service.extend({
     })
   },
   check(cb) {
-    console.log('check')
     var url = '/v2/notifications/count';
     const authToken = this.get('session.data.authenticated.access_token');
     if(!authToken) return false;
