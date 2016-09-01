@@ -24,7 +24,6 @@ export default Ember.Route.extend(
     console.log(path)
     var page;
     switch (true) {
-      case /profile/.test(path):
       case /me.index/.test(path):
         page = "";
         window.history.replaceState( {} , path, `${userid}/${page}` );
@@ -44,6 +43,10 @@ export default Ember.Route.extend(
       case /me.connections/.test(path):
         page = "connections";
         window.history.replaceState( {} , path, `${userid}/${page}` );
+      default:
+        page = "";
+        window.history.replaceState( {} , path, `${userid}/${page}` );
+
     }
 
   },
