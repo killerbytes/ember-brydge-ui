@@ -8,6 +8,7 @@ export default DS.Model.extend({
   link: DS.attr(),
   newsfeedid: DS.attr(),
   site: DS.attr(),
+  html: DS.attr(),
   url: DS.attr(),
   image: DS.attr(),
   shareCount: DS.attr(),

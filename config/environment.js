@@ -14,10 +14,11 @@ module.exports = function(environment) {
     },
     APP: {
       // Here you can pass flags/options to your application instance
-      // when it is created
+      // when it is created http://cdn.embedly.com/widgets/media.html?src=https%3A%2F%2Fwww.youtube.com%2Fembed%2FZS4PfHJeFyc%3Ffeature%3Doembed&url=http%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3DZS4PfHJeFyc&image=https%3A%2F%2Fi.ytimg.com%2Fvi%2FZS4PfHJeFyc%2Fhqdefault.jpg&key=5875bbcd8a76444587ba7b1847c5741c&type=text%2Fhtml&schema=youtube
     },
     contentSecurityPolicy: {
       'default-src': "'none'",
+      'frame-src': ["cdn.embedly.com", "youtube.com"],
       'connect-src': ["'self'", "ws://localhost:4000", "ws://localhost:8000", "http://localhost:8000", "https://api.brydge.me", "https://api.brydge.com", "https://embed.doorbell.io"],
       'font-src': ["'self'", "fonts.gstatic.com", "https://fonts.googleapis.com"],
       'img-src': ["'self'", "https://storage.googleapis.com", "www.google-analytics.com", "data:"],
