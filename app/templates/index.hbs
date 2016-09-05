@@ -1,45 +1,52 @@
-<div class="row">
-  <div class="medium-6 small-centered columns">
-    <div class="dialog-wrapper">
-      <div class="page-dialog">
-        <a href="/" class="logo"><img src="assets/brydge-blue.svg"></a>
-      </div>
-      {{#if errors}}
-        <div class="error-messages">
-          <ul class="no-bullet errors">
-          {{#each errors as |item|}}
-              <li>
-                <h4>{{item.title}}</h4>
-                {{item.detail}}
-              </li>
-          {{/each}}
-          </ul>
+<div class="expanded row">
+  <div class="columns medium-9 main-content">
+    <div class="container">
+      <div class="row">
+        <div class="medium-5 small-centered columns">
+          <div class="dialog-wrapper">
+            <div class="dialog-header">
+              <a href="/" class="logo"><img src="assets/brydge-blue.svg"></a>
+            </div>
+            {{#if errors}}
+              <div class="error-messages">
+                <ul class="no-bullet errors">
+                {{#each errors as |item|}}
+                    <li>
+                      <h4>{{item.title}}</h4>
+                      {{item.detail}}
+                    </li>
+                {{/each}}
+                </ul>
+              </div>
+            {{/if}}
+            {{partial "partials/form-login"}}
+            <div class="dialog-footer">
+              <form>
+                <div class="input-group">
+                  {{input value=code class="input-group-field" placeholder="Invitation code" }}
+                  <div class="input-group-button">
+                    <button type="submit" class="button expanded success" {{action "proceed"}}>Sign up</button>
+                  </div>
+                </div>
+              </form>
+              <div class="text-center page-title">
+                <strong>Want to check it out? Leave us your email {{link-to "here" "register"}}.</strong>
+              </div>
+            </div>
+          </div>
         </div>
-      {{/if}}
-      {{partial "partials/form-login"}}
+      </div>
     </div>
   </div>
-</div>
-
-<div class="row">
-  <div class="content-pad text-center page-title">
-    <strong>BRYDGE is currently in Closed BETA!</strong>
-  </div>
-</div>
-<div class="row">
-  <div class="medium-6 small-centered columns">
-    <form>
-      <div class="input-group">
-        {{input value=code class="input-group-field" placeholder="Invitation code" }}
-        <div class="input-group-button">
-          <button type="submit" class="button expanded success" {{action "proceed"}}>Proceed</button>
-        </div>
-      </div>
-    </form>
-  </div>
-</div>
-<div class="row">
-  <div class="columns text-center page-title">
-    <strong>Want to check it out? Leave us your email {{link-to "here" "register"}}.</strong>
+  <div class="columns medium-3 sidebar-content">
+    <div class="container">
+      <h1><strong>Your new professional profile.</strong></h1>
+      <p>
+        <h1><span>Ask</span> for expertise</h1>
+        <h1><span>Share</span> your expertise</h1>
+        <h1><span>Discover</span> professionals like you</h1>
+        <h1><span>Discuss</span> industry news</h1>
+      </p>
+    </div>
   </div>
 </div>

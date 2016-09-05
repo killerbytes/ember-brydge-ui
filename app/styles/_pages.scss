@@ -1,0 +1,51 @@
+.main.page-index,
+.main.page-login,
+.main.page-forgot-password{
+	padding-top: 0;
+	.container{
+		padding-top: 20vh;
+		height: 100vh;
+	}
+	.main-content{
+		// background-image: url('index_bg.jpg');
+		background: linear-gradient(  rgba(238, 249, 255, 0.7), rgba(238, 249, 255, 0.7)), url('index_bg.jpg');
+		// background-color: rgba(238, 249, 255, .5);
+		background-size: cover;
+		.dialog-wrapper{
+			box-shadow: 0px 1px 5px 1px $border-color;
+		}
+
+	}
+	.sidebar-content{
+		@extend .bg-white;
+		.container{
+			padding-left: 20px;
+			>h1{
+				padding-top: 20px;
+			}
+		}
+		h1{
+			span{
+				color: $brydge-blue;
+				font-weight: bold;
+			}
+		}
+		h1+p{
+			margin-top: 40px;
+		}
+	}
+	.dialog-header{
+		padding: 3rem 1rem 2rem;
+		.logo{
+			text-align: center;
+			display: block;
+			img {
+				height: 40px;
+			}
+		}
+	}
+	.dialog-footer{
+		background-color: $body-bg-color;
+		padding: 2rem 1rem;
+	}
+}
