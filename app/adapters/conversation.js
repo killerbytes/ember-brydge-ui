@@ -4,10 +4,10 @@ import UrlTemplates from "ember-data-url-templates";
 
 export default ApplicationAdapter.extend(UrlTemplates, {
 
-	queryRecordUrlTemplate: '{+host}/{namespace}/conversations/{id}',
+	queryRecordUrlTemplate: '{+host}/{namespace}/conversations/{conversationid}',
 
 	urlSegments: {
-		id: function(type, id, snapshot, query) {
+		conversationid: function(type, id, snapshot, query) {
       var id = query.id;
 			delete query.id;
 			return id;
