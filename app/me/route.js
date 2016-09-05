@@ -40,7 +40,6 @@ export default Ember.Route.extend(
         break;
       default:
         page = "";
-
     }
     window.history.replaceState( {} , path, `${userid}/${page}` );
 

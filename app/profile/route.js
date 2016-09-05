@@ -10,7 +10,7 @@ export default Ember.Route.extend(
   connection: Ember.inject.service(),
   notification: Ember.inject.service(),
   compliment: Ember.inject.service(),
-  loggedinUser: null,
+  // loggedinUser: null,
   paramsUserProfile: null,
   resetController(controller, isExiting, transition) {
       if (isExiting) {
@@ -22,8 +22,7 @@ export default Ember.Route.extend(
 
   beforeModel: function(transition) {
     const loggedinUser = this.get('session.data.authenticated');
-    this.set('loggedinUser', loggedinUser);
-    if(!loggedinUser.user_id) this.transitionTo('home');
+    if(!loggedinUser.user_id) this.transitionTo('public-profile', transition.params['profile'].username);
     if (loggedinUser.user_id === transition.params['profile'].username) {
       this.transitionTo('me');
       return;
@@ -32,50 +31,32 @@ export default Ember.Route.extend(
   model: function(params) {
     var ownerid = this.get('session.data.authenticated.user_id');
 
-      var userid = params.username;
-      return Ember.RSVP.hash({
-        profile: this.store.findRecord('profile', userid),
-        username:  params.username,
-        me: this.store.findRecord('profile', ownerid),
-        experiences: this.store.query('experience',{userid: userid}),
-        educations: this.store.query('education',{userid: userid}),
-        questions: this.store.query('ask',{ userid: userid, per_page: 1, page:1 }),
-        posts: this.brydgeScroller('newsfeed', {
-          per_page: 15,
-          scroller: 'newsfeed',
-  				filter: userid,
-  				tab: 'profile',
-  				modelPath: 'controller.model.posts'
-  			}),
+    var userid = params.username;
+    return Ember.RSVP.hash({
+      profile: this.store.findRecord('profile', userid),
+      username:  params.username,
+      me: this.store.findRecord('profile', ownerid),
+      experiences: this.store.query('experience',{userid: userid}),
+      educations: this.store.query('education',{userid: userid}),
+      questions: this.store.query('ask',{ userid: userid, per_page: 1, page:1 }),
+      posts: this.brydgeScroller('newsfeed', {
+        per_page: 15,
+        scroller: 'newsfeed',
+				filter: userid,
+				tab: 'profile',
+				modelPath: 'controller.model.posts'
+			}),
 
-        compliments: this.store.query('compliment',{to: userid, userid: userid})
-      });
+      compliments: this.store.query('compliment',{to: userid, userid: userid})
+    });
   },
   afterModel(model){
     this.get('notification').profileView(model.profile)
   },
-  error() {
-    console.log(arguments)
-    this.transitionTo('home');
-  },
   actions: {
-    // onClickedConnect (cb) {
-    //   var userid = this.get('currentModel.profile.id');
-    //   this.get('connection').request(userid)
-    //   .then(res=>{
-    //     var connection = this.store.createRecord('connection', res.data.attributes);
-    //     var status = connection.get('status');
-    //     cb.apply(null, [status]);
-    //   });
-    // },
-    // onClickedDisconnect() {
-    //   var userid = this.get('currentModel.profile.id');
-    //   console.log(userid)
-    //   // this.get('connection').disconnect(userid)
-    //   // .then((res)=>{
-    //   //   this.refresh();
-    //   // });
-    // },
+    error() {
+      this.transitionTo('home');
+    },
     postCompliment(){
       var content = this.controller.get('complimentContent');
       var userid = this.get('currentModel.profile.id')

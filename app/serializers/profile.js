@@ -8,7 +8,9 @@ export default DS.JSONAPISerializer.extend(DS.EmbeddedRecordsMixin, {
     const result = this._super(...arguments),
       attr = result.data.attributes || {},
       rel = result.data.relationships || {};
+      console.log(attr)
     return {
+      // profile: attr
       profile: {
         avatar: attr.avatar_url,
         current_company: attr.current_company,
@@ -25,7 +27,10 @@ export default DS.JSONAPISerializer.extend(DS.EmbeddedRecordsMixin, {
         last_name: attr.last_name,
         location: attr.location,
         placeid: attr.placeid,
-        snapshot: attr.snapshot
+        snapshot: attr.snapshot,
+        public_profile_one: attr.public_profile_one,
+        public_profile_two: attr.public_profile_two,
+        public_profile_three: attr.public_profile_three,
       }
     };
  },

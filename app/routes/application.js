@@ -1,4 +1,5 @@
 import Ember from 'ember';
+
 import ApplicationRouteMixin from 'ember-simple-auth/mixins/application-route-mixin';
 import ENV from '../config/environment';
 import TransitionToListenerRoute from 'ember-cli-routing-service/routes/transition-to-listener';
@@ -6,7 +7,7 @@ import HideHeaderMixin from 'web/mixins/hide-header';
 import ScrollResetMixin from 'web/mixins/scroll-reset';
 export default TransitionToListenerRoute.extend(
   ScrollResetMixin,
-  HideHeaderMixin,
+  // HideHeaderMixin,
   ApplicationRouteMixin, {
   notification: Ember.inject.service(),
   tmp: Ember.inject.service('temp'),
@@ -35,14 +36,21 @@ export default TransitionToListenerRoute.extend(
   },
   actions: {
     error(error, transition) {
-      var accessToken = this.get('session.data.authenticated.access_token');
-      if(!accessToken) {
-        this.transitionTo('login');
-        this.refresh();
-        return;
+      switch(error.errors[0].code){
+        case 404:
+          return true;
+          break;
+        default:
+          var accessToken = this.get('session.data.authenticated.access_token');
+          if(!accessToken) {
+            this.transitionTo('login');
+            this.refresh();
+            return;
+          }
+          this.get('tmp').set('retryTransition', transition);
+          return true;
+          break;
       }
-      this.get('tmp').set('retryTransition', transition);
-      return true;
       // XXX: TODO Display error notification on page template
     },
     retry() {
@@ -55,19 +63,8 @@ export default TransitionToListenerRoute.extend(
         this.get('session').invalidate();
       });
     },
-    didTransition() {
-
-      // if (ga) {
-      //   Ember.run.once(this, function() {
-      //     ga('send', 'pageview',
-      //       this.router.get('url'),
-      //       this.getWithDefault('currentRouteName', 'unknown'));
-      //   });
-      // }
-    },
-    authorizationFailed() {
-    },
     willTransition(){
+
       $('.reveal-overlay').each(function(){ //reset foundation reveal overlay
         $(this).hide();
       });

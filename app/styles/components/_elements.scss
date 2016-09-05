@@ -23,7 +23,23 @@ table{
 		margin-bottom: 20px;
 	}
 }
+.dashed-format{
+	.dash:before{
+		content:"\2014";
+		position: absolute;
+		margin-left: -16px;
+		margin-top: 5px;
+	}
 
+	input, .validated-input	{
+		margin-bottom: 0;
+	}
+	label	span{
+		color: $text-gray;
+		margin-left: .25rem;
+
+	}
+}
 .avatar{
 	@extend .circle;
 	background-position: center center;

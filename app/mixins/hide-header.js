@@ -10,6 +10,7 @@ export default Ember.Mixin.create({
     this._updateCurrentPath(transition.targetName);
 	},
   _updateCurrentPath: function(target){
+    return false;
     switch(target){
       case 'login':
       case 'index':

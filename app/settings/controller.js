@@ -2,6 +2,7 @@ import Ember from 'ember';
 
 export default Ember.Controller.extend({
 	settings: Ember.inject.service(),
+	profile: Ember.computed.alias('model'),
   queryParams: ['tab'],
   tab: 'email',
 	emailSetting: Ember.computed('model', 'model.emailSetting', function(){
@@ -45,6 +46,13 @@ export default Ember.Controller.extend({
 				Ember.$('#dialog-box-confirm-'+ this.get('setting.id')).foundation('open');
 			});
     },
+		save(item, cb){
+			var profile = this.get('profile');
+			profile.save().then(()=>{
+				cb.apply();
+			});
+		},
+
 		// confirm(data){
 		// 	this.setProperties(data);
 		// 	Ember.$('#dialog-box-confirm-'+ this.get('model.id')).foundation('open');

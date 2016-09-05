@@ -21,6 +21,9 @@
               <li data-tab='password' class="tabs-title {{active-tab 'password' tab}}">
                 <a href="#password"><i class="fa fa-asterisk" aria-hidden="true"></i>Password</a>
               </li>
+              <li data-tab='profile' class="tabs-title {{active-tab 'profile' tab}}">
+                <a href="#profile"><i class="fa fa-asterisk" aria-hidden="true"></i>Profile URL</a>
+              </li>
               <li data-tab='notification' class="tabs-title {{active-tab 'notification' tab}}">
                 <a href="#notification"><i class="fa fa-sticky-note" aria-hidden="true"></i>Notification settings</a>
               </li>
@@ -49,6 +52,11 @@
               <div class="tabs-panel space-filler {{active-tab 'password' tab}}" id="password">
                 <section class="header">
                   {{form-update-password confirm="confirm"}}
+                </section>
+              </div>
+              <div class="tabs-panel space-filler {{active-tab 'profile' tab}}" id="profile">
+                <section class="header">
+                  {{form-profile-url profile=profile confirm="confirm"}}
                 </section>
               </div>
               <div class="tabs-panel {{active-tab 'notification' tab}}" id="notification">
