@@ -1,50 +1,68 @@
-{{#if model}}
-  <div class="row">
-    <div class="medium-6 small-centered columns">
-      <div class="dialog-wrapper">
-        <div class="page-dialog">
-          <a href="/" class="logo"><img src="assets/brydge-blue.svg"></a>
-        </div>
-        {{#if errors}}
-          <div class="error-messages">
-            <ul class="no-bullet errors">
-            {{#each errors as |item|}}
-                <li>
-                  <h4>{{item.title}}</h4>
-                  {{item.detail}}
-                </li>
-            {{/each}}
-            </ul>
+<div class="expanded row">
+  <div class="columns large-8 medium-8 main-content">
+    <div class="container">
+      {{#unless model}}
+        <div class="row">
+          <div class="large-5 medium-8 small-centered columns">
+            <div class="dialog-wrapper">
+              <div class="dialog-header">
+                <a href="/" class="logo"><img src="assets/brydge-blue.svg"></a>
+              </div>
+              {{#if errors}}
+                <div class="error-messages">
+                  <ul class="no-bullet errors">
+                  {{#each errors as |item|}}
+                      <li>
+                        <h4>{{item.title}}</h4>
+                        {{item.detail}}
+                      </li>
+                  {{/each}}
+                  </ul>
+                </div>
+              {{/if}}
+              {{partial "partials/form-register"}}
+            </div>
+
           </div>
-        {{/if}}
-        {{partial "partials/form-register"}}
-      </div>
+        </div>
+
+      {{else}}
+        <div class="row">
+          <div class="large-5 medium-8 small-centered columns">
+            <div class="dialog-wrapper">
+              <div class="dialog-header">
+                <a href="/" class="logo"><img src="assets/brydge-blue.svg"></a>
+              </div>
+              {{#if errors}}
+                <div class="error-messages">
+                  <ul class="no-bullet errors">
+                  {{#each errors as |item|}}
+                      <li>
+                        <h4>{{item.title}}</h4>
+                        {{item.detail}}
+                      </li>
+                  {{/each}}
+                  </ul>
+                </div>
+              {{/if}}
+              {{partial "partials/form-request-invite"}}
+            </div>
+
+          </div>
+        </div>
+      {{/unless}}
 
     </div>
   </div>
-
-{{else}}
-  <div class="row">
-    <div class="medium-6 small-centered columns">
-      <div class="dialog-wrapper">
-        <div class="page-dialog">
-          <a href="/" class="logo"><img src="assets/brydge-blue.svg"></a>
-        </div>
-        {{#if errors}}
-          <div class="error-messages">
-            <ul class="no-bullet errors">
-            {{#each errors as |item|}}
-                <li>
-                  <h4>{{item.title}}</h4>
-                  {{item.detail}}
-                </li>
-            {{/each}}
-            </ul>
-          </div>
-        {{/if}}
-        {{partial "partials/form-request-invite"}}
-      </div>
-
+  <div class="columns large-4 medium-4 sidebar-content">
+    <div class="container">
+      <h1><strong>Your new professional profile.</strong></h1>
+      <p>
+        <h1><span>Ask</span> for expertise</h1>
+        <h1><span>Share</span> your expertise</h1>
+        <h1><span>Discover</span> professionals like you</h1>
+        <h1><span>Discuss</span> industry news</h1>
+      </p>
     </div>
   </div>
-{{/if}}
+</div>
