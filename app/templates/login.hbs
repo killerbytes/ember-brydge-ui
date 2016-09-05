@@ -1,22 +1,39 @@
-<div class="row">
-  <div class="medium-6 small-centered columns">
-    <div class="dialog-wrapper">
-      <div class="page-dialog">
-        <a href="/" class="logo"><img src="assets/brydge-blue.svg"></a>
-      </div>
-      {{#if errors}}
-        <div class="error-messages">
-          <ul class="no-bullet errors">
-          {{#each errors as |item|}}
-              <li>
-                <h4>{{item.title}}</h4>
-                {{item.detail}}
-              </li>
-          {{/each}}
-          </ul>
+<div class="expanded row">
+  <div class="columns medium-9 main-content">
+    <div class="container">
+      <div class="row">
+        <div class="medium-5 small-centered columns">
+          <div class="dialog-wrapper">
+            <div class="dialog-header">
+              <a href="/" class="logo"><img src="assets/brydge-blue.svg"></a>
+            </div>
+            {{#if errors}}
+              <div class="error-messages">
+                <ul class="no-bullet errors">
+                {{#each errors as |item|}}
+                    <li>
+                      <h4>{{item.title}}</h4>
+                      {{item.detail}}
+                    </li>
+                {{/each}}
+                </ul>
+              </div>
+            {{/if}}
+            {{partial "partials/form-login"}}
+          </div>
         </div>
-      {{/if}}
-      {{partial "partials/form-login"}}
+      </div>
+    </div>
+  </div>
+  <div class="columns medium-3 sidebar-content">
+    <div class="container">
+      <h1><strong>Your new professional profile.</strong></h1>
+      <p>
+        <h1><span>Ask</span> for expertise</h1>
+        <h1><span>Share</span> your expertise</h1>
+        <h1><span>Discover</span> professionals like you</h1>
+        <h1><span>Discuss</span> industry news</h1>
+      </p>
     </div>
   </div>
 </div>
