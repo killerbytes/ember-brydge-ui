@@ -9,6 +9,13 @@ const Validations = buildValidations({
 export default Ember.Component.extend(Validations, {
 	settings: Ember.inject.service(),
 	tagName: 'form',
+	init(){
+		this._super(...arguments);
+		this.set('publicProfileOne', this.get('profile.publicProfileOne'))
+		this.set('publicProfileTwo', this.get('profile.publicProfileTwo'))
+		this.set('publicProfileThree', this.get('profile.publicProfileThree'))
+		console.log('init', this)
+	},
 	actions: {
 		save(item, cb){
 			if(!this.get('validations.isValid')){
