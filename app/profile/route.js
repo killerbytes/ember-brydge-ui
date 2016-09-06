@@ -63,9 +63,9 @@ export default Ember.Route.extend(
     this.get('notification').profileView(model.profile)
   },
   actions: {
-    error() {
-      this.transitionTo('home');
-    },
+    // error() {
+    //   this.transitionTo('home');
+    // },
     postCompliment(){
       var content = this.controller.get('complimentContent');
       var userid = this.get('currentModel.profile.id')
