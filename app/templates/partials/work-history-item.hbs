@@ -3,6 +3,9 @@
     <div class="title">{{item.title}}</div>
     <strong><a>{{item.company}}</a></strong>
     <div class="text-gray">
+      <strong>{{item.location}}</strong>
+    </div>
+    <div class="text-gray">
       {{term-date-format item.startFrom}} -
       {{#if item.currentCompany}}
         Present ({{time-diff item.startFrom item.endAt}})

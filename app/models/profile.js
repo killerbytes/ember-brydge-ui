@@ -15,7 +15,7 @@ export default DS.Model.extend(Validations, {
 	industryThreeId: DS.attr('string'),
 	snapshot: DS.attr('string'),
 	dob: DS.attr(),
-	avatarUrl: DS.attr('string', { defaultValue: 'assets/blank-user.jpg' }),
+	avatarUrl: DS.attr('string', { defaultValue: 'https://storage.googleapis.com/brydge-assets/blank-user.jpg' }),
 	currentTitle: DS.attr('string'),
 	currentCompany: DS.attr('string'),
 	customTitle: DS.attr(),

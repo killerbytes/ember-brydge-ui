@@ -7,19 +7,19 @@
   </thead>
   <tbody>
     <tr>
-      <td>When someone upvotes my broadcast</td>
+      <td>When someone upvotes my post</td>
       <td class="text-center">
         {{input type="checkbox" change=(action 'notificationChanged') checked=notification.vote id="notification.vote" name="vote" }}
       </td>
     </tr>
     <tr>
-      <td>When someone comments on my broadcast</td>
+      <td>When someone comments on my post</td>
       <td class="text-center">
         {{input type="checkbox" change=(action 'notificationChanged') checked=notification.comment id="notification.comment" name="comment" }}
       </td>
     </tr>
     <tr>
-      <td>When someone shares my broadcast</td>
+      <td>When someone shares my post</td>
       <td class="text-center">
         {{input type="checkbox" change=(action 'notificationChanged') checked=notification.share id="notification.share" name="share" }}
       </td>
