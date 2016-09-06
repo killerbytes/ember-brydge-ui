@@ -6,6 +6,7 @@ export default Ember.Route.extend(
   AuthenticatedRouteMixin,
   BrydgeScroller, {
   session: Ember.inject.service(),
+  ajax: Ember.inject.service(),
   sessionAccount: Ember.inject.service(),
   connection: Ember.inject.service(),
   notification: Ember.inject.service(),
@@ -21,6 +22,11 @@ export default Ember.Route.extend(
   },
 
   beforeModel: function(transition) {
+    this.get('ajax').request('/profile/'+transition.params['profile'].username,{
+      method: 'OPTION'
+    }).then(res=>{
+      console.log(res);
+    })
     const loggedinUser = this.get('session.data.authenticated');
     if(!loggedinUser.user_id) this.transitionTo('public-profile', transition.params['profile'].username);
     if (loggedinUser.user_id === transition.params['profile'].username) {

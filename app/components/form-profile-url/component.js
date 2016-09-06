@@ -14,7 +14,6 @@ export default Ember.Component.extend(Validations, {
 		this.set('publicProfileOne', this.get('profile.publicProfileOne'))
 		this.set('publicProfileTwo', this.get('profile.publicProfileTwo'))
 		this.set('publicProfileThree', this.get('profile.publicProfileThree'))
-		console.log('init', this)
 	},
 	actions: {
 		save(item, cb){

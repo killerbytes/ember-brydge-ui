@@ -58,6 +58,7 @@
     "ember-simple-auth": "1.1.0",
     "ember-truth-helpers": "1.2.0",
     "ember-welcome-page": "^1.0.1",
+    "ember-wrap-urls": "1.0.3",
     "loader.js": "^4.0.1",
     "moment": "2.14.1"
   }

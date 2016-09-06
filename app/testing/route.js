@@ -6,5 +6,15 @@ import BrydgeMessagingScroller from 'web/mixins/brydge-messaging-scroller';
 export default Ember.Route.extend(
   AuthenticatedRouteMixin,
   BrydgeMessagingScroller, {
-  session: Ember.inject.service()
+  ajax: Ember.inject.service(),
+  session: Ember.inject.service(),
+  beforeModel(){
+    this.get('ajax').request('/profile/teo-choong-ping',{
+      method: 'OPTION',
+      headers: {}
+    }).then(res=>{
+      console.log(res);
+    })
+
+  }
 });
