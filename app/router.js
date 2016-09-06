@@ -37,7 +37,6 @@ Router.map(function() {
   this.route('me', function() {
     this.route('edit',{path:'/edit'});
     this.route('background',{path:'/background'});
-
     this.route('ask', {path: '/ask'}, function(){
       this.route('other');
       this.route('inbox');
@@ -66,10 +65,10 @@ Router.map(function() {
   });
 
   // User Pages
-  this.route('post', {path: '/:user_id/:newsfeed_id'});
+  this.route('post', {path: '/:user_id/posts/:newsfeed_id'});
   this.route('profile', {path: ':username'});
   this.route('ask', {path: ':username/ask'});
-  this.route('ask.other', {path: ':id/ask/other'});
+  // this.route('ask.other', {path: ':id/ask/other'});
   this.route('ask.detail', {path: 'ask/:id'});
   this.route('background', {path: ':username/background'});
   this.route('connections', {path: ':username/connections'});

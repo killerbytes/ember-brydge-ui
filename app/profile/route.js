@@ -22,22 +22,25 @@ export default Ember.Route.extend(
   },
 
   beforeModel: function(transition) {
-    this.get('ajax').request('/profile/'+transition.params['profile'].username,{
-      method: 'OPTION'
-    }).then(res=>{
-      console.log(res);
-    })
     const loggedinUser = this.get('session.data.authenticated');
     if(!loggedinUser.user_id) this.transitionTo('public-profile', transition.params['profile'].username);
-    if (loggedinUser.user_id === transition.params['profile'].username) {
-      this.transitionTo('me');
-      return;
-    }
+
+    return this.get('ajax').request('v2/profiles/'+transition.params['profile'].username,{
+      method: 'OPTIONS'
+    }).then(res=>{
+      if (loggedinUser.user_id === res.userid) {
+        this.transitionTo('me');
+        return;
+      }else{
+        this.set('userid', res.userid)
+        return;
+      }
+
+    })
   },
   model: function(params) {
     var ownerid = this.get('session.data.authenticated.user_id');
-
-    var userid = params.username;
+    var userid = this.get('userid');
     return Ember.RSVP.hash({
       profile: this.store.findRecord('profile', userid),
       username:  params.username,

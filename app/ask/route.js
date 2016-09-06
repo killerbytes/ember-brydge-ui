@@ -14,15 +14,31 @@ export default Ember.Route.extend(
         controller.set('isAsked', null);
       }
   },
-	beforeModel(transition) {
-    this._super(...arguments);
-		const userid = this.get('session.data.authenticated.user_id');
-		if (userid === transition.params[transition.targetName].username) {
-      this.transitionTo('me.ask.index');
-    }
+	ajax: Ember.inject.service(),
+  beforeModel: function(transition) {
+    var userid = this.get('session.data.authenticated.user_id');
+    if(!userid) this.transitionTo('public-profile', transition.params[transition.targetName].username);
+    return this.get('ajax').request('v2/profiles/'+transition.params[transition.targetName].username,{
+      method: 'OPTIONS'
+    }).then(res=>{
+      if (userid === res.userid) {
+        this.transitionTo('me.ask.index');
+        return;
+      }else{
+        this.set('userid', res.userid)
+        return;
+      }
+    })
   },
+	// beforeModel(transition) {
+  //   this._super(...arguments);
+	// 	const userid = this.get('session.data.authenticated.user_id');
+	// 	if (userid === transition.params[transition.targetName].username) {
+  //     this.transitionTo('me.ask.index');
+  //   }
+  // },
 	model: function(params) {
-    let userid = params.username;
+    let userid = this.get('userid')
 		return Ember.RSVP.hash({
 			profile: this.store.findRecord('profile', userid),
 			compliments: this.store.query('compliment',{to: userid, per_page: 1, page: 1}),

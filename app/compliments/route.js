@@ -3,6 +3,7 @@ import AuthenticatedRouteMixin from 'ember-simple-auth/mixins/authenticated-rout
 
 export default Ember.Route.extend(AuthenticatedRouteMixin, {
   session: Ember.inject.service('session'),
+  ajax: Ember.inject.service(),
   resetController(controller, isExiting, transition) {
       if (isExiting) {
         this.store.unloadAll('language');
@@ -11,15 +12,23 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
         controller.set('isClosed', null);
       }
   },
-  beforeModel(transition) {
-    this._super(...arguments);
-		const userid = this.get('session.data.authenticated.user_id');
-		if (userid === transition.params["compliments"].username) {
-      this.transitionTo('me.compliments');
-    }
+  beforeModel: function(transition) {
+    var userid = this.get('session.data.authenticated.user_id');
+    if(!userid) this.transitionTo('public-profile', transition.params['compliments'].username);
+    return this.get('ajax').request('v2/profiles/'+transition.params['compliments'].username,{
+      method: 'OPTIONS'
+    }).then(res=>{
+      if (userid === res.userid) {
+        this.transitionTo('me.compliments');
+        return;
+      }else{
+        this.set('userid', res.userid)
+        return;
+      }
+    })
   },
   model: function(params) {
-    let userid = params.username;
+    let userid = this.get('userid');
     return Ember.RSVP.hash({
       profile: this.store.findRecord('profile', userid),
       toCompliments: this.store.query('compliment',{to: userid, status: 'accepted'}),

@@ -3,13 +3,23 @@ import AuthenticatedRouteMixin from 'ember-simple-auth/mixins/authenticated-rout
 
 export default Ember.Route.extend(
   AuthenticatedRouteMixin, {
-  beforeModel(transition) {
-    this._super(...arguments);
-		const userid = this.get('session.data.authenticated.user_id');
-		if (userid === transition.params["background"].username) {
-      this.transitionTo('me.background');
-    }
+  ajax: Ember.inject.service(),
+  beforeModel: function(transition) {
+    var userid = this.get('session.data.authenticated.user_id');
+    if(!userid) this.transitionTo('public-profile', transition.params[transition.targetName].username);
+    return this.get('ajax').request('v2/profiles/'+transition.params[transition.targetName].username,{
+      method: 'OPTIONS'
+    }).then(res=>{
+      if (userid === res.userid) {
+        this.transitionTo('me.background');
+        return;
+      }else{
+        this.set('userid', res.userid)
+        return;
+      }
+    })
   },
+
   resetController(controller, isExiting, transition) {
       if (isExiting) {
         this.store.unloadAll('language');
@@ -18,7 +28,7 @@ export default Ember.Route.extend(
       }
   },
   model(params) {
-    let userid = params.username;
+    let userid = this.get('userid');
     return Ember.RSVP.hash({
       username: params.username,
       profile: this.store.findRecord('profile', userid),
