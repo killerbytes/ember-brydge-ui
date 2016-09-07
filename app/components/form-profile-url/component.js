@@ -2,8 +2,14 @@ import Ember from 'ember';
 import { validator, buildValidations } from 'ember-cp-validations';
 
 const Validations = buildValidations({
-	publicProfileOne: [ validator('presence', true) ]
-
+	publicProfileOne: [
+		validator('presence', true)
+	],
+	username: [
+		validator('username-exists', {
+			message: 'Username exists'
+		})
+	]
 });
 
 export default Ember.Component.extend(Validations, {
@@ -16,6 +22,13 @@ export default Ember.Component.extend(Validations, {
 		this.set('publicProfileThree', this.get('profile.publicProfileThree'))
 	},
 	actions: {
+		checkUsername(){
+			var username = [];
+			if(this.get('publicProfileOne')) username.push(this.get('publicProfileOne'));
+			if(this.get('publicProfileTwo')) username.push(this.get('publicProfileTwo'));
+			if(this.get('publicProfileThree')) username.push(this.get('publicProfileThree'));
+			this.set('username', username.join('-'));
+		},
 		save(item, cb){
 			if(!this.get('validations.isValid')){
 				cb.apply(this,[false]);

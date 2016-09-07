@@ -24,6 +24,7 @@ export default Ember.Component.extend({
 	actions: {
 		focusOut(){
 			this.set('focusOut', true);
+			this.sendAction('focus-out')
 		}
 	},
 

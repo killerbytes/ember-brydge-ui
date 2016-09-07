@@ -28,7 +28,7 @@ export default Ember.Component.extend({
 		},
 		delete(item){
     	if(this.get('posts')) this.get('posts').removeObject(item);
-      item.destroyRecord().then(res=>{
+      item.destroyRecord().then(()=>{
         this.get('store').unloadRecord(item);
       	this.sendAction('onDelete');
       });
@@ -45,19 +45,19 @@ export default Ember.Component.extend({
 			this.set('disabled', true);
 			switch(type){
 				case 'down':
-					this.get('vote').downvote(postId).then((res) => {
+					this.get('vote').downvote(postId).then(() => {
 						post.reload();
 						this.set('disabled', false);
 					});
 				break;
 				case 'reset':
-					this.get('vote').resetvote(postId).then((res) => {
+					this.get('vote').resetvote(postId).then(() => {
 						post.reload();
 						this.set('disabled', false);
 					});
 				break;
 				default:
-					this.get('vote').upvote(postId).then((res) => {
+					this.get('vote').upvote(postId).then(() => {
 						post.reload();
 						this.set('disabled', false);
 					});
