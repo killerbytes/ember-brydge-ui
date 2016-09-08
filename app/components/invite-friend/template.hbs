@@ -1,0 +1,40 @@
+{{#if errors}}
+  <div class="error-messages">
+    <h4>There was an error submitting the form</h4>
+    <ul class="no-bullet errors">
+      {{#each errors as |item|}}
+          <li>{{item.detail}}</li>
+      {{/each}}
+    </ul>
+  </div>
+{{/if}}
+
+{{#unless model.isSaving}}
+  <form class="brydge-form">
+  <div class="row">
+    <div class="medium-9 columns">
+      {{#if model.email}}
+        {{errors}}
+        {{#if errors}}
+          {{input value=model.email}}
+        {{else}}
+          {{input value=model.email disabled=true}}
+        {{/if}}
+      {{else}}
+        {{form-input type="email" model=this valuePath="email"}}
+      {{/if}}
+    </div>
+    <div class="medium-3 columns">
+      {{#if isPending}}
+        <span class="button clear text-gray">Sent</span>
+      {{else}}
+        <button class="button success expanded" {{action "submit"}} disabled={{v-get this 'isInvalid'}}>Invite</button>
+      {{/if}}
+    </div>
+  </div>
+</form>
+{{else}}
+  <div class="padding">
+    <div class="brydge-loading"></div>
+  </div>
+{{/unless}}

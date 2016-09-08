@@ -31,6 +31,7 @@ Router.map(function() {
   // Authenticated
   this.route('settings');
   this.route('requests');
+  this.route('invites');
   this.route('notifications');
   this.route('profile-views');
 
@@ -68,7 +69,6 @@ Router.map(function() {
   this.route('post', {path: '/:user_id/posts/:newsfeed_id'});
   this.route('profile', {path: ':username'});
   this.route('ask', {path: ':username/ask'});
-  // this.route('ask.other', {path: ':id/ask/other'});
   this.route('ask.detail', {path: 'ask/:id'});
   this.route('background', {path: ':username/background'});
   this.route('connections', {path: ':username/connections'});

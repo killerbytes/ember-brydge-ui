@@ -1,0 +1,38 @@
+<div class="row">
+  <div class="medium-6 medium-centered columns">
+    <div class="page-heading">
+      <h1>Invite Friends</h1>
+      <p class="text-center">
+        Invite friends and colleagues, and associates to Brydge. We will send them an invitation code, and notify you if they sign up.
+      </p>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="columns">
+    <div class="box">
+      <section class="section-padding" style="padding-top:3rem;">
+        <div class="row">
+          <div class="columns medium-6 medium-centered">
+            {{#if errors}}
+            <div class="error-messages">
+              <h4>There was an error submitting the form</h4>
+              <ul class="no-bullet errors">
+                {{#each errors as |item|}}
+                    <li>{{item.detail}}</li>
+                {{/each}}
+              </ul>
+            </div>
+            {{/if}}
+            {{#each invites as |item|}}
+              {{invite-friend model=item}}
+            {{/each}}
+            {{#each remaining as |item|}}
+              {{invite-friend submit="submit"}}
+            {{/each}}
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+</div>
