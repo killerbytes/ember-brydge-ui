@@ -11,7 +11,12 @@ export default Ember.Controller.extend(Validations, {
 	session: Ember.inject.service(),
   queryParams: ['code'],
 	form: Ember.computed(function(){
-		return this.get('store').createRecord('register', {email: this.get('model.email'), gender: 'female'});
+		return this.get('store').createRecord('register', {
+			firstName: this.get('model.first_name'),
+			lastName: this.get('model.last_name'),
+			email: this.get('model.email'),
+			gender: 'female'
+		});
 	}),
 	actions: {
 		request(){
