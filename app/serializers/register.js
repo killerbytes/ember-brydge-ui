@@ -6,6 +6,7 @@ export default DS.JSONAPISerializer.extend({
     const json = this._super(...arguments);
     return {
       account: {
+        userid: json.data.attributes.userid,
         email: json.data.attributes.email,
         password: json.data.attributes.password,
         first_name: json.data.attributes.first_name,
