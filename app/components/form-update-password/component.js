@@ -30,10 +30,6 @@ export default Ember.Component.extend(Validations, {
 				this.set('password', null);
 				this.set('oldPassword', null);
 				this.set('confirmPassword', null);
-				this.sendAction('confirm', {
-					title: "Password Change",
-					content: "Password has been changed"
-				});
 				cb.apply();
 			}).catch((err)=>{
 				this.set('errors', err.errors);

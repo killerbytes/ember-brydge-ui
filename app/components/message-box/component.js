@@ -67,7 +67,8 @@ export default Ember.Component.extend({
     },
   	submit: function() {
       this.get('store').createRecord('message', {
-        content: this.get('utils').insertParagraph(this.get('message')),
+        // content: this.get('utils').insertParagraph(this.get('message')),
+        content: this.get('message'),
         recipient: this.get('to.id')
       }).save().then(res=>{
         this.get('messages').pushObject(res);

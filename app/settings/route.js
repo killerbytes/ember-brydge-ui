@@ -8,11 +8,14 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
         controller.setProperties({
           tab: 'email'
         });
+				this.set('controller.model.publicProfileOne', null);
+				this.set('controller.model.publicProfileTwo', null);
+				this.set('controller.model.publicProfileThree', null);
       }
   },
 	model: function () {
     var userid = this.get('session.data.authenticated.user_id');
-    return this.store.findRecord('profile', userid);
+    return this.store.findRecord('profile', userid, {reload: true});
 	},
   setupController(controller, model){
     this._super(...arguments);

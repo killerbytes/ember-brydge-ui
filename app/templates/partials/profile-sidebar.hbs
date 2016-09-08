@@ -38,7 +38,9 @@
       {{/if}}
     </h4>
     {{#if profile.snapshot}}
-      <p class="paragraph snapshot">{{profile.snapshot}}</p>
+      <p class="paragraph snapshot">
+        {{wrap-urls text=profile.snapshot component='wrap-urls/link'}}
+      </p>
     {{else}}
       <div class="empty-message">
         {{profile.firstName}} hasn't added a Snapshot

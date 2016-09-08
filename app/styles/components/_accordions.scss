@@ -91,7 +91,17 @@
 	font-size: 14px;
 	line-height: 1.6rem;
 }
-
+.section-accordion{
+	[aria-expanded="false"]{
+		.more-top{
+			display: none;
+		}
+	}
+	.more-top{
+		padding-top: 1.25rem;
+		padding-bottom: 0;
+	}
+}
 
 .accordion-picker{
 	.box{

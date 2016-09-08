@@ -8,7 +8,6 @@ export default DS.JSONAPISerializer.extend(DS.EmbeddedRecordsMixin, {
     const result = this._super(...arguments),
       attr = result.data.attributes || {},
       rel = result.data.relationships || {};
-      console.log(attr)
     return {
       // profile: attr
       profile: {
