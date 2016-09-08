@@ -9,7 +9,7 @@
 
 
 		<div class="newsfeed-tabs">
-			<h4 class="padded">Channel Filters</h4>
+			<h4 class="padded">Pick a Channel</h4>
 			<div class="box">
 		    {{picker-channel profile=profile menu=model.categories favorites=model.favorites select="setChannel" selected=channels loading=isFavoritesLoading}}
 
@@ -20,7 +20,7 @@
 	          <a href="#live">Live</a>
 	        </li>
 	        <li data-tab='curated' class="tabs-title {{active-tab 'curated' tab}}" style="width:20%">
-	          <a href="#curated">Curated</a>
+	          <a href="#curated">Top</a>
 	        </li>
 	        <li class="search-box {{if isSearch 'active'}}">
 	          <form onsubmit="return false;">

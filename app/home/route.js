@@ -110,7 +110,7 @@ export default Ember.Route.extend(
       this.loadNewsfeed();
     },
     setLocation(location){
-      if(location == "Everywhere"){
+      if(location == "All Cities"){
         this.controller.set('location', null)
       }else{
         this.controller.set('location', location.place_id);

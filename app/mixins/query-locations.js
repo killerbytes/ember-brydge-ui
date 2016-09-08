@@ -5,7 +5,7 @@ export default Ember.Mixin.create({
 
   locations: [],
   selectedLoc: null,
-  filteredLoc: 'Everywhere',
+  filteredLoc: 'All Cities',
   filteredIndustry: 'My Connections',
   isCurated: true,
 

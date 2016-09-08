@@ -6,7 +6,7 @@ export default Ember.Component.extend({
 	store: Ember.inject.service(),
 	classNames: ['accordion-picker'],
 	selectedText: Ember.computed('selected', function(){
-		return this.get('selected') ? this.get('selected') : {description: 'Everywhere'};
+		return this.get('selected') ? this.get('selected') : {description: 'All Cities'};
 	}),
 	_setLocation(location){
 		this.set('selectedText', location)
@@ -25,7 +25,7 @@ export default Ember.Component.extend({
 				case "all":
 					this._setLocation({
 						place_id: null,
-						description: "Everywhere"
+						description: "All Cities"
 					})
 					break;
 			}

@@ -23,7 +23,7 @@ export default Ember.Mixin.create(GetIndustryFromCodeMixin,{
 
     model.global = {
       id: 0,
-      text: 'Everywhere'
+      text: 'All Cities'
     };
 
     model.myConnections = {

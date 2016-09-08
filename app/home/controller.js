@@ -20,7 +20,7 @@ export default Ember.Controller.extend(
   }),
   profile: Ember.computed.alias('model.profile'),
   filteredLoc: Ember.computed('location', function(){
-    return this.get('location') || 'Everywhere' ;
+    return this.get('location') || 'All Cities' ;
   }),
   filteredIndustry: Ember.computed('channels', function(){
     return this.getIndustryName(this.get('model.profile'), this.get('channels') || 0);

@@ -22,24 +22,36 @@
       <div class="error mb">{{validations.attrs.username.message}}</div>
     {{/unless}}
     <div class="row dashed-format mb20">
-      <div class="columns" style="width:30%">
-        {{form-input model=this valuePath="publicProfileOne" focus-out="checkUsername"}}
-      </div>
-      <div class="columns dash" style="width:25%">
+      <div class="columns medium-4">
         <label for="">
-          {{form-input model=this valuePath="publicProfileTwo" focus-out="checkUsername"}}
-          <span>optional</span>
+          {{form-input model=this valuePath="publicProfileOne" focus-out="checkUsername"}}
+          <span class="text-upper font-light">required*</span>
         </label>
       </div>
-      <div class="columns dash end" style="width:25%">
+      <div class="columns medium-4 dash">
+        <label for="">
+          {{form-input model=this valuePath="publicProfileTwo" focus-out="checkUsername"}}
+          <span class="text-upper font-light">optional</span>
+        </label>
+      </div>
+      <div class="columns medium-4 dash end">
         <label for="">
           {{form-input model=this valuePath="publicProfileThree" focus-out="checkUsername"}}
-          <span>optional</span>
+          <span class="text-upper font-light">optional</span>
         </label>
       </div>
     </div>
   </div>
 
+
+  <div class="row mb">
+    <div class="columns">
+      <p>
+        If you change your Profile URL, all links to the old URL will not reach your profile anymore. <br><br>
+        Profile URLs cannot contain special characters.
+      </p>
+    </div>
+  </div>
 
     <div class="row columns">
       {{form-input-button item=this submit="save" placeholder="Saved"}}

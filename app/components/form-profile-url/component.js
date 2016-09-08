@@ -6,9 +6,9 @@ const Validations = buildValidations({
 		validator('presence', true)
 	],
 	username: [
-		validator('username-exists', {
-			message: 'Username exists'
-		})
+		// validator('username-exists', {
+		// 	message: 'Username exists'
+		// })
 	]
 });
 
@@ -38,7 +38,10 @@ export default Ember.Component.extend(Validations, {
 			this.set('profile.publicProfileTwo', this.get('publicProfileTwo'))
 			this.set('profile.publicProfileThree', this.get('publicProfileThree'))
 			this.get('profile').save().then(res=>{
-				this.sendAction("confirm", {});
+				this.sendAction("confirm", {
+					title: "Profile URL Change",
+					content: "Profile URL has been changed"
+				});
 				cb.apply();
 			}).catch((err)=>{
 				this.set('errors', err.errors);

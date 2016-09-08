@@ -31,13 +31,15 @@ table{
 		margin-top: 5px;
 	}
 
-	input, .validated-input	{
-		margin-bottom: 0;
+	.validated-input input, .validated-input{
+		margin-bottom: 0 !important;
 	}
 	label	span{
 		color: $text-gray;
 		margin-left: .25rem;
-
+		display: block;
+		margin-top: -5px;
+		font-size: 8px;
 	}
 }
 .avatar{
