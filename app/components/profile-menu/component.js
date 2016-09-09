@@ -16,7 +16,7 @@ export default Ember.Component.extend({
       this.set('connectionCount.userid', this.get('profile.id'));
       this._getConnectionCount();
     }else{
-      this._poll();
+      this._getConnectionCount();
     }
 
   },

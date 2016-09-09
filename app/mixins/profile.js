@@ -10,6 +10,10 @@ export default Ember.Mixin.create({
   questions: Ember.computed.alias('model.questions'),
   compliments: Ember.computed.filterBy('model.compliments', 'status', 'accepted'),
   connections: Ember.computed.alias('model.connections'),
+	invites: Ember.computed.alias('model.invites'),
+	invitesRemaining: Ember.computed('invites', function(){
+		return 10 - this.get('invites.length');
+	}),
 
 	sort: ['endAt:desc'],
   sortCurrentCompany: ['currentCompany:desc', 'endAt:desc'],
@@ -18,8 +22,6 @@ export default Ember.Mixin.create({
 
 	sortProps: ['updatedAt:desc'],
   sortFrom: ['from:desc'],
-  // work: Ember.computed.sort('experiences', 'sortFrom'),
-  // academia: Ember.computed.sort('educations', 'sortFrom'),
   newsfeed: Ember.computed.sort('posts', 'sortProps'),
   acceptedQuestion: Ember.computed.filterBy('questions', 'status', 'accepted'),
   latestQuestion: Ember.computed('acceptedQuestion', function(){
@@ -29,6 +31,7 @@ export default Ember.Mixin.create({
     return this.get('compliments.firstObject');
   }),
   location: Ember.computed('profile.location', function(){
+		console.log('location DEPRECATE?')
     if(!this.get('profile.location')) return false;
     var location = this.get('profile.location').split(',');
     return {
