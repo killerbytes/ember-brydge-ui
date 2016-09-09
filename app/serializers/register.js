@@ -7,6 +7,7 @@ export default DS.JSONAPISerializer.extend({
     return {
       account: {
         userid: json.data.attributes.userid,
+        token: json.data.attributes.token,
         email: json.data.attributes.email,
         password: json.data.attributes.password,
         first_name: json.data.attributes.first_name,
