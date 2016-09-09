@@ -1,7 +1,8 @@
 import Ember from 'ember';
 
 export default Ember.Component.extend({
-  sessionAccount: Ember.inject.service('session-account'),
+  sessionAccount: Ember.inject.service(),
+  session: Ember.inject.service(),
   vote: Ember.inject.service(),
   store: Ember.inject.service(),
   sharePost: Ember.inject.service(),
@@ -9,7 +10,7 @@ export default Ember.Component.extend({
 	classNames: ['newsfeed-item'],
 	disabled: false,
 	isOwner: Ember.computed('post.userid', function(){
-		return this.get('post.userid') == this.get('sessionAccount.account.profile.id');
+		return this.get('post.userid') == this.get('session.data.authenticated.user_id');
 	}),
   willDestroyElement(){
     if(this.$('.has-tip').length != 0) this.$('.has-tip').foundation('destroy');

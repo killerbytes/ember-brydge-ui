@@ -41,6 +41,7 @@ export default Ember.Route.extend(
     let userid = this.get('userid')
 		return Ember.RSVP.hash({
 			profile: this.store.findRecord('profile', userid),
+			invites: this.store.findAll('friend-invitation'),
 			compliments: this.store.query('compliment',{to: userid, per_page: 1, page: 1}),
 			questions: this.store.query('ask',{ userid: userid, per_page: 1, page:1 }),
       toQuestions: this.brydgeScroller('ask',{

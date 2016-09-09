@@ -31,6 +31,7 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
     let userid = this.get('userid');
     return Ember.RSVP.hash({
       profile: this.store.findRecord('profile', userid),
+      invites: this.store.findAll('friend-invitation'),
       toCompliments: this.store.query('compliment',{to: userid, status: 'accepted'}),
       questions: this.store.query('ask',{ userid: userid, per_page: 1, page:1 }),
       compliments: this.store.query('compliment',{to: userid, status: 'accepted', per_page: 1, page: 1})

@@ -11,7 +11,8 @@ export default Ember.Route.extend(
 	model: function() {
     let userid = this.get('session.data.authenticated.user_id');
 		return Ember.RSVP.hash({
-			profile: this.store.findRecord('profile', userid),
+			profile: this.modelFor('me').profile,
+      invites: this.modelFor('me').invites,
 			inbox: this.store.query('ask',{
 				to: userid,
 				per_page: 1,
