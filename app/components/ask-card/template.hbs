@@ -35,7 +35,7 @@
         <a class="more no-arrow more-top"><span class="content-more">See Answer</span><span class="content-less">Hide Answer</span></a>
         <ul class="section-accordion-content no-bullet">
           <li>
-            <span class="answer-content paragraph">{{wrap-urls text=item.answer component='wrap-urls/link'}}</span>
+            <span class="answer-content paragraph">{{wrap-urls text=item.answer component=(component 'wrap-urls/link' target="_blank")}}</span>
           </li>
         </ul>
         <a class="more no-arrow"><span class="content-more">See Answer</span><span class="content-less">Hide Answer</span></a>

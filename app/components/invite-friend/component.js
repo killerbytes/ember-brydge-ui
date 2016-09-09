@@ -10,6 +10,7 @@ const Validations = buildValidations({
 export default Ember.Component.extend(Validations, {
 	store: Ember.inject.service(),
 	isPending: Ember.computed.equal('model.status', 'pending'),
+  isUsed: Ember.computed.equal('model.status', 'used'),
 	actions: {
 		submit() {
       this.set('errors', null);

@@ -1,4 +1,4 @@
-{{wrap-urls text=text component='wrap-urls/link'}}
+{{wrap-urls text=text component=(component 'wrap-urls/link' target="_blank")}}
 {{#if isCollapsed}}
   <span><a {{action "seeMore"}}>See More</a></span>
 {{/if}}

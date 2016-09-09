@@ -27,6 +27,8 @@
     <div class="medium-3 columns">
       {{#if isPending}}
         <span class="button clear text-gray">Sent</span>
+      {{else if isUsed}}
+        <span class="button clear text-gray">Used</span>
       {{else}}
         <button class="button success expanded" {{action "submit"}} disabled={{v-get this 'isInvalid'}}>Invite</button>
       {{/if}}

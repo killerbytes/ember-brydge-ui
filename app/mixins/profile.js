@@ -1,6 +1,7 @@
 import Ember from 'ember';
 
 export default Ember.Mixin.create({
+	utils: Ember.inject.service(),
 	profile: Ember.computed.alias('model.profile'),
   posts: Ember.computed('model.posts', 'model.posts.@each', function(){ //TODO: remove isDeleted:true from list
 		return this.get('model.posts');
@@ -13,6 +14,9 @@ export default Ember.Mixin.create({
 	invites: Ember.computed.alias('model.invites'),
 	invitesRemaining: Ember.computed('invites', function(){
 		return 10 - this.get('invites.length');
+	}),
+	snapshot: Ember.computed('profile', function(){
+		return this.get('utils').lineBreaker(this.get('profile.snapshot'));
 	}),
 
 	sort: ['endAt:desc'],

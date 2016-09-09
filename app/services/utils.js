@@ -13,6 +13,9 @@ export default Ember.Service.extend({
   insertParagraph(text){
     return text ? text.split("\n").join("<br />") : text;
   },
+  lineBreaker(text){
+    return text ? text.split("\n").join(" \n ") : text;
+  },
 	textAreaChange(elem, value){
     var el = elem.get(0);
     if(!elem.data('height')) elem.data('height', el.clientHeight)
