@@ -1,15 +1,17 @@
 import Ember from 'ember';
+import RouterClassNamesMixins from 'web/mixins/route-class-names';
 const {
   Component,
   computed,
   getOwner
 } = Ember;
 
-export default Ember.Route.extend({
+export default Ember.Route.extend(RouterClassNamesMixins, {
   session: Ember.inject.service(),
   loggedinUser: null,
 
   beforeModel: function(transition) {
+    console.log(transition)
     const loggedinUser = this.get('session.data.authenticated');
     this.set('username', transition.params['public-profile'].username);
     if(loggedinUser.user_id){
@@ -51,6 +53,7 @@ export default Ember.Route.extend({
     //   }
     // },
     didTransition(){
+      this._super(...arguments);
       Ember.run.later(()=>{
         this._replaceState(getOwner(this).lookup('controller:application').currentPath);
       })

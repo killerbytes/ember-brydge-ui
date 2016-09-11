@@ -13,6 +13,7 @@ export default Ember.Mixin.create({
   },
   actions: {
     didTransition(){
+      console.log(`page-${this.get('routeName')}`)
       getOwner(this).lookup('controller:application').set('classNames', `page-${this.get('routeName')}`);
 
     }

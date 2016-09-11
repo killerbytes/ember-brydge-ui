@@ -1,10 +1,70 @@
-<div class="row">
-  <div class="columns medium-5 sidebar">
-
+<div class="expanded row">
+  <div class="columns large-8 medium-8 main-content">
+    <div class="container">
+      <div class="row">
+        <div class="large-6 medium-8 small-centered columns">
+          <div class="dialog-wrapper">
+            <div class="dialog-header">
+              <a href="/" class="logo"><img src="assets/brydge-blue.svg"></a>
+            </div>
+            <div class="avatar" style={{htmlSafeImage profile.avatar}}>
+              <img src="{{profile.avatar}}" class="hide">
+            </div>
+            <div class="padding text-center">
+              <h1><strong>{{profile.name}}</strong></h1>
+              <div class="position">{{profile.title}}</div>
+              <div class="position"><strong>{{profile.currentCompany}}</strong></div>
+              <div class="location">{{profile.location}}</div>
+            </div>
+            <div class="row collapse bg-gray stats">
+              <div class="columns medium-4">
+                <div class="padding text-center">
+                  <div>
+                    <big>{{profile.connectionsCount}}</big>
+                  </div>
+                  Connections
+                </div>
+              </div>
+              <div class="columns medium-4">
+                <div class="padding text-center">
+                  <div>
+                    <big>{{profile.postCount}}</big>
+                  </div>
+                  Post
+                </div>
+              </div>
+              <div class="columns medium-4">
+                <div class="padding text-center">
+                  <div>
+                    <big>{{profile.askFromCount}}</big>
+                  </div>
+                  Questions
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="columns medium-8 medium-centered">
+                <div class="padding">
+                  <button class="button success expanded">
+                    Connect
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
-  <div class="columns medium-7">
-    Public Profile
-    <h1>{{profile.name}}</h1>
+  <div class="columns large-4 medium-4 sidebar-content">
+    <div class="container">
+      <h1><strong>Your new professional profile.</strong></h1>
+      <p>
+        <h1><span>Share</span> your expertise</h1>
+        <h1><span>Engage</span> your industry</h1>
+        <h1><span>Indentify</span> the like-minded</h1>
+      </p>
+      <h1><strong>It's free.</strong></h1>
+    </div>
   </div>
-
 </div>

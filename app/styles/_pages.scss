@@ -1,6 +1,7 @@
 .main.page-index,
 .main.page-login,
 .main.page-register,
+.main.page-public-profile,
 .main.page-forgot-password{
 	padding-top: 0;
 	.container{
@@ -49,4 +50,31 @@
 		background-color: $body-bg-color;
 		padding: 2rem 1rem;
 	}
+}
+
+
+.page-public-profile{
+	font-size: 14px;
+	.avatar{
+		width: 130px;
+		height: 130px;
+	}
+	.location{
+		color: $text-gray;
+		font-size: 16px;
+	}
+	.stats{
+		border-top: 1px solid $border-color;
+		border-bottom: 1px solid $border-color;
+		color: $text-gray;
+		font-weight: bold;
+		text-transform: uppercase;
+		big{
+			font-size: 20px;
+		}
+	}
+	 button{
+		 font-size: 18px;
+		 margin: 1rem 0;
+	 }
 }
