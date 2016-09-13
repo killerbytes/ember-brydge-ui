@@ -28,7 +28,7 @@ export default Ember.Route.extend(RouterClassNamesMixins, {
     });
   },
   afterModel(model){
-    this.set('headTags', this.get('utils').setFBMetaTags(model));
+    this.set('headTags', this.get('utils').setFBMetaTags(model.profile));
   },
   _replaceState(path="me.index"){
     window.history.replaceState( {} , this.get('username'), `${this.get('username')}` );
