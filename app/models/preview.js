@@ -14,4 +14,5 @@ export default DS.Model.extend({
 	avatar: DS.attr(),
 	askToCount: DS.attr(),
 	askFromCount: DS.attr(),
+	askCount: DS.attr()
 });
