@@ -6,5 +6,5 @@
   <button class="button success rounded form-input-submit-button" disabled={{v-get item "isInvalid"}} {{ action "submit" }}>{{text}}</button>
 {{/if}}
 {{#if placeholder}}
-  <span class="{{if isSuccess 'faded is-visible' 'faded'}} {{if warning 'error'}}">{{placeholder}}</span>
+  <span class="{{if isSuccess 'faded is-visible' 'faded'}} {{if warning 'error'}}">{{if customPlaceHolder customPlaceHolder placeholder}}</span>
 {{/if}}
