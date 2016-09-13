@@ -17,9 +17,8 @@ export default Ember.Service.extend({
     const authToken = this.get('session.data.authenticated.access_token');
     if(!authToken) return false;
 
-    var _this = this;
-    this.get('phoenix').channel().on('notify', function(res) {
-      _this.set('count', res.count);
+    this.get('phoenix').channel().on('notify', res=>{
+      this.set('count', res.count);
     })
   },
   check(cb) {

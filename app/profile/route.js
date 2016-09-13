@@ -7,11 +7,11 @@ export default Ember.Route.extend(
   BrydgeScroller, {
   session: Ember.inject.service(),
   ajax: Ember.inject.service(),
+  utils: Ember.inject.service(),
   sessionAccount: Ember.inject.service(),
   connection: Ember.inject.service(),
   notification: Ember.inject.service(),
   compliment: Ember.inject.service(),
-  // loggedinUser: null,
   paramsUserProfile: null,
   resetController(controller, isExiting, transition) {
       if (isExiting) {
@@ -20,7 +20,6 @@ export default Ember.Route.extend(
         this.store.unloadAll('education');
       }
   },
-
   beforeModel: function(transition) {
     const loggedinUser = this.get('session.data.authenticated');
     if(!loggedinUser.user_id) this.transitionTo('public-profile', transition.params['profile'].username);
@@ -62,6 +61,7 @@ export default Ember.Route.extend(
   },
   afterModel(model){
     this.get('notification').profileView(model.profile)
+    this.set('headTags', this.get('utils').setFBMetaTags(model.profile));
   },
   actions: {
     postCompliment(){

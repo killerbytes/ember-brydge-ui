@@ -7,7 +7,6 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
 		return this.store.findAll('friend-invitation');
 	},
 	submit(){
-		console.log('ssx')
 	},
 	actions: {
 		submit(email, cb){

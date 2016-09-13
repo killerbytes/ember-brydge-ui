@@ -23,10 +23,10 @@
   {{#zf-dropdown id="dd-public-options" class="dropdown-menu" closeOnClick=true}}
     <ul class="menu">
       {{#if isOwner}}
-        <li>{{#link-to "me.connections"}} Connections ({{ count.length }}) {{/link-to}}</li>
+        <li>{{#link-to "me.connections"}} Connections ({{ count }}) {{/link-to}}</li>
         <li>{{link-to "Edit Profile" "me.edit"}}</li>
       {{else}}
-        <li>{{#link-to "connections" profile.id }} {{profile.firstName}}'s connection ({{ count.length }}){{/link-to}}</li>
+        <li>{{#link-to "connections" profile.id }} {{profile.firstName}}'s connection ({{ count }}){{/link-to}}</li>
           {{#if isConnected }}
           <li>
               <a class="warning" data-open={{concat 'dialog-box-' 'disconnect-' profile.id}}>Disconnect from {{profile.firstName}}</a>

@@ -46,6 +46,32 @@ export default Ember.Service.extend({
     }
     return urlArray;
   },
+  setFBMetaTags(profile){
+    return [{
+        type: 'meta',
+        tagId: 'meta-og-title',
+        attrs: {
+          property: 'og:title',
+          content: `Connect with ${profile.get('name') || profile.get('fullName')} on Brydge: a brand new Professional Network`
+        }
+      },{
+          type: 'meta',
+          tagId: 'meta-og-image',
+          attrs: {
+            property: 'og:image',
+            content: 'https://storage.googleapis.com/brydge-assets/meta-image.jpg'
+          }
+      },{
+          type: 'meta',
+          tagId: 'meta-og-url',
+          attrs: {
+            property: 'og:url',
+            content: `https://brydge.com/${profile.get('url') || profile.get('publicProfile') }`
+          }
+      }]
+
+  },
+
 
 
 });

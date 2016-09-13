@@ -4,6 +4,7 @@ import Ember from 'ember';
 export default Ember.Service.extend({
   store: Ember.inject.service(),
   ajax: Ember.inject.service(),
+  count: null,
   status(id){
     var url = '/v2/connections/'+id+'/status';
     return this.get('ajax').request(url);
@@ -28,5 +29,8 @@ export default Ember.Service.extend({
   disconnect(id){
     var connection = this.get('store').peekRecord('connection', id);
     connection.destroyRecord();
+  },
+  count(id){
+    return this.get('ajax').request(`v2/get-connectioncount/${id}`);
   }
 });

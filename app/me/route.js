@@ -11,6 +11,7 @@ import BrydgeScroller from 'web/mixins/brydge-scroller';
 export default Ember.Route.extend(
   BrydgeScroller,
   AuthenticatedRouteMixin, {
+  utils: Ember.inject.service(),
   model() {
     let userid = this.get('session.data.authenticated.user_id');
     return Ember.RSVP.hash({
@@ -19,6 +20,9 @@ export default Ember.Route.extend(
       questions: this.store.query('ask', {userid: userid}),
       compliments: this.store.query('compliment', {to: userid, page:1, per_page: 1}),
     });
+  },
+  afterModel(model){
+    this.set('headTags', this.get('utils').setFBMetaTags(model.profile));
   },
   _replaceState(path="me.index"){
     let userid = this.get('session.data.authenticated.user_id');

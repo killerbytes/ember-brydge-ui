@@ -8,10 +8,9 @@ const {
 
 export default Ember.Route.extend(RouterClassNamesMixins, {
   session: Ember.inject.service(),
+  utils: Ember.inject.service(),
   loggedinUser: null,
-
   beforeModel: function(transition) {
-    console.log(transition)
     const loggedinUser = this.get('session.data.authenticated');
     this.set('username', transition.params['public-profile'].username);
     if(loggedinUser.user_id){
@@ -23,35 +22,19 @@ export default Ember.Route.extend(RouterClassNamesMixins, {
     }
   },
   model: function(params) {
-    // var ownerid = this.get('session.data.authenticated.user_id');
-
-      var userid = params.username;
-      return Ember.RSVP.hash({
-        profile: this.store.findRecord('profile', userid),
-      });
+    var userid = params.username;
+    return Ember.RSVP.hash({
+      profile: this.store.findRecord('profile', userid),
+    });
+  },
+  afterModel(model){
+    this.set('headTags', this.get('utils').setFBMetaTags(model));
   },
   _replaceState(path="me.index"){
-    let userid = this.get('session.data.authenticated.user_id');
-    // var page;
-    // switch (true) {
-    //   default:
-    //     page = "";
-    // }
     window.history.replaceState( {} , this.get('username'), `${this.get('username')}` );
 
   },
-
   actions: {
-    // error(err) {
-    //   switch (err.errors[0].code) {
-    //     case 404:
-    //       this.transitionTo('page-not-found');
-    //       return true;
-    //       break;
-    //     default:
-    //
-    //   }
-    // },
     didTransition(){
       this._super(...arguments);
       Ember.run.later(()=>{

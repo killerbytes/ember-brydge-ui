@@ -7,32 +7,16 @@ const {
 
 export default Ember.Component.extend({
   store: Ember.inject.service(),
+  ajax: Ember.inject.service(),
   session: Ember.inject.service(),
   connection: Ember.inject.service(),
-  connectionCount: Ember.inject.service(),
-
+  notification: Ember.inject.service(),
   didReceiveAttrs(attr){
-    if(this.get('connectionCount.userid') != this.get('profile.id')){
-      this.set('connectionCount.userid', this.get('profile.id'));
-      this._getConnectionCount();
-    }else{
-      this._getConnectionCount();
-    }
-
+    if(!this.get('isOwner')) this._getConnectionCount();
   },
-  _poll(){
-    Ember.run.later(this, ()=>{
-      this._getConnectionCount();
-    }, 60000);
-  },
-  _getConnectionCount(){
-    this.get('store').query('connection', {userid: this.get('connectionCount.userid')}).then(res=>{
-      if(this.get('isDestroyed') || this.get('isDestroying')) return false;
-      this.set('connectionCount.connections', res);
-      this._poll();
-    })
-  },
-  count: Ember.computed.filterBy('connectionCount.connections', 'status', 'accepted' ),
+  count: Ember.computed('notification.count.connection', 'connectionCount', function(){
+    return this.get('isOwner') ? this.get('notification.count.connection') : this.get('connectionCount');
+  }),
   isConnected: Ember.computed('profile.connection.status', function(){
     return this.get('profile.connection.status') == 'accepted';
   }),
@@ -45,7 +29,7 @@ export default Ember.Component.extend({
   		case 'profile':
   		case 'me.index':
   			index = 0;
-  			break;
+  			break
   		case 'background':
   		case 'me.background':
   			index = 1;
@@ -61,6 +45,11 @@ export default Ember.Component.extend({
   	}
   	return index;
   }),
+  _getConnectionCount(){
+    this.get('connection').count(this.get('profile.id')).then(res=>{
+      this.set('connectionCount', res.connectionCount);
+    })
+  },
   actions: {
     disconnect(){
       this.get('connection').disconnect(this.get('profile.connection.id'));

@@ -3,25 +3,12 @@ import Ember from 'ember';
 import ApplicationRouteMixin from 'ember-simple-auth/mixins/application-route-mixin';
 import ENV from '../config/environment';
 import TransitionToListenerRoute from 'ember-cli-routing-service/routes/transition-to-listener';
-import HideHeaderMixin from 'web/mixins/hide-header';
 import ScrollResetMixin from 'web/mixins/scroll-reset';
 export default TransitionToListenerRoute.extend(
   ScrollResetMixin,
-  // HideHeaderMixin,
   ApplicationRouteMixin, {
   notification: Ember.inject.service(),
   tmp: Ember.inject.service('temp'),
-  // notifier(){
-  //   this.get('notification').check(()=>{
-  //     this.start();
-  //   }); // Check for notifications
-  // },
-  // start: function(){
-  //   Ember.run.later(this, ()=>{
-  //     this.notifier();
-  //   }, 60000);
-
-  // }.on('activate'),
   browserCheck: function(){
     if(this.get('detector.isMobile')){
       Ember.run.later(this, ()=>{
@@ -29,13 +16,36 @@ export default TransitionToListenerRoute.extend(
       })
     }
   }.on('activate'),
+  afterModel(){
+    this._setMetaTags();
+  },
   setupController(controller, model){
     this._super(...arguments);
     this.get('notification').checkPush();
     controller.set('detector', this.get('detector'));
   },
+  _setMetaTags(){
+    var headTags = [{
+        type: 'meta',
+        tagId: 'meta-og-title',
+        attrs: {
+          property: 'og:title',
+          content: `Brydge`
+        }
+      },{
+          type: 'meta',
+          tagId: 'meta-og-description',
+          attrs: {
+            property: 'og:description',
+            content: `A brand new Professional Network`
+          }
+        },]
+    this.set('headTags', headTags)
+  },
   actions: {
     error(error, transition) {
+      console.error(error);
+      if(!error.errors) return false;
       switch(error.errors[0].code){
         case 404:
           return true;
