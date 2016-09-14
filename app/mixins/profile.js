@@ -1,5 +1,6 @@
 import Ember from 'ember';
 
+
 export default Ember.Mixin.create({
 	utils: Ember.inject.service(),
 	profile: Ember.computed.alias('model.profile'),

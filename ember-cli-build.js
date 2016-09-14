@@ -30,7 +30,8 @@ module.exports = function(defaults) {
   //app.import('bower_components/foundation-sites/dist/foundation.js');
   app.import('bower_components/motion-ui/dist/motion-ui.min.css');
   app.import('bower_components/motion-ui/dist/motion-ui.min.js');
-  // app.import('bower_components/lodash/dist/lodash.js');
+  app.import('bower_components/linkifyjs/linkify.min.js');
+  app.import('bower_components/linkifyjs/linkify-jquery.min.js');
   // app.import('vendor/spinner.css');
   // app.import('bower_components/foundation-sites/js/foundation.core.js');
   // app.import('bower_components/foundation-sites/js/foundation.dropdownMenu.js');

@@ -26,20 +26,27 @@ export default TransitionToListenerRoute.extend(
   },
   _setMetaTags(){
     var headTags = [{
-        type: 'meta',
-        tagId: 'meta-og-title',
-        attrs: {
-          property: 'og:title',
-          content: `Brydge`
-        }
-      },{
-          type: 'meta',
-          tagId: 'meta-og-description',
-          attrs: {
-            property: 'og:description',
-            content: `A brand new Professional Network`
-          }
-        },]
+      type: 'meta',
+      tagId: 'meta-og-title',
+      attrs: {
+        property: 'og:title',
+        content: `Brydge`
+      }
+    },{
+      type: 'meta',
+      tagId: 'meta-og-description',
+      attrs: {
+        property: 'og:description',
+        content: `A brand new Professional Network`
+      }
+    },{
+      type: 'meta',
+      tagId: 'meta-og-image',
+      attrs: {
+        property: 'og:image',
+        content: 'https://storage.googleapis.com/brydge-assets/meta-image.jpg'
+      }
+    }]
     this.set('headTags', headTags)
   },
   actions: {

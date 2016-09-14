@@ -38,9 +38,7 @@
       {{/if}}
     </h4>
     {{#if profile.snapshot}}
-      <p class="paragraph snapshot">
-        {{{ wrap-urls text=snapshot component='wrap-urls/link' }}}
-      </p>
+      {{brydge-linkify text=snapshot class="paragraph snapshot"}}
     {{else}}
       <div class="empty-message">
         {{profile.firstName}} hasn't added a Snapshot

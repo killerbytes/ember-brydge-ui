@@ -12,7 +12,16 @@ export default Ember.Component.extend(Validations, {
 	isPending: Ember.computed.equal('model.status', 'pending'),
   isUsed: Ember.computed.equal('model.status', 'used'),
 	actions: {
+    edit(){
+      this.set('isSubmitted', false);
+    },
 		submit() {
+      if(!this.get('validations.isValid')){
+        this.set('isSubmitted', true);
+				// cb.apply(this,[false]);
+				return false;
+			}
+
       this.set('errors', null);
 			var invite = this.get('store').createRecord('friend-invitation', {
 				email: this.get('email')
@@ -23,7 +32,6 @@ export default Ember.Component.extend(Validations, {
 			})
 			.catch(err=>{
 				this.set('errors', err.errors);
-        console.log(err)
 				invite.rollbackAttributes()
 			});
 

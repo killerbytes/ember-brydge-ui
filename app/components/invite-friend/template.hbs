@@ -1,12 +1,12 @@
 {{#if errors}}
   <div class="error-messages">
-    <h4>There was an error submitting the form</h4>
     <ul class="no-bullet errors">
       {{#each errors as |item|}}
           <li>
+            <h4>{{item.title}}</h4>
             {{item.detail}}
             {{#if (eq item.code 403)}}
-              {{#link-to "profile" item.source}}<span class="text-normal">brydge.com/</span>{{item.source}} {{/link-to}}
+              {{#link-to "profile" item.source.userid}}{{item.source.first_name}} {{item.source.last_name}} {{/link-to}}
             {{/if}}
           </li>
       {{/each}}
@@ -26,7 +26,7 @@
           {{input value=model.email disabled=true}}
         {{/if}}
       {{else}}
-        {{form-input type="email" model=this valuePath="email"}}
+        {{form-input type="email" model=this showValidate=isSubmitted key-up="edit" valuePath="email"}}
       {{/if}}
     </div>
     <div class="medium-3 columns">
@@ -35,7 +35,7 @@
       {{else if isUsed}}
         <span class="button clear text-gray">Used</span>
       {{else}}
-        <button class="button success expanded" {{action "submit"}} disabled={{v-get this 'isInvalid'}}>Invite</button>
+        <button class="button success expanded" {{action "submit"}}>Invite</button>
       {{/if}}
     </div>
   </div>
