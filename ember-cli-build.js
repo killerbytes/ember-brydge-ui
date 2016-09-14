@@ -14,8 +14,10 @@ module.exports = function(defaults) {
     'ember-cli-foundation-6-sass': {
       'foundationJs': 'all'
     },
-    minifyCSS: { enabled: isMinified },
-    minifyJS: { enabled: isMinified },
+    minifyCSS: { enabled: false},
+    minifyJS: { enabled: false},
+    //minifyCSS: { enabled: isMinified },
+    //minifyJS: { enabled: isMinified },
 
     select2: {
       includeAssets: false
