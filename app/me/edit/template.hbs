@@ -184,7 +184,10 @@
             <section class="header">
               <form>
                 <label for="">A quick snapshot about your professional life:</label>
-                <div class="wrapper">{{form-text-counter limit=500 value=profile.snapshot rows=10 class="mb"}}</div>
+                <div class="wrapper">
+                  {{form-text-counter limit=500 value=profile.snapshot rows=10 class="mb" class="with-text-helper"}}
+                  <div class="text-helper font-light mb">TIP: Keep this really short. People take more notice that way.</div>
+                </div>
                 <div class="row">
                   <div class="columns">{{form-input-button submit="save" placeholder="Saved"}}</div>
                 </div>

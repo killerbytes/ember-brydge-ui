@@ -18,7 +18,7 @@
           </li>
         {{else}}
           <li class="empty-message">
-            {{profile.firstName}} hasn't added any Industries
+            <span class="text-title">{{profile.firstName}}</span> hasn't added any Industries
           </li>
         {{/if}}
 
@@ -41,7 +41,7 @@
       {{brydge-linkify text=snapshot class="paragraph snapshot"}}
     {{else}}
       <div class="empty-message">
-        {{profile.firstName}} hasn't added a Snapshot
+        <span class="text-title">{{profile.firstName}}</span> hasn't added a Snapshot
       </div>
     {{/if}}
   </section>
@@ -79,7 +79,9 @@
       {{#zf-accordion-menu class="section-accordion accordion-ask-answer" multiOpen=true}}
         <li>
           <ul class="section-accordion-content no-bullet">
-            <li><span class="answer-content">{{{latestQuestion.answer}}}</span></li>
+            <li>
+              {{brydge-linkify text=latestQuestion.answer class="paragraph answer-content"}}
+            </li>
           </ul>
           <a class="more no-arrow"><span class="content-more">See Answer</span><span class="content-less">Hide Answer</span></a>
         </li>
@@ -91,7 +93,7 @@
         {{link-to "Go to Ask" 'me.ask'  class="button expanded"}}
       {{else}}
         {{#link-to 'ask' profile.id  class="button expanded"}}
-          Ask {{profile.firstName}}
+          Ask <span class="text-title">{{profile.firstName}}</span>
         {{/link-to}}
       {{/if}}
     </section>
@@ -102,7 +104,7 @@
     <section>
       <h4><i class="fa fa-quote-left" aria-hidden="true"></i>Ask</h4>
       <div class="empty-message">
-        {{profile.firstName}} hasn't answered any questions
+        <span class="text-title">{{profile.firstName}}</span> hasn't answered any questions
       </div>
     </section>
     <section class="section-footer-links">
@@ -110,7 +112,7 @@
         {{link-to "Go to Ask" 'me.ask'  class="button expanded"}}
       {{else}}
         {{#link-to 'ask' profile.id  class="button expanded"}}
-          Ask {{profile.firstName}}
+          Ask <span class="text-title">{{profile.firstName}}</span>
         {{/link-to}}
       {{/if}}
     </section>
@@ -150,7 +152,7 @@
 
     {{else}}
     <div class="empty-message">
-      {{profile.firstName}} hasn't received any Compliments
+      <span class="text-title">{{profile.firstName}}</span> hasn't received any Compliments
     </div>
     {{/if}}
   </section>
@@ -159,7 +161,7 @@
       {{link-to 'Go to Compliments' 'me.compliments' class="button expanded"}}
     {{else}}
       {{#link-to 'compliments' profile.id class="button expanded"}}
-        Compliment {{profile.firstName}}
+        Compliment <span class="text-title">{{profile.firstName}}</span>
       {{/link-to}}
     {{/if}}
   </section>

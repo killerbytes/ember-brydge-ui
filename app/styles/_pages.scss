@@ -5,12 +5,12 @@
 .main.page-forgot-password{
 	padding-top: 0;
 	.container{
-		padding-top: 20vh;
+		padding-top: 10vh;
 		height: 100vh;
 	}
 	.main-content{
 		// background-image: url('index_bg.jpg');
-		background: linear-gradient(  rgba(238, 249, 255, 0.7), rgba(238, 249, 255, 0.7)), url('https://storage.googleapis.com/brydge-assets/assets/index_bg.jpg');
+		background: linear-gradient(  rgba(238, 249, 255, 0.85), rgba(238, 249, 255, 0.85)), url('https://storage.googleapis.com/brydge-assets/assets/index_bg.jpg');
 		// background-color: rgba(238, 249, 255, .5);
 		background-size: cover;
 		.dialog-wrapper{
@@ -26,18 +26,19 @@
 				padding-top: 20px;
 			}
 		}
-		h1{
+		h2{
 			span{
 				color: $brydge-blue;
 				font-weight: bold;
 			}
 		}
 		h1+p{
-			margin-top: 40px;
+			margin-top: 70px;
+			margin-bottom: 50px;
 		}
 	}
 	.dialog-header{
-		padding: 3rem 1rem 2rem;
+		padding: 2rem 1rem;
 		.logo{
 			text-align: center;
 			display: block;

@@ -41,7 +41,7 @@
       {{else}}
       <form {{action 'submit' on='submit'}} class="box user-top-form mb20">
         <p>
-          You cannot compliment {{profile.firstName}} because you are not connected.
+          You cannot compliment <span class="text-title">{{profile.firstName}}</span> because you are not connected.
         </p>
       </form>
 
@@ -65,7 +65,7 @@
       <div class="box">
         <section>
           <div class="empty-message">
-            {{profile.firstName}} hasn't received any compliments
+            <span class="text-title">{{profile.firstName}}</span> hasn't received any compliments
           </div>
         </section>
       </div>

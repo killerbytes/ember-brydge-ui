@@ -1,3 +1,7 @@
+.name{
+	text-transform: capitalize;
+}
+
 table{
 	tr:last-child{
 		border-bottom: none;
@@ -34,13 +38,20 @@ table{
 	.validated-input input, .validated-input{
 		margin-bottom: 0 !important;
 	}
-	label	span{
-		color: $text-gray;
-		margin-left: .25rem;
-		display: block;
-		margin-top: -5px;
-		font-size: 8px;
-	}
+}
+
+.with-text-helper{
+	margin-bottom: 0 !important;
+}
+.with-text-helper + .text-helper{
+	color: $text-gray;
+	margin-left: .25rem;
+	display: block;
+	margin-top: -5px;
+	font-size: 8px;
+}
+.with-text-helper + div.text-helper{
+	margin-top: auto;
 }
 .avatar{
 	@extend .circle;
@@ -405,10 +416,11 @@ div.error-messages{
 	margin-bottom: 1rem;
 	h4{
 		margin-bottom: 5px;
+		text-transform: none;
 	}
 	ul.errors{
 		color: $text-orange;
-		text-transform: capitalize;
+		// text-transform: capitalize;
 		li{
 			margin-bottom: 5px;
 		}

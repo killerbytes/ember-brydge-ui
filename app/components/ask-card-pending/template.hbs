@@ -7,9 +7,9 @@
       <div class="user-info">
         <span class="name">
           {{#if isOwner}}
-            Asked by {{link-to item.from.profile.fullName "profile" item.from.id}}
+            Asked by {{link-to item.from.profile.fullName "profile" item.from.id class="text-title"}}
           {{else}}
-            You asked {{link-to item.to.profile.fullName "profile" item.to.id}}
+            You asked {{link-to item.to.profile.fullName "profile" item.to.id class="text-title"}}
           {{/if}}
         </span>
         <div>

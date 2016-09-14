@@ -13,7 +13,7 @@
             {{form-text-counter limit=250 value=question rows=5 }}
             <div class="row">
               <div class="columns text-right">
-                <button class="button success" type="submit">ASK</button>            
+                <button class="button success" type="submit">ASK</button>
               </div>
             </div>
           {{else}}
@@ -33,17 +33,14 @@
           <small>{{link-to "Tips on how to use ASK" "user-guide"}}</small>
         {{else}}
           You have turned ASK off
-          {{link-to "Settings" "settings" (query-params tab="ask") }}        
+          {{link-to "Settings" "settings" (query-params tab="ask") }}
         {{/if}}
       {{else}}
 
-        {{model.firstName }} has turned ASK off
+        <span class="text-title">{{model.firstName }}</span> has turned ASK off
       {{/if}}
 
     </section>
-       
+
   </form>
 {{/zf-dropdown}}
-
-
-
