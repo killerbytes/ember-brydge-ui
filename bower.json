@@ -11,5 +11,7 @@
   "resolutions": {
     "jquery": ">= 1.7.0 < 3.0.0"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "linkifyjs": "^2.1.0"
+  }
 }
