@@ -5,7 +5,7 @@
         <img src= {{conversation.other.profile.avatarUrl}} class="hide">
       </div>
       <div class="user-info">
-        {{#link-to "profile" conversation.other.id }}
+        {{#link-to "profile" conversation.other.id class="text-title"}}
           {{ conversation.other.profile.fullName }}
         {{/link-to}}
       </div>

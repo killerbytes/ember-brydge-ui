@@ -4,9 +4,9 @@
   </div>
   <div class="user-info">
     {{#if item.isOwner}}
-      {{link-to item.fullName "profile" session.data.authenticated.user_id }}
+      {{link-to item.fullName "profile" session.data.authenticated.user_id class="text-title"}}
     {{else}}
-      {{link-to item.fullName "profile" item.userid }}
+      {{link-to item.fullName "profile" item.userid class="text-title"}}
     {{/if}}
     <div class="position">{{item.currentTitle}}</div>
     <div class="position"><strong>{{item.currentCompany}}</strong></div>
