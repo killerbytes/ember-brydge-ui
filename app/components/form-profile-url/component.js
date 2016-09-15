@@ -34,10 +34,10 @@ export default Ember.Component.extend(Validations, {
 			this.set('username', username.join('-'));
 		},
 		save(item, cb){
-			if(!this.get('validations.isValid')){
-				cb.apply(this,[false]);
-				return false;
-			}
+			// if(!this.get('validations.isValid')){
+			// 	cb.apply(this,[false]);
+			// 	return false;
+			// }
 
 			item.save().then(res=>{
 				cb.apply();
