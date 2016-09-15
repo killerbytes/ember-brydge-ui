@@ -62,17 +62,21 @@
 	}
 	.location{
 		color: $text-gray;
-		font-size: 16px;
 	}
 	.stats{
 		border-top: 1px solid $border-color;
 		border-bottom: 1px solid $border-color;
-		color: $text-gray;
+		color: #CCC;
+		font-size: 12px;
 		font-weight: bold;
 		text-transform: uppercase;
+		margin: 1rem 0;
 		big{
 			font-size: 20px;
 		}
+	}
+	.stats-footer{
+		font-size: 13px;
 	}
 	 a.button{
 		 font-size: 18px;

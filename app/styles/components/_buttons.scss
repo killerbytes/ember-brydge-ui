@@ -16,8 +16,15 @@
 	padding: 8px 12px;
 	border-radius: 2px;
 	&.button-border{
-		border: 1px solid $button-blue;
+		// border: 1px solid $button-blue;
+		border: 1px solid $medium-gray;
+		color: #666;
+		background-color: #DDD;
+		&:hover{
+			background-color: #DDD;
+		}
 	}
+
 	&.rounded{
 		border-radius: 2px;
 	}

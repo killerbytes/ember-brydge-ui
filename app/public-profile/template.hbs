@@ -11,7 +11,7 @@
               <img src="{{profile.avatar}}" class="hide">
             </div>
             <div class="padding text-center">
-              <h1><strong>{{profile.name}}</strong></h1>
+              <h1 class="mb"><strong>{{profile.name}}</strong></h1>
               <div class="position">{{profile.title}}</div>
               <div class="position"><strong>{{profile.currentCompany}}</strong></div>
               <div class="location"><strong>{{profile.location}}</strong></div>
@@ -42,10 +42,10 @@
                 </div>
               </div>
             </div>
-            <div class="row">
-              <div class="columns text-center medium-centered">
+            <div class="row stats-footer">
+              <div class="columns text-center medium-centered mb">
                 <div class="padding">
-                  Want to connect? {{link-to "Login" "home"}} or {{link-to "Create Account" "home"}}
+                  <strong>Want to connect? {{link-to "Login" "home"}} or {{link-to "Create Account" "home"}}</strong>
                 </div>
               </div>
             </div>

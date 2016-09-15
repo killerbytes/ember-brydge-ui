@@ -28,10 +28,14 @@ form{
 	}
 	.input-group{
 		input.input-group-field{
-			border: none;
+			// border: none;
+			border-top-right-radius: 0 !important;
+			border-bottom-right-radius: 0 !important;
 		}
 		button{
-			padding: 9px 1rem;
+			padding: 10px 1rem 9px;
+			border-top-right-radius: 2px !important;
+			border-bottom-right-radius: 2px !important;
 		}
 	}
 
@@ -104,7 +108,7 @@ form{
 			color: $text-gray;
 		}
 	}
-	input, select{
+	input, select, .input-group > :first-child{
 		@extend .rounded;
 		border: 1px solid $border-color;
 		font-weight: normal;
