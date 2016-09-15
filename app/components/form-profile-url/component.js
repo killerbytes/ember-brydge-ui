@@ -33,8 +33,13 @@ export default Ember.Component.extend(Validations, {
 			if(this.get('publicProfileThree')) username.push(this.get('publicProfileThree'));
 			this.set('username', username.join('-'));
 		},
+		edit(){
+      this.set('isSubmitted', false);
+    },
 		save(item, cb){
+			// console.log(this.get('validations.isValid'))
 			// if(!this.get('validations.isValid')){
+      //   this.set('isSubmitted', true);
 			// 	cb.apply(this,[false]);
 			// 	return false;
 			// }
