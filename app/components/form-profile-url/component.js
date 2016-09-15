@@ -39,7 +39,7 @@ export default Ember.Component.extend(Validations, {
 			// 	return false;
 			// }
 
-			item.save().then(res=>{
+			this.get('profile').save().then(res=>{
 				cb.apply();
 			// });
 			// this.set('profile.publicProfileOne', this.get('publicProfileOne'))
@@ -48,7 +48,7 @@ export default Ember.Component.extend(Validations, {
 			// this.get('profile').save().then(res=>{
 				// cb.apply();
 			}).catch((err)=>{
-				item.rollbackAttributes();
+				this.get('profile').rollbackAttributes();
 			// 	this._setDefaults();
 				cb.apply(this, [true, err.errors[0].detail, true]);
 			});
