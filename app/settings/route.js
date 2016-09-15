@@ -8,9 +8,6 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
         controller.setProperties({
           tab: 'email'
         });
-				this.set('controller.model.publicProfileOne', null);
-				this.set('controller.model.publicProfileTwo', null);
-				this.set('controller.model.publicProfileThree', null);
       }
   },
 	model: function () {

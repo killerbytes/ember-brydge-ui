@@ -1,30 +1,30 @@
 <form class="brydge-form">
   <div class="row columns">
     <div class="mb20">
-      <label>Current: {{#link-to "public-profile" profile.publicProfile }}brydge.com/{{profile.publicProfile}}{{/link-to}}</label>
+      <label>Current: {{#link-to "profile" model.publicProfile }}brydge.com/{{model.publicProfile}}{{/link-to}}</label>
     </div>
 
   <div class="{{unless validations.attrs.username.isValid 'validated-input has-error'}}">
-    {{form-input model=this valuePath="username" class="hide"}}
+    {{form-input model=model valuePath="username" class="hide"}}
     {{#unless validations.attrs.username.isValid}}
       <div class="error mb">{{validations.attrs.username.message}}</div>
     {{/unless}}
     <div class="row dashed-format mb20">
       <div class="columns medium-4">
         <label for="">
-          {{form-input model=this valuePath="publicProfileOne" focus-out="checkUsername" class="with-text-helper"}}
+          {{form-input model=model valuePath="publicProfileOne" focus-out="checkUsername" class="with-text-helper"}}
           <span class="text-upper font-light text-helper">required*</span>
         </label>
       </div>
       <div class="columns medium-4 dash">
         <label for="">
-          {{form-input model=this valuePath="publicProfileTwo" focus-out="checkUsername" class="with-text-helper"}}
+          {{form-input model=model valuePath="publicProfileTwo" focus-out="checkUsername" class="with-text-helper"}}
           <span class="text-upper font-light text-helper">optional</span>
         </label>
       </div>
       <div class="columns medium-4 dash end">
         <label for="">
-          {{form-input model=this valuePath="publicProfileThree" focus-out="checkUsername" class="with-text-helper"}}
+          {{form-input model=model valuePath="publicProfileThree" focus-out="checkUsername" class="with-text-helper"}}
           <span class="text-upper font-light text-helper">optional</span>
         </label>
       </div>
@@ -42,7 +42,7 @@
   </div>
 
     <div class="row columns">
-      {{form-input-button item=this submit="save" placeholder="Profile URL has been changed"}}
+      {{form-input-button item=model submit="save" placeholder="Profile URL has been changed"}}
     </div>
   </div>
 </form>

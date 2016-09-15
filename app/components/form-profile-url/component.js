@@ -15,11 +15,11 @@ const Validations = buildValidations({
 export default Ember.Component.extend(Validations, {
 	settings: Ember.inject.service(),
 	tagName: 'form',
-	init(){
-		this._super(...arguments);
-		this._setDefaults();
-	},
-	profile: Ember.computed.oneWay('model'),
+	// init(){
+	// 	this._super(...arguments);
+	// 	this._setDefaults();
+	// },
+	// profile: Ember.computed.oneWay('model'),
 	_setDefaults(){
 		this.set('publicProfileOne', this.get('profile.publicProfileOne'))
 		this.set('publicProfileTwo', this.get('profile.publicProfileTwo'))
@@ -38,14 +38,18 @@ export default Ember.Component.extend(Validations, {
 				cb.apply(this,[false]);
 				return false;
 			}
-			this.set('profile.publicProfileOne', this.get('publicProfileOne'))
-			this.set('profile.publicProfileTwo', this.get('publicProfileTwo'))
-			this.set('profile.publicProfileThree', this.get('publicProfileThree'))
-			this.get('profile').save().then(res=>{
+
+			item.save().then(res=>{
 				cb.apply();
+			// });
+			// this.set('profile.publicProfileOne', this.get('publicProfileOne'))
+			// this.set('profile.publicProfileTwo', this.get('publicProfileTwo'))
+			// this.set('profile.publicProfileThree', this.get('publicProfileThree'))
+			// this.get('profile').save().then(res=>{
+				// cb.apply();
 			}).catch((err)=>{
-				this.get('profile').rollbackAttributes();
-				this._setDefaults();
+				item.rollbackAttributes();
+			// 	this._setDefaults();
 				cb.apply(this, [true, err.errors[0].detail, true]);
 			});
 		}
