@@ -1,7 +1,8 @@
 import Ember from 'ember';
+import InviteMixin from 'web/mixins/invite';
 
 
-export default Ember.Mixin.create({
+export default Ember.Mixin.create(InviteMixin, {
 	utils: Ember.inject.service(),
 	profile: Ember.computed.alias('model.profile'),
   posts: Ember.computed('model.posts', 'model.posts.@each', function(){ //TODO: remove isDeleted:true from list
@@ -12,10 +13,6 @@ export default Ember.Mixin.create({
   questions: Ember.computed.alias('model.questions'),
   compliments: Ember.computed.filterBy('model.compliments', 'status', 'accepted'),
   connections: Ember.computed.alias('model.connections'),
-	invites: Ember.computed.alias('model.invites'),
-	invitesRemaining: Ember.computed('invites', function(){
-		return 10 - this.get('invites.length');
-	}),
 	snapshot: Ember.computed('profile', function(){
 		return this.get('utils').lineBreaker(this.get('profile.snapshot'));
 	}),

@@ -1,6 +1,7 @@
 import Ember from 'ember';
 import QueryLocationMixin from 'web/mixins/query-locations';
 import GetIndustryFromCodeMixin from 'web/mixins/get-industry-from-code';
+import InviteMixin from 'web/mixins/invite';
 const {
   Component,
   computed,
@@ -9,7 +10,8 @@ const {
 
 export default Ember.Controller.extend(
   QueryLocationMixin,
-  GetIndustryFromCodeMixin, {
+  GetIndustryFromCodeMixin,
+  InviteMixin, {
   session: Ember.inject.service(),
   ajax: Ember.inject.service(),
   utils: Ember.inject.service(),

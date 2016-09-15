@@ -21,9 +21,7 @@
             <span class="text-title">{{profile.firstName}}</span> hasn't added any Industries
           </li>
         {{/if}}
-
       {{/each}}
-
     </ul>
   </section>
 
@@ -78,6 +76,7 @@
       </div>
       {{#zf-accordion-menu class="section-accordion accordion-ask-answer" multiOpen=true}}
         <li>
+          <a class="more no-arrow more-top"><span class="content-more">See Answer</span><span class="content-less">Hide Answer</span></a>
           <ul class="section-accordion-content no-bullet">
             <li>
               {{brydge-linkify text=latestQuestion.answer class="paragraph answer-content"}}
@@ -166,7 +165,8 @@
     {{/if}}
   </section>
 </div>
-
-{{ partial "partials/invite-friends" }}
+{{#if isOwner}}
+  {{ partial "partials/invite-friends" }}
+{{/if}}
 {{ partial "partials/user-guide-box" }}
 {{ partial "footer"}}
