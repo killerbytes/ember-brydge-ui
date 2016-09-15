@@ -19,7 +19,8 @@ module.exports = function(defaults) {
     //minifyCSS: { enabled: isMinified },
     //minifyJS: { enabled: isMinified },
     fingerprint: {
-      exclude: ['https://storage.googleapis.com']
+      exclude: ['https://storage.googleapis.com'],
+      extensions: ['js', 'css', 'map']
     },
     select2: {
       includeAssets: false
