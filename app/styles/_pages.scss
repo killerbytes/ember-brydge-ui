@@ -27,9 +27,10 @@
 			}
 		}
 		h2{
+			font-weight: bold;
+			color: $text-gray;
 			span{
 				color: $brydge-blue;
-				font-weight: bold;
 			}
 		}
 		h1+p{
