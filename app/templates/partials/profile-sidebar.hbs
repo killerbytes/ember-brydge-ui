@@ -12,15 +12,13 @@
       {{#each industries as |item|}}
         <li><strong>{{link-to item.text "home" (query-params channels=item.id)}}</strong></li>
       {{else}}
-        {{#if isOwner}}
           <li class="empty-message">
-            Add Business Industry
+            {{#if isOwner}}
+              You haven't added any Industries
+            {{else}}
+              <span class="text-title">{{profile.firstName}}</span> hasn't added any Industries
+            {{/if}}
           </li>
-        {{else}}
-          <li class="empty-message">
-            <span class="text-title">{{profile.firstName}}</span> hasn't added any Industries
-          </li>
-        {{/if}}
       {{/each}}
     </ul>
   </section>
@@ -39,7 +37,11 @@
       {{brydge-linkify text=snapshot class="paragraph snapshot"}}
     {{else}}
       <div class="empty-message">
-        <span class="text-title">{{profile.firstName}}</span> hasn't added a Snapshot
+        {{#if isOwner}}
+          You haven't added a Snapshot
+        {{else}}
+          <span class="text-title">{{profile.firstName}}</span> hasn't added a Snapshot
+        {{/if}}
       </div>
     {{/if}}
   </section>
@@ -103,7 +105,11 @@
     <section>
       <h4><i class="fa fa-quote-left" aria-hidden="true"></i>Ask</h4>
       <div class="empty-message">
-        <span class="text-title">{{profile.firstName}}</span> hasn't answered any questions
+        {{#if isOwner}}
+          You haven't answered any questions
+        {{else}}
+          <span class="text-title">{{profile.firstName}}</span> hasn't answered any questions
+        {{/if}}
       </div>
     </section>
     <section class="section-footer-links">
@@ -151,7 +157,11 @@
 
     {{else}}
     <div class="empty-message">
-      <span class="text-title">{{profile.firstName}}</span> hasn't received any Compliments
+      {{#if isOwner}}
+        You haven't received any Compliments
+      {{else}}
+        <span class="text-title">{{profile.firstName}}</span> hasn't received any Compliments
+      {{/if}}
     </div>
     {{/if}}
   </section>
