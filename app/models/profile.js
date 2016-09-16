@@ -2,6 +2,7 @@ import DS from 'ember-data';
 import Validations from './validations/profile';
 
 export default DS.Model.extend(Validations, {
+	utils: Ember.inject.service(),
 	firstName: DS.attr({defaultValue: ''}),
 	lastName: DS.attr({defaultValue: ''}),
 	location: DS.attr(),
@@ -35,6 +36,8 @@ export default DS.Model.extend(Validations, {
 		return this.get('firstName') + ' ' + this.get('lastName');
 	}),
 	career: Ember.computed('currentTitle', 'currentCompany', function(){
-		return this.get('currentCompany') ? this.get('currentTitle') + ' at ' + this.get('currentCompany') : this.get('currentTitle');
+		var title = this.get('currentTitle');
+		var company = this.get('currentCompany');
+		return this.get('currentCompany') ? `${title} at ${company}` : title;
 	})
 });

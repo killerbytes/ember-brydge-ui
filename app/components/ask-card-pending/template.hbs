@@ -5,13 +5,11 @@
         <img src= {{item.from.profile.avatarUrl}} class="hide">
       </div>
       <div class="user-info">
-        <span class="name">
-          {{#if isOwner}}
-            Asked by {{link-to item.from.profile.fullName "profile" item.from.id class="text-title"}}
-          {{else}}
-            You asked {{link-to item.to.profile.fullName "profile" item.to.id class="text-title"}}
-          {{/if}}
-        </span>
+        {{#if isOwner}}
+          <strong>Asked by</strong> {{link-to item.from.profile.fullName "profile" item.from.id class="name"}}
+        {{else}}
+          <strong>You asked</strong> {{link-to item.to.profile.fullName "profile" item.to.id class="name"}}
+        {{/if}}
         <div>
           {{#link-to "me.ask.detail" item.id class="timestamp"}}
             {{timestamp item.answeredAt}}

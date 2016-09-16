@@ -3,6 +3,25 @@
   </div>
 
   <div class="columns medium-7">
+    <ul>
+    {{#each model.categories as |sector|}}
+      <li>
+        {{sector.name}}
+        <ul>
+          {{#each sector.categories as |categories|}}
+          <li>
+            {{categories.name}}
+            <ul>
+            {{#each categories.industries as |item|}}
+              <li {{action "select" item}}>{{item.data.subIndustry}}, {{item.active}}</li>
+            {{/each}}
+            </ul>
+          </li>
+          {{/each}}
+        </ul>
+      </li>
+    {{/each}}
+    </ul>
   </div>
 
 </div>
