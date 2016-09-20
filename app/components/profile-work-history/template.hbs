@@ -38,8 +38,8 @@
   {{#each list as |item|}}
   	<li class="accordion-item box	" data-accordion-item >
 
-  		<div class="col">
-  				<div class="position"><strong>{{ item.title }}</strong></div>
+  		<a class="col">
+  				<div class="name"><strong>{{ item.title }}</strong></div>
   				<div class="company">{{ item.company }}</div>
   				<div class="timestamp">
   		      {{term-date-format item.startFrom}} -
@@ -49,7 +49,7 @@
   		        {{term-date-format item.endAt}}
   		      {{/if}}
   	      </div>
-  		</div>
+  		</a>
   		<div class="col text-right">
         {{#if item.currentCompany}}
     			{{#if item.isProfileTitle}}

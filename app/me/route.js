@@ -11,7 +11,7 @@ import BrydgeScroller from 'web/mixins/brydge-scroller';
 export default Ember.Route.extend(
   BrydgeScroller,
   AuthenticatedRouteMixin, {
-  utils: Ember.inject.service(),
+  utils: Ember.inject.service() ,
   model() {
     let userid = this.get('session.data.authenticated.user_id');
     return Ember.RSVP.hash({
