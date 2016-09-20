@@ -170,29 +170,7 @@
       {{else}}
         {{#each requests as |item|}}
     			<li>
-            {{request-card item=item class="padding"}}            
-    				<div class="padding">
-    					<div class="row collapse">
-    						<div class="columns medium-9">
-                  {{#link-to "profile" item.id}}
-      				      <div class="avatar" style={{htmlSafeImage item.avatar }}>
-      			          <img src= {{item.avatar}} class="hide">
-      				      </div>
-                  {{/link-to}}
-                  {{#link-to "profile" item.id}}
-    				      <div class="user-info">
-    			          <div class="name">{{item.fullName}}</div>
-    				        <div class="position">{{item.career}}</div>
-    				      </div>
-                  {{/link-to}}
-
-    						</div>
-    						<div class="columns medium-3 actions text-right">
-    		          <span class="middle"><a {{action "acceptConnection" item }}><i class="fa fa-check-circle" aria-hidden="true"></i></a></span>
-    		          <span class="middle"><a {{action "rejectConnection" item }}><i class="fa fa-times-circle" aria-hidden="true"></i></a></span>
-    						</div>
-    					</div>
-    				</div>
+            {{request-card item=item class="padding"}}
     			</li>
   			{{else}}
     			<li>
