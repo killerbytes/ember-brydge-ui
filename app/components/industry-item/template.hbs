@@ -7,7 +7,7 @@
 <div class="column medium-7">
   <section>
   <ul class="no-bullet">
-  {{#each posts as |item|}}
+  {{#each categories as |item|}}
     <li><a {{action "select" item}}>{{item.id}}</a> {{item.active}}</li>
   {{/each}}
   </ul>

@@ -8,7 +8,7 @@ export default Ember.Component.extend({
 		this._super(...arguments);
 		// this._setSelected();
 	},
-	posts: Ember.computed('profile', function(){
+	categories: Ember.computed('profile', function(){
 		// this.get('store').unloadAll('experience');
 		return this.get('store').query('newsfeed',{filter: this.get('profile'), tab: 'profile'});
 	}),
@@ -24,7 +24,7 @@ export default Ember.Component.extend({
 	// 	console.log(this.get('posts.length'));
 	// },
 	_load(id){
-		this.get('store').findRecord('newsfeed', id).then(res=>{
+		this.get('store').findRecord('industry-id', id).then(res=>{
 			this.set('industryPicker.selected', res);
 		})
 	},

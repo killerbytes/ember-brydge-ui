@@ -43,6 +43,7 @@ export default Ember.Service.extend({
     })
   },
   loadRequests(cb){
+    this.get('store').unloadAll('connection');
     return this.get('store').findAll('connection', {reload: true}).then(res=>{
       this.set('request', res);
       if(cb) cb.call();

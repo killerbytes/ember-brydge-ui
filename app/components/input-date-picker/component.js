@@ -37,9 +37,12 @@ export default Ember.Component.extend({
 	}),
 
 	_getDate: Ember.observer('mm','dd','yy', function() {
-		var date = new Date(this.get('yy'), this.get('mm')+1, this.get('dd'))
-		var date = [date.getFullYear(), ('0' + date.getMonth()).slice(-2), ('0' + date.getDate()).slice(-2)].join('-');
-		var date = moment(date, "YYYY-MM-DD", true);
+		// var date = new Date(this.get('yy'), this.get('mm'), this.get('dd'))
+		// console.log(date)
+		// var date = [date.getFullYear(), ('0' + date.getMonth()).slice(-2), ('0' + date.getDate()).slice(-2)].join('-');
+		// console.log(date)
+		// var date = moment([this.get('yy'), this.get('mm'), this.get('dd')], "YYYY-MM-DD", true);
+		var date = moment([this.get('yy'), this.get('mm'), this.get('dd')]);
 		if(date.isValid()){
 			this.set('value', date.format());
 		}else{
