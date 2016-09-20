@@ -90,9 +90,11 @@
 	min-width: auto;
 	// color: #000;
 }
-.button-clear:hover{
+.button-clear:hover, .button.clear{
 	background-color: transparent;
+	color: inherit;
 }
+
 
 .dropdown-button{
 	color: $button-blue;
