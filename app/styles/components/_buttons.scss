@@ -55,6 +55,11 @@
 			color: inherit;
 		}
 	}
+	&.green, &.green:hover{
+		background: $brydge-green;
+		color: #FFF;
+		font-weight: bold;
+	}
 	&.large{
 		@extend .rounded;
 		padding: 10px;

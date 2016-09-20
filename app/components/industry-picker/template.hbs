@@ -1,0 +1,41 @@
+{{#zf-reveal id="industry-picker" overlay=true class="large box"}}
+  <button class="close-button" aria-label="Dismiss alert" type="button" data-close>
+    <span aria-hidden="true">&times;</span>
+  </button>
+  <section class="title-bg">
+    <h4>Choose an industry</h4>
+  </section>
+  <div class="row collapse row-aligned-columns">
+    <div class="columns medium-7 border-r scrollbar">
+      <div class="industry-pane">
+        {{#each industries as |item|}}
+          <h3>Sector</h3>
+          {{industry-item profile=item selected=selected}}
+        {{/each}}
+      </div>
+    </div>
+    <div class="columns medium-5 wrapper">
+      <section class="industry-detail bg-gray scrollbar">
+        {{industryPicker.selected.id}}
+        <a class="button large green float-right"{{action "set"}}>Select Industry</a>
+        {{industryPicker.selected.content}}
+        {{industryPicker.selected.title}}
+        {{industryPicker.selected.content}}
+        {{industryPicker.selected.content}}
+        {{industryPicker.selected.content}}
+      </section>
+      <section>
+        <ul>
+        {{#each industryPicker.industries as |item|}}
+          <li>{{item}}</li>
+        {{/each}}
+        </ul>
+      </section>
+      <div class="bg-gray controls padding">
+    	  	<a class="button button-border" data-close>Cancel</a>
+          <button class="button large green float-right" type="submit" {{action "submit"}}>Done</button>
+      </div>
+
+    </div>
+  </div>
+{{/zf-reveal}}

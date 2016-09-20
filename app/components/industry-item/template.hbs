@@ -1,0 +1,15 @@
+<div class="column medium-5">
+  <div class="wrapper industry-thumb">
+    <img src="https://storage.googleapis.com/brydge-assets/temp/61237789.png" alt="">
+    <strong>{{profile}}</strong>
+  </div>
+</div>
+<div class="column medium-7">
+  <section>
+  <ul class="no-bullet">
+  {{#each posts as |item|}}
+    <li><a {{action "select" item}}>{{item.id}}</a> {{item.active}}</li>
+  {{/each}}
+  </ul>
+  </section>
+</div>

@@ -532,3 +532,10 @@ span.middle{
 		font-size: 14px;
 	}
 }
+
+.row-aligned-columns{
+	display: flex !important;
+	>.columns{
+		align-items: stretch;
+	}
+}

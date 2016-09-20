@@ -1,27 +1,11 @@
 <div class="row">
   <div class="columns medium-5 sidebar">
+    <a data-open="industry-picker">Industry Picker</a>
+
   </div>
 
   <div class="columns medium-7">
-    <ul>
-    {{#each model.categories as |sector|}}
-      <li>
-        {{sector.name}}
-        <ul>
-          {{#each sector.categories as |categories|}}
-          <li>
-            {{categories.name}}
-            <ul>
-            {{#each categories.industries as |item|}}
-              <li {{action "select" item}}>{{item.data.subIndustry}}, {{item.active}}</li>
-            {{/each}}
-            </ul>
-          </li>
-          {{/each}}
-        </ul>
-      </li>
-    {{/each}}
-    </ul>
   </div>
 
+  {{industry-picker industries=model.connection}}
 </div>
