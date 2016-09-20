@@ -1,11 +1,12 @@
 <input type="file" name="file" style="display: none" />
-{{#unless text}}
-<div class="avatar" {{action "clicked"}} style={{htmlSafeImage logoUrl}}>
-  <div class="overlay"><i class="fa fa-camera" aria-hidden="true"></i></div>
-  {{#if isLoading}}
-    <div class="brydge-loading"></div>
-  {{/if}}
+<div class="profile-photo circle">
+  <div class="avatar" {{action "clicked"}} style={{htmlSafeImage logoUrl}}>
+    <div class="overlay"><i class="fa fa-camera" aria-hidden="true"></i></div>
+    {{#if isLoading}}
+      <div class="brydge-loading"></div>
+    {{/if}}
+  </div>
 </div>
-{{else}}
- <a {{action "clicked"}}>{{placeholder}}</a>
-{{/unless}}
+<div class="text-center">
+  <a {{action "clicked"}}>{{placeholder}}</a>
+</div>

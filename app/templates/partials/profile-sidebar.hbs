@@ -58,13 +58,7 @@
             <img src= {{latestQuestion.from.profile.avatarUrl}} class="hide">
           </div>
           <div class="user-info">
-            <span class="name">
-              {{link-to latestQuestion.from.profile.fullName "profile" latestQuestion.from.id}}
-            </span>
-              asked
-            <span class="name">
-              {{link-to latestQuestion.to.profile.fullName "profile" latestQuestion.to.id}}
-            </span>
+            {{link-to latestQuestion.from.profile.fullName "profile" latestQuestion.from.id class="name"}} asked {{link-to latestQuestion.to.profile.fullName "profile" latestQuestion.to.id class="name"}}
             <div class="timestamp">
               {{#link-to "ask.detail" latestQuestion.id class="timestamp"}}
                 {{timestamp latestQuestion.answeredAt}}
@@ -140,12 +134,7 @@
           <img src= {{post.user.profile.avatarUrl}} class="hide">
         </div>
         <div class="user-info">
-          Complimented by
-          <span class="name">
-            {{#link-to "profile" latestCompliment.from.id}}
-              {{latestCompliment.from.profile.fullName}}
-            {{/link-to}}
-          </span>
+          Complimented by {{link-to latestCompliment.from.profile.fullName "profile" latestCompliment.from.id class="name"}}
           <div class="timestamp">
             {{#link-to "compliments.detail" latestCompliment.id class="timestamp"}}
               {{timestamp latestCompliment.updatedAt}}

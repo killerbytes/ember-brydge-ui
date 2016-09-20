@@ -25,25 +25,21 @@
   </section>
   {{#if isNotEmptyTitleCompany}}
     <section>
-      <div class="hoverable">
-        <span class="position font-light">
-          {{profile.currentTitle}}
-          {{#if isOwner}}
-            {{#link-to "me.edit" (query-params tab="work") class="editable" }}
-              <i class="fa fa-pencil-square-o"></i>
-            {{/link-to}}
-          {{/if}}
-        </span>
+      <div class="hoverable position font-light">
+        {{profile.currentTitle}}
+        {{#if isOwner}}
+          {{#link-to "me.edit" (query-params tab="work") class="editable" }}
+            <i class="fa fa-pencil-square-o"></i>
+          {{/link-to}}
+        {{/if}}
       </div>
-      <div class="hoverable">
-        <span class="company">
-          {{profile.currentCompany}}
-          {{#if isOwner}}
-            {{#link-to "me.edit" (query-params tab="work") class="editable" }}
-              <i class="fa fa-pencil-square-o"></i>
-            {{/link-to}}
-          {{/if}}
-        </span>
+      <div class="hoverable company">
+        {{profile.currentCompany}}
+        {{#if isOwner}}
+          {{#link-to "me.edit" (query-params tab="work") class="editable" }}
+            <i class="fa fa-pencil-square-o"></i>
+          {{/link-to}}
+        {{/if}}
       </div>
     </section>
   {{else}}

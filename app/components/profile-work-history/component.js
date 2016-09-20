@@ -47,8 +47,10 @@ export default Ember.Component.extend( {
 			data: { highlight: data },
 		}).then(res=>{
 			this._resetShowHighlight();
-			var profile = this.get('store').peekRecord('profile', userid);
-			profile.set('customTitle', true);
+			// var profile = this.get('store').peekRecord('profile', userid);
+			// profile.set('customTitle', true);
+			this._setProfile(true, this.get('defaultCareerStatus'), null)
+
 		})
 	},
   _resetShowHighlight(){
@@ -57,6 +59,11 @@ export default Ember.Component.extend( {
 		})
 		this.set('profile.customTitle', false);
   },
+	_setProfile(isCustom, title, company){
+		this.set('profile.customTitle', isCustom ? true : false);
+		this.set('profile.currentTitle', title);
+		this.set('profile.currentCompany', company);
+	},
 	actions: {
     updateWork(item, cb){
       item.save().then(()=>{
@@ -81,6 +88,7 @@ export default Ember.Component.extend( {
       })
     },
 		delete(item){
+			if(item.get('isProfileTitle')) this._setProfile(false, 'Title Unspecified', null);
 			item.destroyRecord();
 		},
 		clear(){
@@ -90,7 +98,7 @@ export default Ember.Component.extend( {
 			this._highlightStatus();
 		},
 		highlight(item){
-			// this._setProfile(false, item.get('title'), item.get('company'))
+			this._setProfile(false, item.get('title'), item.get('company'))
 			item.set('isProfileTitle', true)
 			item.save().then(res=>{
 				this._resetShowHighlight();

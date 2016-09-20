@@ -20,7 +20,8 @@ export default Ember.Route.extend(
     var userid = this.get('session.data.authenticated.user_id');
 
 		return Ember.RSVP.hash({
-      profile: this.store.findRecord('profile', userid, {reload: true}),
+      // profile: this.store.findRecord('profile', userid, {reload: true}),
+      profile: this.modelFor('me').profile,
       categories: this.get('ajaxApi').request('/v2/categories/menu'),
       languages: this.store.findAll('language'),
       experiences: this.store.findAll('experience'),

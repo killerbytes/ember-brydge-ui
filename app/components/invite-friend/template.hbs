@@ -26,12 +26,12 @@
           {{input value=model.email disabled=true}}
         {{/if}}
       {{else}}
-        {{form-input type="email" model=this showValidate=isSubmitted key-up="edit" valuePath="email"}}
+        {{form-input type="email" model=this showValidate=isSubmitted key-up="edit" valuePath="email" placeholder="Email"}}
       {{/if}}
     </div>
     <div class="medium-3 columns">
       {{#if isPending}}
-        <span class="button clear text-gray">Sent</span>
+        <span class="button clear text-gray">Invited</span>
       {{else if isUsed}}
         <span class="button clear text-gray">Used</span>
       {{else}}

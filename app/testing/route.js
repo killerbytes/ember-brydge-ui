@@ -6,14 +6,20 @@ import BrydgeMessagingScroller from 'web/mixins/brydge-messaging-scroller';
 export default Ember.Route.extend(
   AuthenticatedRouteMixin,
   BrydgeMessagingScroller, {
-  ajax: Ember.inject.service(),
+  ajaxApi: Ember.inject.service(),
   session: Ember.inject.service(),
-  beforeModel(){
-    this.get('ajax').request('v2/profiles/3ze5n8glm6b',{
-      method: 'OPTIONS',
-    }).then(res=>{
-      console.log(res);
+  model(){
+    var userid = "2zd33na16gv";
+    return Ember.RSVP.hash({
+      // categories: this.get('ajaxApi').request('/v2/categories/menu')
+      connection: ['2zd33na16gv', '4104qlhds1bc', '3ze5n8glm6b', '111sa45pom0d']
     })
 
+  },
+  actions: {
+    select(item){
+      item.active = true,
+      console.log(item);
+    }
   }
 });

@@ -55,6 +55,11 @@
 			color: inherit;
 		}
 	}
+	&.green, &.green:hover{
+		background: $brydge-green;
+		color: #FFF;
+		font-weight: bold;
+	}
 	&.large{
 		@extend .rounded;
 		padding: 10px;
@@ -85,9 +90,11 @@
 	min-width: auto;
 	// color: #000;
 }
-.button-clear:hover{
+.button-clear:hover, .button.clear{
 	background-color: transparent;
+	color: inherit;
 }
+
 
 .dropdown-button{
 	color: $button-blue;

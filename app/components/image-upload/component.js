@@ -14,7 +14,6 @@ export default Ember.Component.extend({
 		var form = this.$()[0]; // You need to use standart javascript object here
 		var formData = new FormData(form);
 
-
 		var reader = new FileReader();
 	  reader.readAsDataURL(evt.target.files[0]);
 
@@ -24,9 +23,7 @@ export default Ember.Component.extend({
 				this.set('isLoading', false);
 			});
 	  };
-
 	},
-
 	actions: {
 		clicked: function () {
 			var $input = this.$('input');

@@ -15,6 +15,7 @@ export default Ember.Controller.extend(Validations, {
 			firstName: this.get('model.first_name'),
 			lastName: this.get('model.last_name'),
 			email: this.get('model.email'),
+			dob: '1950-01-01',
 			gender: 'female',
 			token: this.get('model.token'),
 			userid: this.get('model.userid')

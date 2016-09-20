@@ -1,7 +1,10 @@
 .name{
+	font-weight: bold;
 	text-transform: capitalize;
 }
-
+.company{
+	font-weight: bold;
+}
 table{
 	tr:last-child{
 		border-bottom: none;
@@ -527,5 +530,12 @@ span.middle{
 	}
 	p{
 		font-size: 14px;
+	}
+}
+
+.row-aligned-columns{
+	display: flex !important;
+	>.columns{
+		align-items: stretch;
 	}
 }

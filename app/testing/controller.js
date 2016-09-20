@@ -1,11 +1,12 @@
 import Ember from 'ember';
 
 export default Ember.Controller.extend({
-  messages: Ember.computed('model.messages', function(){
-    return this.get('model.messages');
+  queryParams: ['industry'],
+  industry: [],
+  industryPicker: Ember.inject.service(),
+  selected: Ember.computed('industry', function(){
+    return this.get('industry');
   }),
   actions: {
-    deletePost(){
-    }
   }
 });
