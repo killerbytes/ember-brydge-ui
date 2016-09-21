@@ -46,7 +46,7 @@ export default Ember.Route.extend(
       default:
         page = "";
     }
-    // window.history.replaceState( {} , path, `${userid}/${page}` );
+    window.history.replaceState( {} , path, `${userid}/${page}` );
 
   },
   _setState(path){
