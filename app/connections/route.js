@@ -19,13 +19,6 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
       }
     })
   },
-  // beforeModel(transition) {
-  //   this._super(...arguments);
-	// 	const userid = this.get('session.data.authenticated.user_id');
-	// 	if (userid === transition.params[transition.targetName].username) {
-  //     this.transitionTo('me.connections');
-  //   }
-  // },
   model: function(params) {
     let userid = this.get('userid');
     this.store.unloadAll('connection');

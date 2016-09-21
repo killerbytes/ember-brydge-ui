@@ -13,4 +13,9 @@ export default Ember.Route.extend(
 			scroller: 'inbox'
 		});
 	},
+	actions: {
+		submit(item){
+			return true;
+    }
+	}
 });

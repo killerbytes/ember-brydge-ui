@@ -19,7 +19,9 @@
       <li>
         <a class="more no-arrow more-top"><span class="content-more">Show More</span><span class="content-less">Show Less</span></a>
         <ul class="section-accordion-content no-bullet">
-          <li class="paragraph description-content">{{{item.content}}}</li>
+          <li class="description-content">
+            {{brydge-linkify text=item.content class="paragraph"}}
+          </li>
         </ul>
         <a class="more no-arrow"><span class="content-more">Show More</span><span class="content-less">Show Less</span></a>
       </li>

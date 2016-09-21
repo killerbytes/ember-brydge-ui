@@ -7,6 +7,7 @@ export default Ember.Component.extend({
 	isOwner: Ember.computed('item', function(){
 		return this.get('item.to.id') == this.get('session.data.authenticated.user_id');
 	}),
+	isPending: Ember.computed.equal('item.status', 'pending'),
   actions: {
   	select(item) {
   		this.set('ask.question', item);
@@ -21,6 +22,9 @@ export default Ember.Component.extend({
 				this.sendAction("submit");
 			});
     },
+		submit(){
+			this.sendAction("submit");
+		}
   }
 
 });

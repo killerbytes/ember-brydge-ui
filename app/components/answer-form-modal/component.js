@@ -1,29 +1,20 @@
 import Ember from 'ember';
+import { validator, buildValidations } from 'ember-cp-validations';
 
-export default Ember.Component.extend({
+const Validations = buildValidations({
+	answer: validator('presence', true)
+});
+
+export default Ember.Component.extend(Validations, {
 	sessionAccount: Ember.inject.service(),
-	utils: Ember.inject.service(),
-	ask: Ember.inject.service(),
+	willDestroyElement(){
+		$(`#answer-form-${this.get('item.id')}`).parent().remove();
+	},
 	actions: {
-		edit(text, e){
-      var el = e.currentTarget;
-      var offset = (el.offsetHeight - el.clientHeight);
-      if(text){
-        el.style.height = 'auto';
-        el.style.height = (el.scrollHeight+offset) + "px";
-      }else{
-        el.style.height = '';
-      }
-		},
-		submit: function () {
-			let question = this.get('ask.question');
-			// question.set('answer', this.get('utils').insertParagraph(this.get('answer')));
-			question.set('answer', this.get('answer'));
-			question.set('status', "accepted");
-			//
-			question.save().then(()=>{
-				this.set('answer', null);
-				$('#answerFormModal').foundation('close');
+		submit(){
+			this.set('item.status', 'accepted');
+			this.set('item.answer', this.get('answer'));
+			this.get('item').save().then(res=>{
 				this.sendAction('submit');
 			});
 		}

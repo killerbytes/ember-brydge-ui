@@ -1,4 +1,4 @@
-{{#zf-reveal id="answerFormModal" overlay=true class="small box"}}
+{{#zf-reveal id=(concat "answer-form-" item.id) overlay=true class="small box"}}
   <button class="close-button" aria-label="Dismiss alert" type="button" data-close>
     <span aria-hidden="true">&times;</span>
   </button>
@@ -6,7 +6,7 @@
     <h4>Write Answer</h4>
   </section>
   <section>
-  	<div class="title">{{ask.question.question}}</div>
+  	<div class="title">{{item.question}}</div>
   </section>
   <section class="header">
     <form class="form-input">
@@ -14,17 +14,16 @@
         <img src={{sessionAccount.account.profile.avatarUrl}} class="hide">
       </div>
       <div class="input-wrapper">
-        {{textarea
-          value=answer
-          key-up="edit"
-          class="textarea content-editable"
+        {{form-input-textarea
+          model=this
+          valuePath="answer"
           placeholder="Type answer here"
-          }}
+        }}
       </div>
     </form>
   </section>
   <section>
-    <button class="success button rounded" type="submit" {{action "submit"}}>Submit</button>
+    <button class="button success rounded" {{action "submit"}} disabled={{v-get this 'isInvalid'}}>Submit</button>    
 		<a class="button button-clear float-right" data-close>Cancel</a>
   </section>
 

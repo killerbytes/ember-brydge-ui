@@ -43,8 +43,9 @@ export default Ember.Service.extend({
     })
   },
   loadRequests(cb){
-    this.get('store').unloadAll('connection');
-    return this.get('store').findAll('connection', {reload: true}).then(res=>{
+    // this.get('store').unloadAll('connection');
+    // return this.get('store').findAll('connection', {reload: true}).then(res=>{
+    return this.get('store').query('connection', {userid: this.get('session.data.authenticated.user_id')}).then(res=>{
       this.set('request', res);
       if(cb) cb.call();
     })

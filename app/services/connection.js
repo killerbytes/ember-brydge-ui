@@ -13,7 +13,6 @@ export default Ember.Service.extend({
     var connection = this.get('store').peekRecord('connection', id);
     connection.set('status', 'accepted');
     return connection.save();
-
   },
   reject(id){
 		var url = '/v2/connections/'+id+'/reject';

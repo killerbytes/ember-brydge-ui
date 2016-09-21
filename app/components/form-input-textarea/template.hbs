@@ -1,0 +1,16 @@
+{{textarea
+  value=value
+  key-up="edit"
+  disabled=disabled
+  autocomplete="false"
+  focus-out=(action 'focusOut')
+  class="textarea content-editable"
+  name=valuePath
+  placeholder=placeholder
+  }}
+
+{{#if showValidate}}
+  <div class="error">
+      {{v-get model valuePath 'message'}}
+  </div>
+{{/if}}

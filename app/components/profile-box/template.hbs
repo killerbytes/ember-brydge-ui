@@ -1,10 +1,12 @@
-<div class="profile-photo">
+<div>
   {{#if isOwner}}
     {{image-upload fileLoaded="fileLoaded" logoUrl=profile.avatarUrl}}
   {{else}}
     <div class="avatar-wrapper">
-      <div class="avatar" style={{htmlSafeImage profile.avatarUrl}}>
-        <img src="{{profile.avatarUrl}}" class="hide">
+      <div class="profile-photo circle">
+        <div class="avatar" style={{htmlSafeImage profile.avatarUrl}}>
+          <img src="{{profile.avatarUrl}}" class="hide">
+        </div>
       </div>
     </div>
   {{/if}}

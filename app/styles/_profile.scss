@@ -90,7 +90,7 @@
 
 	}
 }
-form.avatar-wrapper{
+.avatar-wrapper{
 	.avatar{
 		box-shadow: 0 0 0 1px $border-color;
 		border: 3px solid #FFF;
@@ -98,7 +98,6 @@ form.avatar-wrapper{
 		height: 100%;
 	}
 	.profile-photo{
-		cursor: pointer;
 		position: relative;
 		width: 130px;
 		height: 130px;
@@ -108,5 +107,7 @@ form.avatar-wrapper{
 			margin-top: 42%;
 		}
 	}
-
+}
+form.avatar-wrapper{
+  cursor: pointer;
 }

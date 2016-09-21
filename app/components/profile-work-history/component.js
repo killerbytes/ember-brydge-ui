@@ -18,11 +18,11 @@ export default Ember.Component.extend( {
 		'Independent Consultant',
 		'Independent Contractor' ],
 	today: moment(),
-	default: function(){
+	_default: function(){
 		return this.get('store').createRecord('experience', {startFrom: new Date(), endAt: new Date()});
 	},
 	item: Ember.computed(function(){
-		return this.default();
+		return this._default();
 	}),
 	defaultCareerStatus: Ember.computed(function(){
 		return this.get('profile.customTitle') ? this.get('profile.currentTitle') : 'On Sabbatical Leave';
@@ -49,7 +49,7 @@ export default Ember.Component.extend( {
 			this._resetShowHighlight();
 			// var profile = this.get('store').peekRecord('profile', userid);
 			// profile.set('customTitle', true);
-			this._setProfile(true, this.get('defaultCareerStatus'), null)
+			// this._setProfile(true, this.get('defaultCareerStatus'), null)
 
 		})
 	},
@@ -60,6 +60,7 @@ export default Ember.Component.extend( {
 		this.set('profile.customTitle', false);
   },
 	_setProfile(isCustom, title, company){
+		return false;
 		this.set('profile.customTitle', isCustom ? true : false);
 		this.set('profile.currentTitle', title);
 		this.set('profile.currentCompany', company);
@@ -80,7 +81,7 @@ export default Ember.Component.extend( {
 			this._resetShowHighlight();
       data.save().then(()=>{
 				cb.apply();
-				this.set('item', this.default())
+				this.set('item', this._default())
 				Ember.run.later(()=>{
 					Foundation.reInit($('ul.accordion'));
 					this.$('ul.accordion').foundation('toggle', $('.accordion-content'));
@@ -88,17 +89,17 @@ export default Ember.Component.extend( {
       })
     },
 		delete(item){
-			if(item.get('isProfileTitle')) this._setProfile(false, 'Title Unspecified', null);
+			// if(item.get('isProfileTitle')) this._setProfile(false, 'Title Unspecified', null);
 			item.destroyRecord();
 		},
 		clear(){
-			this.set('item', this.default())
+			this.set('item', this._default())
 		},
 		highlightCustom(){
 			this._highlightStatus();
 		},
 		highlight(item){
-			this._setProfile(false, item.get('title'), item.get('company'))
+			// this._setProfile(false, item.get('title'), item.get('company'))
 			item.set('isProfileTitle', true)
 			item.save().then(res=>{
 				this._resetShowHighlight();

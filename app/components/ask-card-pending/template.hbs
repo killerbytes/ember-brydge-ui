@@ -17,19 +17,19 @@
         </div>
       </div>
     </div>
-
     <div class="content-pad">{{item.question}}</div>
-    {{#unless item.answer}}
     {{#if isOwner}}
+      {{#if isPending}}
       <div class="section-footer-buttons">
-        <a {{action "select" item }} class="button success rounded" data-open="answerFormModal">Write Answer</a>
+        <a class="button success rounded" data-open={{concat 'answer-form-' item.id}}>Write Answer</a>
         <a class="button button-border rounded" data-open={{concat 'dialog-box-' 'delete-' item.id}}>Delete</a>
         <a class="button button-border rounded" data-open={{concat 'dialog-box-' 'flag-' item.id}}>Flag</a>
       </div>
+      {{/if}}
     {{/if}}
-    {{/unless}}
   </div>
 </section>
 
 {{dialog-box name="delete" item=item title="Delete Question" content="Are you sure you want to delete this question?" submit="delete"}}
 {{dialog-box name="flag" item=item title="Flag Question" content="Are you sure you want to flag this question?" submit="flag"}}
+{{answer-form-modal item=item submit="submit"}}

@@ -67,7 +67,7 @@
 					<li>
 						<ul class="user-info no-bullet">
 							<li>
-								{{#link-to "me"}}
+								{{#link-to "profile" session.data.authenticated.user_id}}
 									<div class="avatar" style={{htmlSafeImage sessionAccount.account.profile.avatarUrl}}>
 										<img src= {{sessionAccount.account.profile.avatarUrl}} class="hide">
 									</div>
@@ -282,7 +282,7 @@
 			<li>{{link-to "Home" "home"}}</li>
 		</ul>
 		<ul class="menu">
-			<li>{{link-to "Profile" "me"}}</li>
+			<li>{{link-to "Profile" "profile" session.data.authenticated.user_id}}</li>
 			<li>{{link-to "Edit Profile" "me.edit"}}</li>
 
 		</ul>

@@ -6,6 +6,11 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
 	model: function(params) {
 		return this.store.find('ask', params.id);
 	},
+	afterModel(model, transition){
+
+		if(model.get('status') == "accepted") this.transitionTo('ask.detail', model.get('id'));
+
+	},
 	actions: {
   	error() {
   		this.transitionTo('me.ask');
