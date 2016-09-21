@@ -37,6 +37,11 @@ export default Ember.Component.extend( {
   _onDropdownChange: Ember.observer('highlightStatus', function() {
   	if(this.get('isHighlightStatus')) this._highlightStatus();
   }),
+	_reloadComponentData(){
+		var userid = this.get('session.data.authenticated.user_id');
+		this.get('store').findAll('experience');
+		this.get('store').findRecord('profile', userid);
+	},
 	_highlightStatus(){
 		var userid = this.get('session.data.authenticated.user_id');
 		var data = {
@@ -46,10 +51,11 @@ export default Ember.Component.extend( {
 			method: 'PATCH',
 			data: { highlight: data },
 		}).then(res=>{
-			this._resetShowHighlight();
+			// this._resetShowHighlight();
 			// var profile = this.get('store').peekRecord('profile', userid);
-			// profile.set('customTitle', true);
+			// this.set('profile.customTitle', true);
 			// this._setProfile(true, this.get('defaultCareerStatus'), null)
+			this._reloadComponentData();
 
 		})
 	},
@@ -78,10 +84,11 @@ export default Ember.Component.extend( {
 			})
 		},
     create(data, cb){
-			this._resetShowHighlight();
+			// this._resetShowHighlight();
       data.save().then(()=>{
 				cb.apply();
-				this.set('item', this._default())
+				// this.set('item', this._default());
+				this._reloadComponentData();
 				Ember.run.later(()=>{
 					Foundation.reInit($('ul.accordion'));
 					this.$('ul.accordion').foundation('toggle', $('.accordion-content'));
@@ -102,8 +109,9 @@ export default Ember.Component.extend( {
 			// this._setProfile(false, item.get('title'), item.get('company'))
 			item.set('isProfileTitle', true)
 			item.save().then(res=>{
-				this._resetShowHighlight();
-				item.set('isProfileTitle', true)
+				this._reloadComponentData();
+				// this._resetShowHighlight();
+				// item.set('isProfileTitle', true)
 				// var data = {
 				// 	status: item.get('title')
 				// }
