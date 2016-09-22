@@ -13,7 +13,7 @@ export default Ember.Component.extend(Validations, {
 	actions: {
 		submit(){
 			this.set('item.status', 'accepted');
-			this.set('item.answer', this.get('answer'));
+			this.set('item.answer', this.get('answer').trim());
 			this.get('item').save().then(res=>{
 				this.sendAction('submit');
 			});

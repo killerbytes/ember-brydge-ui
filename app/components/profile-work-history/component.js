@@ -77,15 +77,17 @@ export default Ember.Component.extend( {
         cb.apply();
       });
     },
-		update (data, cb) {
-			data.save().then(()=>{
+		update (item, cb) {
+			item.set('content', item.get('content').trim());
+			item.save().then(()=>{
 				this.$('ul.accordion').foundation('toggle', $('.accordion-content'))
 				cb.apply();
 			})
 		},
-    create(data, cb){
+    create(item, cb){
 			// this._resetShowHighlight();
-      data.save().then(()=>{
+			item.set('content', item.get('content').trim());
+      item.save().then(()=>{
 				cb.apply();
 				// this.set('item', this._default());
 				this._reloadComponentData();

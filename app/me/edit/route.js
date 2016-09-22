@@ -42,6 +42,7 @@ export default Ember.Route.extend(
 	actions: {
     save(item, cb){
       var profile = this.get('controller.profile');
+      profile.set('snapshot', profile.get('snapshot').trim())
       profile.save().then(()=>{
         cb.apply()
       });

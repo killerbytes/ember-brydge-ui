@@ -24,8 +24,12 @@ export default Ember.Component.extend({
 	actions: {
 		focusOut(){
 			this.set('focusOut', true);
-			this.sendAction('focus-out')
-		}
+			this.sendAction('focus-out');
+		},
+		keyUp(){
+			this.sendAction('key-up');
+	  },
+
 	},
 
   notValidating: computed.not('validation.isValidating'),
