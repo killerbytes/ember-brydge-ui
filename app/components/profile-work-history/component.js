@@ -78,7 +78,8 @@ export default Ember.Component.extend( {
       });
     },
 		update (item, cb) {
-			item.set('content', item.get('content').trim());
+			if(item.get('content')) item.get('content').trim();
+			item.set('content', item.get('content'));
 			item.save().then(()=>{
 				this.$('ul.accordion').foundation('toggle', $('.accordion-content'))
 				cb.apply();
@@ -86,7 +87,8 @@ export default Ember.Component.extend( {
 		},
     create(item, cb){
 			// this._resetShowHighlight();
-			item.set('content', item.get('content').trim());
+			if(item.get('content')) item.get('content').trim();
+			item.set('content', item.get('content'));
       item.save().then(()=>{
 				cb.apply();
 				// this.set('item', this._default());

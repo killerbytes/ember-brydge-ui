@@ -9,8 +9,8 @@
     <div class="columns medium-7 border-r scrollbar">
       <div class="industry-pane">
         {{#each industries as |item|}}
-          <h3>Sector</h3>
-          {{industry-item profile=item selected=selected}}
+          <h3>{{item.name}}</h3>
+          {{industry-item category=item selected=selected}}
         {{/each}}
       </div>
     </div>

@@ -5,9 +5,10 @@ export default Ember.Service.extend({
 	store: Ember.inject.service(),
   session: Ember.inject.service('session'),
 	create(userid, question){
+
 		return this.get('store').createRecord('ask',{
 			userid: userid,
-			question: question
+			question: null || question
 		}).save();
 
 	},

@@ -1,7 +1,8 @@
 import DS from 'ember-data';
+import Validations from './validations/education';
 
 /* Profile query by username (as PK) */
-export default DS.Model.extend({
+export default DS.Model.extend(Validations, {
 	userid: DS.attr(),
 	requestid: DS.attr(),
 	question: DS.attr('string'),
