@@ -1,16 +1,11 @@
 import Ember from 'ember';
 
 export default Ember.Component.extend({
-	classNames: ['row', 'collapse', 'industry-item'],
+	classNames: ['row', 'collapse', 'industry-item', 'mb'],
 	store: Ember.inject.service(),
 	industryPicker: Ember.inject.service(),
-	init(){
-		this._super(...arguments);
-		// this._setSelected();
-	},
-	categories: Ember.computed('profile', function(){
-		// this.get('store').unloadAll('experience');
-		return this.get('store').query('newsfeed',{filter: this.get('profile'), tab: 'profile'});
+	groups: Ember.computed('item', function(){
+		return this.get('store').query('industry',{category: this.get('item.id')});
 	}),
 	onSelected: Ember.observer('selected','posts.length', function(){
 		if(!this.get('selected')) return false;
@@ -19,18 +14,16 @@ export default Ember.Component.extend({
 			if(item) item.set('active', true);
 		})
 	}),
-	// _setSelected(){
-	// 	// this.get('selected')
-	// 	console.log(this.get('posts.length'));
-	// },
-	_load(id){
-		this.get('store').findRecord('industry-id', id).then(res=>{
+	_load(item){
+		console.log(item.set('active', true))
+		this.get('store').queryRecord('industry', {category: item.get('groupId'), id: item.get('industryId')}).then(res=>{
 			this.set('industryPicker.selected', res);
 		})
 	},
 	actions: {
 		select(item){
-			this._load(item.id)
+			this.sendAction("reset");
+			this._load(item);
 
 		}
 	}

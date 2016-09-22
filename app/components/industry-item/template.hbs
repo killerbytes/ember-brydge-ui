@@ -1,15 +1,13 @@
 <div class="column medium-5">
   <div class="wrapper industry-thumb">
     <img src="https://storage.googleapis.com/brydge-assets/temp/61237789.png" alt="">
-    <strong>{{category.name}}</strong>
+    <strong>{{item.name}}</strong>
   </div>
 </div>
 <div class="column medium-7">
-  <section>
-  <ul class="no-bullet">
-  {{#each categories as |item|}}
-    <li><a {{action "select" item}}>{{item.name}}</a> {{item.active}}</li>
+  <ul class="industry-list">
+  {{#each groups as |item|}}
+    <li><a {{action "select" item}}>{{item.industry}}</a> {{item.active}}</li>
   {{/each}}
   </ul>
-  </section>
 </div>

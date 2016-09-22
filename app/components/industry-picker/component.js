@@ -10,6 +10,9 @@ export default Ember.Component.extend({
   actions: {
     set(){
       this.get('industryPicker.industries').pushObject(this.get('industryPicker.selected.id'))
+    },
+    reset(){
+      console.log('reset')
     }
   }
 });

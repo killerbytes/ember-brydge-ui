@@ -8,9 +8,13 @@
   <div class="row collapse row-aligned-columns">
     <div class="columns medium-7 border-r scrollbar">
       <div class="industry-pane">
-        {{#each industries as |item|}}
-          <h3>{{item.name}}</h3>
-          {{industry-item category=item selected=selected}}
+        {{#each industries as |category|}}
+          <div class="mb20">
+            <h3>{{category.name}}</h3>
+            {{#each category.groups as |item| }}
+              {{industry-item item=item reset="reset"}}
+            {{/each}}
+          </div>
         {{/each}}
       </div>
     </div>

@@ -29,11 +29,6 @@
 			padding: .50rem;
 		}
 	}
-	.industry-item{
-		ul li{
-			padding-bottom: .5rem;
-		}
-	}
 	.industry-detail{
 		min-height: 450px;
 		max-height: 500px;
@@ -43,5 +38,13 @@
 		position: absolute;
 		bottom: 0;
 		width: 100%;
+	}
+	ul.industry-list{
+	  @extend .no-bullet;
+	  margin-left: 1rem;
+		a{
+			display: inline-block;
+			padding: .5rem;
+		}
 	}
 }
