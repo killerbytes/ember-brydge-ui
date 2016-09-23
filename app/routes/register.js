@@ -3,6 +3,13 @@ import RouterClassNamesMixins from 'web/mixins/route-class-names';
 
 export default Ember.Route.extend(RouterClassNamesMixins, {
 	ajax: Ember.inject.service(),
+	session: Ember.inject.service(),
+	beforeModel() {
+    this._super(...arguments);
+    if (this.get('session.isAuthenticated')) {
+      this.transitionTo('home');
+    }
+  },
 	model: function(params){
 		if(!params.code) return;
 		var url = `v2/check-invitation/${params.code}`;
