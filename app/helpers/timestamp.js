@@ -10,20 +10,20 @@ export default Ember.Helper.helper(([date])=>{
       break;
     case dd < 3600: // < 60 minutes
       var i = Math.floor(dd/60);
-      return  i > 1 ? i + ' minutes ago' : i + ' minute ago';
+      return  i > 1 ? i + ' mins ago' : i + ' min ago';
       break;
     case dd < 86400: // < 24 hours
       var i = Math.floor(dd/60/60);
-      return  i > 1 ? i + ' hours ago' : i + ' hour ago';
+      return  i > 1 ? i + ' hrs ago' : i + ' hr ago';
       break;
     case dd < 172800: // < 48 hours
       return  'Yesterday at ' + date.format("h:mma");
       break;
     default:
       if(today.year() == date.year()){
-        return  date.format("MMMM D");
+        return  date.format("MMM D");
       }else{
-        return  date.format("MMMM D, YYYY");
+        return  date.format("MMM D, YYYY");
       }
       break;
   }

@@ -5,14 +5,10 @@ export default Ember.Component.extend({
 	store: Ember.inject.service(),
 	industryPicker: Ember.inject.service(),
 	_setSelected: Ember.observer('industryPicker.industries.length', function(){
-			this.get('groups').forEach(i=>{
-				console.log(i)
-			})
-		// this.get('industryPicker.industries').forEach(i=>{
-		// 	var industry = this.get('groups').findBy('industryId', i);
-		// 	console.log(i, industry, this.get('groups'))
-		// 	industry.set('selected', true)
-		// })
+		this.get('industryPicker.industries').forEach(i=>{
+			var industry = this.get('groups').findBy('industryId', i);
+			if(industry) industry.set('selected', true);
+		})
 		// this.get('industryPicker.industries');
 	}),
 	groups: Ember.computed('item', function(){

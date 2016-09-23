@@ -48,12 +48,12 @@
 		}
 		a.selected{
 			@extend .rounded;
-			background-color: $brydge-blue;
+			background-color: gray;
 			color: #FFF;
 		}
 		a.active{
 			@extend .rounded;
-			background-color: $brydge-gray;
+			background-color: $brydge-blue;
 			color: #FFF;
 		}
 	}

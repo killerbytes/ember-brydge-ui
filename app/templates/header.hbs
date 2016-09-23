@@ -65,7 +65,7 @@
             </span>
 					</li>
 					<li>
-						<ul class="user-info no-bullet">
+						<ul class="user-info user-session no-bullet">
 							<li>
 								{{#link-to "profile" session.data.authenticated.user_id}}
 									<div class="avatar" style={{htmlSafeImage sessionAccount.account.profile.avatarUrl}}>
@@ -250,7 +250,7 @@
 					      </div>
 					      <div class="user-info">
 		              <div>
-		              	<strong class="text-title">{{item.target.profile.fullName }}</strong> {{{notification-text item}}}
+		              	<strong class="name">{{item.target.profile.fullName }}</strong> {{{notification-text item}}}
 		              </div>
 		              <span class="timestamp">{{ timestamp item.createdAt }}</span>
 					      </div>
