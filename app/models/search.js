@@ -1,20 +1,18 @@
 import DS from 'ember-data';
 
 export default DS.Model.extend({
-	name: DS.attr(),
-	location: DS.attr(),
-	description: DS.attr(),
-	username: DS.attr(),
-	avatarUrl: DS.attr(),
-	company: DS.attr(),
-	"entity-kind": DS.attr(),
-	firstName: DS.attr(),
-	industry: DS.attr(),
-	keywords: DS.attr(),
-	lastName: DS.attr(),
-	occupation: DS.attr(),
-	snapshot: DS.attr(),
-	title: DS.attr(),
-	userid: DS.attr(),
-	username: DS.attr()
+  avatar: DS.attr(),
+  userid: DS.attr(),
+  firstName: DS.attr({defaultValue: ''}),
+	lastName: DS.attr({defaultValue: ''}),
+  currentTitle: DS.attr('string'),
+	currentCompany: DS.attr('string'),
+  fullName: Ember.computed('firstName', 'lastName', function(){
+		return this.get('firstName') + ' ' + this.get('lastName');
+	}),
+  career: Ember.computed('currentTitle', 'currentCompany', function(){
+		var title = this.get('currentTitle');
+		var company = this.get('currentCompany');
+		return this.get('currentCompany') ? `${title} at ${company}` : title;
+	})
 });

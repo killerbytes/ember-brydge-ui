@@ -16,7 +16,8 @@ export default Ember.Service.extend({
   results: [],
   key: null,
   query(params)  {
-		this.get('store').query('search', params).then((res)=>{
+		this.get('store').query('search', params).then(res=>{
+      console.log(res)
 			this.set('results', res);
 		})
   },

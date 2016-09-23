@@ -14,6 +14,7 @@
 	<ul class="media-list no-bullet user">
 		{{#each search.results as |item|}}
 			<li {{action "clear"}}>
+				{{log item}}
 				{{#link-to "profile" item.userid}}
 		      <div class="avatar" style={{htmlSafeImage item.avatar }}>
 		        <img src= {{item.avatar}} class="hide">
