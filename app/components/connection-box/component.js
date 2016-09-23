@@ -4,14 +4,20 @@ export default Ember.Component.extend({
 	classNames: ['box'],
 	session: Ember.inject.service(),
 	connection: Ember.inject.service(),
-	isConnected: Ember.computed('item.friend.status', function(){
-		return this.get('item.friend.status') == 'accepted';
+	user: Ember.computed('item', function(){
+		var userid = this.get('meta.requestid');
+		return userid == this.get('item.userid.id') ? this.get('item.friendid') : this.get('item.userid');
 	}),
-	isPending: Ember.computed('item.friend.status', function(){
-		return this.get('item.friend.status') == 'pending';
+	status: Ember.computed('user.profile.connection.status', function(){
+		return this.get('user.profile.connection.status');
 	}),
-	isOwner: Ember.computed('item.userid', function(){
-		return this.get('item.userid') == this.get('session.data.authenticated.user_id');
+	isSelf: Ember.computed('user', function(){
+		return this.get('user.id') == this.get('session.data.authenticated.user_id');
+	}),
+	isAccepted: Ember.computed.equal('status', 'accepted'),
+	isPending: Ember.computed.equal('status', 'pending'),
+	shouldAccept: Ember.computed('item.friend.friendid', function(){
+		return this.get('item.friend.friendid.id') == this.get('session.data.authenticated.user_id');
 	}),
 	actions: {
     connect (cb) {

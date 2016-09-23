@@ -28,9 +28,9 @@
           </form>
         </section>
         <section class="row medium-up-2 columns bg-gray user-list">
-          {{#each connections as |item|}}
+          {{#each accepted as |item|}}
             <div class="columns medium-6">
-              {{connection-box item=item}}
+              {{connection-box item=item meta=meta}}
             </div>
           {{/each}}
         </section>

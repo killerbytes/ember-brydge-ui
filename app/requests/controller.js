@@ -5,9 +5,9 @@ export default Ember.Controller.extend({
   session: Ember.inject.service(),
   notification: Ember.inject.service(),
 	requests: Ember.computed('model.@each.status', function(i) {
-    var ownerid = this.get('session.data.authenticated.user_id');
+    var userid = this.get('session.data.authenticated.user_id');
     return this.get('model').filter(function(i){
-    	return i.get('requestid') != ownerid && i.get('status') == 'pending';
+    	return i.get('userid.id') != userid && i.get('status') == "pending";
     })
   })
 });

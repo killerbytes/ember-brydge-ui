@@ -5,8 +5,12 @@ export default Ember.Controller.extend({
   queryParams: ['tab'],
   tab: 'tab_1',
   profile: Ember.computed.alias('model.profile'),
-  list: Ember.computed.alias('model.list'),
-  accepted: Ember.computed.filterBy('model.mutual', 'status', 'accepted'),
+  meta: Ember.computed('model.accepted', function(){
+    return this.get('model.accepted.meta');
+  }),
+  accepted: Ember.computed.alias('model.accepted'),
+
+  // accepted: Ember.computed.filterBy('model.mutual', 'status', 'accepted'),
   mutual: Ember.computed.filterBy('accepted', 'friend.status', 'accepted'),
   mutual_connections: Ember.computed('mutual', 'key', function(){
     let query = this.get('key');

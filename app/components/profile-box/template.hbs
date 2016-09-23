@@ -69,26 +69,22 @@
   </section>
   <div class="text-title">
     {{#unless isOwner }}
-      {{#unless isConnected }}
-        {{#if isPending}}
-          {{#if isSender}}
-            Connection Request Sent
-          {{else}}
-            <button class="button large bordered green"{{action "accept"}}>Accept Request</button>
-          {{/if}}
-        {{else}}
-          <button class="button large bordered green"{{action "connect"}}>Connect</button>
-        {{/if}}
-      {{else}}
-
+      {{#if isAccepted}}
         {{#zf-tooltip title="Send Message" positionClass="right"}}
           {{#link-to "messages.conversation" profile.connection.conversationid class="inline-block"}}
             <i class="icons messages"></i>
           {{/link-to}}
         {{/zf-tooltip}}
 
-
-      {{/unless}}
+      {{else if isPending}}
+        {{#if shouldAccept}}
+          <button class="button large bordered green"{{action "accept"}}>Accept Request</button>
+        {{else}}
+          Connection Request Sent
+        {{/if}}
+      {{else}}
+        <button class="button large bordered green"{{action "connect"}}>Connect</button>
+      {{/if}}
     {{/unless}}
   </div>
 </div>

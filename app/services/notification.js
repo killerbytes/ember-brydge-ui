@@ -6,11 +6,11 @@ export default Ember.Service.extend({
   ajax: Ember.inject.service(),
   routing: Ember.inject.service(),
   phoenix: Ember.inject.service(),
-  // requests: Ember.computed('request.@each.status', function(i) {
-  //   console.log(this.get('request'))
-  //   var ownerid = this.get('session.data.authenticated.user_id');
+  // requestsxx: Ember.computed('request.@each.status', function(i) {
+  //   var userid = this.get('session.data.authenticated.user_id');
   //   return this.get('request').filter(function(i){
-  //   	return i.get('requestid') != ownerid && i.get('status') == 'pending';
+  //     console.log(i.get('userid') , userid)
+  //   	return i.get('userid') != userid;
   //   })
   // }),
   checkPush() {
@@ -43,9 +43,8 @@ export default Ember.Service.extend({
     })
   },
   loadRequests(cb){
-    // this.get('store').unloadAll('connection');
-    // return this.get('store').findAll('connection', {reload: true}).then(res=>{
-    return this.get('store').query('connection', {userid: this.get('session.data.authenticated.user_id')}).then(res=>{
+    var userid = this.get('session.data.authenticated.user_id');
+    return this.get('store').query('connection', {userid: userid, status: 'pending' }).then(res=>{
       this.set('request', res);
       if(cb) cb.call();
     })

@@ -14,12 +14,11 @@ export default Ember.Mixin.create({
 	views: Ember.computed.sort('notification.view', 'sort'),
 	// requests: Ember.computed.sort('notification.request', 'sort'),
 	requests: Ember.computed('notification.request.@each.status', function(i) {
-    var ownerid = this.get('session.data.authenticated.user_id');
+    var userid = this.get('session.data.authenticated.user_id');
     return this.get('notification.request') && this.get('notification.request').filter(function(i){
-    	return i.get('requestid') != ownerid && i.get('status') == 'pending';
+    	return i.get('userid.id') != userid && i.get('status') == "pending";
     })
   }),
-
 	messages: Ember.computed.sort('notification.message', 'sortUpdated'),
 	notifications: Ember.computed.sort('notification.notification', 'sort'),
 	_read(item){

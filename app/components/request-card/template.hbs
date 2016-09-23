@@ -1,14 +1,14 @@
 <section>
   <div class="row collapse">
     <div class="columns medium-9">
-      {{#link-to "profile" item.userid}}
-      <div class="avatar" style={{htmlSafeImage item.avatar }}>
-        <img src= {{item.avatar}} class="hide">
+      {{#link-to "profile" user.id}}
+      <div class="avatar" style={{htmlSafeImage user.profile.avatarUrl }}>
+        <img src= {{user.profile.avatarUrl}} class="hide">
       </div>
       {{/link-to}}
       <div class="user-info">
-        {{link-to item.fullName "profile" item.userid class="text-title"}}
-        <div class="position">{{item.career}}</div>
+        {{link-to user.profile.fullName "profile" user.id class="text-title"}}
+        <div class="position">{{user.profile.career}}</div>
       </div>
 
     </div>
