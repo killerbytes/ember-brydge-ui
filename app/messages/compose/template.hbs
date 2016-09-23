@@ -10,16 +10,7 @@
 		{{#each connections as |item|}}
 			<li>
 				{{#link-to "messages.conversation" item.conversationid }}
-	        <div class="row user">
-	          <div class="columns">
-	            <div class="avatar" style={{htmlSafeImage item.avatar }}>
-	              <img src= {{item.avatar}} class="hide">
-	            </div>
-	            <div class="user-info">
-	              <a class="name">{{ item.fullName }}</a>
-	            </div>
-	          </div>
-	        </div>
+					{{contact-item item=item meta=meta}}
 				{{/link-to}}
 			</li>
 		{{/each}}

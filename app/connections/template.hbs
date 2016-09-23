@@ -19,6 +19,7 @@
       </li>
     {{/zf-tabs}}
   </div>
+
   <div class="tabs-content" data-tabs-content="ask-tabs">
     <div class="tabs-panel {{active-tab 'tab_1' tab}}" id="tab_1">
       <div class="box row columns">
@@ -28,7 +29,7 @@
           </form>
         </section>
         <section class="row medium-up-2 columns bg-gray user-list">
-          {{#each accepted as |item|}}
+          {{#each connections as |item|}}
             <div class="columns medium-6">
               {{connection-box item=item meta=meta}}
             </div>
@@ -44,7 +45,7 @@
           </form>
         </section>
         <section class="row medium-up-2 columns bg-gray user-list">
-          {{#each mutual as |item|}}
+          {{#each mutual_connections as |item|}}
             <div class="columns medium-6">
               {{connection-box item=item meta=meta}}
             </div>

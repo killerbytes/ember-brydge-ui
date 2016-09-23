@@ -24,9 +24,18 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
     // this.store.unloadAll('connection');
     return Ember.RSVP.hash({
       profile: this.store.findRecord('profile', userid),
-      accepted: this.store.query('connection',{userid: userid, status: 'accepted'}),
+      list: this.store.query('connection',{userid: userid, status: 'accepted'}),
       mutual: this.store.query('connection',{userid: userid, mutual: true})
     });
+  },
+  actions: {
+    didTransition: function(){
+      Ember.run.later(()=>{
+        Ember.$('#ask-tabs').on('change.zf.tabs', (e, elem)=>{
+          this.set('controller.isMutual', true);
+        })
+      })
+    },
   }
 
 

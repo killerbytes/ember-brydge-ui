@@ -9,21 +9,28 @@ export default Ember.Controller.extend({
 	meta: Ember.computed('model', function(){
 		return this.get('model.meta');
 	}),
+	// user: Ember.computed('item', 'item.userid.profile.connection.status', 'item.friendid.profile.connection.status', function(){
+	// 	var userid = this.get('meta.requestid');
+	// 	return userid == this.get('item.userid.id') ? this.get('item.friendid') : this.get('item.userid');
+	// }),
 	connections: Ember.computed('model.@each.status', 'key', function(){
 	  var fields = ['firstName', 'lastName'];
-
-		return this.get('model').filterBy('status', 'accepted');
-		//.filter(function(item){
-		// 	console.log(item.get(''))
-    //   var found = false;
-    //   _.forEach(fields, function(key) {
-		// 		console.log(item.get(key))
-    //     // found = item.get(key).toLowerCase().indexOf(query.toLowerCase()) >= 0 ? true : false;
-    //     if(found) return false;
-    //   })
-    //   return found;
-		// })
+	  var query = this.get('key');
+    if(!query) return this.get('model').filterBy('status', 'accepted');
+		return this.get('model').filterBy('status', 'accepted')
+		.filter(item=>{
+			var user = this._getUser(item);
+      var found = false;
+      _.forEach(fields, function(key) {
+        found = user.get(`profile.${key}`).toLowerCase().indexOf(query.toLowerCase()) >= 0 ? true : false;
+        if(found) return false;
+      })
+      return found;
+		})
 	}),
+	_getUser(item){
+		return this.get('meta.requestid') == item.get('userid.id') ? item.get('friendid') : item.get('userid');
+	},
   // acceptedList: Ember.computed('model.@each.status', 'key', function(){
   //   let query = this.get('key');
   //   if(!query) return this.get('model').filterBy('status','accepted');
