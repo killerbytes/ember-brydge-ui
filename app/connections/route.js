@@ -25,7 +25,7 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
     return Ember.RSVP.hash({
       profile: this.store.findRecord('profile', userid),
       accepted: this.store.query('connection',{userid: userid, status: 'accepted'}),
-      // mutual: this.store.query('connection',{userid: userid, mutual: true})
+      mutual: this.store.query('connection',{userid: userid, mutual: true})
     });
   }
 

@@ -4,11 +4,11 @@ export default Ember.Component.extend({
 	classNames: ['box'],
 	session: Ember.inject.service(),
 	connection: Ember.inject.service(),
-	user: Ember.computed('item', function(){
+	user: Ember.computed('item', 'item.userid.profile.connection.status', 'item.friendid.profile.connection.status', function(){
 		var userid = this.get('meta.requestid');
 		return userid == this.get('item.userid.id') ? this.get('item.friendid') : this.get('item.userid');
 	}),
-	status: Ember.computed('user.profile.connection.status', function(){
+	status: Ember.computed('user.profile.connection.status','item.friend.connection.status', function(){
 		return this.get('user.profile.connection.status');
 	}),
 	isSelf: Ember.computed('user', function(){
@@ -21,11 +21,11 @@ export default Ember.Component.extend({
 	}),
 	actions: {
     connect (cb) {
-      var userid = this.get('item.userid');
+      var userid = this.get('user.id');
       this.get('connection')
       .request(userid)
       .then(res=>{
-				this.set('item.friend.status', res.get('status'));
+				this.set('user.profile.connection', res);
       });
     }
 	}

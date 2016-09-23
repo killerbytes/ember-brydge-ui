@@ -9,9 +9,10 @@ export default Ember.Controller.extend({
     return this.get('model.accepted.meta');
   }),
   accepted: Ember.computed.alias('model.accepted'),
+  mutual: Ember.computed.alias('model.mutual'),
 
   // accepted: Ember.computed.filterBy('model.mutual', 'status', 'accepted'),
-  mutual: Ember.computed.filterBy('accepted', 'friend.status', 'accepted'),
+  // mutual: Ember.computed.filterBy('accepted', 'friend.status', 'accepted'),
   mutual_connections: Ember.computed('mutual', 'key', function(){
     let query = this.get('key');
     if(!query) return this.get('mutual');
