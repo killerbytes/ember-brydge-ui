@@ -5,9 +5,10 @@
   </div>
 </div>
 <div class="column medium-7">
+  {{selected}}
   <ul class="industry-list">
   {{#each groups as |item|}}
-    <li><a {{action "select" item}}>{{item.industry}}</a> {{item.active}}</li>
+    <li><a class="{{if item.selected 'selected'}}" {{action "select" item}}>{{item.industry}}</a> {{item.active}}</li>
   {{/each}}
   </ul>
 </div>

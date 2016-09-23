@@ -11,9 +11,15 @@
 </div>
 {{#unless isSelf}}
   {{#if isAccepted}}
-    {{#link-to "messages.conversation" item.conversationid class="button success expanded"}}
-      Message
-    {{/link-to}}
+    {{#if me}}
+      {{#link-to "messages.conversation" item.conversationid class="button success expanded"}}
+        Message
+      {{/link-to}}
+    {{else}}
+      {{#link-to "messages.conversation" item.friend.conversationid class="button success expanded"}}
+        Message
+      {{/link-to}}
+    {{/if}}
   {{else if isPending}}
     {{link-to "Connection Request Pending" "profile" user.id class="button bordered expanded button-green"}}
   {{else}}
