@@ -7,6 +7,9 @@ export default Ember.Component.extend({
       $('#industry-picker').foundation('open');
     })
   },
+  // _setActive: Ember.observer('industryPicker.active', function(){
+  //   console.log(this.get('industryPicker.active'))
+  // }),
   actions: {
     set(){
       this.get('industryPicker.industries').pushObject(this.get('industryPicker.selected.id'))

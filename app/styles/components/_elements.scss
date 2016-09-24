@@ -122,14 +122,8 @@ table{
 		color: $text-gray;
 	}
 }
-.user-info.user-session{
+.user-small{
 	.avatar{
-		width: 30px;
-		height: 30px;
-	}
-}
-.comment-item{
-	.user .avatar{
 		width: 30px;
 		height: 30px;
 	}
@@ -142,7 +136,9 @@ table{
 			font-size: 11px;
 		}
 	}
+
 }
+
 
 .menu.user-info{
 	li:last-child a{

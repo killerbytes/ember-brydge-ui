@@ -8,7 +8,7 @@
   {{selected}}
   <ul class="industry-list">
   {{#each groups as |item|}}
-    <li><a class="{{if item.selected 'selected'}}" {{action "select" item}}>{{item.industry}}</a> {{item.active}}</li>
+    <li><a class="{{if item.selected 'selected'}} {{if item.active 'active'}}" {{action "select" item}}>{{item.industry}}</a></li>
   {{/each}}
   </ul>
 </div>

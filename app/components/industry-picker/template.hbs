@@ -20,17 +20,17 @@
     </div>
     <div class="columns medium-5 wrapper">
       <section class="industry-detail bg-gray scrollbar">
-        {{#if industryPicker.selected}}
-          <h3>{{industryPicker.selected.industry}}</h3>
+        {{#if industryPicker.active}}
+          <h3>{{industryPicker.active.industry}}</h3>
 
           <p class="mb20">
             <a class="button large green"{{action "set"}}>Select Industry</a>
           </p>
-          <p class="">{{industryPicker.selected.description}}</p>
+          <p class="">{{industryPicker.active.description}}</p>
           <h4>People in the Industry</h4>
-          {{industryPicker.selected.sample}}
+          {{industryPicker.active.sample}}
           <h4>Related Industries</h4>
-          {{industryPicker.selected.related}}
+          {{industryPicker.active.related}}
         {{/if}}
       </section>
       <section>

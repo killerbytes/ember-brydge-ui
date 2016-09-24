@@ -4,6 +4,12 @@ export default Ember.Component.extend({
 	classNames: ['row', 'collapse', 'industry-item', 'mb'],
 	store: Ember.inject.service(),
 	industryPicker: Ember.inject.service(),
+	_setActive: Ember.observer('industryPicker.active', function(){
+		var industry = this.get('groups').findBy('industryId', this.get('industryPicker.active.id'));
+		var active = this.get('groups').findBy('active', true);
+		if(active) active.set('active', false);
+		if(industry) industry.set('active', true);
+  }),
 	_setSelected: Ember.observer('industryPicker.industries.length', function(){
 		this.get('industryPicker.industries').forEach(i=>{
 			var industry = this.get('groups').findBy('industryId', i);
@@ -22,16 +28,13 @@ export default Ember.Component.extend({
 		})
 	}),
 	_load(item){
-		// console.log(item.set('active', true))
 		this.get('store').queryRecord('industry', {category: item.get('groupId'), id: item.get('industryId')}).then(res=>{
-			this.set('industryPicker.selected', res);
+			this.set('industryPicker.active', res);
 		})
 	},
 	actions: {
 		select(item){
-			this.sendAction("reset");
 			this._load(item);
-
 		}
 	}
 });

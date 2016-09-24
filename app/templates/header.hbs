@@ -65,7 +65,7 @@
             </span>
 					</li>
 					<li>
-						<ul class="user-info user-session no-bullet">
+						<ul class="user-info user-small user-session no-bullet">
 							<li>
 								{{#link-to "profile" session.data.authenticated.user_id}}
 									<div class="avatar" style={{htmlSafeImage sessionAccount.account.profile.avatarUrl}}>
@@ -103,7 +103,7 @@
         You can turn this ON or OFF in {{link-to "Settings" "settings" (query-params tab="views")}}.
       </div>
 		</div>
-		<ul class="media-list user">
+		<ul class="media-list user user-small">
 			{{#if settings.profileView}}
 				{{#each views as |item|}}
   				<li {{action "read" item}}>
@@ -160,7 +160,7 @@
 					These users want to connect! Accept if you know them, or head over to their profile to see if they can be relevant professional acquaintances.
 				</div>
 		</div>
-		<ul class="media-list user">
+		<ul class="media-list user user-small">
       {{#if loading.requests}}
         <li>
           <div class="empty-message">
@@ -194,7 +194,7 @@
 				</div>
 		</div>
 
-		<ul class="media-list user">
+		<ul class="media-list user user-small">
 			{{#each messages as |item|}}
 			<li {{action "read" item}} class="{{if item.read false 'new-notification'}}">
 				{{#link-to "messages.conversation" item.referenceid class="no-color" }}
@@ -239,7 +239,7 @@
 				</div>
 		</div>
 
-	  <ul class="media-list user">
+	  <ul class="media-list user user-small">
 		  {{#each notifications as |item|}}
 		    <li>
 		    	<a {{action "select" item}} class="{{if item.read false 'new-notification'}}">
