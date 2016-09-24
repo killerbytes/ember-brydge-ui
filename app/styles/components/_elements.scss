@@ -93,7 +93,7 @@ table{
 .user{
 	position: relative;
 	.avatar{
-		float: left;
+		position: absolute;
 	}
 	.user-info{
 		padding-left: 50px;
@@ -394,9 +394,6 @@ footer{
 section.message-content{
 	@extend .bg-white;
 	padding: 0;
-}
-.message-body{
-	padding-left: 50px;
 }
 
 .ask-menu{

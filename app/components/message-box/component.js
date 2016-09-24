@@ -34,8 +34,12 @@ export default Ember.Component.extend({
     var $scrollable = this.$('.message-scrollable');
     $scrollable.animate({'scrollTop': $scrollable.find('ul:first').height()});
   },
+  didInsertElement(){
+    this._super(...arguments);
+    this._resize();
+  },
   didReceiveAttrs(attrs){
-    this._super();
+    this._super(...arguments);
     this.set('message', null);
     Ember.run.scheduleOnce('afterRender', this, function(){
       if( (attrs.oldAttrs && attrs.oldAttrs.to.value.get('id') != attrs.newAttrs.to.value.get('id')) || !attrs.oldAttrs){

@@ -47,6 +47,7 @@
     bottom: 144px;
     width: 100%;
   }
+
   .messages-list{
     border-top: 1px solid $border-color;
     // position: absolute;
@@ -81,4 +82,14 @@
   .message-body{
     font-size: 11px;
   }
+}
+.user-link-list,
+.messages-list{
+  .message-body{
+    padding-left: 50px;
+  }  
+}
+
+.message-body{
+  padding-left: 40px;
 }

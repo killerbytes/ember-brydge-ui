@@ -9,23 +9,30 @@
       {{#each messages as |item| }}
         <li>
           <div class="row user">
-            <div class="columns medium-8">
+            <div class="columns">
               <div class="avatar" style={{htmlSafeImage item.from.profile.avatarUrl }}>
                 <img src= {{item.from.profile.avatarUrl}} class="hide">
               </div>
               <div class="user-info">
-                {{#link-to "profile" item.from.id class="name"}}
-                  {{ item.from.profile.fullName }}
-                {{/link-to}}
-              </div>
-            </div>
-            <div class="column medium-4 text-right">
-              <div>
-                <div class="timestamp">{{ timestamp item.updatedAt }}</div>
+                <div class="row collapse">
+                  <div class="columns medium-8">
+                    {{#link-to "profile" item.from.id class="name"}}
+                      {{ item.from.profile.fullName }}
+                    {{/link-to}}
+                    <div class="position">
+                      {{item.from.profile.career}}
+                    </div>
+                  </div>
+                  <div class="columns medium-4 text-right">
+                    <div class="timestamp">{{ timestamp item.updatedAt }}</div>
+                  </div>
+                </div>
+                <div class="row columns">
+                  {{brydge-linkify text=item.content class="paragraph"}}
+                </div>
               </div>
             </div>
           </div>
-          {{brydge-linkify text=item.content class="paragraph message-body"}}
         </li>
       {{/each}}
 
