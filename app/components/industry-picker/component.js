@@ -7,12 +7,16 @@ export default Ember.Component.extend({
       $('#industry-picker').foundation('open');
     })
   },
-  // _setActive: Ember.observer('industryPicker.active', function(){
-  //   console.log(this.get('industryPicker.active'))
-  // }),
+  _industryExist(id){
+    if(!this.get('industryPicker.industries')) return true;
+    return this.get('industryPicker.industries').find(i=>{
+      return i==id;
+    });
+  },
   actions: {
-    set(){
-      this.get('industryPicker.industries').pushObject(this.get('industryPicker.active.id'))
+    set(id){
+      console.log(this._industryExist(id))
+      // this.get('industryPicker.industries').pushObject(this.get('industryPicker.active.id'))
     },
     reset(){
       console.log('reset')

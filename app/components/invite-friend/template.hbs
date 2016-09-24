@@ -2,6 +2,7 @@
   <div class="error-messages">
     <ul class="no-bullet errors">
       {{#each errors as |item|}}
+      {{log item}}
           <li>
             <h4>{{item.title}}</h4>
             {{item.detail}}

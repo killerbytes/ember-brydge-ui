@@ -1,7 +1,7 @@
 import Ember from 'ember';
 
 export default Ember.Component.extend({
-	classNames: ['box'],
+	classNames: ['box', 'connection-box'],
 	session: Ember.inject.service(),
 	connection: Ember.inject.service(),
 	user: Ember.computed('item', 'item.userid.profile.connection.status', 'item.friendid.profile.connection.status', function(){

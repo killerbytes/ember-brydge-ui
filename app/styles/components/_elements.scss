@@ -93,7 +93,8 @@ table{
 .user{
 	position: relative;
 	.avatar{
-		position: absolute;
+		// position: absolute;
+		float: left;
 	}
 	.user-info{
 		padding-left: 50px;
@@ -555,3 +556,10 @@ span.middle{
 		align-items: stretch;
 	}
 }
+
+// .connection-box{
+// 	min-height: 110px;
+// 	.user-info{
+// 		min-height: 54px;
+// 	}
+// }

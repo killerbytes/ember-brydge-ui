@@ -80,6 +80,9 @@
 }
 .user-link-list,
 .messages-list{
+  .avatar{
+    position: absolute;
+  }
   .message-body{
     padding-left: 50px;
   }
