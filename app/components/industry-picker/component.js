@@ -12,7 +12,7 @@ export default Ember.Component.extend({
   // }),
   actions: {
     set(){
-      this.get('industryPicker.industries').pushObject(this.get('industryPicker.selected.id'))
+      this.get('industryPicker.industries').pushObject(this.get('industryPicker.active.id'))
     },
     reset(){
       console.log('reset')

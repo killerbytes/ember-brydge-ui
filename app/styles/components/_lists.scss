@@ -21,10 +21,10 @@ ul.media-list{
       color: $brydge-blue;
     }
   }
-
 }
 ul.user-link-list{
   li{
+    min-height: 66px;
     border-bottom: 1px solid $border-color;
     .name{
       // color: $body-text-color;
