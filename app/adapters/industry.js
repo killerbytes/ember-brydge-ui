@@ -12,7 +12,7 @@ export default ApplicationAdapter.extend(UrlTemplates, {
 	// createRecordUrlTemplate: '{+host}/v2/profile/{userid}/experience',
 	//
 	queryRecordUrlTemplate: '{+host}/{+namespace}/industries/{category}/{queryid}',
-	queryUrlTemplate: '{+host}/{+namespace}/industries/{category}',
+	// queryUrlTemplate: '{+host}/{+namespace}/industries?{groupid}',
 
 	urlSegments: {
 		queryid: function(type, id, snapshot, query) {
@@ -20,9 +20,9 @@ export default ApplicationAdapter.extend(UrlTemplates, {
       delete query.id;
       return id;
     },
-    category: function(type, id, snapshot, query) {
-      var id = query.category;
-      delete query.category;
+    groupid: function(type, id, snapshot, query) {
+      var id = query.groupid;
+      delete query.groupid;
       return id;
     }
   }

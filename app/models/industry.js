@@ -1,6 +1,7 @@
 import DS from 'ember-data';
 
 export default DS.Model.extend({
+  selected: DS.attr(),
   sector: DS.attr(),
   sample: DS.attr(),
   related: DS.attr(),

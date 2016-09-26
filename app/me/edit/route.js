@@ -22,7 +22,7 @@ export default Ember.Route.extend(
 		return Ember.RSVP.hash({
       // profile: this.store.findRecord('profile', userid, {reload: true}),
       profile: this.modelFor('me').profile,
-      categories: this.get('ajaxApi').request('/v2/categories/menu'),
+      categories: this.get('ajaxApi').request('/v2/industries'),
       languages: this.store.findAll('language'),
       experiences: this.store.findAll('experience'),
       educations: this.store.findAll('education')
@@ -37,6 +37,17 @@ export default Ember.Route.extend(
                .filter((d)=>{ return d.data.code == value; })
                .first()
                .value().data.subIndustry;
+  },
+  _clearIndustries(){
+    var profile = this.get('controller.profile');
+    profile.setProperties({
+      industryOneId: null,
+      industryTwoId: null,
+      industryThreeId: null,
+      industryOneName: null,
+      industryTwoName: null,
+      industryThreeName: null
+    })
   },
 
 	actions: {
@@ -111,6 +122,26 @@ export default Ember.Route.extend(
     },
     setSelected(item){
       this.controller.set('current', item);
+    },
+    onIndustrySelect(selected){
+      this._clearIndustries();
+      var profile = this.get('controller.profile');
+      selected.forEach(function(i, index){
+        switch(index){
+          case 0:
+            profile.set('industryOneId', i.get('industryId'))
+            profile.set('industryOneName', i.get('industry'))
+            break;
+          case 1:
+            profile.set('industryTwoId', i.get('industryId'))
+            profile.set('industryTwoName', i.get('industry'))
+            break;
+          case 2:
+            profile.set('industryThreeId', i.get('industryId'))
+            profile.set('industryThreeName', i.get('industry'))
+            break;
+        }
+      })
     },
     onIndustrySelected(code){
       this.controller.set('_selected', {

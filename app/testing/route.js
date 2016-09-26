@@ -14,10 +14,4 @@ export default Ember.Route.extend(
       categories: this.get('ajaxApi').request('/v2/industries')
     });
   },
-  actions: {
-    select(item){
-      item.active = true,
-      console.log(item);
-    }
-  }
 });

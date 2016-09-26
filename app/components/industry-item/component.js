@@ -10,14 +10,14 @@ export default Ember.Component.extend({
 		if(active) active.set('active', false);
 		if(industry) industry.set('active', true);
   }),
-	_setSelected: Ember.observer('industryPicker.industries.length', function(){
+	_setSelected: Ember.observer('industryPicker.industries.length','groups.length', function(){
 		this.get('industryPicker.industries').forEach(i=>{
 			var industry = this.get('groups').findBy('industryId', i.id);
 			if(industry) industry.set('selected', true);
 		})
 	}),
 	groups: Ember.computed('item', function(){
-		return this.get('store').query('industry',{category: this.get('item.id')});
+		return this.get('store').query('industry',{groupid: this.get('item.id')});
 	}),
 	onSelected: Ember.observer('selected','posts.length', function(){
 		if(!this.get('selected')) return false;
@@ -27,13 +27,18 @@ export default Ember.Component.extend({
 		})
 	}),
 	_load(item){
-		this.get('store').queryRecord('industry', {category: item.get('groupId'), id: item.get('industryId')}).then(res=>{
+		this.set('industryPicker.isLoading', true);
+		this.get('store').findRecord('industry', item.get('industryId')).then(res=>{
 			this.set('industryPicker.active', res);
+			this.set('industryPicker.isLoading', false);
 		})
 	},
 	actions: {
 		select(item){
 			this._load(item);
+		},
+		remove(item){
+			this.get('industryPicker').remove(item);
 		}
 	}
 });

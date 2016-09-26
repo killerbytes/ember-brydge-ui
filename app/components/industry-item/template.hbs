@@ -1,14 +1,30 @@
 <div class="column medium-5">
   <div class="wrapper industry-thumb">
-    <img src="https://storage.googleapis.com/brydge-assets/temp/61237789.png" alt="">
+    <img src="https://storage.googleapis.com/brydge-assets/assets/industries/{{item.id}}.png" alt="">
     <strong>{{item.name}}</strong>
+    {{log }}
   </div>
 </div>
 <div class="column medium-7">
-  {{selected}}
   <ul class="industry-list">
   {{#each groups as |item|}}
-    <li><a class="{{if item.selected 'selected'}} {{if item.active 'active'}}" {{action "select" item}}>{{item.industry}}</a></li>
+    <li>
+      {{#if item.selected}}
+        <a class="selected">
+          {{item.industry}}
+          <i class="fa fa-close" {{action "remove" item }}></i>
+        </a>
+      {{else if item.active}}
+        <a class="active">
+          {{item.industry}}
+        </a>
+      {{else}}
+        <a {{action "select" item}}>
+          {{item.industry}}
+        </a>
+      {{/if}}
+
+    </li>
   {{/each}}
   </ul>
 </div>

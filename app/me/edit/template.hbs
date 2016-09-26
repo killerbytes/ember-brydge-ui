@@ -44,124 +44,48 @@
               {{partial 'me/edit/info'}}
             </section>
           </div>
-          <div class="tabs-panel {{active-tab 'industryxxx' tab}}" id="industryxxx">
-
-            <section class="header">
-              <p>See the illustrations below, or refer to the <a href="https://medium.com/brydgedotcom/brydge-userguide-selecting-your-industries-c470d84844ed" target="_blank">User Guide</a>.</p>
-
-              <form class="form-occupational-industry">
-                <div class="row">
-                  <div class="columns medium-7">
-                    <form class="brydge-form">
-                      <label for="">
-                        Business Industry
-                        <div class="form-input-wrapper">
-                          {{#if profile.industryOneName}}
-                            <a {{action "clear" "industryOne"}} class="x-button fa fa-times"></a>
-                          {{/if}}
-                          {{input type="text" value=profile.industryOneName  readonly="true" autocomplete="false"}}
-                        </div>
-
-                      </label>
-                    </form>
-                  </div>
-                  <div class="columns medium-5">
-                    <label for="">
-                      <a data-toggle="dd-industry-picker-business" class="picker" class="button button-border expanded rounded">Use the Industry Picker</a>
-                    </label>
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="columns medium-7">
-                    {{form-input-button submit="save" placeholder="Saved"}}
-                  </div>
-                </div>
-              </form>
-            </section>
-            <section class="industry-examples">
-              <p class="title text-center mb40">
-                Not sure what Business Industry you fit in? <br>
-                Take a look at some of our illustrated examples!
-              </p>
-              {{partial 'partials/industry-examples'}}
-            </section>
-
-          </div>
           <div class="tabs-panel {{active-tab 'industry' tab}}" id="industry">
-            {{#zf-dropdown id="dd-industry-picker-business" class="industry-picker"}}
-              <button class="close-button" data-close aria-label="Close modal" type="button">
-                <span aria-hidden="true">&times;</span>
-              </button>
-              {{picker-industry name="business" categories=categories onSelect='setBusinessIndustry' }}
-            {{/zf-dropdown}}
-            {{#zf-dropdown id="dd-industry-picker-occupationalOne" class="industry-picker"}}
-              <button class="close-button" data-close aria-label="Close modal" type="button">
-                <span aria-hidden="true">&times;</span>
-              </button>
-              {{picker-industry name="occupationalOne" categories=categories onSelect='setOccupationalOne' }}
-            {{/zf-dropdown}}
-            {{#zf-dropdown id="dd-industry-picker-occupationalTwo" class="industry-picker"}}
-              <button class="close-button" data-close aria-label="Close modal" type="button">
-                <span aria-hidden="true">&times;</span>
-              </button>
-              {{picker-industry name="occupationalTwo" categories=categories onSelect='setOccupationalTwo' }}
-            {{/zf-dropdown}}
 
             <section class="header">
               <p>
                 Make sure you select at least 1. You can select up to 3 industries that are relevant to you. See the illustrations below, or refer to the <a href="https://medium.com/brydgedotcom/brydge-userguide-selecting-your-industries-c470d84844ed" target="_blank">User Guide</a>.</p>
               <form class="form-occupational-industry">
-                <div class="row">
-                  <div class="columns medium-7">
-                    <form class="brydge-form">
-                      <label>
-                        <div class="form-input-wrapper">
-                          {{#if profile.industryOneName}}
-                            <a {{action "clear" "industryOne"}} class="x-button fa fa-times"></a>
-                          {{/if}}
-                          {{input type="text" value=profile.industryOneName  readonly="true" autocomplete="false"}}
-                        </div>
-
-                      </label>
-                    </form>
+                <div class="row mb20">
+                  <div class="columns medium-4">
+                    {{#if profile.industryOneName}}
+                      <a data-open="industry-picker" class="button-add-industries">
+                        <div class="button-footer">{{profile.industryOneName}}</div>
+                      </a>
+                    {{else}}
+                      <a data-open="industry-picker" class="button-add-industries">
+                        <i class="fa fa-plus" aria-hidden="true"></i>
+                        <div>Add Industry</div>
+                      </a>
+                    {{/if}}
                   </div>
-                  <div class="columns medium-5">
-                    <a data-toggle="dd-industry-picker-business" class="picker" class="button button-border expanded rounded">Use the Industry Picker</a>
+                  <div class="columns medium-4">
+                    {{#if profile.industryTwoName}}
+                      <a data-open="industry-picker" class="button-add-industries">
+                        <div class="button-footer">{{profile.industryTwoName}}</div>
+                      </a>
+                    {{else}}
+                      <a data-open="industry-picker" class="button-add-industries">
+                        <i class="fa fa-plus" aria-hidden="true"></i>
+                        <div>Add Industry</div>
+                      </a>
+                    {{/if}}
                   </div>
-                </div>
-
-                <div class="row">
-                  <div class="columns medium-7">
-                    <form class="brydge-form">
-                      <div class="form-input-wrapper">
-                        {{#if profile.industryTwoName}}
-                          <a {{action "clear" "industryTwo"}} class="x-button fa fa-times"></a>
-                        {{/if}}
-                        {{input type="text" value=profile.industryTwoName  readonly="true" autocomplete="false"}}
-                      </div>
-
-                    </form>
-                  </div>
-                  <div class="columns medium-5">
-                    <a data-toggle="dd-industry-picker-occupationalOne" class="picker" class="button button-border expanded rounded">Use the Industry Picker</a>
-                  </div>
-                </div>
-
-                <div class="row">
-                  <div class="columns medium-7">
-                    <form class="brydge-form">
-                      <label for="">
-                        <div class="form-input-wrapper">
-                          {{#if profile.industryThreeName}}
-                            <a {{action "clear" "industryThree"}} class="x-button fa fa-times"></a>
-                          {{/if}}
-                          {{input type="text" value=profile.industryThreeName  readonly="true" autocomplete="false"}}
-                        </div>
-                      </label>
-                    </form>
-                  </div>
-                  <div class="columns medium-5">
-                    <a data-toggle="dd-industry-picker-occupationalTwo" class="picker" class="button button-border expanded rounded">Use the Industry Picker</a>
+                  <div class="columns medium-4">
+                    {{#if profile.industryThreeName}}
+                      <a data-open="industry-picker" class="button-add-industries">
+                        <div class="button-footer">{{profile.industryThreeName}}</div>
+                      </a>
+                    {{else}}
+                      <a data-open="industry-picker" class="button-add-industries">
+                        <i class="fa fa-plus" aria-hidden="true"></i>
+                        <div>Add Industry</div>
+                      </a>
+                    {{/if}}
                   </div>
                 </div>
                 <div class="row">
@@ -210,3 +134,5 @@
     </div>
   </div>
 </div>
+
+{{industry-picker industries=model.categories selected=industries submit="onIndustrySelect"}}

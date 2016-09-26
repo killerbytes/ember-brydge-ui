@@ -17,8 +17,9 @@ export default Ember.Route.extend(
   ScrollResetMixin,
   AuthenticatedRouteMixin,
   FilterDropdownListMixin, {
-  session: Ember.inject.service('session'),
+  session: Ember.inject.service(),
   ajax: Ember.inject.service(),
+  ajaxApi: Ember.inject.service(),
   categoryid: '',
   geoChannels: '',
   isCurated: null,
@@ -45,7 +46,7 @@ export default Ember.Route.extend(
     return Ember.RSVP.hash({
       profile: this.store.findRecord('profile', ownerid),
       invites: this.store.findAll('friend-invitation'),
-      categories: this.get('ajax').request('/v2/categories/menu'),
+      categories: this.get('ajaxApi').request('/v2/industries'),
       favorites: this.store.findAll('favoriteindustry')
     });
   },

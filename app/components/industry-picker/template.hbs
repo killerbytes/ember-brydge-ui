@@ -12,7 +12,7 @@
           <div class="mb20">
             <h3>{{category.name}}</h3>
             {{#each category.groups as |item| }}
-              {{industry-item item=item reset="reset"}}
+              {{industry-item item=item}}
             {{/each}}
           </div>
         {{/each}}
@@ -20,23 +20,34 @@
     </div>
     <div class="columns medium-5 wrapper">
       <section class="industry-detail bg-gray scrollbar">
-        {{#if industryPicker.active}}
-          <h3>{{industryPicker.active.industry}}</h3>
+        {{#if industryPicker.isLoading}}
+          <div class="brydge-loading"></div>
+        {{else}}
+          {{#if industryPicker.active}}
+            <h3>{{industryPicker.active.industry}}</h3>
 
-          <p class="mb20">
-            <a class="button large green"{{action "select" industryPicker.active}}>Select Industry</a>
-          </p>
-          <p class="">{{industryPicker.active.description}}</p>
-          <h4>People in the Industry</h4>
-          {{industryPicker.active.sample}}
-          <h4>Related Industries</h4>
-          {{industryPicker.active.related}}
+            <p class="mb20">
+              <a class="button large green"{{action "select" industryPicker.active}}>Select Industry</a>
+            </p>
+            <p class="">{{industryPicker.active.description}}</p>
+            <h4>People in the Industry</h4>
+            {{industryPicker.active.sample}}
+            <h4>Related Industries</h4>
+            {{industryPicker.active.related}}
+          {{/if}}
+
         {{/if}}
       </section>
       <section>
-        <ul>
+        <ul class="industry-list">
         {{#each industryPicker.industries as |item|}}
-          <li><a class="selected">{{item.industry}}</a></li>
+          <li>
+            <a class="selected">
+              {{item.industry}}
+              <i class="fa fa-close" {{action "remove" item }}></i>
+            </a>
+
+          </li>
         {{/each}}
         </ul>
       </section>
