@@ -6,6 +6,7 @@ export default Ember.Route.extend(
 	AuthenticatedRouteMixin,
 	BrydgeScroller, {
 	session: Ember.inject.service(),
+	store: Ember.inject.service(),
 	model: function() {
 		return this.brydgeScroller('ask',{
 			to: this.get('session.data.authenticated.user_id'),
@@ -15,7 +16,7 @@ export default Ember.Route.extend(
 	},
 	actions: {
 		submit(item){
-			return true;
+			this.get('store').query('ask', {userid: this.get('session.data.authenticated.user_id')})
     }
 	}
 });

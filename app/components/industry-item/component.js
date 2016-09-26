@@ -12,10 +12,9 @@ export default Ember.Component.extend({
   }),
 	_setSelected: Ember.observer('industryPicker.industries.length', function(){
 		this.get('industryPicker.industries').forEach(i=>{
-			var industry = this.get('groups').findBy('industryId', i);
+			var industry = this.get('groups').findBy('industryId', i.id);
 			if(industry) industry.set('selected', true);
 		})
-		// this.get('industryPicker.industries');
 	}),
 	groups: Ember.computed('item', function(){
 		return this.get('store').query('industry',{category: this.get('item.id')});

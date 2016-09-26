@@ -55,7 +55,7 @@
 			color: inherit;
 		}
 	}
-	&.green, &.green:hover{
+	&.green, &.green:hover, &.green:focus{
 		background: $brydge-green;
 		color: #FFF;
 		font-weight: bold;

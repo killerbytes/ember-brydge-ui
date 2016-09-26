@@ -1,4 +1,6 @@
 import Ember from 'ember';
+import _ from 'lodash/lodash';
+
 export default Ember.Component.extend({
   industryPicker: Ember.inject.service(),
   didInsertElement(){
@@ -16,6 +18,9 @@ export default Ember.Component.extend({
   actions: {
     select(item){
       if(!this._industryExist(item.id)) this.get('industryPicker.industries').pushObject(item);
+    },
+    submit(){
+      this.set('value', _.map(this.get('industryPicker.industries'), 'id'));
     }
   }
 });
