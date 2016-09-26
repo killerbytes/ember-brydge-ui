@@ -10,16 +10,12 @@ export default Ember.Component.extend({
   _industryExist(id){
     if(!this.get('industryPicker.industries')) return true;
     return this.get('industryPicker.industries').find(i=>{
-      return i==id;
+      return i.id==id;
     });
   },
   actions: {
-    set(id){
-      console.log(this._industryExist(id))
-      // this.get('industryPicker.industries').pushObject(this.get('industryPicker.active.id'))
-    },
-    reset(){
-      console.log('reset')
+    select(item){
+      if(!this._industryExist(item.id)) this.get('industryPicker.industries').pushObject(item);
     }
   }
 });

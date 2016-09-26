@@ -1,6 +1,6 @@
 <section>
   <div class="row user">
-    <div class="columns medium-8">
+    <div class="columns medium-9">
       <div class="avatar" style={{htmlSafeImage item.from.profile.avatarUrl}}>
         <img src="{{item.from.profile.avatarUrl}}" class="hide">
       </div>
@@ -8,7 +8,7 @@
         {{link-to item.from.profile.fullName "profile" item.from.id class="name"}} complimented {{link-to item.to.profile.fullName "profile" item.to.id class="name"}}
       </div>
     </div>
-    <div class="columns medium-4 text-right">
+    <div class="columns medium-3 text-right">
       {{#if isOwners}}
         <a class="button dropdown-button-arrow button-ellipsis" data-toggle="dd-card-menu-{{item.id}}"></a>
         {{#zf-dropdown id=(concat 'dd-card-menu-' item.id) closeOnClick=true class="card-menu-dropdown"}}
