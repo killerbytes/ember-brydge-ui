@@ -12,5 +12,11 @@
         {{input type="checkbox" change=(action 'emailNotificationChanged') checked=emailSetting.weekly id="emailSetting.weekly" name="weekly" }}
       </td>
     </tr>
+    <tr>
+      <td>Signup for MailChimp</td>
+      <td class="text-center">
+        {{input type="checkbox" change=(action 'emailNotificationChanged') checked=emailSetting.subscriber id="emailSetting.subscriber" name="subscriber" }}
+      </td>
+    </tr>
   </tbody>
 </table>
