@@ -36,13 +36,16 @@ export default Ember.Component.extend({
     });
   },
   actions: {
-    select(item){
+    add(item){
       if(this.get('max') == this.get('industryPicker.industries.length')) return false;
       if(!this._industryExist(item.id)) this.get('industryPicker.industries').pushObject(item);
     },
     submit(){
       this.sendAction("submit", this.get('industryPicker.industries'));
       $(`#industry-picker-${this.get('name')}`).foundation('close');
+    },
+    select(item){
+      this.get('industryPicker').load(item.industry_id);
     },
     remove(item){
       this.get('industryPicker').remove(item);

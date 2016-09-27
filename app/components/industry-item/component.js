@@ -11,7 +11,6 @@ export default Ember.Component.extend({
 		if(industry) industry.set('active', true);
   }),
 	_setSelected: Ember.observer('industryPicker.industries.length','groups.length', function(){
-		console.log('_setSelected')
 		this.get('industryPicker.industries').forEach(i=>{
 			var industry = this.get('groups').findBy('industryId', i.id);
 			if(industry) industry.set('selected', true);
@@ -27,12 +26,9 @@ export default Ember.Component.extend({
 			if(item) item.set('active', true);
 		})
 	}),
-	_load(item){
-		this.get('industryPicker').load(item.get('industryId'));
-	},
 	actions: {
 		select(item){
-			this._load(item);
+			this.get('industryPicker').load(item.get('industryId'));
 		},
 		remove(item){
 			this.get('industryPicker').remove(item);
