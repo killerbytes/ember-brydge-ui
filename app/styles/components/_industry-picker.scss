@@ -1,25 +1,26 @@
 .industry-picker{
 	width: 80%;
 	max-width: 80%;
-	// .close-button{
-	// 	top: 1rem;
-	// 	color: #FFF;
-	// }
+	.row-aligned-columns{
+		max-height: 90vh;
+	}
+	.industry-detail{
+		max-height: 50vh;
+		ul li{
+			line-height: 2rem;
+		}
+	}
+	.industry-selections{
+		max-height: 33vh;
+	}
+
 	.empty-message{
 		text-align: center;
 		margin: 50% 0;
 		font-size: 14px;
 	}
-	// .title-bg h4{
-	// 	color: #FFF;
-	// 	margin-bottom: 0;
-	// 	padding: 1rem;
-	// }
 	section.title{
 		border-bottom: 1px solid $border-color;
-	}
-	.row-aligned-columns{
-		max-height: 700px;
 	}
 	h3{
 		font-size: 15px;
@@ -42,13 +43,6 @@
 			color: #FFF;
 			margin: 0;
 			padding: .50rem;
-		}
-	}
-	.industry-detail{
-		min-height: 450px;
-		max-height: 500px;
-		ul li{
-			line-height: 2rem;
 		}
 	}
 	.controls{
