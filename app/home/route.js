@@ -104,6 +104,7 @@ export default Ember.Route.extend(
       })
     },
     setChannel(id){
+      console.log(id)
       if(id == 0){
         this.controller.set('channels', null)
       }else{

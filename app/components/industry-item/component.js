@@ -1,7 +1,7 @@
 import Ember from 'ember';
 
 export default Ember.Component.extend({
-	classNames: ['row', 'collapse', 'industry-item', 'mb20'],
+	classNames: ['row', 'collapse', 'industry-item', 'mb50'],
 	store: Ember.inject.service(),
 	industryPicker: Ember.inject.service(),
 	_setActive: Ember.observer('industryPicker.active', function(){

@@ -9,6 +9,7 @@
   <ul class="industry-list padded">
   {{#each groups as |item|}}
     <li>
+      <strong>
       {{#if item.selected}}
         <a class="selected">
           {{item.industry}}
@@ -17,13 +18,14 @@
       {{else if item.active}}
         <a class="active">
           {{item.industry}}
+          <i class="fa fa-chevron-right" aria-hidden="true"></i>
         </a>
       {{else}}
         <a {{action "select" item}}>
           {{item.industry}}
         </a>
       {{/if}}
-
+      </strong>
     </li>
   {{/each}}
   </ul>

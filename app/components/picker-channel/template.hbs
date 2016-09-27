@@ -1,6 +1,6 @@
 {{#zf-accordion id="channelPicker" allowAllClosed=true class="brydge-accordion"}}
   <li class="accordion-item" data-accordion-item>
-    <a class="accordion-title">{{selectedText.name}}</a>
+    <a class="accordion-title">{{selectedText.industry}}</a>
     <div class="accordion-content" data-tab-content>
 			<div class="boxz">
 				<section class="accordion-sub-title">Select a Channel</section>
@@ -43,7 +43,7 @@
 							<ul class="no-bullet content-pad hover-close">
                 {{#unless loading}}
   								{{#each favorites as |item|}}
-  									<li><a {{action "select" item.code item.name }}>{{item.name}}</a> <a {{action "delete" item}}><i class="fa fa-times" aria-hidden="true"></i></a> </li>
+  									<li><a {{action "select" item.code item.name }}>{{item.name}}</a></li>
   								{{/each}}
                 {{else}}
                   <li><div class="brydge-loading"></div></li>

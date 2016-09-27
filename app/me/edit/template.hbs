@@ -48,13 +48,15 @@
 
             <section class="header">
               <p>
-                Make sure you select at least 1. You can select up to 3 industries that are relevant to you. See the illustrations below, or refer to the <a href="https://medium.com/brydgedotcom/brydge-userguide-selecting-your-industries-c470d84844ed" target="_blank">User Guide</a>.</p>
+                On Brydge, you can participate in up to three industries. Make sure you select at least one.
+              </p>
               <form class="form-occupational-industry">
                 <div class="row mb20">
                   <div class="columns medium-4">
                       <a data-open="industry-picker-edit-profile" class="button-add-industries">
                         {{#if profile.industryOneName}}
-                          <div class="button-footer">{{profile.industryOneName}}</div>
+                          <div class="button-header">{{profile.industryOneName}}</div>
+                          <div class="button-footer"><i class="fa fa-pencil-square-o"></i></div>
                         {{else}}
                           <i class="fa fa-plus" aria-hidden="true"></i>
                           <div>Add Industry</div>
@@ -64,7 +66,8 @@
                   <div class="columns medium-4">
                     {{#if profile.industryTwoName}}
                       <a data-open="industry-picker-edit-profile" class="button-add-industries">
-                        <div class="button-footer">{{profile.industryTwoName}}</div>
+                        <div class="button-header">{{profile.industryTwoName}}</div>
+                        <div class="button-footer"><i class="fa fa-pencil-square-o"></i></div>
                       </a>
                     {{else}}
                       <a data-open="industry-picker-edit-profile" class="button-add-industries">
@@ -76,6 +79,7 @@
                   <div class="columns medium-4">
                     {{#if profile.industryThreeName}}
                       <a data-open="industry-picker-edit-profile" class="button-add-industries">
+                        <div class="button-header"><i class="fa fa-pencil-square-o"></i></div>
                         <div class="button-footer">{{profile.industryThreeName}}</div>
                       </a>
                     {{else}}
@@ -133,4 +137,4 @@
   </div>
 </div>
 
-{{industry-picker name="edit-profile" industries=model.categories selected=industries submit="onIndustrySelect"}}
+{{industry-picker name="edit-profile" title="Select 3 Relevant Industries" industries=model.categories selected=industries submit="onIndustrySelect"}}

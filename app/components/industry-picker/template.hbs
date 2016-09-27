@@ -1,10 +1,12 @@
+
 {{#zf-reveal id=(concat "industry-picker-" name) overlay=true class="industry-picker box"}}
   <button class="close-button" aria-label="Dismiss alert" type="button" data-close>
     <span aria-hidden="true">&times;</span>
   </button>
-  <section class="title-bg">
-    <h4>Choose an industry</h4>
+  <section class="title">
+    <h4>{{title}}</h4>
   </section>
+
   <div class="row expanded collapse row-aligned-columns">
     <div class="columns medium-7 border-r scrollbar">
       <div class="industry-pane">
@@ -25,12 +27,11 @@
         {{else}}
           {{#if industryPicker.active}}
             <h3>{{industryPicker.active.industry}}</h3>
-
-            <p class="mb20">
-              <a class="button large green"{{action "add" industryPicker.active}}>Select Industry</a>
-            </p>
             <p class="mb20">
               {{industryPicker.active.description}}
+            </p>
+            <p class="mb40">
+              <a class="button large green"{{action "add" industryPicker.active}}><i class="fa fa-plus"></i> Select Industry</a>
             </p>
             <h4>People in the Industry</h4>
             <ul class="no-bullet mb20">
@@ -49,6 +50,8 @@
               </li>
             {{/each}}
             </ul>
+          {{else}}
+            <p class="empty-message">Select an industry to view more information about it</p>
           {{/if}}
 
         {{/if}}
@@ -68,7 +71,7 @@
       </section>
       <div class="bg-gray controls padding">
     	  	<a class="button button-border" data-close>Cancel</a>
-          <button class="button large green float-right" type="submit" {{action "submit"}}>Done</button>
+          <button class="button large success float-right" type="submit" {{action "submit"}}>Done</button>
       </div>
 
     </div>

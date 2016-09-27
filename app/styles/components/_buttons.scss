@@ -96,11 +96,11 @@
 }
 
 .button-add-industries{
-	@extend .shadowed;
+	// @extend .shadowed;
 	@extend .bordered;
 	position: relative;
 	display: block;
-	background-color: $brydge-gray;
+	background-color: #FFF;
 	padding: 3rem 1rem;
 	text-align: center;
 	text-transform: uppercase;
@@ -113,13 +113,20 @@
 	i.fa, i.fa+div{
 		color: $text-gray;
 	}
-	.button-footer{
+	.button-header, .button-footer{
 		text-transform: none;
 		position: absolute;
-		bottom: 1rem;
+		top: 1rem;
 		left: 0;
 		padding: 0 .5rem;
 		width: 100%;
+	}
+	.button-footer{
+		top: auto;
+		bottom: 1rem;
+		.fa{
+			margin-bottom: 0;
+		}
 	}
 }
 

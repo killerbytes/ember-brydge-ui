@@ -8,7 +8,7 @@ export default Ember.Component.extend(SharePostIndustryPicker, {
 	store: Ember.inject.service(),
 	classNames: ['accordion-picker'],
 	selectedText: Ember.computed('selected', function(){
-		return this.get('selected') ? this.getCategory(this.get('selected')) : {name: "My Connections"};
+		return this.get('selected') ? this._getCategory(this.get('selected')) : {industry: "My Connections"};
 		// return this.get('selected') ? this.getIndustryName(this.get('selected')) : this.getIndustryName(0);
 	}),
 	isIndustry: Ember.computed.or('profile.industryOneId', 'profile.industryTwoId', 'profile.industryThreeId'),
@@ -24,18 +24,20 @@ export default Ember.Component.extend(SharePostIndustryPicker, {
   //     text: this.get('profile.industryThreeName')
   //   }];
 	// }),
-  getCategory(value){
-    var categories = this.get('menu');
-
-    return _.chain(_.map(categories, 'categories'))
-               .flatten()
-               .map((i)=>{ return i.industries; })
-               .flatten()
-               .filter((d)=>{ return d.data.code == value; })
-               .map((i)=>{ return {code: i.data.code, name: i.data.subIndustry } })
-               .first()
-               .value();
-  },
+	_getCategory(id){
+		return this.get('store').findRecord('industry', id);
+	},
+  // getCategory(value){
+  //   var categories = this.get('menu');
+  //   return _.chain(_.map(categories, 'categories'))
+  //              .flatten()
+  //              .map((i)=>{ return i.industries; })
+  //              .flatten()
+  //              .filter((d)=>{ return d.data.code == value; })
+  //              .map((i)=>{ return {code: i.data.code, name: i.data.subIndustry } })
+  //              .first()
+  //              .value();
+  // },
 
 	getIndustryName: function (id) {
     var col = {};
