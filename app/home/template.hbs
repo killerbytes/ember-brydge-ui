@@ -11,7 +11,7 @@
 		<div class="newsfeed-tabs">
 			<h4 class="padded">Newsfeed Filter</h4>
 			<div class="box">
-		    {{picker-channel profile=profile menu=model.categories favorites=model.favorites select="setChannel" selected=channels loading=isFavoritesLoading}}
+		    {{picker-channel profile=profile favorites=favorites select="setChannel" selected=channels loading=isFavoritesLoading}}
 
 		    {{picker-location profile=profile select="setLocation" selected=googlePlaceObject}}
 
@@ -152,8 +152,6 @@
   </div>
 </div>
 
-{{ post-sharer submit="share"}}
+{{post-sharer submit="share"}}
 
-{{#zf-reveal id="industryModal" overlay=true class="small industry-picker box"}}
-  {{picker-industry-multi name="search" categories=model.categories selected=(readonly myfavs) onSelect="onFavoriteIndustrySelect" }}
-{{/zf-reveal}}
+{{industry-picker name="home" industries=industries max=10 selected=favoriteIndustries submit="onFavoriteIndustrySelect"}}

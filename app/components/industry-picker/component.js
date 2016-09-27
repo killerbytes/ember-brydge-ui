@@ -5,13 +5,15 @@ export default Ember.Component.extend({
   store: Ember.inject.service(),
   industryPicker: Ember.inject.service(),
   max: 3,
+  willDestroyElement(){
+		$(`#industry-picker-${this.get('name')}`).parent().remove();
+	},
   didReceiveAttrs(){
     this._super(...arguments);
     Ember.run.later(()=>{
       this.set('industryPicker.industries', []);
       this._getSelected();
     })
-
   },
   didInsertElement(){
     this._super(...arguments);
@@ -40,7 +42,7 @@ export default Ember.Component.extend({
     },
     submit(){
       this.sendAction("submit", this.get('industryPicker.industries'));
-      $('#industry-picker').foundation('close');
+      $(`#industry-picker-${this.get('name')}`).foundation('close');
     },
     remove(item){
       this.get('industryPicker').remove(item);

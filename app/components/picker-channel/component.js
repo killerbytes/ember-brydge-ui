@@ -7,10 +7,6 @@ export default Ember.Component.extend(SharePostIndustryPicker, {
 	utils: Ember.inject.service(),
 	store: Ember.inject.service(),
 	classNames: ['accordion-picker'],
-	didReceiveAttrs(){
-		this._super(...arguments);
-		console.log(this)
-	},
 	selectedText: Ember.computed('selected', function(){
 		return this.get('selected') ? this.getCategory(this.get('selected')) : {name: "My Connections"};
 		// return this.get('selected') ? this.getIndustryName(this.get('selected')) : this.getIndustryName(0);
@@ -55,6 +51,7 @@ export default Ember.Component.extend(SharePostIndustryPicker, {
 			this.$('.accordion').foundation('toggle', this.$('.accordion-content'));
 		},
 		delete(item){
+			item.set('selected', false);
 			item.destroyRecord();
 		},
 

@@ -2,6 +2,8 @@ import Ember from 'ember';
 import QueryLocationMixin from 'web/mixins/query-locations';
 import GetIndustryFromCodeMixin from 'web/mixins/get-industry-from-code';
 import InviteMixin from 'web/mixins/invite';
+import _ from 'lodash/lodash';
+
 const {
   Component,
   computed,
@@ -16,6 +18,7 @@ export default Ember.Controller.extend(
   ajax: Ember.inject.service(),
   utils: Ember.inject.service(),
   sharePost: Ember.inject.service(),
+  industryPicker: Ember.inject.service(),
   sortProps: ['updatedAt:desc'],
   isSearch: Ember.computed('tab', function(){
     return this.get('tab') == 'search' ? true: false;
@@ -33,6 +36,14 @@ export default Ember.Controller.extend(
       name: i.get('name')
     };
   }),
+  favorites: Ember.computed.alias('model.favorites'),
+  industries: Ember.computed.alias('model.industries'),
+  favoriteIndustries: Ember.computed('favorites.length', function(){
+    return _.map(this.get('favorites').toArray(), i=>{
+      return i.get('code');
+    })
+  }),
+
   googlePlaceObject: Ember.computed('location', function(){
     return this.get('location') ? this.get('utils').googlePlace(this.get('location')) : false;
   }),
@@ -122,7 +133,25 @@ export default Ember.Controller.extend(
           this.loadNewsfeed('live')
         }
       });
-    }
+    },
+    onFavoriteIndustrySelect(items){
+      this.set('isFavoritesLoading', true);
+      var favorites = this.get('favorites');
+      favorites.forEach(i=>{
+        i.destroyRecord();
+      })
+      _.each(items, i=>{
+        this.set('isFavoritesLoading', true);
+        this.get('store').createRecord('favoriteindustry', {
+          code: i.get('industryId'),
+          name: i.get('industry'),
+          userid: this.get('session.data.authenticated.user_id')
+        }).save().then(()=>{
+          this.set('isFavoritesLoading', false);
+        });
+      })
+    },
+
 
   }
 });

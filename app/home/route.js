@@ -46,7 +46,7 @@ export default Ember.Route.extend(
     return Ember.RSVP.hash({
       profile: this.store.findRecord('profile', ownerid),
       invites: this.store.findAll('friend-invitation'),
-      categories: this.get('ajaxApi').request('/v2/industries'),
+      industries: this.get('ajaxApi').request('/v2/industries'),
       favorites: this.store.findAll('favoriteindustry')
     });
   },
@@ -130,23 +130,6 @@ export default Ember.Route.extend(
     clear(){
       this.controller.set('q', null)
       this.controller.set('searchContent', null)
-    },
-    onFavoriteIndustrySelect(items){
-      this.set('controller.isFavoritesLoading', true);
-      var favorites = this.get('controller.model.favorites');
-      favorites.forEach((i)=>{
-        i.destroyRecord();
-      })
-      _.each(items, i=>{
-        this.set('controller.isFavoritesLoading', true);
-        this.get('store').createRecord('favoriteindustry', {
-          code: i.code,
-          name: i.name,
-          userid: this.get('session.data.authenticated.user_id')
-        }).save().then(()=>{
-          this.set('controller.isFavoritesLoading', false);
-        });
-      })
     },
     dismiss(){
 

@@ -7,5 +7,7 @@
   <div class="columns medium-7">
   </div>
 
-  {{industry-picker industries=model.categories selected=favorite submit="submit"}}
+  {{picker-channel profile=profile favorites=favorites}}
+  {{industry-picker name="home" industries=model.categories max=10 selected=selected submit="submit"}}
+
 </div>

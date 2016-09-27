@@ -11,7 +11,8 @@ export default Ember.Route.extend(
   model(){
     var userid = "2zd33na16gv";
     return Ember.RSVP.hash({
-      categories: this.get('ajaxApi').request('/v2/industries')
+      categories: this.get('ajaxApi').request('/v2/industries'),
+      favorites: this.store.findAll('favoriteindustry')
     });
   },
 });

@@ -52,24 +52,22 @@
               <form class="form-occupational-industry">
                 <div class="row mb20">
                   <div class="columns medium-4">
-                    {{#if profile.industryOneName}}
-                      <a data-open="industry-picker" class="button-add-industries">
-                        <div class="button-footer">{{profile.industryOneName}}</div>
+                      <a data-open="industry-picker-edit-profile" class="button-add-industries">
+                        {{#if profile.industryOneName}}
+                          <div class="button-footer">{{profile.industryOneName}}</div>
+                        {{else}}
+                          <i class="fa fa-plus" aria-hidden="true"></i>
+                          <div>Add Industry</div>
+                        {{/if}}
                       </a>
-                    {{else}}
-                      <a data-open="industry-picker" class="button-add-industries">
-                        <i class="fa fa-plus" aria-hidden="true"></i>
-                        <div>Add Industry</div>
-                      </a>
-                    {{/if}}
                   </div>
                   <div class="columns medium-4">
                     {{#if profile.industryTwoName}}
-                      <a data-open="industry-picker" class="button-add-industries">
+                      <a data-open="industry-picker-edit-profile" class="button-add-industries">
                         <div class="button-footer">{{profile.industryTwoName}}</div>
                       </a>
                     {{else}}
-                      <a data-open="industry-picker" class="button-add-industries">
+                      <a data-open="industry-picker-edit-profile" class="button-add-industries">
                         <i class="fa fa-plus" aria-hidden="true"></i>
                         <div>Add Industry</div>
                       </a>
@@ -77,11 +75,11 @@
                   </div>
                   <div class="columns medium-4">
                     {{#if profile.industryThreeName}}
-                      <a data-open="industry-picker" class="button-add-industries">
+                      <a data-open="industry-picker-edit-profile" class="button-add-industries">
                         <div class="button-footer">{{profile.industryThreeName}}</div>
                       </a>
                     {{else}}
-                      <a data-open="industry-picker" class="button-add-industries">
+                      <a data-open="industry-picker-edit-profile" class="button-add-industries">
                         <i class="fa fa-plus" aria-hidden="true"></i>
                         <div>Add Industry</div>
                       </a>
@@ -135,4 +133,4 @@
   </div>
 </div>
 
-{{industry-picker industries=model.categories selected=industries submit="onIndustrySelect"}}
+{{industry-picker name="edit-profile" industries=model.categories selected=industries submit="onIndustrySelect"}}

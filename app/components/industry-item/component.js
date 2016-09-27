@@ -1,7 +1,7 @@
 import Ember from 'ember';
 
 export default Ember.Component.extend({
-	classNames: ['row', 'collapse', 'industry-item', 'mb'],
+	classNames: ['row', 'collapse', 'industry-item', 'mb20'],
 	store: Ember.inject.service(),
 	industryPicker: Ember.inject.service(),
 	_setActive: Ember.observer('industryPicker.active', function(){
@@ -11,6 +11,7 @@ export default Ember.Component.extend({
 		if(industry) industry.set('active', true);
   }),
 	_setSelected: Ember.observer('industryPicker.industries.length','groups.length', function(){
+		console.log('_setSelected')
 		this.get('industryPicker.industries').forEach(i=>{
 			var industry = this.get('groups').findBy('industryId', i.id);
 			if(industry) industry.set('selected', true);
@@ -27,11 +28,7 @@ export default Ember.Component.extend({
 		})
 	}),
 	_load(item){
-		this.set('industryPicker.isLoading', true);
-		this.get('store').findRecord('industry', item.get('industryId')).then(res=>{
-			this.set('industryPicker.active', res);
-			this.set('industryPicker.isLoading', false);
-		})
+		this.get('industryPicker').load(item.get('industryId'));
 	},
 	actions: {
 		select(item){

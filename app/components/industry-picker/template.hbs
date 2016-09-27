@@ -1,11 +1,11 @@
-{{#zf-reveal id="industry-picker" overlay=true class="large box"}}
+{{#zf-reveal id=(concat "industry-picker-" name) overlay=true class="industry-picker large box"}}
   <button class="close-button" aria-label="Dismiss alert" type="button" data-close>
     <span aria-hidden="true">&times;</span>
   </button>
   <section class="title-bg">
     <h4>Choose an industry</h4>
   </section>
-  <div class="row collapse row-aligned-columns">
+  <div class="row expanded collapse row-aligned-columns">
     <div class="columns medium-7 border-r scrollbar">
       <div class="industry-pane">
         {{#each industries as |category|}}
@@ -29,7 +29,9 @@
             <p class="mb20">
               <a class="button large green"{{action "select" industryPicker.active}}>Select Industry</a>
             </p>
-            <p class="">{{industryPicker.active.description}}</p>
+            <p class="mb20">
+              {{industryPicker.active.description}}
+            </p>
             <h4>People in the Industry</h4>
             <ul class="no-bullet mb20">
             {{#each industryPicker.active.sample as |item|}}
@@ -47,7 +49,7 @@
         {{/if}}
       </section>
       <section>
-        <ul class="industry-list">
+        <ul class="industry-list list-inline">
         {{#each industryPicker.industries as |item|}}
           <li>
             <a class="selected">
