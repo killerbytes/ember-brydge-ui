@@ -12,6 +12,8 @@ export default Ember.Component.extend({
     this._super(...arguments);
     Ember.run.later(()=>{
       this.set('industryPicker.industries', []);
+      console.log(this.get('store').peekAll('industry').filterBy('selected', true))
+
       this._getSelected();
     })
   },

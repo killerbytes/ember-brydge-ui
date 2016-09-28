@@ -10,7 +10,7 @@
 
 		<div class="newsfeed-tabs">
 			<h4 class="padded">Newsfeed Filter</h4>
-			<div class="box">
+			<div class="box">{{log favorites}}
 		    {{picker-channel profile=profile menu=industries favorites=favorites select="setChannel" selected=channels loading=isFavoritesLoading}}
 
 		    {{picker-location profile=profile select="setLocation" selected=googlePlaceObject}}
@@ -153,5 +153,4 @@
 </div>
 
 {{post-sharer submit="share"}}
-
 {{industry-picker name="home" title="Add Industry Channels to Follow" industries=industries max=10 selected=favoriteIndustries submit="onFavoriteIndustrySelect"}}

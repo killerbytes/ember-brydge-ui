@@ -142,9 +142,9 @@ export default Ember.Controller.extend(
 
       this.get('store').createRecord('favoriteindustry', {
         favorites: _.map(items, i=>{
-          return i.get('industryId');
+          return {code: i.get('industryId'), name: i.get('industry')};
         })
-      }).save();
+      }).save()
     },
 
 
