@@ -12,7 +12,9 @@ export default Ember.Component.extend({
     this._super(...arguments);
     Ember.run.later(()=>{
       this.set('industryPicker.industries', []);
-      console.log(this.get('store').peekAll('industry').filterBy('selected', true))
+      this.get('store').peekAll('industry').filterBy('selected', true).forEach(i=>{
+        i.set('selected', false);
+      })
 
       this._getSelected();
     })
@@ -22,7 +24,6 @@ export default Ember.Component.extend({
     Ember.run.later(()=>{
       Ember.$(`#industry-picker-${this.get('name')}`).on('open.zf.reveal', ()=>{
         this.set('industryPicker.active', null);
-        console.log('reveal', this.get('industryPicker.active'))
       })
     })
 

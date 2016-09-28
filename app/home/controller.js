@@ -38,8 +38,9 @@ export default Ember.Controller.extend(
   }),
   favorites: Ember.computed.alias('model.favorites'),
   industries: Ember.computed.alias('model.industries'),
-  favoriteIndustries: Ember.computed('favorites.length', function(){
+  favoriteIndustries: Ember.computed('favorites', function(){
     return _.map(this.get('favorites').toArray(), i=>{
+      // console.log( i)
       return i.get('code');
     })
   }),
@@ -98,6 +99,20 @@ export default Ember.Controller.extend(
       cb.apply();
     })
   },
+  _saveFavorites(items){
+    var promises = [];
+
+    items.forEach(i=>{
+      promises.push(this.get('store').createRecord('favoriteindustry', {
+        code: i.get('industryId'),
+        name: i.get('industry'),
+        userid: this.get('session.data.authenticated.user_id')
+      }).save());
+    })
+    Ember.RSVP.all(promises).then(()=>{
+      this.set('isFavoritesLoading', false);
+    });
+  },
   actions: {
     post: function (data, cb) {
       this.store.createRecord('newsfeed', {
@@ -135,18 +150,15 @@ export default Ember.Controller.extend(
       });
     },
     onFavoriteIndustrySelect(items){
-      var favorites = this.get('favorites');
-      favorites.forEach(i=>{
-        i.destroyRecord();
+      this.set('isFavoritesLoading', true);
+      var promises = [];
+      this.get('favorites').forEach(i=>{
+        promises.push(i.destroyRecord());
       })
 
-      this.get('store').createRecord('favoriteindustry', {
-        favorites: _.map(items, i=>{
-          return {code: i.get('industryId'), name: i.get('industry')};
-        })
-      }).save()
-    },
-
-
+      Ember.RSVP.all(promises).then(res=>{
+        this._saveFavorites(items);
+      })
+    }
   }
 });
