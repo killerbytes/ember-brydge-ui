@@ -135,21 +135,16 @@ export default Ember.Controller.extend(
       });
     },
     onFavoriteIndustrySelect(items){
-      this.set('isFavoritesLoading', true);
       var favorites = this.get('favorites');
       favorites.forEach(i=>{
         i.destroyRecord();
       })
-      _.each(items, i=>{
-        this.set('isFavoritesLoading', true);
-        this.get('store').createRecord('favoriteindustry', {
-          code: i.get('industryId'),
-          name: i.get('industry'),
-          userid: this.get('session.data.authenticated.user_id')
-        }).save().then(()=>{
-          this.set('isFavoritesLoading', false);
-        });
-      })
+
+      this.get('store').createRecord('favoriteindustry', {
+        favorites: _.map(items, i=>{
+          return i.get('industryId');
+        })
+      }).save();
     },
 
 

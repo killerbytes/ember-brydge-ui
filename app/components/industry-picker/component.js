@@ -17,6 +17,13 @@ export default Ember.Component.extend({
   },
   didInsertElement(){
     this._super(...arguments);
+    Ember.run.later(()=>{
+      Ember.$(`#industry-picker-${this.get('name')}`).on('open.zf.reveal', ()=>{
+        this.set('industryPicker.active', null);
+        console.log('reveal', this.get('industryPicker.active'))
+      })
+    })
+
     // Ember.run.later(function(){
     //   $('#industry-picker').foundation('open');
     // })
