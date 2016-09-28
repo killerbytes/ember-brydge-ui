@@ -1,17 +1,17 @@
-.industry-picker{
+	.industry-picker{
 	width: 80%;
 	max-width: 80%;
 	.row-aligned-columns{
 		max-height: 90vh;
 	}
 	.industry-detail{
-		max-height: 50vh;
+		min-height: 60vh;
 		ul li{
 			line-height: 2rem;
 		}
 	}
 	.industry-selections{
-		max-height: 33vh;
+		max-height: 18vh;
 	}
 
 	.empty-message{
@@ -21,11 +21,16 @@
 	}
 	section.title{
 		border-bottom: 1px solid $border-color;
+		text-align: center;
+		h4{
+			color: $body-text-color;
+			text-transform: uppercase !important;
+		}
 	}
 	h3{
-		font-size: 15px;
+		font-size: 12px;
 		font-weight: bold;
-		color: $body-text-color;
+		color: $text-gray;
 		margin-bottom: 2rem;
 	}
 	section h3{
@@ -38,7 +43,7 @@
 		strong{
 			position: absolute;
 			text-transform: uppercase;
-			font-size: 20px;
+			font-size: 16px;
 			top: 0;
 			color: #FFF;
 			margin: 0;
@@ -66,7 +71,7 @@
 		}
 		a.selected{
 			@extend .rounded;
-			background-color: gray;
+			background-color: #7993A1;
 			color: #FFF;
 
 		}

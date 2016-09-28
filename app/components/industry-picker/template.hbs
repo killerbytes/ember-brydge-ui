@@ -21,7 +21,7 @@
       </div>
     </div>
     <div class="columns medium-5 wrapper">
-      <section class="industry-detail bg-gray scrollbar">
+      <section class="industry-detail bg-gray scrollbar wrapper">
         {{#if industryPicker.isLoading}}
           <div class="brydge-loading"></div>
         {{else}}
@@ -55,6 +55,9 @@
           {{/if}}
 
         {{/if}}
+      </section>
+      <section class="title">
+        <h4 class="selection-title">Your selections</h4>
       </section>
       <section class="industry-selections scrollbar">
         <ul class="industry-list list-inline">
