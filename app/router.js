@@ -32,6 +32,7 @@ Router.map(function() {
   this.route('settings');
   this.route('requests');
   this.route('invites');
+  this.route('onboarding');
   this.route('notifications');
   this.route('profile-views');
 
