@@ -3,8 +3,7 @@ import AuthenticatedRouteMixin from 'ember-simple-auth/mixins/authenticated-rout
 import BrydgeMessagingScroller from 'web/mixins/brydge-messaging-scroller';
 // import BrydgeMessagingScroller from 'web/mixins/brydge-scroller';
 
-export default Ember.Route.extend(
-  AuthenticatedRouteMixin, {
+export default Ember.Route.extend({
   // ajaxApi: Ember.inject.service(),
   // session: Ember.inject.service(),
   // model(){

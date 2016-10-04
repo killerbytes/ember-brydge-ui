@@ -1,13 +1,14 @@
 <div class="row">
   <div class="columns medium-5 sidebar">
-    <a data-open="industry-picker">Industry Picker</a>
+    <a data-open="video-teaser">Use the Industry Picker</a>
 
   </div>
 
   <div class="columns medium-7">
+
+    {{modal-player name="video-teaser" videoid="Y1yOKql2xc0"}}
+
   </div>
 
-  {{picker-channel profile=profile favorites=favorites}}
-  {{industry-picker name="home" industries=model.categories max=10 selected=selected submit="submit"}}
 
 </div>

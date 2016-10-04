@@ -1,0 +1,14 @@
+{{#zf-reveal id=name overlay=true class="large box"}}
+  <button class="close-button" data-close aria-label="Close modal" type="button">
+    <span aria-hidden="true">&times;</span>
+  </button>
+  <section>
+    {{ember-youtube
+      ytid=videoid
+      delegate=this
+      delegate-as="emberYoutube"
+      width=width
+      height=height
+    }}
+  </section>
+{{/zf-reveal}}

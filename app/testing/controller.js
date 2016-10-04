@@ -11,6 +11,16 @@ export default Ember.Controller.extend({
   //     return i.get('code');
   //   })
   // }),
+  // customPlayerVars: {
+  //   autoplay: 1
+  // },
+  customPlayerVars: {
+      autoplay: 1,
+		height: 390,
+		width: 640,
+		showinfo: 1
+	},
+
   actions: {
     // submit(item){
     //   console.log(item)

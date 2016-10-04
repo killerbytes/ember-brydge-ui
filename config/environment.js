@@ -18,13 +18,13 @@ module.exports = function(environment) {
     },
     contentSecurityPolicy: {
       'default-src': "'none'",
-      'child-src': ["'self'", "cdn.embedly.com", "youtube.com"],
+      'child-src': ["'self'", "cdn.embedly.com", "www.youtube.com"],
       'connect-src': ["'self'", "ws://localhost:4000", "ws://localhost:8000", "http://localhost:8000", "https://api.brydge.me", "https://api.brydge.com", "https://embed.doorbell.io"],
       'font-src': ["'self'", "fonts.gstatic.com", "fonts.googleapis.com"],
       'img-src': ["'self'", "https://storage.googleapis.com", "www.google-analytics.com", "data:"],
       // 'img-src': ["'self'", "https://storage.googleapis.com", "www.google-analytics.com", "data:", "*.cloudfront.net"],
       'style-src': ["'self'", "'unsafe-inline'", "https://fonts.googleapis.com", "https://embed.doorbell.io"],
-      'script-src':  ["'self'", "api.brydge.com", "api.brydge.me", "https://fonts.googleapis.com", "google-analytics.com", "https://maps.googleapis.com", "https://embed.doorbell.io"]
+      'script-src':  ["'self'", "api.brydge.com", "api.brydge.me", "https://fonts.googleapis.com", "google-analytics.com", "https://maps.googleapis.com", "https://embed.doorbell.io", "www.youtube.com", "s.ytimg.com"]
     },
     'ember-simple-auth':{
       serverTokenRevocationEndpoint: 'revoke',

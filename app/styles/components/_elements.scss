@@ -299,7 +299,7 @@ table{
 		padding-left: 25px;
 	}
 	p:not(:last-child){
-		margin-bottom: 2rem;
+		margin-bottom: 1rem;
 	}
 }
 
@@ -323,6 +323,12 @@ table{
 
 .user-guide-box{
 	padding: 1px;
+	.button-overlay .overlay-preview{
+		opacity: .9;
+	}
+	.button-play{
+		margin: 18% auto;
+	}
 }
 
 footer{
@@ -528,7 +534,7 @@ span.middle{
 .channel-select{
 	p{
 		text-align: center;
-		margin: 2rem;
+		margin: 3.5rem 2rem;
 	}
 	ul+small{
 		// position: absolute;
