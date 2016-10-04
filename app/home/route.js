@@ -37,7 +37,6 @@ export default Ember.Route.extend(
 
   beforeModel(transition, params) {
     this._super(transition, params);
-    // getOwner(this).lookup('controller:application').set('header', true);
     return this.get('sessionAccount.account');
   },
 
@@ -50,6 +49,10 @@ export default Ember.Route.extend(
       favorites: this.store.findAll('favoriteindustry')
     });
   },
+  afterModel(model, transition){
+    if(model && model.profile.get('configSetting.newProfile')) this.transitionTo('onboarding');
+  },
+
   setupController(){
     this._super(...arguments);
     this.controller.set('newsfeed', {});

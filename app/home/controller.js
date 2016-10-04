@@ -61,8 +61,6 @@ export default Ember.Controller.extend(
   location: null,
   q: null,
   init(){
-    // getOwner(this).lookup('controller:application').set('header', true);
-
     const email = this.get('session.data.authenticated.email') || nil;
     if (email) {
       window.doorbellOptions.email = email;

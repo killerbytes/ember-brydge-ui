@@ -13,6 +13,11 @@ const Router = Ember.Router.extend(googlePageview, {
   location: config.locationType,
   _setHeader(){
     getOwner(this).lookup('controller:application').set('header', this.get('session.data.authenticated.access_token') ? true : false);
+    switch(this.get('currentPath')){
+      case 'onboarding':
+        getOwner(this).lookup('controller:application').set('isHeaderStatic', true);
+        break;
+    }
   },
 
   willTransition(transition) {

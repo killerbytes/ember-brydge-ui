@@ -1,6 +1,11 @@
 {{#if header}}
-  {{render "header"}}
+  {{#if isHeaderStatic}}
+    {{render "static-header"}}
+  {{else}}
+    {{render "header"}}
+  {{/if}}
 {{/if}}
+
 <section class="main {{classNames}}">
   {{outlet}}
 </section>

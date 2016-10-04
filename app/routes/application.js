@@ -8,6 +8,7 @@ export default TransitionToListenerRoute.extend(
   ScrollResetMixin,
   ApplicationRouteMixin, {
   notification: Ember.inject.service(),
+  session: Ember.inject.service(),
   tmp: Ember.inject.service('temp'),
   browserCheck: function(){
     if(this.get('detector.isMobile')){
@@ -16,13 +17,19 @@ export default TransitionToListenerRoute.extend(
       })
     }
   }.on('activate'),
-  afterModel(){
-    this._setMetaTags();
+  model(){
+    var userid = this.get('session.data.authenticated.user_id');
+    if(!userid) return;
+    return  this.store.findRecord('profile', userid);
+  },
+  afterModel(model, transition){
+    if(model && model.get('configSetting.newProfile')) this.transitionTo('onboarding');
   },
   setupController(controller, model){
     this._super(...arguments);
     this.get('notification').checkPush();
     controller.set('detector', this.get('detector'));
+    // console.log(this.get('session.data.authenticated.user_id'))
   },
   _setMetaTags(){
     var headTags = [{

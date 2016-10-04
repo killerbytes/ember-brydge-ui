@@ -12,11 +12,5 @@ export default Ember.Route.extend(
     if (this.get('session.isAuthenticated')) {
       this.transitionTo('home');
     }
-  },
-  actions: {
-    didTransition(){
-      // console.log('didTransition index.js')
-      this._super(...arguments);
-    }
   }
 });

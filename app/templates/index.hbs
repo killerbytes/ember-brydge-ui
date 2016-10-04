@@ -20,6 +20,7 @@
               </div>
             {{/if}}
             {{partial "partials/form-login"}}
+            <a data-open="video-teaser">Use the Industry Picker</a>
             <div class="dialog-footer">
               <form class="brydge-form">
                 <div class="input-group">
@@ -44,3 +45,14 @@
     </div>
   </div>
 </div>
+
+
+{{#zf-reveal id="video-teaser" overlay=true class="small box"}}
+  <button class="close-button" data-close aria-label="Close modal" type="button">
+    <span aria-hidden="true">&times;</span>
+  </button>
+  <section>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/oPpzJAzdpTU?autoplay=1" frameborder="0" allowfullscreen></iframe>
+  </section>
+
+{{/zf-reveal}}

@@ -1,28 +1,51 @@
 <div class="row">
   <div class="medium-6 medium-centered columns">
     <div class="page-heading">
-      <h1>Invite Friends</h1>
+      <h1>Welcome to Brydge, <span class="text-title">{{profile.firstName}}</span>!</h1>
       <p class="text-center">
-        Invite your friends, co-workers and business associates to Brydge. We will send them an invitation code, and notify you if they accept.
+        On Brydge, you can "follow" any industry you want, and "participate" in up to three of them. Pick at least one relevant industry to proceed.
       </p>
     </div>
   </div>
 </div>
-<div class="row">
-  <div class="columns">
-    <div class="box">
-      <section class="section-padding" style="padding-top:3rem;">
-        <div class="row">
-          <div class="columns medium-6 medium-centered">
-            {{#each invites as |item|}}
-              {{invite-friend model=item}}
-            {{/each}}
-            {{#each remaining as |item|}}
-              {{invite-friend submit="submit"}}
-            {{/each}}
-          </div>
-        </div>
-      </section>
-    </div>
+<div class="row mb50">
+  <div class="columns medium-4">
+    <a data-open="industry-picker-onboarding" class="button-add-industries">
+      {{#if profile.industryOneName}}
+        <div class="button-footer">{{profile.industryOneName}}</div>
+      {{else}}
+        <i class="fa fa-plus" aria-hidden="true"></i>
+        <div>Add Industry</div>
+      {{/if}}
+    </a>
+
+  </div>
+  <div class="columns medium-4">
+    <a data-open="industry-picker-onboarding" class="button-add-industries">
+      {{#if profile.industryTwoName}}
+        <div class="button-footer">{{profile.industryTwoName}}</div>
+      {{else}}
+        <i class="fa fa-plus" aria-hidden="true"></i>
+        <div>Add Industry</div>
+      {{/if}}
+    </a>
+
+  </div>
+  <div class="columns medium-4">
+    <a data-open="industry-picker-onboarding" class="button-add-industries">
+      {{#if profile.industryThreeName}}
+        <div class="button-footer">{{profile.industryThreeName}}</div>
+      {{else}}
+        <i class="fa fa-plus" aria-hidden="true"></i>
+        <div>Add Industry</div>
+      {{/if}}
+    </a>
   </div>
 </div>
+
+<div class="row">
+  <div class="columns medium-4 medium-centered">
+    <button class="button success expanded" disabled={{isDisabled}} {{action "submit"}}>Proceed</button>
+  </div>
+</div>
+{{industry-picker name="onboarding" title="Select 3 Relevant Industries" industries=model.industries selected=industries submit="onIndustrySelect"}}
