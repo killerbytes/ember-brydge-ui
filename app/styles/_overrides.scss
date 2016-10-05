@@ -72,7 +72,7 @@ ul > li.is-dropdown-submenu-parent.is-down-arrow > ul {
 	color: #FEFEFE;
 	&:hover{
 		background-color: #CACACA;
-	}	
+	}
 }
 
 .title-bar-right{
@@ -90,4 +90,8 @@ ul > li.is-dropdown-submenu-parent.is-down-arrow > ul {
 	input{
 		display: none;
 	}
+}
+
+#doorbell-button{
+	background-color: $brydge-red;	
 }
