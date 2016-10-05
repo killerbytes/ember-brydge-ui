@@ -12,7 +12,7 @@
       {{#if item.selected}}
         <a class="selected">
           {{item.industry}}
-          <i class="fa fa-close" {{action "remove" item }}></i>
+          <span aria-hidden="true" class="fa" {{action "remove" item }}>&times;</span>
         </a>
       {{else if item.active}}
         <a class="active">

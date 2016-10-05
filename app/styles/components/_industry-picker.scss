@@ -16,10 +16,13 @@
 			font-size: 12px;
 		}
 	}
+	.empty-message-wrapper{
+		min-height: 40vh;
+	}
 
 	.empty-message{
 		text-align: center;
-		margin: 50% 0;
+		margin: 20% 0;
 		font-size: 14px;
 	}
 	section.title{

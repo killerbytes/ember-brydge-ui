@@ -33,29 +33,29 @@
             <a class="button large green"{{action "add" industryPicker.active}}><i class="fa fa-plus"></i> Select Industry</a>
           </section>
           <section class="bg-gray">
-              <h4>People you could meet here</h4>
-              <ul class="no-bullet list-dotted mb20">
-              {{#each industryPicker.active.sample as |item|}}
-                <li>
-                  {{item}}
-                </li>
-              {{/each}}
-                <li>and so on</li>
-              </ul>
+              <h4>People you might meet here</h4>
+              <div class="list-dotted mb20">
+                {{#each industryPicker.active.sample as |item|}}
+                  {{item}} <i class="dot"></i>
+                {{/each}}
+                and so on <i class="dot"></i>
+              </div>
+
 
               <h4>Related Industries</h4>
-              <ul class="no-bullet list-dotted">
-              {{#each industryPicker.active.related as |item|}}
-                <li>
+              <div class="list-dotted mb20">
+                {{#each industryPicker.active.related as |item|}}
                   <a {{action "select" item}}>
                     {{item.name}}
                   </a>
-                </li>
-              {{/each}}
-              </ul>
+                  <i class="dot"></i>
+                {{/each}}
+              </div>
           </section>
         {{else}}
-          <p class="empty-message">Select an industry to view more information about it</p>
+          <section class="empty-message-wrapper">
+            <p class="empty-message">Select an industry to view more information about it</p>
+          </section>
         {{/if}}
 
       {{/if}}
@@ -69,7 +69,7 @@
           <li>
             <a class="selected">
               {{item.industry}}
-              <i class="fa fa-close" {{action "remove" item }}></i>
+              <span aria-hidden="true" class="fa" {{action "remove" item }}>&times;</span>
             </a>
 
           </li>
