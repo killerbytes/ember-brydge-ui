@@ -4,12 +4,12 @@ import DS from 'ember-data';
 export default Ember.Component.extend({
 	store: Ember.inject.service(),
 	connection: Ember.inject.service(),
-	ajax: Ember.inject.service(),
+	ajaxApi: Ember.inject.service(),
 	init(){
 		this._super(...arguments);
-		var url = "https://api.brydge.me/v2/profiles/"+this.get('profile.publicProfile') ;
-		console.log(this.get('ajax').set('headers', null))
-		this.get('ajax').request(url).then(res=>{
+		this.get('ajaxApi').set('headers', null);
+		this.get('ajaxApi').request('/v2/profiles/'+ this.get('profile.publicProfile')).then(res=>{
+		// this.get('ajaxApi').request('url').then(res=>{
 			this.set('user', res.data.attributes);
 		})
 	},
