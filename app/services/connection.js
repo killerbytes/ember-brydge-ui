@@ -31,5 +31,5 @@ export default Ember.Service.extend({
   },
   count(id){
     return this.get('ajax').request(`v2/get-connectioncount/${id}`);
-  }
+  },
 });

@@ -1,0 +1,96 @@
+{{#zf-reveal id="dialog-share-profile" overlay=true class="small box"}}
+  <button class="close-button" aria-label="Dismiss alert" type="button" data-close>
+    <span aria-hidden="true">&times;</span>
+  </button>
+  <section class="title">
+    <h4>Share your profile</h4>
+  </section>
+  <section>
+    <div class="row column">
+    <h2>This is the URL to your profile</h2>
+    <p id="publicUrl">
+      https://brydge.com/{{profile.publicProfile}}
+    </p>
+    {{#copy-button
+      clipboardText=publicProfile
+      success='success'
+      error='error'
+    }}
+      <button class="button secondary">Copy URL</button>
+    {{/copy-button}}
+
+    {{link-to "Edit your URL" "settings" (query-params tab="profile") class="button success" }}
+    <span class="padded">{{message}}</span>
+    </div>
+  </section>
+  <section>
+    <div class="row column mb20">
+      <h2 class="mb30 mt">Here’s what will it look like when you post it on Facebook or other social media platforms</h2>
+      <div class="newsfeed-item">
+        <div class="media box">
+          <div>
+            <img src="https://storage.googleapis.com/brydge-assets/meta-image.jpg" alt="">
+          </div>
+          <a>
+            <div class="post-content">
+              <div class="title">
+                <a>Connect with Nikhil Charan on Brydge</a>
+              </div>
+              <a>Brydge</a>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section>
+    <div class="row column">
+      <h2 class="mb30 mt">Clicking on your Profile URL will redirect users to your profile page. Those who do not have an account on Brydge will be re-directed to a page showing the below widget.</h2>
+      <div class="page-public-profile">
+          <div class="dialog-wrapper box">
+            <div class="dialog-header">
+              <a href="/" class="logo"><img src="assets/brydge-blue.svg"></a>
+            </div>
+            <div class="avatar" style={{htmlSafeImage profile.avatarUrl}}>
+              <img src="{{profile.avatar}}" class="hide">
+            </div>
+            <div class="padding text-center">
+              <h1 class="mb"><strong>{{profile.fullName}}</strong></h1>
+              <div class="position">{{profile.currentTitle}}</div>
+              <div class="position"><strong>{{profile.currentCompany}}</strong></div>
+              <div class="location"><strong>{{profile.location}}</strong></div>
+            </div>
+            <div class="row collapse bg-gray stats">
+              <div class="columns medium-4">
+                <div class="padding text-center">
+                  <div>
+                    <big>{{user.connections_count}}</big>
+                  </div>
+                  Connections
+                </div>
+              </div>
+              <div class="columns medium-4">
+                <div class="padding text-center">
+                  <div>
+                    <big>{{user.post_count}}</big>
+                  </div>
+                  Posts
+                </div>
+              </div>
+              <div class="columns medium-4">
+                <div class="padding text-center">
+                  <div>
+                    <big>{{user.ask_count}}</big>
+                  </div>
+                  Questions
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+  </section>
+  <section class="text-right">
+    <button class="success button" type="submit" data-close>OK</button>
+  </section>
+{{/zf-reveal}}
