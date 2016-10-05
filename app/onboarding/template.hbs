@@ -52,4 +52,4 @@
     <button class="button success expanded {{if isDisabled 'btn-disabled'}}" disabled={{isDisabled}} {{action "submit"}}>Proceed</button>
   </div>
 </div>
-{{industry-picker name="onboarding" title="Select 3 Relevant Industries" industries=model.industries selected=industries submit="onIndustrySelect"}}
+{{industry-picker name="onboarding" title="Select up to 3 Industries you want to participate in" industries=model.industries selected=industries submit="onIndustrySelect"}}
