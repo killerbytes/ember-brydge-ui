@@ -7,7 +7,7 @@ export default Ember.Component.extend({
 	ajax: Ember.inject.service(),
 	init(){
 		this._super(...arguments);
-		var url = "https://api.brydge.me/v2/profiles/joel-carlos";
+		var url = "https://api.brydge.me/v2/profiles/"+this.get('profile.publicProfile') ;
 		this.get('ajax').request(url).then(res=>{
 			this.set('user', res.data.attributes);
 		})
