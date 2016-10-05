@@ -8,6 +8,7 @@ export default Ember.Component.extend({
 	init(){
 		this._super(...arguments);
 		var url = "https://api.brydge.me/v2/profiles/"+this.get('profile.publicProfile') ;
+		console.log(this.get('ajax').set('headers', null))
 		this.get('ajax').request(url).then(res=>{
 			this.set('user', res.data.attributes);
 		})
