@@ -49,10 +49,19 @@ export default Ember.Component.extend({
       return i.id==id;
     });
   },
+  _reset(){
+    if(this.get('isDestroyed') || this.get('isDestroying')) return false;
+    this.set('message', null);
+  },
   actions: {
     add(item){
       if(this.get('max') == this.get('industryPicker.industries.length')) return false;
       if(!this._industryExist(item.id)) this.get('industryPicker.industries').pushObject(item);
+      this.set('message', "Added to Your Selections");
+      Ember.run.later(()=>{
+        this._reset();
+      }, 5000)
+
     },
     submit(){
       this.sendAction("submit", this.get('industryPicker.industries'));
