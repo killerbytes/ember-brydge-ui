@@ -12,7 +12,6 @@ const Router = Ember.Router.extend(googlePageview, {
   session: Ember.inject.service(),
   location: config.locationType,
   _setHeader(){
-    // getOwner(this).lookup('controller:application').set('header', this.get('session.data.authenticated.access_token') ? true : false);
     // console.log(this.get('currentPath'))
     switch(this.get('currentPath')){
       case 'onboarding':
@@ -23,6 +22,7 @@ const Router = Ember.Router.extend(googlePageview, {
         break;
       default:
         getOwner(this).lookup('controller:application').set('header', 'header' );
+        getOwner(this).lookup('controller:application').set('isAuth', this.get('session.data.authenticated.access_token') ? true : false);
         break;
     }
   },

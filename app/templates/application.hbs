@@ -1,9 +1,9 @@
 {{#if isHeader}}
+  {{#if isAuth}}
   {{render "header"}}
+  {{/if}}
 {{else if isStatic}}
   {{render "static-header"}}
-
-  
 {{/if}}
 
 <section class="main {{classNames}}">
