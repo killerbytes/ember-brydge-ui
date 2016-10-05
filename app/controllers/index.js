@@ -2,7 +2,8 @@ import Ember from 'ember';
 import UnauthenticatedRouteMixin from 'ember-simple-auth/mixins/unauthenticated-route-mixin';
 
 export default Ember.Controller.extend({
-  session: Ember.inject.service('session'),
+  session: Ember.inject.service(),
+  sessionAccount: Ember.inject.service(),
   auth: Ember.inject.service(),
   isInvalid: Ember.computed('email', 'password', function(){
     return !(this.get('email') && this.get('password'));

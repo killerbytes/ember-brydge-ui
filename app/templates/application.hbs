@@ -1,9 +1,9 @@
-{{log "testing"}}
-{{log "isHeader" isHeader}}
-{{log "isStatic" isStatic}}
-{{log "isNoHeader" isNoHeader}}
 {{#if isHeader}}
-{{render "header"}}
+  {{render "header"}}
+{{else if isStatic}}
+  {{render "static-header"}}
+
+  
 {{/if}}
 
 <section class="main {{classNames}}">

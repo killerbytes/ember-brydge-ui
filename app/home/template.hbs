@@ -42,43 +42,6 @@
 	        </li>
 	      {{/zf-tabs}}
       </div>
-      {{#if profile.configSetting.showGuide}}
-  			<div class="box getting-started">
-  				<section>
-  					<h3>Get Started, <span class="text-title">{{profile.firstName}}</span>!</h3>
-            Welcome to the BETA Version. We’ll keep this notice here until you dismiss it.
-  				</section>
-          <section>
-  					<span class="badge">1</span>
-  					<p><strong>Pick {{link-to "Industries" "me.edit" (query-params tab="industry")}} relevant to you</strong></p>
-  					<p>Do this first. Once you do, it becomes easier for other professionals and businesses to discover you. And vice versa.</p>
-  				</section>
-
-          <section>
-  					<span class="badge">2</span>
-  					<p><strong>Browse Industry Channels</strong></p>
-  					<p>After you've picked your industries, use the <b>Channel Filters</b> at the top of this page to discover relevant content, people and industry news.</p>
-            <p>Go on, try it.</p>
-  				</section>
-
-  				<section>
-  					<span class="badge">3</span>
-
-  					<p><strong>Set up your {{link-to "Profile" "me"}}</strong></p>
-            <p>Tell the world how amazing you are at what you do. Fill out your profile. If you want an example, see <b>{{link-to "Jon Vettori" "profile" "d36475e0645211e69ae542010af00003"}}</b>'s profile.</p>
-
-  				</section>
-
-  				<section>
-  					<span class="badge">4</span>
-  					<p><strong>Find people you know</strong></p>
-  					<p>If you know anyone else who is participating in our Closed BETA, you can search for them. Feel free to connect with <b>{{link-to "Nikhil Charan" "profile" "3ze5n8glm6b"}}</b> or <b>{{link-to "Jon Vettori" "profile" "d36475e0645211e69ae542010af00003"}}</b> if you need any help.</p>
-  				</section>
-          <section class="text-right">
-            <button class="button btn success" {{action "dismiss"}}>Dismiss</button>
-          </section>
-  			</div>
-      {{/if}}
 			<div data-tabs-content="newsfeed-tabs">
 				<div class="tabs-panel {{active-tab 'live' tab}}" id="live">
 				    {{#if feed_live}}
@@ -145,6 +108,38 @@
 
   </div>
   <div class="large-5 medium-5 columns sidebar">
+    {{#if profile.configSetting.showGuide}}
+      <div class="box getting-started">
+        <section>
+          <h3>Get Started, <span class="text-title">{{profile.firstName}}</span>!</h3>
+          Welcome to the BETA Version. We’ll keep this notice here until you dismiss it.
+        </section>
+
+        <section>
+          <span class="badge">1</span>
+          <p><strong>Browse Industry Channels</strong></p>
+          <p>Use the <strong>Newsfeed Filters</strong> to the left of this page to follow and browse industries that matter to you.</p>
+        </section>
+
+        <section>
+          <span class="badge">2</span>
+          <p><strong>Set up {{link-to "your profile" "me.edit"}}</strong></p>
+          <p>Tell the world how amazing you are at what you do. See <b>{{link-to "Jon Vettori" "profile" "d36475e0645211e69ae542010af00003"}}</b>'s profile for example.</p>
+
+        </section>
+
+        <section>
+          <span class="badge">3</span>
+          <p><strong>Add connections</strong></p>
+          <p>Know anyone participating in our BETA? Search for them. If not, here are some {{link-to "invitation codes" "invites"}} you can send to friends and associates.</p>
+        </section>
+        <section class="text-right">
+          <button class="button btn success" {{action "dismiss"}}>Dismiss</button>
+        </section>
+      </div>
+    {{/if}}
+
+
     {{ partial "partials/invite-friends" }}
 		{{ partial 'partials/user-guide-box' }}
     {{ partial "footer"}}

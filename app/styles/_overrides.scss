@@ -66,6 +66,14 @@ ul > li.is-dropdown-submenu-parent.is-down-arrow > ul {
 .button[disabled] {
 	opacity: .8;
 }
+.button.disabled.btn-disabled,
+.button[disabled].btn-disabled{
+	background-color: #CACACA;
+	color: #FEFEFE;
+	&:hover{
+		background-color: #CACACA;
+	}	
+}
 
 .title-bar-right{
 	text-align: left;

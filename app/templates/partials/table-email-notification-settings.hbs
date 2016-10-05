@@ -7,13 +7,13 @@
   </thead>
   <tbody>
     <tr>
-      <td>Notify me about unread notifications once a week via email</td>
+      <td>Email me about important notifications once a week</td>
       <td class="text-center">
         {{input type="checkbox" change=(action 'emailNotificationChanged') checked=emailSetting.weekly id="emailSetting.weekly" name="weekly" }}
       </td>
     </tr>
     <tr>
-      <td>Signup for MailChimp</td>
+      <td>Receive updates on new features and changes as Brydge grows up</td>
       <td class="text-center">
         {{input type="checkbox" change=(action 'emailNotificationChanged') checked=emailSetting.subscriber id="emailSetting.subscriber" name="subscriber" }}
       </td>

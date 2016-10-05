@@ -23,7 +23,6 @@
 							</a>
 						{{/zf-tooltip}}
 					</li>
-
 					<li>
 						{{#zf-tooltip title="Connection Requests" vOffset=7}}
 							<a data-toggle="dd-requests" class="dropdown-button-arrow dropdown-button-icons" {{action "open" "request"}}>
@@ -33,7 +32,6 @@
 								<i class="icons user"></i>
 							</a>
 						{{/zf-tooltip}}
-
 					</li>
 					<li>
 						{{#zf-tooltip title="Messages" vOffset=7}}
@@ -44,7 +42,6 @@
 								<i class="icons messages"></i>
 							</a>
 						{{/zf-tooltip}}
-
 					</li>
 					<li>
 						{{#zf-tooltip title="Notifications" vOffset=7}}
@@ -55,7 +52,6 @@
 									<i class="icons stack"></i>
 							</a>
 						{{/zf-tooltip}}
-
 					</li>
           <li>
             <span>
@@ -72,6 +68,7 @@
 										<img src= {{sessionAccount.account.profile.avatarUrl}} class="hide">
 									</div>
 								{{/link-to}}
+                {{isOnboarding}}
 							</li>
 						</ul>
 					</li>

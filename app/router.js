@@ -19,10 +19,10 @@ const Router = Ember.Router.extend(googlePageview, {
         getOwner(this).lookup('controller:application').set('header', 'static');
         break;
       case 'unsubscribed':
-        getOwner(this).lookup('controller:application').set('header', 'header');
+        getOwner(this).lookup('controller:application').set('header', null);
         break;
       default:
-        getOwner(this).lookup('controller:application').set('header', "header" );
+        getOwner(this).lookup('controller:application').set('header', 'header' );
         break;
     }
   },
@@ -44,6 +44,7 @@ Router.map(function() {
   this.route('settings');
   this.route('requests');
   this.route('invites');
+  this.route('onboarding');
   this.route('notifications');
   this.route('profile-views');
 

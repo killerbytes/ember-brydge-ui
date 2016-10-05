@@ -20,8 +20,14 @@
               </div>
             {{/if}}
             {{partial "partials/form-login"}}
+            <a data-open="video-teaser" class="wrapper button-overlay">
+              <img src="https://storage.googleapis.com/brydge-assets/temp/video_image.jpg" alt="" class="overlay-preview">
+              <div class="button-play-wrapper">
+                <img src="https://storage.googleapis.com/brydge-assets/temp/video-play-button.png" alt="" class="button-play">
+              </div>
+            </a>
             <div class="dialog-footer">
-              <form class="brydge-form">
+              <form class="brydge-form hide">
                 <div class="input-group">
                   {{input value=code class="input-group-field" placeholder="Invitation code" }}
                   <div class="input-group-button">
@@ -30,7 +36,7 @@
                 </div>
               </form>
               <div class="text-center page-title">
-                <strong>Want to check it out? Leave us your email {{link-to "here" "register"}}.</strong>
+                <strong>Want to check it out? Leave us your email {{link-to "here" "register"}}</strong>
               </div>
             </div>
           </div>

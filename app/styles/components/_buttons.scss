@@ -10,6 +10,7 @@
 	}
 }
 
+
 .button{
 	background-color: #FFF;
 	min-width: 6rem;
@@ -155,7 +156,24 @@
 
 }
 
-
+.button-overlay{
+	display: block;
+	.overlay-preview{
+		opacity: .6;
+	}
+}
+.button-play-wrapper{
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	z-index: 2;
+	top: 0;
+}
+.button-play{
+	display: block;
+	margin: 16% auto;
+	width: 20%;
+}
 
 .profile-actions a.button[data-toggle=dd-public-options]{
 	padding: 12px 13px 11px;
