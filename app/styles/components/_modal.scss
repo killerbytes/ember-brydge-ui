@@ -33,3 +33,20 @@
 #video-teaser{
 	width: 667px;
 }
+
+#dialog-share-profile{
+	.dialog-wrapper{
+		background-color: $body-bg-color;
+	}
+	h2{
+		font-size: 16px;
+		font-weight: bold;
+	}
+	.title{
+		font-size: 18px;
+	}
+	.stats{
+		margin-bottom: 0;
+		border-bottom: none;
+	}
+}

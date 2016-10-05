@@ -21,37 +21,46 @@
       </div>
     </div>
     <div class="columns medium-5 wrapper">
-      <section class="industry-detail bg-gray scrollbar wrapper">
-        {{#if industryPicker.isLoading}}
-          <div class="brydge-loading"></div>
-        {{else}}
-          {{#if industryPicker.active}}
+      {{#if industryPicker.isLoading}}
+        <div class="brydge-loading"></div>
+      {{else}}
+        {{#if industryPicker.active}}
+          <section>
             <h3>{{industryPicker.active.industry}}</h3>
             <p class="mb20">
               {{industryPicker.active.description}}
             </p>
-            <p class="mb40">
-              <a class="button large green"{{action "add" industryPicker.active}}><i class="fa fa-plus"></i> Select Industry</a>
-            </p>
-            <h4>People in the Industry</h4>
-            {{industryPicker.active.sample}}
-            <h4>Related Industries</h4>
-            <ul class="no-bullet">
-            {{#each industryPicker.active.related as |item|}}
+            <a class="button large green"{{action "add" industryPicker.active}}><i class="fa fa-plus"></i> Select Industry</a>
+            <span class="padded">{{message}}</span>
+          </section>
+          <section class="bg-gray">
+              <h4>People you might meet here</h4>
+              <div class="list-dotted mb20">
+                {{#each industryPicker.active.sample as |item|}}
+                  {{item}} <i class="dot"></i>
+                {{/each}}
+                and so on <i class="dot"></i>
+              </div>
 
-              <li>
-                <a {{action "select" item}}>
-                  {{item.name}}
-                </a>
-              </li>
-            {{/each}}
-            </ul>
-          {{else}}
+
+              <h4>Related Industries</h4>
+              <div class="list-dotted mb20">
+                {{#each industryPicker.active.related as |item|}}
+                  <a {{action "select" item}}>
+                    {{item.name}}
+                  </a>
+                  <i class="dot"></i>
+                {{/each}}
+              </div>
+          </section>
+        {{else}}
+          <section class="empty-message-wrapper">
             <p class="empty-message">Select an industry to view more information about it</p>
-          {{/if}}
-
+          </section>
         {{/if}}
-      </section>
+
+      {{/if}}
+
       <section class="title">
         <h4 class="selection-title">Your selections</h4>
       </section>
@@ -61,7 +70,7 @@
           <li>
             <a class="selected">
               {{item.industry}}
-              <i class="fa fa-close" {{action "remove" item }}></i>
+              <span aria-hidden="true" class="fa" {{action "remove" item }}>&times;</span>
             </a>
 
           </li>

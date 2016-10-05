@@ -5,5 +5,6 @@ export default buildValidations({
   lastName: validator('presence', true),
   location: validator('presence', true),
   dob: validator('presence', true),
+  industryOneId: validator('presence', true),
   publicProfileOne: validator('presence', true),
 });

@@ -92,7 +92,7 @@
                 </div>
                 <div class="row">
                   <div class="columns">
-                    {{form-input-button submit="save" placeholder="Saved"}}
+                    {{form-input-button item=profile submit="save" placeholder="Saved"}}
                   </div>
                 </div>
               </form>
@@ -137,4 +137,4 @@
   </div>
 </div>
 
-{{industry-picker name="edit-profile" title="Select 3 Relevant Industries" industries=model.categories selected=industries submit="onIndustrySelect"}}
+{{industry-picker name="edit-profile" title="Select up to 3 Industries you want to participate in" industries=model.categories selected=industries submit="onIndustrySelect"}}

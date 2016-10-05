@@ -1,9 +1,9 @@
-{{#if header}}
-  {{#if isHeaderStatic}}
-    {{render "static-header"}}
-  {{else}}
-    {{render "header"}}
+{{#if isHeader}}
+  {{#if isAuth}}
+  {{render "header"}}
   {{/if}}
+{{else if isStatic}}
+  {{render "static-header"}}
 {{/if}}
 
 <section class="main {{classNames}}">
@@ -31,6 +31,5 @@
   </section>
 
 {{/zf-reveal}}
-
 
 {{modal-player name="video-teaser" videoid="Y1yOKql2xc0"}}

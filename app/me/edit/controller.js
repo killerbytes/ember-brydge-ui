@@ -13,6 +13,7 @@ export default Ember.Controller.extend(
   profile: Ember.computed.alias('model.profile'),
   languages: Ember.computed.alias('model.languages'),
   interests: Ember.computed.alias('model.interests'),
+  isDisabled: Ember.computed.empty('profile.industryOneId'),
   // selectedIndustry: Ember.computed('profile.industryOneId', function(){
   //   return this.get('profile.industryOneId');
   // }),

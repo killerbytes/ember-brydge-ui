@@ -5,6 +5,7 @@ $brydge-blue: #6BCDFD;
 $button-blue: #51AFE5;
 $brydge-gray: #F7FAFE;
 $brydge-green: #9BDC3E;
+$brydge-red: #E4938E;
 $border-color: #E6E6E6;
 $box-border-color: #e5e6e9 #dfe0e4 #d0d1d5;
 $body-text-color: #3A3A3A;
@@ -129,6 +130,7 @@ p.wrap{
 .text-light{ color: $text-light; }
 .text-blue{ color: $button-blue; }
 .text-green{ color: $brydge-green !important; }
+.text-red{ color: $brydge-red; }
 .text-justify{ text-align: justify; }
 .text-upper{ text-transform: uppercase; }
 .text-title{ text-transform: capitalize; }
