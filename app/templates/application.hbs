@@ -1,6 +1,11 @@
-{{#if header}}
-  {{render "header"}}
+{{log "testing"}}
+{{log "isHeader" isHeader}}
+{{log "isStatic" isStatic}}
+{{log "isNoHeader" isNoHeader}}
+{{#if isHeader}}
+{{render "header"}}
 {{/if}}
+
 <section class="main {{classNames}}">
   {{outlet}}
 </section>
