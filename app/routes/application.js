@@ -18,6 +18,7 @@ export default TransitionToListenerRoute.extend(
     }
   }.on('activate'),
   model(){
+    
     var userid = this.get('session.data.authenticated.user_id');
     if(!userid) return;
     return  this.store.findRecord('profile', userid);

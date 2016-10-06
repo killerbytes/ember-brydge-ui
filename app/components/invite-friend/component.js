@@ -14,12 +14,12 @@ export default Ember.Component.extend(Validations, {
   isUsed: Ember.computed.equal('model.status', 'used'),
 	actions: {
     edit(){
+      this.set('errors', null);
       this.set('isSubmitted', false);
     },
 		submit() {
       if(!this.get('validations.isValid')){
         this.set('isSubmitted', true);
-				// cb.apply(this,[false]);
 				return false;
 			}
 
@@ -33,7 +33,6 @@ export default Ember.Component.extend(Validations, {
 			})
 			.catch(err=>{
 				this.set('errors', err.errors);
-        console.log(arguments)
 				invite.rollbackAttributes()
 			});
 
