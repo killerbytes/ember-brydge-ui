@@ -103,8 +103,8 @@ export default Ember.Controller.extend(
     items.forEach(i=>{
       promises.push(this.get('store').createRecord('favoriteindustry', {
         code: i.get('industryId'),
-        name: i.get('industry'),
-        userid: this.get('session.data.authenticated.user_id')
+        // name: i.get('industry'),
+        // userid: this.get('session.data.authenticated.user_id')
       }).save());
     })
     Ember.RSVP.all(promises).then(()=>{
@@ -148,6 +148,7 @@ export default Ember.Controller.extend(
       });
     },
     onFavoriteIndustrySelect(items){
+      console.log(items)
       this.set('isFavoritesLoading', true);
       var promises = [];
       this.get('favorites').forEach(i=>{
