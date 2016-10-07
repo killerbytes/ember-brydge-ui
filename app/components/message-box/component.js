@@ -11,12 +11,33 @@ export default Ember.Component.extend({
   messages: Ember.computed.sort('model', 'sort'),
   onTextChange: Ember.observer('message', function() {
     this.get('utils').textAreaChange(this.$('textarea'), this.get('message'));
-    this.scrollBottom();
+    // this._scrollBottom();
     // var height = this.$().height();
+
     this._resize();
 
+
   }),
-  _resize(){
+  didInsertElement(){
+    this._super(...arguments);
+    this._resize();
+    this._scrollBottom();
+  },
+  didReceiveAttrs(attrs){
+    this._super(...arguments);
+    this.set('message', null);
+    Ember.run.scheduleOnce('afterRender', this, function(){
+      if( (attrs.oldAttrs && attrs.oldAttrs.to.value.get('id') != attrs.newAttrs.to.value.get('id')) || !attrs.oldAttrs){
+        this._scrollBottom();
+      }
+      Ember.$('.message-scrollable').on('scroll', ()=>{
+				this._checkElementInView(Ember.$('.message-scrollable'));
+			})
+      this._resize();
+    })
+  },
+  _resize(size){
+    var oldScrollTop = this.$('.message-scrollable').outerHeight();
     var height = Ember.$('.box').height();
     this.$().height((height - Ember.$('.message-box').siblings('.pane-header').outerHeight()) + 'px');
     // Ember.$('.message-box').height((height - Ember.$('.message-box').siblings('.pane-header').outerHeight()) + 'px');
@@ -25,31 +46,17 @@ export default Ember.Component.extend({
     this.$('.message-scrollable').css('max-height', h - this.$('.message-form').outerHeight() + 1 + 'px');
     var top  = h - this.$('.message-scrollable').outerHeight() - this.$('.message-form').outerHeight();
     this.$('.message-scrollable').css({
-      top:  top <=0 ? 0 : top + 'px',
-      bottom: 'auto'
+      // 'padding-top':  top <=0 ? 0 : top + 'px',
+      bottom: this.$('.message-form').outerHeight()-1 + 'px'
     });
+    var scrollTop = this.$('.message-scrollable').scrollTop();
+    var addScollTop = oldScrollTop - this.$('.message-scrollable').outerHeight();
+    this.$('.message-scrollable').scrollTop(scrollTop + addScollTop); //set new scrollTop
 
   },
-  scrollBottom(){
+  _scrollBottom(){
     var $scrollable = this.$('.message-scrollable');
     $scrollable.animate({'scrollTop': $scrollable.find('ul:first').height()});
-  },
-  didInsertElement(){
-    this._super(...arguments);
-    this._resize();
-  },
-  didReceiveAttrs(attrs){
-    this._super(...arguments);
-    this.set('message', null);
-    Ember.run.scheduleOnce('afterRender', this, function(){
-      if( (attrs.oldAttrs && attrs.oldAttrs.to.value.get('id') != attrs.newAttrs.to.value.get('id')) || !attrs.oldAttrs){
-        this.scrollBottom();
-      }
-      Ember.$('.message-scrollable').on('scroll', ()=>{
-				this._checkElementInView(Ember.$('.message-scrollable'));
-			})
-      this._resize();
-    })
   },
   _checkElementInView(el){
 		var pos = el.get(0);
@@ -59,7 +66,8 @@ export default Ember.Component.extend({
     var height = el.find('.messages-list').height();
 		this.sendAction('load', 'messages', ()=>{
       Ember.run.next(this, function() {
-        $('.message-scrollable').scrollTop($('.messages-list').height() - height)
+        $('.message-scrollable').scrollTop($('.messages-list').height() - height);
+        $('.message-scrollable').animate({scrollTop: $('.messages-list').height() - (height+100) })
      });
     })
 	},
@@ -67,18 +75,21 @@ export default Ember.Component.extend({
 	actions: {
     clear(){
       this.set('message', null);
-      this.scrollBottom();
+      this._scrollBottom();
     },
   	submit: function() {
-      this.get('store').createRecord('message', {
-        // content: this.get('utils').insertParagraph(this.get('message')),
-        content: this.get('message'),
-        recipient: this.get('to.id')
-      }).save().then(res=>{
-        this.get('messages').pushObject(res);
-        this.set('message', null);
-        this.sendAction('resp', res.get('conversationid'));
-      })
+      if(this.get('message') && this.get('message').trim().length){
+        this.get('store').createRecord('message', {
+          content: this.get('message') && this.get('message').trim(),
+          recipient: this.get('to.id')
+        }).save().then(res=>{
+          this.get('messages').pushObject(res);
+          this.set('message', null);
+          this.sendAction('resp', res.get('conversationid'));
+          this._scrollBottom();
+        })
+
+      }
   	}
   }
 });
