@@ -1,0 +1,40 @@
+{{#if model.image}}
+  {{#unless preview}}
+    {{#if model.html}}
+      {{{model.html}}}
+    {{else}}
+      <a href="{{model.url}}" target="_blank">
+        <div class="post-image" style={{htmlSafeImage model.image }}>
+          <img src="{{model.image}}" class="hide">
+        </div>
+      </a>
+
+    {{/if}}
+  {{else}}
+    <div class="post-image" style={{htmlSafeImage model.image false}}>
+      <img src="{{model.image}}" class="hide">
+    </div>
+    <a {{action "removePreview"}} class="x-button fa fa-times"></a>
+  {{/unless}}
+{{/if}}
+
+    {{#unless preview}}
+      <a href="{{model.url}}" target="_blank">
+        <div class="post-content">
+          <div class="title">
+            <a href="{{model.url}}" target="_blank">{{title}}</a>
+          </div>
+          <a>{{model.siteName}}</a>
+        </div>
+      </a>
+
+    {{else}}
+      <div class="post-content">
+        <div class="title">
+          <a>{{title}}</a>
+        </div>
+        <a>{{model.site_name}}</a>
+        <a {{action "removeObject"}} class="x-button fa fa-times"></a>
+      </div>
+
+    {{/unless}}

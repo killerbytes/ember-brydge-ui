@@ -55,7 +55,13 @@
 
 
   {{#if post.title}}
-    {{newsfeed-media model=post}}
+    {{#if isHTML}}
+      {{newsfeed-video model=post}}
+    {{else if isMedia}}
+      {{newsfeed-media model=post}}
+    {{else if isText}}
+      {{newsfeed-text model=post}}
+    {{/if}}
   {{/if}}
 
   {{#unless shared }}

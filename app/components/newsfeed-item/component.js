@@ -12,6 +12,13 @@ export default Ember.Component.extend({
 	isOwner: Ember.computed('post.userid', function(){
 		return this.get('post.userid') == this.get('session.data.authenticated.user_id');
 	}),
+  isHTML: Ember.computed.notEmpty('post.html'),
+  isImage: Ember.computed.notEmpty('post.image'),
+  isMedia: Ember.computed('isHTML', 'isImage', function(){
+    return !this.get('isHTML') && this.get('isImage')
+  }),
+  isText: Ember.computed.empty('post.image'),
+
   willDestroyElement(){
     if(this.$('.has-tip').length != 0) this.$('.has-tip').foundation('destroy');
 	},

@@ -1,0 +1,18 @@
+{{#unless preview}}
+  <a href="{{model.url}}" target="_blank">
+    <div class="post-content">
+      <div class="title">
+        <a href="{{model.url}}" target="_blank">{{title}}</a>
+      </div>
+      <a>{{model.siteName}}</a>
+    </div>
+  </a>
+{{else}}
+  <div class="post-content">
+    <div class="title">
+      <a>{{title}}</a>
+    </div>
+    <a>{{model.site_name}}</a>
+    <a {{action "removeObject"}} class="x-button fa fa-times"></a>
+  </div>
+{{/unless}}
