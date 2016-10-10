@@ -41,6 +41,18 @@
 			top: 11px;
 			right: 5px;
 		}
+		&.media-horizontal{
+			background-color: $brydge-gray;
+			.post-image{
+				height: 190px;
+			}
+			.medium-5{
+				width: 45%;
+			}
+			.medium-7{
+				width: 55%;
+			}
+		}
 	}
 	.newsfeed-content{
 		font-size: 13px;

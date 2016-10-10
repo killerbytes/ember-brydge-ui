@@ -1,7 +1,7 @@
 import Ember from 'ember';
 
 export default Ember.Component.extend({
-	classNames: ['media', 'box', 'row', 'collapse'],
+	classNames: ['media', 'media-horizontal', 'box', 'row', 'collapse'],
 	title: Ember.computed('model.title', function(){
 		let title = this.get('model.title') || '';
 		return title.length > 100 ? title.substr(0, 100) + ' ...' : title;
