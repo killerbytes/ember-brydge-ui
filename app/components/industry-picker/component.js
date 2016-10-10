@@ -35,6 +35,9 @@ export default Ember.Component.extend({
     //   $('#industry-picker').foundation('open');
     // })
   },
+  _getActive: Ember.observer('industryPicker.active', function(){
+    this._reset();
+  }),
   _getSelected(){
     if(!this.get('selected')) return false;
     this.get('selected').forEach(i=>{
