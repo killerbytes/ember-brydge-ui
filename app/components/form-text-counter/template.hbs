@@ -1,5 +1,5 @@
 {{#unless counter}}
-	{{textarea value=value maxlength=limit rows=rows placeholder=placeholder}}
+	{{textarea value=value maxlength=limit rows=rows placeholder=placeholder focus-in="onFocusIn"}}
 {{/unless}}
 {{#if showCount}}
 	<span class="text-count">{{count}}</span>

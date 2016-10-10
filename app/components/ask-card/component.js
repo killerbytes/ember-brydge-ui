@@ -17,9 +17,7 @@ export default Ember.Component.extend({
 	message: Ember.computed('isArchived', function(){
 		return this.get('isArchived') ? "unarchive" : "archive" ;
 	}),
-	isArchived: Ember.computed('item', function(){
-		return this.get('item.status') == 'hide';
-	}),
+	isArchived: Ember.computed.equal('item.status','hide'),
 	actions: {
 		toggleHide(item, list){
       this.get('ask').hide(item).then(res=>{

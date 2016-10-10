@@ -18,12 +18,23 @@ export default Ember.Controller.extend(
   askEnabled: Ember.computed('sessionAccount.account.profile.setting.ask', function(){
     return this.get('sessionAccount.account.profile.setting.ask');
   }),
+  isDisabled: Ember.computed.empty('question'),
   actions: {
-    submit: function() {
+    submit() {
 			this.get('ask').create(this.get('profile.id'), this.get('question')).then(res=>{
           this.set('question', null);
           this.set('isAsked', true)
       })
+    },
+    focusIn(){
+      if(!this.get('question')){
+        this.set('question', '?');
+      }
+      if(this.get('question') == "?"){
+        Ember.run.later(()=>{
+          Ember.$('.user-top-form textarea').get(0).setSelectionRange(0,0);
+        })        
+      }
     }
   }
 

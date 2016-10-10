@@ -54,8 +54,9 @@ export default Ember.Component.extend({
   showMessage: computed('validation.isDirty', 'isInvalid', 'didValidate', function() {
     return (this.get('validation.isDirty') || this.get('didValidate')) && this.get('isInvalid');
   }),
-	query(q) {
+	_query(q) {
 		this.set('placeid', null);
+		this.set('isLoading', true);
 		this.get('ajaxApi').request('/v2/cities/'+ q, {
 				method: 'GET'
 			}).then(res=>{
@@ -68,7 +69,7 @@ export default Ember.Component.extend({
 			if(!q) return false;
 			if (this.timer) clearTimeout(this.timer);
 			this.timer = setTimeout(()=>{
-				this.query(q)
+				this._query(q)
 			}, 500)
 		},
 		onSelect: function(selected) {

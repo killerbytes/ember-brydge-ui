@@ -10,5 +10,10 @@ export default Ember.Component.extend({
 	count: Ember.computed('value',function(){
 		var value = this.get('value') || "";
 		return this.get('limit') - value.length;
-	})
+	}),
+  actions: {
+    onFocusIn(){
+      this.sendAction("focusIn");
+    }
+  }
 });

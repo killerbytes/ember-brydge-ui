@@ -17,12 +17,17 @@
 				<form {{action 'submit' on='submit'}} class="box user-top-form mb20">
 					{{#unless isAsked}}
 						<section>
-							{{form-text-counter placeholder="Ask anyone a professional question. If answered, it will appear on both profiles." limit=140 value=question rows=3 showCount=true class="mb"}}
+							{{form-text-counter
+								placeholder="Ask anyone a professional question. If answered, it will appear on both profiles."
+								limit=140
+								value=question
+								rows=3
+								showCount=true
+								focusIn="focusIn"
+								class="mb"}}
 							<div class="row">
-								<div class="columns medium-8 text-gray">
-								</div>
-								<div class="columns medium-4 text-right">
-									<button class="button btn success">Ask</button>
+								<div class="columns medium-4 text-right float-right">
+									<button class="button btn success" disabled={{isDisabled}}>Ask</button>
 								</div>
 							</div>
 						</section>

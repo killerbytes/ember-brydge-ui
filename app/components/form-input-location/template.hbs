@@ -9,6 +9,9 @@
 {{#if isOpen}}
   <div class="wrapper ">
   	<ul class="no-bullet">
+      {{#if isLoading}}
+        <li><div class="brydge-loading"></div></li>
+      {{/if}}
   	{{#each items as |item|}}
   		<li {{action "onSelect" item}}> <a>{{location-join item}}</a> </li>
   	{{/each}}
