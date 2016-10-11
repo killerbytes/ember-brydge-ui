@@ -32,7 +32,7 @@ export default Ember.Component.extend(SharePostIndustryPicker, {
       var content = this.get('postContent');
 			var url = this.get('utils').findUrls(content).get(0)
       if(this.get('site.title')){
-        content = this.get('utils')._removeLink(content, url);
+        content = this._removeLink(content, url);
       }
       var data = {
 				site: this.get('postAsNew.site'),
