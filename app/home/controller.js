@@ -119,16 +119,16 @@ export default Ember.Controller.extend(
         content: data.content,
         categories: data.categories
       }).save().then((res) => {
-        if(this.get('tab') == 'live'){
-          var newsfeed = this.get('newsfeed.live');
-          newsfeed.pushObject(res._internalModel);
-          cb.apply();
-        }else{
-          this.set('tab', 'live');
-          this.loadNewsfeed('live', ()=>{
+        // if(this.get('tab') == 'live'){
+        //   var newsfeed = this.get('newsfeed.live');
+        //   newsfeed.pushObject(res._internalModel);
+        //   cb.apply();
+        // }else{
+        //   this.set('tab', 'live');
+        //   this.loadNewsfeed('live', ()=>{
             cb.apply();
-          })
-        }
+        //   })
+        // }
       }).catch((err) => {
       });
     },
@@ -136,15 +136,15 @@ export default Ember.Controller.extend(
       this.set('sharePost.valueText', data.content );
 			this.set('sharePost.categories', data.categories );
       this.get('sharePost').submit().then(res =>{
-        if(this.get('tab') == 'live'){
-          var newsfeed = this.get('newsfeed.live');
-          newsfeed.pushObject(res._internalModel);
+        // if(this.get('tab') == 'live'){
+        //   var newsfeed = this.get('newsfeed.live');
+        //   newsfeed.pushObject(res._internalModel);
           cb.apply();
-        }else{
-          this.set('tab', 'live');
-          cb.apply();
-          this.loadNewsfeed('live')
-        }
+        // }else{
+        //   this.set('tab', 'live');
+        //   cb.apply();
+        //   this.loadNewsfeed('live')
+        // }
       });
     },
     onFavoriteIndustrySelect(items){

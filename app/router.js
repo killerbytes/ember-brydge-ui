@@ -98,7 +98,7 @@ Router.map(function() {
   this.route('home');
   this.route('search');
   this.route('user-guide');
-  this.route('brydge');
+  this.route('about');
   this.route('terms-of-use');
   this.route('privacy-policy');
   this.route("thank-you");
