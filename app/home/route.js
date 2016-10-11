@@ -34,12 +34,10 @@ export default Ember.Route.extend(
         });
       }
   },
-
   beforeModel(transition, params) {
     this._super(transition, params);
     return this.get('sessionAccount.account');
   },
-
   model: function (params) {
     let ownerid = this.get('session.data.authenticated.user_id');
     return Ember.RSVP.hash({
@@ -52,7 +50,6 @@ export default Ember.Route.extend(
   afterModel(model, transition){
     if(model && model.profile.get('configSetting.newProfile')) this.transitionTo('onboarding');
   },
-
   setupController(){
     this._super(...arguments);
     this.controller.set('newsfeed', {});
@@ -86,28 +83,19 @@ export default Ember.Route.extend(
       this.controller.set('newsfeed.'+ tab, res);
       this.controller.set('isLoading', false);
     })
-
-    // this.store.query('newsfeed', params).then(res=>{
-    //   this.controller.set('newsfeed.'+ tab, res);
-    //   this.controller.set('isLoading', false);
-    // })
   },
   actions: {
-
     didTransition: function(){
       this.loadNewsfeed()
-
       Ember.run.later(()=>{
         Ember.$('.newsfeed-tabs .tabs:first').on('change.zf.tabs', (e, elem)=>{
           if(!elem) return false;
           this.set('controller.tab', elem.data('tab'));
           this.loadNewsfeed(elem.data('tab'))
         });
-
       })
     },
     setChannel(id){
-      console.log(id)
       if(id == 0){
         this.controller.set('channels', null)
       }else{
@@ -136,7 +124,6 @@ export default Ember.Route.extend(
       this.controller.set('searchContent', null)
     },
     dismiss(){
-
       var configSetting = this.store.peekRecord('configSetting', this.get('controller.profile.id'));
       configSetting.set('key', 'show_guide');
       configSetting.set('value', false);
