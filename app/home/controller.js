@@ -122,8 +122,8 @@ export default Ember.Controller.extend(
         if(this.get('tab') == 'live'){
           var newsfeed = this.get('newsfeed.live');
           newsfeed.pushObject(res._internalModel);
-          cb.apply();
         }
+        cb.apply();
         // }else{
         //   this.set('tab', 'live');
         //   this.loadNewsfeed('live', ()=>{
@@ -140,8 +140,8 @@ export default Ember.Controller.extend(
         if(this.get('tab') == 'live'){
           var newsfeed = this.get('newsfeed.live');
           newsfeed.pushObject(res._internalModel);
-          cb.apply();
         }
+        cb.apply();
         // }else{
         //   this.set('tab', 'live');
         //   cb.apply();
