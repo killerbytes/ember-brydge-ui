@@ -1,0 +1,44 @@
+{{#zf-reveal id="postAsNew" overlay=true class="post-sharer box small"}}
+  <button class="close-button" aria-label="Dismiss alert" type="button" data-close>
+    <span aria-hidden="true">&times;</span>
+  </button>
+  <section class="title">
+    <h4>Share</h4>
+  </section>
+  <section class="header">
+    <form class="form-input">
+      <div class="avatar circle" style={{htmlSafeImage sessionAccount.account.profile.avatarUrl}}>
+        <img src= {{avatarUrl}} class="hide">
+      </div>
+      <div class="input-wrapper">
+        {{textarea
+          value=postContent
+          key-up="edit"
+          class="textarea content-editable"
+          placeholder="Would you like to say something about this?"
+          }}
+      </div>
+    </form>
+  </section>
+  <section>
+    <div class="newsfeed-item newsfeed-item-horizontal">
+
+      {{#if item.post.title}}
+        {{newsfeed-media model=item.post }}
+      {{/if}}
+    </div>
+  </section>
+  <div class="accordion-picker brydge-accordion bg-white">
+    {{partial "partials/channel-select"}}
+  </div>
+  <section class="section-footer bg-gray">
+    <div class="row collapse">
+      <div class="columns medium-8">
+      </div>
+      <div class="columns medium-4">
+        <button class="success button rounded float-right" type="submit" {{action "share"}}>Share</button>
+      </div>
+    </div>
+
+  </section>
+{{/zf-reveal}}

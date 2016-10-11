@@ -10,7 +10,6 @@ const Validations = buildValidations({
 
 export default Ember.Component.extend(SharePostIndustryPicker, {
   sessionAccount: Ember.inject.service(),
-  ajaxApi: Ember.inject.service(),
   utils: Ember.inject.service(),
 	classNames: ['post-box'],
   expanded: false,
@@ -27,10 +26,7 @@ export default Ember.Component.extend(SharePostIndustryPicker, {
 
   crawl(uri){
     this.set('isLoading', true);
-    var url = "v2/crawl?url=" + uri;
-    this.get('ajaxApi').request(url, {
-      method: 'GET'
-    }).then((res)=>{
+    this.get('utils').crawl(uri).then(res=>{
       this.set('isLoading', false);
       this.set('site', res);
     });
@@ -45,7 +41,7 @@ export default Ember.Component.extend(SharePostIndustryPicker, {
       var url = this.get('utils').findUrls(this.get('postContent')).get(0)
       var content = this.get('postContent');
       if(this.get('site.title')){
-        content = this._removeLink(this.get('postContent'), url);
+        content = this.get('utils')._removeLink(this.get('postContent'), url);
       }
       var data = {
         content: content.trim(),
