@@ -119,14 +119,15 @@ export default Ember.Controller.extend(
         content: data.content,
         categories: data.categories
       }).save().then((res) => {
-        // if(this.get('tab') == 'live'){
-        //   var newsfeed = this.get('newsfeed.live');
-        //   newsfeed.pushObject(res._internalModel);
-        //   cb.apply();
+        if(this.get('tab') == 'live'){
+          var newsfeed = this.get('newsfeed.live');
+          newsfeed.pushObject(res._internalModel);
+          cb.apply();
+        }
         // }else{
         //   this.set('tab', 'live');
         //   this.loadNewsfeed('live', ()=>{
-            cb.apply();
+            // cb.apply();
         //   })
         // }
       }).catch((err) => {
@@ -136,10 +137,11 @@ export default Ember.Controller.extend(
       this.set('sharePost.valueText', data.content );
 			this.set('sharePost.categories', data.categories );
       this.get('sharePost').submit().then(res =>{
-        // if(this.get('tab') == 'live'){
-        //   var newsfeed = this.get('newsfeed.live');
-        //   newsfeed.pushObject(res._internalModel);
+        if(this.get('tab') == 'live'){
+          var newsfeed = this.get('newsfeed.live');
+          newsfeed.pushObject(res._internalModel);
           cb.apply();
+        }
         // }else{
         //   this.set('tab', 'live');
         //   cb.apply();
@@ -148,7 +150,6 @@ export default Ember.Controller.extend(
       });
     },
     onFavoriteIndustrySelect(items){
-      console.log(items)
       this.set('isFavoritesLoading', true);
       var promises = [];
       this.get('favorites').forEach(i=>{
