@@ -8,6 +8,7 @@ export default Ember.Component.extend({
   sharePost: Ember.inject.service(),
 	ajax: Ember.inject.service(),
 	classNames: ['newsfeed-item'],
+  classNameBindings: ['isMedia:newsfeed-item-horizontal'],
 	disabled: false,
 	isOwner: Ember.computed('post.userid', function(){
 		return this.get('post.userid') == this.get('session.data.authenticated.user_id');

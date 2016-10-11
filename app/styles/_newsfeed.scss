@@ -30,9 +30,10 @@
 		padding: 1rem;
 	}
 	div + .media, div + .shared-post{
-		margin-top: 10px;
+		margin-top: 1.5rem;
 	}
 	.media{
+		margin-top: 10px;
 		iframe{
 			width: 100%;
 		}
@@ -41,22 +42,10 @@
 			top: 11px;
 			right: 5px;
 		}
-		&.media-horizontal{
-			background-color: $brydge-gray;
-			.post-image{
-				height: 190px;
-			}
-			.medium-5{
-				width: 45%;
-			}
-			.medium-7{
-				width: 55%;
-			}
-		}
 	}
 	.newsfeed-content{
-		font-size: 13px;
-		line-height: 18px;
+		font-size: 15px;
+		line-height: 20px;
 	}
 	.post-actions{
 		padding: .3rem 1rem;
@@ -77,9 +66,9 @@
 		margin-bottom: 13px;
 	}
 	.title a{
-		font-family: 'Lato', serif;
-		font-weight: bold;
+		font-family: 'Merriweather', serif;
 		font-size: 18px;
+		font-weight: normal;
 		color: $body-text-color;
 	}
 	.title+a{
@@ -146,4 +135,30 @@
 			}
 		}
 	}
+}
+
+.newsfeed-item-horizontal{
+	.box{
+		border-color: $border-color;
+	}
+	.media-horizontal{
+		background-color: $brydge-gray;
+		.columns:first-child{
+			border-right: 1px solid $border-color;
+		}
+		.post-image{
+			height: 190px;
+		}
+		.medium-5{
+			width: 45%;
+			iframe{
+				float: left;
+				height: 190px;
+			}
+		}
+		.medium-7{
+			width: 55%;
+		}
+	}
+
 }

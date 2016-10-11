@@ -4,7 +4,7 @@ export default Ember.Component.extend({
   sessionAccount: Ember.inject.service('session-account'),
   sharePost: Ember.inject.service(),
 	ajax: Ember.inject.service(),
-	classNames: ['newsfeed-item', 'newsfeed-trending', 'box', 'rounded'],
+	classNames: ['newsfeed-item', 'newsfeed-trending', 'newsfeed-item-horizontal','box', 'rounded'],
 	title: Ember.computed('post.title', function(){
 		let title = this.get('post.title');
 		return title.length > 100 ? title.substr(0, 100) + ' ...' : title;
