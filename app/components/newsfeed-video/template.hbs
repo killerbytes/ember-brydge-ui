@@ -1,7 +1,20 @@
 {{#if model.image}}
   {{#unless preview}}
     {{#if model.html}}
-      {{{model.html}}}
+      {{#unless isPlaying}}
+        <a {{action "play"}} class="button-overlay wrapper">
+          <div class="post-image" style={{htmlSafeImage model.image }}>
+            <img src="{{model.image}}" class="hide">
+          </div>
+          <div class="button-play-wrapper">
+    				<img src="https://storage.googleapis.com/brydge-assets/temp/video-play-button.png" alt="" class="button-play">
+    			</div>
+
+        </a>
+      {{else}}
+        {{{model.html}}}
+      {{/unless}}
+
     {{else}}
       <a href="{{model.url}}" target="_blank">
         <div class="post-image" style={{htmlSafeImage model.image }}>

@@ -91,7 +91,7 @@ export default Ember.Component.extend( {
 			item.set('content', item.get('content'));
       item.save().then(()=>{
 				cb.apply();
-				// this.set('item', this._default());
+				this.set('item', this._default());
 				this._reloadComponentData();
 				Ember.run.later(()=>{
 					Foundation.reInit($('ul.accordion'));

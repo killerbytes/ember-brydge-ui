@@ -15,6 +15,9 @@ export default Ember.Component.extend({
       this.set('model', null);
       // this.set('isNoPreview', true);
     },
+		play(){
+			this.set('isPlaying', true);
+		}
 
 	}
 });
