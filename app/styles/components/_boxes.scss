@@ -42,7 +42,8 @@
 		font-size: 13px;
 	}
 	section:not(:last-of-type){
-		border-bottom: 1px solid $border-color;
+		// border-bottom: 1px solid $border-color;
+		border-bottom: 1px solid #F3F3F3;
 	}
 	.section-group{
 		&:not(:last-child){

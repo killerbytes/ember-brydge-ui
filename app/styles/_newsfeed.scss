@@ -1,10 +1,6 @@
 .newsfeed-item{
 	@extend .box;
 	position: relative;
-	.newsfeed-trending-title{
-		padding: 1rem;
-		padding-bottom: 0;
-	}
 	.x-button{
 		color: #b6c3ca;
 		background-color: #FFF;
@@ -40,7 +36,7 @@
 		}
 	}
 	.newsfeed-content{
-		font-size: 15px;
+		font-size: 14px;
 		line-height: 20px;
 	}
 	.post-actions{
@@ -154,6 +150,25 @@
 		}
 		.medium-7{
 			width: 55%;
+		}
+	}
+
+}
+
+.newsfeed-trending{
+	.box{
+		border: 0;
+		margin: 0;
+	}
+	.newsfeed-section{
+		padding: 0;
+	}
+	.newsfeed-trending-title{
+		padding: 1rem;
+		padding-bottom: 0;
+		h4{
+			color: $text-gray;
+			text-align: center;
 		}
 	}
 
