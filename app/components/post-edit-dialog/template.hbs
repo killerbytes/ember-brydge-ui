@@ -1,0 +1,42 @@
+{{#zf-reveal id="post-edit-dialog" overlay=true class="post-sharer box medium"}}
+  <button class="close-button" aria-label="Dismiss alert" type="button" data-close>
+    <span aria-hidden="true">&times;</span>
+  </button>
+  <section class="title">
+    <h4>Edit Post</h4>
+  </section>
+  <section class="header">
+    <form class="form-input">
+      <div class="avatar circle" style={{htmlSafeImage sessionAccount.account.profile.avatarUrl}}>
+        <img src= {{avatarUrl}} class="hide">
+      </div>
+      <div class="input-wrapper">
+        {{textarea
+            value=postService.post.content
+            key-up="edit"
+            class="textarea content-editable"
+            placeholder="Would you like to say something about this?"
+          }}
+      </div>
+    </form>
+  </section>
+      {{#if postService.post.title}}
+        <section>
+          <div class="newsfeed-item newsfeed-item-horizontal">
+          {{#if isHTML}}
+            {{newsfeed-media model=postService.post preview=true}}
+          {{else if isMedia}}
+            {{newsfeed-media model=postService.post}}
+          {{/if}}
+          </div>
+        </section>
+      {{/if}}
+  <section class="bg-gray">
+    <div class="row collapse">
+      <div class="columns medium-4 float-right">
+        <button class="success button rounded float-right" type="submit" {{action "save"}}>Save</button>
+      </div>
+    </div>
+
+  </section>
+{{/zf-reveal}}

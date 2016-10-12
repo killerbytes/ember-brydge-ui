@@ -27,6 +27,7 @@
         {{#zf-dropdown id=(concat "dd-post-menu-" post.id) closeOnClick=true class="card-menu-dropdown"}}
           <ul class="menu">
             {{#if isOwner}}
+              <li><a {{action "select"}} data-open="post-edit-dialog">Edit Post</a></li>
               <li><a data-open={{concat 'dialog-box-' 'delete-' post.id}}>Delete Post</a></li>
             {{else}}
               <li><a data-open={{concat 'dialog-box-' 'flag-' post.id}}>Flag this Post</a></li>
@@ -35,7 +36,9 @@
         {{/zf-dropdown}}
       {{/unless}}
       {{#link-to 'post' post.user.id post.id class="timestamp"}}{{timestamp post.updatedAt}}{{/link-to}}
-
+        {{#zf-tooltip title=tags class="top tags" }}
+          <i class="fa fa-tags" aria-hidden="true"></i>
+        {{/zf-tooltip}}
     </div>
   </div>
 </section>

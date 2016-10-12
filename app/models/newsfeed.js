@@ -2,7 +2,6 @@ import DS from 'ember-data';
 
 export default DS.Model.extend({
   title: DS.attr(),
-  categories: DS.attr(),
   content: DS.attr(),
   summary: DS.attr(),
   link: DS.attr(),
@@ -21,6 +20,7 @@ export default DS.Model.extend({
   insertedAt: DS.attr('date'),
   updatedAt: DS.attr('date'),
   user: DS.belongsTo('user'),
+  // industries: DS.hasMany({async: true}),
   shared: DS.belongsTo('newsfeed', {inverse: null}),
   vote: DS.belongsTo('vote'),
   commentCount: DS.attr(),

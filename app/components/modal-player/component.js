@@ -1,6 +1,9 @@
 import Ember from 'ember';
 
 export default Ember.Component.extend({
+	willDestroyElement(){
+		$(`#${this.get('name')}`).parent().remove();
+	},
 	didInsertElement(){
     this._super(...arguments);
     Ember.run.later(()=>{

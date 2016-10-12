@@ -1,27 +1,36 @@
 import Ember from 'ember';
+import NewsfeedMixin from 'web/mixins/newsfeed';
 
-export default Ember.Component.extend({
+export default Ember.Component.extend(NewsfeedMixin, {
   sessionAccount: Ember.inject.service(),
   session: Ember.inject.service(),
   vote: Ember.inject.service(),
   store: Ember.inject.service(),
   sharePost: Ember.inject.service(),
-	ajax: Ember.inject.service(),
+  postService: Ember.inject.service(),
+	// ajax: Ember.inject.service(),
+  // didInsertElement(){
+  //   var promises = [];
+  //   this.get('post.categories') && this.get('post.categories').forEach(i=>{
+  //     promises.push(this.get('store').findRecord('industry', i).then(res=>{return res.get('industry')}) );
+  //   });
+  //
+  //   Ember.RSVP.all(promises).then(res=>{
+  //     this.set('categories', res.join(', '));
+  //   });
+  // },
 	classNames: ['newsfeed-item'],
   classNameBindings: ['isMedia:newsfeed-item-horizontal'],
 	disabled: false,
 	isOwner: Ember.computed('post.userid', function(){
 		return this.get('post.userid') == this.get('session.data.authenticated.user_id');
 	}),
-  isHTML: Ember.computed.notEmpty('post.html'),
-  isImage: Ember.computed.notEmpty('post.image'),
-  isMedia: Ember.computed('isHTML', 'isImage', function(){
-    return !this.get('isHTML') && this.get('isImage')
+  tags: Ember.computed('post.categories', function(){
+    return this.get('post.categories') ? 'Posted to: Connections, '+ this.get('categories') :'Posted to: Connections';
   }),
-  isText: Ember.computed.empty('post.image'),
 
   willDestroyElement(){
-    if(this.$('.has-tip').length != 0) this.$('.has-tip').foundation('destroy');
+    if(this.$('.has-tip').length != 0 && !this.get('shared')) this.$('.has-tip').foundation('destroy');
 	},
 
 	actions: {
@@ -75,8 +84,11 @@ export default Ember.Component.extend({
 
 		},
 		share(){
-				this.set('sharePost.post', this.get('post.shared.content') ? this.get('post.shared') : this.get('post'));
+			this.set('sharePost.post', this.get('post.shared.content') ? this.get('post.shared') : this.get('post'));
 		},
+    select(){
+      this.set('postService.post', this.get('post'));
+    },
 		viewComments: function() {
 			this.$('.content-editable').focus();
 		}

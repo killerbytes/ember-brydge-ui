@@ -18,7 +18,7 @@ p{
 .tooltip{
 	z-index: 1006;
 	max-width: none !important;
-	border-radius: 4px;
+	border-radius: 2px;
 	padding: .4rem;
 	font-size: 11px;
 }
@@ -93,5 +93,5 @@ ul > li.is-dropdown-submenu-parent.is-down-arrow > ul {
 }
 
 #doorbell-button{
-	background-color: $brydge-red;	
+	background-color: $brydge-red;
 }

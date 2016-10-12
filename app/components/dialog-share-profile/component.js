@@ -5,17 +5,19 @@ export default Ember.Component.extend({
 	store: Ember.inject.service(),
 	connection: Ember.inject.service(),
 	ajaxApi: Ember.inject.service(),
+	willDestroyElement(){
+		$('#dialog-share-profile').parent().remove();
+	},
+
 	init(){
 		this._super(...arguments);
 		this.get('ajaxApi').set('headers', null);
 		this.get('ajaxApi').request('/v2/profiles/'+ this.get('profile.publicProfile')).then(res=>{
-		// this.get('ajaxApi').request('url').then(res=>{
 			this.set('user', res.data.attributes);
 		})
 	},
 	_reset(){
 		if(this.get('isDestroyed') || this.get('isDestroying')) return false;
-		// this.$('.faded').removeClass('error');
 		Ember.run.later(()=>{
 			this.set('message', null);
 		},500);

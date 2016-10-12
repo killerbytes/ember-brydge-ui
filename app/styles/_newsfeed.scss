@@ -12,10 +12,13 @@
 		position: relative;
 	}
 	.user{
-		.timestamp{
+		.timestamp, .tags{
 			position: absolute;
-			right: 1rem;
+			right: 2.5rem;
 			bottom: 1rem;
+		}
+		.tags{
+			right: 1rem;
 		}
 	}
 	.content{
