@@ -8,6 +8,7 @@ export default Ember.Component.extend(NewsfeedMixin, {
   store: Ember.inject.service(),
   sharePost: Ember.inject.service(),
   postService: Ember.inject.service(),
+  content: Ember.computed.alias('post.content'),
 	// ajax: Ember.inject.service(),
   // didInsertElement(){
   //   var promises = [];

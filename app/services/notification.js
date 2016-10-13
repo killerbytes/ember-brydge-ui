@@ -14,6 +14,7 @@ export default Ember.Service.extend({
   //   })
   // }),
   checkPush() {
+
     const authToken = this.get('session.data.authenticated.access_token');
     if(!authToken) return false;
 
@@ -22,6 +23,7 @@ export default Ember.Service.extend({
     })
   },
   check(cb) {
+    return false;
     var url = '/v2/notifications/count';
     const authToken = this.get('session.data.authenticated.access_token');
     if(!authToken) return false;

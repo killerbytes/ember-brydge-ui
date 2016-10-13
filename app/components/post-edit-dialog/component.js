@@ -10,7 +10,7 @@ export default Ember.Component.extend(
 	postService: Ember.inject.service(),
 	post: Ember.computed.alias('postService.post'),
 	willDestroyElement(){
-		$('#sharePostModal').parent().remove();
+		this.get('elem').parent().remove();
 	},
 	title: Ember.computed('post.title', function(){
 		let title = this.get('post.title');
@@ -18,7 +18,7 @@ export default Ember.Component.extend(
 		return title.length > 100 ? title.substr(0, 100) + ' ...' : title;
 	}),
   elem: Ember.computed(function(){
-    return $('#sharePostModal');
+    return $('#post-edit-dialog');
   }),
 	profile: Ember.computed('sessionAccount.account.profile', function(){
 		return this.get('sessionAccount.account.profile');
@@ -29,9 +29,28 @@ export default Ember.Component.extend(
 		return title.length > 100 ? title.substr(0, 100) + ' ...' : title;
 	}),
   isIndustry: Ember.computed.or('profile.industryOneId', 'profile.industryTwoId', 'profile.industryThreeId'),
+	_onTextChange: Ember.observer('postService.post.content', function(){
+		Ember.run.later(()=>{
+			this._edit(this.get('elem').find('textarea').get(0));
+		})
+	}),
+	_edit(el){
+		var offset = (el.offsetHeight - el.clientHeight);
+		if(el.value){
+			el.style.height = 'auto';
+			el.style.height = (el.scrollHeight+offset) + "px";
+		}else{
+			el.style.height = '';
+		}
+
+	},
+
 	actions: {
 		save() {
-      this.get('postService.post').save();
+      this.get('postService.post').save().then(res=>{
+				  this.get('elem').foundation('close');
+	        // this._resetForm();
+			});
       // var data = {
       //   content: content && content.trim(),
         // categories: _.map(this.get('categories'), 'id'),
@@ -46,14 +65,15 @@ export default Ember.Component.extend(
       // })
     },
 		edit(text, e){
-      var el = e.currentTarget;
-      var offset = (el.offsetHeight - el.clientHeight);
-      if(text){
-        el.style.height = 'auto';
-        el.style.height = (el.scrollHeight+offset) + "px";
-      }else{
-        el.style.height = '';
-      }
+			this._edit(e.currentTarget);
+      // var el = e.currentTarget;
+      // var offset = (el.offsetHeight - el.clientHeight);
+      // if(text){
+      //   el.style.height = 'auto';
+      //   el.style.height = (el.scrollHeight+offset) + "px";
+      // }else{
+      //   el.style.height = '';
+      // }
 		}
 	}
 });

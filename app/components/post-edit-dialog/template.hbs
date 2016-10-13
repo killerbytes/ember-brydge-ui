@@ -1,4 +1,4 @@
-{{#zf-reveal id="post-edit-dialog" overlay=true class="post-sharer box medium"}}
+{{#zf-reveal id="post-edit-dialog" overlay=true class="post-edit-dialog box small"}}
   <button class="close-button" aria-label="Dismiss alert" type="button" data-close>
     <span aria-hidden="true">&times;</span>
   </button>
@@ -30,6 +30,12 @@
           {{/if}}
           </div>
         </section>
+      {{else}}
+        {{#if post.shared}}
+          <section>
+          {{newsfeed-item post=post.shared shared=true class="shared-post"}}
+          </section>
+        {{/if}}
       {{/if}}
   <section class="bg-gray">
     <div class="row collapse">

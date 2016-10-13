@@ -47,13 +47,13 @@
   {{#unless shared }}
     {{#if post.content}}
       <div class="newsfeed-content">
-        {{see-more content=post.content limit=480 }}
+        {{see-more content=content limit=480 }}
       </div>
     {{/if}}
   {{else}}
     {{#if post.content.content}}
       <div class="newsfeed-content">
-        {{see-more content=post.content.content limit=480 }}
+        {{see-more content=content.content limit=480 }}
       </div>
     {{/if}}
   {{/unless}}

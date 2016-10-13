@@ -14,9 +14,6 @@
 		}
 		padding: 1rem;
 	}
-	.newsfeed-item{
-		border: none;
-	}
 	.accordion-picker{
 		>li.is-active{
 			border-bottom: 1px solid $border-color;
@@ -53,5 +50,11 @@
 #post-edit-dialog{
 	.x-button{
 		display: none;
+	}
+}
+
+#sharePostModal{
+	.newsfeed-item{
+		border: none;
 	}
 }
