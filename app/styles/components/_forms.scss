@@ -23,12 +23,11 @@ form{
 			border: 1px solid $border-color;
 		}
 	}
-	input[type="search"]{
+	input[type="text"], input[type="search"]{
 		@extend .rounded;
 	}
 	.input-group{
 		input.input-group-field{
-			// border: none;
 			border-top-right-radius: 0 !important;
 			border-bottom-right-radius: 0 !important;
 		}
@@ -42,14 +41,14 @@ form{
 	.validated-input{
 		margin-bottom: 1rem;
 		&.has-error{
-			input{
+			input, select{
 				border: 1px solid red;
 			}
 			.error{
 				display: block;
 			}
 		}
-		input, .dropdown-select input{
+		input, .dropdown-select input, select{
 			margin-bottom: 5px !important;
 		}
 		.error{

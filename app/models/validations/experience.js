@@ -6,6 +6,10 @@ export default buildValidations({
   location: validator('presence', true),
   startFrom: [
     validator('presence', true),
+    validator('start-from', {dependentKeys: ['model.endAt']}),
   ],
-  endAt: validator('presence', true)
+  endAt: [
+    validator('presence', true),
+    validator('end-at', {dependentKeys: ['model.startFrom']}),
+  ]
 });

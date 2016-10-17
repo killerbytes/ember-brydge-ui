@@ -11,3 +11,9 @@
   {{/each}}
 </select>
 {{/unless}}
+
+{{#if showValidate}}
+  <div class="error">
+      {{v-get model valuePath 'message'}}
+  </div>
+{{/if}}

@@ -1,0 +1,14 @@
+<div class="row">
+  {{input type=type value=value placeholder=placeholder name=valuePath disabled=disabled autocomplete="false"  key-up=(action 'keyUp') focus-out=(action 'focusOut') class="hide"}}
+  <div class="columns medium-7">
+    {{form-input-month-year value=value }}
+  </div>
+  <div class="columns medium-5">
+    {{form-input-month-year value=value type="year"}}
+  </div>
+</div>
+{{#if showMessage}}
+  <div class="error">
+    {{v-get model valuePath 'message'}}
+  </div>
+{{/if}}

@@ -20,6 +20,7 @@ export default Ember.Component.extend({
   year: Ember.computed('year', function(){
   	return moment(this.get('value')).year();
   }),
+
   actions: {
   	onChangeMonth(value){
 			var date = moment.utc().set({year: this.get('year'), month: value, date:1}).format()

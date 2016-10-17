@@ -33,35 +33,29 @@
 	</div>
 </div>
 <div class="row">
-	<div class="columns">
+	<div class="columns medium-8">
 		<label>
 			Start Date
+			{{form-input-date model=item valuePath="startFrom"}}
 		</label>
-		<div class="row">
-			<div class="columns medium-5">{{form-input-month-year value=item.startFrom}}</div>
-			<div class="columns medium-3">{{form-input-month-year value=item.startFrom type="year"}}</div>
-			<div class="columns"></div>
-		</div>
 	</div>
 </div>
 <div class="row">
-	<div class="columns">
+	<div class="columns medium-8">
 		<label>
 			End Date
+			{{form-input-date model=item valuePath="endAt"}}
 		</label>
-		<div class="row">
-			<div class="columns medium-5">{{form-input-month-year value=item.endAt disabled=item.currentCompany}}</div>
-			<div class="columns medium-3">{{form-input-month-year value=item.endAt type="year" disabled=item.currentCompany}}</div>
-			<div class="columns medium-4">
-				<div class="checkbox current-job">
-					<label>
-						{{input type="checkbox" name="currentCompany" checked=item.currentCompany}} Current Job
-					</label>
-				</div>
-
-			</div>
-		</div>
 	</div>
+	<div class="columns medium-4">
+		<div class="checkbox current-job">
+			<label>
+				{{input type="checkbox" name="currentCompany" checked=item.currentCompany}} Current Job
+			</label>
+		</div>
+
+	</div>
+
 </div>
 <div class="row">
 	<div class="columns">

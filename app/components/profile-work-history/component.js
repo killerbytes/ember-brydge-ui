@@ -19,7 +19,7 @@ export default Ember.Component.extend( {
 		'Independent Contractor' ],
 	today: moment(),
 	_default: function(){
-		return this.get('store').createRecord('experience', {startFrom: new Date(), endAt: new Date()});
+		return this.get('store').createRecord('experience', {startFrom: moment().subtract(1, 'years'), endAt: new Date()});
 	},
 	item: Ember.computed(function(){
 		return this._default();
