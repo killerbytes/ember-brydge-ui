@@ -6,12 +6,10 @@
         {{link-to "Broadcasts" "me" class=(active-tab '0' index "button")}}
         {{link-to "Background" "me.background" class=(active-tab '1' index "button")}}
         {{link-to "Ask" "me.ask" class=(active-tab '2' index "button")}}
-        {{link-to "Compliments" "me.compliments" class=(active-tab '3' index "button")}}
       {{else}}
         {{link-to "Broadcasts" "profile" profile.id class=(active-tab '0' index "button")}}
         {{link-to "Background" "background" profile.id class=(active-tab '1' index "button")}}
         {{link-to "Ask" "ask" profile.id class=(active-tab '2' index "button")}}
-        {{link-to "Compliments" "compliments" profile.id class=(active-tab '3' index "button")}}
       {{/if}}
     </div>
   </div>

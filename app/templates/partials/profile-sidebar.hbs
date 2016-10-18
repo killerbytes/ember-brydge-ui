@@ -48,7 +48,7 @@
 </div>
 
 {{#if latestQuestion}}
-<div class="box rounded question-box">
+  <div class="box rounded question-box">
   <div class="section-group section-accordion-group">
     <section>
       <div class="section-main">
@@ -119,53 +119,8 @@
   </div>
 {{/if}}
 
-<div class="box compliment-card">
-  <section>
-    <h4><i class="fa fa-thumbs-up" aria-hidden="true"></i>Compliments</h4>
-    {{#if latestCompliment}}
-      <div class="mb">
-        <div class="title large text-title">
-          {{latestCompliment.title}}
-        </div>
-        <div class="content-pad description-content">{{latestCompliment.content}}</div>
-      </div>
-      <div class="user">
-        <div class="avatar" style={{htmlSafeImage latestCompliment.from.content.profile.avatarUrl }}>
-          <img src= {{post.user.profile.avatarUrl}} class="hide">
-        </div>
-        <div class="user-info">
-          Complimented by {{link-to latestCompliment.from.profile.fullName "profile" latestCompliment.from.id class="name"}}
-          <div class="timestamp">
-            {{#link-to "compliments.detail" latestCompliment.id class="timestamp"}}
-              {{timestamp latestCompliment.updatedAt}}
-            {{/link-to}}
-          </div>
-
-        </div>
-      </div>
-
-    {{else}}
-    <div class="empty-message">
-      {{#if isOwner}}
-        You haven't received any Compliments
-      {{else}}
-        <span class="text-title">{{profile.firstName}}</span> hasn't received any Compliments
-      {{/if}}
-    </div>
-    {{/if}}
-  </section>
-  <section class="section-footer-links">
-    {{#if isOwner }}
-      {{link-to 'Go to Compliments' 'me.compliments' class="button expanded"}}
-    {{else}}
-      {{#link-to 'compliments' profile.id class="button expanded"}}
-        Compliment <span class="text-title">{{profile.firstName}}</span>
-      {{/link-to}}
-    {{/if}}
-  </section>
-</div>
 {{#if isOwner}}
-  {{ partial "partials/invite-friends" }}
+  {{invite-to-brydge}}
 {{/if}}
 {{ partial "partials/user-guide-box" }}
 {{ partial "footer"}}

@@ -24,16 +24,6 @@
 						{{/zf-tooltip}}
 					</li>
 					<li>
-						{{#zf-tooltip title="Connection Requests" vOffset=7}}
-							<a data-toggle="dd-requests" class="dropdown-button-arrow dropdown-button-icons" {{action "open" "request"}}>
-								{{#if notification.count.request}}
-									<span class="alert badge">{{notification.count.request}}</span>
-								{{/if}}
-								<i class="icons user"></i>
-							</a>
-						{{/zf-tooltip}}
-					</li>
-					<li>
 						{{#zf-tooltip title="Messages" vOffset=7}}
 							<a data-toggle="dd-messages" class="dropdown-button-arrow dropdown-button-icons" {{action "open" "message"}}>
 								{{#if notification.count.message}}
@@ -148,38 +138,6 @@
     {{/if}}
 	{{/zf-dropdown}}
 
-	{{#zf-dropdown id="dd-requests" class="dropdown-notification" closeOnClick=true }}
-		<div class="dropdown-header">
-			<h4>Your Connection Requests</h4>
-				<div>
-					These users want to connect! Accept if you know them, or head over to their profile to see if they can be relevant professional acquaintances.
-				</div>
-		</div>
-		<ul class="media-list user user-small">
-      {{#if loading.requests}}
-        <li>
-          <div class="empty-message">
-            <div class="brydge-loading"></div>
-          </div>
-  			</li>
-      {{else}}
-        {{#each requests as |item|}}
-    			<li>
-            {{request-card item=item class="padding"}}
-    			</li>
-  			{{else}}
-    			<li>
-            <div class="empty-message">
-              No pending connection requests
-            </div>
-    			</li>
-  			{{/each}}
-      {{/if}}
-		</ul>
-		{{#link-to 'requests' class="footer-button button expanded"}}
-			See all Connection Requests
-		{{/link-to}}
-	{{/zf-dropdown}}
 
 	{{#zf-dropdown id="dd-messages" class="dropdown-notification" closeOnClick=true }}
 		<div class="dropdown-header">
@@ -271,7 +229,6 @@
 			{{/link-to}}
 	{{/zf-dropdown}}
 
-
 	{{#zf-dropdown id="dd-menu" class="dropdown-menu" closeOnClick=true}}
 		<ul class="menu">
 			<li>{{link-to "Home" "home"}}</li>
@@ -284,7 +241,6 @@
 		<ul class="menu">
 			<li>{{link-to "Connections" "me.connections"}}</li>
 			<li>{{link-to "Ask" "me.ask"}}</li>
-			<li>{{link-to "Compliments" "me.compliments"}}</li>
 		</ul>
 		<ul class="menu hide">
 			<li>{{link-to "People Search" "search"}}</li>

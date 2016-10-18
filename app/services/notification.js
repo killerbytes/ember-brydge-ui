@@ -59,7 +59,6 @@ export default Ember.Service.extend({
       if(group === 'message') this.set('message', res);
       if(group === 'request') this.set('request', res);
       if(group === 'view') this.set('view', res);
-      console.log(this.get('count'))
       if(group != 'request') this.set('count.'+group, 0);
       if(group != 'request') this.releaseCount(group);
 
