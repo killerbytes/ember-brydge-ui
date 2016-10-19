@@ -1,7 +1,7 @@
 <div class="row">
   <div class="medium-6 medium-centered columns">
     <div class="page-heading">
-        <h1>{{link-to profile.firstName "profile" profile.username class="text-title" }}'s Connections</h1>
+        <h1>{{link-to profile.firstName "profile" profile.uid class="text-title" }}'s Following</h1>
       <p class="text-center">
         These are the users <span class="text-title">{{ profile.firstName}}</span> is connected to.
       </p>
@@ -9,49 +9,18 @@
   </div>
 </div>
 <div class="row">
-  <div class="mb">
-    {{#zf-tabs id="ask-tabs" class="tab-controls"}}
-      <li data-tab='tab_1' class="tabs-title is-active">
-        <a href="#tab_1" aria-selected="true">All Connections</a>
-      </li>
-      <li data-tab='tab_2' class="tabs-title">
-        <a href="#tab_2">Mutual Connections</a>
-      </li>
-    {{/zf-tabs}}
-  </div>
-
-  <div class="tabs-content" data-tabs-content="ask-tabs">
-    <div class="tabs-panel {{active-tab 'tab_1' tab}}" id="tab_1">
-      <div class="box row columns">
-        <section>
-          <form>
-            {{input value=key type="search" placeholder="Search by Name" class="no-margin"}}
-          </form>
-        </section>
-        <section class="row columns bg-gray user-list">
-          {{#each following as |item|}}
-            <div class="columns">
-              {{follow-box item=item meta=meta}}
-            </div>
-          {{/each}}
-        </section>
-      </div>
-    </div>
-    <div class="tabs-panel {{active-tab 'tab_2' tab}}" id="tab_2">
-      <div class="box row columns">
-        <section>
-          <form>
-            {{input value=key type="search" placeholder="Search by Name" class="no-margin"}}
-          </form>
-        </section>
-        <section class="row columns bg-gray user-list">
-          {{#each followers as |item|}}
-            <div class="columns">
-              {{follow-box item=item meta=meta}}
-            </div>
-          {{/each}}
-        </section>
-      </div>
-    </div>
+  <div class="box row columns">
+    <section>
+      <form>
+        {{input value=key type="search" placeholder="Search by Name" class="no-margin"}}
+      </form>
+    </section>
+    <section class="row columns bg-gray user-list">
+      {{#each following as |item|}}
+        <div class="columns">
+          {{follow-box item=item meta=meta onFollow="following"}}
+        </div>
+      {{/each}}
+    </section>
   </div>
 </div>

@@ -6,7 +6,7 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
 	model: function() {
 		var userid = this.get('session.data.authenticated.user_id');
 		return Ember.RSVP.hash({
-      following: this.store.query('following', {userid: userid})
+      followers: this.store.query('follower', {userid: userid})
     });
 	},
 	actions: {

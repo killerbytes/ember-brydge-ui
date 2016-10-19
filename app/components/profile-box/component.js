@@ -21,6 +21,7 @@ export default Ember.Component.extend(AvatarMixin, {
 	}),
 	isAccepted: Ember.computed.equal('status', 'accepted'),
 	isPending: Ember.computed.equal('status', 'pending'),
+	isFollower: Ember.computed.notEmpty('profile.follower.id'),
 	isFollowing: Ember.computed.notEmpty('profile.following.id'),
 	shouldAccept: Ember.computed('profile.connection.friendid', function(){
 		return this.get('profile.connection.friendid.id') == this.get('session.data.authenticated.user_id');

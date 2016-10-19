@@ -68,13 +68,13 @@
   </section>
   <div class="text-title">
     {{#unless isOwner }}
+    {{!--
       {{#if isAccepted}}
         {{#zf-tooltip title="Send Message" positionClass="right"}}
           {{#link-to "messages.conversation" profile.connection.conversationid class="inline-block"}}
             <i class="icons messages"></i>
           {{/link-to}}
         {{/zf-tooltip}}
-
       {{else if isPending}}
         {{#if shouldAccept}}
           <button class="button large bordered green"{{action "accept"}}>Accept Request</button>
@@ -83,9 +83,14 @@
         {{/if}}
       {{else}}
       {{/if}}
+     --}}
+     {{log profile.follower}}
       <div>
         {{#if isFollowing}}
-          <button class="button large bordered green"{{action "unfollow"}}>Unfollow</button>
+          <button class="button large bordered green follow-button"{{action "unfollow"}}>
+            <span class="following-text">Following</span>
+            <span class="unfollow-text">Unfollow</span>
+          </button>
         {{else}}
           <button class="button large bordered green"{{action "follow"}}>Follow</button>
         {{/if}}

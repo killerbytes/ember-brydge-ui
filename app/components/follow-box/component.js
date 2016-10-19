@@ -11,11 +11,13 @@ export default Ember.Component.extend({
 	isFollowing: Ember.computed.notEmpty('item.isfollowing.id'),
 	actions: {
 		follow(cb){
-      this.get('follow').follow(this.get('user.id'));
+      this.get('follow').follow(this.get('user.id')).then(res=>{
+				this.set('item.isfollowing', res);
+				this.sendAction('onFollow', res);
+			})
     },
 		unfollow(){
-			console.log(this.get('item.id'))
-			this.get('follow').unfollow(this.get('item.id'));
+			this.get('follow').unfollow(this.get('item.isfollowing.id'));
 		},
 	}
 });

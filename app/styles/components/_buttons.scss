@@ -29,6 +29,9 @@
 	&.rounded{
 		border-radius: 2px;
 	}
+	&.radius{
+		border-radius: 100px;
+	}
 	&.success{
 		font-weight: bold;
 		color: #FFF;
@@ -201,4 +204,24 @@
 	// 	background-color: #FFF;
 	// 	color: $button-blue;
 	// }
+}
+
+
+.follow-button{
+	border-radius: 100px;
+	.unfollow-text{
+		display: none;
+	}
+	&.large{
+		width: 115px;
+	}
+	&:hover{
+		background-color: $brydge-red !important;
+		.following-text{
+			display: none;
+		}
+		.unfollow-text{
+			display: block;
+		}
+	}
 }

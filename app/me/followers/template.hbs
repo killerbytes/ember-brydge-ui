@@ -9,20 +9,20 @@
   </div>
 </div>
 
-
 <div class="row">
   <div class="box row columns">
-    <section class="text-center">
-      <form action="">
+    <section>
+      <form>
         {{input value=key type="search" placeholder="Search by Name" class="no-margin"}}
       </form>
     </section>
     <section class="row columns bg-gray user-list">
-      {{#each following as |item|}}
+      {{#each followers as |item|}}
         <div class="columns">
-          {{follow-box item=item meta=meta me=true}}
+          {{follow-box item=item meta=meta me=true onFollow="follow"}}
         </div>
       {{/each}}
     </section>
   </div>
+
 </div>

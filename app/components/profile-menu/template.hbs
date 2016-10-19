@@ -21,7 +21,8 @@
   {{#zf-dropdown id="dd-public-options" class="dropdown-menu" closeOnClick=true}}
     <ul class="menu">
       {{#if isOwner}}
-        <li>{{#link-to "me.connections"}} Connections ({{ count }}) {{/link-to}}</li>
+        <li>{{#link-to "me.following"}} Following ({{ count }}) {{/link-to}}</li>
+        <li>{{#link-to "me.followers"}} Followers ({{ count }}) {{/link-to}}</li>
         <li>{{link-to "Edit Profile" "me.edit"}}</li>
         <li>
           <a data-open="dialog-share-profile">Share your profile</a>

@@ -38,6 +38,7 @@ export default Ember.Route.extend(RouterClassNamesMixins, {
     didTransition(){
       this._super(...arguments);
       Ember.run.later(()=>{
+        console.log('public-profile')
         this._replaceState(getOwner(this).lookup('controller:application').currentPath);
       })
     }

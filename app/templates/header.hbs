@@ -24,16 +24,6 @@
 						{{/zf-tooltip}}
 					</li>
 					<li>
-						{{#zf-tooltip title="Messages" vOffset=7}}
-							<a data-toggle="dd-messages" class="dropdown-button-arrow dropdown-button-icons" {{action "open" "message"}}>
-								{{#if notification.count.message}}
-									<span class="alert badge">{{notification.count.message}}</span>
-								{{/if}}
-								<i class="icons messages"></i>
-							</a>
-						{{/zf-tooltip}}
-					</li>
-					<li>
 						{{#zf-tooltip title="Notifications" vOffset=7}}
 							<a data-toggle="dd-notification" class="dropdown-button-arrow dropdown-button-icons" {{action "open" "notification"}}>
 									{{#if notification.count.notification }}
@@ -136,52 +126,6 @@
   			See all Profile Views
   		{{/link-to}}
     {{/if}}
-	{{/zf-dropdown}}
-
-
-	{{#zf-dropdown id="dd-messages" class="dropdown-notification" closeOnClick=true }}
-		<div class="dropdown-header">
-			<h4>Your Incoming Messages</h4>
-				<div>
-					Speak with connections privately. Only connections can message you, so if you are receiving inappropriate messages or spam, inform the user or disconnect from them.
-				</div>
-		</div>
-
-		<ul class="media-list user user-small">
-			{{#each messages as |item|}}
-			<li {{action "read" item}} class="{{if item.read false 'new-notification'}}">
-				{{#link-to "messages.conversation" item.referenceid class="no-color" }}
-					<div class="row collapse">
-						<div class="columns medium-8">
-				      <div class="avatar" style={{htmlSafeImage item.target.profile.avatarUrl }}>
-				        <img src= {{item.target.profile.avatarUrl}} class="hide">
-				      </div>
-				      <div class="user-info">
-			          <a class="name">{{item.target.profile.fullName}} {{#if item.count}}<span class="message-count">({{item.count}})</span>{{/if}}</a>
-				      </div>
-						</div>
-						<div class="columns medium-4 timestamp text-right">
-		          {{ timestamp item.notifiedAt }}
-						</div>
-					</div>
-          <div class="message-body position truncate">{{{getNotificationContent item.content}}}</div>
-				{{/link-to}}
-			</li>
-			{{else}}
-			<li>
-        <div class="empty-message">
-          {{#if loading.message}}
-            <div class="brydge-loading"></div>
-          {{else}}
-            You have no recent messages
-          {{/if}}
-        </div>
-			</li>
-			{{/each}}
-		</ul>
-		{{#link-to 'messages' class="footer-button button expanded"}}
-			See all Messages
-		{{/link-to}}
 	{{/zf-dropdown}}
 
 	{{#zf-dropdown id="dd-notification" class="dropdown-notification" closeOnClick=true}}

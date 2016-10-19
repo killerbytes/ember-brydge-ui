@@ -39,7 +39,6 @@ export default Ember.Route.extend(
   model: function(params) {
     var ownerid = this.get('session.data.authenticated.user_id');
     var userid = this.get('userid');
-    console.log(userid)
     return Ember.RSVP.hash({
       profile: this.store.findRecord('profile', userid),
       invites: this.store.findAll('friend-invitation'),

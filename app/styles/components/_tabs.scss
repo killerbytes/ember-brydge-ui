@@ -73,7 +73,7 @@
 	}
 }
 
-#ask-tabs{
+#tabs.tab-controls, #ask-tabs{
 	@extend .newsfeed-tabs;
 	.tabs-title{
 		width: 50%;
