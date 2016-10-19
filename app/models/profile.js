@@ -34,6 +34,7 @@ export default DS.Model.extend(Validations, {
 	connection: DS.belongsTo('connection', {async: true}),
 	follower: DS.belongsTo('follower'),
 	following: DS.belongsTo('following'),
+	uid: Ember.computed.alias('publicProfile'),
 	fullName: Ember.computed('firstName', 'lastName', function(){
 		return this.get('firstName') + ' ' + this.get('lastName');
 	}),

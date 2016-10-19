@@ -24,8 +24,13 @@ export default Ember.Route.extend(
   afterModel(model){
     this.set('headTags', this.get('utils').setFBMetaTags(model.profile));
   },
+  _onProfileChanged: Ember.observer('sessionAccount.account.profile.uid', function(){
+    this._replaceState(getOwner(this).lookup('controller:application').currentPath);
+  }),
   _replaceState(path="me.index"){
-    let userid = this.get('session.data.authenticated.user_id');
+    // let userid = this.get('session.data.authenticated.user_id');
+    var userid = this.get('sessionAccount.account.profile.uid');
+    if(!userid) return false;
     var page;
     switch (true) {
       case /me.index/.test(path):

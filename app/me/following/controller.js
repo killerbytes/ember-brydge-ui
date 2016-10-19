@@ -2,18 +2,13 @@ import Ember from 'ember';
 import _ from 'lodash/lodash';
 
 export default Ember.Controller.extend({
-	// selectedAccept: null,
-	// selectedReject: null,
-  // queryParams: ['targetid'],
-  // targetid: null,
+	queryParams: ['tab'],
+  tab: 'tab_1',
 	meta: Ember.computed('model', function(){
 		return this.get('model.meta');
 	}),
-	// user: Ember.computed('item', 'item.userid.profile.connection.status', 'item.friendid.profile.connection.status', function(){
-	// 	var userid = this.get('meta.requestid');
-	// 	return userid == this.get('item.userid.id') ? this.get('item.friendid') : this.get('item.userid');
-	// }),
-	following: Ember.computed.alias('model'),
+	following: Ember.computed.alias('model.following'),
+	followers: Ember.computed.alias('model.followers'),
 	connections: Ember.computed('model.@each.status', 'key', function(){
 	  var fields = ['firstName', 'lastName'];
 	  var query = this.get('key');

@@ -4,7 +4,7 @@ export default Ember.Service.extend({
   store: Ember.inject.service(),
   follow(id){
     return this.get('store').createRecord('following', {
-        followingid: id
+        uid: id
       }).save();
   },
   unfollow(id){

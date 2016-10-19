@@ -5,7 +5,7 @@
         <img src= {{user.profile.avatarUrl}} class="hide">
       </div>
       <div class="user-info">
-        {{link-to user.profile.fullName "profile" user.id class="text-title"}}
+        {{link-to user.profile.fullName "profile" user.profile.uid class="text-title"}}
         <div class="position">{{user.profile.career}}</div>
         <div class="position">{{user.profile.location}}</div>
       </div>
@@ -13,7 +13,11 @@
   </div>
   <div class="columns medium-2">
     <section>
-      <button class="button expanded bordered" {{action "unfollow"}}>Unfollow</button>
+      {{#if isFollowing}}
+        <button class="button expanded bordered" {{action "unfollow"}}>Unfollow</button>
+      {{else}}
+        <button class="button expanded bordered green" {{action "follow"}}>Follow</button>
+      {{/if}}
     </section>
   </div>
 </div>

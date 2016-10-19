@@ -1,7 +1,7 @@
 <div class="row">
   <div class="medium-6 medium-centered columns">
     <div class="page-heading">
-        <h1>{{link-to profile.firstName "profile" profile.id class="text-title" }}'s Connections</h1>
+        <h1>{{link-to profile.firstName "profile" profile.username class="text-title" }}'s Connections</h1>
       <p class="text-center">
         These are the users <span class="text-title">{{ profile.firstName}}</span> is connected to.
       </p>
@@ -29,7 +29,7 @@
           </form>
         </section>
         <section class="row columns bg-gray user-list">
-          {{#each followings as |item|}}
+          {{#each following as |item|}}
             <div class="columns">
               {{follow-box item=item meta=meta}}
             </div>
@@ -44,7 +44,12 @@
             {{input value=key type="search" placeholder="Search by Name" class="no-margin"}}
           </form>
         </section>
-        <section class="row medium-up-2 columns bg-gray user-list">
+        <section class="row columns bg-gray user-list">
+          {{#each followers as |item|}}
+            <div class="columns">
+              {{follow-box item=item meta=meta}}
+            </div>
+          {{/each}}
         </section>
       </div>
     </div>

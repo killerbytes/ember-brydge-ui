@@ -23,7 +23,9 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
     let userid = this.get('userid');
     // this.store.unloadAll('connection');
     return Ember.RSVP.resolve({
-      followings: this.store.query('following', {userid: userid}),
+      profile: this.store.findRecord('profile', userid),
+      following: this.store.query('following', {userid: userid}),
+      followers: this.store.query('follower', {userid: userid}),
     });
   },
   actions: {

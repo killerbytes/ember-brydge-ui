@@ -3,26 +3,57 @@
     <div class="page-heading">
       <h1>Following</h1>
       <p class="text-center">
-        
+
       </p>
     </div>
   </div>
 </div>
 
-<div class="row columns">
-  <div class="box row columns">
-    <section class="text-center">
-      <form action="">
-        {{input value=key type="search" placeholder="Search by Name" class="no-margin"}}
-      </form>
-    </section>
-    <section class="row columns bg-gray user-list">
-      {{#each following as |item|}}
-        <div class="columns">
-          {{follow-box item=item meta=meta me=true}}
-        </div>
-      {{/each}}
 
-    </section>
+<div class="row">
+  <div class="mb">
+    {{#zf-tabs id="ask-tabs" class="tab-controls"}}
+      <li data-tab='tab_1' class="tabs-title is-active">
+        <a href="#tab_1" aria-selected="true">Following</a>
+      </li>
+      <li data-tab='tab_2' class="tabs-title">
+        <a href="#tab_2">Followers</a>
+      </li>
+    {{/zf-tabs}}
+  </div>
+
+  <div class="tabs-content" data-tabs-content="ask-tabs">
+    <div class="tabs-panel {{active-tab 'tab_1' tab}}" id="tab_1">
+      <div class="box row columns">
+        <section class="text-center">
+          <form action="">
+            {{input value=key type="search" placeholder="Search by Name" class="no-margin"}}
+          </form>
+        </section>
+        <section class="row columns bg-gray user-list">
+          {{#each following as |item|}}
+            <div class="columns">
+              {{follow-box item=item meta=meta me=true}}
+            </div>
+          {{/each}}
+        </section>
+      </div>
+    </div>
+    <div class="tabs-panel {{active-tab 'tab_2' tab}}" id="tab_2">
+      <div class="box row columns">
+        <section>
+          <form>
+            {{input value=key type="search" placeholder="Search by Name" class="no-margin"}}
+          </form>
+        </section>
+        <section class="row columns bg-gray user-list">
+          {{#each followers as |item|}}
+            <div class="columns">
+              {{follow-box item=item meta=meta me=true}}
+            </div>
+          {{/each}}
+        </section>
+      </div>
+    </div>
   </div>
 </div>

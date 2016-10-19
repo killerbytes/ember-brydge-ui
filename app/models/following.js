@@ -1,7 +1,8 @@
 import DS from 'ember-data';
 
 export default DS.Model.extend({
-  userid: DS.belongsTo('user'),
-  followingid: DS.attr(),
-  followerid: DS.belongsTo('user')
+  uid: DS.attr(),
+  user: DS.belongsTo('user'),
+  follower: DS.belongsTo('user'),
+  isfollowing: DS.belongsTo('following')
 });

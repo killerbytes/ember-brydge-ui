@@ -4,7 +4,7 @@ import AvatarMixin from 'web/mixins/avatar';
 export default Ember.Component.extend(AvatarMixin, {
 	session: Ember.inject.service(),
 	classNames: ['profile-box'],
-	following: Ember.inject.service(),
+	follow: Ember.inject.service(),
 	store: Ember.inject.service(),
 	willDestroyElement(){
     if(this.$('.has-tip').length != 0) this.$('.has-tip').foundation('destroy');
@@ -28,16 +28,16 @@ export default Ember.Component.extend(AvatarMixin, {
 
 
   actions: {
-		follow(cb) {
+		follow() {
       var userid = this.get('profile.id');
-      this.get('following')
+      this.get('follow')
       .follow(userid)
       .then(res=>{
 				this.set('profile.following', res);
       });
     },
 		unfollow(){
-			this.get('following').unfollow(this.get('profile.following.id'));
+			this.get('follow').unfollow(this.get('profile.following.id'));
 		},
 
 

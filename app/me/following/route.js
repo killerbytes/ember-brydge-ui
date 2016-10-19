@@ -4,12 +4,11 @@ import AuthenticatedRouteMixin from 'ember-simple-auth/mixins/authenticated-rout
 export default Ember.Route.extend(AuthenticatedRouteMixin, {
 	session: Ember.inject.service(),
 	model: function() {
-		return this.store.query('following', {userid: this.get('session.data.authenticated.user_id')});
-	},
+		var userid = this.get('session.data.authenticated.user_id');
+		return Ember.RSVP.resolve({
+      following: this.store.query('following', {userid: userid}),
+      followers: this.store.query('follower', {userid: userid}),
+    });
 
-	actions: {
-    selected: function(item) {
-      this.set('controller.selected', item);
-    }
-  }
+	}
 });

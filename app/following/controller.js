@@ -8,7 +8,8 @@ export default Ember.Controller.extend({
   meta: Ember.computed('model.list', function(){
     return this.get('model.list.meta');
   }),
-  followings: Ember.computed.alias('model.followings'),
+  following: Ember.computed.alias('model.following'),
+  followers: Ember.computed.alias('model.followers'),
   list: Ember.computed.alias('model.list'),
   mutual: Ember.computed.alias('model.mutual'),
   mutual_connections: Ember.computed('mutual.@each.friend', 'key', 'isMutual', function(){
