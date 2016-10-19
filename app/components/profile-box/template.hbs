@@ -10,7 +10,6 @@
       </div>
     </div>
   {{/if}}
-
 </div>
 <div class="text-center">
   <section>
@@ -83,8 +82,15 @@
           Connection Request Sent
         {{/if}}
       {{else}}
-        <button class="button large bordered green"{{action "connect"}}>Connect</button>
       {{/if}}
+      <div>
+        {{#if isFollowing}}
+          <button class="button large bordered green"{{action "unfollow"}}>Unfollow</button>
+        {{else}}
+          <button class="button large bordered green"{{action "follow"}}>Follow</button>
+        {{/if}}
+      </div>
     {{/unless}}
   </div>
+
 </div>

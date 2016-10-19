@@ -28,11 +28,13 @@
         </li>
       {{else}}
         <li>{{#link-to "connections" profile.id }} <span class="text-title">{{profile.firstName}}</span>'s connection ({{ count }}){{/link-to}}</li>
-          {{#if isConnected }}
+        <li>{{#link-to "following" profile.publicProfile }} Following ({{ count }}){{/link-to}}</li>
+        <li>{{#link-to "followers" profile.publicProfile }} Follower ({{ count }}){{/link-to}}</li>
+        {{#if isConnected }}
           <li>
               <a class="warning" data-open={{concat 'dialog-box-' 'disconnect-' profile.id}}>Disconnect from <span class="text-title">{{profile.firstName}}</span></a>
           </li>
-          {{/if}}
+        {{/if}}
       {{/if}}
     </ul>
   {{/zf-dropdown}}

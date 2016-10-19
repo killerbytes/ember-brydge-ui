@@ -46,9 +46,11 @@ export default Ember.Component.extend({
   	return index;
   }),
   _getConnectionCount(){
+    if(!this.get('profile.id')) return false;
     this.get('connection').count(this.get('profile.id')).then(res=>{
       this.set('connectionCount', res.connectionCount);
     })
+
   },
   actions: {
     disconnect(){

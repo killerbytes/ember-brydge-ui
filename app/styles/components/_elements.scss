@@ -563,12 +563,12 @@ span.middle{
 	}
 }
 
-// .connection-box{
-// 	min-height: 110px;
-// 	.user-info{
-// 		min-height: 54px;
-// 	}
-// }
+.follow-box{
+	>.row{
+		display: flex;
+		align-items: center;
+	}
+}
 
 .unsubscribe-menu{
 	a{

@@ -65,6 +65,8 @@ Router.map(function() {
       this.route('hidden');
     });
     this.route('connections', {path: '/connections'});
+    this.route('following', {path: '/following'});
+    this.route('followers', {path: '/followers'});
 
   });
 
@@ -85,6 +87,8 @@ Router.map(function() {
   this.route('ask.detail', {path: 'ask/:id'});
   this.route('background', {path: ':username/background'});
   this.route('connections', {path: ':username/connections'});
+  this.route('following', {path: ':username/following'});
+  this.route('followers', {path: ':username/followers'});
   this.route('compliments', {path: ':username/compliments'}, function(){
     this.route('posted')
   });

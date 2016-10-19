@@ -22,9 +22,8 @@ export default Ember.Route.extend(
   },
   beforeModel: function(transition) {
     const loggedinUser = this.get('session.data.authenticated');
-    if(!loggedinUser.user_id) this.transitionTo('public-profile', transition.params['profile'].username);
-
-    return this.get('ajax').request('v2/profiles/'+transition.params['profile'].username,{
+    // if(!loggedinUser.user_id) this.transitionTo('public-profile', transition.params['profile'].username);
+    return this.get('ajax').request(`v2/profiles/${transition.params['profile'].username}`,{
       method: 'OPTIONS'
     }).then(res=>{
       if (loggedinUser.user_id === res.userid) {
@@ -40,6 +39,7 @@ export default Ember.Route.extend(
   model: function(params) {
     var ownerid = this.get('session.data.authenticated.user_id');
     var userid = this.get('userid');
+    console.log(userid)
     return Ember.RSVP.hash({
       profile: this.store.findRecord('profile', userid),
       invites: this.store.findAll('friend-invitation'),
@@ -55,8 +55,8 @@ export default Ember.Route.extend(
 				tab: 'profile',
 				modelPath: 'controller.model.posts'
 			}),
-
-      compliments: this.store.query('compliment',{to: userid, userid: userid})
+      //
+      // compliments: this.store.query('compliment',{to: userid, userid: userid})
     });
   },
   afterModel(model){

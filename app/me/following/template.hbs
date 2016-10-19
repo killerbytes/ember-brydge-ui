@@ -1,0 +1,28 @@
+<div class="row">
+  <div class="medium-6 medium-centered columns">
+    <div class="page-heading">
+      <h1>Following</h1>
+      <p class="text-center">
+        
+      </p>
+    </div>
+  </div>
+</div>
+
+<div class="row columns">
+  <div class="box row columns">
+    <section class="text-center">
+      <form action="">
+        {{input value=key type="search" placeholder="Search by Name" class="no-margin"}}
+      </form>
+    </section>
+    <section class="row columns bg-gray user-list">
+      {{#each following as |item|}}
+        <div class="columns">
+          {{follow-box item=item meta=meta me=true}}
+        </div>
+      {{/each}}
+
+    </section>
+  </div>
+</div>

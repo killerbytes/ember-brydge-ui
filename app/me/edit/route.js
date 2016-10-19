@@ -19,13 +19,12 @@ export default Ember.Route.extend(
 	model: function (params) {
     var userid = this.get('session.data.authenticated.user_id');
 
-		return Ember.RSVP.hash({
-      // profile: this.store.findRecord('profile', userid, {reload: true}),
+		return Ember.RSVP.resolve({
       profile: this.modelFor('me').profile,
-      categories: this.get('ajaxApi').request('/v2/industries'),
-      languages: this.store.findAll('language'),
-      experiences: this.store.findAll('experience'),
-      educations: this.store.findAll('education')
+      // categories: this.get('ajaxApi').request('/v2/industries'),
+      // languages: this.store.findAll('language'),
+      // experiences: this.store.findAll('experience'),
+      // educations: this.store.findAll('education')
 	  });
 	},
   getCategory(value){

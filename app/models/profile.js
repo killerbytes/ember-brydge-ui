@@ -32,6 +32,8 @@ export default DS.Model.extend(Validations, {
 	configSetting: DS.belongsTo('configSetting'),
 	emailSetting: DS.belongsTo('emailSetting', {async: false}),
 	connection: DS.belongsTo('connection', {async: true}),
+	follower: DS.belongsTo('follower'),
+	following: DS.belongsTo('following'),
 	fullName: Ember.computed('firstName', 'lastName', function(){
 		return this.get('firstName') + ' ' + this.get('lastName');
 	}),

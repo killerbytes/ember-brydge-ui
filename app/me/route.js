@@ -18,7 +18,7 @@ export default Ember.Route.extend(
       profile: this.store.findRecord('profile', userid),
       invites: this.store.findAll('friend-invitation'),
       questions: this.store.query('ask', {userid: userid}),
-      compliments: this.store.query('compliment', {to: userid, page:1, per_page: 1}),
+      // compliments: this.store.query('compliment', {to: userid, page:1, per_page: 1}),
     });
   },
   afterModel(model){
@@ -42,6 +42,9 @@ export default Ember.Route.extend(
         break;
       case /me.connections/.test(path):
         page = "connections";
+        break;
+      case /me.following/.test(path):
+        page = "following";
         break;
       default:
         page = "";
