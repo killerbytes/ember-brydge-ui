@@ -12,7 +12,7 @@ export default Ember.Component.extend({
   connection: Ember.inject.service(),
   notification: Ember.inject.service(),
   didReceiveAttrs(attr){
-    if(!this.get('isOwner')) this._getConnectionCount();
+    // if(!this.get('isOwner')) this._getConnectionCount();
   },
   count: Ember.computed('notification.count.connection', 'connectionCount', function(){
     return this.get('isOwner') ? this.get('notification.count.connection') : this.get('connectionCount');

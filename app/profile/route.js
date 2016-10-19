@@ -3,7 +3,7 @@ import AuthenticatedRouteMixin from 'ember-simple-auth/mixins/authenticated-rout
 import BrydgeScroller from 'web/mixins/brydge-scroller';
 
 export default Ember.Route.extend(
-  AuthenticatedRouteMixin,
+  // AuthenticatedRouteMixin,
   BrydgeScroller, {
   session: Ember.inject.service(),
   ajax: Ember.inject.service(),
@@ -37,23 +37,23 @@ export default Ember.Route.extend(
     })
   },
   model: function(params) {
-    var ownerid = this.get('session.data.authenticated.user_id');
+    // var ownerid = this.get('session.data.authenticated.user_id');
     var userid = this.get('userid');
     return Ember.RSVP.hash({
       profile: this.store.findRecord('profile', userid),
-      invites: this.store.findAll('friend-invitation'),
-      username:  params.username,
-      me: this.store.findRecord('profile', ownerid),
-      experiences: this.store.query('experience',{userid: userid}),
-      educations: this.store.query('education',{userid: userid}),
-      questions: this.store.query('ask',{ userid: userid, per_page: 1, page:1 }),
-      posts: this.brydgeScroller('newsfeed', {
-        per_page: 15,
-        scroller: 'newsfeed',
-				filter: userid,
-				tab: 'profile',
-				modelPath: 'controller.model.posts'
-			}),
+      // invites: this.store.findAll('friend-invitation'),
+      // username:  params.username,
+      // me: this.store.findRecord('profile', ownerid),
+      // experiences: this.store.query('experience',{userid: userid}),
+      // educations: this.store.query('education',{userid: userid}),
+      // questions: this.store.query('ask',{ userid: userid, per_page: 1, page:1 }),
+      // posts: this.brydgeScroller('newsfeed', {
+      //   per_page: 15,
+      //   scroller: 'newsfeed',
+			// 	filter: userid,
+			// 	tab: 'profile',
+			// 	modelPath: 'controller.model.posts'
+			// }),
       //
       // compliments: this.store.query('compliment',{to: userid, userid: userid})
     });

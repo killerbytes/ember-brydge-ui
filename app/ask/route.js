@@ -17,7 +17,7 @@ export default Ember.Route.extend(
 	ajax: Ember.inject.service(),
   beforeModel: function(transition) {
     var userid = this.get('session.data.authenticated.user_id');
-    if(!userid) this.transitionTo('public-profile', transition.params[transition.targetName].username);
+    // if(!userid) this.transitionTo('public-profile', transition.params[transition.targetName].username);
     return this.get('ajax').request('v2/profiles/'+transition.params[transition.targetName].username,{
       method: 'OPTIONS'
     }).then(res=>{
@@ -41,8 +41,8 @@ export default Ember.Route.extend(
     let userid = this.get('userid')
 		return Ember.RSVP.hash({
 			profile: this.store.findRecord('profile', userid),
-			invites: this.store.findAll('friend-invitation'),
-			compliments: this.store.query('compliment',{to: userid, per_page: 1, page: 1}),
+			// invites: this.store.findAll('friend-invitation'),
+			// compliments: this.store.query('compliment',{to: userid, per_page: 1, page: 1}),
 			questions: this.store.query('ask',{ userid: userid, per_page: 1, page:1 }),
       toQuestions: this.brydgeScroller('ask',{
 				to: userid,
