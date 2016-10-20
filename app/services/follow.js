@@ -5,8 +5,8 @@ export default Ember.Service.extend({
   ajax: Ember.inject.service(),
   follow(id){
     return this.get('store').createRecord('following', {
-        uid: id
-      }).save();
+      uid: id
+    }).save();
   },
   unfollow(id){
     var following = this.get('store').peekRecord('following', id);

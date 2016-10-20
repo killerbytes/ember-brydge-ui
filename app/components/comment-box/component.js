@@ -5,6 +5,7 @@ import ViewCommentsActionMixin from 'web/mixins/view-comments-action';
 export default Ember.Component.extend(ViewCommentsActionMixin,{
 	store: Ember.inject.service(),
 	sessionAccount: Ember.inject.service(),
+	session: Ember.inject.service(),
 	limit: 3, //set default
 	page: 0, //set default
 	isMore: Ember.computed('limit', 'page', function(){
@@ -15,6 +16,7 @@ export default Ember.Component.extend(ViewCommentsActionMixin,{
 		this._super(...arguments);
 		if(this.get('expanded') && this.get('total')) this.loadComments();
 	},
+	notAuthenticated: Ember.computed.equal('session.isAuthenticated', false),
 	sortProps: ['insertedAt:asc'],
   comments: Ember.computed.sort('post.comments', 'sortProps'),
 	loadComments(){

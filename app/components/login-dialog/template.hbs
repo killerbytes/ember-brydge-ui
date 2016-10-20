@@ -1,0 +1,29 @@
+{{#zf-reveal id="login-dialog" overlay=true class="small box"}}
+  <button class="close-button" aria-label="Dismiss alert" type="button" data-close>
+    <span aria-hidden="true">&times;</span>
+  </button>
+  <section class="title text-center text-upper">
+    <h4>Login to Brydge</h4>
+  </section>
+  <section>
+    <div class="brydge-dialog dialog-wrapper">
+      <div class="dialog-header">
+        <a href="/" class="logo"><img src="assets/brydge-blue.svg"></a>
+      </div>
+      {{#if errors}}
+        <div class="error-messages">
+          <ul class="no-bullet errors">
+          {{#each errors as |item|}}
+              <li>
+                <h4>{{item.title}}</h4>
+                {{item.detail}}
+              </li>
+          {{/each}}
+          </ul>
+        </div>
+      {{/if}}
+      {{partial "partials/form-login"}}
+    </div>
+
+  </section>
+{{/zf-reveal}}

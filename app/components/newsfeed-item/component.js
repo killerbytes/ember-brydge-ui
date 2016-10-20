@@ -29,7 +29,9 @@ export default Ember.Component.extend(NewsfeedMixin, {
   tags: Ember.computed('post.categories', function(){
     return this.get('post.categories') ? 'Posted to: Connections, '+ this.get('categories') :'Posted to: Connections';
   }),
-
+  sharePostModal: Ember.computed('session.isAuthenticated', function(){
+    return this.get('session.isAuthenticated') ? 'sharePostModal' : 'login-dialog';
+  }),
   willDestroyElement(){
     if(this.$('.has-tip').length != 0 && !this.get('shared')) this.$('.has-tip').foundation('destroy');
 	},
@@ -54,6 +56,11 @@ export default Ember.Component.extend(NewsfeedMixin, {
 
 		},
 		vote(type){
+      if(!this.get('session.isAuthenticated')){
+        $('#login-dialog').foundation('open');
+        return false;
+      }
+
 			let post = this.get('post');
 			let upvotes = post.get('upvotes');
 			let postId = post.get('id');

@@ -12,6 +12,7 @@ header{
 		background-color: $brydge-blue;
 		color: #FFF;
 		padding: 0;
+		min-height: 42px;
 		.thumbnail{
 			width: 40px;
 			height: 40px;
@@ -42,7 +43,7 @@ header{
 			vertical-align: bottom;
 		}
 		span a{
-			padding: 0.7rem 1rem;
+			padding: 0.5rem 1rem;
 			display: block;
 		}
 		.home-icon{
@@ -70,7 +71,7 @@ header{
 		margin-top: 3px;
 	}
 	.menu ul.menu{
-		margin-top: 6px;
+		margin-top: 8px;
 	}
 }
 

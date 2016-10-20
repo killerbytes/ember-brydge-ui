@@ -83,16 +83,16 @@
     <div class="row">
       <div class="columns medium-6 small-6">
         {{#if post.vote.upVoted}}
-        <a {{action "vote" "reset"}} class="acted">Upvoted</a>
+          <a {{action "vote" "reset"}} class="acted">Upvoted</a>
         {{else}}
-        <a {{action "vote" "up"}}>Upvote</a>
+          <a {{action "vote" "up"}}>Upvote</a>
         {{/if}}
 
         {{#if post.vote.upVotes}}<span>{{post.vote.upVotes}}</span>{{/if}}
 
 
         {{#if post.vote.downVoted}}
-        <a {{action "vote" "reset"}} class="acted">Downvoted</a>
+          <a {{action "vote" "reset"}} class="acted">Downvoted</a>
         {{else}}
           {{#zf-tooltip title="Downvoting is anonymous" class="top"}}
             <a {{action "vote" "down"}}>Downvote</a>
@@ -103,7 +103,7 @@
       <div class="columns medium-6 small-6 text-right">
         <a {{action "viewComments"}}>Comment</a>
         {{#if post.commentCount}}<span>{{post.commentCount}}</span>{{/if}}
-        <a {{action "share"}} data-open="sharePostModal">Share</a>
+        <a {{action "share"}} data-open={{sharePostModal}}>Share</a>
         {{#if post.shareCount}}<span>{{post.shareCount}}</span>{{/if}}
       </div>
     </div>

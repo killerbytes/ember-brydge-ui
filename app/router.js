@@ -29,7 +29,7 @@ const Router = Ember.Router.extend(googlePageview, {
           case 'post':
           case 'background':
             if(isAuth){
-              getOwner(this).lookup('controller:application').set('header', 'header');              
+              getOwner(this).lookup('controller:application').set('header', 'header');
             }else{
               getOwner(this).lookup('controller:application').set('header', 'public');
             }
@@ -101,10 +101,10 @@ Router.map(function() {
   // this.route('compliments.detail',{path: 'compliments/:id'});
 
   // Unauthenticated
-  this.route('post', {path: '/:user_id/posts/:newsfeed_id'});
+  this.route('post', {path: '/:username/posts/:id'});
   this.route('profile', {path: ':username'});
   this.route('ask', {path: ':username/ask'});
-  this.route('ask.detail', {path: 'ask/:id'});
+  this.route('ask.detail', {path: '/ask/:id'});
   this.route('background', {path: ':username/background'});
   this.route("login");
   this.route("register");

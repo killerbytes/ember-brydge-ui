@@ -88,6 +88,7 @@ module.exports = function(environment) {
     ENV.googleAnalytics = {
       webPropertyId: 'UA-72370021-2'
     };
+    ENV['no-debug'] = true;
 
     ENV['ember-simple-auth'] = {
       serverTokenEndpoint: '//api.brydge.com/v2/token',

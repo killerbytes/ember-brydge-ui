@@ -30,6 +30,11 @@ export default Ember.Component.extend(AvatarMixin, {
 
   actions: {
 		follow() {
+			if(!this.get('session.isAuthenticated')){
+        $('#login-dialog').foundation('open');
+        return false;
+      }
+			
       var userid = this.get('profile.id');
       this.get('follow')
       .follow(userid)
