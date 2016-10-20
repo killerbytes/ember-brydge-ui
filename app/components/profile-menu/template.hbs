@@ -21,21 +21,15 @@
   {{#zf-dropdown id="dd-public-options" class="dropdown-menu" closeOnClick=true}}
     <ul class="menu">
       {{#if isOwner}}
-        <li>{{#link-to "me.following"}} Following ({{ count }}) {{/link-to}}</li>
-        <li>{{#link-to "me.followers"}} Followers ({{ count }}) {{/link-to}}</li>
+        <li>{{#link-to "me.following"}} Following ({{ followings }}) {{/link-to}}</li>
+        <li>{{#link-to "me.followers"}} Followers ({{ followers }}) {{/link-to}}</li>
         <li>{{link-to "Edit Profile" "me.edit"}}</li>
         <li>
           <a data-open="dialog-share-profile">Share your profile</a>
         </li>
       {{else}}
-        <li>{{#link-to "connections" profile.id }} <span class="text-title">{{profile.firstName}}</span>'s connection ({{ count }}){{/link-to}}</li>
-        <li>{{#link-to "following" profile.publicProfile }} Following ({{ count }}){{/link-to}}</li>
-        <li>{{#link-to "followers" profile.publicProfile }} Follower ({{ count }}){{/link-to}}</li>
-        {{#if isConnected }}
-          <li>
-              <a class="warning" data-open={{concat 'dialog-box-' 'disconnect-' profile.id}}>Disconnect from <span class="text-title">{{profile.firstName}}</span></a>
-          </li>
-        {{/if}}
+        <li>{{#link-to "following" profile.uid }} Following ({{ followings }}){{/link-to}}</li>
+        <li>{{#link-to "followers" profile.uid }} Followers ({{ followers }}){{/link-to}}</li>
       {{/if}}
     </ul>
   {{/zf-dropdown}}

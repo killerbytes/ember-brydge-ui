@@ -18,13 +18,13 @@
             <div {{action "selectView" item}} class="padding {{if item.read false 'new-notification'}}">
               <div class="row collapse">
                 <div class="columns">
-                  {{#link-to  "profile" item.target.profile.id class="name"}}
+                  {{#link-to  "profile" item.target.profile.uid class="name"}}
                     <div class="avatar" style={{htmlSafeImage item.target.profile.avatarUrl }}>
                       <img src= {{item.target.profile.avatarUrl}} class="hide">
                     </div>
                   {{/link-to}}
                   <div class="user-info">
-                    {{link-to item.target.profile.fullName "profile" item.target.profile.id class="text-title"}} viewed your profile
+                    {{link-to item.target.profile.fullName "profile" item.target.profile.uid class="text-title"}} viewed your profile
                     <div class="timestamp">{{ timestamp-views item.createdAt }}</div>
                   </div>
                 </div>

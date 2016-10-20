@@ -1,17 +1,13 @@
 import Ember from 'ember';
-import AuthenticatedRouteMixin from 'ember-simple-auth/mixins/authenticated-route-mixin';
 import BrydgeScroller from 'web/mixins/brydge-scroller';
 
 export default Ember.Route.extend(
-  // AuthenticatedRouteMixin,
   BrydgeScroller, {
   session: Ember.inject.service(),
   ajax: Ember.inject.service(),
   utils: Ember.inject.service(),
   sessionAccount: Ember.inject.service(),
-  connection: Ember.inject.service(),
   notification: Ember.inject.service(),
-  compliment: Ember.inject.service(),
   paramsUserProfile: null,
   resetController(controller, isExiting, transition) {
       if (isExiting) {

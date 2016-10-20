@@ -81,6 +81,7 @@ export default Ember.Service.extend({
   profileView(profile){
     const authToken = this.get('session.data.authenticated.access_token');
     if(!authToken) return false;
+    console.log(profile)
     var url = '/v2/profile/view/' + profile.get('id');
     return this.get('ajax').request(url, {
       method: 'GET'

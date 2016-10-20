@@ -58,7 +58,7 @@
             <img src= {{latestQuestion.from.profile.avatarUrl}} class="hide">
           </div>
           <div class="user-info">
-            {{link-to latestQuestion.from.profile.fullName "profile" latestQuestion.from.id class="name"}} asked {{link-to latestQuestion.to.profile.fullName "profile" latestQuestion.to.id class="name"}}
+            {{link-to latestQuestion.from.profile.fullName "profile" latestQuestion.from.profile.uid class="name"}} asked {{link-to latestQuestion.to.profile.fullName "profile" latestQuestion.to.profile.uid class="name"}}
             <div class="timestamp">
               {{#link-to "ask.detail" latestQuestion.id class="timestamp"}}
                 {{timestamp latestQuestion.answeredAt}}
@@ -87,7 +87,7 @@
       {{#if isOwner }}
         {{link-to "Go to Ask" 'me.ask'  class="button expanded"}}
       {{else}}
-        {{#link-to 'ask' profile.id  class="button expanded"}}
+        {{#link-to 'ask' profile.uid  class="button expanded"}}
           Ask <span class="text-title">{{profile.firstName}}</span>
         {{/link-to}}
       {{/if}}
@@ -110,7 +110,7 @@
       {{#if isOwner }}
         {{link-to "Go to Ask" 'me.ask'  class="button expanded"}}
       {{else}}
-        {{#link-to 'ask' profile.id  class="button expanded"}}
+        {{#link-to 'ask' profile.uid  class="button expanded"}}
           Ask <span class="text-title">{{profile.firstName}}</span>
         {{/link-to}}
       {{/if}}

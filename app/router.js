@@ -58,44 +58,38 @@ Router.map(function() {
       this.route('outbox');
       this.route('hidden');
     });
-    this.route('compliments', {path: '/compliments'}, function(){
-      this.route('detail',{path: '/:id'});
-      this.route('inbox');
-      this.route('outbox');
-      this.route('hidden');
-    });
-    this.route('connections', {path: '/connections'});
+    // this.route('compliments', {path: '/compliments'}, function(){
+    //   this.route('detail',{path: '/:id'});
+    //   this.route('inbox');
+    //   this.route('outbox');
+    //   this.route('hidden');
+    // });
+    // this.route('connections', {path: '/connections'});
     this.route('following', {path: '/following'});
     this.route('followers', {path: '/followers'});
 
   });
 
-
-  // /teo-choong-pin
-  // this.route('public-profile', {path:'/:username'});
-  // this.route('public-profile-error');
-
-  this.route('messages', function() {
-    this.route('conversation', { path: ':id'});
-    this.route('compose');
-  });
+  // this.route('messages', function() {
+  //   this.route('conversation', { path: ':id'});
+  //   this.route('compose');
+  // });
 
   // User Pages
+  // this.route('connections', {path: ':username/connections'});
+  this.route('following', {path: ':username/following'});
+  this.route('followers', {path: ':username/followers'});
+  // this.route('compliments', {path: ':username/compliments'}, function(){
+  //   this.route('posted')
+  // });
+  // this.route('compliments.detail',{path: 'compliments/:id'});
+
+  // Unauthenticated
   this.route('post', {path: '/:user_id/posts/:newsfeed_id'});
   this.route('profile', {path: ':username'});
   this.route('ask', {path: ':username/ask'});
   this.route('ask.detail', {path: 'ask/:id'});
   this.route('background', {path: ':username/background'});
-  this.route('connections', {path: ':username/connections'});
-  this.route('following', {path: ':username/following'});
-  this.route('followers', {path: ':username/followers'});
-  this.route('compliments', {path: ':username/compliments'}, function(){
-    this.route('posted')
-  });
-  this.route('compliments.detail',{path: 'compliments/:id'});
-
-  // Unauthenticated
-  this.route('public-profile', {path: 'public/:username'});
   this.route("login");
   this.route("register");
   this.route("forgot-password");
