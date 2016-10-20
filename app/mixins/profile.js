@@ -1,8 +1,7 @@
 import Ember from 'ember';
-import InviteMixin from 'web/mixins/invite';
 
 
-export default Ember.Mixin.create(InviteMixin, {
+export default Ember.Mixin.create({
 	utils: Ember.inject.service(),
 	profile: Ember.computed.alias('model.profile'),
   posts: Ember.computed('model.posts', 'model.posts.@each', function(){ //TODO: remove isDeleted:true from list
@@ -31,15 +30,6 @@ export default Ember.Mixin.create(InviteMixin, {
   }),
   latestCompliment: Ember.computed('compliments', function(){
     return this.get('compliments.firstObject');
-  }),
-  location: Ember.computed('profile.location', function(){
-		console.log('location DEPRECATE?')
-    if(!this.get('profile.location')) return false;
-    var location = this.get('profile.location').split(',');
-    return {
-      city: location.splice(0, 1),
-      state: location.join(', ')
-    }
   }),
 	isNotEmptyOccupation: Ember.computed('profile.industryTwoName', 'profile.industryThreeName', function(){
     return this.get('profile.industryTwoName') || this.get('profile.industryThreeName');

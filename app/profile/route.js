@@ -37,7 +37,7 @@ export default Ember.Route.extend(
     })
   },
   model: function(params) {
-    // var ownerid = this.get('session.data.authenticated.user_id');
+    var ownerid = this.get('session.data.authenticated.user_id');
     var userid = this.get('userid');
     return Ember.RSVP.hash({
       profile: this.store.findRecord('profile', userid),
@@ -46,16 +46,14 @@ export default Ember.Route.extend(
       // me: this.store.findRecord('profile', ownerid),
       // experiences: this.store.query('experience',{userid: userid}),
       // educations: this.store.query('education',{userid: userid}),
-      // questions: this.store.query('ask',{ userid: userid, per_page: 1, page:1 }),
-      // posts: this.brydgeScroller('newsfeed', {
-      //   per_page: 15,
-      //   scroller: 'newsfeed',
-			// 	filter: userid,
-			// 	tab: 'profile',
-			// 	modelPath: 'controller.model.posts'
-			// }),
-      //
-      // compliments: this.store.query('compliment',{to: userid, userid: userid})
+      questions: this.store.query('ask',{ userid: userid, per_page: 1, page:1 }),
+      posts: this.brydgeScroller('newsfeed', {
+        per_page: 15,
+        scroller: 'newsfeed',
+				filter: userid,
+				tab: 'profile',
+				modelPath: 'controller.model.posts'
+			})
     });
   },
   afterModel(model){
