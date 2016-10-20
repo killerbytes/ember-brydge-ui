@@ -46,7 +46,7 @@ export default Ember.Route.extend(
       // me: this.store.findRecord('profile', ownerid),
       // experiences: this.store.query('experience',{userid: userid}),
       // educations: this.store.query('education',{userid: userid}),
-      questions: this.store.query('ask',{ userid: userid, per_page: 1, page:1 }),
+      // questions: this.store.query('ask',{ userid: userid, per_page: 1, page:1 }),
       posts: this.brydgeScroller('newsfeed', {
         per_page: 15,
         scroller: 'newsfeed',
