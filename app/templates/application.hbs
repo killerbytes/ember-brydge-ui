@@ -1,7 +1,11 @@
 {{#if isHeader}}
   {{#if isAuth}}
-  {{render "header"}}
+    {{render "header"}}
   {{/if}}
+{{else if isPublic}}
+  {{#unless isAuth}}
+    {{render "public-header"}}
+  {{/unless}}
 {{else if isStatic}}
   {{render "static-header"}}
 {{/if}}

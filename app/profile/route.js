@@ -18,7 +18,6 @@ export default Ember.Route.extend(
   },
   beforeModel: function(transition) {
     const loggedinUser = this.get('session.data.authenticated');
-    // if(!loggedinUser.user_id) this.transitionTo('public-profile', transition.params['profile'].username);
     return this.get('ajax').request(`v2/profiles/${transition.params['profile'].username}`,{
       method: 'OPTIONS'
     }).then(res=>{
@@ -37,12 +36,9 @@ export default Ember.Route.extend(
     var userid = this.get('userid');
     return Ember.RSVP.hash({
       profile: this.store.findRecord('profile', userid),
-      // invites: this.store.findAll('friend-invitation'),
       // username:  params.username,
       // me: this.store.findRecord('profile', ownerid),
-      // experiences: this.store.query('experience',{userid: userid}),
-      // educations: this.store.query('education',{userid: userid}),
-      // questions: this.store.query('ask',{ userid: userid, per_page: 1, page:1 }),
+      questions: this.store.query('ask',{ userid: userid, per_page: 1, page:1 }),
       posts: this.brydgeScroller('newsfeed', {
         per_page: 15,
         scroller: 'newsfeed',
