@@ -2,12 +2,13 @@ import Ember from 'ember';
 import _ from 'lodash/lodash';
 
 export default Ember.Controller.extend({
-	following: Ember.computed.alias('model'),
-	list: Ember.computed('following.@each.user', 'key', function(){
+	following: Ember.computed.alias('model.following'),
+	listKey: Ember.computed.alias('following'),
+  list: Ember.computed('listKey.@each', 'key', function(){
 	  var fields = ['fullName'];
 	  var query = this.get('key');
-    if(!query) return this.get('following');
-		return this.get('following')
+    if(!query) return this.get('listKey');
+		return this.get('listKey')
 		.filter(function(item){
       var found = false;
       _.forEach(fields, function(key) {
@@ -16,10 +17,5 @@ export default Ember.Controller.extend({
       })
       return found;
 		})
-	}),
-  actions: {
-    select(item){
-      this.set('selected', item);
-    },
-  }
+	})
 });

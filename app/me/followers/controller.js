@@ -2,12 +2,13 @@ import Ember from 'ember';
 import _ from 'lodash/lodash';
 
 export default Ember.Controller.extend({
-	follower: Ember.computed.alias('model'),
-	list: Ember.computed('follower.@each', 'key', function(){
+	followers: Ember.computed.alias('model.followers'),
+	listKey: Ember.computed.alias('followers'),
+  list: Ember.computed('listKey.@each', 'key', function(){
 	  var fields = ['fullName'];
 	  var query = this.get('key');
-    if(!query) return this.get('follower');
-		return this.get('follower')
+    if(!query) return this.get('listKey');
+		return this.get('listKey')
 		.filter(function(item){
       var found = false;
       _.forEach(fields, function(key) {

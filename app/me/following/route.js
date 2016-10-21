@@ -1,20 +1,20 @@
 import Ember from 'ember';
 import AuthenticatedRouteMixin from 'ember-simple-auth/mixins/authenticated-route-mixin';
+import BrydgeScroller from 'web/mixins/brydge-scroller';
 
-export default Ember.Route.extend(AuthenticatedRouteMixin, {
+export default Ember.Route.extend(
+	BrydgeScroller,
+	AuthenticatedRouteMixin, {
 	session: Ember.inject.service(),
 	model: function() {
 		var userid = this.get('session.data.authenticated.user_id');
-		return this.store.query('following', {userid: userid});
-	},
-	actions: {
-		follow(item){
-			this.store.query('following', {userid: this.get('session.data.authenticated.user_id')}).then(res=>{
-				this.set('controller.following', res);
+    return Ember.RSVP.hash({
+      profile: this.store.findRecord('profile', userid),
+      following: this.brydgeScroller('following',{
+				userid: userid,
+				modelPath: 'controller.model.following',
+				scroller: 'follow'
 			})
-		}
-
-  }
-
-
+    });
+	}
 });

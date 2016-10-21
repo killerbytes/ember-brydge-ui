@@ -8,19 +8,18 @@
     </div>
   </div>
 </div>
+
 <div class="row">
-  <div class="box row columns">
-    <section>
-      <form>
-        {{input value=key type="search" placeholder="Search by Name" class="no-margin"}}
-      </form>
-    </section>
-    <section class="row columns bg-gray user-list">
-      {{#each followers as |item|}}
-        <div class="columns">
-          {{follow-box item=item meta=meta onFollow="follower"}}
-        </div>
-      {{/each}}
-    </section>
+  <div class="mb">
+    <ul class="tab-controls brydge-tab-blue tabs">
+      <li data-tab='tab_1' class="tabs-title">
+        {{link-to "Following" "following" profile.uid }}
+      </li>
+      <li data-tab='tab_2' class="tabs-title is-active">
+        <a aria-selected="true">Followers</a>
+      </li>
+    </ul>
   </div>
 </div>
+
+{{partial "partials/list-follow"}}
