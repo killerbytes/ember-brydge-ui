@@ -18,7 +18,8 @@ export default Ember.Component.extend({
 			}
 
 			if(q.length < 2) return false;
-
+			this.set('search.results', []);
+			this.set('search.isLoading', true);
 			var delay = (()=>{
 				return (callback, ms)=>{
 					clearTimeout(this.get('timer'));

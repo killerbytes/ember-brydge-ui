@@ -16,9 +16,11 @@ export default Ember.Service.extend({
   results: [],
   key: null,
   query(params)  {
+    // this.set('results', []);
+    // this.set('isLoading', true);
 		this.get('store').query('search', params).then(res=>{
-      console.log(res)
 			this.set('results', res);
+      // this.set('isLoading', false);
 		})
   },
 

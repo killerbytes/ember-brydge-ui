@@ -5,9 +5,7 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
 	session: Ember.inject.service(),
 	model: function() {
 		var userid = this.get('session.data.authenticated.user_id');
-		return Ember.RSVP.hash({
-      following: this.store.query('following', {userid: userid})
-    });
+		return this.store.query('following', {userid: userid});
 	},
 	actions: {
 		follow(item){

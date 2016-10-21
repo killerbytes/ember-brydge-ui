@@ -6,8 +6,8 @@ export default Ember.Helper.helper(function([item]){
 	}
 	var text;
 	switch(item.get('type')){
-		case 'compliment':
-		 	text = "complimented you";
+		case 'accept':
+			text = "accepted your connection request";
 			break;
 		case 'ask':
 			text = "asked you a question";
@@ -15,17 +15,20 @@ export default Ember.Helper.helper(function([item]){
 		case 'answer':
 			text = "answered your question";
 			break;
-		case 'share':
-			text = "shared " + '<strong>' + getContent(item.get('content')) + '</strong>';;
+		case 'compliment':
+		 	text = "complimented you";
 			break;
 		case 'comment':
 			text = "commented on " +  '<strong>' + getContent(item.get('content')) + '</strong>';
 			break;
+		case 'follow':
+			text = "followed you";
+			break;
+		case 'share':
+			text = "shared " + '<strong>' + getContent(item.get('content')) + '</strong>';;
+			break;
 		case 'vote':
 			text = "upvoted "  + '<strong>' + getContent(item.get('content')) + '</strong>';;
-			break;
-		case 'accept':
-			text = "accepted your connection request";
 			break;
 	}
   return text;

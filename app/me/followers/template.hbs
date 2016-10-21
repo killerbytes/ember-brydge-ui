@@ -17,7 +17,7 @@
       </form>
     </section>
     <section class="row columns bg-gray user-list">
-      {{#each followers as |item|}}
+      {{#each list as |item|}}
         <div class="columns">
           {{follow-box item=item meta=meta me=true onFollow="follow"}}
         </div>

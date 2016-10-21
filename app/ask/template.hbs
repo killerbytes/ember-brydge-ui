@@ -47,9 +47,14 @@
 		{{else}}
 			<form action="" class="box user-top-form mb20">
 				<section>
-					<p class="text-center">You have turned Ask OFF. Turn it on in {{link-to "Settings" "settings" (query-params tab="ask")}}.</p>
+					{{#if session.isAuthenticated}}
+						<p class="text-center">You have turned Ask OFF. Turn it on in {{link-to "Settings" "settings" (query-params tab="ask")}}.</p>
+					{{else}}
+						<p class="text-center">You need to <a data-open="login-dialog">log in</a> to Ask a question</p>
+					{{/if}}
 				</section>
 			</form>
+
 		{{/if}}
 
 		<div class="mb">

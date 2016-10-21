@@ -27,8 +27,13 @@
 		{{else}}
 			<li>
 				<div class="empty-message">
-					No results for your search terms
+					{{#if search.isLoading}}
+						<div class="brydge-loading"></div>
+					{{else}}
+							No results for your search terms
+					{{/if}}
 				</div>
+
 			</li>
 		{{/each}}
 
