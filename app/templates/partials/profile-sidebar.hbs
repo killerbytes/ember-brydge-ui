@@ -3,14 +3,18 @@
     <h4><i class="fa fa-building-o" aria-hidden="true"></i>
       Industries
       {{#if isOwner}}
-        {{#link-to "me.edit" (query-params tab="industry") class="editable"}}
+        <a href="{{href-to 'me.edit' (query-params tab='industry')}}" class="editable">
           <i class="fa fa-pencil-square-o"></i>
-        {{/link-to}}
+        </a>
       {{/if}}
     </h4>
     <ul class="no-bullet">
       {{#each industries as |item|}}
-        <li><strong>{{link-to item.text "home" (query-params channels=item.id)}}</strong></li>
+        <li>
+          <strong>
+            <a href="{{href-to 'home' (query-params channels=item.id)}}">{{item.text}}</a>
+          </strong>
+        </li>
       {{else}}
           <li class="empty-message">
             {{#if isOwner}}
@@ -28,9 +32,9 @@
     <h4><i class="fa fa-camera-retro" aria-hidden="true"></i>
       Snapshot
       {{#if isOwner}}
-        {{#link-to "me.edit" (query-params tab="snapshot") class="editable"}}
+        <a href="{{href-to 'me.edit' (query-params tab='snapshot')}}" class="editable">
           <i class="fa fa-pencil-square-o"></i>
-        {{/link-to}}
+        </a>
       {{/if}}
     </h4>
     {{#if profile.snapshot}}
@@ -67,11 +71,13 @@
             <img src= {{latestQuestion.from.profile.avatarUrl}} class="hide">
           </div>
           <div class="user-info">
-            {{link-to latestQuestion.from.profile.fullName "profile" latestQuestion.from.profile.uid class="name"}} asked {{link-to latestQuestion.to.profile.fullName "profile" latestQuestion.to.profile.uid class="name"}}
+            <a href="{{href-to 'profile' latestQuestion.from.profile.uid}}" class="name">{{latestQuestion.from.profile.fullName}}</a>
+            asked
+            <a href="{{href-to 'profile' latestQuestion.to.profile.uid}}" class="name">{{latestQuestion.to.profile.fullName}}</a>
             <div class="timestamp">
-              {{#link-to "ask.detail" latestQuestion.id class="timestamp"}}
+              <a href="{{href-to 'ask.detail' latestQuestion.id}}" class="timestamp">
                 {{timestamp latestQuestion.answeredAt}}
-              {{/link-to}}
+              </a>
             </div>
 
           </div>
@@ -94,11 +100,11 @@
 
     <section class="section-footer-links">
       {{#if isOwner }}
-        {{link-to "Go to Ask" 'me.ask'  class="button expanded"}}
+        <a href="{{href-to 'me.ask'}}" class="button expanded">Go to Ask</a>
       {{else}}
-        {{#link-to 'ask' profile.uid  class="button expanded"}}
+        <a href="{{href-to 'profile' profile.uid}}" class="button expanded">
           Ask <span class="text-title">{{profile.firstName}}</span>
-        {{/link-to}}
+        </a>
       {{/if}}
     </section>
   </div>
@@ -117,14 +123,13 @@
     </section>
     <section class="section-footer-links">
       {{#if isOwner }}
-        {{link-to "Go to Ask" 'me.ask'  class="button expanded"}}
+        <a href="{{href-to 'me.ask'}}" class="button expanded">Go to Ask</a>
       {{else}}
-        {{#link-to 'ask' profile.uid  class="button expanded"}}
+        <a href="{{href-to 'profile.uid'}}" class="button expanded">
           Ask <span class="text-title">{{profile.firstName}}</span>
-        {{/link-to}}
+        </a>
       {{/if}}
     </section>
-
   </div>
 {{/if}}
 

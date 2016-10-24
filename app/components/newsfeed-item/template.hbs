@@ -6,13 +6,16 @@
       </div>
       <div class="user-info">
         <span class="name">
-          {{#link-to "profile" post.user.profile.uid class="plain"}}
+          <a href="{{href-to 'profile' post.user.profile.uid}}" class="plain">
             {{post.user.profile.fullName}}
-          {{/link-to}}
+          </a>
         </span>
         {{#if post.shared}}
           {{#unless shared}}
-            <span class="text-gray">shared </span><span class="name">{{link-to post.shared.user.profile.fullName "profile" post.shared.user.profile.uid class="plain"}}</span><span class="text-gray">'s post</span>
+            <span class="text-gray">shared </span>
+              <span class="name">
+                <a href="{{href-to 'profile' post.shared.user.profile.uid }}" class="plain">{{post.shared.user.profile.fullName}}</a>
+              </span><span class="text-gray">'s post</span>
           {{/unless}}
         {{/if}}
 
@@ -35,12 +38,9 @@
           </ul>
         {{/zf-dropdown}}
       {{/unless}}
-      {{#link-to 'post' post.user.profile.uid post.id class="timestamp"}}{{timestamp post.updatedAt}}{{/link-to}}
-      {{!--
-        {{#zf-tooltip title=tags class="top tags" }}
-          <i class="fa fa-tags" aria-hidden="true"></i>
-        {{/zf-tooltip}}
-      --}}
+      {{#link-to 'post' post.user.profile.uid post.id class="timestamp"}}
+        {{timestamp post.updatedAt}}
+      {{/link-to}}
     </div>
   </div>
 </section>

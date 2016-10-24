@@ -27,7 +27,7 @@
               <img src= {{comment.user.profile.avatarUrl}} class="hide">
             </div>
             <div class="user-info">
-              {{#link-to "profile" comment.user.profile.uid class="name"}} {{comment.user.profile.fullName}} {{/link-to}}
+              <a href="{{href-to 'profile' comment.user.profile.uid}}" class="name">{{comment.user.profile.fullName}}</a>
               <div class="position">{{ comment.user.profile.career }}</div>
             </div>
           </div>

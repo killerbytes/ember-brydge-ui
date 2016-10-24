@@ -20,9 +20,9 @@
 			<h1>Your Ask Page</h1>
 			<p class="text-center">
 				{{#if profile.setting.ask}}
-					You are currently accepting questions. To disable the ASK feature go to {{link-to "Settings" "settings" (query-params tab="ask") }}.
+					You are currently accepting questions. To disable the ASK feature go to <a href="{{href-to 'settings' (query-params tab='ask')}}">Settings</a>.
 				{{else}}
-					You are currently not accepting questions. To enable the ASK feature go to {{link-to "Settings" "settings" (query-params tab="ask") }}.
+					You are currently not accepting questions. To enable the ASK feature go to <a href="{{href-to 'settings' (query-params tab='ask')}}">Settings</a>.
 				{{/if}}
 			</p>
 		</div>

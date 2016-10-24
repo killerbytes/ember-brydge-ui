@@ -4,6 +4,7 @@ import BrydgeScroller from 'web/mixins/brydge-scroller';
 export default Ember.Route.extend(
 	BrydgeScroller, {
 	ask: Ember.inject.service(),
+	session: Ember.inject.service(),
 	resetController(controller, isExiting, transition) {
       if (isExiting) {
 				this.store.unloadAll('language');
@@ -14,13 +15,12 @@ export default Ember.Route.extend(
   },
 	ajax: Ember.inject.service(),
   beforeModel: function(transition) {
-    var userid = this.get('session.data.authenticated.user_id');
-    // if(!userid) this.transitionTo('public-profile', transition.params[transition.targetName].username);
+		const loggedinUser = this.get('session.data.authenticated');
     return this.get('ajax').request('v2/profiles/'+transition.params[transition.targetName].username,{
       method: 'OPTIONS'
     }).then(res=>{
-      if (userid === res.userid) {
-        this.transitionTo('me.ask.index');
+      if (loggedinUser.user_id === res.userid) {
+        this.transitionTo('me.ask');
         return;
       }else{
         this.set('userid', res.userid)

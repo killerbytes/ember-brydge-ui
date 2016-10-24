@@ -14,7 +14,7 @@
 	<ul class="media-list no-bullet user">
 		{{#each search.results as |item|}}
 			<li {{action "clear"}}>
-				{{#link-to "profile" item.publicProfile}}
+				<a href="{{href-to 'profile' item.publicProfile}}">
 		      <div class="avatar" style={{htmlSafeImage item.avatar }}>
 		        <img src= {{item.avatar}} class="hide">
 		      </div>
@@ -22,7 +22,7 @@
             <div class="name">{{item.fullName}}</div>
 		        <div class="position">{{item.career}}</div>
 		      </div>
-				{{/link-to}}
+				</a>
 			</li>
 		{{else}}
 			<li>

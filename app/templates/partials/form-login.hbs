@@ -4,6 +4,6 @@
     {{input type="password" placeholder="Password" value=password}}
     <button class="button success" disabled={{isInvalid}} type="submit">LOG IN</button>
 
-    {{link-to "Forgot your password?" "forgot-password" class="float-right button"}}
+    <a href="{{href-to 'forgot-password'}}" class="float-right button">Forgot your password?</a>
   </div>
 </form>

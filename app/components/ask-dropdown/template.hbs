@@ -30,10 +30,10 @@
             Ask anyone a professional question. <br>
             If answered, it will appear on both profiles.
           </p>
-          <small>{{link-to "Tips on how to use ASK" "user-guide"}}</small>
+          <small><a href="{{href-to 'user-guide'}}">Tips on how to use ASK</a></small>
         {{else}}
           You have turned ASK off
-          {{link-to "Settings" "settings" (query-params tab="ask") }}
+          <a href="{{href-to 'settings' (query-params tab="ask") }}">Settings</a>
         {{/if}}
       {{else}}
 

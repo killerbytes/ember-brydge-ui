@@ -1,7 +1,7 @@
 <form class="brydge-form">
   <div class="row columns">
     <div class="mb20">
-      <label>Current: {{#link-to "profile" profile.publicProfile }}brydge.com/{{profile.publicProfile}}{{/link-to}}</label>
+      <label>Current: <a href="{{href-to 'profile' profile.publicProfile}}">brydge.com/{{profile.publicProfile}}</a></label>
     </div>
     <div class="{{unless validations.attrs.username.isValid 'validated-input has-error'}}">
       {{form-input model=profile valuePath="username" class="hide"}}

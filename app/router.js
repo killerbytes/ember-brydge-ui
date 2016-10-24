@@ -68,7 +68,6 @@ Router.map(function() {
     this.route('edit',{path:'/edit'});
     this.route('background',{path:'/background'});
     this.route('ask', {path: '/ask'}, function(){
-      this.route('other');
       this.route('inbox');
       this.route('detail',{path: '/:id'});
       this.route('outbox');

@@ -4,7 +4,7 @@
       <div class="title-bar-left">
         <ul class="dropdown menu" data-dropdown-menu>
           <li>
-						{{#link-to 'home'}}<img src="https://storage.googleapis.com/brydge-assets/logo.svg" class="logo">{{/link-to}}
+            <a href="{{href-to 'home'}}"><img src="https://storage.googleapis.com/brydge-assets/logo.svg" class="logo"></a>
           </li>
           <li>
 						{{top-bar-search}}
@@ -35,19 +35,19 @@
 					</li>
           <li>
             <span>
-            {{#link-to "home" class="home-icon"}}
-              <i class="fa fa-home" aria-hidden="true"></i>
-            {{/link-to}}
+              <a href="{{href-to 'home'}}" class="home-icon">
+                <i class="fa fa-home" aria-hidden="true"></i>
+              </a>
             </span>
 					</li>
 					<li>
 						<ul class="user-info user-small user-session no-bullet">
 							<li>
-								{{#link-to "profile" sessionAccount.account.profile.uid }}
+                <a href="{{href-to 'profile' sessionAccount.account.profile.uid }}">
 									<div class="avatar" style={{htmlSafeImage sessionAccount.account.profile.avatarUrl}}>
 										<img src= {{sessionAccount.account.profile.avatarUrl}} class="hide">
 									</div>
-								{{/link-to}}
+                </a>
                 {{isOnboarding}}
 							</li>
 						</ul>
@@ -75,14 +75,14 @@
 		<div class="dropdown-header">
 			<h4>See who's viewed your profile</h4>
       <div>
-        You can turn this ON or OFF in {{link-to "Settings" "settings" (query-params tab="views")}}.
+        You can turn this ON or OFF in <a href="{{href-to 'settings' (query-params tab='views')}}">Settings</a>.
       </div>
 		</div>
 		<ul class="media-list user user-small">
 			{{#if settings.profileView}}
 				{{#each views as |item|}}
   				<li {{action "read" item}}>
-            {{#link-to "profile" item.target.profile.uid class=(if item.read false 'new-notification')}}
+            <a href="{{href-to 'profile' item.target.profile.uid}}" class={{if item.read false 'new-notification'}}>
   						<div class="row collapse">
   							<div class="columns">
   					      <div class="avatar" style={{htmlSafeImage item.target.profile.avatarUrl }}>
@@ -95,10 +95,9 @@
                     </div>
   					        <div class="position">{{item.target.profile.career}}</div>
   					      </div>
-
   							</div>
   						</div>
-            {{/link-to}}
+            </a>
   				</li>
         {{else}}
           <li>
@@ -122,9 +121,7 @@
 			{{/if}}
 		</ul>
     {{#if settings.profileView}}
-  		{{#link-to 'profile-views' class="footer-button button expanded"}}
-  			See all Profile Views
-  		{{/link-to}}
+      <a href="{{href-to 'profile-views'}}" class="footer-button button expanded">See all Profile Views</a>
     {{/if}}
 	{{/zf-dropdown}}
 
@@ -168,31 +165,28 @@
 			  </li>
 		  {{/each}}
 	  </ul>
-			{{#link-to 'notifications' class="footer-button button expanded"}}
-				See all Notifications
-			{{/link-to}}
+    <a href="{{href-to 'notifications'}}" class="footer-button button expanded">See all Notifications</a>
 	{{/zf-dropdown}}
 
 	{{#zf-dropdown id="dd-menu" class="dropdown-menu" closeOnClick=true}}
 		<ul class="menu">
-			<li>{{link-to "Home" "home"}}</li>
+			<li><a href="{{href-to 'home'}}">Home</a></li>
 		</ul>
 		<ul class="menu">
-			<li>{{link-to "Profile" "profile" session.data.authenticated.user_id}}</li>
-			<li>{{link-to "Edit Profile" "me.edit"}}</li>
-
+      <li><a href="{{href-to 'profile' sessionAccount.account.profile.uid  }}">Profile</a></li>
+      <li><a href="{{href-to 'me.edit' }}">Edit Profile</a></li>
 		</ul>
 		<ul class="menu">
-			<li>{{link-to "Following" "me.following"}}</li>
-      <li>{{link-to "Followers" "me.followers"}}</li>
-			<li>{{link-to "Ask" "me.ask"}}</li>
+      <li><a href="{{href-to 'me.following' }}">Following</a></li>
+      <li><a href="{{href-to 'me.followers' }}">Followers</a></li>
+      <li><a href="{{href-to 'me.ask' }}">Ask</a></li>
 		</ul>
 		<ul class="menu hide">
-			<li>{{link-to "People Search" "search"}}</li>
+      <li><a href="{{href-to 'search' }}">People Search</a></li>
 		</ul>
 		<ul class="menu">
-			<li>{{link-to "Settings" "settings" }}</li>
-			<li><a href="" {{action 'logout'}}>Log out</a></li>
+      <li><a href="{{href-to 'settings' }}">Settings</a></li>
+			<li><a {{action 'logout'}}>Log out</a></li>
 		</ul>
 	{{/zf-dropdown}}
 

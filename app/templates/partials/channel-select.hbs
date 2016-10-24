@@ -6,25 +6,24 @@
 			<div class="columns medium-7 wrapper">
 				<section>
 					<div class="sub-title mb5">Tag Industry Channels</div>
-						<ul class="no-bullet">
-							{{#each industries as |item|}}
-							<li>
-								{{action-checkbox-bind value=item.id text=item.text action="checkboxChanged" name=item.id checked=item.checked }}
-							</li>
-							{{/each}}
-						</ul>
+					<ul class="no-bullet">
+						{{#each industries as |item|}}
+						<li>
+							{{action-checkbox-bind value=item.id text=item.text action="checkboxChanged" name=item.id checked=item.checked }}
+						</li>
+						{{/each}}
+					</ul>
 					<small>
-					{{#if isIndustry ~}}
-						{{#if isAddOrChange}}
-							{{link-to "Add or Change Industries" "me.edit" (query-params tab="industry")}}
-						{{else}}
-							{{link-to "Change Industries" "me.edit" (query-params tab="industry")}}
+						{{#if isIndustry ~}}
+							{{#if isAddOrChange}}
+								<a href="{{href-to 'me.edit' (query-params tab="industry")}}" class="text-gray">Add or Change Industries</a>
+							{{else}}
+								<a href="{{href-to 'me.edit' (query-params tab="industry")}}" class="text-gray">Change Industries</a>
+							{{/if}}
+						{{~ else ~}}
+							<a href="{{href-to 'me.edit' (query-params tab="industry")}}" class="text-gray">Add Industries</a>
 						{{/if}}
-					{{~ else ~}}
-						{{link-to "Add Industries" "me.edit" (query-params tab="industry") ~}}
-					{{/if}}
 					</small>
-
 				</section>
 			</div>
 		</div>

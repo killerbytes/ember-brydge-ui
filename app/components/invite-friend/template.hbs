@@ -6,7 +6,9 @@
           <h4>{{item.title}}</h4>
           {{item.detail}}
           {{#if (eq item.code 403)}}
-            {{#link-to "profile" item.source.userid}}{{item.source.first_name}} {{item.source.last_name}} {{/link-to}}
+            <a href="{{href-to 'profile' item.source.userid}}">
+              {{item.source.first_name}} {{item.source.last_name}}
+            </a>
           {{/if}}
         </li>
       {{/each}}

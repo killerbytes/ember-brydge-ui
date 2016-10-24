@@ -20,7 +20,7 @@
 		height: 38px;
 		background-position: center center;
 	}
-	.button.is-active{
+	.button.active{
 		position: relative;
 		color: $button-blue;
 		&:before{
@@ -87,7 +87,7 @@
 			bottom: 0;
 			right: -20px;
       .fa{
-        vertical-align: bottom;        
+        vertical-align: bottom;
       }
 		}
 

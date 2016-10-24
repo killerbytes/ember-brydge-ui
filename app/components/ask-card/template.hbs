@@ -8,7 +8,9 @@
           <img src= {{item.from.content.profile.avatarUrl}} class="hide">
         </div>
         <div class="user-info">
-          {{link-to item.from.content.profile.fullName "profile" item.from.content.profile.uid class="name"}} asked {{link-to item.to.content.profile.fullName "profile" item.to.content.profile.uid class="name"}}
+          <a href="{{href-to 'profile' item.from.content.profile.uid}}" class="name">{{item.from.content.profile.fullName}}</a>
+           asked
+          <a href="{{href-to 'profile' item.to.content.profile.uid}}" class="name">{{item.to.content.profile.fullName}}</a>
         </div>
       </div>
       <div class="column medium-4 text-right">
@@ -21,9 +23,9 @@
           {{/zf-dropdown}}
         {{/if}}
         <div class="timestamp">
-          {{#link-to "ask.detail" item.id class="timestamp"}}
+          <a href="{{href-to 'ask.detail' item.id}}" class="timestamp">
             {{timestamp item.answeredAt}}
-          {{/link-to}}
+          </a>
         </div>
       </div>
     </div>

@@ -17,9 +17,9 @@
       <span>
         {{profile.fullName}}
         {{#if isOwner}}
-          {{#link-to "me.edit" (query-params tab="personal") class="editable" }}
+          <a href="{{href-to 'me.edit' (query-params tab='personal')}}" class="editable">
             <i class="fa fa-pencil-square-o"></i>
-          {{/link-to}}
+          </a>
         {{/if}}
       </span>
     </div>
@@ -30,9 +30,9 @@
         <span>
           {{profile.currentTitle}}
           {{#if isOwner}}
-            {{#link-to "me.edit" (query-params tab="work") class="editable" }}
+            <a href="{{href-to 'me.edit' (query-params tab='work')}}" class="editable">
               <i class="fa fa-pencil-square-o"></i>
-            {{/link-to}}
+            </a>
           {{/if}}
         </span>
       </div>
@@ -40,9 +40,9 @@
         <span>
           {{profile.currentCompany}}
           {{#if isOwner}}
-            {{#link-to "me.edit" (query-params tab="work") class="editable" }}
+            <a href="{{href-to 'me.edit' (query-params tab='work')}}" class="editable">
               <i class="fa fa-pencil-square-o"></i>
-            {{/link-to}}
+            </a>
           {{/if}}
         </span>
       </div>
@@ -59,9 +59,9 @@
       <span class="location">
         <strong>{{profile.location}}</strong>
         {{#if isOwner}}
-          {{#link-to "me.edit" (query-params tab="personal") class="editable" }}
+          <a href="{{href-to 'me.edit' (query-params tab='personal')}}" class="editable">
             <i class="fa fa-pencil-square-o"></i>
-          {{/link-to}}
+          </a>
         {{/if}}
       </span>
     </div>
