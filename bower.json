@@ -1,7 +1,7 @@
 {
   "name": "web",
   "dependencies": {
-    "ember": "2.8.1",
+    "ember": "2.9.0",
     "ember-cli-shims": "0.1.1",
     "ember-qunit-notifications": "0.1.0",
     "font-awesome": "~4.5.0",
@@ -10,7 +10,7 @@
   },
   "resolutions": {
     "jquery": ">= 1.7.0 < 3.0.0",
-    "ember": "2.8.1"
+    "ember": "2.9.0"
   },
   "devDependencies": {
     "linkifyjs": "^2.1.3"
