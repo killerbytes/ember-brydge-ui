@@ -29,6 +29,9 @@ export default Ember.Controller.extend(
     if(this.get('profile.industryTwoId')) this.get('industries').pushObject(this.get('profile.industryTwoId'))
     if(this.get('profile.industryThreeId')) this.get('industries').pushObject(this.get('profile.industryThreeId'))
   }),
+  keywords: Ember.computed('profile.snapshot', function(){
+    return this.get('profile.snapshot') && this.get('profile.snapshot').split(',') || [];
+  }),
   queryParams: ['tab'],
   tab: 'personal',
 

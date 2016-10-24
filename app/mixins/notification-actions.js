@@ -67,6 +67,9 @@ export default Ember.Mixin.create({
 				case 'accept':
 					this.get('routing').transitionTo('profile', item.get('targetid'));
 					break;
+				case 'follow':
+					this.get('routing').transitionTo('profile', item.get('targetid'));
+					break;
 			};
 
 			this._read(item);

@@ -82,7 +82,7 @@
 			{{#if settings.profileView}}
 				{{#each views as |item|}}
   				<li {{action "read" item}}>
-            {{#link-to "profile" item.target.id class=(if item.read false 'new-notification')}}
+            {{#link-to "profile" item.target.profile.uid class=(if item.read false 'new-notification')}}
   						<div class="row collapse">
   							<div class="columns">
   					      <div class="avatar" style={{htmlSafeImage item.target.profile.avatarUrl }}>

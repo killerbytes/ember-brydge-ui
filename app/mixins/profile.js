@@ -12,10 +12,9 @@ export default Ember.Mixin.create({
   questions: Ember.computed.alias('model.questions'),
   compliments: Ember.computed.filterBy('model.compliments', 'status', 'accepted'),
   connections: Ember.computed.alias('model.connections'),
-	snapshot: Ember.computed('profile', function(){
-		return this.get('utils').lineBreaker(this.get('profile.snapshot'));
+	keywords: Ember.computed('profile.snapshot', function(){
+		return this.get('profile.snapshot') && this.get('profile.snapshot').split(',') || [];		
 	}),
-
 	sort: ['endAt:desc'],
   sortCurrentCompany: ['currentCompany:desc', 'endAt:desc'],
   educations: Ember.computed.sort('model.educations', 'sort'),

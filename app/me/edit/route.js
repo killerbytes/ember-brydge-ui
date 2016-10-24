@@ -22,9 +22,9 @@ export default Ember.Route.extend(
 		return Ember.RSVP.resolve({
       profile: this.modelFor('me').profile,
       // categories: this.get('ajaxApi').request('/v2/industries'),
-      // languages: this.store.findAll('language'),
-      // experiences: this.store.findAll('experience'),
-      // educations: this.store.findAll('education')
+      languages: this.store.findAll('language'),
+      experiences: this.store.findAll('experience'),
+      educations: this.store.findAll('education')
 	  });
 	},
   getCategory(value){
@@ -50,13 +50,6 @@ export default Ember.Route.extend(
   },
 
 	actions: {
-    save(item, cb){
-      var profile = this.get('controller.profile');
-      if(profile.get('snapshot')) profile.set('snapshot', profile.get('snapshot').trim())
-      profile.save().then(()=>{
-        cb.apply()
-      });
-    },
 
     didTransition: function(){
       Ember.run.later(()=>{
@@ -175,6 +168,22 @@ export default Ember.Route.extend(
           }
       }
       this.get('controller.profile').setProperties(data)
+    },
+    add(item){
+      if(!this.get('controller.keyword')) return false;
+      this.get('controller.keywords').pushObject(item.toLowerCase());
+      this.set('controller.keyword', null);
+
+    },
+    save(item, cb){
+      var profile = this.get('controller.profile');
+      if(this.get('controller.keywords')) profile.set('snapshot', this.get('controller.keywords').join(','))
+      profile.save().then(()=>{
+        cb.apply()
+      });
+    },
+    remove(item){
+      this.get('controller.keywords').removeObject(item);
     }
 
 

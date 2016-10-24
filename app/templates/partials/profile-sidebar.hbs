@@ -34,7 +34,16 @@
       {{/if}}
     </h4>
     {{#if profile.snapshot}}
-      {{brydge-linkify text=snapshot class="paragraph snapshot"}}
+      <ul class="list-inline">
+        {{#each keywords as |item|}}
+          <li>
+            <span class="label label-item">
+              {{item}}
+            </span>
+          </li>
+        {{/each}}
+      </ul>
+
     {{else}}
       <div class="empty-message">
         {{#if isOwner}}

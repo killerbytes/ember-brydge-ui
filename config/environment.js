@@ -24,7 +24,7 @@ module.exports = function(environment) {
       'img-src': ["'self'", "https://storage.googleapis.com", "www.google-analytics.com", "data:"],
       // 'img-src': ["'self'", "https://storage.googleapis.com", "www.google-analytics.com", "data:", "*.cloudfront.net"],
       'style-src': ["'self'", "'unsafe-inline'", "https://fonts.googleapis.com", "https://embed.doorbell.io"],
-      'script-src':  ["'self'", "api.brydge.com", "api.brydge.me", "https://fonts.googleapis.com", "google-analytics.com", "https://maps.googleapis.com", "https://embed.doorbell.io", "www.youtube.com", "s.ytimg.com"]
+      'script-src':  ["'self'", "'unsafe-inline'", "api.brydge.com", "api.brydge.me", "https://fonts.googleapis.com", "google-analytics.com", "https://maps.googleapis.com", "https://embed.doorbell.io", "www.youtube.com", "s.ytimg.com"]
     },
     'ember-simple-auth':{
       serverTokenRevocationEndpoint: 'revoke',

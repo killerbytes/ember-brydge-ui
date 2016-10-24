@@ -108,16 +108,21 @@
           </div>
           <div class="tabs-panel {{active-tab 'snapshot' tab}}" id="snapshot">
             <section class="header">
-              <form>
+              <form class="brydge-form" onsubmit="return false;">
                 <label for="">A quick snapshot about your professional life:</label>
-                <div class="wrapper">
-                  {{form-text-counter limit=500 value=profile.snapshot rows=10 class="mb" class="with-text-helper"}}
-                  <div class="text-helper font-light mb">TIP: Keep this really short. People take more notice that way.</div>
-                </div>
-                <div class="row">
-                  <div class="columns">{{form-input-button submit="save" placeholder="Saved"}}</div>
-                </div>
+                {{input value=keyword enter="add"}}
+                <ul class="list-inline mb20">
+                  {{#each keywords as |item|}}
+                    <li>
+                      <span class="label label-item">
+                        {{item}}
+                        <span aria-hidden="true" class="fa" {{action "remove" item }}>&times;</span>
+                      </span>
+                    </li>
+                  {{/each}}
+                </ul>
               </form>
+              <div class="row columns">{{form-input-button submit="save" placeholder="Saved"}}</div>
 
             </section>
           </div>
