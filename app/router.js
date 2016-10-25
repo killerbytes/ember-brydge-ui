@@ -22,22 +22,34 @@ const Router = Ember.Router.extend(googlePageview, {
       default:
         var isAuth = this.get('session.data.authenticated.access_token') ? true : false;
         getOwner(this).lookup('controller:application').set('isAuth', isAuth);
-        switch(this.get('currentPath')){
-          case 'profile':
-          case 'ask':
-          case 'ask.detail':
-          case 'post':
-          case 'background':
-            if(isAuth){
-              getOwner(this).lookup('controller:application').set('header', 'header');
-            }else{
-              getOwner(this).lookup('controller:application').set('header', 'public');
-            }
-            break;
-          default:
-            getOwner(this).lookup('controller:application').set('header', 'header' );
-          break;
+        if(isAuth){
+          getOwner(this).lookup('controller:application').set('header', 'header');
+        }else{
+          getOwner(this).lookup('controller:application').set('header', 'public');
         }
+
+        // switch(this.get('currentPath')){
+        //   case 'profile':
+        //   case 'ask':
+        //   case 'ask.detail':
+        //   case 'post':
+        //   case 'background':
+        //     if(isAuth){
+        //       getOwner(this).lookup('controller:application').set('header', 'header');
+        //     }else{
+        //       getOwner(this).lookup('controller:application').set('header', 'public');
+        //     }
+        //     break;
+        //   default:
+        //     // getOwner(this).lookup('controller:application').set('header', 'header' );
+        //     if(isAuth){
+        //       getOwner(this).lookup('controller:application').set('header', 'header');
+        //     }else{
+        //       getOwner(this).lookup('controller:application').set('header', 'public');
+        //     }
+        //
+        //   break;
+        // }
 
         break;
     }

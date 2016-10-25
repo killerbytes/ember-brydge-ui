@@ -19,6 +19,9 @@
 	.menu.button-ellipsis{
 		height: 38px;
 		background-position: center center;
+    &:after{
+		  bottom: -2px;
+		}    
 	}
 	.button.active{
 		position: relative;

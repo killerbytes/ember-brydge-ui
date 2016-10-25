@@ -13,13 +13,13 @@
   &:before{
     @extend .arrow;
     bottom: -2px;
-    left: 27%;
+    left: 30%;
     border-color: transparent transparent $border-color transparent;
     border-width: 9px;
   }
   &:after{
     @extend .arrow;
-    bottom: -2px;
+    bottom: -1px;
     left: 32%;
     border-color: transparent transparent #FFF transparent;
     border-width: 7px;
@@ -163,7 +163,7 @@ a.dropdown-button-icons.dropdown-button-arrow{
   }
 }
 #dd-search{
-  top: 37px !important;
+  top: 34px !important;
   margin-right: 0;
   padding: 0;
   width: 100% !important;

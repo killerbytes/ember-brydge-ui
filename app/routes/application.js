@@ -19,30 +19,11 @@ export default TransitionToListenerRoute.extend(
       })
     }
     window.NO_EMBER_DEBUG = ENV['no-debug'];
-
   }.on('activate'),
-  beforeModel(){
-    // var userid = this.get('session.data.authenticated.user_id');
-    // if(userid)
-    // this.store.findRecord('profile', userid).then(res=>{
-    //   if(res.get('configSetting.newProfile')) this.transitionTo('onboarding');
-    // })
-
-  },
-  // model(){
-  //
-  //   var userid = this.get('session.data.authenticated.user_id');
-  //   if(!userid) return;
-  //   return  this.store.findRecord('profile', userid);
-  // },
-  // afterModel(model, transition){
-  //   if(model && model.get('configSetting.newProfile')) this.transitionTo('onboarding');
-  // },
   setupController(controller, model){
     this._super(...arguments);
     this.get('notification').checkPush();
     controller.set('detector', this.get('detector'));
-    // console.log(this.get('session.data.authenticated.user_id'))
   },
   _transitionTo(){
     var route = this.get('router.currentPath');
@@ -59,13 +40,11 @@ export default TransitionToListenerRoute.extend(
         }
         this.transitionTo(route, arrParams.join());
         break;
-
     }
   },
 
   actions: {
     error(error, transition) {
-
       console.error(error, transition);
       if(!error.errors) return false;
       switch(error.errors[0].code){
@@ -101,28 +80,11 @@ export default TransitionToListenerRoute.extend(
           this._transitionTo();
         });
     },
-
-    loginx(){
-      // this._transitionTo();
-      // return false;
-
-      this.get('session').authenticate('authenticator:oauth2', "joel@brydge.com", "killer")
-        .then(user => {
-          // console.log(this.get('session.secure.token'), this.get('session'));
-          // const userid = this.get('session.data.authenticated.account_id');
-          // this.get('session').set('data.userid', userid);
-
-          this._transitionTo();
-        });
-
-    },
     willTransition(){
-
       $('.reveal-overlay').each(function(){ //reset foundation reveal overlay
         $(this).hide();
       });
       $('body').removeClass('is-reveal-open');
-
       window.scroll(0,0);
     }
   }

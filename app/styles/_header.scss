@@ -5,14 +5,14 @@ header{
 	z-index: 100;
 	.title-bar-left{
 		ul.menu{
-			margin-top: 2px;
+			// margin-top: 1px;
 		}
 	}
 	.title-bar{
 		background-color: $brydge-blue;
 		color: #FFF;
 		padding: 0;
-		min-height: 42px;
+		// min-height: 42px;
 		.thumbnail{
 			width: 40px;
 			height: 40px;
@@ -20,7 +20,7 @@ header{
 		}
 		.menu > li > a{
 			padding-top: 6px;
-			padding-bottom: 6px;
+			padding-bottom: 5px;
 		}
 	}
 	.logo{
@@ -39,18 +39,13 @@ header{
 		z-index: 1;
 	}
 	.menu-actions{
-		span{
+		li,span{
 			vertical-align: bottom;
 		}
 		span a{
 			padding: 0.5rem 1rem;
 			display: block;
 		}
-		.home-icon{
-			margin-left: 20px;
-			padding: 0 1rem;
-		}
-
 		[data-toggle].hover{
 			// background-color: darken($button-blue, 10%);
 		}
@@ -63,15 +58,25 @@ header{
 		[data-toggle].hover + .wrapper{
 			display: block;
 		}
+		.user-info{
+			vertical-align: middle;
+			a{
+				padding: 0;
+			}
+		}
+	}
+	.menu-action-links{
+		margin-top: .5rem;
 	}
 	a .fa-home{
 		font-size: 17px;
+		line-height: 2rem;
 		color: #414242;
 		border-radius: 100px;
-		margin-top: 3px;
+		margin: 0;
 	}
 	.menu ul.menu{
-		margin-top: 5px;
+		// margin-top: 5px;
 	}
 }
 

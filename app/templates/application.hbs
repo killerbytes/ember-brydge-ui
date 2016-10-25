@@ -14,7 +14,6 @@
   {{outlet}}
 </section>
 
-
 {{#zf-reveal id="mobileBrowser" overlay=true class="small box brydge-dialog" closeOnEsc=false closeOnClick=false}}
   <section class="title">
     <h4><a href="/" class="logo"><img src="assets/logo.svg"></a></h4>
@@ -33,8 +32,8 @@
     <a href="https://www.facebook.com/brydgedotcom" target="_blank">Follow us on Facebook</a> to stay updated.
 
   </section>
-
 {{/zf-reveal}}
-
-{{login-dialog onAuthenticate="login"}}
+{{#unless session.isAuthenticated}}
+  {{login-dialog onAuthenticate="login"}}
+{{/unless}}
 {{modal-player name="video-teaser" videoid="Y1yOKql2xc0"}}

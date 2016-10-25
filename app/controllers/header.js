@@ -9,10 +9,6 @@ export default Ember.Controller.extend(NotificationActionsMixin, {
   settings: Ember.computed('sessionAccount.account.profile.setting', function(){
     return this.get('sessionAccount.account.profile.setting');
   }),
-  // isOnboarding: Ember.computed('sessionAccount.account.profile.configSetting.showGuide', function(){
-    // if(!this.get('sessionAccount.account.profile.configSetting.newProfile')) this.get('routing').transitionTo('onboarding');
-    // return;
-  // }),
   actions: {
     closeTooltip(e){
       $('body').find('.tooltip').hide();

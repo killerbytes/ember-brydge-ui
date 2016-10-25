@@ -40,17 +40,14 @@
               </a>
             </span>
 					</li>
-					<li>
-						<ul class="user-info user-small user-session no-bullet">
-							<li>
-                <a href="{{href-to 'profile' sessionAccount.account.profile.uid }}">
-									<div class="avatar" style={{htmlSafeImage sessionAccount.account.profile.avatarUrl}}>
-										<img src= {{sessionAccount.account.profile.avatarUrl}} class="hide">
-									</div>
-                </a>
-                {{isOnboarding}}
-							</li>
-						</ul>
+					<li class="user-info user-small user-session no-bullet">
+            <span>
+              <a href="{{href-to 'profile' sessionAccount.account.profile.uid }}">
+								<div class="avatar" style={{htmlSafeImage sessionAccount.account.profile.avatarUrl}}>
+									<img src= {{sessionAccount.account.profile.avatarUrl}} class="hide">
+								</div>
+              </a>
+            </span>
 					</li>
 					<li>
 						<ul class="menu">
@@ -65,6 +62,7 @@
 
 					</li>
 				</ul>
+        
       </div>
 
 
