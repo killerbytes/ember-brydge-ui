@@ -9,9 +9,20 @@ export default Ember.Controller.extend(NotificationActionsMixin, {
   settings: Ember.computed('sessionAccount.account.profile.setting', function(){
     return this.get('sessionAccount.account.profile.setting');
   }),
+  init(){
+    Ember.run.later(()=>{
+      Ember.$('#dd-notification').on('show.zf.dropdown', res =>{
+        this._openNotification();
+  		})
+
+    })
+  },
+  _openNotification(){
+    console.log('open')
+  },
   actions: {
     closeTooltip(e){
       $('body').find('.tooltip').hide();
-    }
+    },
   }
 });

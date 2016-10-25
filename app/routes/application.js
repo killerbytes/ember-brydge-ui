@@ -28,7 +28,6 @@ export default TransitionToListenerRoute.extend(
   _transitionTo(){
     var route = this.get('router.currentPath');
     var params = this.get('router.router.state.params')[route];
-
     switch(route){
       case 'post':
         this.transitionTo(route, params.username, params.id);
@@ -38,7 +37,11 @@ export default TransitionToListenerRoute.extend(
         for(var key in params){
           arrParams.push(params[key])
         }
-        this.transitionTo(route, arrParams.join());
+        if(arrParams.length){
+          this.transitionTo(route, arrParams.join());
+        }else{
+          this.transitionTo(route);
+        }
         break;
     }
   },

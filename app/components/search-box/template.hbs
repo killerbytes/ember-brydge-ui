@@ -1,0 +1,10 @@
+{{input value=name placeholder="Name"}}
+{{input value=keyword placeholder="Job title or keyword"}}
+{{form-input-location
+    model=this
+    valuePath="location"
+    placeid=this.placeid
+    selected=this.location
+    placeholder="City"}}
+
+<button class="button success float-right" {{action "submit"}}>Search</button>

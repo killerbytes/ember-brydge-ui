@@ -51,19 +51,27 @@ export default Ember.Service.extend({
     })
   },
   loadNotifications(group, cb) {
-    this.set(group, []);
+    // this.set(group, []);
 
-    var q = {group:group, limit: 5};
-    this.get('store').query('notification', q).then(res=>{
-      if(group === 'notification') this.set('notification', res);
-      if(group === 'message') this.set('message', res);
-      if(group === 'request') this.set('request', res);
-      if(group === 'view') this.set('view', res);
-      if(group != 'request') this.set('count.'+group, 0);
-      if(group != 'request') this.releaseCount(group);
+    // var q = {group:group, limit: 5};
+    // this.get('store').query('notification', q).then(res=>{
+    //   if(group === 'notification') this.set('notification', res);
+    //   if(group === 'message') this.set('message', res);
+    //   if(group === 'request') this.set('request', res);
+    //   if(group === 'view') this.set('view', res);
+    //   if(group != 'request') this.set('count.'+group, 0);
+    //   if(group != 'request') this.releaseCount(group);
+    var promises = [];
+    promises.push(this.get('store').query('notification', {group: 'view', limit: 5}));
+    promises.push(this.get('store').query('notification', {group: 'notification', limit: 5}));
 
-      if(cb) cb.call();
-    });
+    Ember.RSVP.all(promises).then(([view, notification])=>{
+      this.set('view', view);
+      this.set('notification', notification);
+    })
+
+
+      // if(cb) cb.call();
   },
 
   readNotification(id) {

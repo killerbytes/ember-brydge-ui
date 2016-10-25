@@ -12,49 +12,34 @@ const Router = Ember.Router.extend(googlePageview, {
   session: Ember.inject.service(),
   location: config.locationType,
   _setHeader(){
-    switch(this.get('currentPath')){
-      case 'onboarding':
-        getOwner(this).lookup('controller:application').set('header', 'static');
-        break;
-      case 'unsubscribed':
-        getOwner(this).lookup('controller:application').set('header', null);
-        break;
-      default:
-        var isAuth = this.get('session.data.authenticated.access_token') ? true : false;
-        getOwner(this).lookup('controller:application').set('isAuth', isAuth);
-        if(isAuth){
-          getOwner(this).lookup('controller:application').set('header', 'header');
-        }else{
+    var isAuth = this.get('session.data.authenticated.access_token') ? true : false;
+    if(isAuth){
+      getOwner(this).lookup('controller:application').set('isAuth', isAuth);
+      switch (this.get('currentPath')) {
+        case 'onboarding':
+          getOwner(this).lookup('controller:application').set('header', 'static');
+          break;
+        case 'unsubscribed':
+          getOwner(this).lookup('controller:application').set('header', null);
+          break;
+        default:
+        getOwner(this).lookup('controller:application').set('header', 'header');
+      }
+    }else{
+      switch (this.get('currentPath')) {
+        case 'index':
+        case 'login':
+        case 'register':
+        case 'forgot-password':
+        case 'thank-you':
+        case 'unsubscribed':
+          getOwner(this).lookup('controller:application').set('header', null);
+          break;
+        default:
           getOwner(this).lookup('controller:application').set('header', 'public');
-        }
-
-        // switch(this.get('currentPath')){
-        //   case 'profile':
-        //   case 'ask':
-        //   case 'ask.detail':
-        //   case 'post':
-        //   case 'background':
-        //     if(isAuth){
-        //       getOwner(this).lookup('controller:application').set('header', 'header');
-        //     }else{
-        //       getOwner(this).lookup('controller:application').set('header', 'public');
-        //     }
-        //     break;
-        //   default:
-        //     // getOwner(this).lookup('controller:application').set('header', 'header' );
-        //     if(isAuth){
-        //       getOwner(this).lookup('controller:application').set('header', 'header');
-        //     }else{
-        //       getOwner(this).lookup('controller:application').set('header', 'public');
-        //     }
-        //
-        //   break;
-        // }
-
-        break;
+      }
     }
   },
-
   willTransition(transition) {
     //close all menus
     if($('.dropdown-pane').length) $('.dropdown-pane').foundation('close');
@@ -117,22 +102,24 @@ Router.map(function() {
   this.route('ask', {path: ':username/ask'});
   this.route('ask.detail', {path: '/ask/:id'});
   this.route('background', {path: ':username/background'});
-  this.route("login");
-  this.route("register");
-  this.route("forgot-password");
   this.route('home');
   this.route('search');
   this.route('user-guide');
   this.route('about');
   this.route('terms-of-use');
   this.route('privacy-policy');
-  this.route("thank-you");
   this.route('testing');
-  this.route("thank-you");
-  this.route("unsubscribed");
   this.route('phoenix-test')
   this.route('four-o-four', { path: '/*wildcard' });
   this.route('page-not-found', { path: '/*wildcard' });
+
+  // No header
+  this.route("login");
+  this.route("register");
+  this.route("forgot-password");
+  this.route("thank-you");
+  this.route("unsubscribed");
+
 });
 
 export default Router;

@@ -6,5 +6,5 @@ export default Ember.Controller.extend({
   isHeader: Ember.computed.equal('header', 'header'),
   isPublic: Ember.computed.equal('header', 'public'),
   isStatic: Ember.computed.equal('header', 'static'),
-  isNoHeader: Ember.computed.equal('header', null),
+  isNoHeader: Ember.computed.equal('header', null)
 });
