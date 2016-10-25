@@ -14,11 +14,18 @@ export default Ember.Controller.extend(NotificationActionsMixin, {
       Ember.$('#dd-notification').on('show.zf.dropdown', res =>{
         this._openNotification();
   		})
+      Ember.$('#notification-tab').on('change.zf.tabs', function(e){
+        console.log($(this).find('.is-active a').data('id'));
+
+  		})
+
 
     })
   },
   _openNotification(){
-    console.log('open')
+    this.get('notification').loadNotifications(()=>{
+      // this.get('notifications').releaseCount('view')
+    });
   },
   actions: {
     closeTooltip(e){

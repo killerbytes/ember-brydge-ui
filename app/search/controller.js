@@ -48,8 +48,8 @@ export default Ember.Controller.extend({
   _buildQuery: function(){
     var query = {
       q: this.get('name') + "*",
-      keyword: this.get('keyword'),
-      location: this.get('location'),
+      keywords: this.get('keyword'),
+      city: this.get('location'),
       type: 'profile'
     };
     if(!query.q && !query.keyword && !query.location) return false;

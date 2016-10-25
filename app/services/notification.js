@@ -6,15 +6,10 @@ export default Ember.Service.extend({
   ajax: Ember.inject.service(),
   routing: Ember.inject.service(),
   phoenix: Ember.inject.service(),
-  // requestsxx: Ember.computed('request.@each.status', function(i) {
-  //   var userid = this.get('session.data.authenticated.user_id');
-  //   return this.get('request').filter(function(i){
-  //     console.log(i.get('userid') , userid)
-  //   	return i.get('userid') != userid;
-  //   })
-  // }),
+  totalCount: Ember.computed('count.view','count.notification', function(){
+    return this.get('count.view') + this.get('count.notification') + this.get('count.message');
+  }),
   checkPush() {
-
     const authToken = this.get('session.data.authenticated.access_token');
     if(!authToken) return false;
 
@@ -50,7 +45,7 @@ export default Ember.Service.extend({
       if(cb) cb.call();
     })
   },
-  loadNotifications(group, cb) {
+  loadNotifications(cb) {
     // this.set(group, []);
 
     // var q = {group:group, limit: 5};
@@ -70,8 +65,7 @@ export default Ember.Service.extend({
       this.set('notification', notification);
     })
 
-
-      // if(cb) cb.call();
+    if(cb) cb.call();
   },
 
   readNotification(id) {
