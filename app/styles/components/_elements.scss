@@ -588,22 +588,3 @@ span.middle{
 	font-size: 15px;
 	font-weight: bold;
 }
-
-.badge{
-	min-width: 2.2em;
-	font-size: 9px;
-	font-weight: bold;
-	text-align: center;
-	line-height: 1.3em;
-	position: absolute;
-	top: 1rem;
-	right: 1rem;
-	z-index: 1;
-	border: 1px solid #FFF;
-}
-.badge-large{
-	font-size: 1rem;
-	line-height: 1.2rem;
-	top: .5rem;
-	min-width: 2.1rem;
-}

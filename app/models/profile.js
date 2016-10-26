@@ -31,7 +31,7 @@ export default DS.Model.extend(Validations, {
 	notificationSetting: DS.belongsTo('notificationSetting', {async: false}),
 	configSetting: DS.belongsTo('configSetting'),
 	emailSetting: DS.belongsTo('emailSetting', {async: false}),
-	connection: DS.belongsTo('connection', {async: true}),
+	conversation: DS.belongsTo('conversation'),
 	follower: DS.belongsTo('follower'),
 	following: DS.belongsTo('following'),
 	uid: Ember.computed.alias('publicProfile'),

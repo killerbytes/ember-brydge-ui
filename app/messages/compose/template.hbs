@@ -7,11 +7,11 @@
 
 	<section class="container contact-list">
 		<ul class="user-link-list no-bullet bg-white">
-		{{#each connections as |item|}}
+		{{#each list as |item|}}
 			<li>
-				{{#link-to "messages.conversation" item.conversationid }}
+				<a href="{{href-to 'messages.conversation' item.user.profile.conversation.id}}">
 					{{contact-item item=item meta=meta}}
-				{{/link-to}}
+				</a>
 			</li>
 		{{/each}}
 		</ul>

@@ -15,7 +15,7 @@
       {{#each list as |item| }}
         {{#if item.content}}
         <li class="{{unless item.read 'new-notification'}}">
-          {{#link-to "messages.conversation" item.id class="no-color"}}
+          <a href="{{href-to 'messages.conversation' item.id}}" class="no-color">
             <div class="row user">
               <div class="columns">
                 <div class="avatar" style={{htmlSafeImage item.other.profile.avatarUrl }}>
@@ -37,7 +37,7 @@
               </div>
             </div>
             <div class="message-body truncate">{{{item.content}}}</div>
-          {{/link-to}}
+          </a>
         </li>
         {{/if}}
       {{/each}}

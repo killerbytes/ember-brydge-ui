@@ -59,10 +59,12 @@ export default Ember.Service.extend({
     var promises = [];
     promises.push(this.get('store').query('notification', {group: 'view', limit: 5}));
     promises.push(this.get('store').query('notification', {group: 'notification', limit: 5}));
+    promises.push(this.get('store').query('notification', {group: 'message', limit: 5}));
 
-    Ember.RSVP.all(promises).then(([view, notification])=>{
+    Ember.RSVP.all(promises).then(([view, notification, message])=>{
       this.set('view', view);
       this.set('notification', notification);
+      this.set('message', message);
     })
 
     if(cb) cb.call();

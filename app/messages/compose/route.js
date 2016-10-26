@@ -4,10 +4,8 @@ import AuthenticatedRouteMixin from 'ember-simple-auth/mixins/authenticated-rout
 
 export default Ember.Route.extend(AuthenticatedRouteMixin, {
 	session: Ember.inject.service(),
-	model: function() {
-    // this.store.unloadAll('connection');
-		// return this.store.findAll('connection');
-		return this.store.query('connection', {userid: this.get('session.data.authenticated.user_id')});
+	model() {
+		return this.store.query('contact', {userid: this.get('session.data.authenticated.user_id')});
 	},
 	actions: {
     submit: function(id) {

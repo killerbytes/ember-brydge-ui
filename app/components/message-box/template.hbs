@@ -16,9 +16,9 @@
               <div class="user-info">
                 <div class="row collapse">
                   <div class="columns medium-8">
-                    {{#link-to "profile" item.from.id class="name"}}
+                    <a href="{{href-to 'profile' item.from.profile.uid}}" class="name">
                       {{ item.from.profile.fullName }}
-                    {{/link-to}}
+                    </a>
                     <div class="position">
                       {{item.from.profile.career}}
                     </div>

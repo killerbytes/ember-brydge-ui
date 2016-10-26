@@ -1,4 +1,4 @@
-header, .header{
+header{
 	box-shadow: 0 0 2px 0 #404040;
 	width: 100%;
 	position: fixed;
@@ -23,6 +23,25 @@ header, .header{
 			padding-bottom: 5px;
 		}
 	}
+	.badge{
+		min-width: 2.2em;
+		font-size: 9px;
+		font-weight: bold;
+		text-align: center;
+		line-height: 1.3em;
+		position: absolute;
+		top: 1rem;
+		right: 1rem;
+		z-index: 1;
+		border: 1px solid #FFF;
+	}
+	.badge-large{
+		font-size: 1rem;
+		line-height: 1.2rem;
+		top: .5rem;
+		min-width: 2.1rem;
+	}
+	
 	.logo{
 		width: 115px;
 		margin-right: 2rem !important;

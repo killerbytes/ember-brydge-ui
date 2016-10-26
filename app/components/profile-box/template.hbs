@@ -65,24 +65,18 @@
         {{/if}}
       </span>
     </div>
-    <div class="text-title">
+    
     {{#unless isOwner }}
-    {{!--
-      {{#if isAccepted}}
-        {{#zf-tooltip title="Send Message" positionClass="right"}}
-          {{#link-to "messages.conversation" profile.connection.conversationid class="inline-block"}}
-            <i class="icons messages"></i>
-          {{/link-to}}
-        {{/zf-tooltip}}
-      {{else if isPending}}
-        {{#if shouldAccept}}
-          <button class="button large bordered green"{{action "accept"}}>Accept Request</button>
-        {{else}}
-          Connection Request Sent
-        {{/if}}
-      {{else}}
+      {{#if profile.conversation.id}}
+        <div>
+          {{#zf-tooltip title="Send Message" positionClass="right"}}
+            <a href="{{href-to 'messages.conversation' profile.conversation.id }}" class="inline-block">
+                <i class="icons messages"></i>
+            </a>
+          {{/zf-tooltip}}
+        </div>
       {{/if}}
-     --}}
+
       {{#if isFollowing}}
         <button class="button large bordered green follow-button"{{action "unfollow"}}>
           <span class="following-text">Following</span>
@@ -92,7 +86,6 @@
         <button class="button large bordered green"{{action "follow"}}>Follow</button>
       {{/if}}
     {{/unless}}
-  </div>
   </section>
 
 </div>

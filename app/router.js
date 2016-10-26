@@ -82,10 +82,10 @@ Router.map(function() {
 
   });
 
-  // this.route('messages', function() {
-  //   this.route('conversation', { path: ':id'});
-  //   this.route('compose');
-  // });
+  this.route('messages', function() {
+    this.route('conversation', { path: ':id'});
+    this.route('compose');
+  });
 
   // User Pages
   // this.route('connections', {path: ':username/connections'});
