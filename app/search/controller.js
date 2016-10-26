@@ -54,7 +54,7 @@ export default Ember.Controller.extend({
       type: 'profile'
     };
     // if(!this.get('name')) delete query["q"];
-    if(!query.q && !query.keyword && !query.location) return false;
+    // if(!query.q && !query.keyword && !query.location) return false;
     this.set('isDirty', true);
     this._search(query);
 

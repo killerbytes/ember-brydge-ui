@@ -27,23 +27,6 @@ header, .header{
 		width: 115px;
 		margin-right: 2rem !important;
 	}
-	.badge{
-		min-width: 2em;
-		font-size: 9px;
-		font-weight: bold;
-		text-align: center;
-		line-height: 1.3em;
-		position: absolute;
-		top: 1rem;
-		right: 1rem;
-		z-index: 1;
-	}
-	.badge-large{
-		font-size: 1rem;
-		line-height: 1.2rem;
-		top: .5rem;
-		border: 1px solid #FFF;
-	}
 	.menu-actions{
 		li,span{
 			vertical-align: bottom;
