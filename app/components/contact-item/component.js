@@ -1,7 +1,7 @@
 import Ember from 'ember';
 
 export default Ember.Component.extend({
-	classNames: ['row user'],
+	classNames: ['user'],
 	session: Ember.inject.service(),
 	connection: Ember.inject.service(),
 	user: Ember.computed.alias('item.user'),
