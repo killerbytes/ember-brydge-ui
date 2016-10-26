@@ -8,25 +8,23 @@
 <form class="brydge-form">
   <div class="row">
     <div class="columns medium-3">
-      {{input value=name placeholder="Name"}}
+      {{input value=form.name placeholder="Name"}}
     </div>
     <div class="columns medium-3">
-      {{input value=keyword placeholder="Job title or keyword"}}
+      {{input value=form.keyword placeholder="Job title or keyword"}}
     </div>
     <div class="columns medium-3">
       {{form-input-location
-          model=this
-          valuePath="location"
-          placeid=this.placeid
-          selected=this.location
+          model=form
+          valuePath="city"
+          selected=form.city
           placeholder="City"}}
     </div>
     <div class="columns medium-3">
-      <button class="button success" {{action "refresh"}}>Go</button>
+      <button class="button success" {{action "refresh"}} disabled="{{isDisabled}}">Go</button>
     </div>
   </div>
 </form>
-
 
 <div class="row columns">
   <div class="user-list">

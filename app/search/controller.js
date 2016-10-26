@@ -3,9 +3,26 @@ import Ember from 'ember';
 import _ from 'lodash/lodash';
 
 export default Ember.Controller.extend({
-  queryParams: ['name', 'keyword', 'location'],
+  queryParams: ['name', 'keyword', 'city'],
   search: Ember.inject.service(),
   ajax: Ember.inject.service(),
+  form: {},
+  isEmptyName: Ember.computed.empty('form.name'),
+  isEmptyKeyword: Ember.computed.empty('form.keyword'),
+  isEmptyCity: Ember.computed.empty('form.city'),
+  isDisabled: Ember.computed('isEmptyName', 'isEmptyKeyword', 'isEmptyCity', function(){
+    return this.get('isEmptyName') && this.get('isEmptyKeyword') && this.get('isEmptyCity') ? true : null;
+  }),
+  // init(){
+  //   this._super(...arguments);
+  //   // this.set('form.name', this.get('name'))
+  //   Ember.run.later(()=>{
+  //     console.log(this)
+  //     this.set('form.name', this.get('name'))
+  //     this.set('form.keyword', this.get('keyword'))
+  //     this.set('form.city', this.get('city'))
+  //   })
+  // },
   // name: null,
   // getCategory(value){
   //   var categories = this.get('categories');
@@ -47,10 +64,11 @@ export default Ember.Controller.extend({
     })
   },
   _buildQuery: function(){
+    if(this.get('isDisabled')) return false;
     var query = {
       q: this.get('name'),
       keywords: this.get('keyword'),
-      city: this.get('location'),
+      city: this.get('city'),
       type: 'profile'
     };
     // if(!this.get('name')) delete query["q"];
@@ -58,7 +76,7 @@ export default Ember.Controller.extend({
     this.set('isDirty', true);
     this._search(query);
 
-  },//.observes('city', 'industry', 'key'),
+  },//.observes('city', 'name', 'keyword'),
 
   // _query: function(){
   //   var query = {
@@ -126,6 +144,9 @@ export default Ember.Controller.extend({
     //   this._resetForm();
     // },
     refresh: function(){
+      this.set('name', this.get('form.name'));
+      this.set('keyword', this.get('form.keyword'));
+      this.set('city', this.get('form.city'));
       this._buildQuery();
     }
 

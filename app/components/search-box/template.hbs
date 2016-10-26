@@ -2,9 +2,8 @@
 {{input value=keyword placeholder="Job title or keyword"}}
 {{form-input-location
     model=this
-    valuePath="location"
-    placeid=this.placeid
-    selected=this.location
+    valuePath="city"
+    selected=this.city
     placeholder="City"}}
 
 <button class="button success float-right" {{action "submit"}}>Search</button>
