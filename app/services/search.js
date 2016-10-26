@@ -20,7 +20,7 @@ export default Ember.Service.extend({
     // this.set('isLoading', true);
 		this.get('store').query('search', params).then(res=>{
 			this.set('results', res);
-      // this.set('isLoading', false);
+      this.set('isLoading', false);
 		})
   },
 

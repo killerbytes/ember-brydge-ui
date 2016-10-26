@@ -27,7 +27,7 @@ export default Ember.Controller.extend(NotificationActionsMixin, {
   },
   _openNotification(){
     this.get('notification').loadNotifications(()=>{
-      this.get('notification').releaseTab('view');
+      this._releaseTab('view');
     });
   },
   actions: {
