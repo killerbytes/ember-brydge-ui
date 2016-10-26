@@ -6,6 +6,7 @@ export default Ember.Controller.extend({
   queryParams: ['name', 'keyword', 'location'],
   search: Ember.inject.service(),
   ajax: Ember.inject.service(),
+  // name: null,
   // getCategory(value){
   //   var categories = this.get('categories');
   //   return _.chain(_.map(categories, 'categories'))
@@ -47,11 +48,12 @@ export default Ember.Controller.extend({
   },
   _buildQuery: function(){
     var query = {
-      q: this.get('name') + "*",
+      q: this.get('name'),
       keywords: this.get('keyword'),
       city: this.get('location'),
       type: 'profile'
     };
+    // if(!this.get('name')) delete query["q"];
     if(!query.q && !query.keyword && !query.location) return false;
     this.set('isDirty', true);
     this._search(query);

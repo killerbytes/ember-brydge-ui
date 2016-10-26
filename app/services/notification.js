@@ -31,7 +31,7 @@ export default Ember.Service.extend({
   },
   releaseCount(group){
     var url = '/v2/notifications';
-    this.get('ajax').request(url, {
+    return this.get('ajax').request(url, {
       method: 'DELETE',
       data: {
         group: group

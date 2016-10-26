@@ -29,7 +29,7 @@ export default Ember.Component.extend({
 
 			delay(()=>{
 				this.get('search').query({
-					q: q + "*",
+					q: q,
 					type: 'profile'
 				})
 			}, 500)

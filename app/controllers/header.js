@@ -10,21 +10,24 @@ export default Ember.Controller.extend(NotificationActionsMixin, {
     return this.get('sessionAccount.account.profile.setting');
   }),
   init(){
+    var _this = this;
     Ember.run.later(()=>{
       Ember.$('#dd-notification').on('show.zf.dropdown', res =>{
         this._openNotification();
   		})
       Ember.$('#notification-tab').on('change.zf.tabs', function(e){
-        console.log($(this).find('.is-active a').data('id'));
-
+        _this._releaseTab($(this).find('.is-active a').data('id'));
   		})
-
-
+    })
+  },
+  _releaseTab(group){
+    this.get('notification').releaseCount(group).then(res=>{
+      this.get('notification').check();
     })
   },
   _openNotification(){
     this.get('notification').loadNotifications(()=>{
-      // this.get('notifications').releaseCount('view')
+      this.get('notification').releaseTab('view');
     });
   },
   actions: {
