@@ -2,11 +2,16 @@
   <div class="columns large-8 medium-8 main-content">
     <div class="container">
       <div class="row">
-        <div class="large-6 medium-8 small-centered columns">
+        <div class="large-8 medium-8 small-centered columns">
           <div class="brydge-dialog dialog-wrapper">
             <div class="dialog-header">
-              <a href="/" class="logo"><img src="assets/brydge-blue.svg"></a>
+              <a href="/" class="logo mb"><img src="assets/brydge-blue.svg"></a>
+              <h1 class="strong mb text-center">
+                Your new professional network
+              </h1>
+
             </div>
+
             {{#if errors}}
               <div class="error-messages">
                 <ul class="no-bullet errors">
@@ -20,12 +25,14 @@
               </div>
             {{/if}}
             {{partial "partials/form-login"}}
+            {{!--
             <a data-open="video-teaser" class="wrapper button-overlay">
               <img src="https://storage.googleapis.com/brydge-assets/temp/video_image.jpg" alt="" class="overlay-preview">
               <div class="button-play-wrapper">
                 <img src="https://storage.googleapis.com/brydge-assets/temp/video-play-button.png" alt="" class="button-play">
               </div>
             </a>
+            --}}
             <div class="dialog-footer">
               <form class="brydge-form hide">
                 <div class="input-group">
@@ -36,7 +43,7 @@
                 </div>
               </form>
               <div class="text-center page-title">
-                <strong>Want to check it out? Request an invitation <a href="{{href-to 'register'}}">here</a></strong>
+                <strong><a href="{{href-to 'register'}}">Signup</a> to get started</strong>
               </div>
             </div>
           </div>

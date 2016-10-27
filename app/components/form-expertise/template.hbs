@@ -1,0 +1,13 @@
+<label for="">Type an expertise and hit Enter to add it (Max 10)</label>
+{{input value=keyword enter="add" maxlength="40" placeholder="Example: marketing, business development, etc."}}
+<ul class="list-inline mb20">
+  {{#each keywords as |item|}}
+    <li>
+      <span class="label label-item">
+        {{item}}
+        <span aria-hidden="true" class="fa" {{action "remove" item }}>&times;</span>
+      </span>
+    </li>
+  {{/each}}
+</ul>
+<div class="row columns">{{form-input-button submit="save" placeholder="Saved"}}</div>

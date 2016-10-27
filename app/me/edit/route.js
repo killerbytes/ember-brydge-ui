@@ -169,12 +169,6 @@ export default Ember.Route.extend(
       }
       this.get('controller.profile').setProperties(data)
     },
-    add(item){
-      if(!this.get('controller.keyword')) return false;
-      this.get('controller.keywords').pushObject(item.toLowerCase());
-      this.set('controller.keyword', null);
-
-    },
     save(item, cb){
       var profile = this.get('controller.profile');
       if(this.get('controller.keywords')) profile.set('snapshot', this.get('controller.keywords').join(','))
@@ -182,9 +176,6 @@ export default Ember.Route.extend(
         cb.apply()
       });
     },
-    remove(item){
-      this.get('controller.keywords').removeObject(item);
-    }
 
 
   }

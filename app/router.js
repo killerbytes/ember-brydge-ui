@@ -117,7 +117,7 @@ Router.map(function() {
   this.route("login");
   this.route("register");
   this.route("forgot-password");
-  this.route("thank-you");
+  // this.route("thank-you");
   this.route("unsubscribed");
 
 });

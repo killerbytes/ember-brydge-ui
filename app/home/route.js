@@ -16,7 +16,8 @@ export default Ember.Route.extend(
   BrydgeScroller,
   ScrollResetMixin,
   AuthenticatedRouteMixin,
-  FilterDropdownListMixin, {
+  // FilterDropdownListMixin, 
+  {
   session: Ember.inject.service(),
   ajax: Ember.inject.service(),
   ajaxApi: Ember.inject.service(),

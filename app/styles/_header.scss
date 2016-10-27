@@ -22,6 +22,11 @@ header{
 			padding-top: 6px;
 			padding-bottom: 5px;
 		}
+		.span-text{
+			padding-bottom: 5px;
+			display: block;
+			line-height: 1rem;
+		}
 	}
 	.badge{
 		min-width: 2.2em;
@@ -41,9 +46,14 @@ header{
 		top: .5rem;
 		min-width: 2.1rem;
 	}
-	
+
 	.logo{
 		width: 115px;
+	}
+	.logo+span{
+		vertical-align: bottom !important;
+		color: #FFF;
+		text-transform: uppercase;
 		margin-right: 2rem !important;
 	}
 	.menu-actions{
@@ -101,7 +111,7 @@ header.simple-header{
 .top-bar-search {
 	@extend .search-box;
 
-	width: 308px;
+	width: 440px;
 	.user{
 		border-bottom: 1px solid $border-color;
 		font-size: 10px;

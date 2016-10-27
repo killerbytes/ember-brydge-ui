@@ -21,7 +21,7 @@
 		background-position: center center;
     &:after{
 		  bottom: -2px;
-		}    
+		}
 	}
 	.button.active{
 		position: relative;
@@ -52,6 +52,13 @@
 	margin: 0 30px;
 	font-size: 14px;
 	text-align: center;
+  .avatar-wrapper .profile-photo{
+    width: 200px;
+    height: 200px;
+    .avatar{
+      border-radius: 1rem;
+    }
+  }
 	.name{
 		font-size: 20px;
 		margin-bottom: 2rem;

@@ -3,7 +3,7 @@
     {{image-upload fileLoaded="fileLoaded" logoUrl=profile.avatarUrl}}
   {{else}}
     <div class="avatar-wrapper">
-      <div class="profile-photo circle">
+      <div class="profile-photo">
         <div class="avatar" style={{htmlSafeImage profile.avatarUrl}}>
           <img src="{{profile.avatarUrl}}" class="hide">
         </div>
@@ -65,7 +65,7 @@
         {{/if}}
       </span>
     </div>
-    
+
     {{#unless isOwner }}
       {{#if profile.conversation.id}}
         <div>
