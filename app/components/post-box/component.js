@@ -4,11 +4,12 @@ import { validator, buildValidations } from 'ember-cp-validations';
 import _ from 'lodash/lodash';
 
 const Validations = buildValidations({
-  'email': [	validator('presence', true),
-    					validator('format', { type: 'email' }) ]
+  'postContent': [	validator('presence', true) ]
 });
 
-export default Ember.Component.extend(SharePostIndustryPicker, {
+export default Ember.Component.extend(
+  Validations,
+  SharePostIndustryPicker, {
   sessionAccount: Ember.inject.service(),
   utils: Ember.inject.service(),
 	classNames: ['post-box'],
@@ -23,7 +24,7 @@ export default Ember.Component.extend(SharePostIndustryPicker, {
     let title = this.get('site.title') || this.get('site.url');
     return title.length > 100 ? title.substr(0, 100) + ' ...' : title;
   }),
-
+  isDisabled: Ember.computed.empty('postContent'),
   crawl(uri){
     this.set('isLoading', true);
     this.get('utils').crawl(uri).then(res=>{
