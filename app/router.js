@@ -31,7 +31,7 @@ const Router = Ember.Router.extend(googlePageview, {
         case 'login':
         case 'register':
         case 'forgot-password':
-        case 'thank-you':
+        case 'verify-email':
         case 'unsubscribed':
           getOwner(this).lookup('controller:application').set('header', null);
           break;
@@ -116,6 +116,7 @@ Router.map(function() {
   // No header
   this.route("login");
   this.route("register");
+  this.route("verify-email");
   this.route("forgot-password");
   // this.route("thank-you");
   this.route("unsubscribed");

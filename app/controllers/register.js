@@ -35,12 +35,16 @@ export default Ember.Controller.extend(Validations, {
 		register(){
 			this.get('form').save()
 			.then(res=>{
-        this.get('session').authenticate('authenticator:oauth2', res.get('email'), res.get('password'))
-          .then((user) => {
-            const userid = this.get('session.data.authenticated.account_id');
-            this.get('session').set('data.userid', userid);
-            this.transitionToRoute('home');
-          })
+				if(res.get('active')){
+					this.get('session').authenticate('authenticator:oauth2', res.get('email'), res.get('password'))
+	        .then((user) => {
+	          const userid = this.get('session.data.authenticated.account_id');
+	          this.get('session').set('data.userid', userid);
+	          this.transitionToRoute('home');
+	        })
+				}else{
+					this.transitionToRoute('verify-email');
+				}
 			})
 			.catch(err=>{
 				this.set('errors', err.errors);

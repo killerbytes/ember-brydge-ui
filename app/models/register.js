@@ -2,6 +2,7 @@ import DS from 'ember-data';
 import Validations from './validations/register';
 
 export default DS.Model.extend(Validations, {
+  active: DS.attr(),
   email: DS.attr(),
   confirmEmail: DS.attr(),
   password: DS.attr(),
