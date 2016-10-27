@@ -34,21 +34,26 @@ export default Ember.Component.extend(
   },
 	actions: {
     post(item, cb) {
-      if(!this.get('postContent')){
-        cb.apply(this,[false]);
-        return false;
-      }
 
       var url = this.get('utils').findUrls(this.get('postContent')).get(0)
       var content = this.get('postContent');
       if(this.get('site.title')){
         content = this._removeLink(this.get('postContent'), url);
       }
+      content = content.trim();
+
+      if(!content){
+        cb.apply(this,[false]);
+        $(`#dialog-box-post-${this.get('profile.id')}`).foundation('open');
+        return false;
+      }
+
       var data = {
-        content: content.trim(),
+        content: content,
         categories: _.map(this.get('categories'), 'id'),
         site: this.get('site')
       }
+
       this.sendAction('submit', data, ()=>{
         this._resetForm();
         cb.apply();
