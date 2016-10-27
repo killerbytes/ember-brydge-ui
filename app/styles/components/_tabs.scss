@@ -73,7 +73,7 @@
 	}
 }
 
-.brydge-tab-blue, #tabs.tab-controls, #ask-tabs{
+.brydge-tab-blue, #tabs.tab-controls{
 	@extend .newsfeed-tabs;
 	.tabs-title.is-active{
 		background-color: $button-blue;

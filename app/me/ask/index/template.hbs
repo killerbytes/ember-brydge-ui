@@ -27,7 +27,7 @@
 			</p>
 		</div>
     <div class="mb">
-			{{#zf-tabs id="ask-tabs" class="tab-controls tabs"}}
+			{{#zf-tabs id="tabs" class="tab-controls tabs"}}
 	      <li class="tabs-title medium-6 small-6 is-active">
 					<a href="#panel1" aria-selected="true">Answered</a></li>
 	      <li class="tabs-title medium-6 small-6">
@@ -36,7 +36,7 @@
 	    {{/zf-tabs}}
 		</div>
 
-		<div class="tabs-content" data-tabs-content="ask-tabs">
+		<div class="tabs-content" data-tabs-content="tabs">
       <div class="tabs-panel is-active" id="panel1">
 				{{#each toQuestions as |item| }}
 					{{ask-card item=item}}
