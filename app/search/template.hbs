@@ -11,7 +11,7 @@
       {{input value=form.name placeholder="Name"}}
     </div>
     <div class="columns medium-3">
-      {{input value=form.keyword placeholder="Job title or keyword"}}
+      {{input value=form.keyword placeholder="Job Title or Expertise"}}
     </div>
     <div class="columns medium-3">
       {{form-input-location
@@ -28,8 +28,14 @@
 
 <div class="row columns">
   <div class="user-list">
-    {{#each results as |item|}}
+    {{#each search as |item|}}
       {{follow-item item=item}}
     {{/each}}
+    {{#brydge-scroller id="search" model=search onClick="load"}}
+      {{#if isLoading}}
+        <div class="brydge-loading"></div>
+      {{/if}}
+    {{/brydge-scroller}}
+
   </div>
 </div>

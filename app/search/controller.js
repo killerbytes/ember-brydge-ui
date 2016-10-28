@@ -7,6 +7,7 @@ export default Ember.Controller.extend({
   search: Ember.inject.service(),
   ajax: Ember.inject.service(),
   form: {},
+  search: Ember.computed.alias('model.search'),
   isEmptyName: Ember.computed.empty('form.name'),
   isEmptyKeyword: Ember.computed.empty('form.keyword'),
   isEmptyCity: Ember.computed.empty('form.city'),
@@ -58,11 +59,11 @@ export default Ember.Controller.extend({
   //   this.set('results', []);
   //   this.set('isDirty', false);
   // },
-  _search(params)  {
-    this.get('store').query('search', params).then((res)=>{
-      this.set('results', res);
-    })
-  },
+  // _search(params)  {
+  //   this.get('store').query('search', params).then((res)=>{
+  //     this.set('results', res);
+  //   })
+  // },
   _buildQuery: function(){
     if(this.get('isDisabled')) return false;
     var query = {
@@ -143,12 +144,12 @@ export default Ember.Controller.extend({
     // clear(){
     //   this._resetForm();
     // },
-    refresh: function(){
-      this.set('name', this.get('form.name'));
-      this.set('keyword', this.get('form.keyword'));
-      this.set('city', this.get('form.city'));
-      this._buildQuery();
-    }
+    // refresh: function(){
+    //   this.set('name', this.get('form.name'));
+    //   this.set('keyword', this.get('form.keyword'));
+    //   this.set('city', this.get('form.city'));
+    //   this._buildQuery();
+    // }
 
 
   }
