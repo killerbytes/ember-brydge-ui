@@ -209,6 +209,8 @@
 
 .follow-button{
 	border-radius: 100px;
+	background-color: $brydge-dark-gray;
+	color: #FFF;
 	.unfollow-text{
 		display: none;
 	}
@@ -217,6 +219,7 @@
 	}
 	&:hover{
 		background-color: $brydge-red !important;
+		color: #FFF;
 		.following-text{
 			display: none;
 		}

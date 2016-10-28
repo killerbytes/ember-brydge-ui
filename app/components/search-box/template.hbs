@@ -1,9 +1,16 @@
-{{input value=name placeholder="Name"}}
-{{input value=keyword placeholder="Job Title or Expertise"}}
-{{form-input-location
-    model=this
-    valuePath="city"
-    selected=this.city
-    placeholder="City"}}
-
-<button class="button success float-right" {{action "submit"}}>Search</button>
+<div class="columns medium-3">
+  {{input value=name placeholder="Name"}}
+</div>
+<div class="columns medium-3">
+  {{input value=keyword placeholder="Job Title or Expertise"}}
+</div>
+<div class="columns medium-3">
+  {{form-input-location
+      model=this
+      valuePath="city"
+      selected=this.city
+      placeholder="City"}}
+</div>
+<div class="columns medium-3">
+  <button class="button success expanded" {{action "submit"}}>Search</button>
+</div>

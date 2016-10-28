@@ -20,12 +20,13 @@
       </div>
     </form>
   </section>
+  {{log postService.post}}
       {{#if postService.post.title}}
         <section>
           <div class="newsfeed-item newsfeed-item-horizontal">
           {{#if isHTML}}
             {{newsfeed-media model=postService.post preview=true}}
-          {{else if isMedia}}
+          {{else}}
             {{newsfeed-media model=postService.post}}
           {{/if}}
           </div>

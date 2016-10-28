@@ -162,4 +162,27 @@
 	li:before, li:after{
 		content: none;
 	}
+	.tabs-title > a{
+		padding: 1rem;
+
+	}
+	.badge-large{
+		top: -3px;
+		right: -4px;
+				
+	}
+	.icons{
+		margin: auto;
+	}
+	.is-active{
+		.bino{
+			@extend .icons.bino.white;
+		}
+		.stack{
+			@extend .icons.stack.white;
+		}
+		.messages{
+			@extend .icons.messages.white;
+		}
+	}
 }

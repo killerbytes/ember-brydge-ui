@@ -17,13 +17,13 @@
   {{#if item.content}}
     {{#zf-accordion-menu class="section-accordion"}}
       <li>
-        <a class="more no-arrow more-top"><span class="content-more">Show More</span><span class="content-less">Show Less</span></a>
+        <a class="more no-arrow more-top"><span class="content-more">Show More</span><span class="content-less">Hide</span></a>
         <ul class="section-accordion-content no-bullet">
           <li class="description-content">
             {{brydge-linkify text=item.content class="paragraph"}}
           </li>
         </ul>
-        <a class="more no-arrow"><span class="content-more">Show More</span><span class="content-less">Show Less</span></a>
+        <a class="more no-arrow"><span class="content-more">Read more about {{profile.firstName}}’s role at this job</span><span class="content-less">Hide</span></a>
       </li>
     {{/zf-accordion-menu}}
   {{/if}}

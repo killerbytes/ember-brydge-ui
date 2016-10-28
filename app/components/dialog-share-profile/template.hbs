@@ -32,59 +32,12 @@
           </div>
           <div class="post-content">
             <div class="title">
-              <span>Connect with {{profile.fullName}} on Brydge</span>
+              <span>Follow {{profile.fullName}} on Brydge</span>
             </div>
             <span class="text-upper">Brydge</span>
           </div>
         </div>
       </div>
-    </div>
-  </section>
-  <section>
-    <div class="row column">
-      <h2 class="mb30 mt">Clicking on your Profile URL will direct users to your profile page. Users who do not have an account on Brydge will be re-directed to a page showing the below widget.</h2>
-      <div class="page-public-profile">
-          <div class="brydge-dialog dialog-wrapper box">
-            <div class="dialog-header">
-              <span class="logo"><img src="assets/brydge-blue.svg"></span>
-            </div>
-            <div class="avatar" style={{htmlSafeImage profile.avatarUrl}}>
-              <img src="{{profile.avatar}}" class="hide">
-            </div>
-            <div class="padding text-center">
-              <h1 class="mb"><strong>{{profile.fullName}}</strong></h1>
-              <div class="position">{{profile.currentTitle}}</div>
-              <div class="position"><strong>{{profile.currentCompany}}</strong></div>
-              <div class="location"><strong>{{profile.location}}</strong></div>
-            </div>
-            <div class="row collapse bg-gray stats">
-              <div class="columns medium-4">
-                <div class="padding text-center">
-                  <div>
-                    <big>{{user.connections_count}}</big>
-                  </div>
-                  Connections
-                </div>
-              </div>
-              <div class="columns medium-4">
-                <div class="padding text-center">
-                  <div>
-                    <big>{{user.post_count}}</big>
-                  </div>
-                  Posts
-                </div>
-              </div>
-              <div class="columns medium-4">
-                <div class="padding text-center">
-                  <div>
-                    <big>{{user.ask_count}}</big>
-                  </div>
-                  Questions
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
     </div>
   </section>
   <section class="text-right">

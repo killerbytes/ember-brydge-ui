@@ -1,4 +1,4 @@
-<header>
+<header class="header-blue">
   <div class="title-bar">
     <div class="row collapse">
       <div class="title-bar-left">
@@ -63,24 +63,33 @@
 	{{#zf-dropdown id="dd-notification" class="dropdown-notification" closeOnClick=true}}
     {{#zf-tabs id="notification-tab" class="tab-controls brydge-tab-blue tabs"}}
       <li class="tabs-title is-active">
-        <a href="#notification-tab-panel1" data-id="view" aria-selected="true" class="wrapper">Profile Views
-          {{#if notification.count.view}}
-						<span class="alert badge">{{notification.count.view}}</span>
-					{{/if}}
+        <a href="#notification-tab-panel1" data-id="view" aria-selected="true" class="wrapper">
+          {{#zf-tooltip title="Profile Views" vOffset=7}}
+            <i class="icons bino"></i>
+            {{#if notification.count.view}}
+  						<span class="alert badge badge-large">{{notification.count.view}}</span>
+  					{{/if}}
+          {{/zf-tooltip}}
         </a>
     </li>
       <li class="tabs-title wrapper">
-        <a href="#notification-tab-panel2" data-id="notification">Notifications
-          {{#if notification.count.notification }}
-            <span class="alert badge">{{notification.count.notification}}</span>
-          {{/if}}
+        <a href="#notification-tab-panel2" data-id="notification">
+          {{#zf-tooltip title="Notifications" vOffset=7}}
+            <i class="icons stack"></i>
+            {{#if notification.count.notification }}
+              <span class="alert badge badge-large">{{notification.count.notification}}</span>
+            {{/if}}
+          {{/zf-tooltip}}
         </a>
       </li>
       <li class="tabs-title wrapper">
-        <a href="#notification-tab-panel3" data-id="message">Messages
-          {{#if notification.count.message }}
-            <span class="alert badge">{{notification.count.message}}</span>
-          {{/if}}
+        <a href="#notification-tab-panel3" data-id="message">
+          {{#zf-tooltip title="Messages" vOffset=7}}
+            <i class="icons messages"></i>
+            {{#if notification.count.message }}
+              <span class="alert badge badge-large">{{notification.count.message}}</span>
+            {{/if}}
+          {{/zf-tooltip}}
         </a>
       </li>
     {{/zf-tabs}}
@@ -185,7 +194,7 @@
       <div class="dropdown-header">
   			<h4>Your Incoming Messages</h4>
   				<div>
-  					Speak with connections privately. Only connections can message you, so if you are receiving inappropriate messages or spam, inform the user or disconnect from them.
+  					Only people you follow can message you. Unfollow anyone that sends you spam or inappropriate messages.
   				</div>
   		</div>
 

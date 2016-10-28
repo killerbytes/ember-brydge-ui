@@ -219,12 +219,14 @@ table{
 	}
 	ul{
 		@extend .shadowed;
+		text-align: left;
 	}
 	li{
 		border: 1px solid $border-color;
 		color: $body-text-color;
 		border-bottom: none;
 		a{
+			color: $button-blue;
 			padding: 5px 1rem;
 			display: block;
 		}
@@ -317,7 +319,7 @@ table{
 }
 .work-history-group {
 	a.more{
-		color: $brydge-green;
+		color: $text-gray;
 	}
 }
 
@@ -468,7 +470,7 @@ footer{
 	text-align: center;
 	font-weight: bold;
 	a{ color: $text-gray; }
-	ul{
+	ul.menu-links{
 		display: block;
 		text-align: center;
 		li{

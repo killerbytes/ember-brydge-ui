@@ -23,6 +23,10 @@ export default Ember.Component.extend(AvatarMixin, {
 	isPending: Ember.computed.equal('status', 'pending'),
 	isFollower: Ember.computed.notEmpty('profile.follower.id'),
 	isFollowing: Ember.computed.notEmpty('profile.following.id'),
+	canMessage: Ember.computed.and('isFollower', 'isFollowing'),
+	conversationid: Ember.computed('profile.conversation.id', 'profile.following.conversation.id', function(){
+		return this.get('profile.conversation.id') || this.get('profile.following.conversation.id');
+	}),
 	shouldAccept: Ember.computed('profile.connection.friendid', function(){
 		return this.get('profile.connection.friendid.id') == this.get('session.data.authenticated.user_id');
 	}),
@@ -34,7 +38,7 @@ export default Ember.Component.extend(AvatarMixin, {
         $('#login-dialog').foundation('open');
         return false;
       }
-			
+
       var userid = this.get('profile.id');
       this.get('follow')
       .follow(userid)

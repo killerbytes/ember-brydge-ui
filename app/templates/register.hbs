@@ -1,15 +1,9 @@
-<div class="columns large-8 medium-8 main-content">
+{{partial "partials/header-white"}}
+<div class="main-content">
   <div class="container">
       <div class="row">
         <div class="large-6 medium-8 small-centered columns">
           <div class="brydge-dialog dialog-wrapper">
-            <div class="dialog-header">
-              <a href="/" class="logo mb"><img src="assets/brydge-blue.svg"></a>
-              <h1 class="strong mb text-center">
-                Your new professional network
-              </h1>
-
-            </div>
             {{#if errors}}
               <div class="error-messages">
                 <ul class="no-bullet errors">
@@ -24,13 +18,10 @@
             {{/if}}
             {{partial "partials/form-register"}}
           </div>
-
         </div>
       </div>
   </div>
 </div>
-<div class="columns large-4 medium-4 sidebar-content">
-  <div class="container">
-    {{partial 'partials/public-sidebar'}}
-  </div>
-</div>
+<footer>
+  {{search-box}}
+</footer>

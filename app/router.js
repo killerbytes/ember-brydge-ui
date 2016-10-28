@@ -114,7 +114,7 @@ Router.map(function() {
   this.route('page-not-found', { path: '/*wildcard' });
 
   // No header
-  // this.route("login");
+  this.route("login");
   this.route("register");
   this.route("verify-email");
   this.route("forgot-password");
