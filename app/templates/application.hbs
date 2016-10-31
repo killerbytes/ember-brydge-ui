@@ -15,6 +15,27 @@
 </section>
 
 {{#zf-reveal id="mobileBrowser" overlay=true class="small box brydge-dialog" closeOnEsc=false closeOnClick=false}}
+  <section class="title">
+    <h4><a href="/" class="logo"><img src="assets/logo.svg"></a></h4>
+  </section>
+  <section>
+    <p>Brydge is in Closed BETA. </p>
+
+    <p>During this time, we will not be releasing a mobile-optimized experience.</p>
+
+    <p>We know how frustrating that can be. But bear with us as we test our ideas before we get cracking on mobile.</p>
+
+    <p>Check back in from a laptop or desktop.</p>
+
+    <img src="https://storage.googleapis.com/brydge-assets/mobile/mobile1.jpg" alt="">
+    <br><br><br>
+    <a href="https://www.facebook.com/brydgedotcom" target="_blank">Follow us on Facebook</a> to stay updated.
+
+  </section>
+
+{{/zf-reveal}}
+{{!--
+{{#zf-reveal id="mobileBrowser" overlay=true class="small box brydge-dialog" closeOnEsc=false closeOnClick=false}}
   <button class="close-button" aria-label="Dismiss alert" type="button" data-close>
     <span aria-hidden="true">&times;</span>
   </button>
@@ -31,6 +52,8 @@
     </div>
   </section>
 {{/zf-reveal}}
+--}}
+
 {{#unless session.isAuthenticated}}
   {{login-dialog onAuthenticate="login"}}
 {{/unless}}
