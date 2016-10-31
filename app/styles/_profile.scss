@@ -19,8 +19,11 @@
 	.menu.button-ellipsis{
 		height: 38px;
 		background-position: center center;
+    &:after{
+		  bottom: -2px;
+		}
 	}
-	.button.is-active{
+	.button.active{
 		position: relative;
 		color: $button-blue;
 		&:before{
@@ -49,6 +52,13 @@
 	margin: 0 30px;
 	font-size: 14px;
 	text-align: center;
+  .avatar-wrapper .profile-photo{
+    width: 200px;
+    height: 200px;
+    .avatar, .overlay{
+      border-radius: 1rem;
+    }
+  }
 	.name{
 		font-size: 20px;
 		margin-bottom: 2rem;
@@ -68,7 +78,7 @@
 		padding-left: 2rem;
 		padding-right: 2rem;
 	}
-	.button.green{
+	.button.green, .button.follow-button{
 		border-radius: 100px;
 	}
 	.hoverable{
@@ -87,7 +97,7 @@
 			bottom: 0;
 			right: -20px;
       .fa{
-        vertical-align: bottom;        
+        vertical-align: bottom;
       }
 		}
 

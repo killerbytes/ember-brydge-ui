@@ -20,7 +20,7 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
 	actions: {
 		submit(){
       this.get('controller.profile').save().then(res=>{
-				getOwner(this).lookup('controller:application').set('isHeaderStatic', false);
+				// getOwner(this).lookup('controller:application').set('isHeaderStatic', false);
         this.transitionTo('home');
       })
     },

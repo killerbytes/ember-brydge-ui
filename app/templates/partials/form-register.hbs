@@ -1,4 +1,4 @@
-<form class="brydge-form micro-forms mb20" autocomplete="false" >
+<form class="brydge-form micro-forms" autocomplete="false" >
   <div class="row column">
     <div class="row">
       <div class="columns medium-6">
@@ -23,17 +23,19 @@
         <label for="gender_1" class="inline">{{action-radio id="gender_1" value="male" htmlChecked=form.gender name="gender" action="onChecked" required=true}} Male</label>
       </fieldset>
       <div class="columns">
-        {{form-input model=form valuePath="email" placeholder="Email" disabled=true}}
+        {{form-input model=form valuePath="email" placeholder="Email"}}
       </div>
       <div class="columns">
         {{form-input type="password" model=form valuePath="password" placeholder="Create Password"}}
       </div>
       <div class="columns">
+        <label for="">DOB
         {{input-date-picker selected=form.dob value=form.dob}}
         {{form-input model=form valuePath="dob" placeholder="DOB" class="hide"}}
+        </label>
       </div>
     </div>
-    <p>By signing up to the service you are agreeing to our {{link-to "Terms of Use" "terms-of-use"}} and our {{link-to "Privacy Policy" "privacy-policy"}}</p>
+    <p>By signing up to the service you are agreeing to our <a href="{{href-to 'terms-of-use'}}">Terms of Use</a> and our <a href="{{href-to 'privacy-policy'}}">Privacy Policy</a></p>
     <button class="button success rounded" disabled={{v-get form 'isInvalid'}} {{ action "register" }} type="submit">Create Account</button>
   </div>
 </form>

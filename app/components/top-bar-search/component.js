@@ -18,7 +18,8 @@ export default Ember.Component.extend({
 			}
 
 			if(q.length < 2) return false;
-
+			this.set('search.results', []);
+			this.set('search.isLoading', true);
 			var delay = (()=>{
 				return (callback, ms)=>{
 					clearTimeout(this.get('timer'));
@@ -28,7 +29,7 @@ export default Ember.Component.extend({
 
 			delay(()=>{
 				this.get('search').query({
-					q: q + "*",
+					q: q,
 					type: 'profile'
 				})
 			}, 500)

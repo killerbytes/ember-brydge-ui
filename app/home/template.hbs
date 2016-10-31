@@ -121,8 +121,8 @@
 
         <section>
           <span class="badge">2</span>
-          <p><strong>Set up {{link-to "your profile" "me.edit"}}</strong></p>
-          <p>Tell the world how amazing you are at what you do. See <b>{{link-to "Jon Vettori" "profile" "d36475e0645211e69ae542010af00003"}}</b>'s profile for example.</p>
+          <p><strong>Set up <a href="{{href-to 'me.edit'}}">your profile</a></strong></p>
+          <p>Tell the world how amazing you are at what you do. See <b><a href="{{href-to 'profile' 'd36475e0645211e69ae542010af00003'}}">Jon Vettori</a></b>'s profile for example.</p>
 
         </section>
 
@@ -133,7 +133,7 @@
     {{/if}}
 
 
-    {{ partial "partials/invite-friends" }}
+    {{ invite-to-brydge }}
 		{{ partial 'partials/user-guide-box' }}
     {{ partial "footer"}}
 
@@ -142,4 +142,6 @@
 
 {{post-sharer submit="share"}}
 {{post-as-new submit="post"}}
+{{post-edit-dialog submit="edit"}}
+
 {{industry-picker name="home" title="Add up to 10 Industries you want to Follow" industries=industries max=10 selected=favoriteIndustries submit="onFavoriteIndustrySelect"}}

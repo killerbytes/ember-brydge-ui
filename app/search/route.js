@@ -1,32 +1,48 @@
 import Ember from 'ember';
 import AjaxService from 'ember-ajax/services/ajax';
-import QueryLocationMixin from 'web/mixins/query-locations';
-import AuthenticatedRouteMixin from 'ember-simple-auth/mixins/authenticated-route-mixin';
+import BrydgeScroller from 'web/mixins/brydge-scroller';
 
-export default Ember.Route.extend(
-  AuthenticatedRouteMixin,
-  QueryLocationMixin, {
-  ajaxApi: Ember.inject.service('ajax-api'),
+export default Ember.Route.extend(BrydgeScroller, {
   resetController(controller, isExiting, transition) {
       if (isExiting) {
         controller.setProperties({
-          key: '',
-          industry: '',
-          location: '',
+          name: undefined,
+          keyword: undefined,
+          city: undefined,
+          results: undefined
         });
       }
   },
-  model: function (params) {
+  model(params){
+    if(!params.name && !params.keyword && !params.city) return false;
     return Ember.RSVP.hash({
-      categories: this.get('ajaxApi').request('/v2/categories/menu')
+      search: this.brydgeScroller('search',{
+        scroller: 'search',
+        q: params.name,
+        keyword: params.keyword,
+        city: params.city,
+        modelPath: 'controller.model.search'
+      })
     })
+    // return this.store.query('search', {q: params.name, keyword: params.keyword, city: params.city});
   },
 	actions: {
 		didTransition(){
-      this.set('controller.results', []);
-      this.controller._query()
-			// this.set('controller.search.key', null);
-			// this.set('controller.search.results', null);
-		}
+      this.set('controller.form.name', this.get('controller.name') || undefined);
+      this.set('controller.form.keyword', this.get('controller.keyword'));
+      this.set('controller.form.city', this.get('controller.city'));
+      console.log(this)
+      // this.controller._buildQuery()
+      // console.log('didTransition')
+      // this.refresh();
+		},
+    refresh: function(){
+      this.set('controller.name', this.get('controller.form.name'));
+      this.set('controller.keyword', this.get('controller.form.keyword'));
+      this.set('controller.city', this.get('controller.form.city'));
+      // console.log(this.get('controller.model').reload())
+      this.refresh();
+    }
+
 	}
 });

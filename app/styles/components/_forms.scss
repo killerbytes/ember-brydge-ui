@@ -143,10 +143,10 @@ form{
 .micro-forms{
 	@extend .rounded;
 	// background-color: #FFF;
-	padding: 0 2rem 2rem;
-	button[type="submit"]{
-		text-transform: uppercase;
-	}
+	padding: 2rem;
+	// button[type="submit"]{
+	// 	text-transform: uppercase;
+	// }
 	label{
 		font-size: 12px;
 	}

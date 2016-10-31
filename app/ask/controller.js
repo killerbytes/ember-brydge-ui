@@ -7,6 +7,7 @@ export default Ember.Controller.extend(
   IndustryMixin,
   ProfileMixin,
 	FilteredQuestionsMixin, {
+  session: Ember.inject.service(),
   sessionAccount: Ember.inject.service(),
   ask: Ember.inject.service(),
   reachedInfinity: Ember.observer('model.toQuestions.reachedInfinity', function() {
@@ -33,7 +34,7 @@ export default Ember.Controller.extend(
       if(this.get('question') == "?"){
         Ember.run.later(()=>{
           Ember.$('.user-top-form textarea').get(0).setSelectionRange(0,0);
-        })        
+        })
       }
     }
   }

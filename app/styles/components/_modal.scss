@@ -19,6 +19,10 @@
 			border-bottom: 1px solid $border-color;
 		}
 	}
+	.newsfeed-item{
+		border: none;
+	}
+	
 }
 
 .reveal.small{
@@ -44,6 +48,9 @@
 	.stats{
 		margin-bottom: 0;
 		border-bottom: none;
+	}
+	.newsfeed-item{
+		border: none;
 	}
 }
 

@@ -1,97 +1,41 @@
 <div class="page-heading">
   <h1>People Search</h1>
   <p class="text-center">
-    Search for people, connections or through name, title, company, industries and locations.
+    Search for people by name, job title, expertise or location
   </p>
 </div>
 
-<div class="row">
-  <div class="columns medium-4">
-    <div class="box rounded">
-      <section class="title">
-        <h4>Keywords</h4>
-      </section>
-      <section class="bg-gray">
-        <form class="brydge-form" onsubmit="return false;">
-          {{input value=keyword enter="addKeyword" placeholder="Name, Title, Company"}}
-          <!-- <a {{ action "addKeyword" }}>{{fa-icon "plus-circle"}}</a>             -->
-        </form>
-        {{#each keywords as |item|}}
-          <span class="label label-item"><a {{action "removeItem" item 'keywords' 'key'}}>{{fa-icon "close"}}</a> {{item}}</span>
-        {{/each}}
-
-      </section>
+<form class="brydge-form">
+  <div class="row">
+    <div class="columns medium-3">
+      {{input value=form.name placeholder="Name"}}
+    </div>
+    <div class="columns medium-3">
+      {{input value=form.keyword placeholder="Job Title or Expertise"}}
+    </div>
+    <div class="columns medium-3">
+      {{form-input-location
+          model=form
+          valuePath="city"
+          selected=form.city
+          placeholder="City"}}
+    </div>
+    <div class="columns medium-3">
+      <button class="button success expanded" {{action "refresh"}} disabled="{{isDisabled}}">Search</button>
     </div>
   </div>
-  <div class="columns medium-4">
-    <div class="box rounded">
-      <section class="title">
-        <h4>Limit by Industry</h4>
-      </section>
-      <section class="bg-gray">
-        <form class="brydge-form">
-          {{input-text-button-pop}}
-        </form>
-        {{#each industries as |item|}}
-          <span class="label label-item"><a {{action "removeIndustry" item}}>{{fa-icon "close"}}</a> {{item.name}}</span>
-        {{/each}}
-      </section>
-    </div>
-  </div>
-  <div class="columns medium-4">
-    <div class="box rounded">
-      <section class="title">
-        <h4>Limit by City</h4>
-      </section>
-      <section class="bg-gray">
-        <form class="brydge-form" onsubmit="return false;">
-          {{autocomplete-location onItemSelected="addLocation" }}
-        </form>
-        {{#if location}}
-          <span class="label label-item"><a {{action "removeItem" location 'cities' 'city'}}>{{fa-icon "close"}}</a> {{location.description}}</span>
-        {{/if}}
+</form>
 
-      </section>
-    </div>
-  </div>
-</div>
-
-  <div class="row columns">
-    <div class="box">
-      <div class="row">
-        <div class="columns medium-6">
-          <section>
-            <a class="button success" {{action "refresh"}}>Refresh</a>
-          </section>
-        </div>
-        <div class="columns medium-6 text-right">
-          <section>
-            <span class="middle dot-after">{{results.length}} people found</span> &nbsp;<span class="middle"><a {{action "clear"}}>Clear All</a></span>
-          </section>
-        </div>
-      </div>
-    </div>
-  </div>
-
-{{#if results}}
 <div class="row columns">
-  <div class="box row columns">
-    <section class="row medium-up-2 columns bg-gray user-list">
-      {{#each results as |item|}}
-        <div class="columns medium-6">
-          {{connection-box item=item}}
-        </div>
-      {{/each}}
-    </section>
+  <div class="user-list">
+    {{#each search as |item|}}
+      {{follow-item item=item}}
+    {{/each}}
+    {{#brydge-scroller id="search" model=search onClick="load"}}
+      {{#if isLoading}}
+        <div class="brydge-loading"></div>
+      {{/if}}
+    {{/brydge-scroller}}
+
   </div>
 </div>
-{{/if}}
-
-
-{{#zf-reveal id="industryModal" overlay=true class="small industry-picker box"}}
-  <button class="close-button" data-close aria-label="Close modal" type="button">
-    <span aria-hidden="true">&times;</span>
-  </button>
-
-  {{picker-industry name="search" categories=categories onSelect="onIndustrySelect" }}
-{{/zf-reveal}}

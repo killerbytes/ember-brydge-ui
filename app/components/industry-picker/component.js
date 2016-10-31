@@ -3,6 +3,7 @@ import _ from 'lodash/lodash';
 
 export default Ember.Component.extend({
   store: Ember.inject.service(),
+  ajaxApi: Ember.inject.service(),
   industryPicker: Ember.inject.service(),
   max: 3,
   willDestroyElement(){
@@ -24,10 +25,15 @@ export default Ember.Component.extend({
     this._super(...arguments);
     Ember.run.later(()=>{
       Ember.$(`#industry-picker-${this.get('name')}`).on('open.zf.reveal', ()=>{
+
         this.get("store").peekAll('industry').filterBy('active', true).forEach(i=>{
           i.set('active', false);
         })
         this.set('industryPicker.active', null);
+        this.get('ajaxApi').request('/v2/industries').then(res=>{
+          if(!this.get('industries')) this.set('industries', res);
+        })
+
       })
     })
 

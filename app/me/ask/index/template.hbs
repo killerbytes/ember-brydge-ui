@@ -20,23 +20,23 @@
 			<h1>Your Ask Page</h1>
 			<p class="text-center">
 				{{#if profile.setting.ask}}
-					You are currently accepting questions. To disable the ASK feature go to {{link-to "Settings" "settings" (query-params tab="ask") }}.
+					You are currently accepting questions. To disable the ASK feature go to <a href="{{href-to 'settings' (query-params tab='ask')}}">Settings</a>.
 				{{else}}
-					You are currently not accepting questions. To enable the ASK feature go to {{link-to "Settings" "settings" (query-params tab="ask") }}.
+					You are currently not accepting questions. To enable the ASK feature go to <a href="{{href-to 'settings' (query-params tab='ask')}}">Settings</a>.
 				{{/if}}
 			</p>
 		</div>
     <div class="mb">
-			{{#zf-tabs id="ask-tabs" class="tab-controls tabs"}}
-	      <li class="tabs-title is-active">
+			{{#zf-tabs id="tabs" class="tab-controls tabs"}}
+	      <li class="tabs-title medium-6 small-6 is-active">
 					<a href="#panel1" aria-selected="true">Answered</a></li>
-	      <li class="tabs-title">
+	      <li class="tabs-title medium-6 small-6">
 					<a href="#panel2">Asked</a>
 				</li>
 	    {{/zf-tabs}}
 		</div>
 
-		<div class="tabs-content" data-tabs-content="ask-tabs">
+		<div class="tabs-content" data-tabs-content="tabs">
       <div class="tabs-panel is-active" id="panel1">
 				{{#each toQuestions as |item| }}
 					{{ask-card item=item}}

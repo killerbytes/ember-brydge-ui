@@ -1,12 +1,10 @@
-header{
+header.header-blue{
 	box-shadow: 0 0 2px 0 #404040;
 	width: 100%;
 	position: fixed;
 	z-index: 100;
-	.title-bar-left{
-		ul.menu{
-			margin-top: 2px;
-		}
+	.button{
+		font-weight: bold;
 	}
 	.title-bar{
 		background-color: $brydge-blue;
@@ -15,41 +13,59 @@ header{
 		.thumbnail{
 			width: 40px;
 			height: 40px;
-
 		}
 		.menu > li > a{
 			padding-top: 6px;
+			padding-bottom: 5px;
+		}
+		.span-text{
 			padding-bottom: 6px;
+			display: block;
+			line-height: 1rem;
 		}
 	}
-	.logo{
-		width: 115px;
-		margin-right: 2rem !important;
-	}
 	.badge{
-		min-width: 2em;
+		min-width: 2.2em;
 		font-size: 9px;
 		font-weight: bold;
 		text-align: center;
 		line-height: 1.3em;
 		position: absolute;
-		top: 3px;
-		right: 0;
+		top: 1rem;
+		right: 1rem;
 		z-index: 1;
+		border: 1px solid #FFF;
+	}
+	.badge-large{
+		font-size: 1rem;
+		line-height: 1.2rem;
+		top: .25rem;
+		right: .7rem;
+		min-width: 2.1rem;
+		width: 30px;
+		height: 30px;
+		line-height: 19px;
+
+	}
+
+	.logo{
+		width: 115px;
+	}
+	.logo+span{
+		vertical-align: bottom !important;
+		color: #FFF;
+		text-transform: uppercase;
+		margin-right: 2rem !important;
+		font-weight: bold;
 	}
 	.menu-actions{
-		span{
+		li,span{
 			vertical-align: bottom;
 		}
 		span a{
-			padding: 0.7rem 1rem;
+			padding: 0.5rem 1rem;
 			display: block;
 		}
-		.home-icon{
-			margin-left: 20px;
-			padding: 0 1rem;
-		}
-
 		[data-toggle].hover{
 			// background-color: darken($button-blue, 10%);
 		}
@@ -62,12 +78,25 @@ header{
 		[data-toggle].hover + .wrapper{
 			display: block;
 		}
+		.user-info{
+			vertical-align: middle;
+			a{
+				padding: 0;
+			}
+		}
+	}
+	.menu-action-links{
+		margin-top: .5rem;
 	}
 	a .fa-home{
 		font-size: 17px;
+		line-height: 2rem;
 		color: #414242;
 		border-radius: 100px;
-		margin-top: 3px;
+		margin: 0;
+	}
+	.menu ul.menu{
+		// margin-top: 5px;
 	}
 }
 
@@ -84,7 +113,7 @@ header.simple-header{
 .top-bar-search {
 	@extend .search-box;
 
-	width: 308px;
+	width: 470px;
 	.user{
 		border-bottom: 1px solid $border-color;
 		font-size: 10px;

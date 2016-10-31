@@ -28,7 +28,7 @@ export default Ember.Mixin.create(GetIndustryFromCodeMixin,{
 
     model.myConnections = {
       id: 0,
-      text: 'My Connections'
+      text: 'People you follow'
     };
 
     model.myLocation = {

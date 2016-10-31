@@ -1,13 +1,10 @@
 import Ember from 'ember';
 
 export default Ember.Component.extend({
-	classNames: ['row user'],
+	classNames: ['user'],
 	session: Ember.inject.service(),
 	connection: Ember.inject.service(),
-	user: Ember.computed('item', 'item.userid.profile.connection.status', 'item.friendid.profile.connection.status', function(){
-		var userid = this.get('meta.requestid');
-		return userid == this.get('item.userid.id') ? this.get('item.friendid') : this.get('item.userid');
-	}),
+	user: Ember.computed.alias('item.user'),
 	status: Ember.computed('user.profile.connection.status','item.friend.connection.status', function(){
 		return this.get('user.profile.connection.status');
 	}),

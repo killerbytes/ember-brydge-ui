@@ -10,7 +10,7 @@ export default Ember.Component.extend({
   classNameBindings: ['showErrorClass:has-error', 'isValid:has-success', 'isValid', 'showMessage:has-error'],
 	attributeBindings: ['tabindex'],
   model: null,
-  value: null,
+  value: undefined,
   type: 'search',
   valuePath: '',
   placeholder: '',
@@ -29,7 +29,7 @@ export default Ember.Component.extend({
 					this.set('isOpen', false);
 					if(!this.get('placeid')) {
 						if(this.get('orig') != this.get('selected')){
-							this.set('selected', null);
+							this.set('selected', undefined);
 							this.set('items', null);
 						}
 					}

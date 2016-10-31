@@ -8,7 +8,7 @@ export default Ember.Component.extend(SharePostIndustryPicker, {
 	store: Ember.inject.service(),
 	classNames: ['accordion-picker'],
 	selectedText: Ember.computed('selected', function(){
-		return this.get('selected') ? this._getCategory(this.get('selected')) : {industry: "My Connections"};
+		return this.get('selected') ? this._getCategory(this.get('selected')) : {industry: "People You Follow"};
 	}),
 	isIndustry: Ember.computed.or('profile.industryOneId', 'profile.industryTwoId', 'profile.industryThreeId'),
 	_getCategory(id){
@@ -16,7 +16,7 @@ export default Ember.Component.extend(SharePostIndustryPicker, {
 	},
 	getIndustryName: function (id) {
     var col = {};
-    col[0] = "My Connections";
+    col[0] = "People you follow";
     col[this.get('profile.industryOneId')] = this.get('profile.industryOneName');
     col[this.get('profile.industryTwoId')] = this.get('profile.industryTwoName');
     col[this.get('profile.industryThreeId')] = this.get('profile.industryThreeName');

@@ -5,9 +5,9 @@
         <img src= {{conversation.other.profile.avatarUrl}} class="hide">
       </div>
       <div class="user-info">
-        {{#link-to "profile" conversation.other.id class="name"}}
+        <a href="{{href-to 'profile' conversation.other.profile.uid}}" class="name">
           {{ conversation.other.profile.fullName }}
-        {{/link-to}}
+        </a>
       </div>
     </div>
     <div class="column medium-4 text-right">

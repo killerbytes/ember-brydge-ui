@@ -43,7 +43,6 @@ Ember.Router.reopen({
 });
 
 
-
 Ember.deprecate = function(){};
 Ember.warn = function(i){};
 

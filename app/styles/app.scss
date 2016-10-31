@@ -5,6 +5,7 @@
 $brydge-blue: #6BCDFD;
 $button-blue: #51AFE5;
 $brydge-gray: #F7FAFE;
+$brydge-dark-gray: #7993A1;
 $brydge-green: #9BDC3E;
 $brydge-red: #E4938E;
 $border-color: #E6E6E6;
@@ -73,7 +74,9 @@ h4{
 	font-weight: bold;
 	text-transform: uppercase;
 }
-
+.strong{
+	font-weight: bold;
+}
 a, a:hover, a:focus{
 	color: $button-blue;
 }
@@ -149,6 +152,9 @@ p.wrap{
 }
 .bg-gray{
 	background-color: $brydge-gray;
+}
+.body-bg-color{
+	background-color: $body-bg-color;
 }
 .highlight{
 	border:4px solid $brydge-blue !important;

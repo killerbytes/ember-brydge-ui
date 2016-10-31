@@ -73,11 +73,8 @@
 	}
 }
 
-#ask-tabs{
+.brydge-tab-blue, #tabs.tab-controls{
 	@extend .newsfeed-tabs;
-	.tabs-title{
-		width: 50%;
-	}
 	.tabs-title.is-active{
 		background-color: $button-blue;
 		a{
@@ -159,140 +156,33 @@
 	}
 }
 
+#notification-tab{
+	border: none;
+	border-bottom: 1px solid $border-color;
+	li:before, li:after{
+		content: none;
+	}
+	.tabs-title > a{
+		padding: 1rem;
 
-// .profile, .settings{
-// 	.tab-wrapper{
-// 		.tab-header{
-// 			@extend .text-center;
-// 			border-right: 1px solid $border-color;
-// 			padding: 25px;
-// 			h2{
-// 				margin-bottom: 20px;
-// 				color: $button-blue;
-// 			}
-// 			p{
-// 				margin: 0;
-// 			}
-// 		}
-// 		.tabs, .tabs-content{
-// 			border: none;
-// 		}
-// 		.tabs{
-// 			border-top: 1px solid $border-color;
-// 			@extend .text-center;
-// 			.tabs-title{
-// 				a{
-// 					border-right: 1px solid $border-color;
-// 					font-size: 14px;
-// 					line-height: 2em;
-// 				}
-// 				> a:focus, > a[aria-selected='true']{
-// 					border-right-color: #FFF;
-// 					background-color: #FFF;
-// 					color: #000;
-// 				}
-// 			}
-// 			.tabs-title:not(:last-child){
-// 				border-bottom: 1px solid $border-color;
-// 			}
-// 		}
-// 		.tabs-panel{
-// 			padding: 25px;
-// 		}
-// 		.tabs-panel.space-filler{
-// 			padding: 80px 25px;
-// 		}
-// 	}
-
-
-// 	.tab-wrapper:before{ display: block;}
-// 	.tab-wrapper:after {
-// 	     visibility: hidden;
-// 	     display: block;
-// 	     font-size: 0;
-// 	     content: " ";
-// 	     clear: both;
-// 	     height: 0;
-// 	     }
-
-// 	.tab-wrapper {
-// 		display: inline-block;
-// 		position: relative;
-// 		z-index: 1;
-// 		width: 100%;
-// 		background-color: #FFF;
-// 	}
-// 	.tab-wrapper:before, .tab-wrapper:after {
-// 	   content: "";
-// 	   position: absolute;
-// 	   z-index: -1;
-// 	   top: 0;
-// 	   left: 0;
-// 	   width: 25%;
-// 	   height: 100%;
-// 	   background-color: #EFEFEF;
-// 	}
-
-
-// }
-// .tabs{
-// 	.tabs-title:not(:first-child){
-// 		width: 100%;
-// 	}
-// 	.tabs-title .button{
-// 		padding: 10px;
-// 		font-size: 11px;
-// 		font-weight: bold;
-// 	}
-// 	.tabs-content{
-// 		background-color: transparent;
-// 		border: none;
-// 	}
-// }
-// .tabs-table{
-// 	border: 1px solid $button-blue;
-// 	display: table;
-// 	width: 100%;
-
-// 	.is-active{
-// 		background: $button-blue;
-// 		color: #FFF;
-// 		a{
-// 			background-color: $button-blue;
-// 			color: #FFF;
-// 			transition: initial;
-// 		}
-// 	}
-
-// }
-
-// .newsfeed-tabs{
-// 	.tabs{
-// 		background-color: transparent;
-// 		border: none;
-// 	}
-// 	.tabs-title > a:focus, .tabs-title > a[aria-selected='true']{
-// 		background: inherit;
-// 	}
-// 	.tabs-table .tabs-title{
-// 		border: none;
-// 		border-left: 1px solid $border-color;
-// 		border-right: 1px solid $border-color;
-// 		border-bottom: 4px solid $border-color;
-
-// 		a{
-// 			// color: $text-color2;
-// 			padding: 8px 10px;
-// 			text-align: center;
-// 		}
-// 	}
-// 	.tabs-table .is-active{
-// 		border-bottom-color: $button-blue;
-// 		a{
-// 			background-color: #FFF;
-// 		}
-// 	}
-// 	.tabs-panel{
-// 		padding: 0;
-// 	}
-// }
+	}
+	.badge-large{
+		top: -3px;
+		right: -4px;
+				
+	}
+	.icons{
+		margin: auto;
+	}
+	.is-active{
+		.bino{
+			@extend .icons.bino.white;
+		}
+		.stack{
+			@extend .icons.stack.white;
+		}
+		.messages{
+			@extend .icons.messages.white;
+		}
+	}
+}

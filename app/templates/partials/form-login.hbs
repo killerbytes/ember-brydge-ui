@@ -1,9 +1,9 @@
-<form {{action 'authenticate' on='submit'}} class="brydge-form micro-forms">
+<form {{action "authenticate" on='submit'}} class="brydge-form micro-forms">
   <div class="row column">
-    {{input id='email' placeholder="Email" value=email}}
-    {{input type='password' id="password_field" placeholder="Password" value=password}}
-    <button class="button success" disabled={{isInvalid}} type="submit">LOG IN</button>
+    {{input placeholder="Email" value=email}}
+    {{input type="password" placeholder="Password" value=password}}
+    <button class="button success" disabled={{isInvalid}} type="submit">Log In</button>
 
-    {{link-to "Forgot your password?" "forgot-password" class="float-right button"}}
+    <a href="{{href-to 'forgot-password'}}" class="float-right button">Forgot your password?</a>
   </div>
 </form>

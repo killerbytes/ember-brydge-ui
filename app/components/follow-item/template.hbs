@@ -1,0 +1,28 @@
+<div class="row">
+  <div class="columns medium-10">
+    <div class="user section-main">
+      <div class="avatar float-left" style={{htmlSafeImage user.profile.avatarUrl}}>
+        <img src= {{user.profile.avatarUrl}} class="hide">
+      </div>
+      <div class="user-info">
+        <a href="{{href-to 'profile' user.profile.uid}}" class="text-title">{{user.profile.fullName}}</a>
+        <div class="position">{{user.profile.career}}</div>
+        <div class="position">{{user.profile.location}}</div>
+      </div>
+    </div>
+  </div>
+  <div class="columns medium-2">
+    <section>
+      {{#unless isSelf}}
+        {{#if isFollowing}}
+          <button class="button expanded bordered follow-button radius" {{action "unfollow"}}>
+            <span class="following-text">Following</span>
+            <span class="unfollow-text">Unfollow</span>
+          </button>
+        {{else}}
+          <button class="button expanded bordered green radius" {{action "follow"}}>Follow</button>
+        {{/if}}
+      {{/unless}}
+    </section>
+  </div>
+</div>

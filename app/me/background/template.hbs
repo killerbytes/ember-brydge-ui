@@ -13,9 +13,9 @@
         <h3><i class="fa fa-paperclip" aria-hidden="true"></i>
           Work History
           {{#if isOwner}}
-            {{#link-to "me.edit" (query-params tab="work") class="editable"}}
+            <a href="{{href-to 'me.edit' (query-params tab='work')}}" class="editable">
               <i class="fa fa-pencil-square-o"></i>
-            {{/link-to}}
+            </a>
           {{/if}}
 
         </h3>
@@ -36,9 +36,9 @@
         <h3><i class="fa fa-graduation-cap" aria-hidden="true"></i>
           Academia
           {{#if isOwner}}
-            {{#link-to "me.edit" (query-params tab="academia") class="editable"}}
+            <a href="{{href-to 'me.edit' (query-params tab='academia')}}" class="editable">
               <i class="fa fa-pencil-square-o"></i>
-            {{/link-to}}
+            </a>
           {{/if}}
 
         </h3>
@@ -59,9 +59,9 @@
         <h3><i class="fa fa-globe" aria-hidden="true"></i>
           Languages
           {{#if isOwner}}
-            {{#link-to "me.edit" (query-params tab="language") class="editable"}}
-              <i class="fa fa-pencil-square-o"></i>
-            {{/link-to}}
+            <a href="{{href-to 'me.edit' (query-params tab='language')}}" class="editable">
+              <i class="fa fa-pencil-square-o"></i>              
+            </a>
           {{/if}}
 
         </h3>

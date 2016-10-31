@@ -6,15 +6,10 @@ export default Ember.Service.extend({
   ajax: Ember.inject.service(),
   routing: Ember.inject.service(),
   phoenix: Ember.inject.service(),
-  // requestsxx: Ember.computed('request.@each.status', function(i) {
-  //   var userid = this.get('session.data.authenticated.user_id');
-  //   return this.get('request').filter(function(i){
-  //     console.log(i.get('userid') , userid)
-  //   	return i.get('userid') != userid;
-  //   })
-  // }),
+  totalCount: Ember.computed('count.view','count.notification', function(){
+    return this.get('count.view') + this.get('count.notification') + this.get('count.message');
+  }),
   checkPush() {
-
     const authToken = this.get('session.data.authenticated.access_token');
     if(!authToken) return false;
 
@@ -36,7 +31,7 @@ export default Ember.Service.extend({
   },
   releaseCount(group){
     var url = '/v2/notifications';
-    this.get('ajax').request(url, {
+    return this.get('ajax').request(url, {
       method: 'DELETE',
       data: {
         group: group
@@ -50,20 +45,23 @@ export default Ember.Service.extend({
       if(cb) cb.call();
     })
   },
-  loadNotifications(group, cb) {
-    this.set(group, []);
+  loadNotifications(cb) {
+    // this.set(group, []);
 
-    var q = {group:group, limit: 5};
-    this.get('store').query('notification', q).then(res=>{
-      if(group === 'notification') this.set('notification', res);
-      if(group === 'message') this.set('message', res);
-      if(group === 'request') this.set('request', res);
-      if(group === 'view') this.set('view', res);
-      if(group != 'request') this.set('count.'+group, 0);
-      if(group != 'request') this.releaseCount(group);
+    this.set('isLoading', true);
+    var promises = [];
+    promises.push(this.get('store').query('notification', {group: 'view', limit: 5}));
+    promises.push(this.get('store').query('notification', {group: 'notification', limit: 5}));
+    promises.push(this.get('store').query('notification', {group: 'message', limit: 5}));
 
-      if(cb) cb.call();
-    });
+    Ember.RSVP.all(promises).then(([view, notification, message])=>{
+      this.set('view', view);
+      this.set('notification', notification);
+      this.set('message', message);
+      this.set('isLoading', false);
+    })
+
+    if(cb) cb.call();
   },
 
   readNotification(id) {
@@ -79,6 +77,8 @@ export default Ember.Service.extend({
     })
   },
   profileView(profile){
+    const authToken = this.get('session.data.authenticated.access_token');
+    if(!authToken) return false;
     var url = '/v2/profile/view/' + profile.get('id');
     return this.get('ajax').request(url, {
       method: 'GET'

@@ -47,22 +47,27 @@
 		{{else}}
 			<form action="" class="box user-top-form mb20">
 				<section>
-					<p class="text-center">You have turned Ask OFF. Turn it on in {{link-to "Settings" "settings" (query-params tab="ask")}}.</p>
+					{{#if session.isAuthenticated}}
+						<p class="text-center">You have turned Ask OFF. Turn it on in <a href="{{href-to 'settings' (query-params tab="ask")}}">Settings</a>.</p>
+					{{else}}
+						<p class="text-center">You need to <a data-open="login-dialog">log in</a> to Ask a question</p>
+					{{/if}}
 				</section>
 			</form>
+
 		{{/if}}
 
 		<div class="mb">
-			{{#zf-tabs id="ask-tabs" class="tab-controls tabs"}}
-	      <li class="tabs-title is-active">
+			{{#zf-tabs id="tabs" class="tab-controls brydge-tabs tabs"}}
+	      <li class="tabs-title medium-6 small-6 is-active">
 					<a href="#panel1" aria-selected="true">Answered</a></li>
-	      <li class="tabs-title">
+	      <li class="tabs-title medium-6 small-6">
 					<a href="#panel2">Asked</a>
 				</li>
 	    {{/zf-tabs}}
 		</div>
 
-		<div class="tabs-content" data-tabs-content="ask-tabs">
+		<div class="tabs-content" data-tabs-content="tabs">
       <div class="tabs-panel is-active" id="panel1">
 				{{#each toQuestions as |item| }}
 					{{ask-card item=item isOwner=false}}

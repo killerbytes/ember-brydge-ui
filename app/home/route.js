@@ -16,7 +16,8 @@ export default Ember.Route.extend(
   BrydgeScroller,
   ScrollResetMixin,
   AuthenticatedRouteMixin,
-  FilterDropdownListMixin, {
+  // FilterDropdownListMixin, 
+  {
   session: Ember.inject.service(),
   ajax: Ember.inject.service(),
   ajaxApi: Ember.inject.service(),
@@ -43,7 +44,7 @@ export default Ember.Route.extend(
     return Ember.RSVP.hash({
       profile: this.store.findRecord('profile', ownerid),
       invites: this.store.findAll('friend-invitation'),
-      industries: this.get('ajaxApi').request('/v2/industries'),
+      // industries: this.get('ajaxApi').request('/v2/industries'),
       favorites: this.store.findAll('favoriteindustry')
     });
   },

@@ -23,7 +23,7 @@
           <a href="#industry"><i class="fa fa-briefcase" aria-hidden="true"></i>Industries</a>
         </li>
         <li data-tab='snapshot' class="tabs-title {{active-tab 'snapshot' tab}}">
-          <a href="#snapshot"><i class="fa fa-camera-retro" aria-hidden="true"></i>Snapshot</a>
+          <a href="#snapshot"><i class="fa fa-certificate" aria-hidden="true"></i>Expertise</a>
         </li>
         <li data-tab='work' class="tabs-title {{active-tab 'work' tab}}">
           <a href="#work"><i class="fa fa-paperclip" aria-hidden="true"></i>Work History</a>
@@ -48,7 +48,7 @@
 
             <section class="header">
               <p>
-                On Brydge, you can participate in up to three industries. Make sure you select at least one.
+                Select 3 industries you want to participate in
               </p>
               <form class="form-occupational-industry">
                 <div class="row mb20">
@@ -108,17 +108,7 @@
           </div>
           <div class="tabs-panel {{active-tab 'snapshot' tab}}" id="snapshot">
             <section class="header">
-              <form>
-                <label for="">A quick snapshot about your professional life:</label>
-                <div class="wrapper">
-                  {{form-text-counter limit=500 value=profile.snapshot rows=10 class="mb" class="with-text-helper"}}
-                  <div class="text-helper font-light mb">TIP: Keep this really short. People take more notice that way.</div>
-                </div>
-                <div class="row">
-                  <div class="columns">{{form-input-button submit="save" placeholder="Saved"}}</div>
-                </div>
-              </form>
-
+              {{form-expertise profile=profile onSave="save"}}
             </section>
           </div>
           <div class="tabs-panel {{active-tab 'work' tab}}" id="work">
@@ -137,4 +127,4 @@
   </div>
 </div>
 
-{{industry-picker name="edit-profile" title="Select up to 3 Industries you want to participate in" industries=model.categories selected=industries submit="onIndustrySelect"}}
+{{industry-picker name="edit-profile" title="Select up to 3 Industries you want to participate in" industriesxxx=model.categories selected=industries submit="onIndustrySelect"}}

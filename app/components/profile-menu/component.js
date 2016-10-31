@@ -6,17 +6,11 @@ const {
 } = Ember;
 
 export default Ember.Component.extend({
-  store: Ember.inject.service(),
-  ajax: Ember.inject.service(),
   session: Ember.inject.service(),
-  connection: Ember.inject.service(),
-  notification: Ember.inject.service(),
+  follow: Ember.inject.service(),
   didReceiveAttrs(attr){
-    if(!this.get('isOwner')) this._getConnectionCount();
+    this._getFolowCount();
   },
-  count: Ember.computed('notification.count.connection', 'connectionCount', function(){
-    return this.get('isOwner') ? this.get('notification.count.connection') : this.get('connectionCount');
-  }),
   isConnected: Ember.computed('profile.connection.status', function(){
     return this.get('profile.connection.status') == 'accepted';
   }),
@@ -45,14 +39,10 @@ export default Ember.Component.extend({
   	}
   	return index;
   }),
-  _getConnectionCount(){
-    this.get('connection').count(this.get('profile.id')).then(res=>{
-      this.set('connectionCount', res.connectionCount);
+  _getFolowCount(){
+    if(!this.get('profile.id')) return false;
+    this.get('follow').getCount(this.get('profile.id')).then(res=>{
+      this.setProperties(res);
     })
-  },
-  actions: {
-    disconnect(){
-      this.get('connection').disconnect(this.get('profile.connection.id'));
-    }
   }
 });

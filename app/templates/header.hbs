@@ -1,10 +1,13 @@
-<header>
+<header class="header-blue">
   <div class="title-bar">
     <div class="row collapse">
       <div class="title-bar-left">
         <ul class="dropdown menu" data-dropdown-menu>
           <li>
-						{{#link-to 'home'}}<img src="https://storage.googleapis.com/brydge-assets/logo.svg" class="logo">{{/link-to}}
+            <a href="{{href-to 'home'}}">
+              <img src="https://storage.googleapis.com/brydge-assets/logo.svg" class="logo">
+              <span>Beta</span>
+            </a>
           </li>
           <li>
 						{{top-bar-search}}
@@ -14,63 +17,30 @@
       <div class="title-bar-right">
 				<ul class="top-bar-group menu menu-actions wrapper" {{ action "closeTooltip" preventDefault=false }}>
 					<li>
-						{{#zf-tooltip title="Profile Views"  vOffset=7}}
-							<a data-toggle="dd-views" class="dropdown-button-arrow dropdown-button-icons" {{action "open" "view" }}>
-								{{#if notification.count.view}}
-									<span class="alert badge">{{notification.count.view}}</span>
-								{{/if}}
-								<i class="icons bino"></i>
-							</a>
-						{{/zf-tooltip}}
-					</li>
-					<li>
-						{{#zf-tooltip title="Connection Requests" vOffset=7}}
-							<a data-toggle="dd-requests" class="dropdown-button-arrow dropdown-button-icons" {{action "open" "request"}}>
-								{{#if notification.count.request}}
-									<span class="alert badge">{{notification.count.request}}</span>
-								{{/if}}
-								<i class="icons user"></i>
-							</a>
-						{{/zf-tooltip}}
-					</li>
-					<li>
-						{{#zf-tooltip title="Messages" vOffset=7}}
-							<a data-toggle="dd-messages" class="dropdown-button-arrow dropdown-button-icons" {{action "open" "message"}}>
-								{{#if notification.count.message}}
-									<span class="alert badge">{{notification.count.message}}</span>
-								{{/if}}
-								<i class="icons messages"></i>
-							</a>
-						{{/zf-tooltip}}
-					</li>
-					<li>
 						{{#zf-tooltip title="Notifications" vOffset=7}}
-							<a data-toggle="dd-notification" class="dropdown-button-arrow dropdown-button-icons" {{action "open" "notification"}}>
-									{{#if notification.count.notification }}
-							      <span class="alert badge">{{notification.count.notification}}</span>
-							    {{/if}}
+							<a data-toggle="dd-notification" class="dropdown-button-arrow dropdown-button-icons">
 									<i class="icons stack"></i>
+                  {{#if notification.totalCount}}
+                    <span class="alert badge badge-large">{{notification.totalCount}}</span>
+                  {{/if}}
 							</a>
 						{{/zf-tooltip}}
 					</li>
           <li>
             <span>
-            {{#link-to "home" class="home-icon"}}
-              <i class="fa fa-home" aria-hidden="true"></i>
-            {{/link-to}}
+              <a href="{{href-to 'home'}}" class="home-icon">
+                <i class="fa fa-home" aria-hidden="true"></i>
+              </a>
             </span>
 					</li>
-					<li>
-						<ul class="user-info user-small user-session no-bullet">
-							<li>
-								{{#link-to "profile" session.data.authenticated.user_id}}
-									<div class="avatar" style={{htmlSafeImage sessionAccount.account.profile.avatarUrl}}>
-										<img src= {{sessionAccount.account.profile.avatarUrl}} class="hide">
-									</div>
-								{{/link-to}}
-                {{isOnboarding}}
-							</li>
-						</ul>
+					<li class="user-info user-small user-session no-bullet">
+            <span>
+              <a href="{{href-to 'profile' sessionAccount.account.profile.uid }}">
+								<div class="avatar" style={{htmlSafeImage sessionAccount.account.profile.avatarUrl}}>
+									<img src= {{sessionAccount.account.profile.avatarUrl}} class="hide">
+								</div>
+              </a>
+            </span>
 					</li>
 					<li>
 						<ul class="menu">
@@ -86,212 +56,207 @@
 					</li>
 				</ul>
       </div>
-
-
     </div>
   </div>
   <div class="row columns wrapper">
-	{{#zf-dropdown id="dd-views" dataName="views" class="dropdown-notification" closeOnClick=true }}
-		<div class="dropdown-header">
-			<h4>See who's viewed your profile</h4>
-      <div>
-        You can turn this ON or OFF in {{link-to "Settings" "settings" (query-params tab="views")}}.
-      </div>
-		</div>
-		<ul class="media-list user user-small">
-			{{#if settings.profileView}}
-				{{#each views as |item|}}
-  				<li {{action "read" item}}>
-            {{#link-to "profile" item.target.id class=(if item.read false 'new-notification')}}
-  						<div class="row collapse">
+
+	{{#zf-dropdown id="dd-notification" class="dropdown-notification" closeOnClick=true}}
+    {{#zf-tabs id="notification-tab" class="tab-controls brydge-tab-blue tabs"}}
+      <li class="tabs-title is-active">
+        <a href="#notification-tab-panel1" data-id="view" aria-selected="true" class="wrapper">
+          {{#zf-tooltip title="Profile Views" vOffset=7}}
+            <i class="icons bino"></i>
+            {{#if notification.count.view}}
+  						<span class="alert badge badge-large">{{notification.count.view}}</span>
+  					{{/if}}
+          {{/zf-tooltip}}
+        </a>
+    </li>
+      <li class="tabs-title wrapper">
+        <a href="#notification-tab-panel2" data-id="notification">
+          {{#zf-tooltip title="Notifications" vOffset=7}}
+            <i class="icons stack"></i>
+            {{#if notification.count.notification }}
+              <span class="alert badge badge-large">{{notification.count.notification}}</span>
+            {{/if}}
+          {{/zf-tooltip}}
+        </a>
+      </li>
+      <li class="tabs-title wrapper">
+        <a href="#notification-tab-panel3" data-id="message">
+          {{#zf-tooltip title="Messages" vOffset=7}}
+            <i class="icons messages"></i>
+            {{#if notification.count.message }}
+              <span class="alert badge badge-large">{{notification.count.message}}</span>
+            {{/if}}
+          {{/zf-tooltip}}
+        </a>
+      </li>
+    {{/zf-tabs}}
+
+    <div class="tabs-content" data-tabs-content="notification-tab">
+    <div class="tabs-panel is-active" id="notification-tab-panel1">
+      <div class="dropdown-header">
+  			<h4>See who's viewed your profile</h4>
+        <div>
+          You can turn this ON or OFF in <a href="{{href-to 'settings' (query-params tab='views')}}">Settings</a>.
+        </div>
+  		</div>
+      <ul class="media-list user user-small">
+  			{{#if settings.profileView}}
+  				{{#each views as |item|}}
+    				<li {{action "read" item}}>
+              <a href="{{href-to 'profile' item.target.profile.uid}}" class={{if item.read false 'new-notification'}}>
+    						<div class="row collapse">
+    							<div class="columns">
+    					      <div class="avatar" style={{htmlSafeImage item.target.profile.avatarUrl }}>
+    					        <img src= {{item.target.profile.avatarUrl}} class="hide">
+    					      </div>
+    					      <div class="user-info">
+                      <div>
+                        <span class="name">{{item.target.profile.fullName}}</span>
+                        <span class="timestamp float-right">{{ timestamp-views item.createdAt }}</span>
+                      </div>
+    					        <div class="position">{{item.target.profile.career}}</div>
+    					      </div>
+    							</div>
+    						</div>
+              </a>
+    				</li>
+          {{else}}
+            <li>
+              <div class="empty-message">
+                {{#if notification.isLoading}}
+                  <div class="brydge-loading"></div>
+                {{else}}
+                  You have no profile views
+                {{/if}}
+              </div>
+
+    				</li>
+  				{{/each}}
+
+  			{{else}}
+  				<li>
+  					<div class="empty-message">
+  						You have turned Profile Views off
+  					</div>
+  				</li>
+  			{{/if}}
+  		</ul>
+      {{#if settings.profileView}}
+        <a href="{{href-to 'profile-views'}}" class="footer-button button expanded">See all Profile Views</a>
+      {{/if}}
+    </div>
+    <div class="tabs-panel" id="notification-tab-panel2">
+      <div class="dropdown-header">
+  			<h4>Your Notifications</h4>
+  				<div>
+            Get updates on your interaction with other users on Brydge.
+  				</div>
+  		</div>
+      <ul class="media-list user user-small">
+  		  {{#each notifications as |item|}}
+  		    <li>
+  		    	<a {{action "select" item}} class="{{if item.read false 'new-notification'}}">
+  						<div class="row columns collapse">
   							<div class="columns">
   					      <div class="avatar" style={{htmlSafeImage item.target.profile.avatarUrl }}>
   					        <img src= {{item.target.profile.avatarUrl}} class="hide">
   					      </div>
   					      <div class="user-info">
-                    <div>
-                      <span class="name">{{item.target.profile.fullName}}</span>
-                      <span class="timestamp float-right">{{ timestamp-views item.createdAt }}</span>
-                    </div>
-  					        <div class="position">{{item.target.profile.career}}</div>
+  		              <div>
+  		              	<strong class="name">{{item.target.profile.fullName }}</strong> {{{notification-text item}}}
+  		              </div>
+  		              <span class="timestamp">{{ timestamp item.createdAt }}</span>
   					      </div>
-
   							</div>
   						</div>
-            {{/link-to}}
-  				</li>
-        {{else}}
-          <li>
+  					</a>
+  		    </li>
+  		  {{else}}
+  			  <li>
             <div class="empty-message">
-              {{#if loading.view}}
+              {{#if notification.isLoading}}
                 <div class="brydge-loading"></div>
               {{else}}
-                You have no profile views
+                No new notifications
               {{/if}}
             </div>
 
-  				</li>
-				{{/each}}
+  			  </li>
+  		  {{/each}}
+  	  </ul>
+      <a href="{{href-to 'notifications'}}" class="footer-button button expanded">See all Notifications</a>
 
-			{{else}}
-				<li>
-					<div class="empty-message">
-						You have turned Profile Views off
-					</div>
-				</li>
-			{{/if}}
-		</ul>
-    {{#if settings.profileView}}
-  		{{#link-to 'profile-views' class="footer-button button expanded"}}
-  			See all Profile Views
-  		{{/link-to}}
-    {{/if}}
-	{{/zf-dropdown}}
+    </div>
+    <div class="tabs-panel" id="notification-tab-panel3">
+      <div class="dropdown-header">
+  			<h4>Your Incoming Messages</h4>
+  				<div>
+  					Only people you follow can message you. Unfollow anyone that sends you spam or inappropriate messages.
+  				</div>
+  		</div>
 
-	{{#zf-dropdown id="dd-requests" class="dropdown-notification" closeOnClick=true }}
-		<div class="dropdown-header">
-			<h4>Your Connection Requests</h4>
-				<div>
-					These users want to connect! Accept if you know them, or head over to their profile to see if they can be relevant professional acquaintances.
-				</div>
-		</div>
-		<ul class="media-list user user-small">
-      {{#if loading.requests}}
-        <li>
-          <div class="empty-message">
-            <div class="brydge-loading"></div>
-          </div>
+  		<ul class="media-list user user-small">
+  			{{#each messages as |item|}}
+  			<li {{action "read" item}} class="{{if item.read false 'new-notification'}}">
+  				{{#link-to "messages.conversation" item.referenceid class="no-color" }}
+  					<div class="row collapse">
+  						<div class="columns medium-8">
+  				      <div class="avatar" style={{htmlSafeImage item.target.profile.avatarUrl }}>
+  				        <img src= {{item.target.profile.avatarUrl}} class="hide">
+  				      </div>
+  				      <div class="user-info">
+  			          <a class="name">{{item.target.profile.fullName}} {{#if item.count}}<span class="message-count">({{item.count}})</span>{{/if}}</a>
+  				      </div>
+  						</div>
+  						<div class="columns medium-4 timestamp text-right">
+  		          {{ timestamp item.notifiedAt }}
+  						</div>
+  					</div>
+            <div class="message-body position truncate">{{{getNotificationContent item.content}}}</div>
+  				{{/link-to}}
   			</li>
-      {{else}}
-        {{#each requests as |item|}}
-    			<li>
-            {{request-card item=item class="padding"}}
-    			</li>
   			{{else}}
-    			<li>
-            <div class="empty-message">
-              No pending connection requests
-            </div>
-    			</li>
-  			{{/each}}
-      {{/if}}
-		</ul>
-		{{#link-to 'requests' class="footer-button button expanded"}}
-			See all Connection Requests
-		{{/link-to}}
-	{{/zf-dropdown}}
-
-	{{#zf-dropdown id="dd-messages" class="dropdown-notification" closeOnClick=true }}
-		<div class="dropdown-header">
-			<h4>Your Incoming Messages</h4>
-				<div>
-					Speak with connections privately. Only connections can message you, so if you are receiving inappropriate messages or spam, inform the user or disconnect from them.
-				</div>
-		</div>
-
-		<ul class="media-list user user-small">
-			{{#each messages as |item|}}
-			<li {{action "read" item}} class="{{if item.read false 'new-notification'}}">
-				{{#link-to "messages.conversation" item.referenceid class="no-color" }}
-					<div class="row collapse">
-						<div class="columns medium-8">
-				      <div class="avatar" style={{htmlSafeImage item.target.profile.avatarUrl }}>
-				        <img src= {{item.target.profile.avatarUrl}} class="hide">
-				      </div>
-				      <div class="user-info">
-			          <a class="name">{{item.target.profile.fullName}} {{#if item.count}}<span class="message-count">({{item.count}})</span>{{/if}}</a>
-				      </div>
-						</div>
-						<div class="columns medium-4 timestamp text-right">
-		          {{ timestamp item.notifiedAt }}
-						</div>
-					</div>
-          <div class="message-body position truncate">{{{getNotificationContent item.content}}}</div>
-				{{/link-to}}
-			</li>
-			{{else}}
-			<li>
-        <div class="empty-message">
-          {{#if loading.message}}
-            <div class="brydge-loading"></div>
-          {{else}}
-            You have no recent messages
-          {{/if}}
-        </div>
-			</li>
-			{{/each}}
-		</ul>
-		{{#link-to 'messages' class="footer-button button expanded"}}
-			See all Messages
-		{{/link-to}}
-	{{/zf-dropdown}}
-
-	{{#zf-dropdown id="dd-notification" class="dropdown-notification" closeOnClick=true}}
-		<div class="dropdown-header">
-			<h4>Your Notifications</h4>
-				<div>
-          Get updates on your interaction with other users on Brydge.
-				</div>
-		</div>
-
-	  <ul class="media-list user user-small">
-		  {{#each notifications as |item|}}
-		    <li>
-		    	<a {{action "select" item}} class="{{if item.read false 'new-notification'}}">
-						<div class="row columns collapse">
-							<div class="columns">
-					      <div class="avatar" style={{htmlSafeImage item.target.profile.avatarUrl }}>
-					        <img src= {{item.target.profile.avatarUrl}} class="hide">
-					      </div>
-					      <div class="user-info">
-		              <div>
-		              	<strong class="name">{{item.target.profile.fullName }}</strong> {{{notification-text item}}}
-		              </div>
-		              <span class="timestamp">{{ timestamp item.createdAt }}</span>
-					      </div>
-							</div>
-						</div>
-					</a>
-		    </li>
-		  {{else}}
-			  <li>
+  			<li>
           <div class="empty-message">
-            {{#if loading.notification}}
+            {{#if notification.isLoading}}
               <div class="brydge-loading"></div>
             {{else}}
-              No new notifications
+              You have no recent messages
             {{/if}}
           </div>
+  			</li>
+  			{{/each}}
+  		</ul>
+  		{{#link-to 'messages' class="footer-button button expanded"}}
+  			See all Messages
+  		{{/link-to}}
 
-			  </li>
-		  {{/each}}
-	  </ul>
-			{{#link-to 'notifications' class="footer-button button expanded"}}
-				See all Notifications
-			{{/link-to}}
+    </div>
+  </div>
 	{{/zf-dropdown}}
-
 
 	{{#zf-dropdown id="dd-menu" class="dropdown-menu" closeOnClick=true}}
 		<ul class="menu">
-			<li>{{link-to "Home" "home"}}</li>
+			<li><a href="{{href-to 'home'}}">Home</a></li>
 		</ul>
 		<ul class="menu">
-			<li>{{link-to "Profile" "profile" session.data.authenticated.user_id}}</li>
-			<li>{{link-to "Edit Profile" "me.edit"}}</li>
-
+      <li><a href="{{href-to 'profile' sessionAccount.account.profile.uid  }}">Profile</a></li>
+      <li><a href="{{href-to 'me.edit' }}">Edit Profile</a></li>
 		</ul>
 		<ul class="menu">
-			<li>{{link-to "Connections" "me.connections"}}</li>
-			<li>{{link-to "Ask" "me.ask"}}</li>
-			<li>{{link-to "Compliments" "me.compliments"}}</li>
+      <li><a href="{{href-to 'me.following' }}">Following</a></li>
+      <li><a href="{{href-to 'me.followers' }}">Followers</a></li>
+      <li><a href="{{href-to 'me.ask' }}">Ask</a></li>
 		</ul>
 		<ul class="menu hide">
-			<li>{{link-to "People Search" "search"}}</li>
+      <li><a href="{{href-to 'search' }}">People Search</a></li>
 		</ul>
 		<ul class="menu">
-			<li>{{link-to "Settings" "settings" }}</li>
-			<li><a href="" {{action 'logout'}}>Log out</a></li>
+      <li><a href="{{href-to 'settings' }}">Settings</a></li>
+			<li><a {{action 'logout'}}>Log out</a></li>
 		</ul>
 	{{/zf-dropdown}}
 

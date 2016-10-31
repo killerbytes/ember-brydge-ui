@@ -2,7 +2,7 @@ import Ember from 'ember';
 
 export default Ember.Mixin.create({
 	defaults: {
-		per_page: 5,
+		per_page: 10,
 		page: 1,
 		modelPath: 'controller.model'
 	},
@@ -21,8 +21,9 @@ export default Ember.Mixin.create({
 			config.page = this.get(el+'.page');
 		}
 		var _config = Ember.copy(config)
-		delete _config.modelPath;
 		var id = params && params.scroller || el;
+		delete _config.modelPath;
+		delete _config.scroller;
 		return this.store.query(this.get('modelName'), _config).then(res=>{
 			this.set(id + '.page', this.get(id+'.page')+1);
 			this.set(id + '.totalPage', res.get('meta.total_pages'));

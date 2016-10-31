@@ -1,62 +1,27 @@
-<div class="expanded row">
-  <div class="columns large-8 medium-8 main-content">
-    <div class="container">
-      {{#if model}}
-        <div class="row">
-          <div class="large-6 medium-8 small-centered columns">
-            <div class="dialog-wrapper">
-              <div class="dialog-header">
-                <a href="/" class="logo"><img src="assets/brydge-blue.svg"></a>
+{{partial "partials/header-white"}}
+<div class="main-content">
+  <div class="container">
+      <div class="row">
+        <div class="large-6 medium-8 small-centered columns">
+          <div class="brydge-dialog dialog-wrapper">
+            {{#if errors}}
+              <div class="error-messages">
+                <ul class="no-bullet errors">
+                {{#each errors as |item|}}
+                    <li>
+                      <h4>{{item.title}}</h4>
+                      {{item.detail}}
+                    </li>
+                {{/each}}
+                </ul>
               </div>
-              {{#if errors}}
-                <div class="error-messages">
-                  <ul class="no-bullet errors">
-                  {{#each errors as |item|}}
-                      <li>
-                        <h4>{{item.title}}</h4>
-                        {{item.detail}}
-                      </li>
-                  {{/each}}
-                  </ul>
-                </div>
-              {{/if}}
-              {{partial "partials/form-register"}}
-            </div>
-
+            {{/if}}
+            {{partial "partials/form-register"}}
           </div>
         </div>
-
-      {{else}}
-        <div class="row">
-          <div class="large-6 medium-8 small-centered columns">
-            <div class="dialog-wrapper">
-              <div class="dialog-header">
-                <a href="/" class="logo"><img src="https://storage.googleapis.com/brydge-assets/brydge-blue.svg"></a>
-              </div>
-              {{#if errors}}
-                <div class="error-messages">
-                  <ul class="no-bullet errors">
-                  {{#each errors as |item|}}
-                      <li>
-                        <h4>{{item.title}}</h4>
-                        {{item.detail}}
-                      </li>
-                  {{/each}}
-                  </ul>
-                </div>
-              {{/if}}
-              {{partial "partials/form-request-invite"}}
-            </div>
-
-          </div>
-        </div>
-      {{/if}}
-
-    </div>
-  </div>
-  <div class="columns large-4 medium-4 sidebar-content">
-    <div class="container">
-      {{partial 'partials/public-sidebar'}}
-    </div>
+      </div>
   </div>
 </div>
+<footer>
+  {{search-box}}
+</footer>

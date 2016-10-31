@@ -12,21 +12,34 @@ const Router = Ember.Router.extend(googlePageview, {
   session: Ember.inject.service(),
   location: config.locationType,
   _setHeader(){
-    // console.log(this.get('currentPath'))
-    switch(this.get('currentPath')){
-      case 'onboarding':
-        getOwner(this).lookup('controller:application').set('header', 'static');
-        break;
-      case 'unsubscribed':
-        getOwner(this).lookup('controller:application').set('header', null);
-        break;
-      default:
-        getOwner(this).lookup('controller:application').set('header', 'header' );
-        getOwner(this).lookup('controller:application').set('isAuth', this.get('session.data.authenticated.access_token') ? true : false);
-        break;
+    var isAuth = this.get('session.data.authenticated.access_token') ? true : false;
+    if(isAuth){
+      getOwner(this).lookup('controller:application').set('isAuth', isAuth);
+      switch (this.get('currentPath')) {
+        case 'onboarding':
+          getOwner(this).lookup('controller:application').set('header', 'static');
+          break;
+        case 'unsubscribed':
+          getOwner(this).lookup('controller:application').set('header', null);
+          break;
+        default:
+        getOwner(this).lookup('controller:application').set('header', 'header');
+      }
+    }else{
+      switch (this.get('currentPath')) {
+        case 'index':
+        case 'login':
+        case 'register':
+        case 'forgot-password':
+        case 'verify-email':
+        case 'unsubscribed':
+          getOwner(this).lookup('controller:application').set('header', null);
+          break;
+        default:
+          getOwner(this).lookup('controller:application').set('header', 'public');
+      }
     }
   },
-
   willTransition(transition) {
     //close all menus
     if($('.dropdown-pane').length) $('.dropdown-pane').foundation('close');
@@ -52,26 +65,22 @@ Router.map(function() {
     this.route('edit',{path:'/edit'});
     this.route('background',{path:'/background'});
     this.route('ask', {path: '/ask'}, function(){
-      this.route('other');
       this.route('inbox');
       this.route('detail',{path: '/:id'});
       this.route('outbox');
       this.route('hidden');
     });
-    this.route('compliments', {path: '/compliments'}, function(){
-      this.route('detail',{path: '/:id'});
-      this.route('inbox');
-      this.route('outbox');
-      this.route('hidden');
-    });
-    this.route('connections', {path: '/connections'});
+    // this.route('compliments', {path: '/compliments'}, function(){
+    //   this.route('detail',{path: '/:id'});
+    //   this.route('inbox');
+    //   this.route('outbox');
+    //   this.route('hidden');
+    // });
+    // this.route('connections', {path: '/connections'});
+    this.route('following', {path: '/following'});
+    this.route('followers', {path: '/followers'});
 
   });
-
-
-  // /teo-choong-pin
-  // this.route('public-profile', {path:'/:username'});
-  // this.route('public-profile-error');
 
   this.route('messages', function() {
     this.route('conversation', { path: ':id'});
@@ -79,35 +88,39 @@ Router.map(function() {
   });
 
   // User Pages
-  this.route('post', {path: '/:user_id/posts/:newsfeed_id'});
-  this.route('profile', {path: ':username'});
-  this.route('ask', {path: ':username/ask'});
-  this.route('ask.detail', {path: 'ask/:id'});
-  this.route('background', {path: ':username/background'});
-  this.route('connections', {path: ':username/connections'});
-  this.route('compliments', {path: ':username/compliments'}, function(){
-    this.route('posted')
-  });
-  this.route('compliments.detail',{path: 'compliments/:id'});
+  // this.route('connections', {path: ':username/connections'});
+  this.route('following', {path: ':username/following'});
+  this.route('followers', {path: ':username/followers'});
+  // this.route('compliments', {path: ':username/compliments'}, function(){
+  //   this.route('posted')
+  // });
+  // this.route('compliments.detail',{path: 'compliments/:id'});
 
   // Unauthenticated
-  this.route('public-profile', {path: 'public/:username'});
-  this.route("login");
-  this.route("register");
-  this.route("forgot-password");
+  this.route('post', {path: '/:username/posts/:id'});
+  this.route('profile', {path: ':username'});
+  this.route('ask', {path: ':username/ask'});
+  this.route('ask.detail', {path: '/ask/:id'});
+  this.route('background', {path: ':username/background'});
   this.route('home');
   this.route('search');
   this.route('user-guide');
   this.route('about');
   this.route('terms-of-use');
   this.route('privacy-policy');
-  this.route("thank-you");
   this.route('testing');
-  this.route("thank-you");
-  this.route("unsubscribed");
   this.route('phoenix-test')
   this.route('four-o-four', { path: '/*wildcard' });
   this.route('page-not-found', { path: '/*wildcard' });
+
+  // No header
+  this.route("login");
+  this.route("register");
+  this.route("verify-email");
+  this.route("forgot-password");
+  // this.route("thank-you");
+  this.route("unsubscribed");
+
 });
 
 export default Router;

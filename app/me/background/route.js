@@ -10,16 +10,16 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
 
     return Ember.RSVP.hash({
       profile: this.modelFor('me').profile,
-      invites: this.modelFor('me').invites,
-      // questions: this.modelFor('me').questions,
-      compliments: this.modelFor('me').compliments,
+      // invites: this.modelFor('me').invites,
+      questions: this.modelFor('me').questions,
+      // compliments: this.modelFor('me').compliments,
 
       // profile: this.store.findRecord('profile', userid),
       languages: this.store.findAll('language'),
       experiences: this.store.findAll('experience'),
       educations: this.store.findAll('education'),
-      questions: this.store.query('ask', {userid: userid}),
-      compliments: this.store.query('compliment', {to: userid, page:1, per_page: 1}),
+      // questions: this.store.query('ask', {userid: userid}),
+      // compliments: this.store.query('compliment', {to: userid, page:1, per_page: 1}),
     });
 
   },

@@ -20,9 +20,8 @@ export default Ember.Route.extend(
     var userid = this.get('session.data.authenticated.user_id');
 
 		return Ember.RSVP.hash({
-      // profile: this.store.findRecord('profile', userid, {reload: true}),
       profile: this.modelFor('me').profile,
-      categories: this.get('ajaxApi').request('/v2/industries'),
+      // categories: this.get('ajaxApi').request('/v2/industries'),
       languages: this.store.findAll('language'),
       experiences: this.store.findAll('experience'),
       educations: this.store.findAll('education')
@@ -51,13 +50,6 @@ export default Ember.Route.extend(
   },
 
 	actions: {
-    save(item, cb){
-      var profile = this.get('controller.profile');
-      if(profile.get('snapshot')) profile.set('snapshot', profile.get('snapshot').trim())
-      profile.save().then(()=>{
-        cb.apply()
-      });
-    },
 
     didTransition: function(){
       Ember.run.later(()=>{
@@ -176,7 +168,14 @@ export default Ember.Route.extend(
           }
       }
       this.get('controller.profile').setProperties(data)
-    }
+    },
+    save(item, cb){
+      var profile = this.get('controller.profile');
+      if(this.get('controller.keywords')) profile.set('snapshot', this.get('controller.keywords').join(','))
+      profile.save().then(()=>{
+        cb.apply()
+      });
+    },
 
 
   }

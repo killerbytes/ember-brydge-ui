@@ -3,38 +3,33 @@
   <div class="column medium-11 small-11">
     <div class="expanded button-group">
       {{#if isOwner}}
-        {{link-to "Broadcasts" "me" class=(active-tab '0' index "button")}}
-        {{link-to "Background" "me.background" class=(active-tab '1' index "button")}}
-        {{link-to "Ask" "me.ask" class=(active-tab '2' index "button")}}
-        {{link-to "Compliments" "me.compliments" class=(active-tab '3' index "button")}}
+        {{link-to "Broadcasts" "me.index" class="button"}}
+        {{link-to "Background" "me.background" class="button"}}
+        {{link-to "Ask" "me.ask" class="button"}}
       {{else}}
-        {{link-to "Broadcasts" "profile" profile.id class=(active-tab '0' index "button")}}
-        {{link-to "Background" "background" profile.id class=(active-tab '1' index "button")}}
-        {{link-to "Ask" "ask" profile.id class=(active-tab '2' index "button")}}
-        {{link-to "Compliments" "compliments" profile.id class=(active-tab '3' index "button")}}
+        {{link-to "Broadcasts" "profile" profile.uid class="button"}}
+        {{link-to "Background" "background" profile.uid class="button"}}
+        {{link-to "Ask" "ask" profile.uid class="button"}}
       {{/if}}
     </div>
   </div>
   <div class="column medium-1 small-1 wrapper">
-    <a class="button menu dropdown-button-arrow button-ellipsis" data-toggle="dd-public-options"></a>
+    <a class="button menu dropdown-button-arrow button-ellipsis" data-toggle="dd-public-options"><i></i></a>
   </div>
 </div>
 <div class="row columns wrapper">
   {{#zf-dropdown id="dd-public-options" class="dropdown-menu" closeOnClick=true}}
     <ul class="menu">
       {{#if isOwner}}
-        <li>{{#link-to "me.connections"}} Connections ({{ count }}) {{/link-to}}</li>
-        <li>{{link-to "Edit Profile" "me.edit"}}</li>
+        <li><a href="{{href-to 'me.following'}}">Following ({{followings}})</a></li>
+        <li><a href="{{href-to 'me.followers'}}">Followers ({{followers}})</a></li>
+        <li><a href="{{href-to 'me.edit'}}">Edit Profile</a></li>
         <li>
           <a data-open="dialog-share-profile">Share your profile</a>
         </li>
       {{else}}
-        <li>{{#link-to "connections" profile.id }} <span class="text-title">{{profile.firstName}}</span>'s connection ({{ count }}){{/link-to}}</li>
-          {{#if isConnected }}
-          <li>
-              <a class="warning" data-open={{concat 'dialog-box-' 'disconnect-' profile.id}}>Disconnect from <span class="text-title">{{profile.firstName}}</span></a>
-          </li>
-          {{/if}}
+        <li><a href="{{href-to 'following' profile.uid}}">Following ({{followings}})</a></li>
+        <li><a href="{{href-to 'followers' profile.uid}}">Followers ({{followers}})</a></li>
       {{/if}}
     </ul>
   {{/zf-dropdown}}

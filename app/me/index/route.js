@@ -17,7 +17,7 @@ export default Ember.Route.extend(
       profile: this.modelFor('me').profile,
       invites: this.modelFor('me').invites,
       // questions: this.modelFor('me').questions,
-      compliments: this.store.query('compliment', {to: userid, page:1, per_page: 1}),
+      // compliments: this.store.query('compliment', {to: userid, page:1, per_page: 1}),
       questions: this.store.query('ask', {userid: userid}),
 
       posts: this.brydgeScroller('newsfeed', {

@@ -14,20 +14,18 @@
       <section class="section-padding" style="padding-top:3rem;">
         <div class="row">
           <div class="columns medium-6 medium-centered">
+            {{invite-friend submit="submit"}}
             {{#each invites as |item|}}
               <form class="brydge-form">
                 <div class="row">
                   <div class="medium-9 columns">
-                    {{input value=item.email disabled=true}}
+                    <label for="middle-label" class="text-rightx middle">{{item.email}}</label>
                   </div>
                   <div class="medium-3 columns">
                     <span class="button clear text-gray">{{invite-status item.status}}</span>
                   </div>
                 </div>
               </form>
-            {{/each}}
-            {{#each remaining as |item|}}
-              {{invite-friend submit="submit"}}
             {{/each}}
           </div>
         </div>

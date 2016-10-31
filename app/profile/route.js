@@ -1,17 +1,13 @@
 import Ember from 'ember';
-import AuthenticatedRouteMixin from 'ember-simple-auth/mixins/authenticated-route-mixin';
 import BrydgeScroller from 'web/mixins/brydge-scroller';
 
 export default Ember.Route.extend(
-  AuthenticatedRouteMixin,
   BrydgeScroller, {
   session: Ember.inject.service(),
   ajax: Ember.inject.service(),
   utils: Ember.inject.service(),
   sessionAccount: Ember.inject.service(),
-  connection: Ember.inject.service(),
   notification: Ember.inject.service(),
-  compliment: Ember.inject.service(),
   paramsUserProfile: null,
   resetController(controller, isExiting, transition) {
       if (isExiting) {
@@ -22,9 +18,7 @@ export default Ember.Route.extend(
   },
   beforeModel: function(transition) {
     const loggedinUser = this.get('session.data.authenticated');
-    if(!loggedinUser.user_id) this.transitionTo('public-profile', transition.params['profile'].username);
-
-    return this.get('ajax').request('v2/profiles/'+transition.params['profile'].username,{
+    return this.get('ajax').request(`v2/profiles/${transition.params['profile'].username}`,{
       method: 'OPTIONS'
     }).then(res=>{
       if (loggedinUser.user_id === res.userid) {
@@ -42,11 +36,8 @@ export default Ember.Route.extend(
     var userid = this.get('userid');
     return Ember.RSVP.hash({
       profile: this.store.findRecord('profile', userid),
-      invites: this.store.findAll('friend-invitation'),
-      username:  params.username,
-      me: this.store.findRecord('profile', ownerid),
-      experiences: this.store.query('experience',{userid: userid}),
-      educations: this.store.query('education',{userid: userid}),
+      // username:  params.username,
+      // me: this.store.findRecord('profile', ownerid),
       questions: this.store.query('ask',{ userid: userid, per_page: 1, page:1 }),
       posts: this.brydgeScroller('newsfeed', {
         per_page: 15,
@@ -54,9 +45,7 @@ export default Ember.Route.extend(
 				filter: userid,
 				tab: 'profile',
 				modelPath: 'controller.model.posts'
-			}),
-
-      compliments: this.store.query('compliment',{to: userid, userid: userid})
+			})
     });
   },
   afterModel(model){

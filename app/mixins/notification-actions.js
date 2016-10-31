@@ -12,7 +12,6 @@ export default Ember.Mixin.create({
 		return {};
 	}),
 	views: Ember.computed.sort('notification.view', 'sort'),
-	// requests: Ember.computed.sort('notification.request', 'sort'),
 	requests: Ember.computed('notification.request.@each.status', function(i) {
     var userid = this.get('session.data.authenticated.user_id');
     return this.get('notification.request') && this.get('notification.request').filter(function(i){
@@ -68,6 +67,9 @@ export default Ember.Mixin.create({
 				case 'accept':
 					this.get('routing').transitionTo('profile', item.get('targetid'));
 					break;
+				case 'follow':
+					this.get('routing').transitionTo('profile', item.get('referenceid'));
+					break;
 			};
 
 			this._read(item);
@@ -78,26 +80,12 @@ export default Ember.Mixin.create({
 				this.get('requests').removeObject(item);
 				this.get('notification').check();
 			});
-			// this.get('store').findRecord('connection', item.get('referenceid')).then(res=>{
-			// 	res.set('status', 'accepted');
-			// 	res.save().then(()=>{
-			// 		this.get('requests').removeObject(item);
-			// 		this.get('notification').check();
-			// 	})
-			// })
 		},
-		//
 		rejectConnection: function(item) {
 			item.destroyRecord().then(()=>{
 				this.get('requests').removeObject(item);
 				this.get('notification').check();
 			});
-			// this.get('store').peekRecord('connection', item.get('referenceid')).then(connection=>{
-			// 	connection.destroyRecord().then(()=>{
-			// 		this.get('requests').removeObject(item);
-			// 		this.get('notification').check();
-			// 	});
-			// })
 		},
 
 	}

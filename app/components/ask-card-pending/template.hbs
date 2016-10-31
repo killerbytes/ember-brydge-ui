@@ -1,4 +1,4 @@
-<section>
+  <section>
   <div class="section-main">
     <div class="user mb">
       <div class="avatar" style={{htmlSafeImage item.from.profile.avatarUrl }}>
@@ -6,14 +6,14 @@
       </div>
       <div class="user-info">
         {{#if isOwner}}
-          <strong>Asked by</strong> {{link-to item.from.profile.fullName "profile" item.from.id class="name"}}
+          <strong>Asked by</strong> <a href="{{href-to 'profile' item.from.profile.uid}}" class="name">{{item.from.profile.fullName}}</a>
         {{else}}
-          <strong>You asked</strong> {{link-to item.to.profile.fullName "profile" item.to.id class="name"}}
+          <strong>You asked</strong> <a href="{{href-to 'profile' item.to.profile.uid}}" class="name">{{item.to.profile.fullName}}</a>
         {{/if}}
         <div>
-          {{#link-to "me.ask.detail" item.id class="timestamp"}}
+          <a href="{{href-to 'me.ask.detail' item.id}}" class="timestamp">
             {{timestamp item.answeredAt}}
-          {{/link-to}}
+          </a>
         </div>
       </div>
     </div>

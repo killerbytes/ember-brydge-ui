@@ -9,10 +9,10 @@ const {
 
 export default Ember.Route.extend(AuthenticatedRouteMixin, {
 	store: Ember.inject.service(),
-	model: function () {
-		this.store.unloadAll('conversation');
-		return this.store.findAll('conversation');
-	},
+	// model: function () {
+	// 	this.store.unloadAll('conversation');
+	// 	return this.store.findAll('conversation');
+	// },
 	_onResize(){
 		var height = Ember.$('.box').height();
     Ember.$('.conversation-list').height((height - Ember.$('.conversation-list').siblings('.pane-header').outerHeight()) + 'px');

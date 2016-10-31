@@ -1,4 +1,5 @@
 import Ember from 'ember';
+import _ from 'lodash/lodash';
 
 import ApplicationRouteMixin from 'ember-simple-auth/mixins/application-route-mixin';
 import ENV from '../config/environment';
@@ -9,6 +10,7 @@ export default TransitionToListenerRoute.extend(
   ApplicationRouteMixin, {
   notification: Ember.inject.service(),
   session: Ember.inject.service(),
+  router: Ember.inject.service(),
   tmp: Ember.inject.service('temp'),
   browserCheck: function(){
     if(this.get('detector.isMobile')){
@@ -16,50 +18,37 @@ export default TransitionToListenerRoute.extend(
         Ember.$('#mobileBrowser').foundation('open');
       })
     }
+    window.NO_EMBER_DEBUG = ENV['no-debug'];
   }.on('activate'),
-  model(){
-
-    var userid = this.get('session.data.authenticated.user_id');
-    if(!userid) return;
-    return  this.store.findRecord('profile', userid);
-  },
-  afterModel(model, transition){
-    if(model && model.get('configSetting.newProfile')) this.transitionTo('onboarding');
-  },
   setupController(controller, model){
     this._super(...arguments);
     this.get('notification').checkPush();
     controller.set('detector', this.get('detector'));
-    // console.log(this.get('session.data.authenticated.user_id'))
   },
-  _setMetaTags(){
-    var headTags = [{
-      type: 'meta',
-      tagId: 'meta-og-title',
-      attrs: {
-        property: 'og:title',
-        content: `Brydge`
-      }
-    },{
-      type: 'meta',
-      tagId: 'meta-og-description',
-      attrs: {
-        property: 'og:description',
-        content: `A brand new Professional Network`
-      }
-    },{
-      type: 'meta',
-      tagId: 'meta-og-image',
-      attrs: {
-        property: 'og:image',
-        content: 'https://storage.googleapis.com/brydge-assets/meta-image.jpg'
-      }
-    }]
-    this.set('headTags', headTags)
+  _transitionTo(){
+    var route = this.get('router.currentPath');
+    var params = this.get('router.router.state.params')[route];
+    switch(route){
+      case 'post':
+        this.transitionTo(route, params.username, params.id);
+        break;
+      default:
+        var arrParams = [];
+        for(var key in params){
+          arrParams.push(params[key])
+        }
+        if(arrParams.length){
+          this.transitionTo(route, arrParams.join());
+        }else{
+          this.transitionTo(route);
+        }
+        break;
+    }
   },
+
   actions: {
     error(error, transition) {
-      console.error(error);
+      console.error(error, transition);
       if(!error.errors) return false;
       switch(error.errors[0].code){
         case 404:
@@ -88,13 +77,17 @@ export default TransitionToListenerRoute.extend(
         this.get('session').invalidate();
       });
     },
+    login(email, password){
+      this.get('session').authenticate('authenticator:oauth2', email, password)
+        .then(user => {
+          this._transitionTo();
+        });
+    },
     willTransition(){
-
       $('.reveal-overlay').each(function(){ //reset foundation reveal overlay
         $(this).hide();
       });
       $('body').removeClass('is-reveal-open');
-
       window.scroll(0,0);
     }
   }

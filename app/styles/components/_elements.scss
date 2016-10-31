@@ -181,6 +181,9 @@ table{
 
 
 .search-box{
+	h1{
+		margin-bottom: 3rem;
+	}
 	.fa-search{
 		position: absolute;
 		right: 1rem;
@@ -219,12 +222,14 @@ table{
 	}
 	ul{
 		@extend .shadowed;
+		text-align: left;
 	}
 	li{
 		border: 1px solid $border-color;
 		color: $body-text-color;
 		border-bottom: none;
 		a{
+			color: $button-blue;
 			padding: 5px 1rem;
 			display: block;
 		}
@@ -317,7 +322,7 @@ table{
 }
 .work-history-group {
 	a.more{
-		color: $brydge-green;
+		color: $text-gray;
 	}
 }
 
@@ -389,13 +394,24 @@ footer{
 }
 
 .label-item{
-	@extend .shadowed;
-	border: 1px solid $border-color;
-	padding: .5rem;
+	border-radius: 100px;
+	line-height: inherit;
+	background-color: $body-bg-color;
+	border: 1px solid $brydge-blue;
+	font-size: .9rem;
+	margin-right: .2rem;
+	margin-bottom: .3rem;
+	padding: .2rem 1rem .3rem;
+	color: $button-blue;
+	font-weight: bold;
+	.fa{
+		cursor: pointer;
+		margin-left: .5rem;
+	}
 }
 .label-item:not(:last-of-type){
-	margin-right: 2px;
-	margin-bottom: 2px;
+	// margin-right: 2px;
+	// margin-bottom: 2px;
 }
 
 section.message-content{
@@ -457,7 +473,7 @@ footer{
 	text-align: center;
 	font-weight: bold;
 	a{ color: $text-gray; }
-	ul{
+	ul.menu-links{
 		display: block;
 		text-align: center;
 		li{
@@ -543,18 +559,6 @@ span.middle{
 	}
 }
 
-.brydge-dialog{
-	.title{
-		background-color: $brydge-blue;
-		text-align: center;
-		.logo img{
-			width: 120px;
-		}
-	}
-	p{
-		font-size: 14px;
-	}
-}
 
 .row-aligned-columns{
 	display: flex !important;
@@ -563,12 +567,12 @@ span.middle{
 	}
 }
 
-// .connection-box{
-// 	min-height: 110px;
-// 	.user-info{
-// 		min-height: 54px;
-// 	}
-// }
+.follow-item{
+	>.row{
+		display: flex;
+		align-items: center;
+	}
+}
 
 .unsubscribe-menu{
 	a{
