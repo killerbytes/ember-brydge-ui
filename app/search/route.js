@@ -14,8 +14,8 @@ export default Ember.Route.extend(BrydgeScroller, {
       }
   },
   model(params){
+    if(!params.name && !params.keyword && !params.city) return false;
     return Ember.RSVP.hash({
-
       search: this.brydgeScroller('search',{
         scroller: 'search',
         q: params.name,
@@ -28,9 +28,10 @@ export default Ember.Route.extend(BrydgeScroller, {
   },
 	actions: {
 		didTransition(){
-      this.set('controller.form.name', this.get('controller.name'));
+      this.set('controller.form.name', this.get('controller.name') || undefined);
       this.set('controller.form.keyword', this.get('controller.keyword'));
       this.set('controller.form.city', this.get('controller.city'));
+      console.log(this)
       // this.controller._buildQuery()
       // console.log('didTransition')
       // this.refresh();

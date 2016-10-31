@@ -181,6 +181,9 @@ table{
 
 
 .search-box{
+	h1{
+		margin-bottom: 4rem;
+	}
 	.fa-search{
 		position: absolute;
 		right: 1rem;
@@ -556,15 +559,6 @@ span.middle{
 	}
 }
 
-.brydge-dialog{
-	.title{
-		background-color: $brydge-blue;
-		text-align: center;
-		.logo img{
-			width: 120px;
-		}
-	}
-}
 
 .row-aligned-columns{
 	display: flex !important;

@@ -3,6 +3,9 @@ header.header-blue{
 	width: 100%;
 	position: fixed;
 	z-index: 100;
+	.button{
+		font-weight: bold;
+	}
 	.title-bar{
 		background-color: $brydge-blue;
 		color: #FFF;
@@ -53,6 +56,7 @@ header.header-blue{
 		color: #FFF;
 		text-transform: uppercase;
 		margin-right: 2rem !important;
+		font-weight: bold;
 	}
 	.menu-actions{
 		li,span{

@@ -2,28 +2,34 @@
 
 <div class="main-content">
     <div class="container">
-      <div class="row">
+          <div class="row">
         <div class="large-8 medium-8 small-centered columns">
-          {{#if errors}}
-            <div class="error-messages">
-              <ul class="no-bullet errors">
-              {{#each errors as |item|}}
-                  <li>
-                    <h4>{{item.title}}</h4>
-                    {{item.detail}}
-                  </li>
-              {{/each}}
-              </ul>
-            </div>
-          {{else}}
-            <h2 class="text-center">
-              {{#if isVerified}}
-              Email is now verified.
+          <div class="box">
+            <section>
+
+              {{#if errors}}
+                <div class="error-messages">
+                  <ul class="no-bullet errors">
+                  {{#each errors as |item|}}
+                      <li>
+                        <h4>{{item.title}}</h4>
+                        {{item.detail}}
+                      </li>
+                  {{/each}}
+                  </ul>
+                </div>
               {{else}}
-              Thanks for signing up. Now we just need to confirm your email. Check you inbox and follow the link to your profile!
+                <h2 class="strong text-center">
+                  {{#if isVerified}}
+                  Email is now verified. Proceed to <a href="{{href-to 'home'}}">Log In</a>.
+                  {{else}}
+                  Thanks for signing up. Now we just need to confirm your email. Check you inbox and follow the link to your profile!
+                  {{/if}}
+                </h2>
               {{/if}}
-            </h2>
-          {{/if}}
+            </section>
+          </div>
+
         </div>
       </div>
     </div>
