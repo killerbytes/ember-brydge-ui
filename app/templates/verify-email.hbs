@@ -4,9 +4,26 @@
     <div class="container">
       <div class="row">
         <div class="large-8 medium-8 small-centered columns">
+          {{#if errors}}
+            <div class="error-messages">
+              <ul class="no-bullet errors">
+              {{#each errors as |item|}}
+                  <li>
+                    <h4>{{item.title}}</h4>
+                    {{item.detail}}
+                  </li>
+              {{/each}}
+              </ul>
+            </div>
+          {{else}}
             <h2 class="text-center">
+              {{#if isVerified}}
+              Email is now verified.
+              {{else}}
               Thanks for signing up. Now we just need to confirm your email. Check you inbox and follow the link to your profile!
+              {{/if}}
             </h2>
+          {{/if}}
         </div>
       </div>
     </div>

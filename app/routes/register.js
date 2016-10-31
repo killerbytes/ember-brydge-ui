@@ -16,9 +16,6 @@ export default Ember.Route.extend(RouterClassNamesMixins, {
 		return this.get('ajax').request(url).catch(err=>{
 			this.set('errors', err.errors);
 		});
-		// return this.store.findRecord('invitation', params.code).catch(err=>{
-		// 	this.set('errors', err.errors);
-		// });
 	},
 	setupController(controller, model){
 		this._super(...arguments);
