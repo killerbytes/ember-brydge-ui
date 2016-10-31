@@ -14,7 +14,8 @@ export default Ember.Route.extend(BrydgeScroller, {
       }
   },
   model(params){
-    if(!params.name && !params.keyword && !params.city) return false;
+    // if(!params.name && !params.keyword && !params.city) return false;
+    // return this._super(...arguments);
     return Ember.RSVP.hash({
       search: this.brydgeScroller('search',{
         scroller: 'search',
