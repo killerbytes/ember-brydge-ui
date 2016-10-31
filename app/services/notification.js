@@ -56,6 +56,7 @@ export default Ember.Service.extend({
     //   if(group === 'view') this.set('view', res);
     //   if(group != 'request') this.set('count.'+group, 0);
     //   if(group != 'request') this.releaseCount(group);
+    this.set('isLoading', true);
     var promises = [];
     promises.push(this.get('store').query('notification', {group: 'view', limit: 5}));
     promises.push(this.get('store').query('notification', {group: 'notification', limit: 5}));
@@ -65,6 +66,7 @@ export default Ember.Service.extend({
       this.set('view', view);
       this.set('notification', notification);
       this.set('message', message);
+      this.set('isLoading', false);
     })
 
     if(cb) cb.call();

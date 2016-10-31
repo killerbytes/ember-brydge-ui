@@ -126,7 +126,7 @@
           {{else}}
             <li>
               <div class="empty-message">
-                {{#if loading}}
+                {{#if notification.isLoading}}
                   <div class="brydge-loading"></div>
                 {{else}}
                   You have no profile views
@@ -177,7 +177,7 @@
   		  {{else}}
   			  <li>
             <div class="empty-message">
-              {{#if isLoading}}
+              {{#if notification.isLoading}}
                 <div class="brydge-loading"></div>
               {{else}}
                 No new notifications
@@ -221,7 +221,7 @@
   			{{else}}
   			<li>
           <div class="empty-message">
-            {{#if loading.message}}
+            {{#if notification.isLoading}}
               <div class="brydge-loading"></div>
             {{else}}
               You have no recent messages

@@ -6,7 +6,13 @@ export default Ember.Controller.extend({
   queryParams: ['name', 'keyword', 'city'],
   search: Ember.inject.service(),
   ajax: Ember.inject.service(),
-  form: {},
+  form: Ember.computed(function(){
+		return this.get('store').createRecord('search', {
+			name: this.get('name'),
+      keyword: this.get('keyword'),
+      city: this.get('city')
+		});
+	}),
   search: Ember.computed.alias('model.search'),
   isEmptyName: Ember.computed.empty('form.name'),
   isEmptyKeyword: Ember.computed.empty('form.keyword'),
