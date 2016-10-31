@@ -32,7 +32,6 @@ export default Ember.Route.extend(BrydgeScroller, {
       this.set('controller.form.name', this.get('controller.name') || undefined);
       this.set('controller.form.keyword', this.get('controller.keyword'));
       this.set('controller.form.city', this.get('controller.city'));
-      console.log(this)
       // this.controller._buildQuery()
       // console.log('didTransition')
       // this.refresh();
@@ -41,7 +40,6 @@ export default Ember.Route.extend(BrydgeScroller, {
       this.set('controller.name', this.get('controller.form.name'));
       this.set('controller.keyword', this.get('controller.form.keyword'));
       this.set('controller.city', this.get('controller.form.city'));
-      // console.log(this.get('controller.model').reload())
       this.refresh();
     }
 
