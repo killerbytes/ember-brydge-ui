@@ -30,6 +30,8 @@ export default Ember.Component.extend({
 			delay(()=>{
 				this.get('search').query({
 					q: q,
+					// page: 1,
+					per_page: 5,
 					type: 'profile'
 				})
 			}, 500)
