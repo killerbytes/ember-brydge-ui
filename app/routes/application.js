@@ -77,10 +77,13 @@ export default TransitionToListenerRoute.extend(
         this.get('session').invalidate();
       });
     },
-    login(email, password){
+    login(email, password, cb){
       this.get('session').authenticate('authenticator:oauth2', email, password)
         .then(user => {
           this._transitionTo();
+        }).catch((err)=>{
+          if(cb) cb.apply(this, [err])
+          // this.set('errors', err.errors);
         });
     },
     willTransition(){

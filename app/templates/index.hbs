@@ -4,19 +4,21 @@
     <div class="row">
       <div class="large-6 medium-8 small-centered columns">
         <div class="brydge-dialog dialog-wrapper">
-          {{#if errors}}
-            <div class="error-messages">
-              <ul class="no-bullet errors">
-              {{#each errors as |item|}}
-                  <li>
-                    <h4>{{item.title}}</h4>
-                    {{item.detail}}
-                  </li>
-              {{/each}}
-              </ul>
-            </div>
-          {{/if}}
-          {{partial "partials/form-login"}}
+          <div class="micro-forms brydge-form">
+            {{#if errors}}
+              <div class="error-messages mb20">
+                <ul class="no-bullet errors">
+                {{#each errors as |item|}}
+                    <li>
+                      <h4>{{item.title}}</h4>
+                      {{item.detail}}
+                    </li>
+                {{/each}}
+                </ul>
+              </div>
+            {{/if}}
+            {{partial "partials/form-login"}}
+          </div>
           {{!--
           <a data-open="video-teaser" class="wrapper button-overlay">
             <img src="https://storage.googleapis.com/brydge-assets/temp/video_image.jpg" alt="" class="overlay-preview">

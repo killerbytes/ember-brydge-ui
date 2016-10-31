@@ -4,8 +4,9 @@
       <div class="row">
         <div class="large-6 medium-8 small-centered columns">
           <div class="brydge-dialog dialog-wrapper">
-            {{#if errors}}
-              <div class="error-messages">
+            <div class="brydge-form micro-forms">
+              {{#if errors}}
+              <div class="error-messages mb20">
                 <ul class="no-bullet errors">
                 {{#each errors as |item|}}
                     <li>
@@ -16,7 +17,8 @@
                 </ul>
               </div>
             {{/if}}
-            {{partial "partials/form-register"}}
+              {{partial "partials/form-register"}}
+            </div>
           </div>
         </div>
       </div>

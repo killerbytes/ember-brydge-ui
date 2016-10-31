@@ -7,8 +7,9 @@
   </section>
   <section>
     <div class="brydge-dialog dialog-wrapper">
-      {{#if errors}}
-        <div class="error-messages">
+      <div class="micro-forms brydge-form row">
+        {{#if errors}}
+        <div class="error-messages mb20">
           <ul class="no-bullet errors">
           {{#each errors as |item|}}
               <li>
@@ -19,8 +20,8 @@
           </ul>
         </div>
       {{/if}}
-      {{partial "partials/form-login"}}
-
+        {{partial "partials/form-login"}}
+      </div>
     </div>
 
   </section>

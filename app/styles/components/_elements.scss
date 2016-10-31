@@ -455,7 +455,6 @@ div.error-messages{
 	border: 1px solid $border-color;
 	background-color: $brydge-gray;
 	padding: 1rem;
-	margin-bottom: 1rem;
 	h4{
 		margin-bottom: 5px;
 		text-transform: none;
@@ -490,7 +489,7 @@ footer{
 	@extend .rounded;
 	background-color: #FFF;
 	.error-messages{
-		margin: 0 2rem 1rem;
+		// margin: 0 2rem 1rem;
 	}
 }
 .page-dialog:last-child{
