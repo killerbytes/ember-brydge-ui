@@ -16,7 +16,7 @@ export default Ember.Route.extend(
   BrydgeScroller,
   ScrollResetMixin,
   AuthenticatedRouteMixin,
-  // FilterDropdownListMixin, 
+  // FilterDropdownListMixin,
   {
   session: Ember.inject.service(),
   ajax: Ember.inject.service(),
@@ -25,6 +25,20 @@ export default Ember.Route.extend(
   geoChannels: '',
   isCurated: null,
   isLive: null,
+  queryParams: {
+    tab: {
+      refreshModel: true
+    },
+    q: {
+      refreshModel: true
+    },
+    channels: {
+      refreshModel: true
+    },
+    location: {
+      refreshModel: true
+    }
+  },
   resetController(controller, isExiting, transition) {
       if (isExiting) {
         controller.setProperties({
@@ -43,7 +57,7 @@ export default Ember.Route.extend(
     let ownerid = this.get('session.data.authenticated.user_id');
     return Ember.RSVP.hash({
       profile: this.store.findRecord('profile', ownerid),
-      invites: this.store.findAll('friend-invitation'),
+      // invites: this.store.findAll('friend-invitation'),
       // industries: this.get('ajaxApi').request('/v2/industries'),
       favorites: this.store.findAll('favoriteindustry')
     });
@@ -102,7 +116,7 @@ export default Ember.Route.extend(
       }else{
         this.controller.set('channels', id)
       }
-      this.loadNewsfeed();
+      //this.loadNewsfeed();
     },
     setLocation(location){
       if(location == "All Cities"){
@@ -110,12 +124,12 @@ export default Ember.Route.extend(
       }else{
         this.controller.set('location', location.place_id);
       }
-      this.loadNewsfeed();
+      //this.loadNewsfeed();
     },
     search: function () {
       this.controller.set('tab', 'search');
       this.controller.set('q', this.controller.get('searchContent'))
-      this.loadNewsfeed();
+      //this.loadNewsfeed();
     },
     onLocationSelect: function (item, cb) {
       this.set('controller.selectedCity', item);
