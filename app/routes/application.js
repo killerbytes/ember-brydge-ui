@@ -15,7 +15,8 @@ export default TransitionToListenerRoute.extend(
   browserCheck: function(){
     if(this.get('detector.isMobile')){
       Ember.run.later(this, ()=>{
-        Ember.$('#mobileBrowser').foundation('open');
+        Ember.$('body').addClass('is-mobile');
+        // Ember.$('#mobileBrowser').foundation('open');
       })
     }
     window.NO_EMBER_DEBUG = ENV['no-debug'];

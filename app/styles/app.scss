@@ -50,6 +50,7 @@ $text-orange: #FF5333;
 @import "media";
 @import "header";
 @import "pages";
+@import "mobile";
 
 
 
@@ -221,6 +222,11 @@ p.wrap{
 .mb30{ margin-bottom: 30px !important;}
 .mb40{ margin-bottom: 40px !important;}
 .mb50{ margin-bottom: 50px !important;}
+.spacer-1{ padding-top: 1rem; }
+.spacer-2{ padding-top: 2rem; }
+.spacer-3{ padding-top: 3rem; }
+.spacer-4{ padding-top: 4rem; }
+.spacer-5{ padding-top: 5rem; }
 
 .timestamp, .tags{
 	color: $text-gray;
