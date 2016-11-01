@@ -102,7 +102,7 @@
       {{#if isOwner }}
         <a href="{{href-to 'me.ask'}}" class="button expanded">Go to Ask</a>
       {{else}}
-        <a href="{{href-to 'profile' profile.uid}}" class="button expanded">
+        <a href="{{href-to 'ask' profile.uid}}" class="button expanded">
           Ask <span class="text-title">{{profile.firstName}}</span>
         </a>
       {{/if}}
@@ -125,7 +125,7 @@
       {{#if isOwner }}
         <a href="{{href-to 'me.ask'}}" class="button expanded">Go to Ask</a>
       {{else}}
-        <a href="{{href-to 'profile' profile.uid}}" class="button expanded">
+        <a href="{{href-to 'ask' profile.uid}}" class="button expanded">
           Ask <span class="text-title">{{profile.firstName}}</span>
         </a>
       {{/if}}

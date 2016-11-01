@@ -25,7 +25,7 @@ export default Ember.Helper.helper(function([item]){
 			text = "followed you";
 			break;
 		case 'inbox':
-			text = "Ask Inbox";
+			text = "is the community manager at Brydge. He has a few questions for you. Want to answer and add them to your profile?";
 			break;
 		case 'share':
 			text = "shared " + '<strong>' + getContent(item.get('content')) + '</strong>';;
