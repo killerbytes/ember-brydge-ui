@@ -24,6 +24,9 @@ export default Ember.Helper.helper(function([item]){
 		case 'follow':
 			text = "followed you";
 			break;
+		case 'inbox':
+			text = "Ask Inbox";
+			break;
 		case 'share':
 			text = "shared " + '<strong>' + getContent(item.get('content')) + '</strong>';;
 			break;

@@ -70,6 +70,9 @@ export default Ember.Mixin.create({
 				case 'follow':
 					this.get('routing').transitionTo('profile', item.get('referenceid'));
 					break;
+				case 'inbox':
+					this.get('routing').transitionTo('me.ask.inbox');
+					break;
 			};
 
 			this._read(item);
