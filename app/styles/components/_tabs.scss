@@ -116,7 +116,6 @@
 		border-bottom: 1px solid $border-color;
 	}
 	.tabs.vertical{
-		border-right: 0;
 		.tabs-title{
 			text-align: left;
 		}
@@ -129,26 +128,23 @@
 		}
 	}
 	.tabs-panel{
-		section{
-			padding: 1rem 6rem;
-		}
-		section.header, section.personal-info{
-			background-color: $brydge-gray;
-			padding: 3rem 6rem;
-			color: $text-gray;
-			p:last-of-type{
-				margin-bottom: 2rem;
-			}
-		}
-		section.header:last-child{
-			min-height: 302px;
-		}
-		section.industry-examples{
-			padding: 2rem 1rem;
-		}
-		section.personal-info{
-			padding-left: 1rem;
-			padding-right: 1rem;
+		// section{
+		// 	padding: 1rem 6rem;
+		// }
+		// section.industry-examples{
+		// 	padding: 2rem 1rem;
+		// }
+		// section.personal-info{
+		// 	padding-left: 1rem;
+		// 	padding-right: 1rem;
+		// }
+	}
+	.tabs-panel.header, section.personal-info{
+		background-color: $brydge-gray;
+		color: $text-gray;
+		min-height: 302px;
+		p:last-of-type{
+			margin-bottom: 0;
 		}
 	}
 	.bg-gray{
@@ -169,7 +165,7 @@
 	.badge-large{
 		top: -3px;
 		right: -4px;
-				
+
 	}
 	.icons{
 		margin: auto;

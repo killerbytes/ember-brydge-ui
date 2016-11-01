@@ -23,6 +23,7 @@ $text-orange: #FF5333;
 @import "settings";
 @import "foundation";
 @include foundation-everything;
+// @include foundation-everything(true);
 
 @import "overrides";
 
@@ -50,8 +51,8 @@ $text-orange: #FF5333;
 @import "media";
 @import "header";
 @import "pages";
+@import "desktop";
 @import "mobile";
-
 
 
 
@@ -64,8 +65,7 @@ body{
 
 }
 .main{
-	padding-top: 65px;
-	height: 100vh;
+	padding-top: 1rem;
 }
 
 h1, h2, h3, h4, h5, h6 {

@@ -1,60 +1,58 @@
 <header class="header-blue">
-  <div class="title-bar">
-    <div class="row collapse">
-      <div class="title-bar-left">
-        <ul class="dropdown menu" data-dropdown-menu>
-          <li>
-            <a href="{{href-to 'home'}}">
-              <img src="https://storage.googleapis.com/brydge-assets/logo.svg" class="logo">
-              <span>Beta</span>
-            </a>
-          </li>
-          <li>
-						{{top-bar-search}}
-          </li>
-        </ul>
+  <div class="top-bar">
+    <div class="row columns">
+      <div class="top-bar-title">
+        <a href="{{href-to 'home'}}">
+          <img src="https://storage.googleapis.com/brydge-assets/logo.svg" class="logo">
+          <span>Beta</span>
+        </a>
       </div>
-      <div class="title-bar-right">
-				<ul class="top-bar-group menu menu-actions wrapper" {{ action "closeTooltip" preventDefault=false }}>
-					<li>
-						{{#zf-tooltip title="Notifications" vOffset=7}}
-							<a data-toggle="dd-notification" class="dropdown-button-arrow dropdown-button-icons">
-									<i class="icons stack"></i>
-                  {{#if notification.totalCount}}
-                    <span class="alert badge badge-large">{{notification.totalCount}}</span>
-                  {{/if}}
-							</a>
-						{{/zf-tooltip}}
-					</li>
-          <li>
-            <span>
-              <a href="{{href-to 'home'}}" class="home-icon">
-                <i class="fa fa-home" aria-hidden="true"></i>
-              </a>
-            </span>
-					</li>
-					<li class="user-info user-small user-session no-bullet">
-            <span>
-              <a href="{{href-to 'profile' sessionAccount.account.profile.uid }}">
-								<div class="avatar" style={{htmlSafeImage sessionAccount.account.profile.avatarUrl}}>
-									<img src= {{sessionAccount.account.profile.avatarUrl}} class="hide">
-								</div>
-              </a>
-            </span>
-					</li>
-					<li>
-						<ul class="menu">
-							<li>
-								{{#zf-tooltip title="Menu" vOffset=7}}
-									<a data-toggle="dd-menu" class="dropdown-button-arrow">
-										<i class="icons caret"></i>
-									</a>
-								{{/zf-tooltip}}
-							</li>
-						</ul>
+      <div id="responsive-menu">
+        <div class="title-bar-left">
+          {{top-bar-search}}
+        </div>
+        <div class="title-bar-right">
+  				<ul class="top-bar-group menu menu-actions wrapper" {{ action "closeTooltip" preventDefault=false }}>
+  					<li>
+  						{{#zf-tooltip title="Notifications" vOffset=7}}
+  							<a data-toggle="dd-notification" class="dropdown-button-arrow dropdown-button-icons">
+  									<i class="icons stack"></i>
+                    {{#if notification.totalCount}}
+                      <span class="alert badge badge-large">{{notification.totalCount}}</span>
+                    {{/if}}
+  							</a>
+  						{{/zf-tooltip}}
+  					</li>
+            <li>
+              <span>
+                <a href="{{href-to 'home'}}" class="home-icon">
+                  <i class="fa fa-home" aria-hidden="true"></i>
+                </a>
+              </span>
+  					</li>
+  					<li class="user-info user-small user-session no-bullet">
+              <span>
+                <a href="{{href-to 'profile' sessionAccount.account.profile.uid }}">
+  								<div class="avatar" style={{htmlSafeImage sessionAccount.account.profile.avatarUrl}}>
+  									<img src= {{sessionAccount.account.profile.avatarUrl}} class="hide">
+  								</div>
+                </a>
+              </span>
+  					</li>
+  					<li>
+  						<ul class="menu">
+  							<li>
+  								{{#zf-tooltip title="Menu" vOffset=7}}
+  									<a data-toggle="dd-menu" class="dropdown-button-arrow">
+  										<i class="icons caret"></i>
+  									</a>
+  								{{/zf-tooltip}}
+  							</li>
+  						</ul>
 
-					</li>
-				</ul>
+  					</li>
+  				</ul>
+        </div>
       </div>
     </div>
   </div>
