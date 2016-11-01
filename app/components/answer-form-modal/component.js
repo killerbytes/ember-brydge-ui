@@ -9,6 +9,7 @@ export default Ember.Component.extend(Validations, {
 	sessionAccount: Ember.inject.service(),
 	willDestroyElement(){
 		$(`#answer-form-${this.get('item.id')}`).parent().remove();
+		$('body').removeClass('is-reveal-open');
 	},
 	actions: {
 		submit(){
