@@ -16,6 +16,7 @@ export default DS.Model.extend({
   sharedid: DS.attr(),
   siteName: DS.attr(),
   userid: DS.attr(),
+  categories: DS.attr(),
   score: DS.attr('number'),
   insertedAt: DS.attr('date'),
   updatedAt: DS.attr('date'),
