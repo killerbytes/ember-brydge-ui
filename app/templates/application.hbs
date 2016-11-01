@@ -35,6 +35,8 @@
   </section>
 
 {{/zf-reveal}}
+--}}
+
 {{#zf-reveal id="mobileBrowser" overlay=true class="small box brydge-dialog" closeOnEsc=false closeOnClick=false}}
   <button class="close-button" aria-label="Dismiss alert" type="button" data-close>
     <span aria-hidden="true">&times;</span>
@@ -52,7 +54,6 @@
     </div>
   </section>
 {{/zf-reveal}}
---}}
 
 {{#unless session.isAuthenticated}}
   {{login-dialog onAuthenticate="login"}}
