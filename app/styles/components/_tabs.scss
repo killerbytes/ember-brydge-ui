@@ -152,7 +152,8 @@
 	}
 }
 
-#notification-tab{
+#notification-tab,
+#notice-tab{
 	border: none;
 	border-bottom: 1px solid $border-color;
 	li:before, li:after{
@@ -162,23 +163,23 @@
 		padding: 1rem;
 
 	}
-	.badge-large{
-		top: -3px;
-		right: -4px;
-
-	}
 	.icons{
 		margin: auto;
 	}
-	.is-active{
-		.bino{
-			@extend .icons.bino.white;
-		}
-		.stack{
-			@extend .icons.stack.white;
-		}
-		.messages{
-			@extend .icons.messages.white;
+	.tabs-title{
+		border-left: none;
+		border-bottom: 3px solid transparent;
+	}
+	.tabs-title.is-active{
+		background-color: inherit;
+		color: inherit;
+		border-bottom: 3px solid $brydge-blue;
+		.icons{
+
 		}
 	}
+
+}
+#notice-tab{
+	margin-top: -1rem;
 }

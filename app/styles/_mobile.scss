@@ -18,8 +18,13 @@
     line-height: 2rem;
     color: $body-text-color;
   }
+  .button-group{
+    margin-bottom: 0;
+  }
   .button{
     @extend .hollow;
+    border-radius: 0;
+    border-color: transparent;
     margin-bottom: 0;
     &.active{
       background-color: $button-blue;

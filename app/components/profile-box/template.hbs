@@ -68,23 +68,23 @@
 
     {{#unless isOwner }}
       {{#if canMessage}}
-        <div>
-          {{#zf-tooltip title="Send Message" positionClass="right"}}
-            <a href="{{href-to 'messages.conversation' conversationid }}" class="inline-block">
+          {{#zf-tooltip title="Send Message" positionClass="right" class="mb"}}
+            <a href="{{href-to 'messages.conversation' conversationid }}">
               <i class="icons messages"></i>
             </a>
           {{/zf-tooltip}}
-        </div>
       {{/if}}
 
-      {{#if isFollowing}}
-        <button class="button large bordered follow-button"{{action "unfollow"}}>
-          <span class="following-text">Following</span>
-          <span class="unfollow-text">Unfollow</span>
-        </button>
-      {{else}}
-        <button class="button large bordered green"{{action "follow"}}>Follow</button>
-      {{/if}}
+      <div>
+        {{#if isFollowing}}
+          <button class="button large bordered follow-button"{{action "unfollow"}}>
+            <span class="following-text">Following</span>
+            <span class="unfollow-text">Unfollow</span>
+          </button>
+        {{else}}
+          <button class="button large bordered green"{{action "follow"}}>Follow</button>
+        {{/if}}
+      </div>
     {{/unless}}
   </section>
 

@@ -12,14 +12,15 @@
           {{top-bar-search}}
         </div>
         <div class="title-bar-right">
-  				<ul class="top-bar-group menu menu-actions wrapper" {{ action "closeTooltip" preventDefault=false }}>
+  				<ul class="top-bar-group menu menu-actions wrapper notification-bubble" {{ action "closeTooltip" preventDefault=false }}>
   					<li>
   						{{#zf-tooltip title="Notifications" vOffset=7}}
   							<a data-toggle="dd-notification" class="dropdown-button-arrow dropdown-button-icons">
-  									<i class="icons stack"></i>
-                    {{#if notification.totalCount}}
-                      <span class="alert badge badge-large">{{notification.totalCount}}</span>
-                    {{/if}}
+  									<i class="icons stack">
+                      {{#if notification.totalCount}}
+                        <span class="alert badge badge-large">{{notification.totalCount}}</span>
+                      {{/if}}
+  									</i>
   							</a>
   						{{/zf-tooltip}}
   					</li>
@@ -59,34 +60,37 @@
   <div class="row columns wrapper">
 
 	{{#zf-dropdown id="dd-notification" class="dropdown-notification" closeOnClick=true}}
-    {{#zf-tabs id="notification-tab" class="tab-controls brydge-tab-blue tabs"}}
+    {{#zf-tabs id="notification-tab" class="tab-controls brydge-tab-blue tabs notification-bubble"}}
       <li class="tabs-title is-active">
         <a href="#notification-tab-panel1" data-id="view" aria-selected="true" class="wrapper">
           {{#zf-tooltip title="Profile Views" vOffset=7}}
-            <i class="icons bino"></i>
-            {{#if notification.count.view}}
-  						<span class="alert badge badge-large">{{notification.count.view}}</span>
-  					{{/if}}
+            <i class="icons bino">
+              {{#if notification.count.view}}
+    						<span class="alert badge badge-large">{{notification.count.view}}</span>
+    					{{/if}}
+            </i>
           {{/zf-tooltip}}
         </a>
       </li>
       <li class="tabs-title wrapper">
         <a href="#notification-tab-panel2" data-id="notification">
           {{#zf-tooltip title="Notifications" vOffset=7}}
-            <i class="icons stack"></i>
-            {{#if notification.count.notification }}
-              <span class="alert badge badge-large">{{notification.count.notification}}</span>
-            {{/if}}
+            <i class="icons stack">
+              {{#if notification.count.notification }}
+                <span class="alert badge badge-large">{{notification.count.notification}}</span>
+              {{/if}}
+            </i>
           {{/zf-tooltip}}
         </a>
       </li>
       <li class="tabs-title wrapper">
         <a href="#notification-tab-panel3" data-id="message">
           {{#zf-tooltip title="Messages" vOffset=7}}
-            <i class="icons messages"></i>
-            {{#if notification.count.message }}
-              <span class="alert badge badge-large">{{notification.count.message}}</span>
-            {{/if}}
+            <i class="icons messages">
+              {{#if notification.count.message }}
+                <span class="alert badge badge-large">{{notification.count.message}}</span>
+              {{/if}}
+            </i>
           {{/zf-tooltip}}
         </a>
       </li>
@@ -262,10 +266,14 @@
 </header>
 
 <header class="hide-for-medium mobile-nav">
-  <div class="expanded button-group">
+  <div class="expanded button-group notification-bubble">
     {{#link-to 'home' class="button"}}<i class="fa fa-home" aria-hidden="true"></i>{{/link-to}}
     {{#link-to 'me' class="button"}}<i class="fa fa-user" aria-hidden="true"></i>{{/link-to}}
-    {{#link-to 'home' class="button"}}<i class="icons stack" aria-hidden="true"></i>{{/link-to}}
+    {{#link-to 'notices' class="button"}}<i class="icons stack" aria-hidden="true">
+      {{#if notification.totalCount}}
+        <span class="alert badge badge-large">{{notification.totalCount}}</span>
+      {{/if}}
+    </i>{{/link-to}}
     {{#link-to 'search' class="button"}}<i class="fa fa-search" aria-hidden="true"></i>{{/link-to}}
     {{#link-to 'bookmarks' class="button"}}<i class="fa fa-bars" aria-hidden="true"></i>{{/link-to}}
   </div>

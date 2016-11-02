@@ -1,0 +1,176 @@
+{{#zf-tabs id="notice-tab" class="tab-controls brydge-tab-blue tabs notification-bubble"}}
+	<li class="tabs-title is-active">
+		<a href="#notice-tab-panel1" data-id="view" aria-selected="true" class="wrapper">
+			<i class="icons bino">
+				{{#if notification.count.view}}
+					<span class="alert badge badge-large">{{notification.count.view}}</span>
+				{{/if}}
+			</i>
+		</a>
+	</li>
+	<li class="tabs-title wrapper">
+		<a href="#notice-tab-panel2" data-id="notification">
+			<i class="icons stack">
+				{{#if notification.count.notification }}
+					<span class="alert badge badge-large">{{notification.count.notification}}</span>
+				{{/if}}
+			</i>
+		</a>
+	</li>
+	<li class="tabs-title wrapper">
+		<a href="#notice-tab-panel3" data-id="message">
+			<i class="icons messages">
+				{{#if notification.count.message }}
+					<span class="alert badge badge-large">{{notification.count.message}}</span>
+				{{/if}}
+			</i>
+		</a>
+	</li>
+{{/zf-tabs}}
+
+<div class="tabs-content" data-tabs-content="notice-tab">
+	<div class="tabs-panel is-active" id="notice-tab-panel1">
+		<section class="border-b padding">
+			<h4>See who's viewed your profile</h4>
+			<div>
+				You can turn this ON or OFF in <a href="{{href-to 'settings' (query-params tab='views')}}">Settings</a>.
+			</div>
+		</section>
+		<ul class="media-list user user-small border-b bg-white">
+			{{#if settings.profileView}}
+				{{#each views as |item|}}
+					<li {{action "read" item}}>
+						<a href="{{href-to 'profile' item.target.profile.uid}}" class={{if item.read false 'new-notification'}}>
+							<div class="row collapse">
+								<div class="columns">
+									<div class="avatar" style={{htmlSafeImage item.target.profile.avatarUrl }}>
+										<img src= {{item.target.profile.avatarUrl}} class="hide">
+									</div>
+									<div class="user-info">
+										<div>
+											<span class="name">{{item.target.profile.fullName}}</span>
+											<span class="timestamp float-right">{{ timestamp-views item.createdAt }}</span>
+										</div>
+										<div class="position">{{item.target.profile.career}}</div>
+									</div>
+								</div>
+							</div>
+						</a>
+					</li>
+				{{else}}
+					<li>
+						<div class="padding empty-message">
+							{{#if notification.isLoading}}
+								<div class="brydge-loading"></div>
+							{{else}}
+								You have no profile views
+							{{/if}}
+						</div>
+
+					</li>
+				{{/each}}
+
+			{{else}}
+				<li>
+					<div class="padding empty-message">
+						You have turned Profile Views off
+					</div>
+				</li>
+			{{/if}}
+		</ul>
+		{{#if settings.profileView}}
+			<div class="padding text-center">
+				<a href="{{href-to 'profile-views'}}">See all Profile Views</a>
+			</div>
+		{{/if}}
+	</div>
+	<div class="tabs-panel" id="notice-tab-panel2">
+		<section class="border-b padding">
+			<h4>Your Notifications</h4>
+				<div>
+					Get updates on your interaction with other users on Brydge.
+				</div>
+		</section>
+		<ul class="media-list user user-small border-b bg-white">
+			{{#each notifications as |item|}}
+				<li>
+					<a {{action "select" item}} class="{{if item.read false 'new-notification'}}">
+						<div class="row columns collapse">
+							<div class="columns">
+								<div class="avatar" style={{htmlSafeImage item.target.profile.avatarUrl }}>
+									<img src= {{item.target.profile.avatarUrl}} class="hide">
+								</div>
+								<div class="user-info">
+									<div>
+										<strong class="name">{{item.target.profile.fullName }}</strong> {{{notification-text item}}}
+									</div>
+									<span class="timestamp">{{ timestamp item.createdAt }}</span>
+								</div>
+							</div>
+						</div>
+					</a>
+				</li>
+			{{else}}
+				<li>
+					<div class="padding empty-message">
+						{{#if notification.isLoading}}
+							<div class="brydge-loading"></div>
+						{{else}}
+							No new notifications
+						{{/if}}
+					</div>
+
+				</li>
+			{{/each}}
+		</ul>
+		<div class="padding text-center">
+			<a href="{{href-to 'notifications'}}">See all Notifications</a>
+		</div>
+
+	</div>
+	<div class="tabs-panel" id="notice-tab-panel3">
+		<section class="border-b padding">
+			<h4>Your Incoming Messages</h4>
+				<div>
+					Only people you follow can message you. Unfollow anyone that sends you spam or inappropriate messages.
+				</div>
+		</section>
+
+		<ul class="media-list user user-small border-b bg-white">
+			{{#each messages as |item|}}
+			<li {{action "read" item}} class="{{if item.read false 'new-notification'}}">
+				{{#link-to "messages.conversation" item.referenceid class="no-color" }}
+					<div class="row collapse">
+						<div class="columns medium-8 small-8">
+							<div class="avatar" style={{htmlSafeImage item.target.profile.avatarUrl }}>
+								<img src= {{item.target.profile.avatarUrl}} class="hide">
+							</div>
+							<div class="user-info">
+								<a class="name">{{item.target.profile.fullName}} {{#if item.count}}<span class="message-count">({{item.count}})</span>{{/if}}</a>
+							</div>
+						</div>
+						<div class="columns medium-4 small-4 timestamp text-right">
+							{{ timestamp item.notifiedAt }}
+						</div>
+					</div>
+					<div class="message-body position truncate">{{{getNotificationContent item.content}}}</div>
+				{{/link-to}}
+			</li>
+			{{else}}
+			<li>
+				<div class="padding empty-message">
+					{{#if notification.isLoading}}
+						<div class="brydge-loading"></div>
+					{{else}}
+						You have no recent messages
+					{{/if}}
+				</div>
+			</li>
+			{{/each}}
+		</ul>
+		<div class="padding text-center">
+			{{link-to "See all Messages" "messages"}}
+		</div>
+
+	</div>
+</div>
