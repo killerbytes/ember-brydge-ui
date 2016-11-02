@@ -1,4 +1,8 @@
-header.header-blue{
+
+header{
+	background-color: $brydge-blue;
+	color: #FFF;
+	padding: 0;
 	box-shadow: 0 0 2px 0 #404040;
 	.button{
 		font-weight: bold;
@@ -11,6 +15,7 @@ header.header-blue{
 		margin-top: .3rem;
 	}
 	.top-bar{
+		@include top-bar-unstack;
 		background-color: $brydge-blue;
 		color: #FFF;
 		padding: 0;
@@ -94,7 +99,7 @@ header.header-blue{
 		}
 	}
 	.menu-action-links{
-		margin-top: .5rem;
+		margin: .5rem 0;
 	}
 	a .fa-home{
 		font-size: 17px;
