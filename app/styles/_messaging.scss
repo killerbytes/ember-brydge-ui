@@ -1,5 +1,10 @@
 .main.messaging{
-  padding-top: 41px;
+  .show-for-medium{
+    padding-top: 41px;
+  }
+  .hide-for-medium{
+    margin-top: -1rem;
+  }
   #contact-input{
     padding-top: 6px;
     padding-bottom: 7px;
