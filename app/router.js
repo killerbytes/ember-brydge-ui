@@ -60,6 +60,7 @@ Router.map(function() {
   this.route('onboarding');
   this.route('notifications');
   this.route('profile-views');
+  this.route('bookmarks');
 
   this.route('me', function() {
     this.route('edit',{path:'/edit'});

@@ -1,9 +1,44 @@
-.is-mobile{
   .spacer-1,
   .spacer-2,
   .spacer-3,
   .spacer-4,
   .spacer-5{
-    display: none;
+    @extend .show-for-medium;
+  }
+
+.hide-for-medium{
+  .icons.stack{
+    margin: auto;
+  }
+}
+
+.mobile-nav{
+  .fa{
+    font-size: 20px;
+    line-height: 2rem;
+    color: $body-text-color;
+  }
+  .button{
+    @extend .hollow;
+    margin-bottom: 0;
+    &.active{
+      background-color: $button-blue;
+    }
+    &:hover{
+      border-color: transparent;
+      color: inherit;
+    }
+  }
+
+}
+
+
+ul.bookmarks{
+  li{
+    border-bottom: 1px solid $border-color;
+    a{
+      padding: .5rem 0;
+      display: block;
+    }
   }
 }

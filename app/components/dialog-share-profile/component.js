@@ -1,12 +1,14 @@
 import Ember from 'ember';
 import DS from 'ember-data';
+import BrydgeReveal from '../brydge-reveal';
 
-export default Ember.Component.extend({
+export default BrydgeReveal.extend({
 	store: Ember.inject.service(),
 	connection: Ember.inject.service(),
 	ajaxApi: Ember.inject.service(),
 	willDestroyElement(){
 		$('#dialog-share-profile').parent().remove();
+		this._super(...arguments);
 	},
 
 	init(){

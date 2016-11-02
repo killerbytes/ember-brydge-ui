@@ -1,8 +1,10 @@
 import Ember from 'ember';
+import BrydgeReveal from '../brydge-reveal';
 
-export default Ember.Component.extend({
+export default BrydgeReveal.extend({
 	willDestroyElement(){
 		$('#dialog-box-' + this.get('name') + '-' + this.get('item.id')).parent().remove();
+		this._super(...arguments);
 	},
 	_close(){
 		$('#dialog-box-' + this.get('name') + '-' + this.get('item.id')).foundation('close');

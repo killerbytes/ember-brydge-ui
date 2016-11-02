@@ -8,11 +8,7 @@
 
   <div class="medium-5 columns sidebar">
 		{{profile-box profile=profile class="mb20" isOwner=true}}
-
-		<div class="hide-for-small-only">
-  		{{ partial 'me/ask/sidebar'}}
-  	  {{render "footer"}}
-		</div>
+		{{ partial 'me/ask/sidebar'}}
   </div>
   <div class="medium-7 columns">
 		{{profile-menu profile=profile }}

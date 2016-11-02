@@ -1,14 +1,16 @@
 import Ember from 'ember';
 import { validator, buildValidations } from 'ember-cp-validations';
+import BrydgeReveal from '../brydge-reveal';
 
 const Validations = buildValidations({
 	answer: validator('presence', true)
 });
 
-export default Ember.Component.extend(Validations, {
+export default BrydgeReveal.extend(Validations, {
 	sessionAccount: Ember.inject.service(),
 	willDestroyElement(){
 		$(`#answer-form-${this.get('item.id')}`).parent().remove();
+		this._super(...arguments);
 	},
 	actions: {
 		submit(){
