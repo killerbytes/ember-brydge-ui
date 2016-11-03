@@ -1,0 +1,19 @@
+
+  <div class="row user cards content-pad">
+    <div class="columns medium-8 small-8">
+      <div class="avatar" style={{htmlSafeImage conversation.other.profile.avatarUrl }}>
+        <img src= {{conversation.other.profile.avatarUrl}} class="hide">
+      </div>
+      <div class="user-info">
+        <a href="{{href-to 'profile' conversation.other.profile.uid}}" class="name">
+          {{ conversation.other.profile.fullName }}
+        </a>
+      </div>
+    </div>
+    <div class="column medium-4 small-4 text-right">
+      <button class="button button-clear" {{action 'delete' conversation.id}}>Delete Conversation</button>
+    </div>
+  </div>
+
+
+{{message-box resp="submit" to=conversation.other model=messages load="load" isLoading=isLoading}}

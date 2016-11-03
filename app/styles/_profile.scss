@@ -14,11 +14,14 @@
 		.button{
 			border-right: 1px solid $border-color;
 			margin-bottom: 0;
+      flex: 3;
 		}
 	}
 	.menu.button-ellipsis{
 		height: 38px;
 		background-position: center center;
+    min-width: 3rem;
+    flex: 1;
     &:after{
 		  bottom: -2px;
 		}

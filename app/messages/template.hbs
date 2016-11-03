@@ -1,5 +1,4 @@
-<div class="show-for-medium">
-  <div class="row collapse overflow box bg-gray">
+<div class="row collapse overflow box bg-gray">
   <div class="medium-5 columns border-r">
     <section class="container pane-header">
       <section class="text-right bg-white">
@@ -48,52 +47,4 @@
   <div class="medium-7 columns message-pane">
     {{ outlet }}
   </div>
-</div>
-</div>
-
-
-<div class="hide-for-medium">
-  <div class="row columns bg-white">
-    <section class="content-pad text-right">
-      {{link-to "+ New Message" "messages.compose"}}
-    </section>
-  </div>
-  <div class="row bg-gray">
-    <form class="brydge-form padding">
-      {{input type="search" value=key placeholder="Search Inbox by Name" class="no-margin search-input"}}
-    </form>
-  </div>
-  <div class="row bg-white">
-
-      <ul class="no-bullet user-link-list">
-      {{#each list as |item| }}
-        {{#if item.content}}
-        <li class="{{unless item.read 'new-notification'}}">
-          <a href="{{href-to 'messages.conversation' item.id}}" class="no-color">
-            <div class="row columns user">
-              <div class="avatar" style={{htmlSafeImage item.other.profile.avatarUrl }}>
-                <img src= {{item.other.profile.avatarUrl}} class="hide">
-                <div class="user-info">
-                  <div class="row collapse">
-                    <div class="columns medium-8 small-8">
-                      <a class="name">{{item.other.profile.fullName}}</a> {{#if item.count}} <span class="message-count">({{item.count}})</span> {{/if}}
-                    </div>
-                    <div class="columns medium-4 small-4 text-right">
-                      <div class="timestamp">{{ timestamp item.messagedAt }}</div>
-                    </div>
-                  </div>
-                  <div class="row columns">
-                    <div class="position">{{item.other.profile.career}}</div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="message-body truncate">{{{item.content}}}</div>
-          </a>
-        </li>
-        {{/if}}
-      {{/each}}
-      </ul>
-  </div>
-
 </div>

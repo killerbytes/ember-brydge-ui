@@ -8,14 +8,14 @@
     <ul class="messages-list no-bullet">
       {{#each messages as |item| }}
         <li>
-          <div class="row user">
-            <div class="columns">
+          <div class="row collapse">
+            <div class="columns user">
               <div class="avatar" style={{htmlSafeImage item.from.profile.avatarUrl }}>
                 <img src= {{item.from.profile.avatarUrl}} class="hide">
               </div>
               <div class="user-info">
                 <div class="row collapse">
-                  <div class="columns medium-8">
+                  <div class="columns medium-8 small-8">
                     <a href="{{href-to 'profile' item.from.profile.uid}}" class="name">
                       {{ item.from.profile.fullName }}
                     </a>
@@ -23,7 +23,7 @@
                       {{item.from.profile.career}}
                     </div>
                   </div>
-                  <div class="columns medium-4 text-right">
+                  <div class="columns medium-4 small-4 text-right">
                     <div class="timestamp">{{ timestamp item.updatedAt }}</div>
                   </div>
                 </div>

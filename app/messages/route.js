@@ -6,7 +6,6 @@ const {
   getOwner
 } = Ember;
 
-
 export default Ember.Route.extend(AuthenticatedRouteMixin, {
 	store: Ember.inject.service(),
 	model: function () {
@@ -17,16 +16,12 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
 		var height = Ember.$('.box').height();
     Ember.$('.conversation-list').height((height - Ember.$('.conversation-list').siblings('.pane-header').outerHeight()) + 'px');
     Ember.$('.contact-list').height((height - Ember.$('.contact-list').siblings('.pane-header').outerHeight()) + 'px');
-
-
-
 	},
   resetController(controller, isExiting, transition) {
       if (isExiting) {
         getOwner(this).lookup('controller:application').set('classNames', '');
       }
   },
-
 	actions: {
 		didTransition(){
 			getOwner(this).lookup('controller:application').set('classNames', 'messaging');

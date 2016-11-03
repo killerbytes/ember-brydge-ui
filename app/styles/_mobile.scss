@@ -1,8 +1,11 @@
-  .spacer-1,
-  .spacer-2,
-  .spacer-3,
-  .spacer-4,
-  .spacer-5{
+.main-mobile{
+  margin-top: -1rem;
+}
+.spacer-1,
+.spacer-2,
+.spacer-3,
+.spacer-4,
+.spacer-5{
     @extend .show-for-medium;
   }
 

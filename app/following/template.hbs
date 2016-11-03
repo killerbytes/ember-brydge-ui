@@ -6,17 +6,15 @@
   </div>
 </div>
 
-<div class="row">
-  <div class="mb">
-    <ul class="tab-controls brydge-tab-blue tabs">
-      <li data-tab='tab_1' class="tabs-title medium-6 small-6 is-active">
-        <a aria-selected="true">Following</a>
-      </li>
-      <li data-tab='tab_2' class="tabs-title medium-6 small-6">
-        <a href="{{href-to 'followers' profile.uid}}">Followers</a>
-      </li>
-    </ul>
-  </div>
+<div class="row mb">
+  <ul class="tab-controls brydge-tab-blue tabs">
+    <li data-tab='tab_1' class="tabs-title medium-6 small-6 is-active">
+      <a aria-selected="true">Following</a>
+    </li>
+    <li data-tab='tab_2' class="tabs-title medium-6 small-6">
+      <a href="{{href-to 'followers' profile.uid}}">Followers</a>
+    </li>
+  </ul>
 </div>
 
 {{partial "partials/list-follow"}}

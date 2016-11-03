@@ -13,9 +13,9 @@
   <div class="columns">
     <div class="row collapse brydge-tab brydge-form">
 
-      <div class="medium-4 columns">
+      <div class="medium-4 small-12 columns">
 
-        {{#zf-tabs class="vertical" id="edit-tabs"}}
+        {{#zf-tabs class="tabs vertical" id="edit-tabs"}}
         <li data-tab='personal' class="tabs-title {{active-tab 'personal' tab}}">
           <a href="#personal" aria-selected="true"><i class="fa fa-street-view" aria-hidden="true"></i>Personal Particulars</a>
         </li>
@@ -36,18 +36,14 @@
         </li>
         {{/zf-tabs}}
       </div>
-      <div class="medium-8 columns float-left">
+      <div class="medium-8 small-12 columns float-left">
         <div class="tabs-content vertical boxz form-highlight" data-tabs-content="edit-tabs">
-          <div class="tabs-panel row columns header {{active-tab 'personal' tab}}" id="personal">
-            <div class="columns medium-10 medium-centered">
-              <section>
-                <div class="spacer-2"></div>
-                {{partial 'me/edit/info'}}
-                <div class="spacer-2"></div>
-              </section>
-            </div>
+          <div class="tabs-panel header {{active-tab 'personal' tab}}" id="personal">
+            <div class="spacer-2"></div>
+            {{partial 'me/edit/info'}}
+            <div class="spacer-2"></div>
           </div>
-          <div class="tabs-panel row columns {{active-tab 'industry' tab}}" id="industry">
+          <div class="tabs-panel {{active-tab 'industry' tab}}" id="industry">
             <div class="bg-gray">
               <div class="columns medium-10 medium-centered">
                 <section>
@@ -115,25 +111,23 @@
 
 
           </div>
-          <div class="tabs-panel row columns header {{active-tab 'snapshot' tab}}" id="snapshot">
+          <div class="tabs-panel header {{active-tab 'snapshot' tab}}" id="snapshot">
             <div class="columns medium-10 medium-centered">
-              <section>
-                <div class="spacer-2"></div>
-                {{form-expertise profile=profile onSave="save"}}
-              </section>
+              <div class="spacer-2"></div>
+              {{form-expertise profile=profile onSave="save"}}
             </div>
           </div>
-          <div class="tabs-panel row columns {{active-tab 'work' tab}}" id="work">
+          <div class="tabs-panel {{active-tab 'work' tab}}" id="work">
             {{ profile-work-history items=experiences}}
           </div>
-          <div class="tabs-panel row columns {{active-tab 'academia' tab}}" id="academia">
+          <div class="tabs-panel {{active-tab 'academia' tab}}" id="academia">
             <div class="columns medium-10 medium-centered">
               <section>
                 {{ profile-academia items=educations}}
               </section>
             </div>
           </div>
-          <div class="tabs-panel row columns {{active-tab 'language' tab}}" id="language">
+          <div class="tabs-panel {{active-tab 'language' tab}}" id="language">
             <div class="columns medium-10 medium-centered">
               {{ profile-language items=languages}}
             </div>

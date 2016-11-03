@@ -61,7 +61,6 @@ Router.map(function() {
   this.route('notifications');
   this.route('profile-views');
   this.route('bookmarks');
-  this.route('notices');
 
   this.route('me', function() {
     this.route('edit',{path:'/edit'});
@@ -88,6 +87,9 @@ Router.map(function() {
     this.route('conversation', { path: ':id'});
     this.route('compose');
   });
+  this.route('mobile.messages', {path: 'r/messages'});
+  this.route('mobile.messages.conversation', {path: 'r/messages/:id'})
+  this.route('mobile.notifications', {path: 'r/notifications'});
 
   // User Pages
   // this.route('connections', {path: ':username/connections'});
