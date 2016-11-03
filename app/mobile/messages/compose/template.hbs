@@ -1,0 +1,20 @@
+<div class="row columns bg-gray">
+  <form class="content-pad brydge-form">
+		{{input id="contact-input" value=key class="input-group-field" type="search" placeholder="Search by Name"}}
+  </form>
+</div>
+
+<section class="container">
+
+	<section class="container contact-list">
+		<ul class="user-link-list no-bullet bg-white">
+		{{#each list as |item|}}
+			<li>
+				<a href="{{href-to 'mobile.messages.conversation' item.conversation.id}}">
+					{{contact-item item=item meta=meta}}
+				</a>
+			</li>
+		{{/each}}
+		</ul>
+	</section>
+</section>

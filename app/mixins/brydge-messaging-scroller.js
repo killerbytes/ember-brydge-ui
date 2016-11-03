@@ -36,7 +36,7 @@ export default Ember.Mixin.create({
 			this.set('controller.isLoading', true);
 			this.brydgeScroller(null, null, el).then(res=>{
 				this.set('controller.isLoading', false);
-				cb.apply(res);
+				if(cb) cb.apply(res);
 				if(res.get('messages.length') == 0) this.set(el+'.noMoreData', true);
 			})
 		},

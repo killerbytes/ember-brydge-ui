@@ -88,6 +88,7 @@ Router.map(function() {
     this.route('compose');
   });
   this.route('mobile.messages', {path: 'r/messages'});
+  this.route('mobile.messages.compose', {path: 'r/messages/compose'})
   this.route('mobile.messages.conversation', {path: 'r/messages/:id'})
   this.route('mobile.notifications', {path: 'r/notifications'});
 

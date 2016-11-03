@@ -14,6 +14,10 @@ export default Ember.Route.extend(
         });
       }
   },
+  beforeModel(transition){
+
+    if(this.get('detector.isMobile')) this.transitionTo('mobile.messages.conversation', this.paramsFor('messages.conversation').id);
+  },
   model: function(params) {
     // return this.store.queryRecord('conversation', {id: params.id, page: 1, per_page: 5});
     return this.brydgeScroller('conversation',{
