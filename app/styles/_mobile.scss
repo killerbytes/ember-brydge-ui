@@ -71,4 +71,16 @@ ul.bookmarks{
   		}
     }
   }
+  .tab-controls{
+    > li:not(:first-child){
+      border-left: none;
+    }
+    .tabs-title.is-active{
+      border-bottom: 3px solid $button-blue;
+      &:before, &:after{
+        content: none !important;
+  		}
+
+    }
+  }
 }
