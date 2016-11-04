@@ -1,0 +1,19 @@
+<h4>{{item.name}}</h4>
+<ul class="industry-list">
+  {{#each groups as |item|}}
+    <li>
+      <strong>
+      {{#if item.selected}}
+        <a class="selected" {{action "remove" item }}>
+          {{item.industry}}
+          <span aria-hidden="true" class="fa">&times;</span>
+        </a>
+      {{else}}
+        <a {{action "select" item}}>
+          {{item.industry}}
+        </a>
+      {{/if}}
+      </strong>
+    </li>
+  {{/each}}
+</ul>

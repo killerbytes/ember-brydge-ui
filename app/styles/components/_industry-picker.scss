@@ -1,6 +1,6 @@
 	.industry-picker{
-	width: 80%;
-	max-width: 80%;
+		width: 80%;
+		max-width: 80%;
 	.row-aligned-columns{
 		height: 90vh;
 	}
@@ -87,5 +87,17 @@
 			color: #FFF;
 
 		}
+	}
+}
+
+.industry-picker-mobile{
+	@extend .industry-picker;
+	width: 100%;
+	max-width: none;
+	.industry-item h4{
+		margin-bottom: .5rem;
+	}
+	.controls{
+		position: static;
 	}
 }

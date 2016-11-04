@@ -1,0 +1,77 @@
+{{#zf-reveal id=(concat "industry-picker-mobile-" name) overlay=true class="industry-picker-mobile box full"}}
+  <button class="close-button" aria-label="Dismiss alert" type="button" data-close>
+    <span aria-hidden="true">&times;</span>
+  </button>
+  <section class="title">
+    <h4>{{title}}</h4>
+  </section>
+
+  <div class="{{if industryPicker.active 'hide' }}">
+    {{#each industries as |category|}}
+      <section class="columns bg-gray title">
+        <h4>{{category.name}}</h4>
+      </section>
+      {{#each category.groups as |item| }}
+        {{industry-item-mobile item=item mobile=true}}
+      {{/each}}
+    {{/each}}
+  </div>
+
+  <div class="{{unless industryPicker.active 'hide'}}">
+    {{#if industryPicker.isLoading}}
+      <div class="brydge-loading"></div>
+    {{else}}
+      <section>
+        <a {{action "back"}}><i class="fa fa-angle-left" aria-hidden="true"></i>Back</a>
+      </section>
+      <section>
+        <h3>{{industryPicker.active.industry}}</h3>
+        <p class="mb20">
+          {{industryPicker.active.description}}
+        </p>
+        <a class="button large green"{{action "add" industryPicker.active}}><i class="fa fa-plus"></i> Select Industry</a>
+        <span class="padded">{{message}}</span>
+      </section>
+      <section class="bg-gray">
+          <h4>People you might meet here</h4>
+          <div class="list-dotted mb20">
+            {{#each industryPicker.active.sample as |item|}}
+              {{item}} <i class="dot"></i>
+            {{/each}}
+            and so on <i class="dot"></i>
+          </div>
+
+
+          <h4>Related Industries</h4>
+          <div class="list-dotted mb20">
+            {{#each industryPicker.active.related as |item|}}
+              <a {{action "select" item}}>
+                {{item.name}}
+              </a>
+              <i class="dot"></i>
+            {{/each}}
+          </div>
+      </section>
+    {{/if}}
+    <section class="title">
+      <h4 class="selection-title">Your selections</h4>
+    </section>
+    <section class="industry-selections scrollbar">
+      <ul class="industry-list list-inline">
+      {{#each industryPicker.industries as |item|}}
+        <li>
+          <a class="selected" {{action "remove" item }}>
+            {{item.industry}}
+            <span aria-hidden="true" class="fa">&times;</span>
+          </a>
+
+        </li>
+      {{/each}}
+      </ul>
+    </section>
+    <div class="bg-gray controls padding">
+	  	<a class="button button-border" data-close>Cancel</a>
+      <button class="button large success float-right" type="submit" {{action "submit"}}>Done</button>
+    </div>
+  </div>
+{{/zf-reveal}}

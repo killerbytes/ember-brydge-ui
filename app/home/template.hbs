@@ -5,7 +5,6 @@
      	profile=profile
      	class="mb20"
      	submit="post" }}
-
 		<div class="newsfeed-tabs">
 			<h4 class="padded">Newsfeed Filter</h4>
 			<div class="box">
@@ -103,7 +102,6 @@
 				</div>
 			</div>
 		</div>
-
   </div>
   <div class="medium-5 small-12 columns sidebar">
     {{#if profile.configSetting.showGuide}}
@@ -144,4 +142,5 @@
 {{post-as-new submit="post"}}
 {{post-edit-dialog submit="edit"}}
 
-{{industry-picker name="home" title="Add up to 10 Industries you want to Follow" industries=industries max=10 selected=favoriteIndustries submit="onFavoriteIndustrySelect"}}
+{{industry-picker name="home" title="Add up to 10 Industries you want to Follow" max=10 selected=favoriteIndustries submit="onFavoriteIndustrySelect"}}
+{{industry-picker-mobile name="home" title="Add up to 10 Industries you want to Follow" max=10 selected=favoriteIndustries submit="onFavoriteIndustrySelect"}}

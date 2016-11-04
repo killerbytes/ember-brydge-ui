@@ -52,7 +52,7 @@
                     Select 3 industries you want to participate in
                   </p>
                   <form class="form-occupational-industry">
-                    <div class="row mb20">
+                    <div class="row mb20 show-for-medium">
                       <div class="columns medium-4">
                           <a data-open="industry-picker-edit-profile" class="button-add-industries">
                             {{#if profile.industryOneName}}
@@ -65,30 +65,61 @@
                           </a>
                       </div>
                       <div class="columns medium-4">
-                        {{#if profile.industryTwoName}}
                           <a data-open="industry-picker-edit-profile" class="button-add-industries">
-                            <div class="button-header">{{profile.industryTwoName}}</div>
-                            <div class="button-footer"><i class="fa fa-pencil-square-o"></i></div>
+                            {{#if profile.industryTwoName}}
+                              <div class="button-header">{{profile.industryTwoName}}</div>
+                              <div class="button-footer"><i class="fa fa-pencil-square-o"></i></div>
+                            {{else}}
+                              <i class="fa fa-plus" aria-hidden="true"></i>
+                              <div>Add Industry</div>
+                            {{/if}}
                           </a>
-                        {{else}}
-                          <a data-open="industry-picker-edit-profile" class="button-add-industries">
-                            <i class="fa fa-plus" aria-hidden="true"></i>
-                            <div>Add Industry</div>
-                          </a>
-                        {{/if}}
                       </div>
                       <div class="columns medium-4">
-                        {{#if profile.industryThreeName}}
                           <a data-open="industry-picker-edit-profile" class="button-add-industries">
-                            <div class="button-header">{{profile.industryThreeName}}</div>
-                            <div class="button-footer"><i class="fa fa-pencil-square-o"></i></div>
+                            {{#if profile.industryThreeName}}
+                              <div class="button-header">{{profile.industryThreeName}}</div>
+                              <div class="button-footer"><i class="fa fa-pencil-square-o"></i></div>
+                            {{else}}
+                              <i class="fa fa-plus" aria-hidden="true"></i>
+                              <div>Add Industry</div>
+                            {{/if}}
                           </a>
-                        {{else}}
-                          <a data-open="industry-picker-edit-profile" class="button-add-industries">
-                            <i class="fa fa-plus" aria-hidden="true"></i>
-                            <div>Add Industry</div>
+                      </div>
+                    </div>
+                    <div class="row mb20 hide-for-medium">
+                      <div class="columns medium-4">
+                          <a data-open="industry-picker-mobile-edit-profile" class="button-add-industries">
+                            {{#if profile.industryOneName}}
+                              <div class="button-header">{{profile.industryOneName}}</div>
+                              <div class="button-footer"><i class="fa fa-pencil-square-o"></i></div>
+                            {{else}}
+                              <i class="fa fa-plus" aria-hidden="true"></i>
+                              <div>Add Industry</div>
+                            {{/if}}
                           </a>
-                        {{/if}}
+                      </div>
+                      <div class="columns medium-4">
+                          <a data-open="industry-picker-mobile-edit-profile" class="button-add-industries">
+                            {{#if profile.industryTwoName}}
+                              <div class="button-header">{{profile.industryTwoName}}</div>
+                              <div class="button-footer"><i class="fa fa-pencil-square-o"></i></div>
+                            {{else}}
+                              <i class="fa fa-plus" aria-hidden="true"></i>
+                              <div>Add Industry</div>
+                            {{/if}}
+                          </a>
+                      </div>
+                      <div class="columns medium-4">
+                          <a data-open="industry-picker-mobile-edit-profile" class="button-add-industries">
+                            {{#if profile.industryThreeName}}
+                              <div class="button-header">{{profile.industryThreeName}}</div>
+                              <div class="button-footer"><i class="fa fa-pencil-square-o"></i></div>
+                            {{else}}
+                              <i class="fa fa-plus" aria-hidden="true"></i>
+                              <div>Add Industry</div>
+                            {{/if}}
+                          </a>
                       </div>
                     </div>
                     <div class="row">
@@ -139,4 +170,5 @@
   </div>
 </div>
 
-{{industry-picker name="edit-profile" title="Select up to 3 Industries you want to participate in" industriesxxx=model.categories selected=industries submit="onIndustrySelect"}}
+{{industry-picker name="edit-profile" title="Select up to 3 Industries you want to participate in" selected=industries submit="onIndustrySelect"}}
+{{industry-picker-mobile name="edit-profile" title="Select up to 3 Industries you want to participate in" selected=industries submit="onIndustrySelect"}}

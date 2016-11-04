@@ -19,7 +19,7 @@ module.exports = function(environment) {
     contentSecurityPolicy: {
       'default-src': "'none'",
       'child-src': ["'self'", "cdn.embedly.com", "www.youtube.com"],
-      'connect-src': ["'self'", "http://192.168.1.4:8000", "ws://localhost:4000", "ws://localhost:8000", "http://localhost:8000", "https://api.brydge.me", "https://api.brydge.com", "https://embed.doorbell.io"],
+      'connect-src': ["'self'", "ws://0.0.0.0:8000", "ws://localhost:4000", "ws://localhost:8000", "http://0.0.0.0:8000", "https://api.brydge.me", "https://api.brydge.com", "https://embed.doorbell.io"],
       'font-src': ["'self'", "fonts.gstatic.com", "fonts.googleapis.com"],
       'img-src': ["'self'", "https://storage.googleapis.com", "www.google-analytics.com", "data:"],
       // 'img-src': ["'self'", "https://storage.googleapis.com", "www.google-analytics.com", "data:", "*.cloudfront.net"],
@@ -42,7 +42,7 @@ module.exports = function(environment) {
     // ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
     // ENV.APP.LOG_VIEW_LOOKUPS = true;
 
-    ENV['socket'] = 'ws://192.168.1.4:8000/socket';
+    ENV['socket'] = 'ws://0.0.0.0:8000/socket';
 
     ENV['ember-cli-mirage'] = {
       enabled: false
@@ -50,8 +50,8 @@ module.exports = function(environment) {
 
     if(ENV['ember-cli-mirage'].enabled == false) {
       ENV['ember-simple-auth'] = {
-        serverTokenEndpoint: '//192.168.1.4:8000/v2/token',
-        authorizerHost: '//192.168.1.4:8000'
+        serverTokenEndpoint: '//0.0.0.0:8000/v2/token',
+        authorizerHost: '//0.0.0.0:8000'
       };
     }
 
