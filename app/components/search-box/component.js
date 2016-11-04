@@ -1,7 +1,7 @@
 import Ember from 'ember';
 
 export default Ember.Component.extend({
-	classNames: ['brydge-form', 'row', 'search-box'],
+	classNames: ['brydge-form', 'search-box'],
 	tagName: 'form',
 	routing: Ember.inject.service(),
 	city: null,

@@ -124,7 +124,6 @@ Router.map(function() {
   this.route("register");
   this.route("verify-email");
   this.route("forgot-password");
-  // this.route("thank-you");
   this.route("unsubscribed");
 
 });

@@ -1,24 +1,20 @@
-<form class="row">
-  <div class="columns medium-10 medium-centered">
-    <div class="columns medium-4 small-12 content-pad">
-      {{image-upload fileLoaded="fileLoaded" logoUrl=profile.avatarUrl placeholder="Change Photo"}}
-    </div>
-    <div class="columns medium-8 small-12 content-pad">
-      <div class="row">
+<form class="row align-center">
+  <div class="columns medium-10">
+    <div class="row">
+      <div class="columns medium-4 small-12 content-pad">
+        {{image-upload fileLoaded="fileLoaded" logoUrl=profile.avatarUrl placeholder="Change Photo"}}
+      </div>
+      <div class="columns medium-8 small-12 content-pad">
         <div class="columns">
           <label>First Name
             {{form-input model=profile valuePath="firstName"}}
           </label>
         </div>
-      </div>
-      <div class="row">
         <div class="columns">
           <label>Last Name
             {{form-input model=profile valuePath="lastName"}}
           </label>
         </div>
-      </div>
-      <div class="row">
         <div class="columns">
           <label>Current City
             {{form-input-location
@@ -30,21 +26,17 @@
 
           </label>
         </div>
-      </div>
-      <div class="row">
         <div class="columns">
           <label>Date of Birth
             {{input-date-picker selected=profile.dob value=profile.dob}}
           </label>
         </div>
-      </div>
-      <div class="row">
         <div class="columns">
           {{form-input-button item=profile submit="save" placeholder="Saved"}}
         </div>
+
+
       </div>
-
-
     </div>
   </div>
 </form>

@@ -1,5 +1,5 @@
-<div class="row">
-  <div class="medium-6 small-centered columns">
+<div class="row align-center">
+  <div class="medium-6 columns">
     <div class="page-heading">
       <h1>Edit Profile</h1>
       <p class="text-center">
@@ -45,122 +45,132 @@
           </div>
           <div class="tabs-panel {{active-tab 'industry' tab}}" id="industry">
             <div class="bg-gray">
-              <div class="columns medium-10 medium-centered">
-                <section>
-                  <div class="spacer-2"></div>
-                  <p>
-                    Select 3 industries you want to participate in
-                  </p>
-                  <form class="form-occupational-industry">
-                    <div class="row mb20 show-for-medium">
-                      <div class="columns medium-4">
-                          <a data-open="industry-picker-edit-profile" class="button-add-industries">
-                            {{#if profile.industryOneName}}
-                              <div class="button-header">{{profile.industryOneName}}</div>
-                              <div class="button-footer"><i class="fa fa-pencil-square-o"></i></div>
-                            {{else}}
-                              <i class="fa fa-plus" aria-hidden="true"></i>
-                              <div>Add Industry</div>
-                            {{/if}}
-                          </a>
+              <div class="row align-center">
+                <div class="columns medium-10">
+                  <section>
+                    <div class="spacer-2"></div>
+                    <p>
+                      Select 3 industries you want to participate in
+                    </p>
+                    <form class="form-occupational-industry">
+                      <div class="row mb20 show-for-medium">
+                        <div class="columns medium-4">
+                            <a data-open="industry-picker-edit-profile" class="button-add-industries">
+                              {{#if profile.industryOneName}}
+                                <div class="button-header">{{profile.industryOneName}}</div>
+                                <div class="button-footer"><i class="fa fa-pencil-square-o"></i></div>
+                              {{else}}
+                                <i class="fa fa-plus" aria-hidden="true"></i>
+                                <div>Add Industry</div>
+                              {{/if}}
+                            </a>
+                        </div>
+                        <div class="columns medium-4">
+                            <a data-open="industry-picker-edit-profile" class="button-add-industries">
+                              {{#if profile.industryTwoName}}
+                                <div class="button-header">{{profile.industryTwoName}}</div>
+                                <div class="button-footer"><i class="fa fa-pencil-square-o"></i></div>
+                              {{else}}
+                                <i class="fa fa-plus" aria-hidden="true"></i>
+                                <div>Add Industry</div>
+                              {{/if}}
+                            </a>
+                        </div>
+                        <div class="columns medium-4">
+                            <a data-open="industry-picker-edit-profile" class="button-add-industries">
+                              {{#if profile.industryThreeName}}
+                                <div class="button-header">{{profile.industryThreeName}}</div>
+                                <div class="button-footer"><i class="fa fa-pencil-square-o"></i></div>
+                              {{else}}
+                                <i class="fa fa-plus" aria-hidden="true"></i>
+                                <div>Add Industry</div>
+                              {{/if}}
+                            </a>
+                        </div>
                       </div>
-                      <div class="columns medium-4">
-                          <a data-open="industry-picker-edit-profile" class="button-add-industries">
-                            {{#if profile.industryTwoName}}
-                              <div class="button-header">{{profile.industryTwoName}}</div>
-                              <div class="button-footer"><i class="fa fa-pencil-square-o"></i></div>
-                            {{else}}
-                              <i class="fa fa-plus" aria-hidden="true"></i>
-                              <div>Add Industry</div>
-                            {{/if}}
-                          </a>
+                      <div class="row mb20 hide-for-medium">
+                        <div class="columns medium-4">
+                            <a data-open="industry-picker-mobile-edit-profile" class="button-add-industries">
+                              {{#if profile.industryOneName}}
+                                <div class="button-header">{{profile.industryOneName}}</div>
+                                <div class="button-footer"><i class="fa fa-pencil-square-o"></i></div>
+                              {{else}}
+                                <i class="fa fa-plus" aria-hidden="true"></i>
+                                <div>Add Industry</div>
+                              {{/if}}
+                            </a>
+                        </div>
+                        <div class="columns medium-4">
+                            <a data-open="industry-picker-mobile-edit-profile" class="button-add-industries">
+                              {{#if profile.industryTwoName}}
+                                <div class="button-header">{{profile.industryTwoName}}</div>
+                                <div class="button-footer"><i class="fa fa-pencil-square-o"></i></div>
+                              {{else}}
+                                <i class="fa fa-plus" aria-hidden="true"></i>
+                                <div>Add Industry</div>
+                              {{/if}}
+                            </a>
+                        </div>
+                        <div class="columns medium-4">
+                            <a data-open="industry-picker-mobile-edit-profile" class="button-add-industries">
+                              {{#if profile.industryThreeName}}
+                                <div class="button-header">{{profile.industryThreeName}}</div>
+                                <div class="button-footer"><i class="fa fa-pencil-square-o"></i></div>
+                              {{else}}
+                                <i class="fa fa-plus" aria-hidden="true"></i>
+                                <div>Add Industry</div>
+                              {{/if}}
+                            </a>
+                        </div>
                       </div>
-                      <div class="columns medium-4">
-                          <a data-open="industry-picker-edit-profile" class="button-add-industries">
-                            {{#if profile.industryThreeName}}
-                              <div class="button-header">{{profile.industryThreeName}}</div>
-                              <div class="button-footer"><i class="fa fa-pencil-square-o"></i></div>
-                            {{else}}
-                              <i class="fa fa-plus" aria-hidden="true"></i>
-                              <div>Add Industry</div>
-                            {{/if}}
-                          </a>
+                      <div class="row">
+                        <div class="columns">
+                          {{form-input-button item=profile submit="save" placeholder="Saved"}}
+                        </div>
                       </div>
-                    </div>
-                    <div class="row mb20 hide-for-medium">
-                      <div class="columns medium-4">
-                          <a data-open="industry-picker-mobile-edit-profile" class="button-add-industries">
-                            {{#if profile.industryOneName}}
-                              <div class="button-header">{{profile.industryOneName}}</div>
-                              <div class="button-footer"><i class="fa fa-pencil-square-o"></i></div>
-                            {{else}}
-                              <i class="fa fa-plus" aria-hidden="true"></i>
-                              <div>Add Industry</div>
-                            {{/if}}
-                          </a>
-                      </div>
-                      <div class="columns medium-4">
-                          <a data-open="industry-picker-mobile-edit-profile" class="button-add-industries">
-                            {{#if profile.industryTwoName}}
-                              <div class="button-header">{{profile.industryTwoName}}</div>
-                              <div class="button-footer"><i class="fa fa-pencil-square-o"></i></div>
-                            {{else}}
-                              <i class="fa fa-plus" aria-hidden="true"></i>
-                              <div>Add Industry</div>
-                            {{/if}}
-                          </a>
-                      </div>
-                      <div class="columns medium-4">
-                          <a data-open="industry-picker-mobile-edit-profile" class="button-add-industries">
-                            {{#if profile.industryThreeName}}
-                              <div class="button-header">{{profile.industryThreeName}}</div>
-                              <div class="button-footer"><i class="fa fa-pencil-square-o"></i></div>
-                            {{else}}
-                              <i class="fa fa-plus" aria-hidden="true"></i>
-                              <div>Add Industry</div>
-                            {{/if}}
-                          </a>
-                      </div>
-                    </div>
-                    <div class="row">
-                      <div class="columns">
-                        {{form-input-button item=profile submit="save" placeholder="Saved"}}
-                      </div>
-                    </div>
-                  </form>
-                  <div class="spacer-2"></div>
-                </section>
+                    </form>
+                    <div class="spacer-2"></div>
+                  </section>
+                </div>
               </div>
             </div>
 
             <section class="industry-examples">
-              <p class="title text-center mb40">
-                Not sure what Industries to select?
-              </p>
-              {{partial 'partials/industry-examples'}}
+              <div class="columns">
+                <p class="title text-center mb40">
+                  Not sure what Industries to select?
+                </p>
+                {{partial 'partials/industry-examples'}}
+              </div>
             </section>
-
-
           </div>
           <div class="tabs-panel header {{active-tab 'snapshot' tab}}" id="snapshot">
-            <div class="columns medium-10 medium-centered">
-              <div class="spacer-2"></div>
-              {{form-expertise profile=profile onSave="save"}}
+            <div class="row align-center">
+              <div class="columns medium-10">
+                <div class="spacer-2"></div>
+                <section>
+                  {{form-expertise profile=profile onSave="save"}}
+                </section>
+              </div>
             </div>
           </div>
           <div class="tabs-panel {{active-tab 'work' tab}}" id="work">
             {{ profile-work-history items=experiences}}
           </div>
           <div class="tabs-panel {{active-tab 'academia' tab}}" id="academia">
-            <div class="columns medium-10 medium-centered">
-              <section>
-                {{ profile-academia items=educations}}
-              </section>
+            <div class="row align-center">
+              <div class="columns medium-10">
+                <section>
+                  {{ profile-academia items=educations}}
+                </section>
+              </div>
             </div>
           </div>
           <div class="tabs-panel {{active-tab 'language' tab}}" id="language">
-            <div class="columns medium-10 medium-centered">
-              {{ profile-language items=languages}}
+            <div class="row align-center">
+              <div class="columns medium-10">
+                {{ profile-language items=languages}}
+              </div>
             </div>
           </div>
 

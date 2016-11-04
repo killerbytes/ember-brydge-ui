@@ -2,7 +2,7 @@ import Ember from 'ember';
 import _ from 'lodash/lodash';
 
 export default Ember.Component.extend({
-	classNames: ['date-picker'],
+	classNames: ['date-picker', 'row', 'collapse', 'is-collapse-child'],
 	format: "MM Do YYYY",
 	init(){
 		this._super(...arguments);

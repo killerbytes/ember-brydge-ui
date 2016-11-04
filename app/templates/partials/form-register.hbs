@@ -7,6 +7,8 @@
       <div class="columns medium-6">
         {{form-input model=form valuePath="lastName" placeholder="Last Name"}}
       </div>
+    </div>
+    <div class="row">
       <div class="columns">
         {{form-input-location
             model=form
@@ -15,19 +17,23 @@
             selected=form.location
             onItemSelected="onLocationSelect"
             placeholder="City"}}
-
-
       </div>
-      <fieldset class="large-6 columns">
-        <label for="gender_2" class="inline">{{action-radio id="gender_2" value="female" htmlChecked=form.gender name="gender" action="onChecked" }} Female</label>
-        <label for="gender_1" class="inline">{{action-radio id="gender_1" value="male" htmlChecked=form.gender name="gender" action="onChecked" required=true}} Male</label>
-      </fieldset>
+    </div>
+    <fieldset class="large-6 columns">
+      <label for="gender_2" class="inline">{{action-radio id="gender_2" value="female" htmlChecked=form.gender name="gender" action="onChecked" }} Female</label>
+      <label for="gender_1" class="inline">{{action-radio id="gender_1" value="male" htmlChecked=form.gender name="gender" action="onChecked" required=true}} Male</label>
+    </fieldset>
+    <div class="row">
       <div class="columns">
         {{form-input model=form valuePath="email" placeholder="Email"}}
       </div>
+    </div>
+    <div class="row">
       <div class="columns">
         {{form-input type="password" model=form valuePath="password" placeholder="Create Password"}}
       </div>
+    </div>
+    <div class="row">
       <div class="columns">
         <label for="">DOB
         {{input-date-picker selected=form.dob value=form.dob}}
@@ -36,6 +42,10 @@
       </div>
     </div>
     <p>By signing up to the service you are agreeing to our <a href="{{href-to 'terms-of-use'}}">Terms of Use</a> and our <a href="{{href-to 'privacy-policy'}}">Privacy Policy</a></p>
-    <button class="button success rounded" disabled={{v-get form 'isInvalid'}} {{ action "register" }} type="submit">Create Account</button>
+    <div class="row align-center">
+      <div class="columns medium-6">
+        <button class="button success rounded expanded" disabled={{v-get form 'isInvalid'}} {{ action "register" }} type="submit">Create Account</button>
+      </div>
+    </div>
   </div>
 </form>

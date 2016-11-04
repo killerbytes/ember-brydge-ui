@@ -22,7 +22,7 @@ $text-orange: #FF5333;
 
 @import "settings";
 @import "foundation";
-@include foundation-everything;
+// @include foundation-everything;
 @include foundation-everything(true);
 
 @import "overrides";
@@ -215,6 +215,11 @@ p.wrap{
 	margin-top: 5px;
 }
 .mb{ margin-bottom: 1rem !important; }
+.mb-2{ margin-bottom: 2rem !important; }
+.mb-3{ margin-bottom: 3rem !important; }
+.mb-4{ margin-bottom: 4rem !important; }
+.mb-5{ margin-bottom: 5rem !important; }
+
 .mb5{ margin-bottom: 5px !important;}
 .mb20{ margin-bottom: 20px !important;}
 .mb30{ margin-bottom: 30px !important;}

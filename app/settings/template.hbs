@@ -1,5 +1,5 @@
-<div class="row">
-  <div class="medium-6 small-centered columns">
+<div class="row align-center">
+  <div class="medium-6 columns">
     <div class="page-heading">
       <h1>Settings</h1>
       <p class="text-center">
@@ -38,87 +38,98 @@
           <div class="medium-8 small-12 columns float-left">
             <div class="tabs-content vertical boxz" data-tabs-content="settings-tabs">
               <div class="tabs-panel header {{active-tab 'email' tab}}" id="email">
-                <div class="columns medium-10 medium-centered">
-                  <section>
-                    <div class="spacer-3"></div>
-                    <form class="brydge-form">
-                      <div class="row columns">
-                        <label>Current email: <a>{{model.user.email}}</a></label>
-                        <p>Email cannot be changed in the BETA version. Sorry for the inconvenience.</p>
-                      </div>
-                    </form>
-                  </section>
+                <div class="row align-center">
+                  <div class="columns medium-10">
+                    <section>
+                      <div class="spacer-3"></div>
+                      <form class="brydge-form">
+                        <div class="row columns">
+                          <label>Current email: <a>{{model.user.email}}</a></label>
+                          <p>Email cannot be changed in the BETA version. Sorry for the inconvenience.</p>
+                        </div>
+                      </form>
+                    </section>
+                  </div>
                 </div>
               </div>
               <div class="tabs-panel header {{active-tab 'password' tab}}" id="password">
-                <div class="columns medium-10 medium-centered">
-                  <section>
-                    <div class="spacer-2"></div>
-                    {{form-update-password confirm="confirm"}}
-
-                  </section>
+                <div class="row align-center">
+                  <div class="columns medium-10">
+                    <section>
+                      <div class="spacer-2"></div>
+                      {{form-update-password confirm="confirm"}}
+                    </section>
+                  </div>
                 </div>
-              </div>
+               </div>
               <div class="tabs-panel header {{active-tab 'profile' tab}}" id="profile">
-                <div class="columns medium-10 medium-centered">
-                  <section>
-                    <div class="spacer-2"></div>
-                    {{form-profile-url profile=profile confirm="confirm"}}
-                  </section>
+                <div class="row align-center">
+                  <div class="columns medium-10">
+                    <section>
+                      <div class="spacer-2"></div>
+                      {{form-profile-url profile=profile confirm="confirm"}}
+                    </section>
+                  </div>
                 </div>
               </div>
               <div class="tabs-panel header {{active-tab 'notification' tab}}" id="notification">
-                <div class="columns medium-10 medium-centered">
-                  <section>
-                    <div class="spacer-2"></div>
-                    <p class="hide">Email notifications are not available in the BETA version. Sorry for the inconvenience.</p>
-                    {{partial "partials/table-email-notification-settings"}}
-                  </section>
+                <div class="row align-center">
+                  <div class="columns medium-10">
+                    <section>
+                      <div class="spacer-2"></div>
+                      <p class="hide">Email notifications are not available in the BETA version. Sorry for the inconvenience.</p>
+                      {{partial "partials/table-email-notification-settings"}}
+                    </section>
+                  </div>
                 </div>
               </div>
               <div class="tabs-panel header {{active-tab 'ask' tab}}" id="ask">
-                <div class="columns medium-10 medium-centered">
-                  <section>
-                    <div class="spacer-3"></div>
-                    <div class="switch">
-                      <label class="middle">OFF</label>
-                      {{input type="checkbox" change=(action settingsChanged) checked=setting.ask class="switch-iput" id="settings_ask" name="ask" }}
-                      <label class="switch-paddle" for="settings_ask">
-                        <span class="show-for-sr">Turn ASK OFF</span>
-                      </label>
-                      <label class="middle">ON</label>
-                    </div>
+                <div class="row align-center">
+                  <div class="columns medium-10">
+                    <section>
+                      <div class="spacer-3"></div>
+                      <div class="switch">
+                        <label class="middle">OFF</label>
+                        {{input type="checkbox" change=(action settingsChanged) checked=setting.ask class="switch-iput" id="settings_ask" name="ask" }}
+                        <label class="switch-paddle" for="settings_ask">
+                          <span class="show-for-sr">Turn ASK OFF</span>
+                        </label>
+                        <label class="middle">ON</label>
+                      </div>
 
-                    <div class="row">
-                      <div class="columns medium-5 text-right">
+                      <div class="row">
+                        <div class="columns medium-5 text-right">
+                        </div>
+                        <div class="columns medium-2">
+                        </div>
+                        <div class="columns medium-5 text-left">
+                        </div>
                       </div>
-                      <div class="columns medium-2">
-                      </div>
-                      <div class="columns medium-5 text-left">
-                      </div>
-                    </div>
-                    <p>
-                      You can stop accepting questions by turning Ask OFF. When it's OFF, you will not be able to ask questions as well.
-                    </p>
-                  </section>
+                      <p>
+                        You can stop accepting questions by turning Ask OFF. When it's OFF, you will not be able to ask questions as well.
+                      </p>
+                    </section>
+                  </div>
                 </div>
               </div>
               <div class="tabs-panel header {{active-tab 'views' tab}}" id="views">
-                <div class="columns medium-10 medium-centered">
-                  <section>
-                    <div class="spacer-3"></div>
-                    <div class="switch">
-                      <label class="middle">OFF</label>
-                      {{input type="checkbox" change=(action settingsChanged) checked=setting.profileView class="switch-iput" id="settings_view" name="profile_view" }}
-                      <label class="switch-paddle" for="settings_view">
-                        <span class="show-for-sr">Turn Profile Views OFF</span>
-                      </label>
-                      <label class="middle">ON</label>
-                    </div>
-                    <p>
-                      When Profile Views is ON, other users will also be able to see that you have visited their profile. When it's OFF, your activity will be kept private, but you will not be able to see who visited your profile either.
-                    </p>
-                  </section>
+                <div class="row align-center">
+                  <div class="columns medium-10">
+                    <section>
+                      <div class="spacer-3"></div>
+                      <div class="switch">
+                        <label class="middle">OFF</label>
+                        {{input type="checkbox" change=(action settingsChanged) checked=setting.profileView class="switch-iput" id="settings_view" name="profile_view" }}
+                        <label class="switch-paddle" for="settings_view">
+                          <span class="show-for-sr">Turn Profile Views OFF</span>
+                        </label>
+                        <label class="middle">ON</label>
+                      </div>
+                      <p>
+                        When Profile Views is ON, other users will also be able to see that you have visited their profile. When it's OFF, your activity will be kept private, but you will not be able to see who visited your profile either.
+                      </p>
+                    </section>
+                  </div>
                 </div>
               </div>
             </div>
