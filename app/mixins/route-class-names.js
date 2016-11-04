@@ -14,6 +14,7 @@ export default Ember.Mixin.create({
   actions: {
     didTransition(){
       getOwner(this).lookup('controller:application').set('classNames', this.get('className') ? this.get('className') : `page-${this.get('routeName')}`);
+      return true;
     }
   }
 });

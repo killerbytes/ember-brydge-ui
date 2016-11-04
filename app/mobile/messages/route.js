@@ -7,6 +7,9 @@ export default Ember.Route.extend(
   AuthenticatedRouteMixin, {
 	store: Ember.inject.service(),
   className: 'main-mobile',
+  beforeModel(transition){
+    if(!this.get('detector.isMobile')) this.transitionTo('messages');
+  },
 	model: function () {
 		this.store.unloadAll('conversation');
 		return this.store.findAll('conversation');

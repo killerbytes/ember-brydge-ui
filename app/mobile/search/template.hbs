@@ -1,0 +1,29 @@
+<form class="brydge-form padding bg-gray">
+  {{input value=form.name placeholder="Name"}}
+  <div class="columns medium-3 hide">
+    <button class="button success expanded" {{action "refresh"}} disabled="{{isDisabled}}">Search</button>
+  </div>
+</form>
+<div class="content-pad bg-white">
+  <ul class="user-link-list no-bullet">
+    {{#each search as |item|}}
+    <li>
+      <div class="user section-main">
+        <div class="avatar float-left" style={{htmlSafeImage item.user.profile.avatarUrl}}>
+          <img src= {{item.user.profile.avatarUrl}} class="hide">
+        </div>
+        <div class="user-info">
+          <a href="{{href-to 'profile' user.profile.uid}}" class="text-title">{{item.user.profile.fullName}}</a>
+          <div class="position">{{item.user.profile.career}}</div>
+          <div class="position">{{item.user.profile.location}}</div>
+        </div>
+      </div>
+    </li>
+    {{/each}}
+    {{#brydge-scroller id="search" model=search onClick="load"}}
+      {{#if isLoading}}
+        <div class="brydge-loading"></div>
+      {{/if}}
+    {{/brydge-scroller}}
+  </ul>
+</div>

@@ -1,13 +1,16 @@
-
-  <div class="row user cards content-pad border-b align-middle">
+  <div class="row user content-pad border-b align-middle">
     <div class="columns medium-8 small-8">
       <div class="avatar" style={{htmlSafeImage conversation.other.profile.avatarUrl }}>
         <img src= {{conversation.other.profile.avatarUrl}} class="hide">
       </div>
       <div class="user-info">
         <a href="{{href-to 'profile' conversation.other.profile.uid}}" class="name">
-          {{ conversation.other.profile.fullName }}
+          {{conversation.other.profile.fullName}}
         </a>
+        <div class="position">
+          {{conversation.other.profile.career}}
+        </div>
+
       </div>
     </div>
     <div class="column medium-4 small-4 text-right">
@@ -34,9 +37,6 @@
                     <a href="{{href-to 'profile' item.from.profile.uid}}" class="name">
                       {{ item.from.profile.fullName }}
                     </a>
-                    <div class="position">
-                      {{item.from.profile.career}}
-                    </div>
                   </div>
                   <div class="columns medium-4 small-4 text-right">
                     <div class="timestamp">{{ timestamp item.updatedAt }}</div>

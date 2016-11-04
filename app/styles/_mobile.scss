@@ -45,8 +45,14 @@ ul.bookmarks{
   li{
     border-bottom: 1px solid $border-color;
     a{
-      padding: 1rem .5rem;
+      padding: 1rem;
       display: block;
     }
+  }
+}
+
+.main-mobile.search{
+  input{
+    margin-bottom: 0;
   }
 }

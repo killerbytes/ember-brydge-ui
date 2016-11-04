@@ -60,7 +60,6 @@ Router.map(function() {
   this.route('onboarding');
   this.route('notifications');
   this.route('profile-views');
-  this.route('bookmarks');
 
   this.route('me', function() {
     this.route('edit',{path:'/edit'});
@@ -91,6 +90,8 @@ Router.map(function() {
   this.route('mobile.messages.compose', {path: 'r/messages/compose'})
   this.route('mobile.messages.conversation', {path: 'r/messages/:id'})
   this.route('mobile.notifications', {path: 'r/notifications'});
+  this.route('mobile.bookmarks', {path: 'r/bookmarks'});
+  this.route('mobile.search', {path: 'r/search'});
 
   // User Pages
   // this.route('connections', {path: ':username/connections'});

@@ -1,13 +1,17 @@
 <section class="pane-header">
-  <div class="row user cards">
+  <div class="row user align-middle">
     <div class="columns medium-8">
       <div class="avatar" style={{htmlSafeImage conversation.other.profile.avatarUrl }}>
         <img src= {{conversation.other.profile.avatarUrl}} class="hide">
       </div>
       <div class="user-info">
         <a href="{{href-to 'profile' conversation.other.profile.uid}}" class="name">
-          {{ conversation.other.profile.fullName }}
+          {{conversation.other.profile.fullName}}
         </a>
+        <div class="position">
+          {{conversation.other.profile.career}}
+        </div>
+
       </div>
     </div>
     <div class="column medium-4 text-right">

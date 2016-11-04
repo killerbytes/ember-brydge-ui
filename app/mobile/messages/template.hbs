@@ -1,9 +1,9 @@
-<div class="row columns bg-white">
+<div class="row columns bg-white border-b">
   <section class="content-pad text-right">
     {{link-to "+ New Message" "mobile.messages.compose"}}
   </section>
 </div>
-<div class="row columns bg-gray">
+<div class="row columns bg-gray border-b">
   <form class="content-pad brydge-form">
     {{input type="search" value=key placeholder="Search Inbox by Name" class="no-margin search-input"}}
   </form>
@@ -26,9 +26,6 @@
               <div class="columns medium-4 small-4 text-right">
                 <div class="timestamp">{{ timestamp item.messagedAt }}</div>
               </div>
-            </div>
-            <div class="row columns">
-              <div class="position">{{item.other.profile.career}}</div>
             </div>
           </div>
           <div class="message-body truncate">{{{item.content}}}</div>
