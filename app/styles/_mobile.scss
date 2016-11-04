@@ -9,6 +9,7 @@
     @extend .show-for-medium;
   }
 
+
 .hide-for-medium{
   .icons.stack{
     margin: auto;
@@ -54,5 +55,20 @@ ul.bookmarks{
 .main-mobile.search{
   input{
     margin-bottom: 0;
+  }
+}
+@include breakpoint(small only) {
+  .profile-menu-buttons{
+    .button-group .button{
+      border-right: none;
+    }
+    .button.active{
+  		position: relative;
+  		color: $button-blue;
+      border-bottom: 3px solid $button-blue;
+  		&:before, &:after{
+        content: none;
+  		}
+    }
   }
 }

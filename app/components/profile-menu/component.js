@@ -8,7 +8,6 @@ const {
 export default Ember.Component.extend({
   session: Ember.inject.service(),
   follow: Ember.inject.service(),
-  classNames: ['columns'],
   didReceiveAttrs(attr){
     this._getFolowCount();
   },

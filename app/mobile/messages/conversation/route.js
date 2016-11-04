@@ -9,14 +9,14 @@ export default Ember.Route.extend(
   AuthenticatedRouteMixin, {
   className: 'main-mobile',
   ajax: Ember.inject.service(),
-  resetController(controller, isExiting, transition) {
-      if (isExiting) {
-        controller.setProperties({
-          messages: [],
-          id: null
-        });
-      }
-  },
+  // resetController(controller, isExiting, transition) {
+  //     if (isExiting) {
+  //       controller.setProperties({
+  //         messages: [],
+  //         id: null
+  //       });
+  //     }
+  // },
   model: function(params) {
     return this.brydgeScroller('conversation',{
 			id: params.id,
