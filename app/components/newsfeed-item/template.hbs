@@ -80,17 +80,16 @@
 </section>
 {{#unless shared }}
   <section class="post-actions">
-    <div class="row">
-      <div class="columns medium-6 small-6">
+    <div class="row text-center collapse">
+      <div class="columns small-3">
         {{#if post.vote.upVoted}}
           <a {{action "vote" "reset"}} class="acted">Upvoted</a>
         {{else}}
           <a {{action "vote" "up"}}>Upvote</a>
         {{/if}}
-
         {{#if post.vote.upVotes}}<span>{{post.vote.upVotes}}</span>{{/if}}
-
-
+      </div>
+      <div class="columns small-3">
         {{#if post.vote.downVoted}}
           <a {{action "vote" "reset"}} class="acted">Downvoted</a>
         {{else}}
@@ -98,11 +97,12 @@
             <a {{action "vote" "down"}}>Downvote</a>
           {{/zf-tooltip}}
         {{/if}}
-
       </div>
-      <div class="columns medium-6 small-6 text-right">
+      <div class="columns small-3">
         <a {{action "viewComments"}}>Comment</a>
         {{#if post.commentCount}}<span>{{post.commentCount}}</span>{{/if}}
+      </div>
+      <div class="columns small-3">
         <a {{action "share"}} data-open={{sharePostModal}}>Share</a>
         {{#if post.shareCount}}<span>{{post.shareCount}}</span>{{/if}}
       </div>
