@@ -60,84 +60,85 @@
   </section>
 </div>
 
-{{#if latestQuestion}}
-  <div class="box rounded question-box">
-  <div class="section-group section-accordion-group">
-    <section>
-      <div class="section-main">
-        <h4><i class="fa fa-quote-left" aria-hidden="true"></i>Ask</h4>
-        <div class="user mb">
-          <div class="avatar" style={{htmlSafeImage latestQuestion.from.profile.avatarUrl }}>
-            <img src= {{latestQuestion.from.profile.avatarUrl}} class="hide">
-          </div>
-          <div class="user-info">
-            <a href="{{href-to 'profile' latestQuestion.from.profile.uid}}" class="name">{{latestQuestion.from.profile.fullName}}</a>
-            asked
-            <a href="{{href-to 'profile' latestQuestion.to.profile.uid}}" class="name">{{latestQuestion.to.profile.fullName}}</a>
-            <div class="timestamp">
-              <a href="{{href-to 'ask.detail' latestQuestion.id}}" class="timestamp">
-                {{timestamp latestQuestion.answeredAt}}
-              </a>
+<div class="show-for-medium">
+
+  {{#if latestQuestion}}
+    <div class="box rounded question-box">
+    <div class="section-group section-accordion-group">
+      <section>
+        <div class="section-main">
+          <h4><i class="fa fa-quote-left" aria-hidden="true"></i>Ask</h4>
+          <div class="user mb">
+            <div class="avatar" style={{htmlSafeImage latestQuestion.from.profile.avatarUrl }}>
+              <img src= {{latestQuestion.from.profile.avatarUrl}} class="hide">
             </div>
+            <div class="user-info">
+              <a href="{{href-to 'profile' latestQuestion.from.profile.uid}}" class="name">{{latestQuestion.from.profile.fullName}}</a>
+              asked
+              <a href="{{href-to 'profile' latestQuestion.to.profile.uid}}" class="name">{{latestQuestion.to.profile.fullName}}</a>
+              <div class="timestamp">
+                <a href="{{href-to 'ask.detail' latestQuestion.id}}" class="timestamp">
+                  {{timestamp latestQuestion.answeredAt}}
+                </a>
+              </div>
 
+            </div>
           </div>
+
+          <div class="title large">{{latestQuestion.question}}</div>
         </div>
+        {{#zf-accordion-menu class="section-accordion accordion-ask-answer" multiOpen=true}}
+          <li>
+            <a class="more no-arrow more-top"><span class="content-more">See Answer</span><span class="content-less">Hide Answer</span></a>
+            <ul class="section-accordion-content no-bullet">
+              <li>
+                {{brydge-linkify text=latestQuestion.answer class="paragraph answer-content"}}
+              </li>
+            </ul>
+            <a class="more no-arrow"><span class="content-more">See Answer</span><span class="content-less">Hide Answer</span></a>
+          </li>
+        {{/zf-accordion-menu}}
+      </section>
 
-        <div class="title large">{{latestQuestion.question}}</div>
-      </div>
-      {{#zf-accordion-menu class="section-accordion accordion-ask-answer" multiOpen=true}}
-        <li>
-          <a class="more no-arrow more-top"><span class="content-more">See Answer</span><span class="content-less">Hide Answer</span></a>
-          <ul class="section-accordion-content no-bullet">
-            <li>
-              {{brydge-linkify text=latestQuestion.answer class="paragraph answer-content"}}
-            </li>
-          </ul>
-          <a class="more no-arrow"><span class="content-more">See Answer</span><span class="content-less">Hide Answer</span></a>
-        </li>
-      {{/zf-accordion-menu}}
-    </section>
-
-    <section class="section-footer-links">
-      {{#if isOwner }}
-        <a href="{{href-to 'me.ask'}}" class="button expanded">Go to Ask</a>
-      {{else}}
-        <a href="{{href-to 'ask' profile.uid}}" class="button expanded">
-          Ask <span class="text-title">{{profile.firstName}}</span>
-        </a>
-      {{/if}}
-    </section>
-  </div>
-</div>
-{{else}}
-  <div class="box">
-    <section>
-      <h4><i class="fa fa-quote-left" aria-hidden="true"></i>Ask</h4>
-      <div class="empty-message">
-        {{#if isOwner}}
-          You haven't answered any questions
+      <section class="section-footer-links">
+        {{#if isOwner }}
+          <a href="{{href-to 'me.ask'}}" class="button expanded">Go to Ask</a>
         {{else}}
-          <span class="text-title">{{profile.firstName}}</span> hasn't answered any questions
+          <a href="{{href-to 'ask' profile.uid}}" class="button expanded">
+            Ask <span class="text-title">{{profile.firstName}}</span>
+          </a>
         {{/if}}
-      </div>
-    </section>
-    <section class="section-footer-links">
-      {{#if isOwner }}
-        <a href="{{href-to 'me.ask'}}" class="button expanded">Go to Ask</a>
-      {{else}}
-        <a href="{{href-to 'ask' profile.uid}}" class="button expanded">
-          Ask <span class="text-title">{{profile.firstName}}</span>
-        </a>
-      {{/if}}
-    </section>
+      </section>
+    </div>
   </div>
-{{/if}}
+  {{else}}
+    <div class="box">
+      <section>
+        <h4><i class="fa fa-quote-left" aria-hidden="true"></i>Ask</h4>
+        <div class="empty-message">
+          {{#if isOwner}}
+            You haven't answered any questions
+          {{else}}
+            <span class="text-title">{{profile.firstName}}</span> hasn't answered any questions
+          {{/if}}
+        </div>
+      </section>
+      <section class="section-footer-links">
+        {{#if isOwner }}
+          <a href="{{href-to 'me.ask'}}" class="button expanded">Go to Ask</a>
+        {{else}}
+          <a href="{{href-to 'ask' profile.uid}}" class="button expanded">
+            Ask <span class="text-title">{{profile.firstName}}</span>
+          </a>
+        {{/if}}
+      </section>
+    </div>
+  {{/if}}
 
-{{#if isOwner}}
-  {{invite-to-brydge}}
-{{/if}}
+  {{#if isOwner}}
+    {{invite-to-brydge}}
+  {{/if}}
 
-<div class="hide-for-small-only">
   {{ partial "partials/user-guide-box" }}
   {{ partial "footer"}}
 </div>

@@ -6,15 +6,21 @@
 	</div>
 	{{/unless}}
 
-  <div class="medium-5 small-12 columns sidebar">
-		{{profile-box profile=profile class="mb20" isOwner=true}}
-		{{ partial 'me/ask/sidebar'}}
-  </div>
+
+  <aside class="medium-5 small-12 columns">
+		{{profile-box profile=profile isOwner=true}}
+
+		<div class="show-for-medium">
+			{{ partial 'me/ask/sidebar'}}
+		</div>
+
+  </aside>
   <div class="medium-7 small-12 columns">
 		{{profile-menu profile=profile }}
-    <div class="page-heading">
+		<div class="spacer-2"></div>
+    <div class="page-heading mb-2">
 			<h1>Your Ask Page</h1>
-			<p class="text-center">
+			<p>
 				{{#if profile.setting.ask}}
 					You are currently accepting questions. To disable the ASK feature go to <a href="{{href-to 'settings' (query-params tab='ask')}}">Settings</a>.
 				{{else}}
@@ -22,6 +28,13 @@
 				{{/if}}
 			</p>
 		</div>
+
+		<div class="spacer-2"></div>
+
+		<div class="hide-for-medium">
+			{{ partial 'me/ask/sidebar'}}
+		</div>
+
     <div class="mb">
 			{{#zf-tabs id="tabs" class="tab-controls"}}
 	      <li class="tabs-title medium-6 small-6 is-active">

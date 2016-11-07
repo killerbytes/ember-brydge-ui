@@ -3,7 +3,7 @@ import AvatarMixin from 'web/mixins/avatar';
 
 export default Ember.Component.extend(AvatarMixin, {
 	session: Ember.inject.service(),
-	classNames: ['profile-box'],
+	classNames: ['profile-box', 'row', 'align-center', 'mb'],
 	follow: Ember.inject.service(),
 	store: Ember.inject.service(),
 	willDestroyElement(){

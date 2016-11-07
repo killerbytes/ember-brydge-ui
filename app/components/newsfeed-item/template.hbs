@@ -80,8 +80,8 @@
 </section>
 {{#unless shared }}
   <section class="post-actions">
-    <div class="row text-center collapse">
-      <div class="columns small-3">
+    <div class="row text-center collapse is-collapse-child">
+      <div class="columns small-3 text-left">
         {{#if post.vote.upVoted}}
           <a {{action "vote" "reset"}} class="acted">Upvoted</a>
         {{else}}
@@ -89,7 +89,7 @@
         {{/if}}
         {{#if post.vote.upVotes}}<span>{{post.vote.upVotes}}</span>{{/if}}
       </div>
-      <div class="columns small-3">
+      <div class="columns small-3 text-left">
         {{#if post.vote.downVoted}}
           <a {{action "vote" "reset"}} class="acted">Downvoted</a>
         {{else}}
@@ -98,11 +98,11 @@
           {{/zf-tooltip}}
         {{/if}}
       </div>
-      <div class="columns small-3">
+      <div class="columns small-3 text-right">
         <a {{action "viewComments"}}>Comment</a>
         {{#if post.commentCount}}<span>{{post.commentCount}}</span>{{/if}}
       </div>
-      <div class="columns small-3">
+      <div class="columns small-3 text-right">
         <a {{action "share"}} data-open={{sharePostModal}}>Share</a>
         {{#if post.shareCount}}<span>{{post.shareCount}}</span>{{/if}}
       </div>

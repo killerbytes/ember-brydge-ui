@@ -1,31 +1,27 @@
-<section>
-	<form {{action 'post' on='submit'}} class="form-input">
-		{{#if isLoading}}
-			<span class="brydge-loading"></span>
-		{{/if}}
-	  <div class="avatar circle" style={{htmlSafeImage sessionAccount.account.profile.avatarUrl}}>
-	    <img src= {{avatarUrl}} class="hide">
-	  </div>
-	  <div class="input-wrapper">
-	    {{textarea
-	      value=postContent
-	      key-up="edit"
-				focus-in="expand"
-	      class="textarea content-editable broadcast-textarea"
-	    	placeholder='Post updates, links, news or opinions'
-	      }}
-	  </div>
-	  {{#if site.title}}
-			<div class="newsfeed-item newsfeed-item-horizontal">
-				{{newsfeed-media model=site preview=true}}
-			</div>
-		{{/if}}
+<form {{action 'post' on='submit'}} class="form-input">
+	{{#if isLoading}}
+		<span class="brydge-loading"></span>
+	{{/if}}
+  <div class="avatar circle" style={{htmlSafeImage sessionAccount.account.profile.avatarUrl}}>
+    <img src= {{avatarUrl}} class="hide">
+  </div>
+  <div class="input-wrapper">
+    {{textarea
+      value=postContent
+      key-up="edit"
+			focus-in="expand"
+      class="textarea content-editable broadcast-textarea"
+    	placeholder='Post updates, links, news or opinions'
+      }}
+  </div>
+  {{#if site.title}}
+		<div class="newsfeed-item newsfeed-item-horizontal">
+			{{newsfeed-media model=site preview=true}}
+		</div>
+	{{/if}}
 
-	</form>
-
-</section>
-
-<div class="{{unless expanded 'is-collapsed'}}">
+</form>
+<div class="{{unless expanded 'hide' 'is-collapsed'}}">
 	<ul class="no-bullet accordion-picker brydge-accordion bg-white">
 	  <li>
 	    <div>

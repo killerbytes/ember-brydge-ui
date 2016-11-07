@@ -4,13 +4,14 @@
 	background-color: $brydge-gray;
 	margin-bottom: 1rem;
 	.is-collapsed{
-		display: none;
+		border-top: 1px solid $border-color;
 	}
 	section{
 		padding: 1rem;
 	}
 	.form-input{
 		position: relative;
+		border: none;
 	}
 	.newsfeed-item{
 		border: none;
@@ -22,10 +23,6 @@
 		font-size: 11px;
 	}
 	.accordion-picker{
-		>li{
-			border-top: 1px solid $border-color;
-
-		}
 		>li.is-active{
 			border-bottom: 1px solid $border-color;
 		}

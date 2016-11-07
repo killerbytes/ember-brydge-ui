@@ -22,7 +22,7 @@ table{
 	color: $text-gray;
 }
 .page-heading{
-	padding: 0 0 3rem;
+	// padding: 0 0 3rem;
 	text-align: center;
 	h1{
 		font-weight: bold;
@@ -92,7 +92,6 @@ table{
 .user{
 	position: relative;
 	.avatar{
-		// position: absolute;
 		float: left;
 	}
 	.user-info{
@@ -205,7 +204,7 @@ table{
 
 .dropdown-select{
 	position: relative;
-	margin-bottom: 1.33rem;
+	// margin-bottom: 1.33rem;
 	input{ margin: 0 !important; }
 
 	.wrapper{
@@ -304,19 +303,6 @@ table{
 	}
 	p:not(:last-child){
 		margin-bottom: 1rem;
-	}
-}
-
-.page-about{
-	.box{
-		section, .section-accordion-group .section-main{
-			// padding: 1rem 2rem;
-		}
-		.section-accordion-group .section-accordion-content + a{
-			// padding-left: 2rem;
-			// padding-right: 2rem;
-		}
-
 	}
 }
 .work-history-group {
@@ -435,6 +421,15 @@ section.message-content{
 			margin-top: 3px;
 		}
 	}
+	a span.badge{
+		color: #FFF;
+		margin-left: 6px;
+		font-size: 11px;
+		border-radius: 3px;
+		min-width: 18px;
+		padding: 1px 3px;
+	}
+
 }
 
 .hover-close{
@@ -601,5 +596,15 @@ span.middle{
 		width: 30px;
 		height: 30px;
 		line-height: 19px;
+	}
+}
+
+.follow-item{
+	@extend .boxz;
+	@extend .align-middle;
+	margin-bottom: 1rem;
+	padding: 1rem;
+	.user{
+		// padding: 1rem;
 	}
 }

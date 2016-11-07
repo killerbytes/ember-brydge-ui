@@ -1,8 +1,6 @@
 <form class="brydge-form padding bg-gray">
-  {{input value=form.name placeholder="Name"}}
-  <div class="columns medium-3 hide">
-    <button class="button success expanded" {{action "refresh"}} disabled="{{isDisabled}}">Search</button>
-  </div>
+  {{input value=form.name placeholder="Search" class="mb"}}
+  <button class="button success expanded" {{action "refresh"}} disabled="{{isDisabled}}">Search</button>
 </form>
 <div class="content-pad bg-white">
   <ul class="user-link-list no-bullet">

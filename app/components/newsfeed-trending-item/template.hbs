@@ -2,17 +2,9 @@
   <h4><i class="fa fa-newspaper-o text-green" aria-hidden="true"></i>Popular This Week</h4>
 </section>
 <section class="newsfeed-section">
-
   {{#if post.title}}
-    {{newsfeed-media model=post}}
+    {{newsfeed-media-trending model=post}}
   {{/if}}
-
-  {{#unless shared }}
-    {{#if post.shared }}
-      {{newsfeed-item post=post.shared shared=true class="shared-post"}}
-    {{/if}}
-  {{/unless}}
-
 </section>
 
 <section class="post-actions">

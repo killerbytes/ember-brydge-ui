@@ -1,11 +1,11 @@
-{{#zf-accordion id="locationPicker" allowAllClosed=true class="brydge-accordion"}}
+{{#zf-accordion id="picker-location" allowAllClosed=true class="brydge-accordion"}}
   <li class="accordion-item" data-accordion-item>
     <a class="accordion-title">{{selectedText.description}}</a>
     <div class="accordion-content" data-tab-content>
 			<div class="boxz">
 				<section class="accordion-sub-title">Select a City</section>
 				<div class="row collapse is-collapse-child">
-					<div class="columns medium-6">
+					<div class="columns medium-6 small-12">
 						<section>
 							<div class="sub-title">Your City (<a href="{{href-to 'me.edit' (query-params tab='personal')}}">Edit</a>)</div>
 							<ul class="no-bullet content-pad">
@@ -20,7 +20,7 @@
 							</ul>
 						</section>
 					</div>
-					<div class="columns medium-6">
+					<div class="columns medium-6 small-12">
 						<section>
 							<div class="sub-title">Search for a city</div>
 							<form class="content-pad">

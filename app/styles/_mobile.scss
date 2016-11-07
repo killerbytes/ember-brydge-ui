@@ -20,7 +20,8 @@
   .fa{
     font-size: 20px;
     line-height: 2rem;
-    color: $body-text-color;
+    // color: $body-text-color;
+    color: #0481bd;
   }
   .button-group{
     margin-bottom: 0;
@@ -38,7 +39,11 @@
       color: inherit;
     }
   }
-
+  .avatar{
+    width: 24px;
+    height: 24px;
+    border-radius: 100px;
+  }
 }
 
 
@@ -57,6 +62,7 @@ ul.bookmarks{
     margin-bottom: 0;
   }
 }
+
 @include breakpoint(small only) {
   .profile-menu-buttons{
     .button-group .button{
@@ -81,6 +87,52 @@ ul.bookmarks{
         content: none !important;
   		}
 
+    }
+  }
+  .page-heading{
+    padding: 0;
+  }
+  .follow-item{
+    .avatar{
+      margin-bottom: 1rem;
+    }
+  }
+  .profile-box .avatar-wrapper .profile-photo{
+    width: 150px;
+    height: 150px;
+  }
+  #doorbell-button{
+    display: none;
+  }
+  .cards{
+    .user-info{
+      margin-top: 0;
+    }
+  }
+  .accordion-picker .columns:last-child{
+    border-left: none !important;
+    min-height: inherit;
+  }
+  .newsfeed-item{
+    .title a{
+      font-size: 14px;
+    }
+    .post-actions{
+      padding: 1rem;
+    }
+
+  }
+  .brydge-tab .tabs.vertical{
+    border-right: 1px solid $border-color;
+  }
+  .follow-item{
+    padding: 0;
+    .user{
+      padding: 1rem;
+    }
+    .follow-button, .button{
+      border: 0;
+      border-radius: 0;
     }
   }
 }

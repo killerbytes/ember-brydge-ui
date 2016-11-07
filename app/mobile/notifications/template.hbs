@@ -1,5 +1,5 @@
-{{#zf-tabs id="notice-tab" class="tab-controls brydge-tab-blue tabs notification-bubble"}}
-	<li class="tabs-title is-active">
+{{#zf-tabs id="notice-tab" class="tab-controls brydge-tab-blue notification-bubble"}}
+	<li class="tabs-title columns is-active">
 		<a href="#notice-tab-panel1" data-id="view" aria-selected="true" class="wrapper">
 			<i class="icons bino">
 				{{#if notification.count.view}}
@@ -8,7 +8,7 @@
 			</i>
 		</a>
 	</li>
-	<li class="tabs-title wrapper">
+	<li class="tabs-title columns">
 		<a href="#notice-tab-panel2" data-id="notification">
 			<i class="icons stack">
 				{{#if notification.count.notification }}
@@ -17,7 +17,7 @@
 			</i>
 		</a>
 	</li>
-	<li class="tabs-title wrapper">
+	<li class="tabs-title columns">
 		<a href="#notice-tab-panel3" data-id="message">
 			<i class="icons messages">
 				{{#if notification.count.message }}

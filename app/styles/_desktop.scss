@@ -1,4 +1,4 @@
-body:not(.is-mobile){
+body{
   header.header-blue{
     width: 100%;
     position: fixed;
@@ -9,11 +9,6 @@ body:not(.is-mobile){
   	height: 100vh;
   }
 
-  .brydge-tab{
-    .tabs.vertical{
-  		border-right: 0;
-  	}
-  }
   .dropdown-menu{
     width: 150px;
   }
@@ -48,11 +43,5 @@ body:not(.is-mobile){
     width: 200px;
   }
 
-  .follow-item{
-  	>.row{
-  		display: flex;
-  		align-items: center;
-  	}
-  }
 
 }

@@ -7,14 +7,15 @@
           <span>Beta</span>
         </a>
       </div>
-      <div id="responsive-menu">
         <div class="top-bar-left">
-        </div>
-        <div class="top-bar-right">
-          <ul class="menu">
+          <ul class="align-stretch">
             <li>
               {{top-bar-search}}
             </li>
+          </ul>
+        </div>
+        <div class="top-bar-right">
+          <ul class="menu">
             <li>
               <ul class="top-bar-group menu menu-actions wrapper notification-bubble" {{ action "closeTooltip" preventDefault=false }}>
       					<li>
@@ -57,18 +58,17 @@
 
       					</li>
       				</ul>
-              
+
             </li>
           </ul>
         </div>
-      </div>
     </div>
   </div>
   <div class="row columns wrapper">
 
 	{{#zf-dropdown id="dd-notification" class="dropdown-notification" closeOnClick=true}}
-    {{#zf-tabs id="notification-tab" class="tab-controls brydge-tab-blue tabs notification-bubble"}}
-      <li class="tabs-title is-active">
+    {{#zf-tabs id="notification-tab" class="tab-controls brydge-tab-blue notification-bubble"}}
+      <li class="tabs-title is-active columns">
         <a href="#notification-tab-panel1" data-id="view" aria-selected="true" class="wrapper">
           {{#zf-tooltip title="Profile Views" vOffset=7}}
             <i class="icons bino">
@@ -79,7 +79,7 @@
           {{/zf-tooltip}}
         </a>
       </li>
-      <li class="tabs-title wrapper">
+      <li class="tabs-title columns">
         <a href="#notification-tab-panel2" data-id="notification">
           {{#zf-tooltip title="Notifications" vOffset=7}}
             <i class="icons stack">
@@ -90,7 +90,7 @@
           {{/zf-tooltip}}
         </a>
       </li>
-      <li class="tabs-title wrapper">
+      <li class="tabs-title columns">
         <a href="#notification-tab-panel3" data-id="message">
           {{#zf-tooltip title="Messages" vOffset=7}}
             <i class="icons messages">
@@ -116,20 +116,14 @@
     				{{#each views as |item|}}
       				<li {{action "read" item}}>
                 <a href="{{href-to 'profile' item.target.profile.uid}}" class={{if item.read false 'new-notification'}}>
-      						<div class="row collapse">
-      							<div class="columns">
-      					      <div class="avatar" style={{htmlSafeImage item.target.profile.avatarUrl }}>
-      					        <img src= {{item.target.profile.avatarUrl}} class="hide">
-      					      </div>
-      					      <div class="user-info">
-                        <div>
-                          <span class="name">{{item.target.profile.fullName}}</span>
-                          <span class="timestamp float-right">{{ timestamp-views item.createdAt }}</span>
-                        </div>
-      					        <div class="position">{{item.target.profile.career}}</div>
-      					      </div>
-      							</div>
-      						</div>
+    							<div class="avatar" style={{htmlSafeImage item.target.profile.avatarUrl }}>
+    							  <img src= {{item.target.profile.avatarUrl}} class="hide">
+                  </div>
+  					      <div class="user-info">
+                    <span class="name">{{item.target.profile.fullName}}</span>
+                    <span class="timestamp float-right">{{ timestamp-views item.createdAt }}</span>
+  					        <div class="position">{{item.target.profile.career}}</div>
+  					      </div>
                 </a>
       				</li>
             {{else}}
@@ -168,19 +162,15 @@
     		  {{#each notifications as |item|}}
     		    <li>
     		    	<a {{action "select" item}} class="{{if item.read false 'new-notification'}}">
-    						<div class="row columns collapse">
-    							<div class="columns">
-    					      <div class="avatar" style={{htmlSafeImage item.target.profile.avatarUrl }}>
-    					        <img src= {{item.target.profile.avatarUrl}} class="hide">
-    					      </div>
-    					      <div class="user-info">
-    		              <div>
-    		              	<strong class="name">{{item.target.profile.fullName }}</strong> {{{notification-text item}}}
-    		              </div>
-    		              <span class="timestamp">{{ timestamp item.createdAt }}</span>
-    					      </div>
-    							</div>
-    						</div>
+                <div class="avatar" style={{htmlSafeImage item.target.profile.avatarUrl }}>
+                  <img src= {{item.target.profile.avatarUrl}} class="hide">
+                </div>
+                <div class="user-info">
+                  <div>
+                    <strong class="name">{{item.target.profile.fullName }}</strong> {{{notification-text item}}}
+                  </div>
+                  <span class="timestamp">{{ timestamp item.createdAt }}</span>
+                </div>
     					</a>
     		    </li>
     		  {{else}}
@@ -211,20 +201,16 @@
     			{{#each messages as |item|}}
     			<li {{action "read" item}} class="{{if item.read false 'new-notification'}}">
     				{{#link-to "messages.conversation" item.referenceid class="no-color" }}
-    					<div class="row collapse">
-    						<div class="columns medium-8">
-    				      <div class="avatar" style={{htmlSafeImage item.target.profile.avatarUrl }}>
-    				        <img src= {{item.target.profile.avatarUrl}} class="hide">
-    				      </div>
-    				      <div class="user-info">
-    			          <a class="name">{{item.target.profile.fullName}} {{#if item.count}}<span class="message-count">({{item.count}})</span>{{/if}}</a>
-    				      </div>
-    						</div>
-    						<div class="columns medium-4 timestamp text-right">
-    		          {{ timestamp item.notifiedAt }}
-    						</div>
-    					</div>
-              <div class="message-body position truncate">{{{getNotificationContent item.content}}}</div>
+              <div class="avatar" style={{htmlSafeImage item.target.profile.avatarUrl }}>
+                <img src= {{item.target.profile.avatarUrl}} class="hide">
+              </div>
+              <div class="user-info">
+                <a class="name">{{item.target.profile.fullName}} {{#if item.count}}<span class="message-count">({{item.count}})</span>{{/if}}</a>
+                <div class="timestamp float-right text-right">
+                  {{ timestamp item.notifiedAt }}
+                </div>
+              </div>
+              <div class="message-body truncate">{{{getNotificationContent item.content}}}</div>
     				{{/link-to}}
     			</li>
     			{{else}}
@@ -275,12 +261,16 @@
 <header class="hide-for-medium mobile-nav">
   <div class="expanded button-group notification-bubble">
     {{#link-to 'home' class="button"}}<i class="fa fa-home" aria-hidden="true"></i>{{/link-to}}
-    {{#link-to 'me' class="button"}}<i class="fa fa-user" aria-hidden="true"></i>{{/link-to}}
     {{#link-to 'mobile.notifications' class="button"}}<i class="icons stack" aria-hidden="true">
       {{#if notification.totalCount}}
         <span class="alert badge badge-large">{{notification.totalCount}}</span>
       {{/if}}
     </i>{{/link-to}}
+    {{#link-to 'me' class="button"}}
+      <div class="avatar" style={{htmlSafeImage sessionAccount.account.profile.avatarUrl}}>
+        <img src= {{sessionAccount.account.profile.avatarUrl}} class="hide">
+      </div>
+    {{/link-to}}
     {{#link-to 'mobile.search' class="button"}}<i class="fa fa-search" aria-hidden="true"></i>{{/link-to}}
     {{#link-to 'mobile.bookmarks' class="button"}}<i class="fa fa-bars" aria-hidden="true"></i>{{/link-to}}
   </div>

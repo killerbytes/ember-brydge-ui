@@ -41,6 +41,6 @@ export default DS.Model.extend(Validations, {
 	career: Ember.computed('currentTitle', 'currentCompany', function(){
 		var title = this.get('currentTitle');
 		var company = this.get('currentCompany');
-		return this.get('currentCompany') ? `${title} at ${company}` : title;
+		return  this.get('currentCompany') ? `${title} at ${company}` : title;
 	})
 });

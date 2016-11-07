@@ -1,4 +1,4 @@
-<div>
+<div class="columns medium-10">
   {{#if isOwner}}
     {{image-upload fileLoaded="fileLoaded" logoUrl=profile.avatarUrl}}
   {{else}}
@@ -10,82 +10,82 @@
       </div>
     </div>
   {{/if}}
-</div>
-<div class="text-center">
-  <section>
-    <div class="hoverable name">
-      <span>
-        {{profile.fullName}}
-        {{#if isOwner}}
-          <a href="{{href-to 'me.edit' (query-params tab='personal')}}" class="editable">
-            <i class="fa fa-pencil-square-o"></i>
-          </a>
-        {{/if}}
-      </span>
-    </div>
-  </section>
-  {{#if isNotEmptyTitleCompany}}
+  <div class="text-center">
     <section>
-      <div class="hoverable position font-light">
+      <div class="hoverable name">
         <span>
-          {{profile.currentTitle}}
+          {{profile.fullName}}
           {{#if isOwner}}
-            <a href="{{href-to 'me.edit' (query-params tab='work')}}" class="editable">
-              <i class="fa fa-pencil-square-o"></i>
-            </a>
-          {{/if}}
-        </span>
-      </div>
-      <div class="hoverable company">
-        <span>
-          {{profile.currentCompany}}
-          {{#if isOwner}}
-            <a href="{{href-to 'me.edit' (query-params tab='work')}}" class="editable">
+            <a href="{{href-to 'me.edit' (query-params tab='personal')}}" class="editable">
               <i class="fa fa-pencil-square-o"></i>
             </a>
           {{/if}}
         </span>
       </div>
     </section>
-  {{else}}
-    {{#if isOwner}}
-      <div class="empty-message" style="margin:.5rem; ">
-        Add Current Title and Company
-      </div>
-    {{/if}}
-  {{/if}}
-  <section>
-    <div class="hoverable mb">
-      <span class="location">
-        <strong>{{profile.location}}</strong>
-        {{#if isOwner}}
-          <a href="{{href-to 'me.edit' (query-params tab='personal')}}" class="editable">
-            <i class="fa fa-pencil-square-o"></i>
-          </a>
-        {{/if}}
-      </span>
-    </div>
-
-    {{#unless isOwner }}
-      {{#if canMessage}}
-          {{#zf-tooltip title="Send Message" positionClass="right" class="mb"}}
-            <a href="{{href-to 'messages.conversation' conversationid }}">
-              <i class="icons messages"></i>
-            </a>
-          {{/zf-tooltip}}
+    {{#if isNotEmptyTitleCompany}}
+      <section>
+        <div class="hoverable position font-light">
+          <span>
+            {{profile.currentTitle}}
+            {{#if isOwner}}
+              <a href="{{href-to 'me.edit' (query-params tab='work')}}" class="editable">
+                <i class="fa fa-pencil-square-o"></i>
+              </a>
+            {{/if}}
+          </span>
+        </div>
+        <div class="hoverable company">
+          <span>
+            {{profile.currentCompany}}
+            {{#if isOwner}}
+              <a href="{{href-to 'me.edit' (query-params tab='work')}}" class="editable">
+                <i class="fa fa-pencil-square-o"></i>
+              </a>
+            {{/if}}
+          </span>
+        </div>
+      </section>
+    {{else}}
+      {{#if isOwner}}
+        <div class="empty-message" style="margin:.5rem; ">
+          Add Current Title and Company
+        </div>
       {{/if}}
-
-      <div>
-        {{#if isFollowing}}
-          <button class="button large bordered follow-button"{{action "unfollow"}}>
-            <span class="following-text">Following</span>
-            <span class="unfollow-text">Unfollow</span>
-          </button>
-        {{else}}
-          <button class="button large bordered green"{{action "follow"}}>Follow</button>
-        {{/if}}
+    {{/if}}
+    <section>
+      <div class="hoverable mb">
+        <span class="location">
+          <strong>{{profile.location}}</strong>
+          {{#if isOwner}}
+            <a href="{{href-to 'me.edit' (query-params tab='personal')}}" class="editable">
+              <i class="fa fa-pencil-square-o"></i>
+            </a>
+          {{/if}}
+        </span>
       </div>
-    {{/unless}}
-  </section>
 
+      {{#unless isOwner }}
+        {{#if canMessage}}
+            {{#zf-tooltip title="Send Message" positionClass="right" class="mb"}}
+              <a href="{{href-to 'messages.conversation' conversationid }}">
+                <i class="icons messages"></i>
+              </a>
+            {{/zf-tooltip}}
+        {{/if}}
+
+        <div>
+          {{#if isFollowing}}
+            <button class="button large bordered follow-button"{{action "unfollow"}}>
+              <span class="following-text">Following</span>
+              <span class="unfollow-text">Unfollow</span>
+            </button>
+          {{else}}
+            <button class="button large bordered green"{{action "follow"}}>Follow</button>
+          {{/if}}
+        </div>
+      {{/unless}}
+    </section>
+
+  </div>
 </div>

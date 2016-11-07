@@ -105,12 +105,10 @@
 				bottom: 2px;
 			}
 		}
-		.comment-group{
-			padding-top: 1rem;
+		.comment-item:not(:last-child){
+			padding-bottom: 1rem;
 		}
 		.comment{
-			// padding-top: 1rem;
-			padding-bottom: 1rem;
 			padding-left: 40px;
 			font-size: 11px;
 		}

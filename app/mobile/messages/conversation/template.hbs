@@ -26,26 +26,16 @@
     <ul class="messages-list no-bullet">
       {{#each list as |item| }}
         <li>
-          <div class="row collapse">
-            <div class="columns user">
-              <div class="avatar" style={{htmlSafeImage item.from.profile.avatarUrl }}>
-                <img src= {{item.from.profile.avatarUrl}} class="hide">
-              </div>
-              <div class="user-info">
-                <div class="row collapse is-collapse-child">
-                  <div class="columns medium-8 small-8">
-                    <a href="{{href-to 'profile' item.from.profile.uid}}" class="name">
-                      {{ item.from.profile.fullName }}
-                    </a>
-                  </div>
-                  <div class="columns medium-4 small-4 text-right">
-                    <div class="timestamp">{{ timestamp item.updatedAt }}</div>
-                  </div>
-                </div>
-                <div class="row columns">
-                  {{brydge-linkify text=item.content class="paragraph"}}
-                </div>
-              </div>
+          <div class="user">
+            <div class="avatar" style={{htmlSafeImage item.from.profile.avatarUrl }}>
+              <img src= {{item.from.profile.avatarUrl}} class="hide">
+            </div>
+            <div class="user-info">
+              <a href="{{href-to 'profile' item.from.profile.uid}}" class="name">
+                {{ item.from.profile.fullName }}
+              </a>
+              <div class="timestamp float-right">{{ timestamp item.updatedAt }}</div>
+              {{brydge-linkify text=item.content class="paragraph"}}
             </div>
           </div>
         </li>

@@ -6,11 +6,11 @@
 	</div>
 	{{/unless}}
 
-  <div class="medium-5 columns sidebar">
-    {{profile-box profile=profile class="mb20"}}
+  <aside class="medium-5 small-12 columns">
+    {{profile-box profile=profile}}
     {{partial 'partials/profile-sidebar'}}
-  </div>
-  <div class="medium-7 columns">
+  </aside>
+  <div class="medium-7 small-12 columns">
 		{{profile-menu profile=profile}}
   	{{#if askEnabled}}
 			{{#if askUserEnabled}}
@@ -25,9 +25,9 @@
 								showCount=true
 								focusIn="focusIn"
 								class="mb"}}
-							<div class="row">
-								<div class="columns medium-4 text-right float-right">
-									<button class="button btn success" disabled={{isDisabled}}>Ask</button>
+							<div class="row align-right">
+								<div class="columns medium-3">
+									<button class="button success expanded" disabled={{isDisabled}}>Ask</button>
 								</div>
 							</div>
 						</section>

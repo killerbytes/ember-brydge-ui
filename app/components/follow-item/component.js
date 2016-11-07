@@ -1,7 +1,8 @@
 import Ember from 'ember';
 
 export default Ember.Component.extend({
-	classNames: ['box', 'follow-item'],
+	// classNames: [],
+	tagName: 'li',
 	session: Ember.inject.service(),
 	follow: Ember.inject.service(),
 	user: Ember.computed.alias('item.user'),

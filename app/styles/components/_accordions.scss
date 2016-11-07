@@ -166,7 +166,7 @@
 	}
 }
 
-#channelPicker{
+#picker-channel{
 	.columns:first-child{
 		border-right: none;
 	}
@@ -174,7 +174,7 @@
 		border-left: 1px solid $border-color;
 	}
 }
-#locationPicker{
+#picker-location{
 	.columns:first-child{
 		border-right: 1px solid $border-color;
 	}

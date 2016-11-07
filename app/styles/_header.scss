@@ -100,7 +100,7 @@ header.simple-header{
 
 .top-bar-search {
 	@extend .search-box;
-
+	margin-right: 2rem;
 	.user{
 		border-bottom: 1px solid $border-color;
 		font-size: 10px;
@@ -111,7 +111,7 @@ header.simple-header{
 		color: $text-gray;
 	}
 	form input[type="search"]{
-		width: 470px;
+		// width: 470px;
 		max-width: inherit;
 		border-color: $brydge-blue;
 		padding-right: 3rem;

@@ -1,6 +1,6 @@
-<div class="row">
+<div class="row collapse is-collapse-child follow-item">
   <div class="columns medium-10 small-12">
-    <div class="user section-main">
+    <div class="user">
       <div class="avatar float-left" style={{htmlSafeImage user.profile.avatarUrl}}>
         <img src= {{user.profile.avatarUrl}} class="hide">
       </div>
@@ -12,17 +12,15 @@
     </div>
   </div>
   <div class="columns medium-2 small-12">
-    <section>
-      {{#unless isSelf}}
-        {{#if isFollowing}}
-          <button class="button expanded bordered follow-button radius" {{action "unfollow"}}>
-            <span class="following-text">Following</span>
-            <span class="unfollow-text">Unfollow</span>
-          </button>
-        {{else}}
-          <button class="button expanded bordered green radius" {{action "follow"}}>Follow</button>
-        {{/if}}
-      {{/unless}}
-    </section>
+    {{#unless isSelf}}
+      {{#if isFollowing}}
+        <button class="button expanded bordered follow-button radius" {{action "unfollow"}}>
+          <span class="following-text">Following</span>
+          <span class="unfollow-text">Unfollow</span>
+        </button>
+      {{else}}
+        <button class="button expanded bordered green radius" {{action "follow"}}>Follow</button>
+      {{/if}}
+    {{/unless}}
   </div>
 </div>

@@ -8,6 +8,7 @@ ul.media-list{
     border-bottom: 1px solid $border-color;
   }
   li>a{
+    min-height: 61px;
     padding: 1rem;
     display: block;
     margin: 0;

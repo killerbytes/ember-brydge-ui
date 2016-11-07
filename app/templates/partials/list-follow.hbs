@@ -1,18 +1,14 @@
 <div class="row columns">
-  <div class="box row columns">
-    <section class="text-center">
-      <form action="">
-        {{input value=key type="search" placeholder="Search by Name" class="no-margin"}}
-      </form>
-    </section>
-    <section class="row columns bg-gray user-list">
-      {{#each list as |item|}}
-        <div class="columns">
-          {{follow-item item=item}}
-        </div>
-      {{/each}}
-    </section>
-  </div>
+  <section class="bg-white padding border-b mb">
+    <form action="">
+      {{input value=key type="search" placeholder="Search by Name" class="no-margin"}}
+    </form>
+  </section>
+  <ul class="user-list no-bullet">
+    {{#each list as |item|}}
+      {{follow-item item=item}}
+    {{/each}}
+  </ul>
 </div>
 
 {{#brydge-scroller id="follow" model=list onClick="load"}}
