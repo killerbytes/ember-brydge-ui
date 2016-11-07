@@ -27,7 +27,7 @@
 </form>
 
 <div class="row columns">
-  <div class="user-list">
+  <ul class="user-list no-bullet">
     {{#each search as |item|}}
       {{follow-item item=item}}
     {{/each}}
@@ -37,5 +37,5 @@
       {{/if}}
     {{/brydge-scroller}}
 
-  </div>
+  </ul>
 </div>
