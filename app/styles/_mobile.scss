@@ -1,6 +1,3 @@
-.main-mobile{
-  margin-top: -1rem;
-}
 .spacer-1,
 .spacer-2,
 .spacer-3,
@@ -22,6 +19,9 @@
     line-height: 2rem;
     // color: $body-text-color;
     color: #0481bd;
+  }
+  .fa-home{
+    font-size: 2rem;
   }
   .button-group{
     margin-bottom: 0;
@@ -64,6 +64,31 @@ ul.bookmarks{
 }
 
 @include breakpoint(small only) {
+  body{
+    .box{
+      border-radius: 0;
+      margin-bottom: 1rem;
+    }
+    .main{
+      padding-top: 0;
+    }
+
+  }
+  .profile-box{
+    &.full{
+      .position,
+      .company,
+      .location{
+        display: block;
+      }
+    }
+    .position,
+    .company,
+    .location{
+      display: none;
+    }
+
+  }
   .profile-menu-buttons{
     .button-group .button{
       border-right: none;

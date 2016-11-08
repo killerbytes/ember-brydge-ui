@@ -1,4 +1,4 @@
-<div class="columns medium-10">
+<div class="columns medium-10 small-10">
   {{#if isOwner}}
     {{image-upload fileLoaded="fileLoaded" logoUrl=profile.avatarUrl}}
   {{else}}
@@ -23,8 +23,8 @@
         </span>
       </div>
     </section>
-    {{#if isNotEmptyTitleCompany}}
-      <section>
+    <section>
+      {{#if isNotEmptyTitleCompany}}
         <div class="hoverable position font-light">
           <span>
             {{profile.currentTitle}}
@@ -45,14 +45,14 @@
             {{/if}}
           </span>
         </div>
-      </section>
-    {{else}}
-      {{#if isOwner}}
-        <div class="empty-message" style="margin:.5rem; ">
-          Add Current Title and Company
-        </div>
+      {{else}}
+        {{#if isOwner}}
+          <div class="empty-message" style="margin:.5rem; ">
+            Add Current Title and Company
+          </div>
+        {{/if}}
       {{/if}}
-    {{/if}}
+    </section>
     <section>
       <div class="hoverable mb">
         <span class="location">

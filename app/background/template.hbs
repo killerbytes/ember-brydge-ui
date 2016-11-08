@@ -1,12 +1,20 @@
+<div class="row columns">
+  <div class="hide-for-medium">
+    {{profile-menu profile=profile}}
+  </div>
+</div>
 <div class="row">
   <aside class="columns medium-5 small-12">
-    {{profile-box profile=profile}}
-
-    {{partial 'partials/profile-sidebar'}}
+    {{profile-box profile=profile full=false}}
+    <div class="show-for-medium">
+      {{partial 'partials/profile-sidebar'}}      
+    </div>
   </aside>
 
   <div class="columns medium-7 small-12">
-    {{profile-menu profile=profile }}
+    <div class="show-for-medium">
+      {{profile-menu profile=profile full=false}}
+    </div>
 
     <div class="box">
       <section class="title-bg">

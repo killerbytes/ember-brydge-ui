@@ -1,3 +1,8 @@
+<div class="row columns">
+  <div class="hide-for-medium">
+    {{profile-menu profile=profile }}
+  </div>
+</div>
 <div class="row">
   <div class="columns medium-5 small-12 sidebar">
     {{profile-box profile=profile}}
@@ -5,7 +10,9 @@
 
   </div>
   <div class="columns medium-7 small-12">
-    {{profile-menu profile=profile }}
+    <div class="show-for-medium">
+      {{profile-menu profile=profile }}
+    </div>
     {{#if posts}}
       {{newsfeed-list newsfeed=posts profile=model}}
       {{#brydge-scroller id="newsfeed" model=posts onClick="load"}}

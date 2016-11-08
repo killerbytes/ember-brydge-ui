@@ -10,7 +10,7 @@ const {
 export default Ember.Route.extend(
   RouterClassNamesMixins,
   BrydgeScroller, {
-  className: 'main-mobile search',
+  className: 'search',
   resetController(controller, isExiting, transition) {
       if (isExiting) {
         getOwner(this).lookup('controller:application').set('classNames', null);

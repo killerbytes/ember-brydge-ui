@@ -1,3 +1,8 @@
+<div class="row columns">
+	<div class="hide-for-medium">
+		{{profile-menu profile=profile}}
+	</div>
+</div>
 <div class="row ask wrapper">
 	{{#unless profile.settings.ask}}
 	<div class="overlay-wrapper">
@@ -7,11 +12,15 @@
 	{{/unless}}
 
   <aside class="medium-5 small-12 columns">
-    {{profile-box profile=profile}}
-    {{partial 'partials/profile-sidebar'}}
+    {{profile-box profile=profile full=false}}
+		<div class="show-for-medium">
+    	{{partial 'partials/profile-sidebar'}}
+		</div>
   </aside>
   <div class="medium-7 small-12 columns">
-		{{profile-menu profile=profile}}
+		<div class="show-for-medium">
+			{{profile-menu profile=profile}}
+		</div>
   	{{#if askEnabled}}
 			{{#if askUserEnabled}}
 				<form {{action 'submit' on='submit'}} class="box user-top-form mb20">

@@ -1,14 +1,20 @@
-	<div class="row ask wrapper">
-	{{#unless profile.settings.ask}}
-	<div class="overlay-wrapper">
-		<div class="overlay">
+<div class="row">
+	<div class="columns">
+		<div class="hide-for-medium">
+			{{profile-menu profile=profile }}
 		</div>
 	</div>
+</div>
+
+<div class="row ask wrapper">
+	{{#unless profile.settings.ask}}
+		<div class="overlay-wrapper">
+			<div class="overlay">
+			</div>
+		</div>
 	{{/unless}}
-
-
   <aside class="medium-5 small-12 columns">
-		{{profile-box profile=profile isOwner=true}}
+		{{profile-box profile=profile isOwner=true full=false}}
 
 		<div class="show-for-medium">
 			{{ partial 'me/ask/sidebar'}}
@@ -16,9 +22,11 @@
 
   </aside>
   <div class="medium-7 small-12 columns">
-		{{profile-menu profile=profile }}
+		<div class="show-for-medium">
+			{{profile-menu profile=profile }}
+		</div>
 		<div class="spacer-2"></div>
-    <div class="page-heading mb-2">
+    <div class="page-heading mb-2 show-for-medium">
 			<h1>Your Ask Page</h1>
 			<p>
 				{{#if profile.setting.ask}}

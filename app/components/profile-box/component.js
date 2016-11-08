@@ -3,6 +3,7 @@ import AvatarMixin from 'web/mixins/avatar';
 
 export default Ember.Component.extend(AvatarMixin, {
 	session: Ember.inject.service(),
+	classNameBindings: ['full'],
 	classNames: ['profile-box', 'row', 'align-center', 'mb'],
 	follow: Ember.inject.service(),
 	store: Ember.inject.service(),
@@ -15,7 +16,7 @@ export default Ember.Component.extend(AvatarMixin, {
   isNotEmptyTitleCompany: Ember.computed('profile.currentTitle', 'profile.currentCompany', function(){
     return this.get('profile.currentTitle') ? true : false && this.get('profile.currentCompany') ? true : false;
   }),
-
+	full: true,
 	status: Ember.computed('profile.connection.status', function(){
 		return this.get('profile.connection.status');
 	}),

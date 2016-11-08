@@ -39,7 +39,7 @@
 					<div class="columns medium-6 small-12">
 						<section style="min-height:194px;">
 							<div class="sub-title">Other Industries you follow</div>
-							<ul class="no-bullet content-pad hover-close">
+							<ul class="no-bullet hover-close">
                 {{#unless loading}}
   								{{#each favorites as |item|}}
   									<li><a {{action "select" item.code item.name }}>{{item.name}}</a></li>
@@ -48,13 +48,14 @@
                   <li><div class="brydge-loading"></div></li>
                 {{/unless}}
 							</ul>
-              {{#unless loading}}
-							  <a class="button success rounded show-for-medium" data-open="industry-picker-home">Add</a>
-                <a class="button success rounded expanded hide-for-medium" data-open="industry-picker-mobile-home">Add</a>
-              {{else}}
-                <a class="button success rounded" disabled>Add</a>
-              {{/unless}}
-
+              <small>
+                {{#unless loading}}
+                  <a class="text-gray hide-for-medium" data-open="industry-picker-mobile-home">Add</a>
+                  <a class="text-gray show-for-medium" data-open="industry-picker-home">Add</a>
+                {{else}}
+                  <a class="text-gray" disabled>Add</a>
+                {{/unless}}
+              </small>
 
 						</section>
 					</div>
