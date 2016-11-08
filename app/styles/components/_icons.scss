@@ -11,6 +11,12 @@
 	display: table;
 	width: 22px;
 	height: 24px;
+	&.influencer{
+		background-image: url(icons/influencer.png);
+	}
+	&.rising-star{
+		background-image: url(icons/rising-star.png);
+	}
 	&.caret{
 		background-image: url(icons/caret.png);
 		width: 15px;

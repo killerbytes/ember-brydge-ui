@@ -41,6 +41,9 @@
 }
 
 @include breakpoint(small only) {
+  .loader-container{
+    padding: 3rem;
+  }
   header.mobile-nav{
 		.icons.stack{
 	    margin: auto;
@@ -215,11 +218,20 @@
     }
   }
   .reveal{
+    position: fixed;
+    height: 100vh;
+    min-height: 100vh;
+    max-width: none;
+    border: 0;
+    border-width: 0;
+    border-radius: 0;
+  }
+  #mobileBrowser{
     .reveal-footer{
       position: absolute;
       width: 100%;
       padding: 1rem;
-      bottom: 0;
+      top: calc(100vh - 54px);
     }
   }
 }

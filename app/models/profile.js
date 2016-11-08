@@ -43,5 +43,20 @@ export default DS.Model.extend(Validations, {
 		var title = this.get('currentTitle');
 		var company = this.get('currentCompany');
 		return  this.get('currentCompany') ? `${title} at ${company}` : title;
-	})
+	}),
+	influencerClass: Ember.computed('influencer', function(){
+		console.log(this.get('influencer'))
+		switch(this.get('influencer')){
+			case 1:
+				return 'influencer';
+				break;
+			case 2:
+				return 'rising-star';
+				break;
+			default:
+			return 'rising-star';
+				break;
+		}
+	}),
+
 });

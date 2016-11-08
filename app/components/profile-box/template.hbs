@@ -1,9 +1,10 @@
 <div class="columns medium-10 small-10">
   {{#if isOwner}}
-    {{image-upload fileLoaded="fileLoaded" logoUrl=profile.avatarUrl}}
+    {{image-upload fileLoaded="fileLoaded" profile=profile logoUrl=profile.avatarUrl}}
   {{else}}
     <div class="avatar-wrapper">
       <div class="profile-photo">
+        <i class="icons {{profile.influencerClass}}"></i>
         <div class="avatar" style={{htmlSafeImage profile.avatarUrl}}>
           <img src="{{profile.avatarUrl}}" class="hide">
         </div>
