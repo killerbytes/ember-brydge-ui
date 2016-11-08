@@ -1,9 +1,5 @@
-<div class="row">
-	<div class="columns">
-		<div class="hide-for-medium">
-			{{profile-menu profile=profile }}
-		</div>
-	</div>
+<div class="row columns hide-for-medium">
+	{{profile-menu profile=profile }}
 </div>
 
 <div class="row ask wrapper">
@@ -25,8 +21,7 @@
 		<div class="show-for-medium">
 			{{profile-menu profile=profile }}
 		</div>
-		<div class="spacer-2"></div>
-    <div class="page-heading mb-2 show-for-medium">
+    <div class="page-heading show-for-medium">
 			<h1>Your Ask Page</h1>
 			<p>
 				{{#if profile.setting.ask}}
@@ -36,13 +31,9 @@
 				{{/if}}
 			</p>
 		</div>
-
-		<div class="spacer-2"></div>
-
 		<div class="hide-for-medium">
 			{{ partial 'me/ask/sidebar'}}
 		</div>
-
     <div class="mb">
 			{{#zf-tabs id="tabs" class="tab-controls"}}
 	      <li class="tabs-title medium-6 small-6 is-active">

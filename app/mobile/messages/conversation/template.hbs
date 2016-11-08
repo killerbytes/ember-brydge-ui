@@ -1,20 +1,23 @@
-  <div class="row user content-pad border-b align-middle">
+  <div class="row border-b align-middle">
     <div class="columns medium-8 small-8">
-      <div class="avatar" style={{htmlSafeImage conversation.other.profile.avatarUrl }}>
-        <img src= {{conversation.other.profile.avatarUrl}} class="hide">
-      </div>
-      <div class="user-info">
-        <a href="{{href-to 'profile' conversation.other.profile.uid}}" class="name">
-          {{conversation.other.profile.fullName}}
-        </a>
-        <div class="position">
-          {{conversation.other.profile.career}}
+      <div class="user padding">
+        <div class="avatar" style={{htmlSafeImage conversation.other.profile.avatarUrl }}>
+          <img src= {{conversation.other.profile.avatarUrl}} class="hide">
         </div>
-
+        <div class="user-info">
+          <a href="{{href-to 'profile' conversation.other.profile.uid}}" class="name">
+            {{conversation.other.profile.fullName}}
+          </a>
+          <div class="position">
+            {{conversation.other.profile.career}}
+          </div>
+        </div>
       </div>
     </div>
     <div class="column medium-4 small-4 text-right">
-      <a class="" {{action 'delete' conversation.id}}>Delete Conversation</a>
+      <div class="padding">
+        <a class="" {{action 'delete' conversation.id}}>Delete Conversation</a>
+      </div>
     </div>
   </div>
   {{#if list}}

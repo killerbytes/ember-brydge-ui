@@ -13,38 +13,6 @@
   }
 }
 
-.mobile-nav{
-  .fa{
-    font-size: 20px;
-    line-height: 2rem;
-    // color: $body-text-color;
-    color: #0481bd;
-  }
-  .fa-home{
-    font-size: 2rem;
-  }
-  .button-group{
-    margin-bottom: 0;
-  }
-  .button{
-    @extend .hollow;
-    border-radius: 0;
-    border-color: transparent;
-    margin-bottom: 0;
-    &.active{
-      background-color: $button-blue;
-    }
-    &:hover{
-      border-color: transparent;
-      color: inherit;
-    }
-  }
-  .avatar{
-    width: 24px;
-    height: 24px;
-    border-radius: 100px;
-  }
-}
 
 
 ul.bookmarks{
@@ -64,15 +32,60 @@ ul.bookmarks{
 }
 
 @include breakpoint(small only) {
+  header.mobile-nav{
+    .fa{
+      font-size: 20px;
+      line-height: 2rem;
+      color: #0481bd;
+    }
+    .fa-home{
+      font-size: 2rem;
+    }
+    .button-group{
+      margin-bottom: 0;
+    }
+    .button{
+      // @extend .hollow;
+      border-radius: 0;
+      border-color: transparent;
+      margin-bottom: 0;
+      &.active{
+        background-color: $button-blue;
+      }
+      &:hover{
+        border-color: transparent;
+        color: inherit;
+      }
+    }
+    .avatar{
+      width: 24px;
+      height: 24px;
+      border-radius: 100px;
+    }
+  }
+  header{
+    position: fixed;
+    z-index: 100;
+    width: 100%;
+    .top-bar-title{
+      margin-left: 1rem;
+    }
+    .top-bar-right{
+      margin-right: 1rem;
+    }
+  }
   body{
     .box{
       border-radius: 0;
       margin-bottom: 1rem;
     }
     .main{
-      padding-top: 0;
+      padding-top: 43px;
     }
 
+  }
+  .mobile-justify{
+    text-align: justify;
   }
   .profile-box{
     &.full{
@@ -115,7 +128,7 @@ ul.bookmarks{
     }
   }
   .page-heading{
-    padding: 0;
+    padding: 1rem;
   }
   .follow-item{
     .avatar{
@@ -144,6 +157,12 @@ ul.bookmarks{
     }
     .post-actions{
       padding: 1rem;
+      .text-left, .text-right{
+        text-align: inherit;
+      }
+      .small-4:not(:last-child){
+        border-right: 1px solid $border-color;
+      }
     }
 
   }

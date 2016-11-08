@@ -131,7 +131,7 @@
 		<ul class="media-list user user-small border-b bg-white">
 			{{#each messages as |item|}}
 			<li {{action "read" item}} class="{{if item.read false 'new-notification'}}">
-				{{#link-to "messages.conversation" item.referenceid class="no-color" }}
+				{{#link-to "mobile.messages.conversation" item.referenceid class="no-color" }}
 					<div class="avatar" style={{htmlSafeImage item.target.profile.avatarUrl }}>
 						<img src= {{item.target.profile.avatarUrl}} class="hide">
 					</div>

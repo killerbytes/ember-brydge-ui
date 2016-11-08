@@ -8,6 +8,7 @@ export default DS.Model.extend(Validations, {
 	location: DS.attr(),
 	placeid: DS.attr(),
 	isConnected: DS.attr(),
+	influencer: DS.attr(),
 	industryOneName: DS.attr('string'),
 	industryTwoName: DS.attr('string'),
 	industryThreeName: DS.attr('string'),

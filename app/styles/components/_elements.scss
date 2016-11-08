@@ -22,11 +22,14 @@ table{
 	color: $text-gray;
 }
 .page-heading{
-	// padding: 0 0 3rem;
+	padding: 2rem 0 3rem;
 	text-align: center;
 	h1{
 		font-weight: bold;
 		margin-bottom: 20px;
+	}
+	h1:last-child{
+		margin-bottom: 0;
 	}
 }
 .dashed-format{
