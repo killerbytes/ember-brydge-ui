@@ -11,6 +11,7 @@ export default Ember.Component.extend({
   didReceiveAttrs(attr){
     this._getFolowCount();
   },
+  name: 'default',
   isConnected: Ember.computed('profile.connection.status', function(){
     return this.get('profile.connection.status') == 'accepted';
   }),

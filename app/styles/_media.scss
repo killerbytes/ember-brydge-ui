@@ -1,5 +1,225 @@
-@media screen and (min-width: 40em){
-	.sidebar{
-		// padding-left: 0;
+@include breakpoint(medium){
+  .spacer-1{ padding-top: 1rem; }
+  .spacer-2{ padding-top: 2rem; }
+  .spacer-3{ padding-top: 3rem; }
+  .spacer-4{ padding-top: 4rem; }
+  .spacer-5{ padding-top: 5rem; }
+	.dropdown-menu{
+    width: 150px;
+  }
+  .dropdown-notification{
+    width: 400px !important;
+  }
+  .dropdown-pane{
+    // @extend .no-select;
+    z-index: 14;
+    margin-right: -1rem;
+    padding: 1px;
+    background-color: #FFF;
+    box-shadow: 0px 2px 4px -1px #404040;
+    border: 1px solid #CCC;
+    border-top: none;
+    right: 0 !important;
+    left: auto !important;
+    .top-bar{
+      background-color: #F3F3F3;
+      margin-bottom: 10px;
+      color: $body-text-color;
+      border-bottom: 1px solid $border-color;
+      text-transform: uppercase;
+      font-weight: bold;
+      font-size: 11px;
+      text-align: center;
+    }
+
+  }
+
+  #dd-public-options{
+    width: 200px;
+  }
+
+}
+
+@include breakpoint(small only) {
+  header.mobile-nav{
+		.icons.stack{
+	    margin: auto;
+	  }
+    .fa{
+      font-size: 20px;
+      line-height: 2rem;
+      color: #0481bd;
+    }
+    .fa-home{
+      font-size: 2rem;
+    }
+    .button-group{
+      margin-bottom: 0;
+    }
+    .button{
+      // @extend .hollow;
+      border-radius: 0;
+      border-color: transparent;
+      margin-bottom: 0;
+      &.active{
+        background-color: $button-blue;
+      }
+      &:hover{
+        border-color: transparent;
+        color: inherit;
+      }
+    }
+    .avatar{
+      width: 24px;
+      height: 24px;
+      border-radius: 100px;
+    }
+  }
+  header{
+    position: fixed;
+    z-index: 100;
+    width: 100%;
+    .top-bar-title{
+      margin-left: 1rem;
+    }
+    .top-bar-right{
+      margin-right: 1rem;
+    }
+  }
+  body{
+    .box{
+      border-radius: 0;
+      margin-bottom: 1rem;
+    }
+    .main{
+      padding-top: 43px;
+    }
+
+  }
+  .mobile-justify{
+    text-align: justify;
+  }
+	ul.bookmarks{
+	  li{
+	    border-bottom: 1px solid $border-color;
+	    a{
+	      padding: 1rem;
+	      display: block;
+	    }
+	  }
 	}
+	.dropdown-pane{
+		padding: 0;
+		ul.menu li a{
+			padding: 1rem;
+		}
+	}
+  .profile-box{
+    &.full{
+      .position,
+      .company,
+      .location{
+        display: block;
+      }
+    }
+    .position,
+    .company,
+    .location{
+      display: none;
+    }
+
+  }
+  .profile-menu-buttons{
+    .button-group .button{
+      border-right: none;
+    }
+    .button.active{
+  		position: relative;
+			// border-bottom: 3px solid $button-blue;
+  		color: $button-blue;
+  		&:before{
+        content: none;
+  		}
+			&:after{
+				content: ' ';
+				border: 0;
+				border-bottom: 3px solid $button-blue;
+				bottom: -1px;
+				left: 0;
+				width: 100%;
+			}
+    }
+  }
+  .tab-controls{
+    > li:not(:first-child){
+      border-left: none;
+    }
+    .tabs-title.is-active{
+      border-bottom: 3px solid $button-blue;
+      &:before, &:after{
+        content: none !important;
+  		}
+
+    }
+  }
+  .page-heading{
+    padding: 1rem;
+  }
+  .follow-item{
+    .avatar{
+      margin-bottom: 1rem;
+    }
+  }
+  .profile-box .avatar-wrapper .profile-photo{
+    width: 150px;
+    height: 150px;
+  }
+  #doorbell-button{
+    display: none;
+  }
+  .cards{
+    .user-info{
+      margin-top: 0;
+    }
+  }
+  .accordion-picker .columns:last-child{
+    border-left: none !important;
+    min-height: inherit;
+  }
+  .newsfeed-item{
+    .title a{
+      font-size: 14px;
+    }
+    .post-actions{
+      padding: 1rem;
+      .text-left, .text-right{
+        text-align: inherit;
+      }
+      .small-4:not(:last-child){
+        border-right: 1px solid $border-color;
+      }
+    }
+
+  }
+  .brydge-tab .tabs.vertical{
+    border-right: 1px solid $border-color;
+  }
+  .follow-item{
+    padding: 0;
+    .user{
+      padding: 1rem;
+    }
+    .follow-button, .button{
+      border: 0;
+      border-radius: 0;
+    }
+  }
+  .reveal{
+    .reveal-footer{
+      position: absolute;
+      width: 100%;
+      padding: 1rem;
+      bottom: 0;
+    }
+  }
 }

@@ -11,7 +11,7 @@
 {{/if}}
 
 <section class="main {{classNames}}">
-  <div class="spacer-5"></div>
+  <div class="spacer-2"></div>
   {{outlet}}
 </section>
 {{!--
@@ -50,10 +50,10 @@
     <a href="https://www.facebook.com/brydgedotcom" target="_blank">Follow us on Facebook</a> to stay updated.
     <br>
     <br>
-    <div>
-      <button class="success button expanded" type="submit" data-close>Proceed</button>
-    </div>
   </section>
+  <div class="reveal-footer">
+    <button class="success button expanded" type="submit" data-close>Proceed</button>
+  </div>
 {{/zf-reveal}}
 
 {{#unless session.isAuthenticated}}

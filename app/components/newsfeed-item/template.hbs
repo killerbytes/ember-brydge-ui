@@ -1,6 +1,6 @@
 <section class="user">
   <div class="row">
-    <div class="columns medium-9 small-9">
+    <div class="columns">
       <div class="avatar" style={{htmlSafeImage post.user.profile.avatarUrl }}>
         <img src= {{post.user.profile.avatarUrl}} class="hide">
       </div>
@@ -18,29 +18,29 @@
               </span><span class="text-gray">'s post</span>
           {{/unless}}
         {{/if}}
+        <i class="dot"></i>
+        {{#link-to 'post' post.user.profile.uid post.id class="timestamp"}}
+          {{timestamp post.updatedAt}}
+        {{/link-to}}
+
+        {{#unless shared }}
+          <a class="button dropdown-button-arrow button-ellipsis" data-toggle="dd-post-menu-{{post.id}}"></a>
+          {{#zf-dropdown id=(concat "dd-post-menu-" post.id) closeOnClick=true class="card-menu-dropdown"}}
+            <ul class="menu">
+              {{#if isOwner}}
+                <li><a {{action "select"}} data-open="post-edit-dialog">Edit Post</a></li>
+                <li><a data-open={{concat 'dialog-box-' 'delete-' post.id}}>Delete Post</a></li>
+              {{else}}
+                <li><a data-open={{concat 'dialog-box-' 'flag-' post.id}}>Flag this Post</a></li>
+              {{/if}}
+            </ul>
+          {{/zf-dropdown}}
+        {{/unless}}
 
         <div class="position">
           {{post.user.profile.career}}
         </div>
       </div>
-    </div>
-    <div class="columns medium-3 small-3 text-right">
-      {{#unless shared }}
-        <a class="button dropdown-button-arrow button-ellipsis" data-toggle="dd-post-menu-{{post.id}}"></a>
-        {{#zf-dropdown id=(concat "dd-post-menu-" post.id) closeOnClick=true class="card-menu-dropdown"}}
-          <ul class="menu">
-            {{#if isOwner}}
-              <li><a {{action "select"}} data-open="post-edit-dialog">Edit Post</a></li>
-              <li><a data-open={{concat 'dialog-box-' 'delete-' post.id}}>Delete Post</a></li>
-            {{else}}
-              <li><a data-open={{concat 'dialog-box-' 'flag-' post.id}}>Flag this Post</a></li>
-            {{/if}}
-          </ul>
-        {{/zf-dropdown}}
-      {{/unless}}
-      {{#link-to 'post' post.user.profile.uid post.id class="timestamp"}}
-        {{timestamp post.updatedAt}}
-      {{/link-to}}
     </div>
   </div>
 </section>
