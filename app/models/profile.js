@@ -51,18 +51,23 @@ export default DS.Model.extend(Validations, {
 				obj = {
 					type: 'Influencer',
 					class: 'influencer',
-					text: `${this.get('firstName')} is an influencer. Click to find out more.`
+					text: `${this.get('firstName')} is an Influencer. Click to find out more.`
 				};
 				break;
 			case 2:
 				obj = {
 					type: 'Rising Star',
 					class: 'rising-star',
-					text: `${this.get('firstName')} is a rising star. Click to find out more.`
+					text: `${this.get('firstName')} is a Rising Star. Click to find out more.`
 				};
 				break;
 			default:
 				obj = {};
+				obj = {
+					type: 'Rising Star',
+					class: 'rising-star',
+					text: `${this.get('firstName')} is a Rising Star. Click to find out more.`
+				};
 				break;
 		}
 		return obj;

@@ -144,17 +144,11 @@ a.dropdown-button-icons.dropdown-button-arrow{
   padding: 0;
   width: 100% !important;
   ul.media-list>li>a{
-    // min-height: 63px;
     .name{
       font-size: 12px;
     }
     .position{
       font-size: 11px;
-    }
-  }
-  ul.media-list>li:not(:last-child){
-    a{
-      min-height: 63px;
     }
   }
   ul.media-list>li:last-child{

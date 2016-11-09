@@ -19,11 +19,12 @@ export default Ember.Component.extend({
     $('body').append(tooltip);
   },
   _setPosition(e){
-    let pos = e.currentTarget.getBoundingClientRect()
-    this.get('el').css({
-      top: pos.bottom - (pos.bottom - pos.top),
-      left: pos.left + pos.width + 5
-    })
+    let pos = Foundation.Box.GetDimensions(e.currentTarget);
+    let style = {
+      top:  pos.offset.top,
+      left: pos.offset.left + pos.width + 5
+    }
+    this.get('el').css(style)
   },
   _show(){
     this.get('el').fadeIn(150);
@@ -45,6 +46,6 @@ export default Ember.Component.extend({
     this._show();
   },
   mouseLeave(){
-    this._hide();
+    // this._hide();
   }
 });
