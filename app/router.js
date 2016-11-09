@@ -112,6 +112,7 @@ Router.map(function() {
   this.route('search');
   this.route('user-guide');
   this.route('about');
+  this.route('influencers');
   this.route('terms-of-use');
   this.route('privacy-policy');
   this.route('testing');

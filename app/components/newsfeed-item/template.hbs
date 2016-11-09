@@ -1,9 +1,7 @@
 <section class="user">
   <div class="row">
     <div class="columns">
-      <div class="avatar" style={{htmlSafeImage post.user.profile.avatarUrl }}>
-        <img src= {{post.user.profile.avatarUrl}} class="hide">
-      </div>
+      {{avatar-wrap profile=post.user.profile}}
       <div class="user-info">
         <span class="name">
           <a href="{{href-to 'profile' post.user.profile.uid}}" class="plain">

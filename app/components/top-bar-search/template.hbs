@@ -15,9 +15,7 @@
 		{{#each search.results as |item|}}
 			<li {{action "clear"}}>
 				<a href="{{href-to 'profile' item.user.profile.publicProfile}}">
-		      <div class="avatar" style={{htmlSafeImage item.user.profile.avatarUrl }}>
-		        <img src= {{item.user.profile.avatarUrl}} class="hide">
-		      </div>
+					{{avatar-wrap profile=item.user.profile}}
 		      <div class="user-info">
             <div class="name">{{item.user.profile.fullName}}</div>
 		        <div class="position">{{item.user.profile.career}}</div>

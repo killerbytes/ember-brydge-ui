@@ -1,6 +1,4 @@
-<div class="avatar" style={{htmlSafeImage user.profile.avatarUrl }}>
-  <img src= {{user.profile.avatarUrl}} class="hide">
-</div>
+{{avatar-wrap profile=user.profile}}
 <div class="user-info">
   <a class="name">{{ user.profile.fullName }}</a>
   <div class="position">{{user.profile.career}}</div>

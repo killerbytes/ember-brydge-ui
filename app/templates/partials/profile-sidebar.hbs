@@ -69,9 +69,7 @@
         <div class="section-main">
           <h4><i class="fa fa-quote-left" aria-hidden="true"></i>Ask</h4>
           <div class="user mb">
-            <div class="avatar" style={{htmlSafeImage latestQuestion.from.profile.avatarUrl }}>
-              <img src= {{latestQuestion.from.profile.avatarUrl}} class="hide">
-            </div>
+            {{avatar-wrap profile=latestQuestion.from.profile}}
             <div class="user-info">
               <a href="{{href-to 'profile' latestQuestion.from.profile.uid}}" class="name">{{latestQuestion.from.profile.fullName}}</a>
               asked

@@ -118,12 +118,14 @@
 		.brydge-loading{
 			margin-top: 42%;
 		}
+    .tooltip-dynamic{
+      position: absolute;
+      left: -15px;
+      top: -7px;      
+    }
     .icons{
       width: 45px;
       height: 45px;
-      position: absolute;
-      left: -15px;
-      top: -7px;
     }
 	}
 }

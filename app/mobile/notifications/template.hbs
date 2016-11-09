@@ -41,9 +41,7 @@
 				{{#each views as |item|}}
 					<li {{action "read" item}}>
 						<a href="{{href-to 'profile' item.target.profile.uid}}" class={{if item.read false 'new-notification'}}>
-							<div class="avatar" style={{htmlSafeImage item.target.profile.avatarUrl }}>
-								<img src= {{item.target.profile.avatarUrl}} class="hide">
-							</div>
+							{{avatar-wrap profile=item.target.profile}}
 							<div class="user-info">
 								<div>
 									<span class="name">{{item.target.profile.fullName}}</span>
@@ -91,9 +89,7 @@
 			{{#each notifications as |item|}}
 				<li>
 					<a {{action "select" item}} class="{{if item.read false 'new-notification'}}">
-						<div class="avatar" style={{htmlSafeImage item.target.profile.avatarUrl }}>
-							<img src= {{item.target.profile.avatarUrl}} class="hide">
-						</div>
+						{{avatar-wrap profile=item.target.profile}}
 						<div class="user-info">
 							<div>
 								<strong class="name">{{item.target.profile.fullName }}</strong> {{{notification-text item}}}
@@ -132,9 +128,7 @@
 			{{#each messages as |item|}}
 			<li {{action "read" item}} class="{{if item.read false 'new-notification'}}">
 				{{#link-to "mobile.messages.conversation" item.referenceid class="no-color" }}
-					<div class="avatar" style={{htmlSafeImage item.target.profile.avatarUrl }}>
-						<img src= {{item.target.profile.avatarUrl}} class="hide">
-					</div>
+					{{avatar-wrap profile=item.target.profile}}
 					<div class="user-info">
 						<a class="name">{{item.target.profile.fullName}} {{#if item.count}}<span class="message-count">({{item.count}})</span>{{/if}}</a>
 						<div class="timestamp float-right">{{ timestamp item.notifiedAt }}</div>

@@ -1,12 +1,7 @@
 <div class="row collapse is-collapse-child follow-item">
   <div class="columns medium-10 small-12">
     <div class="user">
-      <div class="avatar-wrap">
-        <a class="icons {{user.profile.influencerClass}}"></a>
-        <div class="avatar float-left" style={{htmlSafeImage user.profile.avatarUrl}}>
-          <img src= {{user.profile.avatarUrl}} class="hide">
-        </div>
-      </div>
+      {{avatar-wrap profile=user.profile}}
       <div class="user-info">
         <a href="{{href-to 'profile' user.profile.uid}}" class="text-title">{{user.profile.fullName}}</a>
         <div class="position">{{user.profile.career}}</div>

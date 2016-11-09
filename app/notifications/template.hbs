@@ -14,9 +14,7 @@
         {{#each list as |item|}}
           <li>
             <a {{action "select" item}} class="plain {{if item.read false 'new-notification'}}">
-              <div class="avatar" style={{htmlSafeImage item.target.profile.avatarUrl }}>
-                <img src= {{item.target.profile.avatarUrl}} class="hide">
-              </div>
+              {{avatar-wrap profile=item.target.profile}}              
               <div class="user-info">
                 <div>
                   <strong class="text-title">{{item.target.profile.fullName }}</strong> {{{notification-text item}}}

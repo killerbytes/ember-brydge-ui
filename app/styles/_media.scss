@@ -98,6 +98,9 @@
     }
     .main{
       padding-top: 43px;
+      .main-content{
+        background: none !important;
+      }
     }
 
   }
@@ -234,6 +237,18 @@
       width: 100%;
       padding: 1rem;
       top: calc(100vh - 54px);
+    }
+    p{
+      font-size: 14px;
+      text-align: justify;
+    }
+  }
+  footer, .header-white{
+    h1{
+      font-size: 16px;
+    }
+    h3{
+      font-size: 13px;
     }
   }
 }

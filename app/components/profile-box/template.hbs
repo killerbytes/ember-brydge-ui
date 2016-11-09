@@ -4,7 +4,9 @@
   {{else}}
     <div class="avatar-wrapper">
       <div class="profile-photo">
-        <i class="icons {{profile.influencerClass}}"></i>
+        {{#tooltip-dynamic text=profile.influence.text}}
+          <a href={{href-to 'influencers'}} class="icons {{profile.influence.class}}"></a>
+        {{/tooltip-dynamic}}
         <div class="avatar" style={{htmlSafeImage profile.avatarUrl}}>
           <img src="{{profile.avatarUrl}}" class="hide">
         </div>

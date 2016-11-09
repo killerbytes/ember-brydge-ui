@@ -1,4 +1,9 @@
 .main.messaging{
+  height: calc(100vh - 36px);
+
+  >.spacer-2{
+    padding-top: 2px;
+  }
   .show-for-medium{
     padding-top: 41px;
   }
@@ -81,15 +86,6 @@
 #dd-messages{
   .message-body{
     font-size: 11px;
-  }
-}
-.user-link-list,
-.messages-list{
-  .avatar{
-    position: absolute;
-  }
-  .message-body{
-    padding-left: 50px;
   }
 }
 

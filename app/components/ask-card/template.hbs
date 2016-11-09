@@ -4,9 +4,7 @@
   <section>
     <div class="row user section-main">
       <div class="columns medium-8 small-10">
-        <div class="avatar float-left" style={{htmlSafeImage item.from.content.profile.avatarUrl}}>
-          <img src= {{item.from.content.profile.avatarUrl}} class="hide">
-        </div>
+        {{avatar-wrap profile=item.from.content.profile}}
         <div class="user-info">
           <a href="{{href-to 'profile' item.from.content.profile.uid}}" class="name">{{item.from.content.profile.fullName}}</a>
            asked

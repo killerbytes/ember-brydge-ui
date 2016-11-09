@@ -13,9 +13,7 @@
           <li>
             <div {{action "selectView" item}} class="padding {{if item.read false 'new-notification'}}">
               <a href="{{href-to 'profile' item.target.profile.uid}}">
-                <div class="avatar" style={{htmlSafeImage item.target.profile.avatarUrl }}>
-                  <img src= {{item.target.profile.avatarUrl}} class="hide">
-                </div>
+                {{avatar-wrap profile=item.target.profile}}              
               </a>
               <div class="user-info">
                 <a href="{{href-to 'profile' item.target.profile.uid}}" class="text-title">{{item.target.profile.fullName}}</a> viewed your profile

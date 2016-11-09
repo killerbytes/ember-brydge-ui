@@ -17,6 +17,11 @@
 	&.rising-star{
 		background-image: url(icons/rising-star.png);
 	}
+	&.influencer,
+	&.rising-star{
+		width: 15px;
+		height: 15px;
+	}
 	&.caret{
 		background-image: url(icons/caret.png);
 		width: 15px;

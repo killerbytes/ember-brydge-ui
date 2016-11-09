@@ -7,9 +7,7 @@
     {{#each search as |item|}}
     <li>
       <div class="user section-main">
-        <div class="avatar float-left" style={{htmlSafeImage item.user.profile.avatarUrl}}>
-          <img src= {{item.user.profile.avatarUrl}} class="hide">
-        </div>
+        {{avatar-wrap profile=item.user.profile}}
         <div class="user-info">
           <a href="{{href-to 'profile' user.profile.uid}}" class="text-title">{{item.user.profile.fullName}}</a>
           <div class="position">{{item.user.profile.career}}</div>

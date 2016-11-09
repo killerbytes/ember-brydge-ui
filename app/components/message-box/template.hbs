@@ -9,9 +9,7 @@
       {{#each messages as |item| }}
         <li>
           <div class="user">
-            <div class="avatar" style={{htmlSafeImage item.from.profile.avatarUrl }}>
-              <img src= {{item.from.profile.avatarUrl}} class="hide">
-            </div>
+            {{avatar-wrap profile=item.from.profile}}            
             <div class="user-info">
               <a href="{{href-to 'profile' item.from.profile.uid}}" class="name">
                 {{ item.from.profile.fullName }}

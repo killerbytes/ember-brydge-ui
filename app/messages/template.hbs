@@ -17,9 +17,7 @@
         <li class="{{unless item.read 'new-notification'}}">
           <a href="{{href-to 'messages.conversation' item.id}}" class="no-color">
             <div class="user">
-              <div class="avatar" style={{htmlSafeImage item.other.profile.avatarUrl }}>
-                <img src= {{item.other.profile.avatarUrl}} class="hide">
-              </div>
+              {{avatar-wrap profile=item.other.profile}}
               <div class="user-info">
                 <a class="name">{{item.other.profile.fullName}}</a> {{#if item.count}} <span class="message-count">({{item.count}})</span> {{/if}}
                 <div class="timestamp float-right">{{ timestamp item.messagedAt }}</div>
