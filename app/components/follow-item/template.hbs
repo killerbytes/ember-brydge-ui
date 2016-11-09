@@ -2,7 +2,7 @@
   <div class="columns medium-10 small-12">
     <div class="user">
       <div class="avatar-wrap">
-        <i class="icons {{user.profile.influencerClass}}"></i>
+        <a class="icons {{user.profile.influencerClass}}"></a>
         <div class="avatar float-left" style={{htmlSafeImage user.profile.avatarUrl}}>
           <img src= {{user.profile.avatarUrl}} class="hide">
         </div>
@@ -17,12 +17,12 @@
   <div class="columns medium-2 small-12">
     {{#unless isSelf}}
       {{#if isFollowing}}
-        <button class="button expanded bordered follow-button radius" {{action "unfollow"}}>
+        <button class="button expanded bordered follow-button" {{action "unfollow"}}>
           <span class="following-text">Following</span>
           <span class="unfollow-text">Unfollow</span>
         </button>
       {{else}}
-        <button class="button expanded bordered green radius" {{action "follow"}}>Follow</button>
+        <button class="button expanded bordered green" {{action "follow"}}>Follow</button>
       {{/if}}
     {{/unless}}
   </div>

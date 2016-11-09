@@ -44,7 +44,17 @@
   .loader-container{
     padding: 3rem;
   }
-  header.mobile-nav{
+  header{
+    position: fixed;
+    z-index: 100;
+    width: 100%;
+    min-height: 42px;
+    .top-bar-title{
+      margin-left: 1rem;
+    }
+    .top-bar-right{
+      margin-right: 1rem;
+    }
 		.icons.stack{
 	    margin: auto;
 	  }
@@ -52,24 +62,24 @@
       font-size: 20px;
       line-height: 2rem;
       color: #0481bd;
-    }
-    .fa-home{
-      font-size: 2rem;
+      &.fa-home{
+        font-size: 2rem;
+      }
     }
     .button-group{
       margin-bottom: 0;
-    }
-    .button{
-      // @extend .hollow;
-      border-radius: 0;
-      border-color: transparent;
-      margin-bottom: 0;
-      &.active{
-        background-color: $button-blue;
-      }
-      &:hover{
+      .button{
+        // @extend .hollow;
+        border-radius: 0;
         border-color: transparent;
-        color: inherit;
+        margin-bottom: 0;
+        &.active{
+          background-color: $button-blue;
+        }
+        &:hover{
+          border-color: transparent;
+          color: inherit;
+        }
       }
     }
     .avatar{
@@ -77,16 +87,8 @@
       height: 24px;
       border-radius: 100px;
     }
-  }
-  header{
-    position: fixed;
-    z-index: 100;
-    width: 100%;
-    .top-bar-title{
-      margin-left: 1rem;
-    }
-    .top-bar-right{
-      margin-right: 1rem;
+    &.header-blue{
+      display: flex;
     }
   }
   body{
