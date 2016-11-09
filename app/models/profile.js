@@ -63,11 +63,6 @@ export default DS.Model.extend(Validations, {
 				break;
 			default:
 				obj = {};
-				obj = {
-					type: 'Rising Star',
-					class: 'rising-star',
-					text: `${this.get('firstName')} is a Rising Star. Click to find out more.`
-				};
 				break;
 		}
 		return obj;
