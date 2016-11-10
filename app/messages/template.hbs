@@ -22,8 +22,8 @@
                 <a class="name">{{item.other.profile.fullName}}</a> {{#if item.count}} <span class="message-count">({{item.count}})</span> {{/if}}
                 <div class="timestamp float-right">{{ timestamp item.messagedAt }}</div>
               </div>
+              <div class="message-body truncate">{{{item.content}}}</div>
             </div>
-            <div class="message-body truncate">{{{item.content}}}</div>
           </a>
         </li>
         {{/if}}

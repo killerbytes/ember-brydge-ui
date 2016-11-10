@@ -23,7 +23,6 @@
     position: relative;
   }
   .message-form{
-    // @extend .bg-white;
     border-top: 1px solid $border-color;
     position: absolute;
     bottom: 0;
@@ -55,9 +54,6 @@
 
   .messages-list{
     border-top: 1px solid $border-color;
-    // position: absolute;
-    // bottom: 0;
-    // width: 100%;
   }
   .messages-loader{
     position: absolute;
@@ -78,7 +74,6 @@
   }
   .message-count{
     @extend .timestamp;
-    // color: $button-blue;
     margin-left: 2px;
     font-weight: normal;
   }

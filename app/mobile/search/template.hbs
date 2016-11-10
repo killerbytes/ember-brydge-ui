@@ -9,7 +9,7 @@
       <div class="user section-main">
         {{avatar-wrap profile=item.user.profile}}
         <div class="user-info">
-          <a href="{{href-to 'profile' user.profile.uid}}" class="text-title">{{item.user.profile.fullName}}</a>
+          <a href="{{href-to 'profile' item.user.profile.uid}}" class="text-title">{{item.user.profile.fullName}}</a>
           <div class="position">{{item.user.profile.career}}</div>
           <div class="position">{{item.user.profile.location}}</div>
         </div>

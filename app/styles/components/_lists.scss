@@ -25,11 +25,11 @@ ul.media-list{
 }
 ul.user-link-list{
   li{
-    min-height: 66px;
     border-bottom: 1px solid $border-color;
-    .name{
-      // color: $body-text-color;
+    .user{
+      overflow: hidden;
     }
+
   }
   li>a{
     padding: 1rem;

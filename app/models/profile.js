@@ -37,7 +37,7 @@ export default DS.Model.extend(Validations, {
 	following: DS.belongsTo('following'),
 	uid: Ember.computed.alias('publicProfile'),
 	fullName: Ember.computed('firstName', 'lastName', function(){
-		return this.get('firstName') + ' ' + this.get('lastName');
+		return `${this.get('firstName')} ${this.get('lastName')}`;
 	}),
 	career: Ember.computed('currentTitle', 'currentCompany', function(){
 		var title = this.get('currentTitle');
