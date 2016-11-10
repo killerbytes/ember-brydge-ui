@@ -46,6 +46,6 @@ export default Ember.Component.extend({
     this._show();
   },
   mouseLeave(){
-    // this._hide();
+    this._hide();
   }
 });
