@@ -14,6 +14,7 @@ export default Ember.Service.extend({
     if(!authToken) return false;
 
     this.get('phoenix').channel().on('notify', res=>{
+      this.loadNotifications()
       this.set('count', res.count);
     })
   },

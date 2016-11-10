@@ -71,9 +71,16 @@
       {{#unless isOwner }}
         {{#if canMessage}}
             {{#zf-tooltip title="Send Message" positionClass="right" class="mb"}}
-              <a href="{{href-to 'messages.conversation' conversationid }}">
-                <i class="icons messages"></i>
-              </a>
+              <div class="show-for-medium">
+                <a href="{{href-to 'messages.conversation' conversationid }}">
+                  <i class="icons messages"></i>
+                </a>
+              </div>
+              <div class="hide-for-medium">
+                <a href="{{href-to 'mobile.messages.conversation' conversationid }}">
+                  <i class="icons messages"></i>
+                </a>
+              </div>
             {{/zf-tooltip}}
         {{/if}}
 

@@ -12,7 +12,7 @@ export default Ember.Component.extend({
 	didInsertElement(){
 		this.set('timer', null);
 		Ember.run.later(()=>{
-
+			if(this.get('isDestroyed') || this.get('isDestroying')) return false;
 			this.set('el', this.$().get(0));
 			window.addEventListener('resize', ()=>{
 				this._onResize();

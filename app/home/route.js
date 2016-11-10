@@ -134,10 +134,10 @@ export default Ember.Route.extend(
     onLocationSelect: function (item, cb) {
       this.set('controller.selectedCity', item);
     },
-    clear(){
-      this.controller.set('q', null)
-      this.controller.set('searchContent', null)
-    },
+    // clear(){
+    //   this.controller.set('q', null)
+    //   this.controller.set('searchContent', null)
+    // },
     dismiss(){
       var configSetting = this.store.peekRecord('configSetting', this.get('controller.profile.id'));
       configSetting.set('key', 'show_guide');
