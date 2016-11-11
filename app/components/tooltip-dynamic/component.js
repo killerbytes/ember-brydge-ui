@@ -3,6 +3,7 @@ import Ember from 'ember';
 export default Ember.Component.extend({
   tagName: 'div',
   classNames: ['tooltip-dynamic'],
+  vOffset: 5,
   willDestroyElement(){
 		this.get('el').remove();
 		this._super(...arguments);
@@ -21,7 +22,7 @@ export default Ember.Component.extend({
   _setPosition(e){
     let pos = Foundation.Box.GetDimensions(e.currentTarget);
     let style = {
-      top:  pos.offset.top,
+      top:  pos.offset.top + this.get('vOffset'),
       left: pos.offset.left + pos.width + 5
     }
     this.get('el').css(style)

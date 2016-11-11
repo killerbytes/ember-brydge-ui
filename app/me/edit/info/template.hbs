@@ -4,37 +4,38 @@
       <div class="columns medium-4 small-12 content-pad">
         {{image-upload fileLoaded="fileLoaded" logoUrl=profile.avatarUrl placeholder="Change Photo"}}
       </div>
-      <div class="columns medium-8 small-12 content-pad">
-        <div class="columns">
-          <label>First Name
-            {{form-input model=profile valuePath="firstName"}}
-          </label>
-        </div>
-        <div class="columns">
-          <label>Last Name
-            {{form-input model=profile valuePath="lastName"}}
-          </label>
-        </div>
-        <div class="columns">
-          <label>Current City
-            {{form-input-location
-                model=profile
-                valuePath="location"
-                selected=profile.location
-                placeid=profile.placeid
-                onItemSelected="onLocationSelect"}}
+      <div class="columns medium-8 small-12">
+        <div class="padding">
+          <div class="columns">
+            <label>First Name
+              {{form-input model=profile valuePath="firstName"}}
+            </label>
+          </div>
+          <div class="columns">
+            <label>Last Name
+              {{form-input model=profile valuePath="lastName"}}
+            </label>
+          </div>
+          <div class="columns">
+            <label>Current City
+              {{form-input-location
+                  model=profile
+                  valuePath="location"
+                  selected=profile.location
+                  placeid=profile.placeid
+                  onItemSelected="onLocationSelect"}}
 
-          </label>
+            </label>
+          </div>
+          <div class="columns">
+            <label>Date of Birth
+              {{input-date-picker selected=profile.dob value=profile.dob}}
+            </label>
+          </div>
+          <div class="columns">
+            {{form-input-button item=profile submit="save" placeholder="Saved"}}
+          </div>
         </div>
-        <div class="columns">
-          <label>Date of Birth
-            {{input-date-picker selected=profile.dob value=profile.dob}}
-          </label>
-        </div>
-        <div class="columns">
-          {{form-input-button item=profile submit="save" placeholder="Saved"}}
-        </div>
-
 
       </div>
     </div>

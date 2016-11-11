@@ -1,4 +1,4 @@
-  <div class="columns medium-2">
+  <div class="columns medium-3">
     <select onchange={{action "onSelectDay" value="target.value"}}>
       {{#each day as |item|}}
         <option value={{item}} selected={{eq dd item}}>{{item}}</option>
@@ -12,7 +12,7 @@
       {{/each}}
     </select>
   </div>
-  <div class="columns medium-4">
+  <div class="columns medium-3">
     <select onchange={{action "onSelectYear" value="target.value"}}>
       {{#each year as |item|}}
         <option value={{item}} selected={{eq yy item}}>{{item}}</option>

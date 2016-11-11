@@ -4,22 +4,21 @@
       <div class="spacer-2"></div>
       <section>
         <p>You current job will be set as your profile's Title. Alternatively, you can pick a Career Status from the dropdown and use that as your profile's Title.</p>
-
     		<label for="">Select a Career Status <span>(If you are currently not employed full-time)</span></label>
     			<div class="row">
-    				<div class="columns medium-8">
+    				<div class="columns medium-8 small-12">
     						{{select-native content=highlightStatuses action=(action (mut highlightStatus)) selectedValue=defaultCareerStatus}}
     				</div>
-    				<div class="columns medium-4">
-    					{{#if isHighlightStatus}}
-    						<label class="middle">
-    							<a>Current Title</a>
-    						</label>
-    					{{else}}
-    						<label for="highlightStatus" class="for-radio middle">
-    							<a {{action "highlightCustom"}}>Use this as Title</a>
-    						</label>
-              {{/if}}
+    				<div class="columns medium-4 small-12">
+      					{{#if isHighlightStatus}}
+      						<label class="middle">
+      							<a>Current Title</a>
+      						</label>
+      					{{else}}
+      						<label for="highlightStatus" class="for-radio middle">
+      							<a {{action "highlightCustom"}}>Use this as Title</a>
+      						</label>
+                {{/if}}
     				</div>
     			</div>
       </section>

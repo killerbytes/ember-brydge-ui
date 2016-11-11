@@ -1,8 +1,5 @@
 <input type="file" name="file" style="display: none" />
 <div class="profile-photo">
-  {{#tooltip-dynamic text=profile.influence.text}}
-    <a href={{href-to 'influencers'}} class="icons {{profile.influence.class}}"></a>
-  {{/tooltip-dynamic}}
 
   <div class="avatar" {{action "clicked"}} style={{htmlSafeImage logoUrl}}>
     <img src="{{logoUrl}}" class="hide">
@@ -11,6 +8,10 @@
       <div class="brydge-loading"></div>
     {{/if}}
   </div>
+  {{#tooltip-dynamic text=profile.influence.text}}
+    <a href={{href-to 'influencers'}} class="icons {{profile.influence.class}}"></a>
+  {{/tooltip-dynamic}}
+
 </div>
 <div class="text-center">
   <a {{action "clicked"}}>{{placeholder}}</a>
