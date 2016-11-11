@@ -12,9 +12,7 @@ export default Ember.Controller.extend(NotificationActionsMixin, {
   init(){
     var _this = this;
     Ember.run.later(()=>{
-      Ember.$('#dd-notification').on('show.zf.dropdown', res =>{
-        this._openNotification();
-  		})
+      this._openNotification();
       Ember.$('#notification-tab').on('change.zf.tabs', function(e){
         _this._releaseTab($(this).find('.is-active a').data('id'));
   		})
