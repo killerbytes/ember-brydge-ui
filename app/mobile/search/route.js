@@ -25,7 +25,7 @@ export default Ember.Route.extend(
       return true;
   },
   beforeModel(transition){
-    if(!this.get('detector.isMobile')) this.transitionTo('home');
+    if(!this.get('detector.isMobile')) this.transitionTo('search');
   },
   model(params){
     // if(!params.name && !params.keyword && !params.city) return false;

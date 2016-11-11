@@ -1,5 +1,5 @@
-<div class="columns medium-5 small-12 wrapper">
-  {{#if model.image}}
+{{#if model.image}}
+  <div class="columns border-r medium-5 small-12 wrapper">
     {{#unless preview}}
       {{#if model.html}}
         {{{model.html}}}
@@ -17,10 +17,9 @@
       </div>
       <a {{action "removePreview"}} class="x-button fa fa-times"></a>
     {{/unless}}
-  {{/if}}
+  </div>
+{{/if}}
 
-
-</div>
 <div class="columns {{if model.image 'medium-7 small-12'}}">
   {{#unless preview}}
     <a href="{{model.url}}" target="_blank">

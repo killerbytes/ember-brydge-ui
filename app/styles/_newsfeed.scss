@@ -143,9 +143,9 @@
 	}
 	.media-horizontal{
 		background-color: $brydge-gray;
-		.columns:first-child{
-			border-right: 1px solid $border-color;
-		}
+		// .columns:first-child{
+		// 	border-right: 1px solid $border-color;
+		// }
 		.post-image{
 			height: 190px;
 		}

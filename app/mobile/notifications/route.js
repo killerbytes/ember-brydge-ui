@@ -4,6 +4,6 @@ import AuthenticatedRouteMixin from 'ember-simple-auth/mixins/authenticated-rout
 export default Ember.Route.extend(
   AuthenticatedRouteMixin, {
   beforeModel(transition){
-    if(!this.get('detector.isMobile')) this.transitionTo('home');
+    if(!this.get('detector.isMobile')) this.replaceWith('index');
   },
 });

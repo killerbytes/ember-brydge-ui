@@ -9,7 +9,10 @@ export default Ember.Route.extend(
   ajax: Ember.inject.service(),
   beforeModel: function(transition) {
     var userid = this.get('session.data.authenticated.user_id');
-    if(!userid) this.transitionTo('home');
+    if(!userid){
+      this.replaceWith('index');
+      return;
+    }
     return this.get('ajax').request('v2/profiles/'+transition.params[transition.targetName].username,{
       method: 'OPTIONS'
     }).then(res=>{

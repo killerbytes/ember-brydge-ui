@@ -21,7 +21,10 @@ export default Ember.Mixin.create({
 	messages: Ember.computed.sort('notification.message', 'sortUpdated'),
 	notifications: Ember.computed.sort('notification.notification', 'sort'),
 	_read(item){
-		item.set('read', true);
+		item.setProperties({
+			read: true,
+			count: 0
+		});
 		item.save();
 	},
 	actions: {

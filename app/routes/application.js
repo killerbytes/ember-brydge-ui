@@ -58,6 +58,7 @@ export default TransitionToListenerRoute.extend(
         default:
           var accessToken = this.get('session.data.authenticated.access_token');
           if(!accessToken) {
+            console.log('unauthorized')
             this.transitionTo('login');
             this.refresh();
             return;
