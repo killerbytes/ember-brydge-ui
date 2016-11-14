@@ -222,16 +222,21 @@
       border-radius: 0;
     }
   }
-  .reveal{
-    position: fixed;
-    height: 100vh;
-    min-height: 100vh;
-    max-width: none;
+  header{
+    // display: none;
+  }
+  .reveal,
+  .reveal.full{
+    top: 0 !important;
+    height: 100%;
+    min-height: 100%;
+    // max-width: none;
     border: 0;
     border-width: 0;
     border-radius: 0;
   }
   #mobileBrowser{
+    overflow: scroll;
     .reveal-footer{
       position: absolute;
       width: 100%;
