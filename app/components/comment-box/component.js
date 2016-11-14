@@ -6,6 +6,8 @@ export default Ember.Component.extend(ViewCommentsActionMixin,{
 	store: Ember.inject.service(),
 	sessionAccount: Ember.inject.service(),
 	session: Ember.inject.service(),
+	tagName: 'section',
+	classNames: ['container', 'comments'],
 	limit: 3, //set default
 	page: 0, //set default
 	isMore: Ember.computed('limit', 'page', function(){
