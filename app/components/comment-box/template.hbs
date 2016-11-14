@@ -13,11 +13,7 @@
     {{#if isLoading}}
       <div class="brydge-loading"></div>
     {{/if}}
-
   </section>
-{{/if}}
-
-{{#if showComments}}
   <section class="comment-group">
     {{#each comments as |comment|}}
       <div class="comment-item">
@@ -28,48 +24,49 @@
             <i class="dot"></i>
             <span class="timestamp">{{timestamp comment.insertedAt}}</span>
             <div class="position">{{ comment.user.profile.career }}</div>
+            <div class="comment">
+              {{see-more content=comment.content class="message"}}
+              {{reply-box comment=comment}}
+
+            </div>
+
           </div>
-        </div>
-        <div class="comment">
-          {{see-more content=comment.content}}
         </div>
       </div>
     {{/each}}
   </section>
-{{/if}}
-{{#unless showComments}}
+{{else}}
   {{#if isLoading}}
     <section class="comment-group">
       <div class="brydge-loading"></div>
     </section>
   {{/if}}
-{{/unless}}
+{{/if}}
 
 <section>
   <form>
     {{text-area
       value=commentContent
       key-up="resize"
-      enter="comment"
+      enter="submit"
       disabled=notAuthenticated
       class="textarea content-editable"
       placeholder="Write your comment"}}
   </form>
 </section>
 
-
-  {{#if showComments}}
+{{#if showComments}}
+  <section class="comment-footer">
+    <a class="more no-arrow" {{action 'hideComments'}}>
+      Hide comments
+    </a>
+  </section>
+{{else}}
+  {{#if total}}
     <section class="comment-footer">
-      <a class="more no-arrow" {{action 'hideComments'}}>
-        Hide comments
+      <a class="more no-arrow" {{action 'viewComments'}}>
+        View comments
       </a>
     </section>
-  {{else}}
-    {{#if total}}
-      <section class="comment-footer">
-        <a class="more no-arrow" {{action 'viewComments'}}>
-          View comments
-        </a>
-      </section>
-    {{/if}}
   {{/if}}
+{{/if}}

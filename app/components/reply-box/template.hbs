@@ -1,0 +1,48 @@
+<div class="action-links">
+  <a {{action "reply"}}>Reply</a>
+</div>
+{{#if comment.subCommentsCount}}
+  <div class="action-links">
+    {{#unless showComments}}
+      <a {{action "show"}}>{{comment.subCommentsCount}} Replies</a>
+    {{else}}
+      <a {{action "hide"}}>Hide replies</a>
+      {{#if isMore}}
+        <a {{action "show"}}>View previous replies</a>
+      {{/if}}
+
+    {{/unless}}
+  </div>
+{{/if}}
+
+{{#if showComments}}
+  {{#each subComments as |item|}}
+    <div class="comment-item">
+      <div class="user user-small smaller">
+        {{avatar-wrap profile=item.user.profile}}
+        <div class="user-info">
+          <a href="{{href-to 'profile' comment.user.profile.uid}}" class="name">{{item.user.profile.fullName}}</a>
+          <i class="dot"></i>
+          <span class="timestamp">{{timestamp item.insertedAt}}</span>
+          <div class="position">{{ item.user.profile.career }}</div>
+          <div class="comment">
+            {{see-more content=item.content}}
+          </div>
+
+        </div>
+      </div>
+    </div>
+  {{/each}}
+{{/if}}
+
+{{#if canReply}}
+<form class="form-reply">
+  {{text-area
+    value=commentContent
+    key-up="resize"
+    enter="submit"
+    disabled=notAuthenticated
+    class="textarea content-editable"
+    placeholder="Write your comment"}}
+</form>
+{{/if}}

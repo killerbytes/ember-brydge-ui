@@ -134,6 +134,20 @@ table{
 	}
 }
 .user-small{
+	&.smaller{
+		.avatar{
+			width: 25px;
+			height: 25px;
+		}
+		.user-info{
+			padding-left: 35px;
+		}
+		.icons{
+			width: 10px;
+			height: 10px;
+		}
+
+	}
 	.avatar{
 		width: 30px;
 		height: 30px;

@@ -6,47 +6,60 @@ export default Ember.Component.extend(ViewCommentsActionMixin,{
 	store: Ember.inject.service(),
 	sessionAccount: Ember.inject.service(),
 	session: Ember.inject.service(),
-	tagName: 'section',
-	classNames: ['container', 'comments'],
+	classNameBindings: ['canReply'],
 	perPage: 3, //set default
 	page: 0, //set default
-	isMore: Ember.computed('perPage', 'page', function(){
-		return Math.ceil(this.get('total') / (this.get('perPage') * (this.get('page')) )) > 1 ? true: false;
-	}),
 	init(){
 		this._super(...arguments);
-		if(this.get('expanded') && this.get('total')) this.loadComments();
+		// if(this.get('expanded') && this.get('total'))
+		// this.loadComments();
 	},
 	notAuthenticated: Ember.computed.equal('session.isAuthenticated', false),
 	sortProps: ['insertedAt:asc'],
-  comments: Ember.computed.sort('post.comments', 'sortProps'),
-	loadComments(){
+  subComments: Ember.computed.sort('comment.subComments', 'sortProps'),
+	isMore: Ember.computed('perPage', 'page', function(){
+		return Math.ceil(this.get('total') / (this.get('perPage') * (this.get('page')) )) > 1 ? true: false;
+	}),
+	list: Ember.computed(function(){
+		return [];
+	}),
+	_loadComments(){
 			this.set('isLoading', true);
 			var page = this.get('page') + 1 || 0;
-			this.get('store').query('comment', {newsfeedid: this.get('post.id'), page: page, per_page: this.get('perPage') }).then(res=>{
+			this.get('store').query('sub-comment', {
+				commentid: this.get('comment.id'),
+				page: page,
+				per_page: this.get('perPage')
+			}).then(res=>{
 				var meta = res.get('meta');
 				this.set('total', meta.total);
 				this.set('page', parseInt(meta.currentPage));
-				this.set('post.commentCount', meta.total );
+				this.set('comment.subCommentsCount', meta.total );
 				this.set('showComments', true);
-				this.get('post.comments').pushObjects(res);
+				this.get('comment.subComments').pushObjects(res);
 				this.set('isLoading', false);
 			})
 	},
 	actions:{
+		show(){
+			this._loadComments();
+		},
+		hide(){
+			this.set('showComments', false)
+			this.set('page', 0)
+			// this.set('comment.subCommentsCount', []);
+		},
+		reply(){
+			this.set('canReply', true);
+			this.$('.content-editable').focus();
+		},
 		submit(item, event) {
-			// if (event.shiftKey) return false;
 			var value = this.get('commentContent');
 			if(!value.trim().length > 0) return false;
-			this.sendAction('postComment', value, this.get('post.id'));
 
-			// Fetch reference to store as a
-      // property on this component
-      var store = this.get('store');
-
-      var comment = store.createRecord('comment',{
+      var comment = this.get('store').createRecord('sub-comment',{
 				content: value.trim(),
-				newsfeedid: this.get('post.id')
+				commentid: this.get('comment.id')
 			});
 
     	this.set('commentContent', null);
@@ -54,24 +67,14 @@ export default Ember.Component.extend(ViewCommentsActionMixin,{
 				this.$('textarea').get(0).style.height = '';
     	})
     	comment.save().then(res=>{
-      	this.get('post.comments').pushObject(res);
+      	this.get('comment.subComments').pushObject(res);
       	if(!this.get('showComments')){
 					this.set('showComments', true)
-	      	this.loadComments();
+	      	this._loadComments();
       	}else{
       		this.set('post.commentCount', this.get('post.commentCount')+1);
       	}
     	})
-		},
-		hideComments(){
-			this.set('showComments', false)
-			this.set('page', 0)
-			this.set('post.comments', []);
-
-		},
-		viewComments: function () {
-			if(!this.get('showComments')) this.set('post.comments', []);
-			this.loadComments();
 		},
 		resize(value, e){
 			if(value){

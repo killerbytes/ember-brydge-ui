@@ -94,7 +94,7 @@
 	.value{
 		margin-left: 5px;
 	}
-	section.comments{
+	.comments{
 		background-color: $brydge-gray;
 		.content-editable{
 			font-size: 12px;
@@ -115,7 +115,6 @@
 			padding-bottom: 1rem;
 		}
 		.comment{
-			padding-left: 40px;
 			font-size: 11px;
 		}
 		.comment-header{
@@ -127,6 +126,17 @@
 				right: 1rem;
 				top: .75rem;
 			}
+		}
+		.action-links{
+			a:not(:first-child){
+				margin-left: 5px;
+			}
+		}
+		.action-links:not(:last-child){
+			padding-bottom: 5px;
+		}
+		.message{
+			margin-bottom: 5px;
 		}
 		.comment-footer{
 			padding-top: 1rem;
