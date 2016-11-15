@@ -3,7 +3,6 @@ import CommentActionsMixin from 'web/mixins/comment-actions';
 
 export default Ember.Component.extend(CommentActionsMixin,{
 	store: Ember.inject.service(),
-	sessionAccount: Ember.inject.service(),
 	session: Ember.inject.service(),
 	tagName: 'section',
 	classNames: ['container', 'comments'],

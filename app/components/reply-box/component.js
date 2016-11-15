@@ -65,7 +65,7 @@ export default Ember.Component.extend(CommentActionsMixin,{
 				this.set('showComments', true)
 				this._loadComments();
 			}else{
-				this.set('post.commentCount', this.get('post.commentCount')+1);
+				this.set('comment.subCommentsCount', this.get('comment.subCommentsCount')+1);
 			}
 		})
 	},

@@ -11,9 +11,7 @@
         {{#if post.shared}}
           {{#unless shared}}
             <span class="text-gray">shared </span>
-              <span class="name">
-                <a href="{{href-to 'profile' post.shared.user.profile.uid }}" class="plain">{{post.shared.user.profile.fullName}}</a>
-              </span><span class="text-gray">'s post</span>
+            <a href="{{href-to 'profile' post.shared.user.profile.uid }}" class="name plain">{{post.shared.user.profile.fullName}}</a><span class="text-gray">'s post</span>
           {{/unless}}
         {{/if}}
         <i class="dot"></i>
