@@ -2,12 +2,12 @@
   <section class="comment-header">
     {{#if isMore}}
       <span class="dot-after">
-      <a class="more no-arrow" {{action 'viewComments'}}>
+      <a class="more no-arrow" {{action 'show'}}>
         View previous comments
       </a>
       </span>
     {{/if}}
-    <a class="more no-arrow" {{action 'hideComments'}}>
+    <a class="more no-arrow" {{action 'hide'}}>
       Hide comments
     </a>
     {{#if isLoading}}
@@ -20,12 +20,14 @@
         <div class="user user-small">
           {{avatar-wrap profile=comment.user.profile}}
           <div class="user-info">
-            <a href="{{href-to 'profile' comment.user.profile.uid}}" class="name">{{comment.user.profile.fullName}}</a>
-            <i class="dot"></i>
-            <span class="timestamp">{{timestamp comment.insertedAt}}</span>
-            <div class="position">{{ comment.user.profile.career }}</div>
+            <div class="block-ellipsis mb-sm">
+              <a href="{{href-to 'profile' comment.user.profile.uid}}" class="name">{{comment.user.profile.fullName}}</a>
+              <i class="dot"></i>
+              <span class="position">{{ comment.user.profile.career }}</span>
+            </div>
             <div class="comment">
-              {{see-more content=comment.content class="message"}}
+              {{see-more content=comment.content class="message mb-sm" tagName='div'}}
+
               {{reply-box comment=comment}}
 
             </div>
@@ -57,14 +59,14 @@
 
 {{#if showComments}}
   <section class="comment-footer">
-    <a class="more no-arrow" {{action 'hideComments'}}>
+    <a class="more no-arrow" {{action 'hide'}}>
       Hide comments
     </a>
   </section>
 {{else}}
   {{#if total}}
     <section class="comment-footer">
-      <a class="more no-arrow" {{action 'viewComments'}}>
+      <a class="more no-arrow" {{action 'show'}}>
         View comments
       </a>
     </section>

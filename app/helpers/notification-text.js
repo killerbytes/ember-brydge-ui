@@ -21,6 +21,9 @@ export default Ember.Helper.helper(function([item]){
 		case 'comment':
 			text = "commented on " +  '<strong>' + getContent(item.get('content')) + '</strong>';
 			break;
+		case 'reply-comment':
+			text = "replied to your comment on " +  '<strong>' + getContent(item.get('content')) + '</strong>';
+			break;
 		case 'follow':
 			text = "followed you";
 			break;

@@ -1,18 +1,13 @@
 import Ember from 'ember';
-import ViewCommentsActionMixin from 'web/mixins/view-comments-action';
+import CommentActionsMixin from 'web/mixins/comment-actions';
 
-
-export default Ember.Component.extend(ViewCommentsActionMixin,{
+export default Ember.Component.extend(CommentActionsMixin,{
 	store: Ember.inject.service(),
 	sessionAccount: Ember.inject.service(),
 	session: Ember.inject.service(),
-	classNameBindings: ['canReply'],
-	perPage: 3, //set default
-	page: 0, //set default
+	classNameBindings: ['canReply', 'showComments'],
 	init(){
 		this._super(...arguments);
-		// if(this.get('expanded') && this.get('total'))
-		// this.loadComments();
 	},
 	notAuthenticated: Ember.computed.equal('session.isAuthenticated', false),
 	sortProps: ['insertedAt:asc'],
@@ -20,6 +15,7 @@ export default Ember.Component.extend(ViewCommentsActionMixin,{
 	isMore: Ember.computed('perPage', 'page', function(){
 		return Math.ceil(this.get('total') / (this.get('perPage') * (this.get('page')) )) > 1 ? true: false;
 	}),
+	showForm: Ember.computed.or('canReply', 'showComments'),
 	list: Ember.computed(function(){
 		return [];
 	}),
@@ -40,52 +36,40 @@ export default Ember.Component.extend(ViewCommentsActionMixin,{
 				this.set('isLoading', false);
 			})
 	},
+	_show(){
+		this._loadComments();
+	},
+	_hide(){
+		this.set('showComments', false);
+		this.set('page', 0);
+	},
+	_submit(item, event) {
+		var value = this.get('commentContent');
+		if(!value.trim().length > 0) return false;
+
+		var comment = this.get('store').createRecord('sub-comment',{
+			content: value.trim(),
+			commentid: this.get('comment.id')
+		});
+
+		this.set('commentContent', null);
+		Ember.run.later(()=>{
+			this.$('textarea').get(0).style.height = '';
+		})
+		comment.save().then(res=>{
+			this.get('comment.subComments').pushObject(res);
+			if(!this.get('showComments')){
+				this.set('showComments', true)
+				this._loadComments();
+			}else{
+				this.set('post.commentCount', this.get('post.commentCount')+1);
+			}
+		})
+	},
 	actions:{
-		show(){
-			this._loadComments();
-		},
-		hide(){
-			this.set('showComments', false)
-			this.set('page', 0)
-			// this.set('comment.subCommentsCount', []);
-		},
 		reply(){
 			this.set('canReply', true);
 			this.$('.content-editable').focus();
-		},
-		submit(item, event) {
-			var value = this.get('commentContent');
-			if(!value.trim().length > 0) return false;
-
-      var comment = this.get('store').createRecord('sub-comment',{
-				content: value.trim(),
-				commentid: this.get('comment.id')
-			});
-
-    	this.set('commentContent', null);
-    	Ember.run.later(()=>{
-				this.$('textarea').get(0).style.height = '';
-    	})
-    	comment.save().then(res=>{
-      	this.get('comment.subComments').pushObject(res);
-      	if(!this.get('showComments')){
-					this.set('showComments', true)
-	      	this._loadComments();
-      	}else{
-      		this.set('post.commentCount', this.get('post.commentCount')+1);
-      	}
-    	})
-		},
-		resize(value, e){
-			if(value){
-				var el = e.currentTarget;
-				var offset = (el.offsetHeight - el.clientHeight);
-				e.currentTarget.style.height = 'auto';
-				e.currentTarget.style.height = (e.currentTarget.scrollHeight+offset) + "px";
-			}else{
-				e.currentTarget.style.height = '';
-			}
 		}
-
 	}
 });
