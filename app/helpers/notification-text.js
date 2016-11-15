@@ -2,7 +2,7 @@ import Ember from 'ember';
 
 export default Ember.Helper.helper(function([item]){
 	function getContent(content){
-		return  content.length > 80 ? content.substr(0, 80) + ' ...' : content;
+		return  content && content.length > 80 ? content.substr(0, 80) + ' ...' : content;
 	}
 	var text;
 	switch(item.get('type')){

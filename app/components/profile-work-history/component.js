@@ -25,6 +25,7 @@ export default Ember.Component.extend( {
 		return this._default();
 	}),
 	defaultCareerStatus: Ember.computed(function(){
+		console.log(this.get('sessionAccount.account.profile'))
 		return this.get('profile.customTitle') ? this.get('profile.currentTitle') : 'On Sabbatical Leave';
 	}),
 	list: Ember.computed.filterBy('items', 'isNew', false),

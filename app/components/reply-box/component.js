@@ -16,6 +16,9 @@ export default Ember.Component.extend(CommentActionsMixin,{
 		return Math.ceil(this.get('total') / (this.get('perPage') * (this.get('page')) )) > 1 ? true: false;
 	}),
 	showForm: Ember.computed.or('canReply', 'showComments'),
+	replyText: Ember.computed('comment.subCommentsCount', function(){
+		return this.get('comment.subCommentsCount') > 1 ? 'Replies' : 'Reply';
+	}),
 	list: Ember.computed(function(){
 		return [];
 	}),

@@ -3,8 +3,10 @@ import Ember from "ember";
 export default Ember.Component.extend({
   content: null,
   selectedValue: null,
+  tagName: 'select',
 
-  init(){
+
+  xxxinit(){
     this._super(...arguments);
     var content = this.get('content');
 
@@ -13,16 +15,14 @@ export default Ember.Component.extend({
     }
   },
 
-  actions: {
-    change() {
-      const changeAction = this.get('action');
-      const selectedEl = this.$('select')[0];
-      const selectedIndex = selectedEl.selectedIndex;
+  // actions: {
+    change(e) {
+      // const changeAction = this.get('action');
+      // const selectedIndex = ;
       const content = this.get('content');
-      const selectedValue = content[selectedIndex];
-
-      this.set('selectedValue', selectedValue);
-      changeAction(selectedValue);
+      // const selectedValue = ;
+      this.set('selectedValue', content[e.currentTarget.selectedIndex]);
+      // changeAction(selectedValue);
     }
-  }
+  // }
 });

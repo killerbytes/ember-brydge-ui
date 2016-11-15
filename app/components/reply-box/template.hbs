@@ -7,11 +7,11 @@
   <div class="replies-wrapper">
     <a {{action "show"}}>
       <i class="fa {{if showComments 'fa-caret-down' 'fa-caret-right'}}" aria-hidden="true"></i>
-      {{comment.subCommentsCount}} Replies
+      {{comment.subCommentsCount}} {{replyText}}
     </a>
     {{#if showComments}}
       <i class="dot"></i>
-      <a {{action "hide"}}>Hide replies</a>
+      <a {{action "hide"}}>Hide {{replyText}}</a>
       {{#if isMore}}
         <i class="dot"></i>
         <a {{action "show"}}>View previous replies</a>
@@ -52,7 +52,7 @@
       </li>
       {{#if showComments}}
       <li>
-        <a {{action "hide"}}>Hide replies</a>
+        <a {{action "hide"}}>Hide {{replyText}}</a>
       </li>
       {{/if}}
     </ul>
