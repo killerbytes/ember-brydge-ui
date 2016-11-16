@@ -12,10 +12,14 @@ export default Ember.Controller.extend(NotificationActionsMixin, {
   init(){
     var _this = this;
     Ember.run.later(()=>{
-      this._openNotification();
-      Ember.$('#notification-tab').on('change.zf.tabs', function(e){
+      Ember.$('#notification-tab').on('change.zf.tabs', function(){
         _this._releaseTab($(this).find('.is-active a').data('id'));
   		})
+      Ember.$('#dd-notification').on('show.zf.dropdown', ()=>{
+        // console.log($('#notification-tab').find('.is-active a').data('id'))
+        _this._releaseTab($('#notification-tab').find('.is-active a').data('id'));
+  		})
+      this._openNotification();
     })
   },
   _releaseTab(group){
@@ -24,9 +28,8 @@ export default Ember.Controller.extend(NotificationActionsMixin, {
     })
   },
   _openNotification(){
-    // console.log('open notification')
     this.get('notification').loadNotifications(()=>{
-      this._releaseTab(Ember.$('#dd-notification').find('.is-active a').data('id'));
+      // this._releaseTab(Ember.$('#dd-notification').find('.is-active a').data('id'));
     });
   },
   actions: {

@@ -21,6 +21,7 @@ export default Ember.Component.extend({
     this._super(...arguments);
     Ember.run.later(()=>{
       Ember.$(`#industry-picker-mobile-${this.get('name')}`).on('open.zf.reveal', ()=>{
+        console.log('industry-picker-mobile')
         this.get("store").peekAll('industry').filterBy('active', true).forEach(i=>{
           i.set('active', false);
         })

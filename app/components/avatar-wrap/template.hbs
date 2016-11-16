@@ -1,6 +1,8 @@
-{{#tooltip-dynamic text=profile.influence.text vOffset=-5}}
-  <a href={{href-to 'influencers'}} class="icons {{profile.influence.class}}"></a>
-{{/tooltip-dynamic}}
+{{#if profile.influence.class}}
+  {{#tooltip-dynamic text=profile.influence.text vOffset=-5}}
+    <a href={{href-to 'influencers'}} class="icons {{profile.influence.class}}"></a>
+  {{/tooltip-dynamic}}
+{{/if}}
 <div class="avatar float-left" style={{htmlSafeImage profile.avatarUrl}}>
   <img src= {{profile.avatarUrl}} class="hide">
 </div>
