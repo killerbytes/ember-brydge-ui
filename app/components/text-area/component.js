@@ -2,6 +2,8 @@ import Ember from 'ember';
 
 
 export default Ember.TextArea.extend({
+	attributeBindings: ['rows'],
+	rows: 1,
 	keyDown: function (event) {
 		if (event.which === 13 && ! event.shiftKey) {
 			event.preventDefault();

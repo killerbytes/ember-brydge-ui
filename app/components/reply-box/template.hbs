@@ -1,0 +1,60 @@
+<div class="action-links">
+  <a {{action "reply"}}>Reply</a>
+  <i class="dot"></i>
+  <span class="timestamp">{{timestamp comment.insertedAt}}</span>
+</div>
+{{#if comment.subCommentsCount}}
+  <div class="replies-wrapper">
+    <a {{action "show"}}>
+      <i class="fa {{if showComments 'fa-caret-down' 'fa-caret-right'}}" aria-hidden="true"></i>
+      {{comment.subCommentsCount}} {{replyText}}
+    </a>
+    {{#if showComments}}
+      <i class="dot"></i>
+      <a {{action "hide"}}>Hide {{replyText}}</a>
+      {{#if isMore}}
+        <i class="dot"></i>
+        <a {{action "show"}}>View previous replies</a>
+      {{/if}}
+    {{/if}}
+  </div>
+{{/if}}
+
+{{#if showForm}}
+  <div class="replies-wrapper">
+    <ul class="no-bullet">
+      {{#if showComments}}
+        {{#each subComments as |item|}}
+          <li>
+            <div class="comment-item">
+              <div class="user user-small smaller">
+                {{avatar-wrap profile=item.user.profile}}
+                <div class="user-info">
+                  <a href="{{href-to 'profile' comment.user.profile.uid}}" class="name">{{item.user.profile.fullName}}</a>
+                  {{see-more content=item.content class="comment"}}
+                  <div class="timestamp">{{timestamp item.insertedAt}}</div>
+                </div>
+              </div>
+            </div>
+          </li>
+        {{/each}}
+      {{/if}}
+      <li>
+        <form class="form-reply">
+          {{text-area
+            value=commentContent
+            key-up="resize"
+            enter="submit"
+            disabled=notAuthenticated
+            class="textarea content-editable"
+            placeholder="Reply..."}}
+        </form>
+      </li>
+      {{#if showComments}}
+      <li>
+        <a {{action "hide"}}>Hide {{replyText}}</a>
+      </li>
+      {{/if}}
+    </ul>
+  </div>
+{{/if}}

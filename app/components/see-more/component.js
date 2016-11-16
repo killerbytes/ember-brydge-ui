@@ -3,6 +3,7 @@ import Ember from 'ember';
 export default Ember.Component.extend({
 	utils: Ember.inject.service(),
 	classNameBindings: ['isCollapsed'],
+	tagName: 'span',
 	limit: 280,
 	isCollapsed: Ember.computed('content', function() {
 		return this.get('content.length') >= this.get('limit') ? true : false;

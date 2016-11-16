@@ -51,6 +51,7 @@ export default Ember.Mixin.create({
 				case 'comment':
 				case 'vote':
 				case 'share':
+				case 'reply-comment':
 					var targetid = item.get('targetid');
 					var referenceid = item.get('referenceid');
 					this.get('routing').transitionTo('post',targetid, referenceid);
