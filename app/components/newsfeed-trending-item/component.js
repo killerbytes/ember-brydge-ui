@@ -2,7 +2,7 @@ import Ember from 'ember';
 
 export default Ember.Component.extend({
   postAsNew: Ember.inject.service(),
-	classNames: ['newsfeed-item', 'newsfeed-trending', 'newsfeed-item-horizontal','box', 'rounded'],
+	classNames: ['newsfeed-item', 'newsfeed-trending', 'box', 'rounded'],
 	title: Ember.computed('post.title', function(){
 		let title = this.get('post.title');
 		return title.length > 100 ? title.substr(0, 100) + ' ...' : title;

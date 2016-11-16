@@ -30,10 +30,11 @@
   </div>
   <section class="section-footer bg-gray">
     <div class="row collapse">
-      <div class="columns medium-4 float-right">
+      <div class="columns float-right">
         <button class="success button rounded float-right" type="submit" {{action "share"}}>Share</button>
       </div>
     </div>
-
   </section>
 {{/zf-reveal}}
+
+{{dialog-box name="post-as-new" callback="callback" item=profile confirm=true title="Say Something" content="You need to say something about links you post. Keep it interesting."}}

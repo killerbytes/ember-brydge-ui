@@ -13,7 +13,7 @@
       <button class="success button" type="submit" {{action "submit"}}>Yes</button>
 	  	<a class="button button-border" data-close>No</a>
     {{else}}
-      <button class="success button" type="submit" data-close>OK</button>
+      <button class="success button" type="submit" {{action "callback"}} data-close>OK</button>
     {{/unless}}
   </section>
 {{/zf-reveal}}

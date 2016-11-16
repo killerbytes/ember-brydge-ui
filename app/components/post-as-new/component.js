@@ -8,7 +8,7 @@ export default Ember.Component.extend(SharePostIndustryPicker, {
 	utils: Ember.inject.service(),
 	item: Ember.computed.alias('postAsNew'),
 	willDestroyElement(){
-		$('#postAsNew').parent().remove();
+		this.get('elem').parent().remove();
 	},
 	elem: Ember.computed(function(){
     return $('#postAsNew');
@@ -29,7 +29,13 @@ export default Ember.Component.extend(SharePostIndustryPicker, {
   isIndustry: Ember.computed.or('profile.industryOneId', 'profile.industryTwoId', 'profile.industryThreeId'),
 	actions: {
 		share(){
-      var content = this.get('postContent');
+			let content = this.get('postContent');
+
+			if(!content){
+				$(`#dialog-box-post-as-new-${this.get('profile.id')}`).foundation('open');
+        return false;
+      }
+
 			var url = this.get('utils').findUrls(content).get(0)
       if(this.get('site.title')){
         content = this._removeLink(content, url);
@@ -48,6 +54,9 @@ export default Ember.Component.extend(SharePostIndustryPicker, {
       //   this.get('elem').find('textarea').get(0).style.height = '';
       // })
     },
+		callback(){
+			this.get('elem').foundation('open');
+		},
 		edit(text, e){
       var el = e.currentTarget;
       var offset = (el.offsetHeight - el.clientHeight);

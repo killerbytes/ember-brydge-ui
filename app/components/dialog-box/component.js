@@ -13,6 +13,9 @@ export default BrydgeReveal.extend({
     submit(cb){
 			this.sendAction('submit', this.get('item'));
 			this._close();
-    }
+    },
+		callback(){
+			this.sendAction('callback');
+		}
 	}
 });

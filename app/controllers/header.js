@@ -24,6 +24,7 @@ export default Ember.Controller.extend(NotificationActionsMixin, {
     })
   },
   _openNotification(){
+    // console.log('open notification')
     this.get('notification').loadNotifications(()=>{
       this._releaseTab(Ember.$('#dd-notification').find('.is-active a').data('id'));
     });

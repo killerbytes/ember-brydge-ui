@@ -6,7 +6,7 @@ export default Ember.Component.extend(SharePostIndustryPicker, {
 	sessionAccount: Ember.inject.service(),
 	sharePost: Ember.inject.service(),
 	willDestroyElement(){
-		$('#sharePostModal').parent().remove();
+		this.get('elem').parent().remove();
 	},
 	title: Ember.computed('post.title', function(){
 		let title = this.get('post.title');
@@ -27,11 +27,18 @@ export default Ember.Component.extend(SharePostIndustryPicker, {
   isIndustry: Ember.computed.or('profile.industryOneId', 'profile.industryTwoId', 'profile.industryThreeId'),
 	actions: {
 		share() {
-      var content = this.get('postContent');
-      var data = {
+      let content = this.get('postContent');
+
+			if(!content){
+				$(`#dialog-box-post-sharer-${this.get('profile.id')}`).foundation('open');
+        return false;
+      }
+
+			let data = {
         content: content && content.trim(),
         categories: _.map(this.get('categories'), 'id'),
       }
+
       this.sendAction('submit', data, ()=>{
         this.get('elem').foundation('close');
         this._resetForm();
@@ -49,6 +56,10 @@ export default Ember.Component.extend(SharePostIndustryPicker, {
       }else{
         el.style.height = '';
       }
+		},
+		callback(){
+			this.get('elem').foundation('open');
+
 		}
 	}
 });
