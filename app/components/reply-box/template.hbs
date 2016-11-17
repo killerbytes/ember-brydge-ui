@@ -1,7 +1,9 @@
 <div class="action-links">
   <a {{action "reply"}}>Reply</a>
-  <i class="dot"></i>
-  <a {{action "delete"}}>Delete</a>
+  {{#if (or (eq session.data.authenticated.user_id comment.user.id) isPostOwner)}}
+    <i class="dot"></i>
+    <a {{action "delete"}}>Delete</a>
+  {{/if}}
   <i class="dot"></i>
   <span class="timestamp">{{timestamp comment.insertedAt}}</span>
 </div>
@@ -33,11 +35,11 @@
                 <div class="user-info">
                   <a href="{{href-to 'profile' item.user.profile.uid}}" class="name">{{item.user.profile.fullName}}</a>
                   {{see-more content=item.content class="comment"}}
-                  <i class="dot"></i>
-                  <span class="timestamp">{{timestamp item.insertedAt}}</span>
-                  {{#if is-equal session.data.authenticated.user_id item.user.id}}
+                  {{#if (or (eq session.data.authenticated.user_id item.user.id) isPostOwner)}}
                     <a {{action "delete"}}>Delete</a>
+                    <i class="dot"></i>
                   {{/if}}
+                  <span class="timestamp">{{timestamp item.insertedAt}}</span>
                 </div>
               </div>
             </div>
