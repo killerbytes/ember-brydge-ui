@@ -241,12 +241,12 @@
   }
   #mobileBrowser{
     overflow: scroll;
-    .reveal-footer{
-      position: absolute;
-      width: 100%;
+    // .reveal-footer{
+    //   position: absolute;
+    //   width: 100%;
       padding: 1rem;
-      top: calc(100vh - 54px);
-    }
+    //   top: calc(100vh - 54px);
+    // }
     p{
       font-size: 14px;
       text-align: justify;

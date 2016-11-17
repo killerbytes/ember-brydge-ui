@@ -31,11 +31,13 @@
               <div class="user user-small smaller">
                 {{avatar-wrap profile=item.user.profile}}
                 <div class="user-info">
-                  <a href="{{href-to 'profile' comment.user.profile.uid}}" class="name">{{item.user.profile.fullName}}</a>
+                  <a href="{{href-to 'profile' item.user.profile.uid}}" class="name">{{item.user.profile.fullName}}</a>
                   {{see-more content=item.content class="comment"}}
-                  <a {{action "delete"}}>Delete</a>
                   <i class="dot"></i>
                   <span class="timestamp">{{timestamp item.insertedAt}}</span>
+                  {{#if is-equal session.data.authenticated.user_id item.user.id}}
+                    <a {{action "delete"}}>Delete</a>
+                  {{/if}}
                 </div>
               </div>
             </div>
