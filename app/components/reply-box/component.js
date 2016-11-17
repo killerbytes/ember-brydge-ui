@@ -9,6 +9,13 @@ export default Ember.Component.extend(CommentActionsMixin,{
 	init(){
 		this._super(...arguments);
 	},
+	isPostOwner: Ember.computed(function(){
+		return this.get('session.data.authenticated.user_id') === this.get('post.user.id');
+	}),
+	isCommentOwner: Ember.computed(function(){
+		console.log(this.get('session.data.authenticated.user_id'), this.get('comment.user.id'))
+		return this.get('session.data.authenticated.user_id') === this.get('comment.user.id');
+	}),
 	notAuthenticated: Ember.computed.equal('session.isAuthenticated', false),
 	sortProps: ['insertedAt:asc'],
   subComments: Ember.computed.sort('comment.subComments', 'sortProps'),

@@ -95,9 +95,6 @@
 	}
 	.media-horizontal{
 		background-color: $brydge-gray;
-		// .columns:first-child{
-		// 	border-right: 1px solid $border-color;
-		// }
 		.post-image{
 			height: 190px;
 		}
@@ -129,6 +126,18 @@
 		h4{
 			color: $text-gray;
 			text-align: center;
+		}
+	}
+	.media{
+		.columns:not(:first-child){
+			position: absolute;
+			bottom: 0;
+			.post-content{
+				background-color: rgba(0,0,0,.5);
+				.title a{
+					color: #FFF;
+				}
+			}
 		}
 	}
 }

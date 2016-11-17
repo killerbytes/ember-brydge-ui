@@ -1,6 +1,8 @@
 <div class="action-links">
   <a {{action "reply"}}>Reply</a>
   <i class="dot"></i>
+  <a {{action "delete"}}>Delete</a>
+  <i class="dot"></i>
   <span class="timestamp">{{timestamp comment.insertedAt}}</span>
 </div>
 {{#if comment.subCommentsCount}}
@@ -19,7 +21,6 @@
     {{/if}}
   </div>
 {{/if}}
-
 {{#if showForm}}
   <div class="replies-wrapper">
     <ul class="no-bullet">
@@ -32,7 +33,9 @@
                 <div class="user-info">
                   <a href="{{href-to 'profile' comment.user.profile.uid}}" class="name">{{item.user.profile.fullName}}</a>
                   {{see-more content=item.content class="comment"}}
-                  <div class="timestamp">{{timestamp item.insertedAt}}</div>
+                  <a {{action "delete"}}>Delete</a>
+                  <i class="dot"></i>
+                  <span class="timestamp">{{timestamp item.insertedAt}}</span>
                 </div>
               </div>
             </div>

@@ -10,8 +10,7 @@
         </span>
         {{#if post.shared}}
           {{#unless shared}}
-            <span class="text-gray">shared </span>
-            <a href="{{href-to 'profile' post.shared.user.profile.uid }}" class="name plain">{{post.shared.user.profile.fullName}}</a><span class="text-gray">'s post</span>
+            <span class="text-gray">shared a post</span>
           {{/unless}}
         {{/if}}
         <i class="dot"></i>
