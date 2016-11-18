@@ -2,16 +2,16 @@
   <a {{action "reply"}}>Reply</a>
   {{#if (or (eq session.data.authenticated.user_id comment.user.id) isPostOwner)}}
     <i class="dot"></i>
-    <a {{action "delete"}}>Delete</a>
+    <a {{action "delete" comment}}>Delete</a>
   {{/if}}
   <i class="dot"></i>
   <span class="timestamp">{{timestamp comment.insertedAt}}</span>
 </div>
-{{#if comment.subCommentsCount}}
+{{#if subComments}}
   <div class="replies-wrapper">
     <a {{action "show"}}>
       <i class="fa {{if showComments 'fa-caret-down' 'fa-caret-right'}}" aria-hidden="true"></i>
-      {{comment.subCommentsCount}} {{replyText}}
+      {{subComments.length}} {{replyText}}
     </a>
     {{#if showComments}}
       <i class="dot"></i>
@@ -36,7 +36,7 @@
                   <a href="{{href-to 'profile' item.user.profile.uid}}" class="name">{{item.user.profile.fullName}}</a>
                   {{see-more content=item.content class="comment"}}
                   {{#if (or (eq session.data.authenticated.user_id item.user.id) isPostOwner)}}
-                    <a {{action "delete"}}>Delete</a>
+                    <a {{action "delete" item}}>Delete</a>
                     <i class="dot"></i>
                   {{/if}}
                   <span class="timestamp">{{timestamp item.insertedAt}}</span>
@@ -57,10 +57,12 @@
             placeholder="Reply..."}}
         </form>
       </li>
-      {{#if showComments}}
-      <li>
-        <a {{action "hide"}}>Hide {{replyText}}</a>
-      </li>
+      {{#if subComments}}
+        {{#if showComments}}
+          <li>
+            <a {{action "hide"}}>Hide {{replyText}}</a>
+          </li>
+        {{/if}}
       {{/if}}
     </ul>
   </div>

@@ -9,17 +9,6 @@ export default Ember.Component.extend(NewsfeedMixin, {
   sharePost: Ember.inject.service(),
   postService: Ember.inject.service(),
   content: Ember.computed.alias('post.content'),
-	// ajax: Ember.inject.service(),
-  // didInsertElement(){
-  //   var promises = [];
-  //   this.get('post.categories') && this.get('post.categories').forEach(i=>{
-  //     promises.push(this.get('store').findRecord('industry', i).then(res=>{return res.get('industry')}) );
-  //   });
-  //
-  //   Ember.RSVP.all(promises).then(res=>{
-  //     this.set('categories', res.join(', '));
-  //   });
-  // },
 	classNames: ['newsfeed-item'],
   classNameBindings: ['isMedia:newsfeed-item-horizontal'],
 	disabled: false,
@@ -53,18 +42,15 @@ export default Ember.Component.extend(NewsfeedMixin, {
         this.get('store').unloadRecord(item);
       	this.sendAction('onDelete');
       });
-
 		},
 		vote(type){
       if(!this.get('session.isAuthenticated')){
         $('#login-dialog').foundation('open');
         return false;
       }
-
 			let post = this.get('post');
 			let upvotes = post.get('upvotes');
 			let postId = post.get('id');
-			//let postId = this.get('post.id');
       $('body').find('.tooltip').hide();
 
 			if(this.get('disabled')) return false;
@@ -89,7 +75,6 @@ export default Ember.Component.extend(NewsfeedMixin, {
 					});
 				break;
 			}
-
 		},
 		share(){
 			this.set('sharePost.post', this.get('post.shared.content') ? this.get('post.shared') : this.get('post'));
@@ -99,6 +84,9 @@ export default Ember.Component.extend(NewsfeedMixin, {
     },
 		viewComments: function() {
 			this.$('.content-editable').focus();
-		}
+		},
+    deleteComment(){
+      this.get('postService.comment').destroyRecord();
+    }
 	}
 });
