@@ -8,9 +8,11 @@
       <div class="brydge-loading"></div>
     {{/if}}
   </div>
-  {{#tooltip-dynamic text=profile.influence.text}}
-    <a href={{href-to 'influencers'}} class="icons {{profile.influence.class}}"></a>
-  {{/tooltip-dynamic}}
+  {{#if profile.influence.class}}  
+    {{#tooltip-dynamic text=profile.influence.text}}
+      <a href={{href-to 'influencers'}} class="icons {{profile.influence.class}}"></a>
+    {{/tooltip-dynamic}}
+  {{/if}}
 
 </div>
 <div class="text-center">
