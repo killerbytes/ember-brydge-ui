@@ -9,12 +9,12 @@ export default Ember.Component.extend(CommentActionsMixin,{
 	classNameBindings: ['canReply', 'showComments'],
 	init(){
 		this._super(...arguments);
+		if(this.get('expanded') && this.get('comment.subCommentsCount')) this._loadComments();
 	},
 	isPostOwner: Ember.computed(function(){
 		return this.get('session.data.authenticated.user_id') === this.get('post.user.id');
 	}),
 	isCommentOwner: Ember.computed(function(){
-		console.log(this.get('session.data.authenticated.user_id'), this.get('comment.user.id'))
 		return this.get('session.data.authenticated.user_id') === this.get('comment.user.id');
 	}),
 	notAuthenticated: Ember.computed.equal('session.isAuthenticated', false),
@@ -82,7 +82,8 @@ export default Ember.Component.extend(CommentActionsMixin,{
 			this.set('canReply', true);
 			this.$('.content-editable').focus();
 		},
-		delete(item){
+		delete(item, sub){
+			item.set('sub', sub);
 			this.set('postService.comment', item);
 			$(`#dialog-box-comment-delete-${this.get('post.id')}`).foundation('open');
 		}

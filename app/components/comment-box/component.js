@@ -34,6 +34,7 @@ export default Ember.Component.extend(CommentActionsMixin,{
 			this.set('showComments', true);
 			this.get('post.comments').pushObjects(res);
 			this.set('isLoading', false);
+			this.set('expanded', true);
 		})
 	},
 	_submit(){
