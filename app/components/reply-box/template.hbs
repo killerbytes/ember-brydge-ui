@@ -36,7 +36,7 @@
                   <a href="{{href-to 'profile' item.user.profile.uid}}" class="name">{{item.user.profile.fullName}}</a>
                   {{see-more content=item.content class="comment"}}
                   {{#if (or (eq session.data.authenticated.user_id item.user.id) isPostOwner)}}
-                    <a {{action "delete" item}}>Delete</a>
+                    <a {{action "delete" item true}}>Delete</a>
                     <i class="dot"></i>
                   {{/if}}
                   <span class="timestamp">{{timestamp item.insertedAt}}</span>
