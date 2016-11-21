@@ -87,6 +87,7 @@ export default Ember.Component.extend(NewsfeedMixin, {
 		},
     deleteComment(){
       this.get('postService.comment').destroyRecord();
+      this.set('post.commentCount', this.get('post.commentCount')-1);
     }
 	}
 });

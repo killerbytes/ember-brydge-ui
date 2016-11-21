@@ -16,6 +16,13 @@ export default Ember.Component.extend(CommentActionsMixin,{
 	notAuthenticated: Ember.computed.equal('session.isAuthenticated', false),
 	sortProps: ['insertedAt:asc'],
   comments: Ember.computed.sort('post.comments', 'sortProps'),
+	commentObserver: Ember.observer('comments', function(){
+		if(this.get('comments.length') === 0){
+			 this.set('showComments', false);
+		}else{
+			 this.set('showComments', true);
+		}
+	}),
 	_loadComments(){
 		this.set('isLoading', true);
 		var page = this.get('page') + 1 || 0;
