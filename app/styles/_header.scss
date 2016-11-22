@@ -3,6 +3,11 @@ header{
 	background-color: $brydge-blue;
 	padding: 0;
 	box-shadow: 0 0 2px 0 #404040;
+	position: fixed;
+	width: 100%;
+	left: 0;
+	top: 0;
+	z-index: 100;
 	.button{
 		font-weight: bold;
 	}
