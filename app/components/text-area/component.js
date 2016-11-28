@@ -4,6 +4,9 @@ import Ember from 'ember';
 export default Ember.TextArea.extend({
 	attributeBindings: ['rows'],
 	rows: 1,
+	resetObserver: Ember.observer('value', function(){
+		if(this.get('value.length') === 0 || this.get('value.length') === undefined) this.element.style.height = '';
+	}),
 	keyDown: function (event) {
 		if (event.which === 13 && ! event.shiftKey) {
 			event.preventDefault();

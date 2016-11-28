@@ -58,17 +58,11 @@ export default Ember.Component.extend(CommentActionsMixin,{
 	_submit(item, event) {
 		var value = this.get('commentContent');
 		if(!value.trim().length > 0) return false;
-
-		var comment = this.get('store').createRecord('sub-comment',{
+		this.set('commentContent', null);
+		this.get('commentSvc').create('sub-comment', {
 			content: value.trim(),
 			commentid: this.get('comment.id')
-		});
-
-		this.set('commentContent', null);
-		Ember.run.later(()=>{
-			this.$('textarea').get(0).style.height = '';
-		})
-		comment.save().then(res=>{
+		}).then(res=>{
 			this.get('comment.subComments').pushObject(res);
 			if(!this.get('showComments')){
 				this.set('showComments', true)

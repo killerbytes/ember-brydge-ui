@@ -4,6 +4,7 @@ import CommentActionsMixin from 'web/mixins/comment-actions';
 export default Ember.Component.extend(CommentActionsMixin,{
 	store: Ember.inject.service(),
 	session: Ember.inject.service(),
+	commentSvc: Ember.inject.service(),
 	tagName: 'section',
 	classNames: ['container', 'comments'],
 	isMore: Ember.computed('perPage', 'page', function(){
@@ -11,6 +12,8 @@ export default Ember.Component.extend(CommentActionsMixin,{
 	}),
 	init(){
 		this._super(...arguments);
+		// console.log(this.get('expanded'), this.get('total'))
+		this.set('total', 10)
 		if(this.get('expanded') && this.get('total')) this._loadComments();
 	},
 	notAuthenticated: Ember.computed.equal('session.isAuthenticated', false),
@@ -26,7 +29,7 @@ export default Ember.Component.extend(CommentActionsMixin,{
 	_loadComments(){
 		this.set('isLoading', true);
 		var page = this.get('page') + 1 || 0;
-		this.get('store').query('comment', {newsfeedid: this.get('post.id'), page: page, per_page: this.get('perPage') }).then(res=>{
+		this.get('store').query('comment', {targetid: this.get('post.id'), category: 'newsfeed', page: page, per_page: this.get('perPage') }).then(res=>{
 			var meta = res.get('meta');
 			this.set('total', meta.total);
 			this.set('page', parseInt(meta.currentPage));
@@ -40,26 +43,33 @@ export default Ember.Component.extend(CommentActionsMixin,{
 	_submit(){
 		var value = this.get('commentContent');
 		if(!value.trim().length > 0) return false;
-		this.sendAction('postComment', value, this.get('post.id'));
+		// this.sendAction('postComment', value, this.get('post.id'));
 
-		var comment = this.get('store').createRecord('comment',{
-			content: value.trim(),
-			newsfeedid: this.get('post.id')
-		});
+		// var comment = this.get('store').createRecord('comment',{
+		// 	content: value.trim(),
+		// 	targetid: this.get('post.id'),
+		// 	category: 'newsfeed'
+		// });
+		this.set('commentContent', null); //reset textarea
 
-		this.set('commentContent', null);
-		Ember.run.later(()=>{
-			this.$('textarea').get(0).style.height = '';
-		})
-		comment.save().then(res=>{
-			this.get('post.comments').pushObject(res);
-			if(!this.get('showComments')){
-				this.set('showComments', true)
-				this._loadComments();
-			}else{
-				this.set('post.commentCount', this.get('post.commentCount')+1);
-			}
-		})
+		this.get('commentSvc').create('comment', {
+					content: value.trim(),
+					targetid: this.get('post.id'),
+					category: 'newsfeed'
+				}).then(res=>{
+					this.get('post.comments').pushObject(res);
+					if(!this.get('showComments')){
+						this.set('showComments', true)
+						this._loadComments();
+					}else{
+						this.set('post.commentCount', this.get('post.commentCount')+1);
+					}
+				})
+
+		// this.$('textarea').get(0).style.height = '';
+		// Ember.run.later(()=>{
+		// })
+		// comment.save().then()
 	},
 	_hide(){
 		this.set('showComments', false)
