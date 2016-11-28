@@ -4,6 +4,7 @@ import CommentActionsMixin from 'web/mixins/comment-actions';
 export default Ember.Component.extend(CommentActionsMixin,{
 	store: Ember.inject.service(),
 	postService: Ember.inject.service(),
+	commentSvc: Ember.inject.service(),
 	sessionAccount: Ember.inject.service(),
 	session: Ember.inject.service(),
 	classNameBindings: ['canReply', 'showComments'],
@@ -84,7 +85,7 @@ export default Ember.Component.extend(CommentActionsMixin,{
 		},
 		delete(item, sub){
 			item.set('sub', sub);
-			this.set('postService.comment', item);
+			this.set('commentSvc.data', item);
 			$(`#dialog-box-comment-delete-${this.get('post.id')}`).foundation('open');
 		}
 	}

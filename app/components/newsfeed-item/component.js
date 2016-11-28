@@ -7,6 +7,7 @@ export default Ember.Component.extend(NewsfeedMixin, {
   vote: Ember.inject.service(),
   store: Ember.inject.service(),
   sharePost: Ember.inject.service(),
+  commentSvc: Ember.inject.service(),
   postService: Ember.inject.service(),
   content: Ember.computed.alias('post.content'),
 	classNames: ['newsfeed-item'],
@@ -85,10 +86,8 @@ export default Ember.Component.extend(NewsfeedMixin, {
 		viewComments: function() {
 			this.$('.content-editable').focus();
 		},
-    deleteComment(sub){
-      this.get('postService.comment').destroyRecord();
-      this.set('post.commentCount', this.get('post.commentCount')-1);
-      if(!this.get('postService.comment.sub')) this.set('post.commentCount', this.get('post.commentCount')-1);
+    deleteComment(originalPost){
+      this.get('commentSvc').delete(this.get('commentSvc.data'), originalPost);
     }
 	}
 });

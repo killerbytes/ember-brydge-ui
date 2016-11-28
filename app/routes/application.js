@@ -53,6 +53,7 @@ export default TransitionToListenerRoute.extend(
       if(!error.errors) return false;
       switch(error.errors[0].code){
         case 404:
+          console.log('404')
           return true;
           break;
         default:
