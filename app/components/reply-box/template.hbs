@@ -1,17 +1,8 @@
-<div class="action-links">
-  <a {{action "reply"}}>Reply</a>
-  {{#if (or (eq session.data.authenticated.user_id comment.user.id) isPostOwner)}}
-    <i class="dot"></i>
-    <a {{action "delete" comment}}>Delete</a>
-  {{/if}}
-  <i class="dot"></i>
-  <span class="timestamp">{{timestamp comment.insertedAt}}</span>
-</div>
-{{#if comment.subCommentsCount }}
-  <div class="replies-wrapper">
+{{#if item.subCommentsCount }}
+  <div class="mb">
     <a {{action "show"}}>
       <i class="fa {{if showComments 'fa-caret-down' 'fa-caret-right'}}" aria-hidden="true"></i>
-      {{comment.subCommentsCount}} {{replyText}}
+      {{item.subCommentsCount}} {{replyText}}
     </a>
     {{#if showComments}}
       <i class="dot"></i>
@@ -23,10 +14,11 @@
     {{/if}}
   </div>
 {{/if}}
-{{#if showForm}}
-  <div class="replies-wrapper">
-    <ul class="no-bullet">
-      {{#if showComments}}
+
+{{#if (or showForm showComments)}}
+  <div class="border-l">
+    {{#if (or subComments showComments )}}
+      <ul class="no-bullet">
         {{#each subComments as |item|}}
           <li>
             <div class="comment-item">
@@ -45,8 +37,10 @@
             </div>
           </li>
         {{/each}}
-      {{/if}}
-      <li>
+      </ul>
+    {{/if}}
+    {{#if showForm}}
+      <div class="padded mt">
         <form class="form-reply">
           {{text-area
             value=commentContent
@@ -56,14 +50,14 @@
             class="textarea content-editable"
             placeholder="Reply..."}}
         </form>
-      </li>
-      {{#if subComments}}
-        {{#if showComments}}
-          <li>
-            <a {{action "hide"}}>Hide {{replyText}}</a>
-          </li>
-        {{/if}}
+      </div>
+    {{/if}}
+    {{#if subComments}}
+      {{#if showComments}}
+        <div class="padded mt">
+          <a {{action "hide"}}>Hide {{replyText}}</a>
+        </div>
       {{/if}}
-    </ul>
+    {{/if}}
   </div>
 {{/if}}

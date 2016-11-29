@@ -15,27 +15,40 @@
     {{/if}}
   </section>
   <section class="comment-group">
-    {{#each comments as |comment|}}
-      <div class="comment-item">
+    <ul class="no-bullet">
+    {{#each comments as |item|}}
+      <li class="comment-item">
         <div class="user user-small">
-          {{avatar-wrap profile=comment.user.profile}}
+          {{avatar-wrap profile=item.user.profile}}
           <div class="user-info">
             <div class="block-ellipsis mb-sm">
-              <a href="{{href-to 'profile' comment.user.profile.uid}}" class="name">{{comment.user.profile.fullName}}</a>
+              <a href="{{href-to 'profile' item.user.profile.uid}}" class="name">{{item.user.profile.fullName}}</a>
               <i class="dot"></i>
-              <span class="position">{{ comment.user.profile.career }}</span>
+              <span class="position">{{ item.user.profile.career }}</span>
             </div>
             <div class="comment">
-              {{see-more content=comment.content class="message mb-sm" tagName='div'}}
 
-              {{reply-box post=post comment=comment expanded=expanded}}
+              {{see-more content=item.content class="message mb-sm" tagName='div'}}
+
+              <div class="action-links">
+                <a {{action "reply" item }}>Reply</a>
+                {{#if (or (eq session.data.authenticated.user_id item.user.id) isPostOwner)}}
+                  <i class="dot"></i>
+                  <a {{action "delete" item}}>Delete</a>
+                {{/if}}
+                <i class="dot"></i>
+                <span class="timestamp">{{timestamp item.insertedAt}}</span>
+              </div>
+
+              {{reply-box post=post item=item expanded=expanded}}
 
             </div>
 
           </div>
         </div>
-      </div>
+      </li>
     {{/each}}
+    </ul>
   </section>
 {{else}}
   {{#if isLoading}}
@@ -64,7 +77,7 @@
     </a>
   </section>
 {{else}}
-  {{#if total}}
+  {{#if post.commentCount}}
     <section class="comment-footer">
       <a class="more no-arrow" {{action 'show'}}>
         View comments

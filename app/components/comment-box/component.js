@@ -12,8 +12,6 @@ export default Ember.Component.extend(CommentActionsMixin,{
 	}),
 	init(){
 		this._super(...arguments);
-		// console.log(this.get('expanded'), this.get('total'))
-		this.set('total', 10)
 		if(this.get('expanded') && this.get('total')) this._loadComments();
 	},
 	notAuthenticated: Ember.computed.equal('session.isAuthenticated', false),
@@ -80,4 +78,18 @@ export default Ember.Component.extend(CommentActionsMixin,{
 		if(!this.get('showComments')) this.set('post.comments', []);
 		this._loadComments();
 	},
+	actions: {
+		reply(item){
+			item.set('canReply', true);
+			console.log(item)
+			this.$('.content-editable').focus();
+		},
+		delete(item){
+			this.set('commentSvc.parent', this.get('post'));
+			this.set('commentSvc.data', item);
+			$(`#dialog-box-comment-delete-${this.get('post.id')}`).foundation('open');
+		}
+
+
+	}
 });

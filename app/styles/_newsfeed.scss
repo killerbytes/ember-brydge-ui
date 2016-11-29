@@ -50,6 +50,13 @@
 		a{
 			font-weight: bold;
 		}
+		a.acted+span{
+			transition:all 300ms ease-out;
+			opacity: 0;
+		}
+		a.acted+span:not(:empty){
+			opacity: 1;
+		}
 		a:not(.acted){
 			color: $text-gray;
 		}
@@ -149,10 +156,9 @@
 			font-size: 10px;
 		}
 		ul{
-			border-left: 1px solid $border-color;
-			margin-top: 1rem;
 			li{
 				padding: 0 1rem 1rem;
+				transition:all 300ms ease-out;
 			}
 			li:last-child{
 				padding-bottom: 0;

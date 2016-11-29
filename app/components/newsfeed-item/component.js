@@ -86,8 +86,8 @@ export default Ember.Component.extend(NewsfeedMixin, {
 		viewComments: function() {
 			this.$('.content-editable').focus();
 		},
-    deleteComment(originalPost){
-      this.get('commentSvc').delete(this.get('commentSvc.data'), originalPost);
+    deleteComment(){
+      this.get('commentSvc').delete(this.get('commentSvc.data'));
     }
 	}
 });
