@@ -6,6 +6,7 @@ export default Ember.Controller.extend(NotificationActionsMixin, {
   session: Ember.inject.service(),
   sessionAccount: Ember.inject.service(),
   notification: Ember.inject.service(),
+  routing: Ember.inject.service(),
   settings: Ember.computed('sessionAccount.account.profile.setting', function(){
     return this.get('sessionAccount.account.profile.setting');
   }),
@@ -35,6 +36,6 @@ export default Ember.Controller.extend(NotificationActionsMixin, {
   actions: {
     closeTooltip(e){
       $('body').find('.tooltip').hide();
-    },
+    }
   }
 });

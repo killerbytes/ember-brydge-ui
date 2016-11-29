@@ -15,9 +15,7 @@ import _ from 'lodash/lodash';
 export default Ember.Route.extend(
   BrydgeScroller,
   ScrollResetMixin,
-  AuthenticatedRouteMixin,
-  // FilterDropdownListMixin,
-  {
+  AuthenticatedRouteMixin,{
   session: Ember.inject.service(),
   ajax: Ember.inject.service(),
   ajaxApi: Ember.inject.service(),

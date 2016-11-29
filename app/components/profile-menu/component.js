@@ -43,6 +43,7 @@ export default Ember.Component.extend({
   _getFolowCount(){
     if(!this.get('profile.id')) return false;
     this.get('follow').getCount(this.get('profile.id')).then(res=>{
+      if(this.get('isDestroyed') || this.get('isDestroying')) return false;
       this.setProperties(res);
     })
   }

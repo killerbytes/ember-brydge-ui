@@ -15,6 +15,7 @@ export default BrydgeReveal.extend({
 		this._super(...arguments);
 		this.get('ajaxApi').set('headers', null);
 		this.get('ajaxApi').request('/v2/profiles/'+ this.get('profile.publicProfile')).then(res=>{
+			if(this.get('isDestroyed') || this.get('isDestroying')) return false;
 			this.set('user', res.data.attributes);
 		})
 	},

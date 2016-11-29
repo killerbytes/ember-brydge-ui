@@ -197,7 +197,7 @@
     			{{#each messages as |item|}}
     			<li {{action "read" item}} class="{{if item.read false 'new-notification'}}">
     				{{#link-to "messages.conversation" item.referenceid class="no-color" }}
-              {{avatar-wrap profile=item.target.profile}}              
+              {{avatar-wrap profile=item.target.profile}}
               <div class="user-info">
                 <a class="name">{{item.target.profile.fullName}} {{#if item.count}}<span class="message-count">({{item.count}})</span>{{/if}}</a>
                 <div class="timestamp float-right text-right">

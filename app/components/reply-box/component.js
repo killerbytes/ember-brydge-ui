@@ -10,7 +10,7 @@ export default Ember.Component.extend(CommentActionsMixin,{
 	classNameBindings: ['canReply', 'showComments'],
 	init(){
 		this._super(...arguments);
-		if(this.get('expanded') && this.get('comment.subCommentsCount')) this._loadComments();
+		if(this.get('expanded') && this.get('comment.subCommentsCount')) this.loadComments();
 	},
 	isPostOwner: Ember.computed(function(){
 		return this.get('session.data.authenticated.user_id') === this.get('post.user.id');
@@ -31,7 +31,7 @@ export default Ember.Component.extend(CommentActionsMixin,{
 	list: Ember.computed(function(){
 		return [];
 	}),
-	_loadComments(){
+	loadComments(){
 			this.set('isLoading', true);
 			var page = this.get('page') + 1 || 0;
 			this.get('store').query('sub-comment', {
@@ -49,10 +49,11 @@ export default Ember.Component.extend(CommentActionsMixin,{
 			})
 	},
 	_show(){
-		this._loadComments();
+		this.loadComments();
 	},
 	_hide(){
 		this.set('showComments', false);
+		this.set('comment.subComments', []);
 		this.set('page', 0);
 	},
 	_submit(item, event) {
@@ -66,7 +67,7 @@ export default Ember.Component.extend(CommentActionsMixin,{
 			this.get('comment.subComments').pushObject(res);
 			if(!this.get('showComments')){
 				this.set('showComments', true)
-				this._loadComments();
+				this.loadComments();
 			}else{
 				this.set('comment.subCommentsCount', this.get('comment.subCommentsCount')+1);
 			}

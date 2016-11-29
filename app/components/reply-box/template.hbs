@@ -7,11 +7,11 @@
   <i class="dot"></i>
   <span class="timestamp">{{timestamp comment.insertedAt}}</span>
 </div>
-{{#if subComments}}
+{{#if comment.subCommentsCount }}
   <div class="replies-wrapper">
     <a {{action "show"}}>
       <i class="fa {{if showComments 'fa-caret-down' 'fa-caret-right'}}" aria-hidden="true"></i>
-      {{subComments.length}} {{replyText}}
+      {{comment.subCommentsCount}} {{replyText}}
     </a>
     {{#if showComments}}
       <i class="dot"></i>
