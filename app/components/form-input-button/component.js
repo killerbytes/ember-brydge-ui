@@ -1,6 +1,7 @@
 import Ember from 'ember';
 
 export default Ember.Component.extend({
+	classNames: ['form-input-button'],
 	text: 'Save',
 	_reset(){
 		if(this.get('isDestroyed') || this.get('isDestroying')) return false;

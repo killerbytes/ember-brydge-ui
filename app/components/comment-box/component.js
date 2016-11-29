@@ -81,8 +81,8 @@ export default Ember.Component.extend(CommentActionsMixin,{
 	actions: {
 		reply(item){
 			item.set('canReply', true);
-			console.log(item)
-			this.$('.content-editable').focus();
+			// console.log(item)
+			// this.$('.content-editable').focus();
 		},
 		delete(item){
 			this.set('commentSvc.parent', this.get('post'));

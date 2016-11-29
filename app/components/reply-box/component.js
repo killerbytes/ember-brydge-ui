@@ -12,6 +12,11 @@ export default Ember.Component.extend(CommentActionsMixin,{
 		this._super(...arguments);
 		if(this.get('expanded') && this.get('item.subCommentsCount')) this.loadComments();
 	},
+	_canReplyObserver: Ember.observer('item.canReply', function(){
+		Ember.run.later(()=>{
+			this.$('textarea').focus();
+		})
+	}),
 	isPostOwner: Ember.computed(function(){
 		return this.get('session.data.authenticated.user_id') === this.get('post.user.id');
 	}),

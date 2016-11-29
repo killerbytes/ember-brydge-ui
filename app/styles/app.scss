@@ -70,7 +70,7 @@ h4{
 	font-weight: bold;
 	text-transform: uppercase;
 }
-ul li{
+ul.easing li{
 	transition:all 300ms ease-out;
 }
 section.main{
@@ -296,4 +296,31 @@ li[aria-expanded=false]{
 	visibility: visible;
  	opacity: 1;
 	display: inline-block !important;
+}
+
+
+.animate{
+	visibility: hidden;
+  opacity: 0;
+	height: 0;
+  transition: visibility 5s, opacity 0.5s linear;
+	&.error{
+		color: $error-color;
+	}
+}
+.animate.animate-show{
+	visibility: visible;
+ 	opacity: 1;
+	height: 100%;
+	display: inline-block !important;
+}
+
+
+@-webkit-keyframes fadeIn {
+    from { opacity: 0; }
+      to { opacity: 1; }
+}
+@keyframes fadeIn {
+    from { opacity: 0; }
+      to { opacity: 1; }
 }
