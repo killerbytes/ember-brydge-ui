@@ -77,18 +77,18 @@
     <div class="row text-center collapse is-collapse-child">
       <div class="columns medium-3 small-4 text-left">
         {{#if post.vote.upVoted}}
-          <a {{action "submit" "reset"}} class="acted">Upvoted</a>
+          <a {{action "vote" "reset"}} class="acted">Upvoted</a>
         {{else}}
-          <a {{action "submit" "up"}}>Upvote</a>
+          <a {{action "vote" "up"}}>Upvote</a>
         {{/if}}
         {{#if post.vote.upVotes}}<span>{{post.vote.upVotes}}</span>{{/if}}
       </div>
       <div class="columns medium-3 small-4 text-left">
         {{#if post.vote.downVoted}}
-          <a {{action "submit" "reset"}} class="acted">Downvoted</a>
+          <a {{action "vote" "reset"}} class="acted">Downvoted</a>
         {{else}}
           {{#zf-tooltip title="Downvoting is anonymous" class="top"}}
-            <a {{action "submit" "down"}}>Downvote</a>
+            <a {{action "vote" "down"}}>Downvote</a>
           {{/zf-tooltip}}
         {{/if}}
       </div>

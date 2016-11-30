@@ -57,7 +57,8 @@ export default Ember.Component.extend(NewsfeedMixin, {
       	this.sendAction('onDelete');
       });
 		},
-    submit(action){
+
+    vote(action){
       if(!this.isAuth() || this.get('disabled')) return false;
 
       $('body').find('.tooltip').hide();
@@ -69,63 +70,6 @@ export default Ember.Component.extend(NewsfeedMixin, {
       });
     },
 
-    voteReset(){
-      if(!this.isAuth() || this.get('disabled')) return false;
-
-      $('body').find('.tooltip').hide();
-			this.set('disabled', true);
-
-      this.get('voteSvc').submit(this.getItem(), 'reset').then(() => {
-        this.get('post').reload();
-        this.set('disabled', false);
-      });
-
-    },
-    voteDown(){
-      if(!this.isAuth() || this.get('disabled')) return false;
-
-      $('body').find('.tooltip').hide();
-			this.set('disabled', true);
-
-      this.get('voteSvc').submit(this.getItem(), 'down').then(() => {
-        this.get('post').reload();
-        this.set('disabled', false);
-      });
-
-    },
-		vote(type){
-      if(!this.get('session.isAuthenticated')){
-        $('#login-dialog').foundation('open');
-        return false;
-      }
-			let post = this.get('post');
-			let upvotes = post.get('upvotes');
-			let postId = post.get('id');
-      $('body').find('.tooltip').hide();
-
-			if(this.get('disabled')) return false;
-			this.set('disabled', true);
-			switch(type){
-				case 'down':
-					this.get('voteSvc').down(postId).then(() => {
-						post.reload();
-						this.set('disabled', false);
-					});
-				break;
-				case 'reset':
-					this.get('voteSvc').reset(postId).then(() => {
-						post.reload();
-						this.set('disabled', false);
-					});
-				break;
-				default:
-					this.get('voteSvc').up(postId).then(() => {
-						post.reload();
-						this.set('disabled', false);
-					});
-				break;
-			}
-		},
 		share(){
 			this.set('sharePost.post', this.get('post.shared.content') ? this.get('post.shared') : this.get('post'));
 		},
