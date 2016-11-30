@@ -12,10 +12,18 @@
   <div class="columns medium-2 small-12">
     {{#unless isSelf}}
       {{#if isFollowing}}
-        <button class="button expanded bordered follow-button" {{action "unfollow"}}>
-          <span class="following-text">Following</span>
-          <span class="unfollow-text">Unfollow</span>
-        </button>
+        {{#if compact}}
+          <button class="button expanded bordered follow-button" {{action "unfollow"}}>
+            <span class="following-text">Following</span>
+            <span class="unfollow-text">Unfollow</span>
+          </button>
+
+        {{else}}
+          <button class="button expanded bordered follow-button" {{action "unfollow"}}>
+            <span class="following-text">Following</span>
+            <span class="unfollow-text">Unfollow</span>
+          </button>
+        {{/if}}
       {{else}}
         <button class="button expanded bordered green" {{action "follow"}}>Follow</button>
       {{/if}}

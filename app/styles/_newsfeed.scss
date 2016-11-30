@@ -139,6 +139,11 @@
 
 .comments{
 	background-color: $brydge-gray;
+	font-size: 11px;
+	.user-info .name{
+		font-size: inherit;
+	}
+
 	.content-editable{
 		font-size: 12px;
 		min-height: 100%;
@@ -179,7 +184,6 @@
 		padding-bottom: 1rem;
 	}
 	.comment{
-		font-size: 11px;
 	}
 	.comment-header{
 		padding-bottom: 1rem;
