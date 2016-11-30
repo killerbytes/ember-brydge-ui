@@ -5,7 +5,8 @@ export default DS.JSONAPISerializer.extend({
 		const json = this._super(...arguments);
     return {
       vote: {
-        action: json.data.attributes.action
+        action: json.data.attributes.action,
+        category: json.data.attributes.category
       }
     };
   },

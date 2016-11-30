@@ -4,7 +4,7 @@ import NewsfeedMixin from 'web/mixins/newsfeed';
 export default Ember.Component.extend(NewsfeedMixin, {
   sessionAccount: Ember.inject.service(),
   session: Ember.inject.service(),
-  vote: Ember.inject.service(),
+  voteSvc: Ember.inject.service(),
   store: Ember.inject.service(),
   sharePost: Ember.inject.service(),
   commentSvc: Ember.inject.service(),
@@ -25,6 +25,19 @@ export default Ember.Component.extend(NewsfeedMixin, {
   willDestroyElement(){
     if(this.$('.has-tip').length != 0 && !this.get('shared')) this.$('.has-tip').foundation('destroy');
 	},
+  isAuth(){
+    if(!this.get('session.isAuthenticated')){
+      $('#login-dialog').foundation('open');
+      return false;
+    }
+    return true;
+  },
+  getItem(){
+    return {
+      targetid: this.get('post.id'),
+      category: 'newsfeed'
+    }
+  },
 
 	actions: {
     flag(item){
@@ -44,6 +57,42 @@ export default Ember.Component.extend(NewsfeedMixin, {
       	this.sendAction('onDelete');
       });
 		},
+    submit(action){
+      if(!this.isAuth() || this.get('disabled')) return false;
+
+      $('body').find('.tooltip').hide();
+			this.set('disabled', true);
+
+      this.get('voteSvc').submit(this.getItem(), action).then(() => {
+        this.get('post').reload();
+        this.set('disabled', false);
+      });
+    },
+
+    voteReset(){
+      if(!this.isAuth() || this.get('disabled')) return false;
+
+      $('body').find('.tooltip').hide();
+			this.set('disabled', true);
+
+      this.get('voteSvc').submit(this.getItem(), 'reset').then(() => {
+        this.get('post').reload();
+        this.set('disabled', false);
+      });
+
+    },
+    voteDown(){
+      if(!this.isAuth() || this.get('disabled')) return false;
+
+      $('body').find('.tooltip').hide();
+			this.set('disabled', true);
+
+      this.get('voteSvc').submit(this.getItem(), 'down').then(() => {
+        this.get('post').reload();
+        this.set('disabled', false);
+      });
+
+    },
 		vote(type){
       if(!this.get('session.isAuthenticated')){
         $('#login-dialog').foundation('open');
@@ -58,19 +107,19 @@ export default Ember.Component.extend(NewsfeedMixin, {
 			this.set('disabled', true);
 			switch(type){
 				case 'down':
-					this.get('vote').downvote(postId).then(() => {
+					this.get('voteSvc').down(postId).then(() => {
 						post.reload();
 						this.set('disabled', false);
 					});
 				break;
 				case 'reset':
-					this.get('vote').resetvote(postId).then(() => {
+					this.get('voteSvc').reset(postId).then(() => {
 						post.reload();
 						this.set('disabled', false);
 					});
 				break;
 				default:
-					this.get('vote').upvote(postId).then(() => {
+					this.get('voteSvc').up(postId).then(() => {
 						post.reload();
 						this.set('disabled', false);
 					});

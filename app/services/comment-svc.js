@@ -2,6 +2,9 @@ import Ember from 'ember';
 
 export default Ember.Service.extend({
   store: Ember.inject.service(),
+  load(targetid, category, page=1, perPage=3){
+    return this.get('store').query('comment', {targetid: targetid, category: category, page: page, per_page: perPage });
+  },
   create(type, item){
     return this.get('store').createRecord(type, item).save();
   },
