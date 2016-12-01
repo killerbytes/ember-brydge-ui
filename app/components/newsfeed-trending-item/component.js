@@ -13,6 +13,10 @@ export default Ember.Component.extend({
 	actions: {
 		share(post){
       this.set('postAsNew.site', post);
-		}
+		},
+    viewComments: function() {
+			this.$('.content-editable').focus();
+		},
+    
 	}
 });

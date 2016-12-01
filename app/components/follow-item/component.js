@@ -1,7 +1,7 @@
 import Ember from 'ember';
 
 export default Ember.Component.extend({
-	// classNames: [],
+	classNames: ['row', 'collapse', 'is-collapse-child', 'follow-item'],
 	tagName: 'li',
 	session: Ember.inject.service(),
 	follow: Ember.inject.service(),

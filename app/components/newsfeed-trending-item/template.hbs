@@ -26,7 +26,7 @@
   {{/if}}
 </section>
 
-
+{{!--
 <section class="post-actions">
   <div class="row">
     <div class="columns text-center">
@@ -37,6 +37,27 @@
     </div>
   </div>
 </section>
+--}}
+
+<section class="post-actions">
+  <div class="row text-center collapse is-collapse-child">
+    <div class="columns medium-3 small-4 text-left">
+    </div>
+    <div class="columns medium-3 small-4 text-left">
+    </div>
+    <div class="columns medium-3 small-4 text-right show-for-medium">
+      <a {{action "viewComments"}}>Comment</a>
+      {{#if post.commentCount}}<span>{{post.commentCount}}</span>{{/if}}
+    </div>
+    <div class="columns medium-3 small-4 text-right">
+      <a {{action "share" post}} data-open="postAsNew">
+        <i class="fa fa-retweet" aria-hidden="true"></i>
+        Share
+      </a>
+    </div>
+  </div>
+</section>
+
 
 {{comment-box type="trending" post=post total=post.commentCount expanded=expanded}}
 
