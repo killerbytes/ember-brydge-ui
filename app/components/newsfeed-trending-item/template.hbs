@@ -58,7 +58,6 @@
   </div>
 </section>
 
-
 {{comment-box type="trending" post=post total=post.commentCount expanded=expanded}}
 
-{{dialog-box name="delete" item=post title="Delete Post" content="Are you sure you want to delete this post?" submit="delete"}}
+{{dialog-box name=(concat "delete-" post.id) item=post title="Delete Post" content="Are you sure you want to delete this post?" submit="delete"}}
