@@ -30,7 +30,7 @@ export default Ember.Component.extend(SharePostIndustryPicker, {
       let content = this.get('postContent');
 
 			if(!content){
-				$(`#dialog-box-post-sharer-${this.get('profile.id')}`).foundation('open');
+				$(`#dialog-box-post-sharer`).foundation('open');
         return false;
       }
 
