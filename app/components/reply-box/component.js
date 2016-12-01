@@ -83,7 +83,7 @@ export default Ember.Component.extend(CommentActionsMixin,{
 			item.set('sub', sub);
 			this.set('commentSvc.parent', this.get('item'));
 			this.set('commentSvc.data', item);
-			$(`#dialog-box-comment-delete-${this.get('post.id')}`).foundation('open');
+			$(`#dialog-box-comment-delete`).foundation('open');
 		}
 	}
 });

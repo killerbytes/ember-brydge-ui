@@ -32,7 +32,7 @@ export default Ember.Component.extend(SharePostIndustryPicker, {
 			let content = this.get('postContent');
 
 			if(!content){
-				$(`#dialog-box-post-as-new-${this.get('profile.id')}`).foundation('open');
+				$(`#dialog-box-post-as-new`).foundation('open');
         return false;
       }
 

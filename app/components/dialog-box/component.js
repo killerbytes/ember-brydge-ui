@@ -3,11 +3,11 @@ import BrydgeReveal from '../brydge-reveal';
 
 export default BrydgeReveal.extend({
 	willDestroyElement(){
-		$('#dialog-box-' + this.get('name') + '-' + this.get('item.id')).parent().remove();
+		$('#dialog-box-' + this.get('name')).parent().remove();
 		this._super(...arguments);
 	},
 	_close(){
-		$('#dialog-box-' + this.get('name') + '-' + this.get('item.id')).foundation('close');
+		$('#dialog-box-' + this.get('name')).foundation('close');
 	},
 	actions: {
     submit(cb){

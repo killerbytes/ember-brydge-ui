@@ -75,7 +75,7 @@ export default Ember.Component.extend(CommentActionsMixin,{
 		delete(item){
 			this.set('commentSvc.parent', this.get('post'));
 			this.set('commentSvc.data', item);
-			$(`#dialog-box-comment-delete-${this.get('post.id')}`).foundation('open');
+			$(`#dialog-box-comment-delete`).foundation('open');
 		}
 
 
