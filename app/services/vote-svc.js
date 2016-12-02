@@ -5,10 +5,11 @@ export default Ember.Service.extend({
   getVote(item){
     return this.get('store').peekRecord('vote', item.targetid);
   },
-  submit(item, action){
+  submit(item){
     let vote = this.getVote(item);
     if(vote) {
-      vote.set('action', action);
+      vote.set('category', item.category)
+      vote.set('action', item.action);
       return vote.save();
     }else {
       return this.get('store').createRecord('vote', item).save();

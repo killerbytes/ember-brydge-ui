@@ -7,9 +7,9 @@ export default Ember.Controller.extend({
     delete(){
       this.transitionToRoute('home');
     },
-    sharePost(cb){
+    sharePost(data, cb){
       this.get('sharePost').submit().then(()=>{
-        cb.apply();
+        if(cb) cb.apply();
       });
     }
   }

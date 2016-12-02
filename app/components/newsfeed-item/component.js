@@ -32,10 +32,11 @@ export default Ember.Component.extend(NewsfeedMixin, {
     }
     return true;
   },
-  getItem(){
+  getItem(action){
     return {
       targetid: this.get('post.id'),
-      category: 'newsfeed'
+      category: 'newsfeed',
+      action: action
     }
   },
 
@@ -63,8 +64,7 @@ export default Ember.Component.extend(NewsfeedMixin, {
 
       $('body').find('.tooltip').hide();
 			this.set('disabled', true);
-
-      this.get('voteSvc').submit(this.getItem(), action).then(() => {
+      this.get('voteSvc').submit(this.getItem(action)).then(() => {
         this.get('post').reload();
         this.set('disabled', false);
       });
