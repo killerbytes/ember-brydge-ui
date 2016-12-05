@@ -6,8 +6,9 @@
     <img src= {{avatarUrl}} class="hide">
   </div>
   <div class="input-wrapper">
-    {{textarea
+    {{text-area
       value=postContent
+			touch-end="edit"
       key-up="edit"
 			focus-in="expand"
       class="textarea content-editable broadcast-textarea"
@@ -40,4 +41,4 @@
 	</section>
 </div>
 
-{{dialog-box name="post" item=profile confirm=true title="Say Something" content="You need to say something about links you post. Keep it interesting."}}
+{{dialog-box name="empty-post" item=profile confirm=true title="Say Something" content="You need to say something about links you post. Keep it interesting."}}

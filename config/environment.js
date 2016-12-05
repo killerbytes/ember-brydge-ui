@@ -48,6 +48,17 @@ module.exports = function(environment) {
       enabled: false
     }
 
+    ENV['contentSecurityPolicy'] = {
+      'default-src': ["'none'"],
+         'script-src':  ["*"],
+         'font-src':    ["*"],
+         'connect-src': ["*"],
+         'img-src':     ["*"],
+         'style-src':   ["'self'", "'unsafe-inline'", "*"],
+         'frame-src':   ["*"],
+         'media-src':   ["*"]
+    };
+
     if(ENV['ember-cli-mirage'].enabled == false) {
       ENV['ember-simple-auth'] = {
         serverTokenEndpoint: '//0.0.0.0:8000/v2/token',

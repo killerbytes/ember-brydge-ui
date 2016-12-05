@@ -44,7 +44,7 @@ export default Ember.Component.extend(
 
       if(!content){
         cb.apply(this,[false]);
-        $(`#dialog-box-post-${this.get('profile.id')}`).foundation('open');
+        $(`#dialog-box-empty-post`).foundation('open');
         return false;
       }
 
@@ -72,7 +72,6 @@ export default Ember.Component.extend(
       this.set('postContent', '');
     },
     edit(text, e){
-
       if(text){
         var el = e.currentTarget;
         var offset = (el.offsetHeight - el.clientHeight);
@@ -87,6 +86,7 @@ export default Ember.Component.extend(
         case 91:
         case 32:
         case 224:
+        case 229: //mobile
           var urls = this.get('utils').findUrls(text);
           if(urls.length){
             this.crawl(urls[0]);
