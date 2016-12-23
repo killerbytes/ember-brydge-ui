@@ -78,6 +78,13 @@ export default Ember.Service.extend({
       }]
 
   },
+  htmlSafe(url, preview=true){
+    var url = url || (preview ? 'https://storage.googleapis.com/brydge-assets/blank-user.jpg' : '');
+    console.log(Ember.String.htmlSafe("background-image: url(" + url + ')' ))
+  	return Ember.String.htmlSafe("background-image: url(" + url + ')' );
+  }
+
+
 
 
 

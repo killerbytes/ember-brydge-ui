@@ -27,18 +27,12 @@ module.exports = function(defaults) {
     }
   });
 
-  // app.import('bower_components/foundation-sites/foundation.min..css');
-  // app.import('bower_components/foundation-sites/foundation.min.js');
-  //app.import('bower_components/foundation-sites/dist/foundation.css');
-  //app.import('bower_components/foundation-sites/dist/foundation.js');
   app.import('bower_components/motion-ui/dist/motion-ui.min.css');
   app.import('bower_components/motion-ui/dist/motion-ui.min.js');
   app.import('bower_components/linkifyjs/linkify.min.js');
   app.import('bower_components/linkifyjs/linkify-string.min.js');
-
-  // app.import('vendor/spinner.css');
-  // app.import('bower_components/foundation-sites/js/foundation.core.js');
-  // app.import('bower_components/foundation-sites/js/foundation.dropdownMenu.js');
+  app.import('bower_components/jquery-ui/jquery-ui.js');
+  app.import('bower_components/jquery-mentions/jquery.mentions.js');
 
   // Use `app.import` to add additional libraries to the generated
   // output files.

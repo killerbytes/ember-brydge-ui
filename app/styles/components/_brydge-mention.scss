@@ -1,0 +1,24 @@
+.brydge-mention{
+  background-color: #FFF;
+  padding: .5rem 1rem;
+  .content-editor{
+    strong{
+      font-weight: normal;
+      background-color: darken($body-bg-color, 10%);
+    }
+  }
+}
+.brydge-mention-menu{
+  width: 250px;
+  border: 1px solid $border-color;
+  background-color: #FFF;
+  .avatar{
+    margin-right: .75rem;
+  }
+  &.media-list{
+    a{
+      min-height: 54px;
+      padding: .5rem;
+    }
+  }
+}

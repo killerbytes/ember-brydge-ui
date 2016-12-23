@@ -50,6 +50,7 @@ module.exports = function(environment) {
 
     ENV['contentSecurityPolicy'] = {
       'default-src': ["'none'"],
+         'manifest-src':  ["*"],
          'script-src':  ["*"],
          'font-src':    ["*"],
          'connect-src': ["*"],
